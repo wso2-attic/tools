@@ -318,7 +318,7 @@ public class FaultMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureFaultMediatorPropertyValue;
-		
+
 		private WrappingLabel faultMediatorDescriptionLabel;
 
 		/**
@@ -339,7 +339,7 @@ public class FaultMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureFaultMediatorPropertyValue.setText("<...>");
 			fFigureFaultMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureFaultMediatorPropertyValue);
-			
+
 			faultMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -349,7 +349,7 @@ public class FaultMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureFaultMediatorPropertyValue() {
 			return fFigureFaultMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getFaultMediatorDescriptionLabel() {
 			return faultMediatorDescriptionLabel;
 		}

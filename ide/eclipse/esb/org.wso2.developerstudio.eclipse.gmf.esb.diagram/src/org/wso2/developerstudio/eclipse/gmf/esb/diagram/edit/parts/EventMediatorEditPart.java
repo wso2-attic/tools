@@ -308,7 +308,7 @@ public class EventMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureEventMediatorPropertyValue;
-		
+
 		private WrappingLabel eventMediatorDescriptionLabel;
 
 		/**
@@ -329,7 +329,7 @@ public class EventMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureEventMediatorPropertyValue.setText("<...>");
 			fFigureEventMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureEventMediatorPropertyValue);
-			
+
 			eventMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -339,7 +339,7 @@ public class EventMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureEventMediatorPropertyValue() {
 			return fFigureEventMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getEventMediatorDescriptionLabel() {
 			return eventMediatorDescriptionLabel;
 		}

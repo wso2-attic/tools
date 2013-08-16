@@ -308,7 +308,7 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureHeaderMediatorPropertyValue;
-		
+
 		private WrappingLabel headerMediatorDescriptionLabel;
 
 		/**
@@ -329,7 +329,7 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureHeaderMediatorPropertyValue.setText("<...>");
 			fFigureHeaderMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureHeaderMediatorPropertyValue);
-			
+
 			headerMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -339,7 +339,7 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureHeaderMediatorPropertyValue() {
 			return fFigureHeaderMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getHeaderMediatorDescriptionLabel() {
 			return headerMediatorDescriptionLabel;
 		}

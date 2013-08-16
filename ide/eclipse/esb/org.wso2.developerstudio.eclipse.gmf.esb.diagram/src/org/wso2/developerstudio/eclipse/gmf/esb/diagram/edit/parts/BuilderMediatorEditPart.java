@@ -129,7 +129,7 @@ public class BuilderMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	protected boolean addFixedChild(EditPart childEditPart) {
-		
+
 		if (childEditPart instanceof BuilderMediatorDescriptionEditPart) {
 			((BuilderMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
 					.getBuilderDescriptionLabel());
@@ -294,7 +294,7 @@ public class BuilderMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureBuilderMediatorPropertyValue;
-		
+
 		private WrappingLabel builderDescriptionLabel;
 
 		/**
@@ -325,7 +325,7 @@ public class BuilderMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureBuilderMediatorPropertyValue() {
 			return fFigureBuilderMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getBuilderDescriptionLabel() {
 			return builderDescriptionLabel;
 		}

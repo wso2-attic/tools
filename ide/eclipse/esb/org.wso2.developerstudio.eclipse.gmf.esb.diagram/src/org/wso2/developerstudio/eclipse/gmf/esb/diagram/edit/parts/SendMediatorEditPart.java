@@ -206,7 +206,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		}*/
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof SendMediatorDescriptionEditPart) {
 			return true;
@@ -220,7 +220,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -313,7 +313,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureSendMediatorPropertyValue;
-		
+
 		private WrappingLabel sendMediatorDescriptionLabel;
 
 		/**
@@ -367,7 +367,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureSendMediatorPropertyValue.setText("<...>");
 			fFigureSendMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureSendMediatorPropertyValue);
-			
+
 			sendMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -381,7 +381,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getSendMediatorDescriptionLabel() {
 			return sendMediatorDescriptionLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/send-mediator.gif";
 		}

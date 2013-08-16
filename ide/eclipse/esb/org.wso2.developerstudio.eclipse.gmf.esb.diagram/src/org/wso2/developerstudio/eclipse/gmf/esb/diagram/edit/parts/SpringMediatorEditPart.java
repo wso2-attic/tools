@@ -308,7 +308,7 @@ public class SpringMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureSpringMediatorPropertyValue;
-		
+
 		private WrappingLabel springMediatorDescriptionLabel;
 
 		/**
@@ -329,7 +329,7 @@ public class SpringMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureSpringMediatorPropertyValue.setText("<...>");
 			fFigureSpringMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureSpringMediatorPropertyValue);
-			
+
 			springMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -343,7 +343,7 @@ public class SpringMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getSpringMediatorDescriptionLabel() {
 			return springMediatorDescriptionLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/spring-mediator.gif";
 		}

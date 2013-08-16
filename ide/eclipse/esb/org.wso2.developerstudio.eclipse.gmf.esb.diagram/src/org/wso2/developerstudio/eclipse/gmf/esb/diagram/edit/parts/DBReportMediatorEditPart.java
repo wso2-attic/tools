@@ -309,7 +309,7 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureDBReportMediatorPropertyValue;
-		
+
 		private WrappingLabel dpReportMediatorDescriptionLabel;
 
 		/**
@@ -344,7 +344,7 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getDBReportMediatorDescriptionLabel() {
 			return dpReportMediatorDescriptionLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/dbreport-mediator.gif";
 		}

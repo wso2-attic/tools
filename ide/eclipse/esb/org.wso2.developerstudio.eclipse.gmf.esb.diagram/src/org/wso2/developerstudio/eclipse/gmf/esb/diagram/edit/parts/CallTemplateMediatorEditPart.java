@@ -157,7 +157,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
-		if(childEditPart instanceof CallTemplateMediatorDescriptionEditPart) {
+		if (childEditPart instanceof CallTemplateMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof CallTemplateMediatorInputConnectorEditPart) {
@@ -281,7 +281,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureCallTemplateMediatorPropertyValue;
-		
+
 		private WrappingLabel callTemplateMediatorDescriptionLabel;
 
 		/**
@@ -302,7 +302,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureCallTemplateMediatorPropertyValue.setText("<...>");
 			fFigureCallTemplateMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureCallTemplateMediatorPropertyValue);
-			
+
 			callTemplateMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -316,6 +316,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getCallTemplateMediatorDescriptionLabel() {
 			return callTemplateMediatorDescriptionLabel;
 		}
+
 		public String getIconPath() {
 			return "icons/ico20/callTemplate-mediator.gif";
 		}

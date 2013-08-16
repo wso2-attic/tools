@@ -309,7 +309,7 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureCommandMediatorPropertyValue;
-		
+
 		private WrappingLabel commandMediatorDescriptionLabel;
 
 		/**
@@ -340,7 +340,7 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureCommandMediatorPropertyValue() {
 			return fFigureCommandMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getCommandMediatorDescriptionLabel() {
 			return commandMediatorDescriptionLabel;
 		}

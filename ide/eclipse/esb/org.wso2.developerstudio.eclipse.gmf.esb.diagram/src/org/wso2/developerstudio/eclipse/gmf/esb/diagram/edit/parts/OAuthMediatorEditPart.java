@@ -308,7 +308,7 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureOAuthMediatorPropertyValue;
-		
+
 		private WrappingLabel oAuthMediatorDescriptionLabel;
 
 		/**
@@ -329,7 +329,7 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureOAuthMediatorPropertyValue.setText("<...>");
 			fFigureOAuthMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureOAuthMediatorPropertyValue);
-			
+
 			oAuthMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -343,7 +343,7 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getOAuthMediatorDescriptionLabel() {
 			return oAuthMediatorDescriptionLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/oauth-mediator.gif";
 		}

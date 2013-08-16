@@ -421,22 +421,21 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					}
 				}
 			}
-		}else if (child instanceof TemplateEndpointEditPart) {
-            TemplateEndpointEditPart endpointEditPart = (TemplateEndpointEditPart) child;
-            EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
-                            .getModel()).getElement();
-            if (((TemplateEndpoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
-                    if (((TemplateEndpoint) parentEndpoint).getOutputConnector() == null) {
-                            SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
-                                            EsbPackage.Literals.TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR,
-                                            EsbFactory.eINSTANCE.createTemplateEndpointOutputConnector());
-                            if (addCmd.canExecute()) {
-                                    getEditingDomain().getCommandStack().execute(addCmd);
-                            }
-                    }
-            }
-		}
-		else if (child instanceof HTTPEndpointEditPart) {
+		} else if (child instanceof TemplateEndpointEditPart) {
+			TemplateEndpointEditPart endpointEditPart = (TemplateEndpointEditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((TemplateEndpoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+				if (((TemplateEndpoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+							EsbPackage.Literals.TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE.createTemplateEndpointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
+			}
+		} else if (child instanceof HTTPEndpointEditPart) {
 			HTTPEndpointEditPart endpointEditPart = (HTTPEndpointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();

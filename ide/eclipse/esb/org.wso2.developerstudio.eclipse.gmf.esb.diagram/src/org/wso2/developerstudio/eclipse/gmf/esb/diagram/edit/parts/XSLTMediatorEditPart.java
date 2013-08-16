@@ -153,7 +153,7 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof XSLTMediatorDescriptionEditPart) {
 			return true;
@@ -167,7 +167,7 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -262,7 +262,7 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureXSLTMediatorPropertyValueLabel;
-		
+
 		private WrappingLabel xsltMediatorDescriptionLabel;
 
 		/**
@@ -283,7 +283,7 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureXSLTMediatorPropertyValueLabel.setText("<...>");
 			fFigureXSLTMediatorPropertyValueLabel.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureXSLTMediatorPropertyValueLabel);
-			
+
 			xsltMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -293,7 +293,7 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureXSLTMediatorPropertyValueLabel() {
 			return fFigureXSLTMediatorPropertyValueLabel;
 		}
-		
+
 		public WrappingLabel getXSLTMediatorDescriptionLabel() {
 			return xsltMediatorDescriptionLabel;
 		}

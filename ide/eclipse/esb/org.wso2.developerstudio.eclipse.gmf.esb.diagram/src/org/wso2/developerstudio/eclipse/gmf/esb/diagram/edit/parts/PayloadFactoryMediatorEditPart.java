@@ -157,7 +157,7 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
-		if(childEditPart instanceof PayloadFactoryMediatorDescriptionEditPart) {
+		if (childEditPart instanceof PayloadFactoryMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof PayloadFactoryMediatorInputConnectorEditPart) {
@@ -281,7 +281,7 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigurePayloadFactoryMediatorPropertyValue;
-		
+
 		private WrappingLabel payloadFactoryMediatorDescriptionLabel;
 
 		/**
@@ -302,7 +302,7 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigurePayloadFactoryMediatorPropertyValue.setText("<...>");
 			fFigurePayloadFactoryMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigurePayloadFactoryMediatorPropertyValue);
-			
+
 			payloadFactoryMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -316,7 +316,7 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getPayloadFactoryMediatorDescriptionLabel() {
 			return payloadFactoryMediatorDescriptionLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/payloadFactory-mediator.gif";
 		}

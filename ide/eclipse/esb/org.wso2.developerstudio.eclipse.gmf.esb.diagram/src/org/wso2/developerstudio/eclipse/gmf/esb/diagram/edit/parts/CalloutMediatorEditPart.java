@@ -309,7 +309,7 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureCalloutMediatorPropertyValue;
-		
+
 		private WrappingLabel calloutMediatorDescriptionLabel;
 
 		/**
@@ -330,7 +330,7 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureCalloutMediatorPropertyValue.setText("<...>");
 			fFigureCalloutMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureCalloutMediatorPropertyValue);
-			
+
 			calloutMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -340,7 +340,7 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureCalloutMediatorPropertyValue() {
 			return fFigureCalloutMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getCalloutMediatorDescriptionLabel() {
 			return calloutMediatorDescriptionLabel;
 		}

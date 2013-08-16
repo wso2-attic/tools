@@ -372,6 +372,12 @@ public class MergeNodeOutputConnectorEditPart extends AbstractBorderItemEditPart
 		if (targetEditPart instanceof TemplateEndpointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof CloudConnectorInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof CloudConnectorOperationInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -476,6 +482,8 @@ public class MergeNodeOutputConnectorEditPart extends AbstractBorderItemEditPart
 			types.add(EsbElementTypes.AddressingEndpointInputConnector_3690);
 			types.add(EsbElementTypes.HTTPEndPointInputConnector_3710);
 			types.add(EsbElementTypes.TemplateEndpointInputConnector_3717);
+			types.add(EsbElementTypes.CloudConnectorInputConnector_3720);
+			types.add(EsbElementTypes.CloudConnectorOperationInputConnector_3723);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);

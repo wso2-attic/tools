@@ -168,7 +168,7 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 		}*/
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof SmooksMediatorDescriptionEditPart) {
 			return true;
@@ -182,7 +182,7 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -267,7 +267,7 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureSmooksMediatorPropertyValue;
-		
+
 		private WrappingLabel smooksMediatorDescriptionLabel;
 
 		/**
@@ -288,7 +288,7 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureSmooksMediatorPropertyValue.setText("<...>");
 			fFigureSmooksMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureSmooksMediatorPropertyValue);
-			
+
 			smooksMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -298,7 +298,7 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureSmooksMediatorPropertyValue() {
 			return fFigureSmooksMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getSmooksMediatorDescriptionLabel() {
 			return smooksMediatorDescriptionLabel;
 		}

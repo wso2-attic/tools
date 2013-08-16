@@ -161,7 +161,7 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 			}*/
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof RMSequenceMediatorDescriptionEditPart) {
 			return true;
@@ -175,7 +175,7 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -270,7 +270,7 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureRMSequenceMediatorPropertyValue;
-		
+
 		private WrappingLabel rmSequenceMediatorDescriptionLabel;
 
 		/**
@@ -291,7 +291,7 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureRMSequenceMediatorPropertyValue.setText("<...>");
 			fFigureRMSequenceMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureRMSequenceMediatorPropertyValue);
-			
+
 			rmSequenceMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -305,6 +305,7 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getRMSequenceMediatorDescriptionLabel() {
 			return rmSequenceMediatorDescriptionLabel;
 		}
+
 		public String getIconPath() {
 			return "icons/ico20/rmsequence-mediator.gif";
 		}

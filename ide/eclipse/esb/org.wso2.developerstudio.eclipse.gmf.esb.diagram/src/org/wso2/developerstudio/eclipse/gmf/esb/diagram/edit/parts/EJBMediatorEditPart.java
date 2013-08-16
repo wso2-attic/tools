@@ -162,7 +162,7 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if(childEditPart instanceof EJBMediatorDescriptionEditPart) {
+		if (childEditPart instanceof EJBMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EJBMediatorInputConnectorEditPart) {
@@ -283,7 +283,7 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 	public class EJBMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		private WrappingLabel ejbMediatorDescriptionLabel;
-		
+
 		/**
 		 * @generated
 		 */
@@ -302,10 +302,10 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 			eJBMediatorPropertyValueLabel0.setText("<...>");
 			eJBMediatorPropertyValueLabel0.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(eJBMediatorPropertyValueLabel0);
-			
+
 			ejbMediatorDescriptionLabel = getPropertyNameLabel();
 		}
-		
+
 		public WrappingLabel getEJBMediatorDescriptionLabel() {
 			return ejbMediatorDescriptionLabel;
 		}

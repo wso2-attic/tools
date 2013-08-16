@@ -308,7 +308,7 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureEnrichMediatorPropertyValue;
-		
+
 		private WrappingLabel enrichMediatorDescriptionLabel;
 
 		/**
@@ -328,7 +328,7 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureEnrichMediatorPropertyValue.setText("<...>");
 			fFigureEnrichMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureEnrichMediatorPropertyValue);
-		
+
 			enrichMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -338,7 +338,7 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureEnrichMediatorPropertyValue() {
 			return fFigureEnrichMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getEnrichMediatorDescriptionLabel() {
 			return enrichMediatorDescriptionLabel;
 		}

@@ -310,7 +310,7 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureEntitlementMediatorPropertyValue;
-		
+
 		private WrappingLabel entitlementMediatorDescriptionLabel;
 
 		/**
@@ -331,7 +331,7 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureEntitlementMediatorPropertyValue.setText("<...>");
 			fFigureEntitlementMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureEntitlementMediatorPropertyValue);
-			
+
 			entitlementMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -341,7 +341,7 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureEntitlementMediatorPropertyValue() {
 			return fFigureEntitlementMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getEntitlementMediatorDescriptionLabel() {
 			return entitlementMediatorDescriptionLabel;
 		}

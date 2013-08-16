@@ -712,7 +712,7 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigurePropertyMediatorPropertyValueLabel;
-		
+
 		private WrappingLabel propertyMediatorDescriptionLabel;
 
 		/**
@@ -733,7 +733,7 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigurePropertyMediatorPropertyValueLabel.setText("<...>");
 			fFigurePropertyMediatorPropertyValueLabel.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigurePropertyMediatorPropertyValueLabel);
-			
+
 			propertyMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -743,7 +743,7 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigurePropertyMediatorPropertyValueLabel() {
 			return fFigurePropertyMediatorPropertyValueLabel;
 		}
-		
+
 		public WrappingLabel getPropertyMediatorDescriptionLabel() {
 			return propertyMediatorDescriptionLabel;
 		}

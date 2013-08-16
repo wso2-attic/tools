@@ -311,7 +311,7 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureLogCatogeryLogPropertyLabel;
-		
+
 		private WrappingLabel fFigureLogDescriptionLabel;
 
 		/**
@@ -332,7 +332,7 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureLogCatogeryLogPropertyLabel.setText("<...>");
 			fFigureLogCatogeryLogPropertyLabel.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureLogCatogeryLogPropertyLabel);
-			
+
 			fFigureLogDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -342,7 +342,7 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureLogCatogeryLogPropertyLabel() {
 			return fFigureLogCatogeryLogPropertyLabel;
 		}
-		
+
 		public WrappingLabel getLogDescriptionLabel() {
 			return fFigureLogDescriptionLabel;
 		}

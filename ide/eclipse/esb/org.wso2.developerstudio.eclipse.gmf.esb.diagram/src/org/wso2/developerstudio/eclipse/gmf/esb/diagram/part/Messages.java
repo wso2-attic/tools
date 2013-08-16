@@ -318,6 +318,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String CloudConnector6CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CloudConnector6CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CloudConnectorOperation7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CloudConnectorOperation7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DropMediator1CreationTool_title;
 
 	/**
@@ -1128,6 +1148,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_CloudConnectorOperationOutputConnector_3724_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_ProxyInputConnector_3003_incominglinks;
 
 	/**
@@ -1159,6 +1184,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_RecipientListEndPointOutputConnector_3698_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CloudConnectorOperationInputConnector_3723_incominglinks;
 
 	/**
 	 * @generated
@@ -1264,6 +1294,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ValidateMediatorInputConnector_3624_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CloudConnectorOutputConnector_3721_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1604,6 +1639,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_MessageOutputConnector_3047_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CloudConnectorInputConnector_3720_incominglinks;
 
 	/**
 	 * @generated

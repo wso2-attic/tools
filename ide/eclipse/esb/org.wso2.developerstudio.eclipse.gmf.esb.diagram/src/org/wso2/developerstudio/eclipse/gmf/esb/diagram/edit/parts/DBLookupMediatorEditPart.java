@@ -310,7 +310,7 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureDBLookupMediatorPropertyValue;
-		
+
 		private WrappingLabel dbLookupMediatorDescriptionLabel;
 
 		/**
@@ -331,7 +331,7 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureDBLookupMediatorPropertyValue.setText("<...>");
 			fFigureDBLookupMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureDBLookupMediatorPropertyValue);
-			
+
 			dbLookupMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -341,7 +341,7 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureDBLookupMediatorPropertyValue() {
 			return fFigureDBLookupMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getDBLookupMediatorDescriptionLabel() {
 			return dbLookupMediatorDescriptionLabel;
 		}

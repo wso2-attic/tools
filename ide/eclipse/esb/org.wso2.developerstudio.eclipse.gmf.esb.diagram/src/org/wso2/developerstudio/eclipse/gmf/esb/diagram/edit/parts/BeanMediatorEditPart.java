@@ -286,7 +286,7 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 	public class BeanMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		private WrappingLabel beanMediatorDescriptionLabel;
-		
+
 		/**
 		 * @generated
 		 */
@@ -305,10 +305,10 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 			beanMediatorPropertyValueLabel0.setText("<...>");
 			beanMediatorPropertyValueLabel0.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(beanMediatorPropertyValueLabel0);
-			
+
 			beanMediatorDescriptionLabel = getPropertyNameLabel();
 		}
-		
+
 		public WrappingLabel getBeanMediatorDescriptionLabel() {
 			return beanMediatorDescriptionLabel;
 		}

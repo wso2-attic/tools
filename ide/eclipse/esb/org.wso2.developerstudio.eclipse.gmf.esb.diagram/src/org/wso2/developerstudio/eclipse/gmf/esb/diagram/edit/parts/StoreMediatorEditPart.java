@@ -161,7 +161,7 @@ public class StoreMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
-		if(childEditPart instanceof StoreMediatorDescriptionEditPart) {
+		if (childEditPart instanceof StoreMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof StoreMediatorInputConnectorEditPart) {
@@ -294,7 +294,7 @@ public class StoreMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureStoreMediatorPropertyValue;
-		
+
 		private WrappingLabel storeMediatorDescriptionLabel;
 
 		/**
@@ -315,7 +315,7 @@ public class StoreMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureStoreMediatorPropertyValue.setText("<...>");
 			fFigureStoreMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureStoreMediatorPropertyValue);
-			
+
 			storeMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -325,7 +325,7 @@ public class StoreMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureStoreMediatorPropertyValue() {
 			return fFigureStoreMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getStoreMediatorDescriptionLabel() {
 			return storeMediatorDescriptionLabel;
 		}

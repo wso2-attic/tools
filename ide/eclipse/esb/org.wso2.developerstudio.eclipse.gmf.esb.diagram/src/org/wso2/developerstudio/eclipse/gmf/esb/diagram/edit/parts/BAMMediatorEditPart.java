@@ -154,7 +154,7 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if(childEditPart instanceof BAMMediatorDescriptionEditPart) {
+		if (childEditPart instanceof BAMMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof BAMMediatorInputConnectorEditPart) {
@@ -281,7 +281,7 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 	 * @generated
 	 */
 	public class BAMMediatorFigure extends EsbGraphicalShapeWithLabel {
-		
+
 		private WrappingLabel bamMediatorDescriptionLabel;
 
 		/**
@@ -301,14 +301,14 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 			bAMPropertyLabel0.setText("<...>");
 			bAMPropertyLabel0.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(bAMPropertyLabel0);
-			
+
 			bamMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		public WrappingLabel getBAMMediatorDescriptionLabel() {
 			return bamMediatorDescriptionLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/bam-mediator.gif";
 		}

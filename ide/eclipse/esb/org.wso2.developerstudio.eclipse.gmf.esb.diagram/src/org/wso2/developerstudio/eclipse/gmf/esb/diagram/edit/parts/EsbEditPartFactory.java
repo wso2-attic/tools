@@ -842,6 +842,30 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case TemplateEndpointOutputConnectorEditPart.VISUAL_ID:
 				return new TemplateEndpointOutputConnectorEditPart(view);
 
+			case CloudConnectorEditPart.VISUAL_ID:
+				return new CloudConnectorEditPart(view);
+
+			case CloudConnectorDescriptionEditPart.VISUAL_ID:
+				return new CloudConnectorDescriptionEditPart(view);
+
+			case CloudConnectorInputConnectorEditPart.VISUAL_ID:
+				return new CloudConnectorInputConnectorEditPart(view);
+
+			case CloudConnectorOutputConnectorEditPart.VISUAL_ID:
+				return new CloudConnectorOutputConnectorEditPart(view);
+
+			case CloudConnectorOperationEditPart.VISUAL_ID:
+				return new CloudConnectorOperationEditPart(view);
+
+			case CloudConnectorOperationDescriptionEditPart.VISUAL_ID:
+				return new CloudConnectorOperationDescriptionEditPart(view);
+
+			case CloudConnectorOperationInputConnectorEditPart.VISUAL_ID:
+				return new CloudConnectorOperationInputConnectorEditPart(view);
+
+			case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
+				return new CloudConnectorOperationOutputConnectorEditPart(view);
+
 			case SwitchDefaultContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultContainerEditPart(view);
 

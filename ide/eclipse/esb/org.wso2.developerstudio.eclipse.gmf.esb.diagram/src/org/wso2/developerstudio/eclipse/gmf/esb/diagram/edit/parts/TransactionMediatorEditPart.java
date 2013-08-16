@@ -164,9 +164,9 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if(childEditPart instanceof TransactionMediatorDescriptionEditPart) {
+		if (childEditPart instanceof TransactionMediatorDescriptionEditPart) {
 			return true;
 		}
 		return false;
@@ -178,7 +178,7 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -273,7 +273,7 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureTransactionMediatorPropertyValue;
-		
+
 		private WrappingLabel transactionMediatorDescriptionLabel;
 
 		/**
@@ -294,7 +294,7 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureTransactionMediatorPropertyValue.setText("<...>");
 			fFigureTransactionMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureTransactionMediatorPropertyValue);
-			
+
 			transactionMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -304,7 +304,7 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureTransactionMediatorPropertyValue() {
 			return fFigureTransactionMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getTransactionMediatorDescriptionLabel() {
 			return transactionMediatorDescriptionLabel;
 		}

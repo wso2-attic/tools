@@ -135,14 +135,14 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if(childEditPart instanceof EnqueueMediatorDescriptionEditPart) {
+		if (childEditPart instanceof EnqueueMediatorDescriptionEditPart) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -259,7 +259,7 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureEnqueueMediatorPropertyValue;
-		
+
 		private WrappingLabel enqueueMediatorDescriptionLabel;
 
 		/**
@@ -280,7 +280,7 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureEnqueueMediatorPropertyValue.setText("<...>");
 			fFigureEnqueueMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureEnqueueMediatorPropertyValue);
-			
+
 			enqueueMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -290,7 +290,7 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureEnqueueMediatorPropertyValue() {
 			return fFigureEnqueueMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getEnqueueMediatorDescriptionLabel() {
 			return enqueueMediatorDescriptionLabel;
 		}

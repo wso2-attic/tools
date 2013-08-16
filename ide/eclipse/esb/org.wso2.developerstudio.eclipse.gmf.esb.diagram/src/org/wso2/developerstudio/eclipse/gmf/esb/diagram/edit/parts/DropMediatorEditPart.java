@@ -464,7 +464,7 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 			super.addBorderItem(borderItemContainer, borderItemEditPart);
 		}
 	}
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DropMediatorDescriptionEditPart) {
 			((DropMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
@@ -473,14 +473,14 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DropMediatorDescriptionEditPart) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
@@ -582,7 +582,7 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fDropMediatorLabelFigure;
-		
+
 		private WrappingLabel dropMediatorDescriptionLabel;
 
 		/**
@@ -603,7 +603,7 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 			fDropMediatorLabelFigure.setText("");
 			fDropMediatorLabelFigure.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fDropMediatorLabelFigure);
-			
+
 			dropMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -617,7 +617,7 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getDropMediatorDescriptionLabel() {
 			return dropMediatorDescriptionLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/drop-mediator.gif";
 		}

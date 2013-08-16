@@ -317,7 +317,7 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureXQueryMediatorPropertyValue;
-		
+
 		private WrappingLabel xQueryMediatorDescriptionLabel;
 
 		/**
@@ -338,7 +338,7 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureXQueryMediatorPropertyValue.setText("<...>");
 			fFigureXQueryMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureXQueryMediatorPropertyValue);
-			
+
 			xQueryMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -352,7 +352,7 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getXQueryMediatorDescriptionLabel() {
 			return xQueryMediatorDescriptionLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/xquery-mediator.gif";
 		}

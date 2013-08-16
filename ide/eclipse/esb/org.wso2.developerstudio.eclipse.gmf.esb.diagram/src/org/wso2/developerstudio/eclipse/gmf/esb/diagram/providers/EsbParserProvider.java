@@ -27,6 +27,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorClassNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorCloneIDEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorDescriptionEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorOperationDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURLEditPart;
@@ -1181,6 +1183,42 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	/**
 	 * @generated
 	 */
+	private IParser cloudConnectorDescription_5197Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCloudConnectorDescription_5197Parser() {
+		if (cloudConnectorDescription_5197Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEsbElement_Description() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cloudConnectorDescription_5197Parser = parser;
+		}
+		return cloudConnectorDescription_5197Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser cloudConnectorOperationDescription_5198Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCloudConnectorOperationDescription_5198Parser() {
+		if (cloudConnectorOperationDescription_5198Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEsbElement_Description() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			cloudConnectorOperationDescription_5198Parser = parser;
+		}
+		return cloudConnectorOperationDescription_5198Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser defaultEndPointEndPointName_5160Parser;
 
 	/**
@@ -1402,6 +1440,10 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 			return getNamedEndpointName_5165Parser();
 		case LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID:
 			return getLoadBalanceEndPointEndPointName_5159Parser();
+		case CloudConnectorDescriptionEditPart.VISUAL_ID:
+			return getCloudConnectorDescription_5197Parser();
+		case CloudConnectorOperationDescriptionEditPart.VISUAL_ID:
+			return getCloudConnectorOperationDescription_5198Parser();
 		case DefaultEndPointEndPointName2EditPart.VISUAL_ID:
 			return getDefaultEndPointEndPointName_5160Parser();
 		case AddressEndPointEndPointName2EditPart.VISUAL_ID:

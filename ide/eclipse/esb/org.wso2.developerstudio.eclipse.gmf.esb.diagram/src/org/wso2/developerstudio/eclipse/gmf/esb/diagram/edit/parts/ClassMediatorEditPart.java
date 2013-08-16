@@ -167,7 +167,7 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 		if (childEditPart instanceof ClassMediatorClassNameEditPart) {
 			return true;
 		}
-		if(childEditPart instanceof ClassMediatorDescriptionEditPart) {
+		if (childEditPart instanceof ClassMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ClassMediatorInputConnectorEditPart) {
@@ -310,7 +310,7 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 		private WrappingLabel fFigureClassMediatorPropertyValue;
 
 		private WrappingLabel classMediatorDescriptionLabel;
-		
+
 		/**
 		 * @generated
 		 */
@@ -329,7 +329,7 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureClassMediatorPropertyValue.setText("<...>");
 			fFigureClassMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureClassMediatorPropertyValue);
-			
+
 			classMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -339,7 +339,7 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureClassMediatorPropertyValue() {
 			return fFigureClassMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getClassMediatorDescriptionLabel() {
 			return classMediatorDescriptionLabel;
 		}

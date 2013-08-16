@@ -856,6 +856,36 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType CloudConnector_3719 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloudConnector_3719"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloudConnectorInputConnector_3720 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloudConnectorInputConnector_3720"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloudConnectorOutputConnector_3721 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloudConnectorOutputConnector_3721"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloudConnectorOperation_3722 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloudConnectorOperation_3722"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloudConnectorOperationInputConnector_3723 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloudConnectorOperationInputConnector_3723"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CloudConnectorOperationOutputConnector_3724 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CloudConnectorOperationOutputConnector_3724"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ProxyServiceFaultContainer_3488 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceFaultContainer_3488"); //$NON-NLS-1$
 
 	/**
@@ -2061,6 +2091,23 @@ public class EsbElementTypes {
 			elements.put(TemplateEndpointOutputConnector_3718,
 					EsbPackage.eINSTANCE.getTemplateEndpointOutputConnector());
 
+			elements.put(CloudConnector_3719, EsbPackage.eINSTANCE.getCloudConnector());
+
+			elements.put(CloudConnectorInputConnector_3720,
+					EsbPackage.eINSTANCE.getCloudConnectorInputConnector());
+
+			elements.put(CloudConnectorOutputConnector_3721,
+					EsbPackage.eINSTANCE.getCloudConnectorOutputConnector());
+
+			elements.put(CloudConnectorOperation_3722,
+					EsbPackage.eINSTANCE.getCloudConnectorOperation());
+
+			elements.put(CloudConnectorOperationInputConnector_3723,
+					EsbPackage.eINSTANCE.getCloudConnectorOperationInputConnector());
+
+			elements.put(CloudConnectorOperationOutputConnector_3724,
+					EsbPackage.eINSTANCE.getCloudConnectorOperationOutputConnector());
+
 			elements.put(SwitchDefaultContainer_3527,
 					EsbPackage.eINSTANCE.getSwitchDefaultContainer());
 
@@ -2442,6 +2489,12 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(TemplateEndpoint_3716);
 			KNOWN_ELEMENT_TYPES.add(TemplateEndpointInputConnector_3717);
 			KNOWN_ELEMENT_TYPES.add(TemplateEndpointOutputConnector_3718);
+			KNOWN_ELEMENT_TYPES.add(CloudConnector_3719);
+			KNOWN_ELEMENT_TYPES.add(CloudConnectorInputConnector_3720);
+			KNOWN_ELEMENT_TYPES.add(CloudConnectorOutputConnector_3721);
+			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperation_3722);
+			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperationInputConnector_3723);
+			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperationOutputConnector_3724);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3527);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
 			KNOWN_ELEMENT_TYPES.add(FilterFailContainer_3537);
@@ -2932,6 +2985,18 @@ public class EsbElementTypes {
 			return TemplateEndpointInputConnector_3717;
 		case TemplateEndpointOutputConnectorEditPart.VISUAL_ID:
 			return TemplateEndpointOutputConnector_3718;
+		case CloudConnectorEditPart.VISUAL_ID:
+			return CloudConnector_3719;
+		case CloudConnectorInputConnectorEditPart.VISUAL_ID:
+			return CloudConnectorInputConnector_3720;
+		case CloudConnectorOutputConnectorEditPart.VISUAL_ID:
+			return CloudConnectorOutputConnector_3721;
+		case CloudConnectorOperationEditPart.VISUAL_ID:
+			return CloudConnectorOperation_3722;
+		case CloudConnectorOperationInputConnectorEditPart.VISUAL_ID:
+			return CloudConnectorOperationInputConnector_3723;
+		case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
+			return CloudConnectorOperationOutputConnector_3724;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return SwitchDefaultContainer_3527;
 		case MediatorFlow4EditPart.VISUAL_ID:

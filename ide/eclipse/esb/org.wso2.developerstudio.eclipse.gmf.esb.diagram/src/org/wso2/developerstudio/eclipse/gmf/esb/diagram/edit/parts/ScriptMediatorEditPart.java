@@ -308,7 +308,7 @@ public class ScriptMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureScriptMediatorPropertyValue;
-		
+
 		private WrappingLabel scriptMediatorDescriptionLabel;
 
 		/**
@@ -329,7 +329,7 @@ public class ScriptMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureScriptMediatorPropertyValue.setText("<...>");
 			fFigureScriptMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureScriptMediatorPropertyValue);
-			
+
 			scriptMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -339,7 +339,7 @@ public class ScriptMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureScriptMediatorPropertyValue() {
 			return fFigureScriptMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getScriptMediatorDescriptionLabel() {
 			return scriptMediatorDescriptionLabel;
 		}

@@ -157,9 +157,9 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
-		if(childEditPart instanceof URLRewriteMediatorDescriptionEditPart) {
+		if (childEditPart instanceof URLRewriteMediatorDescriptionEditPart) {
 			return true;
 		}
 		return false;
@@ -171,7 +171,7 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -274,7 +274,7 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 		 * @generated
 		 */
 		private WrappingLabel fFigureURLRewriteMediatorPropertyValue;
-		
+
 		private WrappingLabel urlRewriteMediatorDescriptionLabel;
 
 		/**
@@ -295,7 +295,7 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureURLRewriteMediatorPropertyValue.setText("<...>");
 			fFigureURLRewriteMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureURLRewriteMediatorPropertyValue);
-			
+
 			urlRewriteMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
@@ -305,7 +305,7 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 		public WrappingLabel getFigureURLRewriteMediatorPropertyValue() {
 			return fFigureURLRewriteMediatorPropertyValue;
 		}
-		
+
 		public WrappingLabel getURLRewriteMediatorDescriptionLabel() {
 			return urlRewriteMediatorDescriptionLabel;
 		}
