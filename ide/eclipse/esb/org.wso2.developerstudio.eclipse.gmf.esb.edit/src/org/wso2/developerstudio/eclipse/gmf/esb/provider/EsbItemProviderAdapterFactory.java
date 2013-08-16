@@ -3482,6 +3482,144 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloudConnectorItemProvider cloudConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloudConnectorAdapter() {
+		if (cloudConnectorItemProvider == null) {
+			cloudConnectorItemProvider = new CloudConnectorItemProvider(this);
+		}
+
+		return cloudConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloudConnectorInputConnectorItemProvider cloudConnectorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloudConnectorInputConnectorAdapter() {
+		if (cloudConnectorInputConnectorItemProvider == null) {
+			cloudConnectorInputConnectorItemProvider = new CloudConnectorInputConnectorItemProvider(this);
+		}
+
+		return cloudConnectorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloudConnectorOutputConnectorItemProvider cloudConnectorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloudConnectorOutputConnectorAdapter() {
+		if (cloudConnectorOutputConnectorItemProvider == null) {
+			cloudConnectorOutputConnectorItemProvider = new CloudConnectorOutputConnectorItemProvider(this);
+		}
+
+		return cloudConnectorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloudConnectorOperationItemProvider cloudConnectorOperationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloudConnectorOperationAdapter() {
+		if (cloudConnectorOperationItemProvider == null) {
+			cloudConnectorOperationItemProvider = new CloudConnectorOperationItemProvider(this);
+		}
+
+		return cloudConnectorOperationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloudConnectorOperationInputConnectorItemProvider cloudConnectorOperationInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloudConnectorOperationInputConnectorAdapter() {
+		if (cloudConnectorOperationInputConnectorItemProvider == null) {
+			cloudConnectorOperationInputConnectorItemProvider = new CloudConnectorOperationInputConnectorItemProvider(this);
+		}
+
+		return cloudConnectorOperationInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloudConnectorOperationOutputConnectorItemProvider cloudConnectorOperationOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloudConnectorOperationOutputConnectorAdapter() {
+		if (cloudConnectorOperationOutputConnectorItemProvider == null) {
+			cloudConnectorOperationOutputConnectorItemProvider = new CloudConnectorOperationOutputConnectorItemProvider(this);
+		}
+
+		return cloudConnectorOperationOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7340,6 +7478,12 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (messageProcessorItemProvider != null) messageProcessorItemProvider.dispose();
 		if (apiHandlerItemProvider != null) apiHandlerItemProvider.dispose();
 		if (apiHandlerPropertyItemProvider != null) apiHandlerPropertyItemProvider.dispose();
+		if (cloudConnectorItemProvider != null) cloudConnectorItemProvider.dispose();
+		if (cloudConnectorInputConnectorItemProvider != null) cloudConnectorInputConnectorItemProvider.dispose();
+		if (cloudConnectorOutputConnectorItemProvider != null) cloudConnectorOutputConnectorItemProvider.dispose();
+		if (cloudConnectorOperationItemProvider != null) cloudConnectorOperationItemProvider.dispose();
+		if (cloudConnectorOperationInputConnectorItemProvider != null) cloudConnectorOperationInputConnectorItemProvider.dispose();
+		if (cloudConnectorOperationOutputConnectorItemProvider != null) cloudConnectorOperationOutputConnectorItemProvider.dispose();
 	}
 
 }

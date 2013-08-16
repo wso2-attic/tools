@@ -492,6 +492,16 @@ public class EndpointFlowItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
 				 EsbFactory.eINSTANCE.createMessageProcessor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createCloudConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createCloudConnectorOperation()));
 	}
 
 }

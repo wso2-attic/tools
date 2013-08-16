@@ -492,6 +492,16 @@ public class MediatorFlowItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
 				 EsbFactory.eINSTANCE.createMessageProcessor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createCloudConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createCloudConnectorOperation()));
 	}
 
 }
