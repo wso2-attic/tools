@@ -757,7 +757,9 @@ public class ElementDuplicator {
 			while(!inputConnector.getIncomingLinks().isEmpty()){
 				
 					inputConnector= getInputConnector(inputConnector.getIncomingLinks().get(0).getSource().eContainer().eContents());
-				
+                    if (inputConnector.eContainer() instanceof ProxyService) {
+                    	break;
+                    }
 			}
 			
 			outSequenceFirstConnectorMap.put(rootContainer, inputConnector);
