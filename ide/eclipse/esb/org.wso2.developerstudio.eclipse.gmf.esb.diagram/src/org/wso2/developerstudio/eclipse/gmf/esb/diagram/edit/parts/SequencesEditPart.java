@@ -307,8 +307,8 @@ public class SequencesEditPart extends AbstractSequencesEditPart {
 			 layoutThis.makeColumnsEqualWidth = true;
 			 this.setLayoutManager(layoutThis);
 			 */
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200), getMapMode().DPtoLP(100)));
-			this.setCornerDimensions(new Dimension(1, 1));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(195), getMapMode().DPtoLP(125)));
+			this.setCornerDimensions(new Dimension(0, 0));
 			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 		}

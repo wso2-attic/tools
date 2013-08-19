@@ -44,7 +44,8 @@ public class MediatorFlowMediatorFlowCompartment14EditPart extends
 	 */
 	public String getCompartmentName() {
 		//return Messages.MediatorFlowMediatorFlowCompartment14EditPart_title;
-		return "OnFail";
+		//return "OnFail";
+		return null;
 	}
 
 	public IFigure createFigure() {

@@ -126,7 +126,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 	 */
 	protected IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
-		result.setTitleVisibility(true);
+		result.setTitleVisibility(false);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
 		borderedNodeFigure = new BorderedNodeFigure(result);

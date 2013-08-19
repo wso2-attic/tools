@@ -130,12 +130,12 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 			if (null == sequencesEditPart.outputConnectorFigure)
 				return;
 			BorderItemLocator outputLocator = new FixedBorderItemLocator(this.getFigure(),
-					sequencesEditPart.outputConnectorFigure, PositionConstants.WEST, 0.55);
+					sequencesEditPart.outputConnectorFigure, PositionConstants.WEST, 0.5);
 			sequencesEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(sequencesEditPart.outputConnectorFigure, outputLocator);
 
 			BorderItemLocator inputLocator = new FixedBorderItemLocator(this.getFigure(),
-					sequencesEditPart.inputConnectorFigure, PositionConstants.EAST, 0.55);
+					sequencesEditPart.inputConnectorFigure, PositionConstants.EAST, 0.5);
 			sequencesEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(sequencesEditPart.inputConnectorFigure, inputLocator);
 		} else {
@@ -263,11 +263,11 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 
 			// Create top rectangle.
 			RoundedRectangle topRectangle = new RoundedRectangle();
-			topRectangle.setCornerDimensions(new Dimension(1, 1));
+			topRectangle.setCornerDimensions(new Dimension(0, 0));
 			topRectangle.setOutline(false);
 			topRectangle.setBackgroundColor(new Color(null, 113, 183, 64));
-			topRectangle.setPreferredSize(new Dimension(200, 20));
-			topRectangle.setMinimumSize(new Dimension(200, 20));
+			topRectangle.setPreferredSize(new Dimension(195, 20));
+			topRectangle.setMinimumSize(new Dimension(195, 20));
 
 			GridLayout topRectangleLayout = new GridLayout();
 			topRectangleLayout.numColumns = 1;
@@ -311,7 +311,7 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 
 			this.setCornerDimensions(new Dimension(1, 1));
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200), getMapMode().DPtoLP(100)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(195), getMapMode().DPtoLP(125)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setLineWidth(2);
 			this.setLineDashOffset(2.0f);
