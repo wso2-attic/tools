@@ -15795,7 +15795,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		cloudConnectorEClass.getESuperTypes().add(this.getEsbElement());
 		cloudConnectorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		cloudConnectorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
-		cloudConnectorOperationEClass.getESuperTypes().add(this.getEsbElement());
+		cloudConnectorOperationEClass.getESuperTypes().add(this.getMediator());
 		cloudConnectorOperationInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		cloudConnectorOperationOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 

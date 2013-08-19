@@ -18226,7 +18226,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CLOUD_CONNECTOR_OPERATION__DESCRIPTION = ESB_ELEMENT__DESCRIPTION;
+	int CLOUD_CONNECTOR_OPERATION__DESCRIPTION = MEDIATOR__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD_CONNECTOR_OPERATION__REVERSE = MEDIATOR__REVERSE;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -18235,7 +18244,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR = ESB_ELEMENT_FEATURE_COUNT + 0;
+	int CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -18244,7 +18253,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CLOUD_CONNECTOR_OPERATION__OUTPUT_CONNECTOR = ESB_ELEMENT_FEATURE_COUNT + 1;
+	int CLOUD_CONNECTOR_OPERATION__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Connector Parameters</b></em>' containment reference list.
@@ -18253,7 +18262,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS = ESB_ELEMENT_FEATURE_COUNT + 2;
+	int CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Cloud Connector Operation</em>' class.
@@ -18262,7 +18271,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int CLOUD_CONNECTOR_OPERATION_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 3;
+	int CLOUD_CONNECTOR_OPERATION_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationInputConnectorImpl <em>Cloud Connector Operation Input Connector</em>}' class.

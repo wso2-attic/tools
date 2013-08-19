@@ -59,15 +59,6 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="CloudConnector"
-          description="Create new CloudConnector">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="CloudConnectorOperation"
           description="Create new CloudConnectorOperation">
         <smallIcon
@@ -580,6 +571,21 @@
           xsi:type="gmftool:CreationTool"
           title="MergeNode"
           description="Create New MergeNode"/>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Cloud Connectors"
+        collapsible="true"
+        stack="true">
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="CloudConnector"
+          description="Create new CloudConnector">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
     </tools>
   </palette>
 </gmftool:ToolRegistry>

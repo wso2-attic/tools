@@ -35,7 +35,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface CloudConnectorOperation extends EsbElement {
+public interface CloudConnectorOperation extends Mediator {
 	/**
 	 * Returns the value of the '<em><b>Input Connector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

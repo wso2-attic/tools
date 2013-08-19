@@ -2516,6 +2516,7 @@ public class EsbSwitch<T> extends Switch<T> {
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION: {
 				CloudConnectorOperation cloudConnectorOperation = (CloudConnectorOperation)theEObject;
 				T result = caseCloudConnectorOperation(cloudConnectorOperation);
+				if (result == null) result = caseMediator(cloudConnectorOperation);
 				if (result == null) result = caseEsbElement(cloudConnectorOperation);
 				if (result == null) result = caseEsbNode(cloudConnectorOperation);
 				if (result == null) result = defaultCase(theEObject);

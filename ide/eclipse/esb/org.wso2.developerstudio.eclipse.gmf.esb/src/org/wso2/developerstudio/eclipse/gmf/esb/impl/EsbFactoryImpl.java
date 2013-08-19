@@ -2356,10 +2356,12 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public CloudConnectorOperation createCloudConnectorOperation() {
 		CloudConnectorOperationImpl cloudConnectorOperation = new CloudConnectorOperationImpl();
+		cloudConnectorOperation.setInputConnector(createCloudConnectorOperationInputConnector());
+		cloudConnectorOperation.setOutputConnector(createCloudConnectorOperationOutputConnector());
 		return cloudConnectorOperation;
 	}
 

@@ -2348,7 +2348,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CloudConnectorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="CloudConnectorOutputConnector" eSuperTypes="#//OutputConnector"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CloudConnectorOperation" eSuperTypes="#//EsbElement">
+  <eClassifiers xsi:type="ecore:EClass" name="CloudConnectorOperation" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//CloudConnectorOperationInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//CloudConnectorOperationOutputConnector"

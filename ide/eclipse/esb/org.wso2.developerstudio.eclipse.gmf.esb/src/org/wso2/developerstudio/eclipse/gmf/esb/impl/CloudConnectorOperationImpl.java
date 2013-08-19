@@ -51,7 +51,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *
  * @generated
  */
-public class CloudConnectorOperationImpl extends EsbElementImpl implements CloudConnectorOperation {
+public class CloudConnectorOperationImpl extends MediatorImpl implements CloudConnectorOperation {
 	/**
 	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
 	 * <!-- begin-user-doc -->
