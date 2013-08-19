@@ -44,7 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  * @generated
  */
 public class CloudConnectorOperationItemProvider
-	extends EsbElementItemProvider
+	extends MediatorItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
