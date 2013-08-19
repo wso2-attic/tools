@@ -67,6 +67,9 @@ public class Artifact extends AbstractXMLDoc implements Observer{
 	private String  timestampedVersion;
 	private List<Observer> observers;
 	
+	public Artifact() {
+    }
+	
 	public Artifact(IFile source) {
 		setSource(source);
     }
