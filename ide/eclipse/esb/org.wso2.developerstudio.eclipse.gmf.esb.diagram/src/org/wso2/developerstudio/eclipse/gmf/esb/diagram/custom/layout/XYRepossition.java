@@ -31,10 +31,10 @@ public class XYRepossition {
 	}
 
 	private static void resizeEditpart(IGraphicalEditPart parent) {
-		int complexMediatorCompartmentGap=5;
+		int complexMediatorCompartmentGap = 5;
 		int arraowLength = 50;
 		int connectorLength = 5;
-		int constantY = 50;
+		int constantY = 60;
 		int p = parent.getChildren().size();
 		int x = (2 * connectorLength) + arraowLength;
 		int y = 0;
@@ -55,19 +55,39 @@ public class XYRepossition {
 					parent.getParent(), ((GraphicalEditPart) parent.getParent()).getFigure(),
 					constraints);
 			
-			if(parent instanceof MediatorFlowMediatorFlowCompartment5EditPart){
-			
-			((GraphicalEditPart) parent.getParent().getParent().getParent())
-					.setLayoutConstraint(parent.getParent().getParent(),
-							((GraphicalEditPart) parent.getParent().getParent()).getFigure(),
-							constraints);
+			if (parent instanceof MediatorFlowMediatorFlowCompartment5EditPart) {
+
+				if (p == 0) {
+					/*
+					 * Sequence doesn't contain any children, bring it to its
+					 * initial size
+					 */
+					constraints.setWidth(195);
+					constraints.setHeight(125);
+				}
+				((GraphicalEditPart) parent.getParent().getParent().getParent())
+						.setLayoutConstraint(parent.getParent().getParent(),
+								((GraphicalEditPart) parent.getParent().getParent()).getFigure(),
+								constraints);
 
 			}
 
-			AbstractMediator mediator=EditorUtils.getMediator(parent);
-			if(mediator instanceof complexFiguredAbstractMediator){
-			((IGraphicalEditPart)mediator).getFigure().getBounds().setWidth(x+90);
-			((IGraphicalEditPart)mediator).getFigure().getBounds().setHeight(y+(2*complexMediatorCompartmentGap));
+			AbstractMediator mediator = EditorUtils.getMediator(parent);
+			if (mediator instanceof complexFiguredAbstractMediator) {
+				int boundsWidth = x + 90;
+				int boundsHeight = y + (2 * complexMediatorCompartmentGap);
+				if(parent != null && parent.getChildren().size() == 0) {
+					/*
+					 * Complex mediator doesn't contain any children,
+					 * bring it to its initial size. 
+					 */
+					boundsWidth = 170;
+					boundsHeight = 100;
+				} 
+				
+				((IGraphicalEditPart) mediator).getFigure().getBounds().setWidth(boundsWidth);
+				((IGraphicalEditPart) mediator).getFigure().getBounds()
+						.setHeight(boundsHeight);
 			}
 			
 		}
@@ -85,17 +105,25 @@ public class XYRepossition {
 	private static void rearrangeChildren(IGraphicalEditPart editPart) {
 		
 		if((editPart instanceof AbstractMediatorFlowCompartmentEditPart)){
+			int verticalSpacing = 0;
 			int arraowLength = 50;
 			int connectorLength = 5;
 			int arrowAndtwoConnectorsLength = arraowLength + 2 * connectorLength;
-			int x = arrowAndtwoConnectorsLength - arraowLength;
+			int x = arrowAndtwoConnectorsLength - connectorLength;
 			ShapeNodeEditPart node = getLeftMostNodeFromEditPart(editPart);
 			
 			
 			while (node instanceof AbstractMediator) {
 				
 				int y = ((IGraphicalEditPart) editPart.getParent()).getFigure().getBounds().height / 2;
-				y = y - node.getFigure().getBounds().height / 2 - 10;
+				if(editPart instanceof MediatorFlowMediatorFlowCompartment5EditPart) {
+					// Title bar width of the sequences editor. 
+					verticalSpacing = 20;
+				} else {
+					verticalSpacing = 10;
+				}
+				
+				y = y - node.getFigure().getBounds().height / 2 - verticalSpacing;
 	
 				((AbstractMediator) node).x = x;
 				((AbstractMediator) node).y = y;
