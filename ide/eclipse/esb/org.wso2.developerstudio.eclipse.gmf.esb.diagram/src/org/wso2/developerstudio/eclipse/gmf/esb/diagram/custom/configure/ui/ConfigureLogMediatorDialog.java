@@ -318,16 +318,17 @@ public class ConfigureLogMediatorDialog extends Dialog {
 		{
 			TableColumn nameColumn = new TableColumn(logPropertiesTable,
 					SWT.LEFT);
+			TableColumn typeColumn = new TableColumn(logPropertiesTable,
+			        SWT.LEFT);
 			TableColumn valueColumn = new TableColumn(logPropertiesTable,
 					SWT.LEFT);
-			TableColumn typeColumn = new TableColumn(logPropertiesTable,
-					SWT.LEFT);
+			
 			nameColumn.setText("Name");
 			nameColumn.setWidth(150);
-			valueColumn.setText("Value/Expression");
-			valueColumn.setWidth(200);
 			typeColumn.setText("Type");
 			typeColumn.setWidth(150);
+			valueColumn.setText("Value/Expression");
+			valueColumn.setWidth(200);
 
 			logPropertiesTable.setHeaderVisible(true);
 			logPropertiesTable.setLinesVisible(true);
@@ -391,13 +392,13 @@ public class ConfigureLogMediatorDialog extends Dialog {
 				item.getParent());
 		cmbPropertyType = new Combo(item.getParent(), SWT.READ_ONLY);
 		cmbPropertyType.setItems(new String[] { "LITERAL", "EXPRESSION" });
-		cmbPropertyType.setText(item.getText(2));
-		propertyTypeEditor.setEditor(cmbPropertyType, item, 2);
+		cmbPropertyType.setText(item.getText(1));
+		propertyTypeEditor.setEditor(cmbPropertyType, item, 1);
 		item.getParent().redraw();
 		item.getParent().layout();
 		cmbPropertyType.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event evt) {
-				item.setText(2, cmbPropertyType.getText());
+				item.setText(1, cmbPropertyType.getText());
 			}
 		});
 		
@@ -405,14 +406,14 @@ public class ConfigureLogMediatorDialog extends Dialog {
 				item.getParent());
 		
 		propertyValue = new PropertyText(item.getParent(), SWT.NONE, cmbPropertyType);
-		propertyValue.addProperties(item.getText(1),expression);
-		propertyValueEditor.setEditor(propertyValue, item, 1);
+		propertyValue.addProperties(item.getText(2),expression);
+		propertyValueEditor.setEditor(propertyValue, item, 2);
 		item.getParent().redraw();
 		item.getParent().layout();
 		propertyValue.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent e) {
-				item.setText(1,propertyValue.getText());
+				item.setText(2,propertyValue.getText());
 				Object property = propertyValue.getProperty();
 				if(property instanceof NamespacedProperty){
 					item.setData("exp",(NamespacedProperty)property);
@@ -550,12 +551,12 @@ public class ConfigureLogMediatorDialog extends Dialog {
 				// Update the log property with the latest data from table row.
 				property.setPropertyName(item.getText(0));
 
-				if (item.getText(2).equals("LITERAL")) {
+				if (item.getText(1).equals("LITERAL")) {
 					property.setPropertyValueType(PropertyValueType.LITERAL);
-					property.setPropertyValue(item.getText(1));
+					property.setPropertyValue(item.getText(2));
 				}
 
-				if (item.getText(2).equals("EXPRESSION")) {
+				if (item.getText(1).equals("EXPRESSION")) {
 					property.setPropertyValueType(PropertyValueType.EXPRESSION);
 					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 							.createNamespacedProperty();
@@ -579,7 +580,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 					getResultCommand().append(setCmd);
 				}
 
-				if (item.getText(2).equals("LITERAL")) {
+				if (item.getText(1).equals("LITERAL")) {
 
 					SetCommand setCmdValueType = new SetCommand(
 							editingDomain,
@@ -587,16 +588,16 @@ public class ConfigureLogMediatorDialog extends Dialog {
 							EsbPackage.Literals.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_VALUE_TYPE,
 							PropertyValueType.LITERAL);
 					getResultCommand().append(setCmdValueType);
-					if (!property.getPropertyValue().equals(item.getText(1))) {
+					if (!property.getPropertyValue().equals(item.getText(2))) {
 						SetCommand setCmd = new SetCommand(
 								editingDomain,
 								property,
 								EsbPackage.Literals.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_VALUE,
-								item.getText(1));
+								item.getText(2));
 						getResultCommand().append(setCmd);
 					}
 				}
-				if (item.getText(2).equals("EXPRESSION")) {
+				if (item.getText(1).equals("EXPRESSION")) {
 					SetCommand setCmdValueType = new SetCommand(
 							editingDomain,
 							property,
@@ -607,7 +608,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 					if (property.getPropertyExpression() == null) {
 						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 								.createNamespacedProperty();
-						namespaceProperty.setPropertyValue(item.getText(1));
+						namespaceProperty.setPropertyValue(item.getText(2));
 						namespaceProperty.setNamespaces(expression.getNamespaces());
 
 						AddCommand addCmd = new AddCommand(
@@ -621,7 +622,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 								editingDomain,
 								property.getPropertyExpression(),
 								EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE,
-								item.getText(1));
+								item.getText(2));
 						getResultCommand().append(setCmd);
 						
 						setCmd = new SetCommand(
@@ -656,13 +657,13 @@ public class ConfigureLogMediatorDialog extends Dialog {
 		TableItem item = new TableItem(logPropertiesTable, SWT.NONE);
 		if (property.getPropertyValueType().getLiteral().equals("LITERAL")) {
 			item.setText(new String[] { property.getPropertyName(),
-					property.getPropertyValue(),
-					property.getPropertyValueType().getLiteral() });
+			        property.getPropertyValueType().getLiteral(),
+					property.getPropertyValue() });
 		}
 		if (property.getPropertyValueType().getLiteral().equals("EXPRESSION")) {
 			item.setText(new String[] { property.getPropertyName(),
-					property.getPropertyExpression().getPropertyValue(),
-					property.getPropertyValueType().getLiteral() });
+			        property.getPropertyValueType().getLiteral(),
+					property.getPropertyExpression().getPropertyValue() });
 		}
 
 		item.setData(property);
