@@ -292,6 +292,8 @@ public class EsbPropertySource extends PropertySource {
 			return new APIHandlersPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getTemplateEndpoint_Parameters().equals(feature)){
 	    	return new TemplateEndpointParametersPropertyDescriptor(object, itemPropertyDescriptor); 
+		} else if(pkg.getCloudConnectorOperation_ConnectorParameters().equals(feature)){
+			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

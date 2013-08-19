@@ -1,6 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -29,8 +30,10 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
@@ -79,7 +82,7 @@ public class CallTemplateParamDialog extends Dialog {
 	/**
 	 * {@link CallTemplateMediator} domain object.
 	 */
-	private CallTemplateMediator callTemplateMediator;
+	private Mediator mediator;
 	/**
 	 * Command for recording user operations.
 	 */
@@ -87,12 +90,12 @@ public class CallTemplateParamDialog extends Dialog {
 
 	
 	public CallTemplateParamDialog(Shell parentShell,
-			CallTemplateMediator callTemplateMediator,
+			Mediator mediator,
 			TransactionalEditingDomain editingDomain) {
 		super(parentShell);
 
 		this.editingDomain = editingDomain;
-		this.callTemplateMediator = callTemplateMediator;
+		this.mediator = mediator;
 		// Set title
 		parentShell.setText("Call Template Mediator Configuration.");
 	}
@@ -181,7 +184,13 @@ public class CallTemplateParamDialog extends Dialog {
 		paramTable.addListener(SWT.Selection, tblPropertiesListener);
 
 		// Populate params
-		for (CallTemplateParameter param : callTemplateMediator.getTemplateParameters()) {
+		EList<CallTemplateParameter> parameters = null;
+		if(mediator instanceof CallTemplateMediator){
+			parameters=((CallTemplateMediator)mediator).getTemplateParameters();
+		}else if(mediator instanceof CloudConnectorOperation){
+			parameters=((CloudConnectorOperation)mediator).getConnectorParameters();
+		}
+		for (CallTemplateParameter param : parameters) {
 			bindPram(param);
 		}
 
@@ -355,11 +364,14 @@ public class CallTemplateParamDialog extends Dialog {
 		TableItem item = paramTable.getItem(itemIndex);
 		CallTemplateParameter param = (CallTemplateParameter) item.getData();
 		if (param.eContainer() != null) {
-			RemoveCommand removeCmd = new RemoveCommand(
-					editingDomain,
-					callTemplateMediator,
-					EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS,
-					param);
+			RemoveCommand removeCmd=null;
+			if (mediator instanceof CallTemplateMediator) {
+				removeCmd = new RemoveCommand(editingDomain, mediator,
+						EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS, param);
+			} else if (mediator instanceof CloudConnectorOperation) {
+				removeCmd = new RemoveCommand(editingDomain, mediator,
+						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS, param);
+			}
 			getResultCommand().append(removeCmd);
 		}
 
@@ -394,11 +406,14 @@ public class CallTemplateParamDialog extends Dialog {
 					param.setParameterExpression(namespaceProperty);
 				}
 
-				AddCommand addCmd = new AddCommand(
-						editingDomain,
-						callTemplateMediator,
-						EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS,
-						param);
+				AddCommand addCmd =null;
+				if (mediator instanceof CallTemplateMediator) {
+					addCmd = new AddCommand(editingDomain, mediator,
+							EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS, param);					
+				} else if (mediator instanceof CloudConnectorOperation) {
+					addCmd = new AddCommand(editingDomain, mediator,
+							EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS, param);
+				}
 				getResultCommand().append(addCmd);
 
 			} else {

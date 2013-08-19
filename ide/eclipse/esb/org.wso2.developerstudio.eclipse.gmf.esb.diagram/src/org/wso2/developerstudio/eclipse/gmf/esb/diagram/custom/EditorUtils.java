@@ -416,14 +416,18 @@ public class EditorUtils {
 				.getActivePage().getActiveEditor();
 				for (int i = 0; i < editorReferences.length; i++) {
 					IEditorPart editor = editorReferences[i].getEditor(false);
-					if ((editor instanceof EsbMultiPageEditor)&&(!editor.equals(activeEditor))) {
+					if ((editor instanceof EsbMultiPageEditor)) {
 				        /*
 				         * This must be altered. 'addDefinedSequences' and 'addDefinedEndpoints' methods should not exist inside EsbPaletteFactory class. 
 				         * Creating new instance of 'EsbPaletteFactory' must be avoided.
 				         */
-				        EsbPaletteFactory esbPaletteFactory=new EsbPaletteFactory();
-				        esbPaletteFactory.addDefinedSequences(((EsbMultiPageEditor) editor).getGraphicalEditor());
-				        esbPaletteFactory.addDefinedEndpoints(((EsbMultiPageEditor) editor).getGraphicalEditor());
+						EsbPaletteFactory esbPaletteFactory=new EsbPaletteFactory();
+						if(!editor.equals(activeEditor)){					        
+					        esbPaletteFactory.addDefinedSequences(((EsbMultiPageEditor) editor).getGraphicalEditor());
+					        esbPaletteFactory.addDefinedEndpoints(((EsbMultiPageEditor) editor).getGraphicalEditor());					        
+						}else{
+							esbPaletteFactory.addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor());
+						}
 					}
 				}
 			}

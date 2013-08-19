@@ -17,9 +17,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.zip.ZipException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -44,6 +47,9 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
+import org.wso2.developerstudio.eclipse.capp.core.manifest.ArtifactDependency;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.Artifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.Artifacts;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
@@ -59,12 +65,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorZIPReader;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.NamedEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
@@ -87,6 +95,7 @@ public class EsbPaletteFactory {
 		paletteRoot.add(createEndPoints3Group());
 		paletteRoot.add(createLinks4Group());
 		//paletteRoot.add(createHelpers5Group());
+		paletteRoot.add(createCloudConnectors6Group());
 	}
 
 	/**
@@ -100,7 +109,6 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createProxyService2CreationTool());
 		//paletteContainer.add(createMessageMediator3CreationTool());	
 		paletteContainer.add(createAPIResource5CreationTool());
-		paletteContainer.add(createCloudConnector6CreationTool());
 		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
@@ -214,6 +222,18 @@ public class EsbPaletteFactory {
 	}
 
 	/**
+	 * Creates "Cloud Connectors" palette tool group
+	 * @generated NOT
+	 */
+	private PaletteContainer createCloudConnectors6Group() {
+		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.CloudConnectors6Group_title);
+		paletteContainer.setId("createCloudConnectors6Group"); //$NON-NLS-1$
+		paletteContainer.add(createCloudConnector1CreationTool());
+		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
+		return paletteContainer;
+	}
+
+	/**
 	 * @generated
 	 */
 	private ToolEntry createEsbServer1CreationTool() {
@@ -281,25 +301,12 @@ public class EsbPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createCloudConnector6CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.CloudConnector6CreationTool_title,
-				Messages.CloudConnector6CreationTool_desc,
-				Collections.singletonList(EsbElementTypes.CloudConnector_3719));
-		entry.setId("createCloudConnector6CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.CloudConnector_3719));
-		entry.setLargeIcon(entry.getSmallIcon());
-		return entry;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createCloudConnectorOperation7CreationTool() {
+	private ToolEntry createCloudConnectorOperation6CreationTool() {
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.CloudConnectorOperation7CreationTool_title,
-				Messages.CloudConnectorOperation7CreationTool_desc,
+				Messages.CloudConnectorOperation6CreationTool_title,
+				Messages.CloudConnectorOperation6CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.CloudConnectorOperation_3722));
-		entry.setId("createCloudConnectorOperation7CreationTool"); //$NON-NLS-1$
+		entry.setId("createCloudConnectorOperation6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.CloudConnectorOperation_3722));
 		entry.setLargeIcon(entry.getSmallIcon());
@@ -1042,6 +1049,110 @@ public class EsbPaletteFactory {
 		return entry;
 	}
 
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCloudConnector1CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(Messages.CloudConnector1CreationTool_title,
+				Messages.CloudConnector1CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.CloudConnector_3719));
+		entry.setId("createCloudConnector1CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.CloudConnector_3719));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	public ArrayList<String> getCloudConnectorOperations() {
+		ArrayList<String> cloudConnectorOperations = new ArrayList<String>();
+		try {
+			CloudConnectorZIPReader cloudConnectorZIPReader = CloudConnectorZIPReader
+					.getInstance(new File(
+							"/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/twilio-connector.zip"));
+			InputStream inputStream = cloudConnectorZIPReader.getFileContentInZIP("artifacts.xml");
+
+			File artifactsFile = new File(
+					"/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector/artifacts.xml");
+
+			String artifactsContent = FileUtils.getContentAsString(artifactsFile);
+			/*			BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+			 String sCurrentLine;
+			 while ((sCurrentLine = br.readLine()) != null) {
+			 s=s.concat(sCurrentLine);
+			 }*/
+			Artifacts artifacts = new Artifacts();
+			artifacts.deserialize(artifactsContent);
+
+			for (ArtifactDependency artifactDependency : artifacts.getArtifactDependencies()) {
+				/*				InputStream inputStream2=cloudConnectorZIPReader.getFileContentInZIP(artifactDependency.getName());
+				 ZipEntry zipEntry=cloudConnectorZIPReader.getZipFile().getEntry(artifactDependency.getName());*/
+
+				File artifactFile = new File(
+						"/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector/"
+								+ artifactDependency.getName() + "/artifact.xml");
+				String artifactContent = FileUtils.getContentAsString(artifactFile);
+				Artifact artifact = new Artifact();
+				artifact.deserialize(artifactContent);
+				for (org.wso2.developerstudio.eclipse.capp.core.manifest.Artifact artifact_ : artifact
+						.getArtifacts()) {
+					cloudConnectorOperations.add(artifact_.getName());
+				}
+
+			}
+
+		} catch (ZipException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cloudConnectorOperations;
+	}
+
+	public void addCloudConnectorOperations(IEditorPart editor) {
+		ArrayList<String> cloudConnectorOperations = getCloudConnectorOperations();
+
+		boolean definedEndpointsAdded = false;
+		int indexOfDefinedEndpoints = 0;
+
+		List<?> list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
+				.getPaletteViewer().getPaletteRoot().getChildren();
+		for (int i = 0; i < list.size(); ++i) {
+			if (list.get(i) instanceof PaletteDrawer) {
+				if ("CloudConnector-Twilio".equals(((PaletteDrawer) list.get(i)).getId())) {
+					definedEndpointsAdded = true;
+					indexOfDefinedEndpoints = i;
+					break;
+				}
+			}
+		}
+
+		if (!definedEndpointsAdded) {
+			((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
+					.getPaletteViewer()
+					.getPaletteRoot()
+					.add(createCloudConnectorGroup("Twilio Cloud Connector",
+							"CloudConnector-Twilio"));
+			indexOfDefinedEndpoints = list.size() - 1;
+		}/*
+			if (indexOfDefinedEndpoints == 0) {
+			indexOfDefinedEndpoints = list.size()-1;
+			}*/
+		PaletteContainer container = ((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)
+				.getDiagramEditDomain()).getPaletteViewer().getPaletteRoot().getChildren()
+				.get(indexOfDefinedEndpoints));
+		container.getChildren().clear();
+		for (int k = 0; k < cloudConnectorOperations.size(); ++k) {
+			container
+					.add(createCloudConnectorOperationCreationTool(cloudConnectorOperations.get(k)));
+			//NamedEndpointEditPart.definedEndpointsNames.add(cloudConnectorOperations.get(k));
+		}
+
+	}
+
 	public void addDefinedSequences(IEditorPart editor) {
 		ArrayList<String> definedSequences = addDefinedArtifacts(editor, SEQUENCE_RESOURCE_DIR,
 				"synapse/sequence");
@@ -1313,6 +1424,24 @@ public class EsbPaletteFactory {
 		paletteContainer.setId("DefinedEndpoints"); //$NON-NLS-1$
 		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
+	}
+
+	private PaletteContainer createCloudConnectorGroup(String name, String ID) {
+		PaletteDrawer paletteContainer = new PaletteDrawer(name);
+		paletteContainer.setId(ID); //$NON-NLS-1$
+		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
+		return paletteContainer;
+	}
+
+	private ToolEntry createCloudConnectorOperationCreationTool(String name) {
+		NodeToolEntry entry = new NodeToolEntry(name,
+				Messages.CloudConnectorOperation6CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.CloudConnectorOperation_3722));
+		entry.setId("createCloudConnectorOperation6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.CloudConnectorOperation_3722));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
 	}
 
 	private ToolEntry createDefinedSequenceCreationTool(String name) {

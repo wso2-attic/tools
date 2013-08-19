@@ -7,6 +7,7 @@ public interface ToolPalleteDetails {
 	public int ENDPOINTS=3;
 	public int LINKS=4;
 	//public int HELPERS=5;
-	public int SEQUENCE=5;
-	public int DEFINED_ENDPOINT=6;
+	public int CLOUD_CONNECTORS=4;
+	public int SEQUENCE=6;
+	public int DEFINED_ENDPOINT=7;
 }

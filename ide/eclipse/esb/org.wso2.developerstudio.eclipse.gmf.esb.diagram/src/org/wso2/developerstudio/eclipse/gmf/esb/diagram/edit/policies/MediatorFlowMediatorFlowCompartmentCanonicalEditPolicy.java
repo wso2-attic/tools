@@ -34,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorOperationEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorEditPart;
@@ -187,6 +188,7 @@ public class MediatorFlowMediatorFlowCompartmentCanonicalEditPolicy extends Cano
 		case HTTPEndpointEditPart.VISUAL_ID:
 		case TemplateEndpointEditPart.VISUAL_ID:
 		case CloudConnectorEditPart.VISUAL_ID:
+		case CloudConnectorOperationEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

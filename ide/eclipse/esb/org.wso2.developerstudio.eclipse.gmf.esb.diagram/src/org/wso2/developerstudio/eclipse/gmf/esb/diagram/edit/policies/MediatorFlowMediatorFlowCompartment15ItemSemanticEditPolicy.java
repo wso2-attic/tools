@@ -15,6 +15,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CalloutMed
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ClassMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CloneMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CloudConnectorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CloudConnectorOperationCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CommandMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ConditionalRouterMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBLookupMediatorCreateCommand;
@@ -240,6 +241,9 @@ public class MediatorFlowMediatorFlowCompartment15ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.CloudConnector_3719 == req.getElementType()) {
 			return getGEFWrapper(new CloudConnectorCreateCommand(req));
+		}
+		if (EsbElementTypes.CloudConnectorOperation_3722 == req.getElementType()) {
+			return getGEFWrapper(new CloudConnectorOperationCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

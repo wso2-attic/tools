@@ -124,7 +124,6 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 				if(!DEFAULT_VALUE.equals(getValue().toString())){				
 					try {
 						String source = FileUtils.getContentAsString(new File(path));
-						System.out.println(source);
 						OMElement element = AXIOMUtil.stringToOM(source);
 	
 						if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {

@@ -10,7 +10,9 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.CallTemplateParamDialog;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.ConfigureLogMediatorDialog;
 
@@ -27,10 +29,15 @@ public class CallTemplateParamCustomPropertyDescriptor extends PropertyDescripto
 			protected Object openDialogBox(Control cellEditorWindow) {
 				Display display = Display.getDefault();
 				Shell shell = new Shell(display);
-				CallTemplateMediator callTemplateMediator = (CallTemplateMediator)object;
+				Mediator mediator =(Mediator)object;
+				if(mediator instanceof CallTemplateMediator){
+					mediator = (CallTemplateMediator)mediator;
+				}else if(mediator instanceof CloudConnectorOperation){
+					mediator = (CloudConnectorOperation)mediator;
+				}
 			
 				CallTemplateParamDialog callTemplateParamDialog = new CallTemplateParamDialog(shell,
-						callTemplateMediator,TransactionUtil.getEditingDomain(callTemplateMediator));
+						mediator,TransactionUtil.getEditingDomain(mediator));
 				callTemplateParamDialog.setBlockOnOpen(true);
 				callTemplateParamDialog.open();
 				return null;

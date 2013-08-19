@@ -268,6 +268,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String CloudConnectors6Group_title;
+
+	/**
+	 * @generated
+	 */
 	public static String EsbServer1CreationTool_title;
 
 	/**
@@ -318,22 +323,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CloudConnector6CreationTool_title;
+	public static String CloudConnectorOperation6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CloudConnector6CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CloudConnectorOperation7CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CloudConnectorOperation7CreationTool_desc;
+	public static String CloudConnectorOperation6CreationTool_desc;
 
 	/**
 	 * @generated
@@ -864,6 +859,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String MergeNode1CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String CloudConnector1CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CloudConnector1CreationTool_desc;
 
 	/**
 	 * @generated

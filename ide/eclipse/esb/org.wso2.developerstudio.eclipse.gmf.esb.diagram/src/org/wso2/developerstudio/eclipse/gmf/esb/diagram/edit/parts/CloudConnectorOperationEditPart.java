@@ -1,13 +1,30 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Properties;
+
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.synapse.config.xml.TemplateMediatorFactory;
+import org.apache.synapse.mediators.template.TemplateMediator;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.xml.type.internal.QName;
+import org.eclipse.emf.edit.command.DeleteCommand;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -26,17 +43,35 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.widgets.Shell;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CloudConnectorOperationCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CloudConnectorOperationItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPart {
+public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator {
 
 	/**
 	 * @generated
@@ -48,10 +83,9 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 	 */
 	protected IFigure contentPane;
 
-	/**
-	 * @generated
-	 */
-	protected IFigure primaryShape;
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	private static final String synapseNS = "http://ws.apache.org/ns/synapse";
+	private Properties properties = new Properties();
 
 	/**
 	 * @generated
@@ -60,8 +94,59 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 		super(view);
 	}
 
+	@Override
+	public void activate() {
+		// TODO Auto-generated method stub
+		super.activate();
+		fillConnectorOperationParameters();
+	}
+
+	protected void fillConnectorOperationParameters() {
+		TransactionalEditingDomain editingDomain = null;
+		String path = "/home/viraj/Downloads/twilio-connector/twilio-cloud-connector-queue/"
+				+ "createQueue" + ".xml";
+
+		try {
+			String source = FileUtils.getContentAsString(new File(path));
+			OMElement element = AXIOMUtil.stringToOM(source);
+
+			if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+				TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
+				TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
+						.createMediator(element, properties);
+				editingDomain = getEditingDomain();
+				DeleteCommand modelDeleteCommand = new DeleteCommand(editingDomain,
+						((CloudConnectorOperation) ((Node) getModel()).getElement())
+								.getConnectorParameters());
+				if (modelDeleteCommand.canExecute()) {
+					editingDomain.getCommandStack().execute(modelDeleteCommand);
+				}
+				for (String parameter : templateMediator.getParameters()) {
+					final CallTemplateParameter callTemplateParameter = EsbFactory.eINSTANCE
+							.createCallTemplateParameter();
+					callTemplateParameter.setParameterName(parameter);
+					RecordingCommand command = new RecordingCommand(editingDomain) {
+						protected void doExecute() {
+							((CloudConnectorOperation) ((Node) getModel()).getElement())
+									.getConnectorParameters().add(callTemplateParameter);
+						}
+					};
+					if (command.canExecute()) {
+						editingDomain.getCommandStack().execute(command);
+					}
+				}
+			}
+		} catch (XMLStreamException e) {
+			log.error("Error occured while parsing selected template file", e);
+			//ErrorDialog.openError(shell,"Error occured while parsing selected template file", e.getMessage(), null);
+		} catch (IOException e) {
+			log.error("Error occured while reading selected template file", e);
+			//ErrorDialog.openError(shell,"Error occured while reading selected template file", e.getMessage(), null);
+		}
+	}
+
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
@@ -70,9 +155,12 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new CloudConnectorOperationItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new CloudConnectorOperationCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -109,10 +197,18 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new CloudConnectorOperationFigure();
+		return primaryShape = new CloudConnectorOperationFigure() {
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);
+				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
+					getMostSuitableElementToConnect();
+					reAllocate(rect);
+				}
+			};
+		};
 	}
 
 	/**
@@ -123,7 +219,7 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CloudConnectorOperationDescriptionEditPart) {
@@ -132,19 +228,19 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 			return true;
 		}
 		if (childEditPart instanceof CloudConnectorOperationInputConnectorEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.WEST);
-			getBorderedFigure().getBorderItemContainer().add(
-					((CloudConnectorOperationInputConnectorEditPart) childEditPart).getFigure(),
-					locator);
+			IFigure borderItemFigure = ((CloudConnectorOperationInputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, 0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		if (childEditPart instanceof CloudConnectorOperationOutputConnectorEditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.EAST);
-			getBorderedFigure().getBorderItemContainer().add(
-					((CloudConnectorOperationOutputConnectorEditPart) childEditPart).getFigure(),
-					locator);
+			IFigure borderItemFigure = ((CloudConnectorOperationOutputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.EAST, 0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		return false;
@@ -295,9 +391,9 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class CloudConnectorOperationFigure extends RoundedRectangle {
+	public class CloudConnectorOperationFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
@@ -305,23 +401,23 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 		private WrappingLabel fFigureCloudConnectorOperationDescriptionFigure;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public CloudConnectorOperationFigure() {
 
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
-			this.setLayoutManager(layoutThis);
+			/*			GridLayout layoutThis = new GridLayout();
+			 layoutThis.numColumns = 1;
+			 layoutThis.makeColumnsEqualWidth = true;
+			 this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			this.setLineStyle(Graphics.LINE_DASH);
+			 this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			 this.setLineStyle(Graphics.LINE_DASH);*/
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private void createContents() {
 
@@ -329,7 +425,8 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 
 			fFigureCloudConnectorOperationDescriptionFigure.setText("<...>");
 
-			this.add(fFigureCloudConnectorOperationDescriptionFigure);
+			//this.add(fFigureCloudConnectorOperationDescriptionFigure);
+			fFigureCloudConnectorOperationDescriptionFigure = getPropertyNameLabel();
 
 		}
 
@@ -338,6 +435,18 @@ public class CloudConnectorOperationEditPart extends AbstractBorderedShapeEditPa
 		 */
 		public WrappingLabel getFigureCloudConnectorOperationDescriptionFigure() {
 			return fFigureCloudConnectorOperationDescriptionFigure;
+		}
+
+		public String getIconPath() {
+			return "icons/ico20/log-mediator.gif";
+		}
+
+		public String getNodeName() {
+			return "Cloud Connector";
+		}
+
+		public IFigure getToolTip() {
+			return new Label("Connect with Cloud");
 		}
 
 	}

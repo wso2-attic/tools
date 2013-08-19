@@ -45,6 +45,7 @@ import org.eclipse.ui.navigator.resources.ProjectExplorer;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.IShowInTargetList;
 import org.eclipse.ui.part.ShowInContext;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.extensions.CustomPaletteToolTransferDropTargetListener;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorItem;
 
 /**
@@ -305,6 +306,8 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 		getDiagramGraphicalViewer().setContextMenu(provider);
 		getSite().registerContextMenu(ActionIds.DIAGRAM_EDITOR_CONTEXT_MENU, provider,
 				getDiagramGraphicalViewer());
+		getDiagramGraphicalViewer().addDropTargetListener(
+				new CustomPaletteToolTransferDropTargetListener(getGraphicalViewer()));
 
 	}
 
