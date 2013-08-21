@@ -46,7 +46,9 @@ public class XYRepossition {
 				y = bound.height;
 			}
 		}
+		
 		y = y + constantY;
+		
 		if (parent instanceof AbstractMediatorFlowCompartmentEditPart) {
 	
 			Rectangle constraints = new Rectangle(0, 100, x, y);
@@ -55,6 +57,12 @@ public class XYRepossition {
 					parent.getParent(), ((GraphicalEditPart) parent.getParent()).getFigure(),
 					constraints);
 			
+			/*
+			 * Set bounds since layout constraints are suppose to be applied in
+			 * next UI update, this bounds will be used in rearranging elements.
+			 */
+			((GraphicalEditPart) parent.getParent().getParent()).getFigure().setBounds(constraints);
+				
 			if (parent instanceof MediatorFlowMediatorFlowCompartment5EditPart) {
 
 				if (p == 0) {
@@ -68,8 +76,15 @@ public class XYRepossition {
 				((GraphicalEditPart) parent.getParent().getParent().getParent())
 						.setLayoutConstraint(parent.getParent().getParent(),
 								((GraphicalEditPart) parent.getParent().getParent()).getFigure(),
-								constraints);
-
+								constraints);	
+				
+				/*
+				 * Set bounds since layout constraints are suppose to be applied
+				 * in next UI update, this bounds will be used in rearranging
+				 * elements.
+				 */
+				((GraphicalEditPart) parent.getParent().getParent().getParent()).getFigure()
+						.setBounds(constraints);
 			}
 
 			AbstractMediator mediator = EditorUtils.getMediator(parent);
@@ -84,7 +99,6 @@ public class XYRepossition {
 					boundsWidth = 170;
 					boundsHeight = 100;
 				} 
-				
 				((IGraphicalEditPart) mediator).getFigure().getBounds().setWidth(boundsWidth);
 				((IGraphicalEditPart) mediator).getFigure().getBounds()
 						.setHeight(boundsHeight);
@@ -115,7 +129,7 @@ public class XYRepossition {
 			
 			while (node instanceof AbstractMediator) {
 				
-				int y = ((IGraphicalEditPart) editPart.getParent()).getFigure().getBounds().height / 2;
+				int y = ((IGraphicalEditPart) editPart.getParent().getParent()).getFigure().getBounds().height / 2;
 				if(editPart instanceof MediatorFlowMediatorFlowCompartment5EditPart) {
 					// Title bar width of the sequences editor. 
 					verticalSpacing = 20;

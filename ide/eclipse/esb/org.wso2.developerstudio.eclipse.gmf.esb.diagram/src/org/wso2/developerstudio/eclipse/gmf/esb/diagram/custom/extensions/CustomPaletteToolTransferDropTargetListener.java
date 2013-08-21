@@ -1,12 +1,14 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.extensions;
 
+import java.util.Collection;
+
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.diagram.ui.internal.parts.PaletteToolTransferDropTargetListener;
 import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.ui.PlatformUI;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.CallTemplateParamDialog;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.CloudConnectorInitialConfigurationDialog;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
-import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
 
 
 public class CustomPaletteToolTransferDropTargetListener extends
@@ -21,10 +23,17 @@ public class CustomPaletteToolTransferDropTargetListener extends
 	public void drop(DropTargetEvent event) {		
 		if(event.data instanceof NodeToolEntry){
 			if("createCloudConnector1CreationTool".equals(((NodeToolEntry)event.data).getId())){
-				CallTemplateParamDialog callTemplateParamDialog = new CallTemplateParamDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
-						EsbFactoryImpl.eINSTANCE.createCallTemplateMediator(),null);
-				callTemplateParamDialog.setBlockOnOpen(true);
-				callTemplateParamDialog.open();
+				Collection<String> cloudConnectorConfigurationParameters = null;
+				try {
+					cloudConnectorConfigurationParameters = CloudConnectorDirectoryTraverser.getInstance("/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector").getCloudConnectorConfigurationParameters();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
+				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
+				cloudConnectorConfigureDialog.setBlockOnOpen(true);
+				cloudConnectorConfigureDialog.open();
+			
 				return;
 			}
 		}
