@@ -16,9 +16,23 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputCon
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterFailContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterPassContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment7EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment8EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleOnAcceptContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleOnRejectContainerEditPart;
 
 public class XYRepossition {
 
@@ -133,6 +147,15 @@ public class XYRepossition {
 				if(editPart instanceof MediatorFlowMediatorFlowCompartment5EditPart) {
 					// Title bar width of the sequences editor. 
 					verticalSpacing = 20;
+				} else if(editPart instanceof MediatorFlowMediatorFlowCompartment7EditPart 		// filter pass
+						|| editPart instanceof MediatorFlowMediatorFlowCompartment8EditPart		// filter fail
+						|| editPart instanceof MediatorFlowMediatorFlowCompartment9EditPart		// throttle onaccept
+						|| editPart instanceof MediatorFlowMediatorFlowCompartment10EditPart	// throttle onreject
+						|| editPart instanceof MediatorFlowMediatorFlowCompartment2EditPart		// switch case
+						|| editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart		// switch default
+						|| editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart) { // clone target
+					//set 20 because of abov mediators have a title and we need space for those
+					verticalSpacing = 20;
 				} else {
 					verticalSpacing = 10;
 				}
@@ -172,10 +195,25 @@ public class XYRepossition {
 		ShapeNodeEditPart first = (ShapeNodeEditPart) parent.getParent().getParent();
 		ShapeNodeEditPart node = null;
 		AbstractOutputConnectorEditPart firstOutputConnector=null;
-		if(EditorUtils.getMediatorAdditionalOutputConnectors(first).size() ==0){
-			firstOutputConnector=EditorUtils.getOutputConnector(first);
-		}else{
-			firstOutputConnector=EditorUtils.getMediatorAdditionalOutputConnectors(first).get(0);
+		
+		if (first instanceof FilterPassContainerEditPart
+			|| first instanceof FilterFailContainerEditPart
+			|| first instanceof ThrottleOnAcceptContainerEditPart
+			|| first instanceof ThrottleOnRejectContainerEditPart
+			|| first instanceof SwitchCaseContainerEditPart
+			|| first instanceof SwitchDefaultContainerEditPart
+			|| first instanceof CloneTargetContainerEditPart) {
+			
+			int editPartIndex = getEditPartIndexFromParent(first);
+			ShapeNodeEditPart mediatorEditPart = (ShapeNodeEditPart) first.getParent().getParent();
+			firstOutputConnector = EditorUtils.getMediatorAdditionalOutputConnectors(mediatorEditPart).get(editPartIndex);
+			
+		} else{
+			if(EditorUtils.getMediatorAdditionalOutputConnectors(first).size() ==0){
+				firstOutputConnector=EditorUtils.getOutputConnector(first);
+			}else{
+				firstOutputConnector=EditorUtils.getMediatorAdditionalOutputConnectors(first).get(0);
+			}
 		}
 			
 			
@@ -188,6 +226,19 @@ public class XYRepossition {
 			}
 		}
 		return node;
+	}
+
+	private static int getEditPartIndexFromParent(ShapeNodeEditPart first) {
+		List<EditPart> siblings = first.getParent().getChildren();
+		int index = 0;
+		int editPartIndex = 0;
+		for (EditPart sibling : siblings) {
+			if (sibling.equals(first)) {
+				editPartIndex = index;
+			}
+			index++;
+		}
+		return editPartIndex;
 	}
 
 }
