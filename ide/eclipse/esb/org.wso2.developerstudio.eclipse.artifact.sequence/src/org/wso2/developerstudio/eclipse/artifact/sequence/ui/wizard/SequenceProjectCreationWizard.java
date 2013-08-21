@@ -56,6 +56,7 @@ import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryIt
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
 import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfoDoc;
 import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
@@ -76,6 +77,14 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject project;
 
+
+	public void setProject(IProject project) {
+		this.project = project;
+	}
+	
+	public void setModel(ProjectDataModel model) {
+		super.setModel(model);
+	}
 
 	public SequenceProjectCreationWizard() {
 		this.seqModel = new SequenceModel();
@@ -175,7 +184,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
-	private boolean createSequenceArtifact(IProject prj,SequenceModel sequenceModel) throws Exception {
+	public boolean createSequenceArtifact(IProject prj,SequenceModel sequenceModel) throws Exception {
         boolean isNewArtifact =true;
         IContainer location = project.getFolder("src" + File.separator + "main"
 				+ File.separator + "synapse-config" + File.separator
@@ -240,7 +249,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		return true;
 	}
 	
-	private void createDynamicSequenceArtifact(IContainer location,SequenceModel sequenceModel) throws Exception{
+	public void createDynamicSequenceArtifact(IContainer location,SequenceModel sequenceModel) throws Exception{
 		
 		addGeneralProjectPlugin(project);
 		File pomLocation = project.getFile("pom.xml").getLocation().toFile();

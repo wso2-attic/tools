@@ -23,6 +23,8 @@ import java.util.List;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.RootEditPart;
@@ -35,6 +37,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
@@ -543,5 +546,31 @@ public class EditorUtils {
 			}
 		}
 		return false;
+	}
+	
+	/**
+	 * Return the active editor
+	 */
+	public static IProject getActiveProject() {
+		IEditorPart editorPart = null;
+		IProject activeProject = null;
+		IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage().getEditorReferences();
+		for (int i = 0; i < editorReferences.length; i++) {
+			IEditorPart editor = editorReferences[i].getEditor(false);
+
+			if (editor != null) {
+				editorPart = editor.getSite().getWorkbenchWindow().getActivePage()
+						.getActiveEditor();
+			}
+
+			if (editorPart != null) {
+				IFileEditorInput input = (IFileEditorInput) editorPart.getEditorInput();
+				IFile file = input.getFile();
+				activeProject = file.getProject();
+
+			}
+		}
+		return activeProject;
 	}
 }

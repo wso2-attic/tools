@@ -1,19 +1,16 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
+import java.io.File;
 import java.util.Collection;
 
-import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -29,14 +26,14 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PlatformUI;
-import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
-import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
+import org.wso2.developerstudio.eclipse.artifact.sequence.model.SequenceModel;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.factory.SequenceFileCreator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class CloudConnectorInitialConfigurationDialog extends Dialog {
     /**
@@ -51,43 +48,14 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	 * Table for add/edit/remove parameters.
 	 */
 	private Table paramTable;
-	/**
-	 * Table Editors
-	 */
-	private TableEditor paramTypeEditor;
-	private TableEditor paramNameEditor;
-	private TableEditor paramValueEditor;
-	/**
-	 * Table widgets
-	 */
-	private Combo cmbParamType;
-	private Text txtParamName;
-	private PropertyText paramValue;
-	/**
-	 * Button for add new parameter.
-	 */
-	private Button newParamButton;
 	
 	private Text nameText;
 	private Label configurationNameLabel;
 	private String configName;
-	/**
-	 * Button for remove parameter.
-	 */
-	private Button removeParamButton;
-	/**
-	 * Editing domain.
-	 */
-	private TransactionalEditingDomain editingDomain;
-	/**
-	 * {@link CallTemplateMediator} domain object.
-	 */
-	private Mediator mediator;
-	/**
-	 * Command for recording user operations.
-	 */
-	private CompoundCommand resultCommand;
 	private Collection<String> parameters;
+	private Label saveOptionLabel;
+	private Combo saveOptionCombo;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	public CloudConnectorInitialConfigurationDialog(Shell parent,Collection<String> parameters) {
 		super(parent);
@@ -108,7 +76,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		{
 			configurationNameLabel.setText("Name: ");
 			FormData logCategoryLabelLayoutData = new FormData(80,SWT.DEFAULT);
-			logCategoryLabelLayoutData.top = new FormAttachment(0, 5);
+			logCategoryLabelLayoutData.top = new FormAttachment(0, 10);
 			logCategoryLabelLayoutData.left = new FormAttachment(0);
 			configurationNameLabel.setLayoutData(logCategoryLabelLayoutData);
 		}
@@ -131,54 +99,27 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		});
 		
 		
-		// Button for add new parameter.
-		newParamButton = new Button(container, SWT.NONE);
+		saveOptionLabel = new Label(container, SWT.NONE);
 		{
-			newParamButton.setText("New...");
-			FormData logCategoryComboLayoutData = new FormData(80,SWT.DEFAULT);
-			logCategoryComboLayoutData.top = new FormAttachment(
-					nameText, 10);
-			logCategoryComboLayoutData.right = new FormAttachment(100);
-			newParamButton.setLayoutData(logCategoryComboLayoutData);
+			saveOptionLabel.setText("Save as : ");
+			FormData logCategoryLabelLayoutData1 = new FormData(80,SWT.DEFAULT);
+			logCategoryLabelLayoutData1.top = new FormAttachment(configurationNameLabel, 20);
+			logCategoryLabelLayoutData1.left = new FormAttachment(0);
+			saveOptionLabel.setLayoutData(logCategoryLabelLayoutData1);
 		}
-
-		newParamButton.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-/*				TableItem item = bindPram(EsbFactory.eINSTANCE
-						.createCallTemplateParameter());
-				paramTable.select(paramTable.indexOf(item));*/
-			}
-		});
-
-		// Button for remove parameter.
-		removeParamButton = new Button(container, SWT.NONE);
-		removeParamButton.setText("Remove");
-		FormData removeLogPropertyButtonLayoutData = new FormData(80,SWT.DEFAULT);
-		removeLogPropertyButtonLayoutData.top = new FormAttachment(
-				newParamButton, 5);
-		removeLogPropertyButtonLayoutData.right = new FormAttachment(100);
-		removeLogPropertyButtonLayoutData.left = new FormAttachment(
-				newParamButton, 0, SWT.LEFT);
-		removeParamButton.setLayoutData(removeLogPropertyButtonLayoutData);
-
-		removeParamButton.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event event) {
-				int selectedIndex = paramTable.getSelectionIndex();
-				if (-1 != selectedIndex) {
-/*					initTableEditor(paramNameEditor, paramTable);
-					initTableEditor(paramTypeEditor, paramTable);
-					initTableEditor(paramValueEditor, paramTable);
-					unbindParam(selectedIndex);*/
-
-					// Select the next available candidate for deletion.
-					if (selectedIndex < paramTable.getItemCount()) {
-						paramTable.select(selectedIndex);
-					} else {
-						paramTable.select(selectedIndex - 1);
-					}
-				}
-			}
-		});
+		
+		saveOptionCombo = new Combo(container, SWT.DROP_DOWN | SWT.READ_ONLY);
+		{
+			saveOptionCombo.add("Inline Config");
+			saveOptionCombo.add("Sequence Config");
+			saveOptionCombo.select(0);
+			FormData logCategoryComboLayoutData = new FormData(160,SWT.DEFAULT);
+			logCategoryComboLayoutData.top = new FormAttachment(
+					saveOptionLabel, 0, SWT.CENTER);
+			logCategoryComboLayoutData.left = new FormAttachment(
+					saveOptionLabel, 5);
+			saveOptionCombo.setLayoutData(logCategoryComboLayoutData);
+		}
 
 		// Table for show the parameters.
 		paramTable = new Table(container, SWT.BORDER | SWT.FULL_SELECTION
@@ -211,13 +152,6 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 
 		paramTable.addListener(SWT.Selection, tblPropertiesListener);
 
-		// Populate params
-/*		EList<CallTemplateParameter> parameters = null;
-		if(mediator instanceof CallTemplateMediator){
-			parameters=((CallTemplateMediator)mediator).getTemplateParameters();
-		}else if(mediator instanceof CloudConnectorOperation){
-			parameters=((CloudConnectorOperation)mediator).getConnectorParameters();
-		}*/
 		for (String param : parameters) {
 			bindPram(param);
 		}
@@ -225,11 +159,8 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		//setupTableEditor(paramTable);
 
 		FormData logPropertiesTableLayoutData = new FormData(SWT.DEFAULT, 150);
-		logPropertiesTableLayoutData.top = new FormAttachment(newParamButton,
-				0, SWT.TOP);
+		logPropertiesTableLayoutData.top = new FormAttachment(saveOptionLabel, 20);
 		logPropertiesTableLayoutData.left = new FormAttachment(0);
-		logPropertiesTableLayoutData.right = new FormAttachment(newParamButton,
-				-5);
 		logPropertiesTableLayoutData.bottom = new FormAttachment(100);
 		paramTable.setLayoutData(logPropertiesTableLayoutData);
 
@@ -248,8 +179,21 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	
 	@Override
 	protected void okPressed() {
-		// TODO Auto-generated method stub
 		super.okPressed();
+		SequenceModel sequenceModel=new SequenceModel();
+        IContainer location = EditorUtils.getActiveProject().getFolder("src" + File.separator + "main"
+				+ File.separator + "synapse-config" + File.separator
+				+ "sequences");
+		sequenceModel.setSequenceSaveLocation(location);
+		sequenceModel.setSequenceName(configName);
+		try {
+			sequenceModel.setSelectedOption("");
+			SequenceFileCreator sequenceFileCreator=new SequenceFileCreator(sequenceModel);
+			sequenceFileCreator.createSequenceFile();
+		} catch (Exception e) {
+			log.error("Error occured while creating the sequence file", e);
+		}
+		
 		Display.getCurrent().asyncExec(new Runnable() {			
 			public void run() {
 				IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
