@@ -145,6 +145,8 @@ public List<String> getUpdateFields(String modelProperty,
 			updateFields.add(RegistryArtifactConstants.DATA_COPY_CONTENT);
 		}  else if (modelProperty.equals("create.prj")) {
 			updateFields.add("save.file");
+		}  else if (modelProperty.equals(RegistryArtifactConstants.DATA_RESOURCE_TYPE)) {
+			updateFields.add(RegistryArtifactConstants.DATA_REG_LOCATION);
 		} 
 		
 		if (("resource.name".equals(modelProperty))

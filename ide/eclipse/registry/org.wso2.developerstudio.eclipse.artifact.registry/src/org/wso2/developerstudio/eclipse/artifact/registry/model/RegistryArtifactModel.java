@@ -17,13 +17,12 @@
 package org.wso2.developerstudio.eclipse.artifact.registry.model;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -36,7 +35,6 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
-import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class RegistryArtifactModel extends ProjectDataModel {
 	
@@ -44,12 +42,43 @@ public class RegistryArtifactModel extends ProjectDataModel {
 	
 	private IContainer resourceSaveLocation;
 	private RegistryTemplate selectedTemplate;
-	private String registryPath="endpoints/";
+	private String registryPath="custom/";
 	private String registryPartition;
 	private String resourceName;
 	private String artifactName="";
 	private boolean copyContent;
 	private RegistryResourceNode checkoutPath;
+	private static Map<String, String > registryPrefix = new HashMap<String, String >();
+	
+	static{
+		//FIXME: move hard-coded vales to template ext-point
+		registryPrefix.put("custom", "custom/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.sequence", "sequences/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.ep1", "endpoints/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.ep2", "endpoints/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.ep5", "endpoints/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.ep3", "endpoints/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.ep4", "endpoints/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.ep6", "endpoints/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.smooks", "smooks/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.proxy3", "proxies/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.proxy6", "proxies/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.proxy1", "proxies/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.proxy2", "proxies/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.proxy4", "proxies/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.proxy5", "proxies/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.css", "css/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.html", "html/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.js", "js/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.sql", "sql/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.xsl", "xsl/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.xslt", "xslt/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.wsdl", "wsdl/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.sq_template", "templates/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.Address", "templates/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.default", "templates/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.wsdl", "templates/");
+	}
 	
 	public RegistryArtifactModel() {
 	
@@ -135,7 +164,7 @@ public class RegistryArtifactModel extends ProjectDataModel {
 			if (key.equals(RegistryArtifactConstants.DATA_RESOURCE_TYPE)) {
 				modelPropertyValue = getSelectedTemplate();
 			} else if (key.equals(RegistryArtifactConstants.DATA_REG_LOCATION)) {
-				modelPropertyValue = getRegistryPath();
+				modelPropertyValue = getRegistryPrefix(selectedTemplate); //getRegistryPath();
 			} else if (key.equals(RegistryArtifactConstants.DATA_RESOURCE_NAME)) {
 				modelPropertyValue = getResourceName();
 			} else if (key.equals(RegistryArtifactConstants.DATA_SAVE_FILE)) {
@@ -250,6 +279,34 @@ public class RegistryArtifactModel extends ProjectDataModel {
 	 */
 	public String getRegistryPartition() {
 		return registryPartition;
+	}
+	
+	/**
+	 * 
+	 * @param template
+	 * @return the registryPrefix
+	 */
+	public String getRegistryPrefix(RegistryTemplate template) {
+		if (template != null
+				&& getSelectedOption().equals(RegistryArtifactConstants.OPTION_NEW_RESOURCE)) {
+			if (registryPrefix.containsKey(template.getId())) {
+				if (registryPrefix.values().contains(registryPath)) {
+					String prefix = registryPrefix.get(template.getId());
+					setRegistryPath(prefix);
+					return prefix;
+				}
+			}
+		}
+		return registryPath;
+	}
+	
+	@Override
+	public void setSelectedOption(String selectedOption)
+			throws ObserverFailedException {
+		if (!RegistryArtifactConstants.OPTION_NEW_RESOURCE.equals(selectedOption)) {
+			setRegistryPath("custom/");
+		}
+		super.setSelectedOption(selectedOption);
 	}
 	
 	
