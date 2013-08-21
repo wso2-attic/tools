@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ScopeType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getValueExpression <em>Value Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getValueInline <em>Value Inline</em>}</li>
  * </ul>
  * </p>
  *
@@ -163,6 +164,26 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @ordered
 	 */
 	protected HeaderMediatorOutputConnector outputConnector;
+
+	/**
+	 * The default value of the '{@link #getValueInline() <em>Value Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueInline()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_INLINE_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getValueInline() <em>Value Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueInline()
+	 * @generated
+	 * @ordered
+	 */
+	protected String valueInline = VALUE_INLINE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -459,6 +480,27 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getValueInline() {
+		return valueInline;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValueInline(String newValueInline) {
+		String oldValueInline = valueInline;
+		valueInline = newValueInline;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.HEADER_MEDIATOR__VALUE_INLINE, oldValueInline, valueInline));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -500,6 +542,8 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 				return getInputConnector();
 			case EsbPackage.HEADER_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.HEADER_MEDIATOR__VALUE_INLINE:
+				return getValueInline();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -536,6 +580,9 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 				return;
 			case EsbPackage.HEADER_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((HeaderMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.HEADER_MEDIATOR__VALUE_INLINE:
+				setValueInline((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -574,6 +621,9 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 			case EsbPackage.HEADER_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((HeaderMediatorOutputConnector)null);
 				return;
+			case EsbPackage.HEADER_MEDIATOR__VALUE_INLINE:
+				setValueInline(VALUE_INLINE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -603,6 +653,8 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 				return inputConnector != null;
 			case EsbPackage.HEADER_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.HEADER_MEDIATOR__VALUE_INLINE:
+				return VALUE_INLINE_EDEFAULT == null ? valueInline != null : !VALUE_INLINE_EDEFAULT.equals(valueInline);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -626,6 +678,8 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		result.append(scope);
 		result.append(", valueLiteral: ");
 		result.append(valueLiteral);
+		result.append(", valueInline: ");
+		result.append(valueInline);
 		result.append(')');
 		return result.toString();
 	}

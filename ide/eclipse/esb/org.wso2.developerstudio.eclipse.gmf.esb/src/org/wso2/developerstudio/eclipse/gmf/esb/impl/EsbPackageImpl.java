@@ -10255,6 +10255,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getHeaderMediator_ValueInline() {
+		return (EAttribute)headerMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getHeaderMediatorInputConnector() {
 		return headerMediatorInputConnectorEClass;
 	}
@@ -14765,6 +14774,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(headerMediatorEClass, HEADER_MEDIATOR__VALUE_EXPRESSION);
 		createEReference(headerMediatorEClass, HEADER_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(headerMediatorEClass, HEADER_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(headerMediatorEClass, HEADER_MEDIATOR__VALUE_INLINE);
 
 		headerMediatorInputConnectorEClass = createEClass(HEADER_MEDIATOR_INPUT_CONNECTOR);
 
@@ -16598,6 +16608,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getHeaderMediator_ValueExpression(), this.getNamespacedProperty(), null, "valueExpression", null, 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHeaderMediator_InputConnector(), this.getHeaderMediatorInputConnector(), null, "inputConnector", null, 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHeaderMediator_OutputConnector(), this.getHeaderMediatorOutputConnector(), null, "outputConnector", null, 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeaderMediator_ValueInline(), ecorePackage.getEString(), "valueInline", "", 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(headerMediatorInputConnectorEClass, HeaderMediatorInputConnector.class, "HeaderMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -17481,6 +17492,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(headerValueTypeEEnum, HeaderValueType.class, "HeaderValueType");
 		addEEnumLiteral(headerValueTypeEEnum, HeaderValueType.LITERAL);
 		addEEnumLiteral(headerValueTypeEEnum, HeaderValueType.EXPRESSION);
+		addEEnumLiteral(headerValueTypeEEnum, HeaderValueType.INLINE);
 
 		initEEnum(scopeTypeEEnum, ScopeType.class, "ScopeType");
 		addEEnumLiteral(scopeTypeEEnum, ScopeType.DEFAULT);

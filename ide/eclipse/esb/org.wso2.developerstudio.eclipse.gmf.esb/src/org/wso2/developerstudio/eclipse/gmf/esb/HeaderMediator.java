@@ -23,6 +23,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getValueExpression <em>Value Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getValueInline <em>Value Inline</em>}</li>
  * </ul>
  * </p>
  *
@@ -251,5 +252,32 @@ public interface HeaderMediator extends Mediator {
 	 * @generated
 	 */
 	void setOutputConnector(HeaderMediatorOutputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Inline</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Inline</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Inline</em>' attribute.
+	 * @see #setValueInline(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getHeaderMediator_ValueInline()
+	 * @model default=""
+	 * @generated
+	 */
+	String getValueInline();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getValueInline <em>Value Inline</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Inline</em>' attribute.
+	 * @see #getValueInline()
+	 * @generated
+	 */
+	void setValueInline(String value);
 
 } // HeaderMediator

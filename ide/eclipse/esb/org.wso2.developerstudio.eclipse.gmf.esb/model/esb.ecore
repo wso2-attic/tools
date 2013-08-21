@@ -1312,6 +1312,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//HeaderMediatorOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueInline" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="HeaderMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="HeaderMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
@@ -1322,6 +1324,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="HeaderValueType">
     <eLiterals name="LITERAL"/>
     <eLiterals name="EXPRESSION" value="1"/>
+    <eLiterals name="INLINE" value="2" literal="INLINE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ScopeType">
     <eLiterals name="DEFAULT" literal="default"/>

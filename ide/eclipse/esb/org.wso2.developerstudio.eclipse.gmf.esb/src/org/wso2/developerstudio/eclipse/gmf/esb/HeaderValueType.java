@@ -40,7 +40,15 @@ public enum HeaderValueType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	EXPRESSION(1, "EXPRESSION", "EXPRESSION");
+	EXPRESSION(1, "EXPRESSION", "EXPRESSION"), /**
+	 * The '<em><b>INLINE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INLINE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INLINE(2, "INLINE", "INLINE");
 
 	/**
 	 * The '<em><b>LITERAL</b></em>' literal value.
@@ -73,6 +81,21 @@ public enum HeaderValueType implements Enumerator {
 	public static final int EXPRESSION_VALUE = 1;
 
 	/**
+	 * The '<em><b>INLINE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>INLINE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #INLINE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int INLINE_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Header Value Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +105,7 @@ public enum HeaderValueType implements Enumerator {
 		new HeaderValueType[] {
 			LITERAL,
 			EXPRESSION,
+			INLINE,
 		};
 
 	/**
@@ -134,6 +158,7 @@ public enum HeaderValueType implements Enumerator {
 		switch (value) {
 			case LITERAL_VALUE: return LITERAL;
 			case EXPRESSION_VALUE: return EXPRESSION;
+			case INLINE_VALUE: return INLINE;
 		}
 		return null;
 	}

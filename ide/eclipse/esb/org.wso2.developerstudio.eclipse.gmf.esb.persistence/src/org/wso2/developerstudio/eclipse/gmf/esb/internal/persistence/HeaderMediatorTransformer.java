@@ -1,9 +1,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.namespace.QName;
 
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -46,20 +49,45 @@ public class HeaderMediatorTransformer extends AbstractEsbNodeTransformer{
 		 */
 		org.apache.synapse.mediators.transform.HeaderMediator headerMediator = new org.apache.synapse.mediators.transform.HeaderMediator();	
 		{
-			if(!visualHeader.getHeaderName().getNamespaces().keySet().isEmpty()){
-				String prefix=(String) visualHeader.getHeaderName().getNamespaces().keySet().toArray()[0];
-				String namespaceUri=visualHeader.getHeaderName().getNamespaces().get(visualHeader.getHeaderName().getNamespaces().keySet().toArray()[0]);			
-				String localPart=visualHeader.getHeaderName().getPropertyValue();
-				headerMediator.setQName(new QName(namespaceUri, localPart, prefix));	
-			}
-			else{
-				headerMediator.setQName(new QName(visualHeader.getHeaderName().getPropertyValue()));
+			if (visualHeader.getValueType().getValue()!=2) {
+				if (!visualHeader.getHeaderName().getNamespaces().keySet()
+						.isEmpty()) {
+					String prefix = (String) visualHeader.getHeaderName()
+							.getNamespaces().keySet().toArray()[0];
+					String namespaceUri = visualHeader
+							.getHeaderName()
+							.getNamespaces()
+							.get(visualHeader.getHeaderName().getNamespaces()
+									.keySet().toArray()[0]);
+					String localPart = visualHeader.getHeaderName()
+							.getPropertyValue();
+					headerMediator.setQName(new QName(namespaceUri, localPart,
+							prefix));
+				} else {
+					headerMediator.setQName(new QName(visualHeader
+							.getHeaderName().getPropertyValue()));
+				}
 			}
 			headerMediator.setAction(visualHeader.getHeaderAction().getValue());
 			headerMediator.setScope(visualHeader.getScope().toString());
 			
 			if(visualHeader.getValueType().getValue()==0){
 				headerMediator.setValue(visualHeader.getValueLiteral());
+			}else if(visualHeader.getValueType().getValue()==2){
+				try{
+					StringBuilder builder = new StringBuilder();
+					builder.append("<root>");
+					builder.append(visualHeader.getValueInline());
+					builder.append("</root>");
+					       OMElement stringToOM = AXIOMUtil.stringToOM(builder.toString());
+					       Iterator<OMElement> childElements = stringToOM.getChildElements();
+					       while(childElements.hasNext()){
+					    	   OMElement next = childElements.next();
+					    	   headerMediator.addEmbeddedXml(next);
+					       }
+				}catch(Exception ex){
+					/*Ignored if user body is not in the xml format*/
+				}
 			}else{
 				SynapseXPath synapseXPath=new SynapseXPath(visualHeader.getValueExpression().getPropertyValue());
 				for(int i=0;i<visualHeader.getValueExpression().getNamespaces().keySet().size();++i){				
@@ -72,4 +100,5 @@ public class HeaderMediatorTransformer extends AbstractEsbNodeTransformer{
 		}		
 		return headerMediator;
 	}
+	
 }

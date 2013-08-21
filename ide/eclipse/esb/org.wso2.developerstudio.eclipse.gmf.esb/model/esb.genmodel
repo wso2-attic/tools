@@ -264,6 +264,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//HeaderValueType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HeaderValueType/LITERAL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HeaderValueType/EXPRESSION"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HeaderValueType/INLINE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ScopeType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ScopeType/DEFAULT"/>
@@ -1185,7 +1186,7 @@
     <genClasses ecoreClass="esb.ecore#//AutoscaleInMediator"/>
     <genClasses ecoreClass="esb.ecore#//AutoscaleOutMediator"/>
     <genClasses ecoreClass="esb.ecore#//HeaderMediator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HeaderMediator/headerName"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HeaderMediator/headerName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HeaderMediator/headerAction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HeaderMediator/valueType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HeaderMediator/scope"/>
@@ -1193,6 +1194,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HeaderMediator/valueExpression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HeaderMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HeaderMediator/outputConnector"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute esb.ecore#//HeaderMediator/valueInline"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//HeaderMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//HeaderMediatorOutputConnector"/>

@@ -9963,13 +9963,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int HEADER_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Value Inline</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_MEDIATOR__VALUE_INLINE = MEDIATOR_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Header Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HEADER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 8;
+	int HEADER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorInputConnectorImpl <em>Header Mediator Input Connector</em>}' class.
@@ -27468,6 +27477,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getHeaderMediator_OutputConnector();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getValueInline <em>Value Inline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value Inline</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getValueInline()
+	 * @see #getHeaderMediator()
+	 * @generated
+	 */
+	EAttribute getHeaderMediator_ValueInline();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorInputConnector <em>Header Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38439,6 +38459,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference HEADER_MEDIATOR__OUTPUT_CONNECTOR = eINSTANCE.getHeaderMediator_OutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Inline</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HEADER_MEDIATOR__VALUE_INLINE = eINSTANCE.getHeaderMediator_ValueInline();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorInputConnectorImpl <em>Header Mediator Input Connector</em>}' class.

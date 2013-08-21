@@ -61,7 +61,6 @@ public class HeaderMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		HeaderMediator headerMediator=(HeaderMediator) object;
@@ -70,24 +69,31 @@ public class HeaderMediatorItemProvider
 		}
 			super.getPropertyDescriptors(object);
 
-			addHeaderNamePropertyDescriptor(object);
 			addHeaderActionPropertyDescriptor(object);
 			addScopePropertyDescriptor(object);
-			
 			if (headerMediator.getHeaderAction().equals(HeaderAction.SET)) {
 				addValueTypePropertyDescriptor(object);
 				if (headerMediator.getValueType().equals(HeaderValueType.LITERAL)) {				
 					addValueLiteralPropertyDescriptor(object);
-				} else {
+					addHeaderNamePropertyDescriptor(object);
+				}else if(headerMediator.getValueType().equals(HeaderValueType.EXPRESSION)) {
 					addValueExpressionPropertyDescriptor(object);
+					addHeaderNamePropertyDescriptor(object);
+				}else {
+					addValueInlinePropertyDescriptor(object);
 				}			
 			}
-			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
 	
-	
+
+	 /**
+	 * This adds a property descriptor for the Header Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected void addHeaderNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
@@ -103,6 +109,7 @@ public class HeaderMediatorItemProvider
 				 null,
 				 null));
 	}
+
 
 	/**
 	 * This adds a property descriptor for the Header Action feature.
@@ -193,6 +200,28 @@ public class HeaderMediatorItemProvider
 	}
 	
 	
+	/**
+	 * This adds a property descriptor for the Value Inline feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValueInlinePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HeaderMediator_valueInline_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HeaderMediator_valueInline_feature", "_UI_HeaderMediator_type"),
+				 EsbPackage.Literals.HEADER_MEDIATOR__VALUE_INLINE,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
 	protected void addValueExpressionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
@@ -288,6 +317,7 @@ public class HeaderMediatorItemProvider
 			case EsbPackage.HEADER_MEDIATOR__VALUE_TYPE:
 			case EsbPackage.HEADER_MEDIATOR__SCOPE:
 			case EsbPackage.HEADER_MEDIATOR__VALUE_LITERAL:
+			case EsbPackage.HEADER_MEDIATOR__VALUE_INLINE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.HEADER_MEDIATOR__HEADER_NAME:
