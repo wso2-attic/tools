@@ -351,7 +351,7 @@
         defaultValueLiteral="INFO"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logLevel" eType="#//LogLevel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logSeparator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=","/>
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//LogMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//LogMediatorOutputConnector"
