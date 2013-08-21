@@ -42,12 +42,12 @@ public class MediatorFlowMediatorFlowCompartment9EditPart extends
 	 */
 	public String getCompartmentName() {
 		//return Messages.MediatorFlowMediatorFlowCompartment9EditPart_title;
-		return "OnAccept";
+		return null; //"OnAccept";
 	}
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
-		result.setTitleVisibility(true);
+		result.setTitleVisibility(false);
 		// Override default border.
 		LineBorder border = new LineBorder(new Color(null, 224, 224, 224), 1, SWT.BORDER_DASH);
 		result.setBorder(border);
@@ -60,13 +60,11 @@ public class MediatorFlowMediatorFlowCompartment9EditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MediatorFlowMediatorFlowCompartment9ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MediatorFlowMediatorFlowCompartment9ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new MediatorFlowMediatorFlowCompartment9CanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new MediatorFlowMediatorFlowCompartment9CanonicalEditPolicy());
 	}
 
 	/**

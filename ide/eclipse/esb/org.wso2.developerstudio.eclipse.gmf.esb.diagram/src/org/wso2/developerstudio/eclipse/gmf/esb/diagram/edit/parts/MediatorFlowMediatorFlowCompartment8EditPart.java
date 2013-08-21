@@ -39,7 +39,7 @@ public class MediatorFlowMediatorFlowCompartment8EditPart extends
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
-		result.setTitleVisibility(true);
+		result.setTitleVisibility(false);
 		// Override default border.
 		LineBorder border = new LineBorder(new Color(null, 224, 224, 224), 1, SWT.BORDER_DASH);
 		result.setBorder(border);
@@ -52,7 +52,7 @@ public class MediatorFlowMediatorFlowCompartment8EditPart extends
 	 */
 	public String getCompartmentName() {
 		//return Messages.MediatorFlowMediatorFlowCompartment8EditPart_title;
-		return "Else";
+		return null; //"Else";
 	}
 
 	/**

@@ -114,8 +114,7 @@ public class XYRepossition {
 					boundsHeight = 100;
 				} 
 				((IGraphicalEditPart) mediator).getFigure().getBounds().setWidth(boundsWidth);
-				((IGraphicalEditPart) mediator).getFigure().getBounds()
-						.setHeight(boundsHeight);
+				((IGraphicalEditPart) mediator).getFigure().getBounds().setHeight(boundsHeight);
 			}
 			
 		}
@@ -147,7 +146,7 @@ public class XYRepossition {
 				if(editPart instanceof MediatorFlowMediatorFlowCompartment5EditPart) {
 					// Title bar width of the sequences editor. 
 					verticalSpacing = 20;
-				} else if(editPart instanceof MediatorFlowMediatorFlowCompartment7EditPart 		// filter pass
+				} /*else if(editPart instanceof MediatorFlowMediatorFlowCompartment7EditPart 		// filter pass
 						|| editPart instanceof MediatorFlowMediatorFlowCompartment8EditPart		// filter fail
 						|| editPart instanceof MediatorFlowMediatorFlowCompartment9EditPart		// throttle onaccept
 						|| editPart instanceof MediatorFlowMediatorFlowCompartment10EditPart	// throttle onreject
@@ -155,8 +154,8 @@ public class XYRepossition {
 						|| editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart		// switch default
 						|| editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart) { // clone target
 					//set 20 because of abov mediators have a title and we need space for those
-					verticalSpacing = 20;
-				} else {
+					verticalSpacing = 10;
+				} */else {
 					verticalSpacing = 10;
 				}
 				

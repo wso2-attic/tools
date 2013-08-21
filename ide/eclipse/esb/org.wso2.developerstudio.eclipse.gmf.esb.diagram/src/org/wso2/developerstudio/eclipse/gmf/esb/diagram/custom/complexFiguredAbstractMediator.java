@@ -25,7 +25,7 @@ public class complexFiguredAbstractMediator extends AbstractMediator{
 	@Override
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-			//installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new NonResizableEditPolicyEx());  //remove 8 corners
+			installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new CustomNonResizableEditPolicyEx());  //remove 8 corners
 			installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new HighlightOnSelectionEditPolicy()); //selection
 	}
 	

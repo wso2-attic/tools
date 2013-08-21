@@ -17,6 +17,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorF
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment10CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment10ItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment9CanonicalEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment9ItemSemanticEditPolicy;
 
 /**
  * @generated NOT
@@ -42,12 +44,12 @@ public class MediatorFlowMediatorFlowCompartment10EditPart extends
 	 */
 	public String getCompartmentName() {
 		//return Messages.MediatorFlowMediatorFlowCompartment10EditPart_title;
-		return "OnReject";
+		return null; //"OnReject";
 	}
 
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
-		result.setTitleVisibility(true);
+		result.setTitleVisibility(false);
 		// Override default border.
 		LineBorder border = new LineBorder(new Color(null, 224, 224, 224), 1, SWT.BORDER_DASH);
 		result.setBorder(border);
@@ -60,13 +62,11 @@ public class MediatorFlowMediatorFlowCompartment10EditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MediatorFlowMediatorFlowCompartment10ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MediatorFlowMediatorFlowCompartment10ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new MediatorFlowMediatorFlowCompartment10CanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new MediatorFlowMediatorFlowCompartment10CanonicalEditPolicy());
 	}
 
 	/**
