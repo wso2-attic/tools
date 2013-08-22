@@ -228,7 +228,7 @@ public class MediatorFigureReverser {
 					.get(0)).getChildren().size()!=0){
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0))
-							.getChildren().get(0)).getChildren().get(0),
+							.getChildren().get(0)).getChildren().get(1), // Default branch always as the second element. Fixing TOOLS-1808.
 					((SwitchMediatorEditPart) editorPart).defaultOutputConnector,
 					PositionConstants.EAST, 0.5);
 			((SwitchMediatorEditPart) editorPart).getBorderedFigure().getBorderItemContainer()
@@ -236,9 +236,16 @@ public class MediatorFigureReverser {
 
 			for (int i = 0; ((i < ((SwitchMediatorEditPart) editorPart).caseOutputConnectors.size()) && ((i + 1) < (((IFigure) ((DefaultSizeNodeFigure) childFigures
 					.get(0)).getChildren().get(0)).getChildren().size()))); ++i) {
+				
+				// Fixing TOOLS-1808.
+				int caseIndex = i;
+				if(caseIndex == 1) {
+					caseIndex = caseIndex + 1;
+				}
+				
 				BorderItemLocator caseLocator = new FixedBorderItemLocator(
 						(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0))
-								.getChildren().get(0)).getChildren().get(i + 1),
+								.getChildren().get(0)).getChildren().get(caseIndex),
 						((SwitchMediatorEditPart) editorPart).caseOutputConnectors.get(i),
 						PositionConstants.EAST, 0.5);
 				((SwitchMediatorEditPart) editorPart)
