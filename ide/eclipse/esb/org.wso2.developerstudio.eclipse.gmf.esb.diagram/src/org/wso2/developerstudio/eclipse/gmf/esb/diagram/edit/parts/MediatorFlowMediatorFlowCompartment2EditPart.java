@@ -53,8 +53,11 @@ public class MediatorFlowMediatorFlowCompartment2EditPart extends
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitleVisibility(false);
-		// Override default border.
-		LineBorder border = new LineBorder(new Color(null, 224, 224, 224), 1, SWT.BORDER_DASH);
+		/*
+		 * Override default border.
+		 * Fixing TOOLS-1864.
+		 */
+		LineBorder border = new LineBorder(new Color(null, 0, 0, 204), 1, SWT.BORDER_DASH);
 		result.setBorder(border);
 		result.setToolTip((String) null);
 		return result;
