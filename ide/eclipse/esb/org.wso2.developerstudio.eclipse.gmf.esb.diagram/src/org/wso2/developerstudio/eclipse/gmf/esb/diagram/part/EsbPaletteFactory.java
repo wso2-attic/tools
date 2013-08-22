@@ -112,7 +112,7 @@ public class EsbPaletteFactory {
 		paletteRoot.add(createEndPoints3Group());
 		paletteRoot.add(createLinks4Group());
 		//paletteRoot.add(createHelpers5Group());
-		paletteRoot.add(createCloudConnectors6Group());
+		//paletteRoot.add(createCloudConnectors6Group());
 	}
 
 	/**
