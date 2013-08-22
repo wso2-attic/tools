@@ -14,11 +14,14 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -36,13 +39,21 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getPathToAxis2Repository <em>Path To Axis2 Repository</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getPayloadType <em>Payload Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getPayloadMessageXpath <em>Payload Message Xpath</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getPayloadRegistryKey <em>Payload Registry Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getResultType <em>Result Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getResultMessageXpath <em>Result Message Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getResultContextProperty <em>Result Context Property</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#isPassHeaders <em>Pass Headers</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getAddressEndpoint <em>Address Endpoint</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getEndpointType <em>Endpoint Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getInitAxis2ClientOptions <em>Init Axis2 Client Options</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getPayloadProperty <em>Payload Property</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getSecurityType <em>Security Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getOutboundPolicyKey <em>Outbound Policy Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getInboundPolicyKey <em>Inbound Policy Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getPolicies <em>Policies</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CalloutMediatorImpl#getPolicyKey <em>Policy Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -137,7 +148,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CalloutPayloadType PAYLOAD_TYPE_EDEFAULT = CalloutPayloadType.MESSAGE_ELEMENT;
+	protected static final CalloutPayloadType PAYLOAD_TYPE_EDEFAULT = CalloutPayloadType.XPATH;
 
 	/**
 	 * The cached value of the '{@link #getPayloadType() <em>Payload Type</em>}' attribute.
@@ -160,16 +171,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	protected NamespacedProperty payloadMessageXpath;
 
 	/**
-	 * The cached value of the '{@link #getPayloadRegistryKey() <em>Payload Registry Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPayloadRegistryKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected RegistryKeyProperty payloadRegistryKey;
-
-	/**
 	 * The default value of the '{@link #getResultType() <em>Result Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -177,7 +178,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CalloutResultType RESULT_TYPE_EDEFAULT = CalloutResultType.MESSAGE_ELEMENT;
+	protected static final CalloutResultType RESULT_TYPE_EDEFAULT = CalloutResultType.XPATH;
 
 	/**
 	 * The cached value of the '{@link #getResultType() <em>Result Type</em>}' attribute.
@@ -260,6 +261,146 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	protected CalloutMediatorOutputConnector outputConnector;
 
 	/**
+	 * The cached value of the '{@link #getAddressEndpoint() <em>Address Endpoint</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAddressEndpoint()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty addressEndpoint;
+
+	/**
+	 * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CalloutEndpointType ENDPOINT_TYPE_EDEFAULT = CalloutEndpointType.URL;
+
+	/**
+	 * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CalloutEndpointType endpointType = ENDPOINT_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getInitAxis2ClientOptions() <em>Init Axis2 Client Options</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitAxis2ClientOptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INIT_AXIS2_CLIENT_OPTIONS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInitAxis2ClientOptions() <em>Init Axis2 Client Options</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInitAxis2ClientOptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected String initAxis2ClientOptions = INIT_AXIS2_CLIENT_OPTIONS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPayloadProperty() <em>Payload Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPayloadProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PAYLOAD_PROPERTY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPayloadProperty() <em>Payload Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPayloadProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected String payloadProperty = PAYLOAD_PROPERTY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSecurityType() <em>Security Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CalloutSecurityType SECURITY_TYPE_EDEFAULT = CalloutSecurityType.FALSE;
+
+	/**
+	 * The cached value of the '{@link #getSecurityType() <em>Security Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CalloutSecurityType securityType = SECURITY_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOutboundPolicyKey() <em>Outbound Policy Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutboundPolicyKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty outboundPolicyKey;
+
+	/**
+	 * The cached value of the '{@link #getInboundPolicyKey() <em>Inbound Policy Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInboundPolicyKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty inboundPolicyKey;
+
+	/**
+	 * The default value of the '{@link #getPolicies() <em>Policies</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicies()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CalloutSecurityPolicies POLICIES_EDEFAULT = CalloutSecurityPolicies.FALSE;
+
+	/**
+	 * The cached value of the '{@link #getPolicies() <em>Policies</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicies()
+	 * @generated
+	 * @ordered
+	 */
+	protected CalloutSecurityPolicies policies = POLICIES_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getPolicyKey() <em>Policy Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicyKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty policyKey;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -275,14 +416,36 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 		payloadXpath.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
 		setPayloadMessageXpath(payloadXpath);
 
-		// Payload registry key.
+		/*// Payload registry key.
 		RegistryKeyProperty payloadKey = EsbFactoryImpl.eINSTANCE
 				.createRegistryKeyProperty();
 		payloadKey.setPrettyName("Payload Key");
 		payloadKey.setKeyName("key");
 		payloadKey.setKeyValue(DEFAULT_REGISTRY_KEY);
-		setPayloadRegistryKey(payloadKey);
+		setPayloadRegistryKey(payloadKey);*/
 
+		RegistryKeyProperty policyKey = EsbFactoryImpl.eINSTANCE
+				.createRegistryKeyProperty();
+		policyKey.setPrettyName("policyKey Key");
+		policyKey.setKeyName("key");
+		policyKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setPolicyKey(policyKey);
+		
+		RegistryKeyProperty inboundpolicyKey = EsbFactoryImpl.eINSTANCE
+				.createRegistryKeyProperty();
+		inboundpolicyKey.setPrettyName("inboundpolicy Key");
+		inboundpolicyKey.setKeyName("key");
+		inboundpolicyKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setInboundPolicyKey(inboundpolicyKey);
+		
+		RegistryKeyProperty outboundpolicyKey = EsbFactoryImpl.eINSTANCE
+				.createRegistryKeyProperty();
+		outboundpolicyKey.setPrettyName("outboundpolicy Key");
+		outboundpolicyKey.setKeyName("key");
+		outboundpolicyKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setOutboundPolicyKey(outboundpolicyKey);
+		
+		
 		// Result xpath.
 		NamespacedProperty resultXpath = EsbFactoryImpl.eINSTANCE
 				.createNamespacedProperty();
@@ -290,6 +453,15 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 		resultXpath.setPropertyName("xpath");
 		resultXpath.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
 		setResultMessageXpath(resultXpath);
+		
+		//Endpoint key
+		RegistryKeyProperty endpointKey = EsbFactoryImpl.eINSTANCE
+				.createRegistryKeyProperty();
+		endpointKey.setPrettyName("endpoint Key");
+		endpointKey.setKeyName("key");
+		endpointKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setAddressEndpoint(endpointKey);
+		
 	}
 
 	/**
@@ -449,49 +621,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, newPayloadMessageXpath, newPayloadMessageXpath));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RegistryKeyProperty getPayloadRegistryKey() {
-		return payloadRegistryKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPayloadRegistryKey(RegistryKeyProperty newPayloadRegistryKey, NotificationChain msgs) {
-		RegistryKeyProperty oldPayloadRegistryKey = payloadRegistryKey;
-		payloadRegistryKey = newPayloadRegistryKey;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, oldPayloadRegistryKey, newPayloadRegistryKey);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPayloadRegistryKey(RegistryKeyProperty newPayloadRegistryKey) {
-		if (newPayloadRegistryKey != payloadRegistryKey) {
-			NotificationChain msgs = null;
-			if (payloadRegistryKey != null)
-				msgs = ((InternalEObject)payloadRegistryKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, null, msgs);
-			if (newPayloadRegistryKey != null)
-				msgs = ((InternalEObject)newPayloadRegistryKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, null, msgs);
-			msgs = basicSetPayloadRegistryKey(newPayloadRegistryKey, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY, newPayloadRegistryKey, newPayloadRegistryKey));
 	}
 
 	/**
@@ -691,14 +820,269 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RegistryKeyProperty getAddressEndpoint() {
+		if (addressEndpoint != null && addressEndpoint.eIsProxy()) {
+			InternalEObject oldAddressEndpoint = (InternalEObject)addressEndpoint;
+			addressEndpoint = (RegistryKeyProperty)eResolveProxy(oldAddressEndpoint);
+			if (addressEndpoint != oldAddressEndpoint) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, oldAddressEndpoint, addressEndpoint));
+			}
+		}
+		return addressEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty basicGetAddressEndpoint() {
+		return addressEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAddressEndpoint(RegistryKeyProperty newAddressEndpoint) {
+		RegistryKeyProperty oldAddressEndpoint = addressEndpoint;
+		addressEndpoint = newAddressEndpoint;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, oldAddressEndpoint, addressEndpoint));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CalloutEndpointType getEndpointType() {
+		return endpointType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointType(CalloutEndpointType newEndpointType) {
+		CalloutEndpointType oldEndpointType = endpointType;
+		endpointType = newEndpointType == null ? ENDPOINT_TYPE_EDEFAULT : newEndpointType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE, oldEndpointType, endpointType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getInitAxis2ClientOptions() {
+		return initAxis2ClientOptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInitAxis2ClientOptions(String newInitAxis2ClientOptions) {
+		String oldInitAxis2ClientOptions = initAxis2ClientOptions;
+		initAxis2ClientOptions = newInitAxis2ClientOptions;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__INIT_AXIS2_CLIENT_OPTIONS, oldInitAxis2ClientOptions, initAxis2ClientOptions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPayloadProperty() {
+		return payloadProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPayloadProperty(String newPayloadProperty) {
+		String oldPayloadProperty = payloadProperty;
+		payloadProperty = newPayloadProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_PROPERTY, oldPayloadProperty, payloadProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CalloutSecurityType getSecurityType() {
+		return securityType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSecurityType(CalloutSecurityType newSecurityType) {
+		CalloutSecurityType oldSecurityType = securityType;
+		securityType = newSecurityType == null ? SECURITY_TYPE_EDEFAULT : newSecurityType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__SECURITY_TYPE, oldSecurityType, securityType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getOutboundPolicyKey() {
+		if (outboundPolicyKey != null && outboundPolicyKey.eIsProxy()) {
+			InternalEObject oldOutboundPolicyKey = (InternalEObject)outboundPolicyKey;
+			outboundPolicyKey = (RegistryKeyProperty)eResolveProxy(oldOutboundPolicyKey);
+			if (outboundPolicyKey != oldOutboundPolicyKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY, oldOutboundPolicyKey, outboundPolicyKey));
+			}
+		}
+		return outboundPolicyKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty basicGetOutboundPolicyKey() {
+		return outboundPolicyKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutboundPolicyKey(RegistryKeyProperty newOutboundPolicyKey) {
+		RegistryKeyProperty oldOutboundPolicyKey = outboundPolicyKey;
+		outboundPolicyKey = newOutboundPolicyKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY, oldOutboundPolicyKey, outboundPolicyKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getInboundPolicyKey() {
+		if (inboundPolicyKey != null && inboundPolicyKey.eIsProxy()) {
+			InternalEObject oldInboundPolicyKey = (InternalEObject)inboundPolicyKey;
+			inboundPolicyKey = (RegistryKeyProperty)eResolveProxy(oldInboundPolicyKey);
+			if (inboundPolicyKey != oldInboundPolicyKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY, oldInboundPolicyKey, inboundPolicyKey));
+			}
+		}
+		return inboundPolicyKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty basicGetInboundPolicyKey() {
+		return inboundPolicyKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInboundPolicyKey(RegistryKeyProperty newInboundPolicyKey) {
+		RegistryKeyProperty oldInboundPolicyKey = inboundPolicyKey;
+		inboundPolicyKey = newInboundPolicyKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY, oldInboundPolicyKey, inboundPolicyKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CalloutSecurityPolicies getPolicies() {
+		return policies;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPolicies(CalloutSecurityPolicies newPolicies) {
+		CalloutSecurityPolicies oldPolicies = policies;
+		policies = newPolicies == null ? POLICIES_EDEFAULT : newPolicies;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__POLICIES, oldPolicies, policies));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getPolicyKey() {
+		if (policyKey != null && policyKey.eIsProxy()) {
+			InternalEObject oldPolicyKey = (InternalEObject)policyKey;
+			policyKey = (RegistryKeyProperty)eResolveProxy(oldPolicyKey);
+			if (policyKey != oldPolicyKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY, oldPolicyKey, policyKey));
+			}
+		}
+		return policyKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty basicGetPolicyKey() {
+		return policyKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPolicyKey(RegistryKeyProperty newPolicyKey) {
+		RegistryKeyProperty oldPolicyKey = policyKey;
+		policyKey = newPolicyKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY, oldPolicyKey, policyKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
 				return basicSetPayloadMessageXpath(null, msgs);
-			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-				return basicSetPayloadRegistryKey(null, msgs);
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
 				return basicSetResultMessageXpath(null, msgs);
 			case EsbPackage.CALLOUT_MEDIATOR__INPUT_CONNECTOR:
@@ -730,8 +1114,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return getPayloadType();
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
 				return getPayloadMessageXpath();
-			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-				return getPayloadRegistryKey();
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
 				return getResultType();
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
@@ -744,6 +1126,28 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return getInputConnector();
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT:
+				if (resolve) return getAddressEndpoint();
+				return basicGetAddressEndpoint();
+			case EsbPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+				return getEndpointType();
+			case EsbPackage.CALLOUT_MEDIATOR__INIT_AXIS2_CLIENT_OPTIONS:
+				return getInitAxis2ClientOptions();
+			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_PROPERTY:
+				return getPayloadProperty();
+			case EsbPackage.CALLOUT_MEDIATOR__SECURITY_TYPE:
+				return getSecurityType();
+			case EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY:
+				if (resolve) return getOutboundPolicyKey();
+				return basicGetOutboundPolicyKey();
+			case EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY:
+				if (resolve) return getInboundPolicyKey();
+				return basicGetInboundPolicyKey();
+			case EsbPackage.CALLOUT_MEDIATOR__POLICIES:
+				return getPolicies();
+			case EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY:
+				if (resolve) return getPolicyKey();
+				return basicGetPolicyKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -775,9 +1179,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
 				setPayloadMessageXpath((NamespacedProperty)newValue);
 				return;
-			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-				setPayloadRegistryKey((RegistryKeyProperty)newValue);
-				return;
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
 				setResultType((CalloutResultType)newValue);
 				return;
@@ -795,6 +1196,33 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return;
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((CalloutMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT:
+				setAddressEndpoint((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+				setEndpointType((CalloutEndpointType)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__INIT_AXIS2_CLIENT_OPTIONS:
+				setInitAxis2ClientOptions((String)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_PROPERTY:
+				setPayloadProperty((String)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__SECURITY_TYPE:
+				setSecurityType((CalloutSecurityType)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY:
+				setOutboundPolicyKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY:
+				setInboundPolicyKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__POLICIES:
+				setPolicies((CalloutSecurityPolicies)newValue);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY:
+				setPolicyKey((RegistryKeyProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -827,9 +1255,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
 				setPayloadMessageXpath((NamespacedProperty)null);
 				return;
-			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-				setPayloadRegistryKey((RegistryKeyProperty)null);
-				return;
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
 				setResultType(RESULT_TYPE_EDEFAULT);
 				return;
@@ -847,6 +1272,33 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return;
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((CalloutMediatorOutputConnector)null);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT:
+				setAddressEndpoint((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+				setEndpointType(ENDPOINT_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__INIT_AXIS2_CLIENT_OPTIONS:
+				setInitAxis2ClientOptions(INIT_AXIS2_CLIENT_OPTIONS_EDEFAULT);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_PROPERTY:
+				setPayloadProperty(PAYLOAD_PROPERTY_EDEFAULT);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__SECURITY_TYPE:
+				setSecurityType(SECURITY_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY:
+				setOutboundPolicyKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY:
+				setInboundPolicyKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__POLICIES:
+				setPolicies(POLICIES_EDEFAULT);
+				return;
+			case EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY:
+				setPolicyKey((RegistryKeyProperty)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -873,8 +1325,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return payloadType != PAYLOAD_TYPE_EDEFAULT;
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
 				return payloadMessageXpath != null;
-			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
-				return payloadRegistryKey != null;
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
 				return resultType != RESULT_TYPE_EDEFAULT;
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
@@ -887,6 +1337,24 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return inputConnector != null;
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT:
+				return addressEndpoint != null;
+			case EsbPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+				return endpointType != ENDPOINT_TYPE_EDEFAULT;
+			case EsbPackage.CALLOUT_MEDIATOR__INIT_AXIS2_CLIENT_OPTIONS:
+				return INIT_AXIS2_CLIENT_OPTIONS_EDEFAULT == null ? initAxis2ClientOptions != null : !INIT_AXIS2_CLIENT_OPTIONS_EDEFAULT.equals(initAxis2ClientOptions);
+			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_PROPERTY:
+				return PAYLOAD_PROPERTY_EDEFAULT == null ? payloadProperty != null : !PAYLOAD_PROPERTY_EDEFAULT.equals(payloadProperty);
+			case EsbPackage.CALLOUT_MEDIATOR__SECURITY_TYPE:
+				return securityType != SECURITY_TYPE_EDEFAULT;
+			case EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY:
+				return outboundPolicyKey != null;
+			case EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY:
+				return inboundPolicyKey != null;
+			case EsbPackage.CALLOUT_MEDIATOR__POLICIES:
+				return policies != POLICIES_EDEFAULT;
+			case EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY:
+				return policyKey != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -918,6 +1386,16 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 		result.append(resultContextProperty);
 		result.append(", passHeaders: ");
 		result.append(passHeaders);
+		result.append(", EndpointType: ");
+		result.append(endpointType);
+		result.append(", initAxis2ClientOptions: ");
+		result.append(initAxis2ClientOptions);
+		result.append(", payloadProperty: ");
+		result.append(payloadProperty);
+		result.append(", securityType: ");
+		result.append(securityType);
+		result.append(", policies: ");
+		result.append(policies);
 		result.append(')');
 		return result.toString();
 	}

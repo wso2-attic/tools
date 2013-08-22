@@ -466,8 +466,14 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createXQueryVariableTypeFromString(eDataType, initialValue);
 			case EsbPackage.XQUERY_VARIABLE_VALUE_TYPE:
 				return createXQueryVariableValueTypeFromString(eDataType, initialValue);
+			case EsbPackage.CALLOUT_ENDPOINT_TYPE:
+				return createCalloutEndpointTypeFromString(eDataType, initialValue);
 			case EsbPackage.CALLOUT_PAYLOAD_TYPE:
 				return createCalloutPayloadTypeFromString(eDataType, initialValue);
+			case EsbPackage.CALLOUT_SECURITY_POLICIES:
+				return createCalloutSecurityPoliciesFromString(eDataType, initialValue);
+			case EsbPackage.CALLOUT_SECURITY_TYPE:
+				return createCalloutSecurityTypeFromString(eDataType, initialValue);
 			case EsbPackage.CALLOUT_RESULT_TYPE:
 				return createCalloutResultTypeFromString(eDataType, initialValue);
 			case EsbPackage.RM_SPEC_VERSION:
@@ -660,8 +666,14 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertXQueryVariableTypeToString(eDataType, instanceValue);
 			case EsbPackage.XQUERY_VARIABLE_VALUE_TYPE:
 				return convertXQueryVariableValueTypeToString(eDataType, instanceValue);
+			case EsbPackage.CALLOUT_ENDPOINT_TYPE:
+				return convertCalloutEndpointTypeToString(eDataType, instanceValue);
 			case EsbPackage.CALLOUT_PAYLOAD_TYPE:
 				return convertCalloutPayloadTypeToString(eDataType, instanceValue);
+			case EsbPackage.CALLOUT_SECURITY_POLICIES:
+				return convertCalloutSecurityPoliciesToString(eDataType, instanceValue);
+			case EsbPackage.CALLOUT_SECURITY_TYPE:
+				return convertCalloutSecurityTypeToString(eDataType, instanceValue);
 			case EsbPackage.CALLOUT_RESULT_TYPE:
 				return convertCalloutResultTypeToString(eDataType, instanceValue);
 			case EsbPackage.RM_SPEC_VERSION:
@@ -4800,6 +4812,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CalloutEndpointType createCalloutEndpointTypeFromString(EDataType eDataType, String initialValue) {
+		CalloutEndpointType result = CalloutEndpointType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCalloutEndpointTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CalloutPayloadType createCalloutPayloadTypeFromString(EDataType eDataType, String initialValue) {
 		CalloutPayloadType result = CalloutPayloadType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -4812,6 +4844,46 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertCalloutPayloadTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CalloutSecurityPolicies createCalloutSecurityPoliciesFromString(EDataType eDataType, String initialValue) {
+		CalloutSecurityPolicies result = CalloutSecurityPolicies.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCalloutSecurityPoliciesToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CalloutSecurityType createCalloutSecurityTypeFromString(EDataType eDataType, String initialValue) {
+		CalloutSecurityType result = CalloutSecurityType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCalloutSecurityTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

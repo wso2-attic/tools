@@ -23,54 +23,52 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum CalloutResultType implements Enumerator {
 	/**
-	 * The '<em><b>MESSAGE ELEMENT</b></em>' literal object.
+	 * The '<em><b>XPATH</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MESSAGE_ELEMENT_VALUE
+	 * @see #XPATH_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MESSAGE_ELEMENT(0, "MESSAGE_ELEMENT", "MESSAGE_ELEMENT"),
-
-	/**
-	 * The '<em><b>CONTEXT PROPERTY</b></em>' literal object.
+	XPATH(0, "XPATH", "XPATH"), /**
+	 * The '<em><b>PROPERTY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #CONTEXT_PROPERTY_VALUE
+	 * @see #PROPERTY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	CONTEXT_PROPERTY(1, "CONTEXT_PROPERTY", "CONTEXT_PROPERTY");
+	PROPERTY(1, "PROPERTY", "PROPERTY");
 
 	/**
-	 * The '<em><b>MESSAGE ELEMENT</b></em>' literal value.
+	 * The '<em><b>XPATH</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>MESSAGE ELEMENT</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>XPATH</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #MESSAGE_ELEMENT
+	 * @see #XPATH
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MESSAGE_ELEMENT_VALUE = 0;
+	public static final int XPATH_VALUE = 0;
 
 	/**
-	 * The '<em><b>CONTEXT PROPERTY</b></em>' literal value.
+	 * The '<em><b>PROPERTY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>CONTEXT PROPERTY</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>PROPERTY</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #CONTEXT_PROPERTY
+	 * @see #PROPERTY
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CONTEXT_PROPERTY_VALUE = 1;
+	public static final int PROPERTY_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Callout Result Type</b></em>' enumerators.
@@ -80,8 +78,8 @@ public enum CalloutResultType implements Enumerator {
 	 */
 	private static final CalloutResultType[] VALUES_ARRAY =
 		new CalloutResultType[] {
-			MESSAGE_ELEMENT,
-			CONTEXT_PROPERTY,
+			XPATH,
+			PROPERTY,
 		};
 
 	/**
@@ -132,8 +130,8 @@ public enum CalloutResultType implements Enumerator {
 	 */
 	public static CalloutResultType get(int value) {
 		switch (value) {
-			case MESSAGE_ELEMENT_VALUE: return MESSAGE_ELEMENT;
-			case CONTEXT_PROPERTY_VALUE: return CONTEXT_PROPERTY;
+			case XPATH_VALUE: return XPATH;
+			case PROPERTY_VALUE: return PROPERTY;
 		}
 		return null;
 	}

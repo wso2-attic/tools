@@ -24,18 +24,18 @@ public class CalloutMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		
 		if(calloutMediator.getRequestXPath()!=null){
 			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, createNamespacedProperty(calloutMediator.getRequestXPath()));
-			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.MESSAGE_ELEMENT);
+			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.XPATH);
 		}else{
-			executeSetValueCommand(visualCalloutMediator.getPayloadRegistryKey(),REGISTRY_KEY_PROPERTY__KEY_VALUE, calloutMediator.getRequestKey());
-			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.REGISTRY_ENTRY);
+			/*executeSetValueCommand(visualCalloutMediator.getPayloadRegistryKey(),REGISTRY_KEY_PROPERTY__KEY_VALUE, calloutMediator.getRequestKey());
+			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.REGISTRY_ENTRY);*/
 		}
 		
 		if(calloutMediator.getTargetXPath()!=null){
 			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, createNamespacedProperty(calloutMediator.getTargetXPath()));
-			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_TYPE, CalloutResultType.MESSAGE_ELEMENT);
+			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_TYPE, CalloutResultType.XPATH);
 		}else{
 			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY, calloutMediator.getTargetKey());
-			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_TYPE, CalloutResultType.CONTEXT_PROPERTY);
+			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_TYPE, CalloutResultType.PROPERTY);
 		}
 		
 		if(calloutMediator.getClientRepository()!=null){

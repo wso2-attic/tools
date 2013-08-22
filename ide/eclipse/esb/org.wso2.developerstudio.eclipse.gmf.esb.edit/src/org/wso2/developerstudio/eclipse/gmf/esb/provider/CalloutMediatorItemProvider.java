@@ -24,9 +24,12 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
@@ -54,13 +57,43 @@ public class CalloutMediatorItemProvider
 		super(adapterFactory);
 	}
 
+	
+	public List<IItemPropertyDescriptor> getPropertyDescriptors123(Object object) {
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
+			addServiceURLPropertyDescriptor(object);
+			addSoapActionPropertyDescriptor(object);
+			addPathToAxis2xmlPropertyDescriptor(object);
+			addPathToAxis2RepositoryPropertyDescriptor(object);
+			
+			addPayloadTypePropertyDescriptor(object);
+			addPayloadPropertyPropertyDescriptor(object);
+			
+			addResultTypePropertyDescriptor(object);
+			addResultContextPropertyPropertyDescriptor(object);
+			
+			addPassHeadersPropertyDescriptor(object);
+			addAddressEndpointPropertyDescriptor(object);
+			addEndpointTypePropertyDescriptor(object);
+			addInitAxis2ClientOptionsPropertyDescriptor(object);
+			
+			
+			
+			addSecurityTypePropertyDescriptor(object);
+			addOutboundPolicyKeyPropertyDescriptor(object);
+			addInboundPolicyKeyPropertyDescriptor(object);
+			addPoliciesPropertyDescriptor(object);
+			addPolicyKeyPropertyDescriptor(object);
+		}
+		return itemPropertyDescriptors;
+	}
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {		
 		CalloutMediator calloutMediator = (CalloutMediator) object;
@@ -68,31 +101,49 @@ public class CalloutMediatorItemProvider
 			itemPropertyDescriptors.clear();
 		}
 			super.getPropertyDescriptors(object);
-
-			addServiceURLPropertyDescriptor(object);
+			addEndpointTypePropertyDescriptor(object);
+			if(calloutMediator.getEndpointType().equals(CalloutEndpointType.ADDRESS_ENDPOINT)){
+				addAddressEndpointPropertyDescriptor(object);
+			}else{
+				addServiceURLPropertyDescriptor(object);
+			}
+			
 			addSoapActionPropertyDescriptor(object);
 			addPathToAxis2xmlPropertyDescriptor(object);
 			addPathToAxis2RepositoryPropertyDescriptor(object);
 			addPayloadTypePropertyDescriptor(object);
 			addResultTypePropertyDescriptor(object);
+			
 			//addPassHeadersPropertyDescriptor(object);
 			
 			addPayloadTypePropertyDescriptor(object);
-			if (calloutMediator.getPayloadType().equals(CalloutPayloadType.MESSAGE_ELEMENT)) {
+			if (calloutMediator.getPayloadType().equals(CalloutPayloadType.XPATH)) {
 				addPayloadMessageXpathPropertyDescriptor(object);
-			} else {
-				addPayloadRegistryKeyPropertyDescriptor(object);
-			}
+			}else if(calloutMediator.getPayloadType().equals(CalloutPayloadType.PROPERTY)){
+				addPayloadPropertyPropertyDescriptor(object);
+			} 	
 			
 			addResultTypePropertyDescriptor(object);
-			if (calloutMediator.getResultType().equals(CalloutResultType.MESSAGE_ELEMENT)) {
+			if (calloutMediator.getResultType().equals(CalloutResultType.XPATH)) {
 				addResultMessageXpathPropertyDescriptor(object);
 			} else {
 				addResultContextPropertyPropertyDescriptor(object);
 			}
 			
+			addSecurityTypePropertyDescriptor(object);
+			if (calloutMediator.getSecurityType().equals(CalloutSecurityType.TRUE)) {
+				addPoliciesPropertyDescriptor(object);
+				if(calloutMediator.getPolicies().equals(CalloutSecurityPolicies.TRUE)){
+					addOutboundPolicyKeyPropertyDescriptor(object);
+					addInboundPolicyKeyPropertyDescriptor(object);
+				}else{
+					addPolicyKeyPropertyDescriptor(object);
+				}
+			}  
+			
 			addDescriptionPropertyDescriptor(object);
-		
+	
+			
 		return itemPropertyDescriptors;
 	}
 
@@ -114,7 +165,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Basic",
+				 "Service",
 				 null));
 	}
 
@@ -136,7 +187,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Basic",
+				 "Service",
 				 null));
 	}
 
@@ -158,7 +209,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Basic",
+				 "Service",
 				 null));
 	}
 
@@ -180,7 +231,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Basic",
+				 "Service",
 				 null));
 	}
 	
@@ -201,7 +252,7 @@ public class CalloutMediatorItemProvider
 				 null));
 	}
 	
-	protected void addPayloadRegistryKeyPropertyDescriptor(Object object) {
+	/*protected void addPayloadRegistryKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
@@ -215,7 +266,7 @@ public class CalloutMediatorItemProvider
 				 null,
 				 "Source",
 				 null));
-	}
+	}*/
 	
 	protected void addResultMessageXpathPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -324,6 +375,204 @@ public class CalloutMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Address Endpoint feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAddressEndpointPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_AddressEndpoint_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_AddressEndpoint_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_ServicePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Endpoint Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEndpointTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_EndpointType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_EndpointType_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__ENDPOINT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_ServicePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Init Axis2 Client Options feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInitAxis2ClientOptionsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_initAxis2ClientOptions_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_initAxis2ClientOptions_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__INIT_AXIS2_CLIENT_OPTIONS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Payload Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPayloadPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_payloadProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_payloadProperty_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_SourcePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecurityTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_securityType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_securityType_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__SECURITY_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_WSPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Outbound Policy Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutboundPolicyKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_outboundPolicyKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_outboundPolicyKey_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_WSPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Inbound Policy Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInboundPolicyKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_inboundPolicyKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_inboundPolicyKey_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_WSPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Policies feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPoliciesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_policies_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_policies_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__POLICIES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_WSPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Policy Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPolicyKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_policyKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_policyKey_feature", "_UI_CalloutMediator_type"),
+				 EsbPackage.Literals.CALLOUT_MEDIATOR__POLICY_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_WSPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -337,10 +586,10 @@ public class CalloutMediatorItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH);
-			childrenFeatures.add(EsbPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY);
 			childrenFeatures.add(EsbPackage.Literals.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH);
 			childrenFeatures.add(EsbPackage.Literals.CALLOUT_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT);
 		}
 		return childrenFeatures;
 	}
@@ -407,13 +656,18 @@ public class CalloutMediatorItemProvider
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_TYPE:
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
 			case EsbPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+			case EsbPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+			case EsbPackage.CALLOUT_MEDIATOR__INIT_AXIS2_CLIENT_OPTIONS:
+			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_PROPERTY:
+			case EsbPackage.CALLOUT_MEDIATOR__SECURITY_TYPE:
+			case EsbPackage.CALLOUT_MEDIATOR__POLICIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH:
-			case EsbPackage.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY:
 			case EsbPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
 			case EsbPackage.CALLOUT_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -439,11 +693,6 @@ public class CalloutMediatorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.CALLOUT_MEDIATOR__PAYLOAD_REGISTRY_KEY,
-				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(EsbPackage.Literals.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH,
 				 EsbFactory.eINSTANCE.createNamespacedProperty()));
 
@@ -456,6 +705,11 @@ public class CalloutMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createCalloutMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 	}
 
 	/**

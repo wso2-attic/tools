@@ -21,13 +21,21 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPathToAxis2Repository <em>Path To Axis2 Repository</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPayloadType <em>Payload Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPayloadMessageXpath <em>Payload Message Xpath</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPayloadRegistryKey <em>Payload Registry Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getResultType <em>Result Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getResultMessageXpath <em>Result Message Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getResultContextProperty <em>Result Context Property</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#isPassHeaders <em>Pass Headers</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getAddressEndpoint <em>Address Endpoint</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getEndpointType <em>Endpoint Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInitAxis2ClientOptions <em>Init Axis2 Client Options</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPayloadProperty <em>Payload Property</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getSecurityType <em>Security Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getOutboundPolicyKey <em>Outbound Policy Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInboundPolicyKey <em>Inbound Policy Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicies <em>Policies</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicyKey <em>Policy Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -201,32 +209,6 @@ public interface CalloutMediator extends Mediator {
 	void setPayloadMessageXpath(NamespacedProperty value);
 
 	/**
-	 * Returns the value of the '<em><b>Payload Registry Key</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Payload Registry Key</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Payload Registry Key</em>' containment reference.
-	 * @see #setPayloadRegistryKey(RegistryKeyProperty)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_PayloadRegistryKey()
-	 * @model containment="true"
-	 * @generated
-	 */
-	RegistryKeyProperty getPayloadRegistryKey();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPayloadRegistryKey <em>Payload Registry Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Payload Registry Key</em>' containment reference.
-	 * @see #getPayloadRegistryKey()
-	 * @generated
-	 */
-	void setPayloadRegistryKey(RegistryKeyProperty value);
-
-	/**
 	 * Returns the value of the '<em><b>Result Type</b></em>' attribute.
 	 * The default value is <code>"MESSAGE_ELEMENT"</code>.
 	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType}.
@@ -386,5 +368,248 @@ public interface CalloutMediator extends Mediator {
 	 * @generated
 	 */
 	void setOutputConnector(CalloutMediatorOutputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Address Endpoint</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Address Endpoint</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Address Endpoint</em>' reference.
+	 * @see #setAddressEndpoint(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_AddressEndpoint()
+	 * @model
+	 * @generated
+	 */
+	RegistryKeyProperty getAddressEndpoint();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getAddressEndpoint <em>Address Endpoint</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Address Endpoint</em>' reference.
+	 * @see #getAddressEndpoint()
+	 * @generated
+	 */
+	void setAddressEndpoint(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Endpoint Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Endpoint Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Endpoint Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType
+	 * @see #setEndpointType(CalloutEndpointType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_EndpointType()
+	 * @model
+	 * @generated
+	 */
+	CalloutEndpointType getEndpointType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getEndpointType <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Endpoint Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType
+	 * @see #getEndpointType()
+	 * @generated
+	 */
+	void setEndpointType(CalloutEndpointType value);
+
+	/**
+	 * Returns the value of the '<em><b>Init Axis2 Client Options</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Init Axis2 Client Options</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Init Axis2 Client Options</em>' attribute.
+	 * @see #setInitAxis2ClientOptions(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_InitAxis2ClientOptions()
+	 * @model
+	 * @generated
+	 */
+	String getInitAxis2ClientOptions();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInitAxis2ClientOptions <em>Init Axis2 Client Options</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Init Axis2 Client Options</em>' attribute.
+	 * @see #getInitAxis2ClientOptions()
+	 * @generated
+	 */
+	void setInitAxis2ClientOptions(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Payload Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Payload Property</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Payload Property</em>' attribute.
+	 * @see #setPayloadProperty(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_PayloadProperty()
+	 * @model
+	 * @generated
+	 */
+	String getPayloadProperty();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPayloadProperty <em>Payload Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payload Property</em>' attribute.
+	 * @see #getPayloadProperty()
+	 * @generated
+	 */
+	void setPayloadProperty(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Security Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType
+	 * @see #setSecurityType(CalloutSecurityType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_SecurityType()
+	 * @model
+	 * @generated
+	 */
+	CalloutSecurityType getSecurityType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getSecurityType <em>Security Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType
+	 * @see #getSecurityType()
+	 * @generated
+	 */
+	void setSecurityType(CalloutSecurityType value);
+
+	/**
+	 * Returns the value of the '<em><b>Outbound Policy Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Outbound Policy Key</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Outbound Policy Key</em>' reference.
+	 * @see #setOutboundPolicyKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_OutboundPolicyKey()
+	 * @model
+	 * @generated
+	 */
+	RegistryKeyProperty getOutboundPolicyKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getOutboundPolicyKey <em>Outbound Policy Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Outbound Policy Key</em>' reference.
+	 * @see #getOutboundPolicyKey()
+	 * @generated
+	 */
+	void setOutboundPolicyKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Inbound Policy Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inbound Policy Key</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inbound Policy Key</em>' reference.
+	 * @see #setInboundPolicyKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_InboundPolicyKey()
+	 * @model
+	 * @generated
+	 */
+	RegistryKeyProperty getInboundPolicyKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInboundPolicyKey <em>Inbound Policy Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inbound Policy Key</em>' reference.
+	 * @see #getInboundPolicyKey()
+	 * @generated
+	 */
+	void setInboundPolicyKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Policies</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Policies</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Policies</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies
+	 * @see #setPolicies(CalloutSecurityPolicies)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_Policies()
+	 * @model
+	 * @generated
+	 */
+	CalloutSecurityPolicies getPolicies();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicies <em>Policies</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Policies</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies
+	 * @see #getPolicies()
+	 * @generated
+	 */
+	void setPolicies(CalloutSecurityPolicies value);
+
+	/**
+	 * Returns the value of the '<em><b>Policy Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Policy Key</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Policy Key</em>' reference.
+	 * @see #setPolicyKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_PolicyKey()
+	 * @model
+	 * @generated
+	 */
+	RegistryKeyProperty getPolicyKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicyKey <em>Policy Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Policy Key</em>' reference.
+	 * @see #getPolicyKey()
+	 * @generated
+	 */
+	void setPolicyKey(RegistryKeyProperty value);
 
 } // CalloutMediator

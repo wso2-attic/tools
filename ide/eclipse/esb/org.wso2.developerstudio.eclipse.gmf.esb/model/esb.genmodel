@@ -232,13 +232,26 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//XQueryVariableValueType/LITERAL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//XQueryVariableValueType/EXPRESSION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CalloutEndpointType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutEndpointType/URL"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutEndpointType/AddressEndpoint"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CalloutPayloadType">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutPayloadType/MESSAGE_ELEMENT"/>
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutPayloadType/REGISTRY_ENTRY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutPayloadType/XPATH"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutPayloadType/PROPERTY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutPayloadType/ENVELOPE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CalloutSecurityPolicies">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutSecurityPolicies/FALSE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutSecurityPolicies/TRUE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CalloutSecurityType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutSecurityType/FALSE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutSecurityType/TRUE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CalloutResultType">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutResultType/MESSAGE_ELEMENT"/>
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutResultType/CONTEXT_PROPERTY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutResultType/XPATH"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CalloutResultType/PROPERTY"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RMSpecVersion">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RMSpecVersion/VERSION_1_0"/>
@@ -1145,17 +1158,30 @@
     <genClasses ecoreClass="esb.ecore#//CalloutMediator">
       <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/serviceURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/soapAction"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/pathToAxis2xml"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/pathToAxis2Repository"/>
+      <genFeatures createChild="false" propertyCategory="" propertyDescription=""
+          ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/pathToAxis2xml"/>
+      <genFeatures createChild="false" propertyCategory="" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/pathToAxis2Repository"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/payloadType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/payloadMessageXpath"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/payloadRegistryKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/resultType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/resultMessageXpath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/resultContextProperty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/passHeaders"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/outputConnector"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Service" propertyDescription=""
+          ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/AddressEndpoint"/>
+      <genFeatures createChild="false" propertyCategory="Service" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/EndpointType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/initAxis2ClientOptions"/>
+      <genFeatures createChild="false" propertyCategory="Source" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/payloadProperty"/>
+      <genFeatures createChild="false" propertyCategory="WS" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/securityType"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="WS" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/outboundPolicyKey"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="WS" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/inboundPolicyKey"/>
+      <genFeatures createChild="false" propertyCategory="WS" ecoreFeature="ecore:EAttribute esb.ecore#//CalloutMediator/policies"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="WS" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//CalloutMediator/policyKey"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CalloutMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CalloutMediatorOutputConnector"/>

@@ -132,9 +132,9 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getFaultMediator_FaultCodeExpression().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		} else if(pkg.getCalloutMediator_PayloadRegistryKey().equals(feature)){
+		}/* else if(pkg.getCalloutMediator_PayloadRegistryKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		} else if(pkg.getSpringMediator_ConfigurationKey().equals(feature)){
+		}*/ else if(pkg.getSpringMediator_ConfigurationKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSmooksMediator_ConfigurationKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
@@ -294,6 +294,16 @@ public class EsbPropertySource extends PropertySource {
 	    	return new TemplateEndpointParametersPropertyDescriptor(object, itemPropertyDescriptor); 
 		} else if(pkg.getCloudConnectorOperation_ConnectorParameters().equals(feature)){
 			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getCalloutMediator_AddressEndpoint().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getCalloutMediator_PolicyKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getCalloutMediator_InboundPolicyKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getCalloutMediator_InboundPolicyKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getCalloutMediator_OutboundPolicyKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

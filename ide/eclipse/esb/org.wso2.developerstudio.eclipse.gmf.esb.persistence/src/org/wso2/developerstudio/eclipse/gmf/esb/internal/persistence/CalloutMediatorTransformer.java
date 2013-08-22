@@ -51,6 +51,8 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 		 */
 		org.apache.synapse.mediators.builtin.CalloutMediator calloutMediator = new org.apache.synapse.mediators.builtin.CalloutMediator();
 		{
+			
+			
 			calloutMediator.setServiceURL(visualCallout.getServiceURL());
 			calloutMediator.setAction(visualCallout.getSoapAction());
 
@@ -76,10 +78,10 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 				}
 
 			} else {
-				if (visualCallout.getPayloadRegistryKey() != null) {
+				/*if (visualCallout.getPayloadRegistryKey() != null) {
 					calloutMediator.setRequestKey(visualCallout
 							.getPayloadRegistryKey().getKeyValue());
-				}
+				}*/
 			}
 
 			if (visualCallout.getResultType().getValue() == 0) {

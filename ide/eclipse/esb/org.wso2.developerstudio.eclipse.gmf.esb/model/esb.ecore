@@ -1216,8 +1216,6 @@
         defaultValueLiteral="MESSAGE_ELEMENT"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="payloadMessageXpath" eType="#//NamespacedProperty"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="payloadRegistryKey" eType="#//RegistryKeyProperty"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resultType" eType="#//CalloutResultType"
         defaultValueLiteral="MESSAGE_ELEMENT"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resultMessageXpath" eType="#//NamespacedProperty"
@@ -1229,16 +1227,39 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//CalloutMediatorOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AddressEndpoint" eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndpointType" eType="#//CalloutEndpointType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initAxis2ClientOptions"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="payloadProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityType" eType="#//CalloutSecurityType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outboundPolicyKey" eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inboundPolicyKey" eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policies" eType="#//CalloutSecurityPolicies"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policyKey" eType="#//RegistryKeyProperty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CalloutEndpointType">
+    <eLiterals name="URL"/>
+    <eLiterals name="AddressEndpoint" value="1" literal="AddressEndpoint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CalloutMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="CalloutMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="CalloutPayloadType">
-    <eLiterals name="MESSAGE_ELEMENT"/>
-    <eLiterals name="REGISTRY_ENTRY" value="1"/>
+    <eLiterals name="XPATH"/>
+    <eLiterals name="PROPERTY" value="1"/>
+    <eLiterals name="ENVELOPE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CalloutSecurityPolicies">
+    <eLiterals name="FALSE"/>
+    <eLiterals name="TRUE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CalloutSecurityType">
+    <eLiterals name="FALSE"/>
+    <eLiterals name="TRUE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CalloutResultType">
-    <eLiterals name="MESSAGE_ELEMENT"/>
-    <eLiterals name="CONTEXT_PROPERTY" value="1"/>
+    <eLiterals name="XPATH"/>
+    <eLiterals name="PROPERTY" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RMSequenceMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rmSpecVersion" eType="#//RMSpecVersion"
