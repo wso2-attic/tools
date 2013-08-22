@@ -75,8 +75,8 @@ public class PropertyMediatorItemProvider
 		addPropertyActionPropertyDescriptor(object);				
 						
 		if (property.getPropertyAction().equals(PropertyAction.SET)) {
-			addPropertyDataTypePropertyDescriptor(object);
 			addValueTypePropertyDescriptor(object);
+			addPropertyDataTypePropertyDescriptor(object);
 			if (property.getValueType().equals(PropertyValueType.LITERAL)) {
 				switch (property.getPropertyDataType()) {
 					case OM: {
