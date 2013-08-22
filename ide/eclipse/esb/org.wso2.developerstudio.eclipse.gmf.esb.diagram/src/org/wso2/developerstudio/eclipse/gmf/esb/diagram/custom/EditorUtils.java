@@ -49,6 +49,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpoi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment7EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment8EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
@@ -198,6 +205,22 @@ public class EditorUtils {
 			return (AbstractMediator) child.getParent();
 		}else{
 			return null;
+		}
+	}
+	
+	public static EditPart getComplexMediator(EditPart compartment){
+		EditPart editPart=compartment;
+		if(editPart instanceof MediatorFlowMediatorFlowCompartment7EditPart 		// filter pass
+				|| editPart instanceof MediatorFlowMediatorFlowCompartment8EditPart		// filter fail
+				|| editPart instanceof MediatorFlowMediatorFlowCompartment9EditPart		// throttle onaccept
+				|| editPart instanceof MediatorFlowMediatorFlowCompartment10EditPart	// throttle onreject
+				|| editPart instanceof MediatorFlowMediatorFlowCompartment2EditPart		// switch case
+				|| editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart		// switch default
+				|| editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart) { // clone target
+			return editPart.getParent().getParent();
+		}
+		else {
+				return null;
 		}
 	}
 	
