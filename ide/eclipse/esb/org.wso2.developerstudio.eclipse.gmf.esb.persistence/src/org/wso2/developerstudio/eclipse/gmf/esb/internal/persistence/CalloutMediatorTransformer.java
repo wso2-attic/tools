@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -82,10 +83,11 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 					}
 
 					calloutMediator.setRequestXPath(xpath);
-
 				}
 
-			} else {
+			} else if(visualCallout.getPayloadType().getValue()==CalloutPayloadType.ENVELOPE_VALUE){
+				  calloutMediator.setUseEnvelopeAsSource(true);
+			}else {
 				if (visualCallout.getPayloadProperty() != null) {
 					calloutMediator.setRequestKey(visualCallout.getResultContextProperty());
 				}

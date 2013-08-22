@@ -6,6 +6,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
@@ -19,15 +21,23 @@ public class CalloutMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		CalloutMediator visualCalloutMediator = (CalloutMediator) DeserializerUtils.createNode(part, EsbElementTypes.CalloutMediator_3520);
 		setElementToEdit(visualCalloutMediator);	
 		
+		if(calloutMediator.getServiceURL()!=null){
 		executeSetValueCommand(CALLOUT_MEDIATOR__SERVICE_URL, calloutMediator.getServiceURL());
+		}else {
+	         executeSetValueCommand(CALLOUT_MEDIATOR__ENDPOINT_TYPE, calloutMediator.getEndpointKey());
+		}
+		
+		
 		executeSetValueCommand(CALLOUT_MEDIATOR__SOAP_ACTION, calloutMediator.getAction());
 		
 		if(calloutMediator.getRequestXPath()!=null){
 			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, createNamespacedProperty(calloutMediator.getRequestXPath()));
 			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.XPATH);
-		}else{
-			/*executeSetValueCommand(visualCalloutMediator.getPayloadRegistryKey(),REGISTRY_KEY_PROPERTY__KEY_VALUE, calloutMediator.getRequestKey());
-			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.REGISTRY_ENTRY);*/
+		}else if(calloutMediator.getRequestKey()!=null){
+			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_PROPERTY, calloutMediator.getRequestKey());
+			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.PROPERTY);
+		}else if(calloutMediator.isUseEnvelopeAsSource()){
+			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.ENVELOPE);
 		}
 		
 		if(calloutMediator.getTargetXPath()!=null){
@@ -45,7 +55,20 @@ public class CalloutMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 			executeSetValueCommand(CALLOUT_MEDIATOR__PATH_TO_AXIS2XML, calloutMediator.getAxis2xml());
 		}
 		
+		if(calloutMediator.isSecurityOn()){
+			executeSetValueCommand(CALLOUT_MEDIATOR__SECURITY_TYPE, CalloutSecurityType.TRUE);
+			if(calloutMediator.getWsSecPolicyKey()!=null){
+				executeSetValueCommand(CALLOUT_MEDIATOR__POLICY_KEY,calloutMediator.getWsSecPolicyKey());
+			}else{
+				executeSetValueCommand(CALLOUT_MEDIATOR__POLICIES, CalloutSecurityPolicies.TRUE);
+				if(calloutMediator.getInboundWsSecPolicyKey()!=null){
+					executeSetValueCommand(CALLOUT_MEDIATOR__INBOUND_POLICY_KEY,calloutMediator.getInboundWsSecPolicyKey());
+				}
+				if(calloutMediator.getOutboundWsSecPolicyKey()!=null){
+					executeSetValueCommand(CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY,calloutMediator.getOutboundWsSecPolicyKey());
+				}
+			}
+		}
 		return visualCalloutMediator;
 	}
-
 }

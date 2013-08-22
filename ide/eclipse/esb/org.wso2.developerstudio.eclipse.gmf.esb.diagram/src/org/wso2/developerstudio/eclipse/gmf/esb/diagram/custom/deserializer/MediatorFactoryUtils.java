@@ -40,7 +40,8 @@ public class MediatorFactoryUtils {
 		RuleMediatorExtFactory.class,
 		EJBMediatorExtFactory.class,
 		BeanMediatorExtFactory.class,
-		BamMediatorExtFactory.class
+		BamMediatorExtFactory.class,
+		CalloutMediatorExtFactory.class
 	};
 	
 	public static synchronized void registerFactories() {
