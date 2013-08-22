@@ -1372,7 +1372,7 @@ public class EsbPaletteFactory {
 				case SEQUENCE:
 					proxyServiceTool.setVisible(false);
 					mediatorPalette.setVisible(true);
-					nodePalette.setVisible(true);
+					nodePalette.setVisible(false);
 					endpoitPalette.setVisible(true);
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
@@ -1404,12 +1404,14 @@ public class EsbPaletteFactory {
 					endpoitPalette.setVisible(true);
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
+					//fixing TOOLS-1820
+					apiResourceTool.getParent().setLabel("API");
 					apiResourceTool.setVisible(true);
 					break;
 				case TEMPLATE:
 					proxyServiceTool.setVisible(false);
 					mediatorPalette.setVisible(true);
-					nodePalette.setVisible(true);
+					nodePalette.setVisible(false);
 					endpoitPalette.setVisible(true);
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
