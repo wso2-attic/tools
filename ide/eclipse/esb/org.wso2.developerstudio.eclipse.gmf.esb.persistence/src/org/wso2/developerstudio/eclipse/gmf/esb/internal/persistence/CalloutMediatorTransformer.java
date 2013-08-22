@@ -8,7 +8,10 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -52,8 +55,13 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.apache.synapse.mediators.builtin.CalloutMediator calloutMediator = new org.apache.synapse.mediators.builtin.CalloutMediator();
 		{
 			
-			
-			calloutMediator.setServiceURL(visualCallout.getServiceURL());
+			if(visualCallout.getEndpointType().getValue()==CalloutEndpointType.URL_VALUE){
+				calloutMediator.setServiceURL(visualCallout.getServiceURL());
+			}else{
+				if (visualCallout.getAddressEndpoint() != null){
+				calloutMediator.setEndpointKey(visualCallout.getAddressEndpoint().getKeyValue());
+				}
+			}
 			calloutMediator.setAction(visualCallout.getSoapAction());
 
 			if (visualCallout.getPayloadType().getValue() == 0) {
@@ -78,10 +86,9 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 				}
 
 			} else {
-				/*if (visualCallout.getPayloadRegistryKey() != null) {
-					calloutMediator.setRequestKey(visualCallout
-							.getPayloadRegistryKey().getKeyValue());
-				}*/
+				if (visualCallout.getPayloadProperty() != null) {
+					calloutMediator.setRequestKey(visualCallout.getResultContextProperty());
+				}
 			}
 
 			if (visualCallout.getResultType().getValue() == 0) {
@@ -107,8 +114,7 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 			} else {
 
 				if (!visualCallout.getResultContextProperty().equals("")) {
-					calloutMediator.setTargetKey(visualCallout
-							.getResultContextProperty());
+					calloutMediator.setTargetKey(visualCallout.getResultContextProperty());
 				}
 			}
 
@@ -119,6 +125,23 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 			if (!visualCallout.getPathToAxis2xml().equals("")) {
 				calloutMediator.setAxis2xml(visualCallout.getPathToAxis2xml());
 			}
+			if(visualCallout.getSecurityType().getValue()==CalloutSecurityType.TRUE_VALUE){
+				calloutMediator.setSecurityOn(true);
+		        if(visualCallout.getPolicies().getValue()==CalloutSecurityPolicies.TRUE_VALUE){
+		        	if((visualCallout.getInboundPolicyKey()!=null)){
+		        	calloutMediator.setInboundWsSecPolicyKey(visualCallout.getInboundPolicyKey().getKeyValue());
+		        	}
+		        	if((visualCallout.getOutboundPolicyKey()!=null)){
+		        	calloutMediator.setOutboundWsSecPolicyKey(visualCallout.getOutboundPolicyKey().getKeyValue());
+		        	}
+		        }else{
+		        	if(visualCallout.getPolicyKey()!=null){
+		        	calloutMediator.setWsSecPolicyKey(visualCallout.getPolicyKey().getKeyValue());
+		        	}
+		        }
+		        
+			}
+			
 		}
 		return calloutMediator;
 	}

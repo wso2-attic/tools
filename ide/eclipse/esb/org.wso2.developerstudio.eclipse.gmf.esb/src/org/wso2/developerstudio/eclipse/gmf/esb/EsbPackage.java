@@ -9328,7 +9328,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CALLOUT_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Address Endpoint</b></em>' reference.
+	 * The feature id for the '<em><b>Address Endpoint</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -9373,7 +9373,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CALLOUT_MEDIATOR__SECURITY_TYPE = MEDIATOR_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Outbound Policy Key</b></em>' reference.
+	 * The feature id for the '<em><b>Outbound Policy Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -9382,7 +9382,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY = MEDIATOR_FEATURE_COUNT + 17;
 
 	/**
-	 * The feature id for the '<em><b>Inbound Policy Key</b></em>' reference.
+	 * The feature id for the '<em><b>Inbound Policy Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -9400,7 +9400,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CALLOUT_MEDIATOR__POLICIES = MEDIATOR_FEATURE_COUNT + 19;
 
 	/**
-	 * The feature id for the '<em><b>Policy Key</b></em>' reference.
+	 * The feature id for the '<em><b>Policy Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -27208,10 +27208,10 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getCalloutMediator_OutputConnector();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getAddressEndpoint <em>Address Endpoint</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getAddressEndpoint <em>Address Endpoint</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Address Endpoint</em>'.
+	 * @return the meta object for the containment reference '<em>Address Endpoint</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getAddressEndpoint()
 	 * @see #getCalloutMediator()
 	 * @generated
@@ -27263,10 +27263,10 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getCalloutMediator_SecurityType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getOutboundPolicyKey <em>Outbound Policy Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getOutboundPolicyKey <em>Outbound Policy Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Outbound Policy Key</em>'.
+	 * @return the meta object for the containment reference '<em>Outbound Policy Key</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getOutboundPolicyKey()
 	 * @see #getCalloutMediator()
 	 * @generated
@@ -27274,10 +27274,10 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getCalloutMediator_OutboundPolicyKey();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInboundPolicyKey <em>Inbound Policy Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInboundPolicyKey <em>Inbound Policy Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Inbound Policy Key</em>'.
+	 * @return the meta object for the containment reference '<em>Inbound Policy Key</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInboundPolicyKey()
 	 * @see #getCalloutMediator()
 	 * @generated
@@ -27296,10 +27296,10 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getCalloutMediator_Policies();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicyKey <em>Policy Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicyKey <em>Policy Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Policy Key</em>'.
+	 * @return the meta object for the containment reference '<em>Policy Key</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicyKey()
 	 * @see #getCalloutMediator()
 	 * @generated
@@ -38373,7 +38373,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EReference CALLOUT_MEDIATOR__OUTPUT_CONNECTOR = eINSTANCE.getCalloutMediator_OutputConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Address Endpoint</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Address Endpoint</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -38413,7 +38413,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute CALLOUT_MEDIATOR__SECURITY_TYPE = eINSTANCE.getCalloutMediator_SecurityType();
 
 		/**
-		 * The meta object literal for the '<em><b>Outbound Policy Key</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Outbound Policy Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -38421,7 +38421,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EReference CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY = eINSTANCE.getCalloutMediator_OutboundPolicyKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Inbound Policy Key</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Inbound Policy Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -38437,7 +38437,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute CALLOUT_MEDIATOR__POLICIES = eINSTANCE.getCalloutMediator_Policies();
 
 		/**
-		 * The meta object literal for the '<em><b>Policy Key</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Policy Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

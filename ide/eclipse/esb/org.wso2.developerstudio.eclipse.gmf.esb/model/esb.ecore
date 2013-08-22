@@ -1227,16 +1227,20 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//CalloutMediatorOutputConnector"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="AddressEndpoint" eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AddressEndpoint" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndpointType" eType="#//CalloutEndpointType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="initAxis2ClientOptions"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="payloadProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityType" eType="#//CalloutSecurityType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outboundPolicyKey" eType="#//RegistryKeyProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inboundPolicyKey" eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outboundPolicyKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inboundPolicyKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="policies" eType="#//CalloutSecurityPolicies"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="policyKey" eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policyKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CalloutEndpointType">
     <eLiterals name="URL"/>

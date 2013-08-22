@@ -370,26 +370,26 @@ public interface CalloutMediator extends Mediator {
 	void setOutputConnector(CalloutMediatorOutputConnector value);
 
 	/**
-	 * Returns the value of the '<em><b>Address Endpoint</b></em>' reference.
+	 * Returns the value of the '<em><b>Address Endpoint</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Address Endpoint</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Address Endpoint</em>' reference.
+	 * @return the value of the '<em>Address Endpoint</em>' containment reference.
 	 * @see #setAddressEndpoint(RegistryKeyProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_AddressEndpoint()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getAddressEndpoint();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getAddressEndpoint <em>Address Endpoint</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getAddressEndpoint <em>Address Endpoint</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Address Endpoint</em>' reference.
+	 * @param value the new value of the '<em>Address Endpoint</em>' containment reference.
 	 * @see #getAddressEndpoint()
 	 * @generated
 	 */
@@ -506,52 +506,52 @@ public interface CalloutMediator extends Mediator {
 	void setSecurityType(CalloutSecurityType value);
 
 	/**
-	 * Returns the value of the '<em><b>Outbound Policy Key</b></em>' reference.
+	 * Returns the value of the '<em><b>Outbound Policy Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Outbound Policy Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outbound Policy Key</em>' reference.
+	 * @return the value of the '<em>Outbound Policy Key</em>' containment reference.
 	 * @see #setOutboundPolicyKey(RegistryKeyProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_OutboundPolicyKey()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getOutboundPolicyKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getOutboundPolicyKey <em>Outbound Policy Key</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getOutboundPolicyKey <em>Outbound Policy Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Outbound Policy Key</em>' reference.
+	 * @param value the new value of the '<em>Outbound Policy Key</em>' containment reference.
 	 * @see #getOutboundPolicyKey()
 	 * @generated
 	 */
 	void setOutboundPolicyKey(RegistryKeyProperty value);
 
 	/**
-	 * Returns the value of the '<em><b>Inbound Policy Key</b></em>' reference.
+	 * Returns the value of the '<em><b>Inbound Policy Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Inbound Policy Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inbound Policy Key</em>' reference.
+	 * @return the value of the '<em>Inbound Policy Key</em>' containment reference.
 	 * @see #setInboundPolicyKey(RegistryKeyProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_InboundPolicyKey()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getInboundPolicyKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInboundPolicyKey <em>Inbound Policy Key</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getInboundPolicyKey <em>Inbound Policy Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inbound Policy Key</em>' reference.
+	 * @param value the new value of the '<em>Inbound Policy Key</em>' containment reference.
 	 * @see #getInboundPolicyKey()
 	 * @generated
 	 */
@@ -587,26 +587,26 @@ public interface CalloutMediator extends Mediator {
 	void setPolicies(CalloutSecurityPolicies value);
 
 	/**
-	 * Returns the value of the '<em><b>Policy Key</b></em>' reference.
+	 * Returns the value of the '<em><b>Policy Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Policy Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Policy Key</em>' reference.
+	 * @return the value of the '<em>Policy Key</em>' containment reference.
 	 * @see #setPolicyKey(RegistryKeyProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_PolicyKey()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getPolicyKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicyKey <em>Policy Key</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator#getPolicyKey <em>Policy Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Policy Key</em>' reference.
+	 * @param value the new value of the '<em>Policy Key</em>' containment reference.
 	 * @see #getPolicyKey()
 	 * @generated
 	 */

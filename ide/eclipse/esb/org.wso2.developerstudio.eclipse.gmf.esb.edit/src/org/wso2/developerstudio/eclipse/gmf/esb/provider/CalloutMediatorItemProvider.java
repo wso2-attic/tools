@@ -57,37 +57,6 @@ public class CalloutMediatorItemProvider
 		super(adapterFactory);
 	}
 
-	
-	public List<IItemPropertyDescriptor> getPropertyDescriptors123(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addServiceURLPropertyDescriptor(object);
-			addSoapActionPropertyDescriptor(object);
-			addPathToAxis2xmlPropertyDescriptor(object);
-			addPathToAxis2RepositoryPropertyDescriptor(object);
-			
-			addPayloadTypePropertyDescriptor(object);
-			addPayloadPropertyPropertyDescriptor(object);
-			
-			addResultTypePropertyDescriptor(object);
-			addResultContextPropertyPropertyDescriptor(object);
-			
-			addPassHeadersPropertyDescriptor(object);
-			addAddressEndpointPropertyDescriptor(object);
-			addEndpointTypePropertyDescriptor(object);
-			addInitAxis2ClientOptionsPropertyDescriptor(object);
-			
-			
-			
-			addSecurityTypePropertyDescriptor(object);
-			addOutboundPolicyKeyPropertyDescriptor(object);
-			addInboundPolicyKeyPropertyDescriptor(object);
-			addPoliciesPropertyDescriptor(object);
-			addPolicyKeyPropertyDescriptor(object);
-		}
-		return itemPropertyDescriptors;
-	}
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->

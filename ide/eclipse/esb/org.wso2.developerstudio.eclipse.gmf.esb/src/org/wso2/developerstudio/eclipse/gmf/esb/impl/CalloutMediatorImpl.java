@@ -261,7 +261,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	protected CalloutMediatorOutputConnector outputConnector;
 
 	/**
-	 * The cached value of the '{@link #getAddressEndpoint() <em>Address Endpoint</em>}' reference.
+	 * The cached value of the '{@link #getAddressEndpoint() <em>Address Endpoint</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAddressEndpoint()
@@ -351,7 +351,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	protected CalloutSecurityType securityType = SECURITY_TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOutboundPolicyKey() <em>Outbound Policy Key</em>}' reference.
+	 * The cached value of the '{@link #getOutboundPolicyKey() <em>Outbound Policy Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutboundPolicyKey()
@@ -361,7 +361,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	protected RegistryKeyProperty outboundPolicyKey;
 
 	/**
-	 * The cached value of the '{@link #getInboundPolicyKey() <em>Inbound Policy Key</em>}' reference.
+	 * The cached value of the '{@link #getInboundPolicyKey() <em>Inbound Policy Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInboundPolicyKey()
@@ -391,7 +391,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	protected CalloutSecurityPolicies policies = POLICIES_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getPolicyKey() <em>Policy Key</em>}' reference.
+	 * The cached value of the '{@link #getPolicyKey() <em>Policy Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPolicyKey()
@@ -821,14 +821,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	public RegistryKeyProperty getAddressEndpoint() {
-		if (addressEndpoint != null && addressEndpoint.eIsProxy()) {
-			InternalEObject oldAddressEndpoint = (InternalEObject)addressEndpoint;
-			addressEndpoint = (RegistryKeyProperty)eResolveProxy(oldAddressEndpoint);
-			if (addressEndpoint != oldAddressEndpoint) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, oldAddressEndpoint, addressEndpoint));
-			}
-		}
 		return addressEndpoint;
 	}
 
@@ -837,8 +829,14 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty basicGetAddressEndpoint() {
-		return addressEndpoint;
+	public NotificationChain basicSetAddressEndpoint(RegistryKeyProperty newAddressEndpoint, NotificationChain msgs) {
+		RegistryKeyProperty oldAddressEndpoint = addressEndpoint;
+		addressEndpoint = newAddressEndpoint;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, oldAddressEndpoint, newAddressEndpoint);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -847,10 +845,17 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	public void setAddressEndpoint(RegistryKeyProperty newAddressEndpoint) {
-		RegistryKeyProperty oldAddressEndpoint = addressEndpoint;
-		addressEndpoint = newAddressEndpoint;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, oldAddressEndpoint, addressEndpoint));
+		if (newAddressEndpoint != addressEndpoint) {
+			NotificationChain msgs = null;
+			if (addressEndpoint != null)
+				msgs = ((InternalEObject)addressEndpoint).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, null, msgs);
+			if (newAddressEndpoint != null)
+				msgs = ((InternalEObject)newAddressEndpoint).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, null, msgs);
+			msgs = basicSetAddressEndpoint(newAddressEndpoint, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, newAddressEndpoint, newAddressEndpoint));
 	}
 
 	/**
@@ -943,14 +948,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	public RegistryKeyProperty getOutboundPolicyKey() {
-		if (outboundPolicyKey != null && outboundPolicyKey.eIsProxy()) {
-			InternalEObject oldOutboundPolicyKey = (InternalEObject)outboundPolicyKey;
-			outboundPolicyKey = (RegistryKeyProperty)eResolveProxy(oldOutboundPolicyKey);
-			if (outboundPolicyKey != oldOutboundPolicyKey) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY, oldOutboundPolicyKey, outboundPolicyKey));
-			}
-		}
 		return outboundPolicyKey;
 	}
 
@@ -959,8 +956,14 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty basicGetOutboundPolicyKey() {
-		return outboundPolicyKey;
+	public NotificationChain basicSetOutboundPolicyKey(RegistryKeyProperty newOutboundPolicyKey, NotificationChain msgs) {
+		RegistryKeyProperty oldOutboundPolicyKey = outboundPolicyKey;
+		outboundPolicyKey = newOutboundPolicyKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY, oldOutboundPolicyKey, newOutboundPolicyKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -969,10 +972,17 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	public void setOutboundPolicyKey(RegistryKeyProperty newOutboundPolicyKey) {
-		RegistryKeyProperty oldOutboundPolicyKey = outboundPolicyKey;
-		outboundPolicyKey = newOutboundPolicyKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY, oldOutboundPolicyKey, outboundPolicyKey));
+		if (newOutboundPolicyKey != outboundPolicyKey) {
+			NotificationChain msgs = null;
+			if (outboundPolicyKey != null)
+				msgs = ((InternalEObject)outboundPolicyKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY, null, msgs);
+			if (newOutboundPolicyKey != null)
+				msgs = ((InternalEObject)newOutboundPolicyKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY, null, msgs);
+			msgs = basicSetOutboundPolicyKey(newOutboundPolicyKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY, newOutboundPolicyKey, newOutboundPolicyKey));
 	}
 
 	/**
@@ -981,14 +991,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	public RegistryKeyProperty getInboundPolicyKey() {
-		if (inboundPolicyKey != null && inboundPolicyKey.eIsProxy()) {
-			InternalEObject oldInboundPolicyKey = (InternalEObject)inboundPolicyKey;
-			inboundPolicyKey = (RegistryKeyProperty)eResolveProxy(oldInboundPolicyKey);
-			if (inboundPolicyKey != oldInboundPolicyKey) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY, oldInboundPolicyKey, inboundPolicyKey));
-			}
-		}
 		return inboundPolicyKey;
 	}
 
@@ -997,8 +999,14 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty basicGetInboundPolicyKey() {
-		return inboundPolicyKey;
+	public NotificationChain basicSetInboundPolicyKey(RegistryKeyProperty newInboundPolicyKey, NotificationChain msgs) {
+		RegistryKeyProperty oldInboundPolicyKey = inboundPolicyKey;
+		inboundPolicyKey = newInboundPolicyKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY, oldInboundPolicyKey, newInboundPolicyKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -1007,10 +1015,17 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	public void setInboundPolicyKey(RegistryKeyProperty newInboundPolicyKey) {
-		RegistryKeyProperty oldInboundPolicyKey = inboundPolicyKey;
-		inboundPolicyKey = newInboundPolicyKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY, oldInboundPolicyKey, inboundPolicyKey));
+		if (newInboundPolicyKey != inboundPolicyKey) {
+			NotificationChain msgs = null;
+			if (inboundPolicyKey != null)
+				msgs = ((InternalEObject)inboundPolicyKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY, null, msgs);
+			if (newInboundPolicyKey != null)
+				msgs = ((InternalEObject)newInboundPolicyKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY, null, msgs);
+			msgs = basicSetInboundPolicyKey(newInboundPolicyKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY, newInboundPolicyKey, newInboundPolicyKey));
 	}
 
 	/**
@@ -1040,14 +1055,6 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	public RegistryKeyProperty getPolicyKey() {
-		if (policyKey != null && policyKey.eIsProxy()) {
-			InternalEObject oldPolicyKey = (InternalEObject)policyKey;
-			policyKey = (RegistryKeyProperty)eResolveProxy(oldPolicyKey);
-			if (policyKey != oldPolicyKey) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY, oldPolicyKey, policyKey));
-			}
-		}
 		return policyKey;
 	}
 
@@ -1056,8 +1063,14 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty basicGetPolicyKey() {
-		return policyKey;
+	public NotificationChain basicSetPolicyKey(RegistryKeyProperty newPolicyKey, NotificationChain msgs) {
+		RegistryKeyProperty oldPolicyKey = policyKey;
+		policyKey = newPolicyKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY, oldPolicyKey, newPolicyKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -1066,10 +1079,17 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 */
 	public void setPolicyKey(RegistryKeyProperty newPolicyKey) {
-		RegistryKeyProperty oldPolicyKey = policyKey;
-		policyKey = newPolicyKey;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY, oldPolicyKey, policyKey));
+		if (newPolicyKey != policyKey) {
+			NotificationChain msgs = null;
+			if (policyKey != null)
+				msgs = ((InternalEObject)policyKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY, null, msgs);
+			if (newPolicyKey != null)
+				msgs = ((InternalEObject)newPolicyKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY, null, msgs);
+			msgs = basicSetPolicyKey(newPolicyKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY, newPolicyKey, newPolicyKey));
 	}
 
 	/**
@@ -1089,6 +1109,14 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
 				return basicSetOutputConnector(null, msgs);
+			case EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT:
+				return basicSetAddressEndpoint(null, msgs);
+			case EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY:
+				return basicSetOutboundPolicyKey(null, msgs);
+			case EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY:
+				return basicSetInboundPolicyKey(null, msgs);
+			case EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY:
+				return basicSetPolicyKey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1127,8 +1155,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 			case EsbPackage.CALLOUT_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
 			case EsbPackage.CALLOUT_MEDIATOR__ADDRESS_ENDPOINT:
-				if (resolve) return getAddressEndpoint();
-				return basicGetAddressEndpoint();
+				return getAddressEndpoint();
 			case EsbPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
 				return getEndpointType();
 			case EsbPackage.CALLOUT_MEDIATOR__INIT_AXIS2_CLIENT_OPTIONS:
@@ -1138,16 +1165,13 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 			case EsbPackage.CALLOUT_MEDIATOR__SECURITY_TYPE:
 				return getSecurityType();
 			case EsbPackage.CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY:
-				if (resolve) return getOutboundPolicyKey();
-				return basicGetOutboundPolicyKey();
+				return getOutboundPolicyKey();
 			case EsbPackage.CALLOUT_MEDIATOR__INBOUND_POLICY_KEY:
-				if (resolve) return getInboundPolicyKey();
-				return basicGetInboundPolicyKey();
+				return getInboundPolicyKey();
 			case EsbPackage.CALLOUT_MEDIATOR__POLICIES:
 				return getPolicies();
 			case EsbPackage.CALLOUT_MEDIATOR__POLICY_KEY:
-				if (resolve) return getPolicyKey();
-				return basicGetPolicyKey();
+				return getPolicyKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
