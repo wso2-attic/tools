@@ -16,10 +16,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputCon
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterFailContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterPassContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
@@ -31,6 +33,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleOnAcceptContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleOnRejectContainerEditPart;
 
@@ -53,8 +57,7 @@ public class XYRepossition {
 		int x = (2 * connectorLength) + arraowLength;
 		int y = 0;
 		for (int i = 0; i < p; ++i) {
-			Rectangle bound = ((GraphicalEditPart) parent.getChildren().get(i)).getFigure()
-					.getBounds();
+			Rectangle bound = ((GraphicalEditPart) parent.getChildren().get(i)).getFigure().getBounds();
 			x = (arraowLength) + bound.width + (2 * connectorLength) + x;
 			if (bound.height > y) {
 				y = bound.height;
@@ -71,6 +74,8 @@ public class XYRepossition {
 					parent.getParent(), ((GraphicalEditPart) parent.getParent()).getFigure(),
 					constraints);
 			
+			
+			
 			/*
 			 * Set bounds since layout constraints are suppose to be applied in
 			 * next UI update, this bounds will be used in rearranging elements.
@@ -84,8 +89,8 @@ public class XYRepossition {
 					 * Sequence doesn't contain any children, bring it to its
 					 * initial size
 					 */
-					constraints.setWidth(195);
 					constraints.setHeight(125);
+					constraints.setWidth(195);
 				}
 				((GraphicalEditPart) parent.getParent().getParent().getParent())
 						.setLayoutConstraint(parent.getParent().getParent(),
@@ -100,19 +105,38 @@ public class XYRepossition {
 				((GraphicalEditPart) parent.getParent().getParent().getParent()).getFigure()
 						.setBounds(constraints);
 			}
+			
 
+			int boundsWidth = x + 90;
+			int boundsHeight = y + (2 * complexMediatorCompartmentGap);
 			AbstractMediator mediator = EditorUtils.getMediator(parent);
+			//EditPart ePart = EditorUtils.getComplexMediator(parent);
+
 			if (mediator instanceof complexFiguredAbstractMediator) {
-				int boundsWidth = x + 90;
-				int boundsHeight = y + (2 * complexMediatorCompartmentGap);
+				
 				if(parent != null && parent.getChildren().size() == 0) {
 					/*
 					 * Complex mediator doesn't contain any children,
 					 * bring it to its initial size. 
 					 */
 					boundsWidth = 170;
-					boundsHeight = 100;
+					boundsHeight = 100; //initial size
 				} 
+				
+				if (mediator instanceof FilterMediatorEditPart
+					|| mediator instanceof SwitchMediatorEditPart
+					|| mediator instanceof ThrottleMediatorEditPart
+					|| mediator instanceof CloneMediatorEditPart){
+						int totalHeight = getTotalYFromChildren((ShapeNodeEditPart)parent.getParent().getParent());
+						int totalKids = getTotalChildCount((ShapeNodeEditPart)parent.getParent().getParent());
+						if (totalKids == 0) {
+							boundsHeight = 100; //initial size
+						} else {
+							boundsHeight = totalHeight + constantY + 20;
+						}
+				}
+				
+				
 				((IGraphicalEditPart) mediator).getFigure().getBounds().setWidth(boundsWidth);
 				((IGraphicalEditPart) mediator).getFigure().getBounds().setHeight(boundsHeight);
 			}
@@ -239,5 +263,47 @@ public class XYRepossition {
 		}
 		return editPartIndex;
 	}
-
+	
+	private static int getTotalYFromChildren(ShapeNodeEditPart first) {
+		List<EditPart> children = first.getParent().getChildren();
+		int y = 0;
+		for (EditPart child : children) {
+			y += getMaximumY((IGraphicalEditPart)child);
+		}
+		return y;
+	}
+	
+	private static int getMaximumY(IGraphicalEditPart parent){
+		int y = 0;
+		IGraphicalEditPart mediatorFlow = (IGraphicalEditPart) parent.getChildren().get(0);
+		IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart) mediatorFlow.getChildren().get(0);
+		if (mediatorFlowCompartment.getChildren().size() >= 1) {
+			for (int i = 0; i < mediatorFlowCompartment.getChildren().size(); ++i) {
+				GraphicalEditPart gep = (GraphicalEditPart) mediatorFlowCompartment.getChildren().get(i);
+				Rectangle bound = gep.getFigure().getBounds();
+				if (bound.height > y) {
+					y = bound.height;
+				}
+			}
+		} else {
+			y = 60;
+		}
+		return y;
+	}
+	
+	private static int getTotalChildCount(ShapeNodeEditPart first) {
+		List<EditPart> children = first.getParent().getChildren();
+		int childCount = 0;
+		for (EditPart child : children) {
+			childCount += getChildCount((IGraphicalEditPart)child);
+		}
+		return childCount;
+	}
+	
+	private static int getChildCount(IGraphicalEditPart parent){
+		IGraphicalEditPart mediatorFlow = (IGraphicalEditPart) parent.getChildren().get(0);
+		IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart) mediatorFlow.getChildren().get(0);
+		int childCount = mediatorFlowCompartment.getChildren().size();
+		return childCount;
+	}
 }
