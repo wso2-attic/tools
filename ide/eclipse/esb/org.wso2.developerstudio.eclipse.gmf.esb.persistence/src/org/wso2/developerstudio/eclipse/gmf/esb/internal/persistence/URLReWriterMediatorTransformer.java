@@ -76,7 +76,7 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 				 EvaluatorExpressionProperty ruleCondition = urlRewriteRule.getUrlRewriteRuleCondition();
 				 if (ruleCondition!=null) {
 					 
-					 if(StringUtils.isBlank(ruleCondition
+					 if(!StringUtils.isBlank(ruleCondition
 								.getEvaluatorValue())){
 						 try {
 							OMElement evaluatorExpressionOM = AXIOMUtil.stringToOM(ruleCondition

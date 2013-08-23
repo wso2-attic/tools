@@ -130,12 +130,9 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		btnAdd.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String rule = "<equal source=\" \" value=\" \"/>";
-				if (rule != null && !"".equals(rule)) {
 					EvaluatorExpressionProperty property = EsbFactory.eINSTANCE
 							.createEvaluatorExpressionProperty();
 					property.setEvaluatorName("Condition");
-					property.setEvaluatorValue(rule);
 					UrlRewriteRulesWrapper rulesWrapper = new UrlRewriteRulesWrapper();
 					rulesWrapper.setCondition(property);
 					rulesWrapper.setActions(new ArrayList<UrlActionWrapper>());
@@ -148,7 +145,6 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 					tableActions.clearAll();
 					fillActionsTable(tableRules.getItemCount()-1);
 					tableRules.setSelection(tableRules.getItemCount()-1);
-				}
 			}
 		});
 
@@ -359,8 +355,10 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) item
 				.getData();
 		if(wraprule.getCondition()!=null){
-			txtRuleEditor.setText(wraprule.getCondition()
-					.getEvaluatorValue());
+			if(wraprule.getCondition().getEvaluatorValue()!=null){
+				txtRuleEditor.setText(wraprule.getCondition()
+						.getEvaluatorValue());
+			}
 		}
 		txtRuleEditor.setEnabled(true);
 		btnRemoveAction.setEnabled(true);
