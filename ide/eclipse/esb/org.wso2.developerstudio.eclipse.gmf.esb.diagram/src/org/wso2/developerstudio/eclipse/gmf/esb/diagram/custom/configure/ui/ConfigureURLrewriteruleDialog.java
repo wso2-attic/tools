@@ -518,6 +518,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		final Text text = new Text(tableActions, SWT.NONE);
 		;
 		if (action.getOption() == 0) {
+			text.setEnabled(true);
 			if(action.getValue()!=null){
 				text.setText(action.getValue());
 			}
@@ -528,13 +529,8 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				}
 			});
 		} else {
-
-			if (null != action.getNsproperty()) {
-				if(action.getNsproperty().getPropertyValue()!=null){
-					text.setText(action.getNsproperty().getPropertyValue());
-				}
-				text.setEditable(false);
-			}
+			text.setText("");
+			text.setEnabled(false);
 		}
 		valueEditor.grabHorizontal = true;
 		valueEditor.setEditor(text, item, 3);
