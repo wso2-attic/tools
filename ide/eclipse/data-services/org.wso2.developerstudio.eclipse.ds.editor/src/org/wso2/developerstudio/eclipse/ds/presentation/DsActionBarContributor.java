@@ -876,10 +876,6 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				
 				displayError("Enter value for Grouped by Element");
 				
-			} else if (result != null && (result.getRowName() == null || (StringUtils.isBlank(result.getRowName())))) {
-				
-				displayError("Enter value for Row Name");
-				
 			} else {
 				String lb = DSActionConstants.ADD_OUTPUT_MAPPING_ACTION;
 				if(generateElementMappingMenu){
