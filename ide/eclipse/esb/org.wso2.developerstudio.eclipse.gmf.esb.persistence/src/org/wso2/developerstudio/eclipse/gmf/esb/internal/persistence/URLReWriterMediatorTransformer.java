@@ -16,7 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
@@ -97,7 +99,13 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 		        	 rewriteAction.setFragmentIndex(urlRewriteRuleAction.getRuleFragment().getValue());
 		        	 rewriteAction.setRegex(urlRewriteRuleAction.getActionRegex());
 		        	 if(null==urlRewriteRuleAction.getActionValue()){
-		        		 rewriteAction.setXpath(new SynapseXPath(urlRewriteRuleAction.getActionExpression().getPropertyValue()));
+		        		 SynapseXPath synapseXPath= new SynapseXPath(urlRewriteRuleAction.getActionExpression().getPropertyValue());
+		        		 Iterator iterator = urlRewriteRuleAction.getActionExpression().getNamespaces().entrySet().iterator();
+					     while(iterator.hasNext()){
+							Entry<String, String> entry=(Entry<String, String>) iterator.next();
+		        			synapseXPath.addNamespace(entry.getKey(), entry.getValue());
+		        		 }
+		        		 rewriteAction.setXpath(synapseXPath);
 		        	 }else{
 		        		 rewriteAction.setValue(urlRewriteRuleAction.getActionValue()); 
 		        	 }

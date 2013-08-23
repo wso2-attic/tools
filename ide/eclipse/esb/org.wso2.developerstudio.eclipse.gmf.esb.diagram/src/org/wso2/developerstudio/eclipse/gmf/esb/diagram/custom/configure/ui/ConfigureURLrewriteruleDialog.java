@@ -143,6 +143,11 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 							.createURLRewriteRule());
 					TableItem item = bindRules(rulesWrapper);
 					item.setText("Rule");
+					tableRules.forceFocus();
+					updateSelection();
+					tableActions.clearAll();
+					fillActionsTable(tableRules.getItemCount()-1);
+					tableRules.setSelection(tableRules.getItemCount()-1);
 				}
 			}
 		});
@@ -275,11 +280,11 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 
 		TableColumn tblclmnNewColumn_4 = new TableColumn(tableActions, SWT.NONE);
 		tblclmnNewColumn_4.setWidth(139);
-		tblclmnNewColumn_4.setText("Value/Expression");
+		tblclmnNewColumn_4.setText("Value");
 
 		TableColumn tblclmnNewColumn_5 = new TableColumn(tableActions, SWT.NONE);
 		tblclmnNewColumn_5.setWidth(92);
-		tblclmnNewColumn_5.setText("Editor");
+		tblclmnNewColumn_5.setText("Expression");
 
 		TableColumn tblclmnNewColumn_6 = new TableColumn(tableActions, SWT.NONE);
 		tblclmnNewColumn_6.setWidth(100);
@@ -291,23 +296,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		tableRules.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				int selectedIndex = tableRules.getSelectionIndex();
-				TableItem item = tableRules.getItem(selectedIndex);
-				UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) item
-						.getData();
-				if(wraprule.getCondition()!=null){
-					txtRuleEditor.setText(wraprule.getCondition()
-							.getEvaluatorValue());
-				}
-				txtRuleEditor.setEnabled(true);
-				btnRemoveAction.setEnabled(true);
-				btnAddAction.setEnabled(true);
-				tableActions.setEnabled(true);
-				List<UrlActionWrapper> actions = wraprule.getActions();
-				tableActions.removeAll();
-				for (UrlActionWrapper urlActionWrapper : actions) {
-					bindActionTotable(new TableItem(tableActions, SWT.NONE),
-							urlActionWrapper, false);
-				}
+				fillActionsTable(selectedIndex);
 			}
 		});
 		tableActions.addSelectionListener(new SelectionAdapter() {
@@ -357,7 +346,34 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 			bindRules.setText("Rule");
 			
 		}
+		if(tableRules.getItemCount()>0){
+			tableRules.forceFocus();
+			tableRules.setSelection(0);
+			fillActionsTable(0);
+		}
 		return container;
+	}
+	
+	private void fillActionsTable(int selectedIndex) {
+		TableItem item = tableRules.getItem(selectedIndex);
+		UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) item
+				.getData();
+		if(wraprule.getCondition()!=null){
+			txtRuleEditor.setText(wraprule.getCondition()
+					.getEvaluatorValue());
+		}
+		txtRuleEditor.setEnabled(true);
+		btnRemoveAction.setEnabled(true);
+		btnAddAction.setEnabled(true);
+		tableActions.setEnabled(true);
+		List<UrlActionWrapper> actions = wraprule.getActions();
+
+		updateSelection();
+		tableActions.removeAll();
+		for (UrlActionWrapper urlActionWrapper : actions) {
+			bindActionTotable(new TableItem(tableActions, SWT.NONE),
+					urlActionWrapper, false);
+		}
 	}
 
 	/**
@@ -423,9 +439,13 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		if (action.getOption() == 1) {
 			item.setText(3, action.getNsproperty().getPropertyValue());
 		} else {
-			item.setText(3, action.getValue());
+			if(action.getValue()!=null){
+				item.setText(3, action.getValue());
+			}
 		}
-		item.setText(5, action.getRegex());
+		if(action.getRegex()!=null){
+			item.setText(5, action.getRegex());
+		}
 	}
 
 	public void unbindAction(TableItem item) {
@@ -498,7 +518,9 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		final Text text = new Text(tableActions, SWT.NONE);
 		;
 		if (action.getOption() == 0) {
-			text.setText(action.getValue());
+			if(action.getValue()!=null){
+				text.setText(action.getValue());
+			}
 			text.addModifyListener(new ModifyListener() {
 				public void modifyText(ModifyEvent arg0) {
 					action.setValue(text.getText());
@@ -508,7 +530,9 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		} else {
 
 			if (null != action.getNsproperty()) {
-				text.setText(action.getNsproperty().getPropertyValue());
+				if(action.getNsproperty().getPropertyValue()!=null){
+					text.setText(action.getNsproperty().getPropertyValue());
+				}
 				text.setEditable(false);
 			}
 		}
@@ -519,22 +543,25 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 
 		final Button btnNS = new Button(tableActions, SWT.PUSH);
 		btnNS.setEnabled(false);
-		btnNS.setText("ns editor");
+		btnNS.setText("        Edit        ");
 		btnNS.pack();
 		btnNS.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				NamespacedProperty namespacedProperty = action.getNsproperty();
-				if (namespacedProperty == null) {
-					namespacedProperty = EsbFactory.eINSTANCE
-							.createNamespacedProperty();
+				NamespacedProperty nsproperty = action.getNsproperty();				
+				NamespacedProperty namespacedProperty = EsbFactory.eINSTANCE.createNamespacedProperty();
+				if(nsproperty!=null){
+					namespacedProperty.setPropertyValue(nsproperty.getPropertyValue());
+					namespacedProperty.setNamespaces(nsproperty.getNamespaces());
 				}
-				namespacedProperty.setPropertyValue(text.getText());
+							
 				NamespacedPropertyEditorDialog dialog = new NamespacedPropertyEditorDialog(
 						newshell, namespacedProperty);
 				dialog.open();
 				item.setText(3, namespacedProperty.getPropertyValue());
 				action.setNsproperty(namespacedProperty);
-				text.setText(namespacedProperty.getPropertyValue());
+				if(namespacedProperty.getPropertyValue()!=null){
+					text.setText(namespacedProperty.getPropertyValue());
+				}
 				action.setValue(null);
 			}
 		});
@@ -551,8 +578,11 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				item.setText(2, comboOption.getText());
 				action.setOption(comboOption.getSelectionIndex());
 				if (comboOption.getSelectionIndex() == 0) {
+					text.setEnabled(true);
 					btnNS.setEnabled(false);
 				} else {
+					text.setText("");
+					text.setEnabled(false);
 					btnNS.setEnabled(true);
 				}
 			}
@@ -560,7 +590,9 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 
 		regEditor = new TableEditor(tableActions);
 		final Text txtreg = new Text(tableActions, SWT.NONE);
-		txtreg.setText(action.getRegex());
+		if(action.getRegex()!=null){
+			txtreg.setText(action.getRegex());
+		}
 		txtreg.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent arg0) {
 				item.setText(5, txtreg.getText());

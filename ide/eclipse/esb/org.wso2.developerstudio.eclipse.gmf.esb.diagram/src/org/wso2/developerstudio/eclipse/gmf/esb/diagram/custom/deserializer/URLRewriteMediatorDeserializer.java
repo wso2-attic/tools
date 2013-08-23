@@ -33,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFragmentType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRule;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction;
@@ -109,8 +110,10 @@ public class URLRewriteMediatorDeserializer extends AbstractEsbNodeDeserializer<
 				
 				urlRewriteRuleAction.setActionRegex(rewriteActions.getRegex());
 				if(rewriteActions.getValue()!=null){
+					urlRewriteRuleAction.setRuleOption(RuleOptionType.VALUE);
 					urlRewriteRuleAction.setActionValue(rewriteActions.getValue());
 				}else{
+					urlRewriteRuleAction.setRuleOption(RuleOptionType.EXPRESSION);
 					urlRewriteRuleAction.setActionExpression(createNamespacedProperty(rewriteActions.getXpath()));
 				}
 				urlRewriteRule.getRewriteRuleAction().add(urlRewriteRuleAction);
