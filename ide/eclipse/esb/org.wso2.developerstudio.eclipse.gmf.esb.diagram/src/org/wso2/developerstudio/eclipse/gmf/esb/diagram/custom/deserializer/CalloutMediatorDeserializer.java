@@ -3,11 +3,14 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
@@ -23,8 +26,12 @@ public class CalloutMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		
 		if(calloutMediator.getServiceURL()!=null){
 		executeSetValueCommand(CALLOUT_MEDIATOR__SERVICE_URL, calloutMediator.getServiceURL());
+		executeSetValueCommand(CALLOUT_MEDIATOR__ENDPOINT_TYPE, CalloutEndpointType.URL);
 		}else {
-	         executeSetValueCommand(CALLOUT_MEDIATOR__ENDPOINT_TYPE, calloutMediator.getEndpointKey());
+			  RegistryKeyProperty keyProperty=EsbFactory.eINSTANCE.createRegistryKeyProperty();
+			  keyProperty.setKeyValue(calloutMediator.getEndpointKey());
+	          executeSetValueCommand(CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, keyProperty);
+	          executeSetValueCommand(CALLOUT_MEDIATOR__ENDPOINT_TYPE, CalloutEndpointType.ADDRESS_ENDPOINT);
 		}
 		
 		
@@ -58,14 +65,20 @@ public class CalloutMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		if(calloutMediator.isSecurityOn()){
 			executeSetValueCommand(CALLOUT_MEDIATOR__SECURITY_TYPE, CalloutSecurityType.TRUE);
 			if(calloutMediator.getWsSecPolicyKey()!=null){
-				executeSetValueCommand(CALLOUT_MEDIATOR__POLICY_KEY,calloutMediator.getWsSecPolicyKey());
+				RegistryKeyProperty keyProperty=EsbFactory.eINSTANCE.createRegistryKeyProperty();
+				keyProperty.setKeyValue(calloutMediator.getWsSecPolicyKey());
+				executeSetValueCommand(CALLOUT_MEDIATOR__POLICY_KEY,keyProperty);
 			}else{
 				executeSetValueCommand(CALLOUT_MEDIATOR__POLICIES, CalloutSecurityPolicies.TRUE);
 				if(calloutMediator.getInboundWsSecPolicyKey()!=null){
-					executeSetValueCommand(CALLOUT_MEDIATOR__INBOUND_POLICY_KEY,calloutMediator.getInboundWsSecPolicyKey());
+					RegistryKeyProperty keyProperty=EsbFactory.eINSTANCE.createRegistryKeyProperty();
+					keyProperty.setKeyValue(calloutMediator.getInboundWsSecPolicyKey());
+					executeSetValueCommand(CALLOUT_MEDIATOR__INBOUND_POLICY_KEY,keyProperty);
 				}
 				if(calloutMediator.getOutboundWsSecPolicyKey()!=null){
-					executeSetValueCommand(CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY,calloutMediator.getOutboundWsSecPolicyKey());
+					RegistryKeyProperty keyProperty=EsbFactory.eINSTANCE.createRegistryKeyProperty();
+					keyProperty.setKeyValue(calloutMediator.getOutboundWsSecPolicyKey());
+					executeSetValueCommand(CALLOUT_MEDIATOR__OUTBOUND_POLICY_KEY,keyProperty);
 				}
 			}
 		}
