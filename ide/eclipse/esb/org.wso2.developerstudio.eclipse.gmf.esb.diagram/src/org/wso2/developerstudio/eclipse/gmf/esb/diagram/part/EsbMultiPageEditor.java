@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.MouseWheelHandler;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
@@ -164,6 +165,12 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
             graphicalEditor = new EsbDiagramEditor(this);
             addPage(DESIGN_VIEW_PAGE_INDEX, graphicalEditor, getEditorInput());
             setPageText(DESIGN_VIEW_PAGE_INDEX, "Design"); //$NON-NLS-1$
+            
+            // Disable Zoom on CTRL+MOUSE WHEEL. 
+			if (getDiagramGraphicalViewer() != null) {
+				getDiagramGraphicalViewer().setProperty(
+						MouseWheelHandler.KeyGenerator.getKey(SWT.CTRL), null);
+			}
         } catch (PartInitException e) {
             ErrorDialog
                     .openError(
