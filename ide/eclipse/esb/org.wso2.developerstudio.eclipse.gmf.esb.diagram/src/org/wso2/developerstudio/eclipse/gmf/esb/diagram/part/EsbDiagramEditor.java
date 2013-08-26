@@ -14,6 +14,7 @@ import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.KeyHandler;
+import org.eclipse.gef.KeyStroke;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
@@ -33,6 +34,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorMatchingStrategy;
@@ -293,10 +295,18 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 		super.configureGraphicalViewer();
 
 		IDiagramGraphicalViewer viewer = getDiagramGraphicalViewer();
-		KeyHandler viewerKeyHandler = new CustomDiagramGraphicalViewerKeyHandler(this, viewer)
-				.setParent(getKeyHandler());
-		viewer.setKeyHandler(new DirectEditKeyHandler(viewer).setParent(viewerKeyHandler));
+		KeyHandler viewerKeyHandler = new CustomDiagramGraphicalViewerKeyHandler(this, viewer);
 
+		KeyHandler parentHandler = getKeyHandler();
+		
+		// CTRL + '=' disable zoom in 
+		parentHandler.remove(KeyStroke.getPressed('=', 0x3d, SWT.CTRL));
+		// CTRL + '-' * disable zoom out
+		parentHandler.remove(KeyStroke.getPressed('-', 0x2d, SWT.CTRL));
+		
+		viewerKeyHandler.setParent(getKeyHandler());
+		viewer.setKeyHandler(new DirectEditKeyHandler(viewer).setParent(viewerKeyHandler));
+		
 		//This enables the property view to be informed of selection changes in our graphical view, 
 		//when our view is the active workbench part.
 		esbEditor.getSite().setSelectionProvider(viewer);
@@ -308,7 +318,7 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 				getDiagramGraphicalViewer());
 		getDiagramGraphicalViewer().addDropTargetListener(
 				new CustomPaletteToolTransferDropTargetListener(getGraphicalViewer()));
-
+		
 	}
 
 	protected int getInitialDockLocation() {
