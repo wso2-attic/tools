@@ -302,6 +302,14 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 							menu.remove(ActionIds.ACTION_DELETE_FROM_MODEL);
 							menu.remove(ActionIds.ACTION_ADD_NOTE);
 							menu.remove(ActionIds.MENU_DIAGRAM_ADD);
+							
+							// Remove Zoom menu item.
+							menu.remove(ActionIds.CUSTOM_ZOOM);
+							// Remove Filter menu item.
+							menu.remove(ActionIds.MENU_FILTERS);
+							// Remove Format menu item. 
+							menu.remove(ActionIds.MENU_FORMAT);						
+							
 							menu.appendToGroup("editGroup", deleteAction);
 							menu.remove(EsbModelExportAction.ACTION_ID);
 							menu.appendToGroup("editGroup", exportAction);
