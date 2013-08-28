@@ -48,6 +48,7 @@ import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.PaletteSeparator;
+import org.eclipse.gef.palette.PaletteToolbar;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gef.ui.palette.PaletteViewer;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -107,12 +108,22 @@ public class EsbPaletteFactory {
 	 * @generated NOT
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
+		/*
+		 * Hide Zoom In and Zoom Out icons of the palette toolbar. 
+		 * Fixing TOOLS-1872
+		 */
+		PaletteToolbar paletteToolbar = (PaletteToolbar) paletteRoot.getChildren().get(0);
+		if (paletteToolbar != null) {
+			((PaletteToolEntry) paletteToolbar.getChildren().get(2)).setVisible(false);
+			((PaletteToolEntry) paletteToolbar.getChildren().get(3)).setVisible(false);
+		}
+				
 		paletteRoot.add(createNodes1Group());
 		paletteRoot.add(createMediators2Group());
 		paletteRoot.add(createEndPoints3Group());
 		paletteRoot.add(createLinks4Group());
 		//paletteRoot.add(createHelpers5Group());
-		//paletteRoot.add(createCloudConnectors6Group());
+		paletteRoot.add(createCloudConnectors6Group());
 	}
 
 	/**
@@ -1196,7 +1207,7 @@ public class EsbPaletteFactory {
 		Object[] keys=cloudConnectorOperationsSet.toArray();
 		for (int k = 0; k < keys.length; ++k) {
 			container
-					.add(createCloudConnectorOperationCreationTool((String) keys[k]));
+					.add(createCloudConnectorOperationCreationTool((String) keys[k],"cloudConnectorOperation-"+"Twilio-"+name));
 		}
 
 	}
@@ -1483,11 +1494,11 @@ public class EsbPaletteFactory {
 		return paletteContainer;
 	}
 
-	private ToolEntry createCloudConnectorOperationCreationTool(String name) {
+	private ToolEntry createCloudConnectorOperationCreationTool(String name,String ID) {
 		NodeToolEntry entry = new NodeToolEntry(name,
 				Messages.CloudConnectorOperation6CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.CloudConnectorOperation_3722));
-		entry.setId("createCloudConnectorOperation6CreationTool"); //$NON-NLS-1$
+		entry.setId(ID); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.CloudConnectorOperation_3722));
 		entry.setLargeIcon(entry.getSmallIcon());
