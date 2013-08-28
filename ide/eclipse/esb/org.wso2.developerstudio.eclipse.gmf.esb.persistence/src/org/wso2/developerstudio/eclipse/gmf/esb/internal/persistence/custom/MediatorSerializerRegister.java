@@ -37,7 +37,8 @@ public class MediatorSerializerRegister {
 		BuilderMediatorExtSerializer.class,
 		RuleMediatorExtSerialize.class,
 		EJBMediatorExtSerializer.class,
-		BeanMediatorExtSerializer.class
+		BeanMediatorExtSerializer.class,
+		CloudConnectorOperationExtSerializer.class
 		};
 
 	public static synchronized void registerSerializers() {

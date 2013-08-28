@@ -31,6 +31,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
@@ -73,6 +74,7 @@ public class CloudConnectorOperationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addConnectorParametersPropertyDescriptor(object);
+			addConfigRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -95,6 +97,28 @@ public class CloudConnectorOperationItemProvider
 				 false,
 				 false,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Config Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConfigRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CloudConnectorOperation_configRef_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_configRef_feature", "_UI_CloudConnectorOperation_type"),
+				 EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -168,6 +192,9 @@ public class CloudConnectorOperationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CloudConnectorOperation.class)) {
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR:
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OUTPUT_CONNECTOR:
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS:

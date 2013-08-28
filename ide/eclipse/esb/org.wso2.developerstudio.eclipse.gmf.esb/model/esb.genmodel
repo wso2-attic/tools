@@ -1822,6 +1822,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnectorOperation/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnectorOperation/outputConnector"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnectorOperation/connectorParameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloudConnectorOperation/configRef"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CloudConnectorOperationInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CloudConnectorOperationOutputConnector"/>

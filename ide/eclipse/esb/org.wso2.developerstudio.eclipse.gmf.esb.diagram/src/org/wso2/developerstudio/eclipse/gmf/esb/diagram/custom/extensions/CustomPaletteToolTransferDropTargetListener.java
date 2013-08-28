@@ -14,6 +14,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.N
 public class CustomPaletteToolTransferDropTargetListener extends
 		PaletteToolTransferDropTargetListener {
 
+	public static String definedName;
+	public static String addedOperation;
+	
 	public CustomPaletteToolTransferDropTargetListener(EditPartViewer viewer) {
 		super(viewer);
 		// TODO Auto-generated constructor stub
@@ -35,8 +38,12 @@ public class CustomPaletteToolTransferDropTargetListener extends
 				cloudConnectorConfigureDialog.open();
 			
 				return;
+			}else if((((NodeToolEntry)event.data).getId()).contains("cloudConnectorOperation")){
+				definedName=((NodeToolEntry)event.data).getId().split("-")[2];
+				addedOperation=((NodeToolEntry)event.data).getLabel();
 			}
 		}
+		
 		super.drop(event);
 	}
 

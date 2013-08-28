@@ -8272,6 +8272,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCloudConnectorOperation_ConfigRef() {
+		return (EAttribute)cloudConnectorOperationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCloudConnectorOperationInputConnector() {
 		return cloudConnectorOperationInputConnectorEClass;
 	}
@@ -15526,6 +15535,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR);
 		createEReference(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__OUTPUT_CONNECTOR);
 		createEReference(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS);
+		createEAttribute(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__CONFIG_REF);
 
 		cloudConnectorOperationInputConnectorEClass = createEClass(CLOUD_CONNECTOR_OPERATION_INPUT_CONNECTOR);
 
@@ -17371,6 +17381,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getCloudConnectorOperation_InputConnector(), this.getCloudConnectorOperationInputConnector(), null, "inputConnector", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCloudConnectorOperation_OutputConnector(), this.getCloudConnectorOperationOutputConnector(), null, "outputConnector", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCloudConnectorOperation_ConnectorParameters(), this.getCallTemplateParameter(), null, "connectorParameters", null, 0, -1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCloudConnectorOperation_ConfigRef(), ecorePackage.getEString(), "configRef", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cloudConnectorOperationInputConnectorEClass, CloudConnectorOperationInputConnector.class, "CloudConnectorOperationInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

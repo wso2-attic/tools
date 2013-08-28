@@ -23,6 +23,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
@@ -89,6 +90,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CallTemplat
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CalloutMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ClassMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CloneMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CloudConnectorOperationTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CommandMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ConditionalRouterMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBLookupMediatorTransformer;
@@ -215,6 +217,7 @@ public class EsbTransformerRegistry {
 		addTransformer(RecipientListEndPoint.class, new RecipientListEndPointTransformer());
 		addTransformer(HTTPEndpoint.class, new HTTPEndPointTransformer());
 		addTransformer(TemplateEndpoint.class, new TemplateEndPointTransformer());
+		addTransformer(CloudConnectorOperation.class, new CloudConnectorOperationTransformer());
 	}
 	
 	/**

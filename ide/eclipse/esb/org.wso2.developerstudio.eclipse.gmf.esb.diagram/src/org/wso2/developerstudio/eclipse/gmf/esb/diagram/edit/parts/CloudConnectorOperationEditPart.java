@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.Properties;
 
 import javax.xml.stream.XMLStreamException;
@@ -10,6 +11,9 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.mediators.template.TemplateMediator;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
@@ -49,17 +53,26 @@ import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicy
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.extensions.CustomPaletteToolTransferDropTargetListener;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CloudConnectorOperationCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CloudConnectorOperationItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
@@ -98,13 +111,35 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	public void activate() {
 		// TODO Auto-generated method stub
 		super.activate();
+		
+		SetCommand setCommand = new SetCommand(
+				getEditingDomain(),
+				((CloudConnectorOperation) ((Node) getModel()).getElement()),
+				EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,CustomPaletteToolTransferDropTargetListener.definedName);
+		if(setCommand.canExecute()){
+			getEditingDomain().getCommandStack().execute(setCommand);
+		}
+		CustomPaletteToolTransferDropTargetListener.definedName=null;
 		fillConnectorOperationParameters();
 	}
 
 	protected void fillConnectorOperationParameters() {
 		TransactionalEditingDomain editingDomain = null;
-		String path = "/home/viraj/Downloads/twilio-connector/twilio-cloud-connector-queue/"
-				+ "createQueue" + ".xml";
+		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();		
+		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
+		IFile file = input.getFile();
+		IProject activeProject = file.getProject();
+		String connectorPath=activeProject.getLocation().toOSString()+File.separator+"cloudConnectors"+File.separator+"twilio-connector";
+	        
+		CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser=CloudConnectorDirectoryTraverser.getInstance(connectorPath);
+		String directory = null;
+		try {
+			directory=cloudConnectorDirectoryTraverser.getArtifactsMap().get(CustomPaletteToolTransferDropTargetListener.addedOperation);
+		} catch (Exception e1) {
+			log.error("Error while retrieving data for cloud connector", e1);
+		}
+		String path = connectorPath+File.separator+directory+File.separator+CustomPaletteToolTransferDropTargetListener.addedOperation + ".xml";
+		CustomPaletteToolTransferDropTargetListener.addedOperation=null;
 
 		try {
 			String source = FileUtils.getContentAsString(new File(path));

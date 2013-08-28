@@ -46,6 +46,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getConnectorParameters <em>Connector Parameters</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getConfigRef <em>Config Ref</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +82,26 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * @ordered
 	 */
 	protected EList<CallTemplateParameter> connectorParameters;
+
+	/**
+	 * The default value of the '{@link #getConfigRef() <em>Config Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONFIG_REF_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConfigRef() <em>Config Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConfigRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected String configRef = CONFIG_REF_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,6 +225,27 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getConfigRef() {
+		return configRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConfigRef(String newConfigRef) {
+		String oldConfigRef = configRef;
+		configRef = newConfigRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF, oldConfigRef, configRef));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -231,6 +273,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return getOutputConnector();
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS:
 				return getConnectorParameters();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
+				return getConfigRef();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,6 +298,9 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				getConnectorParameters().clear();
 				getConnectorParameters().addAll((Collection<? extends CallTemplateParameter>)newValue);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
+				setConfigRef((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -275,6 +322,9 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS:
 				getConnectorParameters().clear();
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
+				setConfigRef(CONFIG_REF_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,8 +343,26 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return outputConnector != null;
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS:
 				return connectorParameters != null && !connectorParameters.isEmpty();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
+				return CONFIG_REF_EDEFAULT == null ? configRef != null : !CONFIG_REF_EDEFAULT.equals(configRef);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (configRef: ");
+		result.append(configRef);
+		result.append(')');
+		return result.toString();
 	}
 
 } //CloudConnectorOperationImpl
