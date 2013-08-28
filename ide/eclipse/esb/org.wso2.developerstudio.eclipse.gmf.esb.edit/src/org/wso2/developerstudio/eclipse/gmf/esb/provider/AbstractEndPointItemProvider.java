@@ -123,6 +123,7 @@ public class AbstractEndPointItemProvider
 //			addReliableMessagingPolicyPropertyDescriptor(object);
 //			addSecurityPolicyPropertyDescriptor(object);
 	
+	        addDescriptionPropertyDescriptor(object);
 			if(object instanceof AbstractEndPoint){
 				if(((AbstractEndPoint)object).eContainer().eContainer() instanceof Template){
 					addTemplateParametersPropertyDescriptor(object);		
@@ -304,7 +305,7 @@ public class AbstractEndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Retry",
+				 "Endpoint Timeout State",
 				 null));
 	}
 
@@ -326,7 +327,7 @@ public class AbstractEndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 "Retry",
+				 "Endpoint Timeout State",
 				 null));
 	}
 
@@ -348,7 +349,7 @@ public class AbstractEndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 "Retry",
+				 "Endpoint Timeout State",
 				 null));
 	}
 
@@ -370,7 +371,7 @@ public class AbstractEndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Suspend",
+				 "Endpoint Suspend State",
 				 null));
 	}
 
@@ -392,7 +393,7 @@ public class AbstractEndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 "Suspend",
+				 "Endpoint Suspend State",
 				 null));
 	}
 
@@ -414,7 +415,7 @@ public class AbstractEndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 "Suspend",
+				 "Endpoint Suspend State",
 				 null));
 	}
 
@@ -436,7 +437,7 @@ public class AbstractEndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 "Suspend",
+				 "Endpoint Suspend State",
 				 null));
 	}
 

@@ -55,10 +55,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
@@ -72,6 +74,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPa
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -168,6 +171,23 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 					}
 				}
 			}
+			if (!reversed) {
+								if (!nodeList.isEmpty()) {
+									EsbNode last = nodeList.getLast();
+									if (last instanceof Sequence) {
+										Sequence seq = (Sequence) last;
+										if (seq.getReferringSequenceType() == KeyType.DYNAMIC ||(seq.getReferringSequenceType()==KeyType.STATIC && seq.getName().matches("^(conf:|gov:|/).*"))) {
+										AddressingEndpoint visualEndPoint = (AddressingEndpoint) DeserializerUtils
+													.createNode(
+															getRootCompartment(),
+															EsbElementTypes.AddressingEndpoint_3689);
+											setAddedAddressingEndPoint(true);
+											nodeList.add(visualEndPoint);
+											
+										}
+									}
+								}
+							}
 			connectionFlowMap.put(connector, nodeList);
 		} else if(connector instanceof InputConnector){
 			for (int i = sequence.getList().size() -1; i >= 0; --i) {

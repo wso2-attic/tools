@@ -32,7 +32,9 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
@@ -55,11 +57,21 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 		if(sequence.getKey()!=null){
 			Sequence sequenceModel = (Sequence) DeserializerUtils.createNode(part, EsbElementTypes.Sequence_3503);
 			executeSetValueCommand(sequenceModel, SEQUENCE__NAME, sequence.getKey().getKeyValue());
+			if (sequence.getKey().getExpression()!=null) {
+								executeSetValueCommand(sequenceModel, SEQUENCE__REFERRING_SEQUENCE_TYPE, KeyType.DYNAMIC);
+								NamespacedProperty namespacedProperty = createNamespacedProperty(sequence.getKey().getExpression());
+								executeSetValueCommand(sequenceModel, SEQUENCE__DYNAMIC_REFERENCE_KEY,namespacedProperty);
+								//executeSetValueCommand(sequenceModel, SEQUENCE__NAME, sequence.getKey().getExpression());
+							}else{
+								executeSetValueCommand(sequenceModel, SEQUENCE__NAME, sequence.getKey().getKeyValue());
+							}
+			
 			node = sequenceModel;
 		} else if(sequence.getName()!=null){
 			if ("main".equals(sequence.getName())) {
 				node = deserializeMainSequence(part,sequence);
 			} else{
+				setReversed(false);
 				IElementType sequencesType = (part instanceof TemplateTemplateCompartmentEditPart) ? EsbElementTypes.Sequences_3665
 						: EsbElementTypes.Sequences_3614;
 				Sequences sequenceModel = (Sequences) DeserializerUtils.createNode(part,

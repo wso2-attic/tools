@@ -76,7 +76,7 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 		executeSetValueCommand(ABSTRACT_END_POINT__SUSPEND_MAXIMUM_DURATION, endpoint.getDefinition().getSuspendMaximumDuration());
 		executeSetValueCommand(ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR, endpoint.getDefinition().getSuspendProgressionFactor());
 		
-		for(Integer code:endpoint.getDefinition().getSuspendErrorCodes()){
+		for(Integer code:endpoint.getDefinition().getTimeoutErrorCodes()){
 			if(retryErrorCodes==null){
 				retryErrorCodes=code.toString();
 			}else{
@@ -85,7 +85,7 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 		}
 		executeSetValueCommand(ABSTRACT_END_POINT__RETRY_ERROR_CODES, retryErrorCodes);
 		executeSetValueCommand(ABSTRACT_END_POINT__RETRY_COUNT, endpoint.getDefinition().getRetriesOnTimeoutBeforeSuspend());
-		executeSetValueCommand(ABSTRACT_END_POINT__RETRY_DELAY, endpoint.getDefinition().getRetryDurationOnTimeout());
+		executeSetValueCommand(ABSTRACT_END_POINT__RETRY_DELAY, (long)endpoint.getDefinition().getRetryDurationOnTimeout());
 		
 		if(endpoint.getDefinition().getTimeoutAction()==100){
 			executeSetValueCommand(ABSTRACT_END_POINT__TIME_OUT_ACTION, EndPointTimeOutAction.NEVER);
@@ -144,6 +144,7 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 			} else{
 				property.setScope(EndPointPropertyScope.SYNAPSE);
 			}
+
 			executeAddValueCommand(visualEndpoint.getProperties(), property);
 		}
 		

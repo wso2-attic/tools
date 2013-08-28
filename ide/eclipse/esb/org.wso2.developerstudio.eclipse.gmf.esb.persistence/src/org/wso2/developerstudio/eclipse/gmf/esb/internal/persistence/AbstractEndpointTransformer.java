@@ -38,7 +38,7 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 		}
 		
 		String suspendErrorCodes=visualEndPoint.getSuspendErrorCodes();
-		if(suspendErrorCodes!=null){
+		if(suspendErrorCodes!=null && !"".equals(suspendErrorCodes)){
 			String [] suspendErrorCodesList=suspendErrorCodes.split("\\,");
 			List<String> suspendCodes = Arrays.asList(suspendErrorCodesList); 
 			for(String code:suspendCodes){
@@ -50,11 +50,11 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 		synapseEPDef.setSuspendProgressionFactor(visualEndPoint.getSuspendProgressionFactor());		
 				
 		String retryErrorCodes=visualEndPoint.getRetryErrorCodes();
-		if(retryErrorCodes!=null){
+		if(retryErrorCodes!=null && !"".equals(retryErrorCodes)){
 			String [] retryCodesList=retryErrorCodes.split("\\,");
 			List<String> retryCodes = Arrays.asList(retryCodesList); 
 			for(String code:retryCodes){
-				synapseEPDef.addRetryDisabledErrorCode(Integer.parseInt(code));
+				synapseEPDef.addTimeoutErrorCode(Integer.parseInt(code));
 			}
 		}
 		synapseEPDef.setRetriesOnTimeoutBeforeSuspend(visualEndPoint.getRetryCount());
@@ -82,7 +82,9 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 		}
 		
 		saveProperties(visualEndPoint, endpoint);
-		
+		if(visualEndPoint.getDescription()!=null){
+				endpoint.setDescription(visualEndPoint.getDescription());
+			}
 		endpoint.setDefinition(synapseEPDef);
 
 	}

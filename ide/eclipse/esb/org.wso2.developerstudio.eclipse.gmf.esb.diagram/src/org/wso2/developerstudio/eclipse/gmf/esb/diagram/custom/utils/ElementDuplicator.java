@@ -86,6 +86,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
@@ -184,7 +185,7 @@ public class ElementDuplicator {
 		Map registry = ((EsbMultiPageEditor) editor).getDiagramEditPart().getViewer().getEditPartRegistry();
 		Collection<Object> values = new ArrayList<Object>();
 		values.addAll(registry.values());
-
+		OUTER:
 		for (int j = 0; j < values.size(); ++j) {
 			EditPart element = (EditPart) values.toArray()[j];
 			if (element instanceof SendMediatorEditPart) {
@@ -249,6 +250,9 @@ public class ElementDuplicator {
 			} else if (element instanceof SequenceEditPart) {
 				Sequence sequence = (Sequence) ((org.eclipse.gmf.runtime.notation.Node) element
 						.getModel()).getElement();
+				if (sequence.getReferringSequenceType() == KeyType.DYNAMIC ||(sequence.getReferringSequenceType()==KeyType.STATIC && sequence.getName().matches("^(conf:|gov:|/).*"))) {
+											continue OUTER;
+							}
 				if (!sequence.isDuplicate()) {
 					ArrayList<OutputConnector> outputConnectors = new ArrayList<OutputConnector>();
 					parent = sequence.eContainer();
