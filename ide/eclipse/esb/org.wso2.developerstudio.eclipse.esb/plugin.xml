@@ -1358,11 +1358,13 @@
              mediaType="application/vnd.wso2.esb.endpoint"
              extension="xml">
        </template>
-       <!--template
+       <template
              file="resources/templates/endpoints/template_endpoint.xml"
-             id="org.wso2.developerstudio.eclipse.esb.template.ep0"
-             name="Template Endpoint">
-       </template-->
+             id="org.wso2.developerstudio.eclipse.esb.template.ep7"
+             name="Template Endpoint"
+             mediaType="application/vnd.wso2.esb.endpoint"
+             extension="xml">
+       </template>
        <template
              file="resources/templates/smooks/smooks-config-template.xml"
              id="org.wso2.developerstudio.eclipse.esb.template.smooks"

@@ -1113,6 +1113,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_TemplateEndpointOutputConnector_3727_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_LoadBalanceEndPointWestOutputConnector_3659_outgoinglinks;
 
 	/**
@@ -1259,6 +1264,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_TransactionMediatorInputConnector_3118_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TemplateEndpointInputConnector_3726_incominglinks;
 
 	/**
 	 * @generated

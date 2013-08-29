@@ -117,7 +117,7 @@ public class EsbPaletteFactory {
 			((PaletteToolEntry) paletteToolbar.getChildren().get(2)).setVisible(false);
 			((PaletteToolEntry) paletteToolbar.getChildren().get(3)).setVisible(false);
 		}
-				
+
 		paletteRoot.add(createNodes1Group());
 		paletteRoot.add(createMediators2Group());
 		paletteRoot.add(createEndPoints3Group());
@@ -1041,9 +1041,11 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createTemplateEndpoint10CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(EsbElementTypes.TemplateEndpoint_3716);
+		types.add(EsbElementTypes.TemplateEndpoint_3725);
 		NodeToolEntry entry = new NodeToolEntry(Messages.TemplateEndpoint10CreationTool_title,
-				Messages.TemplateEndpoint10CreationTool_desc,
-				Collections.singletonList(EsbElementTypes.TemplateEndpoint_3716));
+				Messages.TemplateEndpoint10CreationTool_desc, types);
 		entry.setId("createTemplateEndpoint10CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.TemplateEndpoint_3716));
@@ -1090,86 +1092,88 @@ public class EsbPaletteFactory {
 		return entry;
 	}
 
+	/*	public Collection<String> parameters=null;
+	 private static final String synapseNS = "http://ws.apache.org/ns/synapse";
+	 private Properties properties = new Properties();
+	 ArrayList<String> cloudConnectorOperationsList=null;
 	
-/*	public Collection<String> parameters=null;
-	private static final String synapseNS = "http://ws.apache.org/ns/synapse";
-	private Properties properties = new Properties();
-	ArrayList<String> cloudConnectorOperationsList=null;
+	 public Collection<String> readTemplateConfiguration(String fileLocation) throws IOException, XMLStreamException{
+	 String path = fileLocation;	
+	 String source = FileUtils.getContentAsString(new File(path));
+	 OMElement element = AXIOMUtil.stringToOM(source);
+	 TemplateMediator templateMediator=null;
 	
-	public Collection<String> readTemplateConfiguration(String fileLocation) throws IOException, XMLStreamException{
-		String path = fileLocation;	
-				String source = FileUtils.getContentAsString(new File(path));
-				OMElement element = AXIOMUtil.stringToOM(source);
-				TemplateMediator templateMediator=null;
-				
-				if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
-					TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
-					templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, properties);						
-				}
-		return templateMediator.getParameters();
-	}
-	
+	 if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+	 TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
+	 templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, properties);						
+	 }
+	 return templateMediator.getParameters();
+	 }
 	
 	
-	public ArrayList<String> getCloudConnectorOperations() {
-		ArrayList<String> cloudConnectorOperations = new ArrayList<String>();
+	
+	 public ArrayList<String> getCloudConnectorOperations() {
+	 ArrayList<String> cloudConnectorOperations = new ArrayList<String>();
+	 try {
+	 CloudConnectorZIPReader cloudConnectorZIPReader = CloudConnectorZIPReader
+	 .getInstance(new File(
+	 "/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/twilio-connector.zip"));
+	 InputStream inputStream = cloudConnectorZIPReader.getFileContentInZIP("artifacts.xml");
+
+	 File artifactsFile = new File(
+	 "/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector/artifacts.xml");
+
+	 String artifactsContent = FileUtils.getContentAsString(artifactsFile);
+	 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+	 String sCurrentLine;
+	 while ((sCurrentLine = br.readLine()) != null) {
+	 s=s.concat(sCurrentLine);
+	 }
+	 Artifacts artifacts = new Artifacts();
+	 artifacts.deserialize(artifactsContent);
+
+	 for (ArtifactDependency artifactDependency : artifacts.getArtifactDependencies()) {
+	 InputStream inputStream2=cloudConnectorZIPReader.getFileContentInZIP(artifactDependency.getName());
+	 ZipEntry zipEntry=cloudConnectorZIPReader.getZipFile().getEntry(artifactDependency.getName());
+
+	 String pathname = "/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector/"
+	 + artifactDependency.getName();
+	 File artifactFile = new File(
+	 pathname + "/artifact.xml");
+	 String artifactContent = FileUtils.getContentAsString(artifactFile);
+	 Artifact artifact = new Artifact();
+	 artifact.deserialize(artifactContent);
+	 for (org.wso2.developerstudio.eclipse.capp.core.manifest.Artifact artifact_ : artifact
+	 .getArtifacts()) {
+	 if("configure".equals(artifact_.getName())){
+	 parameters=readTemplateConfiguration(pathname+"/configure.xml");
+	 }
+	 cloudConnectorOperations.add(artifact_.getName());
+	 }
+
+	 }
+
+	 } catch (ZipException e) {
+	 // TODO Auto-generated catch block
+	 e.printStackTrace();
+	 } catch (IOException e) {
+	 // TODO Auto-generated catch block
+	 e.printStackTrace();
+	 } catch (Exception e) {
+	 // TODO Auto-generated catch block
+	 e.printStackTrace();
+	 }
+	 cloudConnectorOperationsList=cloudConnectorOperations;
+	 return cloudConnectorOperations;
+	 }*/
+
+	public void addCloudConnectorOperations(IEditorPart editor, String name) {
+		Set<String> cloudConnectorOperationsSet = Collections.emptySet();
 		try {
-			CloudConnectorZIPReader cloudConnectorZIPReader = CloudConnectorZIPReader
-					.getInstance(new File(
-							"/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/twilio-connector.zip"));
-			InputStream inputStream = cloudConnectorZIPReader.getFileContentInZIP("artifacts.xml");
-
-			File artifactsFile = new File(
-					"/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector/artifacts.xml");
-
-			String artifactsContent = FileUtils.getContentAsString(artifactsFile);
-						BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
-			 String sCurrentLine;
-			 while ((sCurrentLine = br.readLine()) != null) {
-			 s=s.concat(sCurrentLine);
-			 }
-			Artifacts artifacts = new Artifacts();
-			artifacts.deserialize(artifactsContent);
-
-			for (ArtifactDependency artifactDependency : artifacts.getArtifactDependencies()) {
-								InputStream inputStream2=cloudConnectorZIPReader.getFileContentInZIP(artifactDependency.getName());
-				 ZipEntry zipEntry=cloudConnectorZIPReader.getZipFile().getEntry(artifactDependency.getName());
-
-				String pathname = "/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector/"
-												+ artifactDependency.getName();
-				File artifactFile = new File(
-						pathname + "/artifact.xml");
-				String artifactContent = FileUtils.getContentAsString(artifactFile);
-				Artifact artifact = new Artifact();
-				artifact.deserialize(artifactContent);
-				for (org.wso2.developerstudio.eclipse.capp.core.manifest.Artifact artifact_ : artifact
-						.getArtifacts()) {
-					if("configure".equals(artifact_.getName())){
-						parameters=readTemplateConfiguration(pathname+"/configure.xml");
-					}
-					cloudConnectorOperations.add(artifact_.getName());
-				}
-
-			}
-
-		} catch (ZipException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		cloudConnectorOperationsList=cloudConnectorOperations;
-		return cloudConnectorOperations;
-	}*/
-
-	public void addCloudConnectorOperations(IEditorPart editor,String name){
-		Set<String> cloudConnectorOperationsSet=Collections.emptySet();
-		try {
-			cloudConnectorOperationsSet = CloudConnectorDirectoryTraverser.getInstance("/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector").getArtifactsMap().keySet();
+			cloudConnectorOperationsSet = CloudConnectorDirectoryTraverser
+					.getInstance(
+							"/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector")
+					.getArtifactsMap().keySet();
 		} catch (Exception e) {
 			log.error("Error occured while scanning the Cloud Connector package", e);
 		}
@@ -1181,7 +1185,7 @@ public class EsbPaletteFactory {
 				.getPaletteViewer().getPaletteRoot().getChildren();
 		for (int i = 0; i < list.size(); ++i) {
 			if (list.get(i) instanceof PaletteDrawer) {
-				if (("CloudConnector-Twilio-"+name).equals(((PaletteDrawer) list.get(i)).getId())) {
+				if (("CloudConnector-Twilio-" + name).equals(((PaletteDrawer) list.get(i)).getId())) {
 					definedEndpointsAdded = true;
 					indexOfDefinedEndpoints = i;
 					break;
@@ -1193,21 +1197,21 @@ public class EsbPaletteFactory {
 			((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
 					.getPaletteViewer()
 					.getPaletteRoot()
-					.add(createCloudConnectorGroup("Twilio operations - "+name,
-							"CloudConnector-Twilio-"+name));
+					.add(createCloudConnectorGroup("Twilio operations - " + name,
+							"CloudConnector-Twilio-" + name));
 			indexOfDefinedEndpoints = list.size() - 1;
 		}/*
 			if (indexOfDefinedEndpoints == 0) {
 			indexOfDefinedEndpoints = list.size()-1;
 			}*/
-		PaletteContainer container = ((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)			
+		PaletteContainer container = ((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)
 				.getDiagramEditDomain()).getPaletteViewer().getPaletteRoot().getChildren()
 				.get(indexOfDefinedEndpoints));
 		container.getChildren().clear();
-		Object[] keys=cloudConnectorOperationsSet.toArray();
+		Object[] keys = cloudConnectorOperationsSet.toArray();
 		for (int k = 0; k < keys.length; ++k) {
-			container
-					.add(createCloudConnectorOperationCreationTool((String) keys[k],"cloudConnectorOperation-"+"Twilio-"+name));
+			container.add(createCloudConnectorOperationCreationTool((String) keys[k],
+					"cloudConnectorOperation-" + "Twilio-" + name));
 		}
 
 	}
@@ -1494,7 +1498,7 @@ public class EsbPaletteFactory {
 		return paletteContainer;
 	}
 
-	private ToolEntry createCloudConnectorOperationCreationTool(String name,String ID) {
+	private ToolEntry createCloudConnectorOperationCreationTool(String name, String ID) {
 		NodeToolEntry entry = new NodeToolEntry(name,
 				Messages.CloudConnectorOperation6CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.CloudConnectorOperation_3722));

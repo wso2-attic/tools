@@ -298,15 +298,15 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 		KeyHandler viewerKeyHandler = new CustomDiagramGraphicalViewerKeyHandler(this, viewer);
 
 		KeyHandler parentHandler = getKeyHandler();
-		
+
 		// CTRL + '=' disable zoom in 
 		parentHandler.remove(KeyStroke.getPressed('=', 0x3d, SWT.CTRL));
 		// CTRL + '-' * disable zoom out
 		parentHandler.remove(KeyStroke.getPressed('-', 0x2d, SWT.CTRL));
-		
+
 		viewerKeyHandler.setParent(getKeyHandler());
 		viewer.setKeyHandler(new DirectEditKeyHandler(viewer).setParent(viewerKeyHandler));
-		
+
 		//This enables the property view to be informed of selection changes in our graphical view, 
 		//when our view is the active workbench part.
 		esbEditor.getSite().setSelectionProvider(viewer);
@@ -318,7 +318,7 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 				getDiagramGraphicalViewer());
 		getDiagramGraphicalViewer().addDropTargetListener(
 				new CustomPaletteToolTransferDropTargetListener(getGraphicalViewer()));
-		
+
 	}
 
 	protected int getInitialDockLocation() {

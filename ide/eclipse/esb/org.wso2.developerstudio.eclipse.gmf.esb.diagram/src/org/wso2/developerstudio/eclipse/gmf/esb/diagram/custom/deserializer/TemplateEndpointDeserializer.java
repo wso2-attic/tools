@@ -42,7 +42,7 @@ public class TemplateEndpointDeserializer extends AbstractEsbNodeDeserializer<Ab
 
             org.apache.synapse.endpoints.TemplateEndpoint templateEndpoint = (org.apache.synapse.endpoints.TemplateEndpoint)object;
             IElementType endpointType = (part instanceof EndpointDiagramEndpointCompartment2EditPart ||
-                            part instanceof EndpointDiagramEndpointCompartmentEditPart) ? EsbElementTypes.TemplateEndpoint_3716
+                            part instanceof EndpointDiagramEndpointCompartmentEditPart) ? EsbElementTypes.TemplateEndpoint_3725
                             : EsbElementTypes.TemplateEndpoint_3716;
             AbstractEndPoint endPoint = (AbstractEndPoint) DeserializerUtils.createNode(part, endpointType);
             setElementToEdit(endPoint);

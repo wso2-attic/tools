@@ -3300,8 +3300,42 @@
               </children>
             </ownedChild>
           </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="esb.ecore#//EndpointDiagram/child"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="esb.ecore#//TemplateEndpoint"/>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="esb.gmftool#//@palette/@tools.2/@tools.9"/>
+              <diagramNode
+                  href="esb.gmfgraph#TemplateEndpoint"/>
+              <children>
+                <containmentFeature
+                    href="esb.ecore#//TemplateEndpoint/inputConnector"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="esb.ecore#//TemplateEndpointInputConnector"/>
+                  <diagramNode
+                      href="esb.gmfgraph#TemplateEndpointInputConnector"/>
+                </ownedChild>
+              </children>
+              <children>
+                <containmentFeature
+                    href="esb.ecore#//TemplateEndpoint/outputConnector"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="esb.ecore#//TemplateEndpointOutputConnector"/>
+                  <diagramNode
+                      href="esb.gmfgraph#TemplateEndpointOutputConnector"/>
+                </ownedChild>
+              </children>
+            </ownedChild>
+          </children>
           <compartments
-              children="//@nodes.0/@ownedChild/@children.4/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.6">
+              children="//@nodes.0/@ownedChild/@children.4/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.4/@ownedChild/@children.7">
             <compartment
                 href="esb.gmfgraph#EndpointCompartment"/>
           </compartments>

@@ -111,35 +111,40 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	public void activate() {
 		// TODO Auto-generated method stub
 		super.activate();
-		
-		SetCommand setCommand = new SetCommand(
-				getEditingDomain(),
+
+		SetCommand setCommand = new SetCommand(getEditingDomain(),
 				((CloudConnectorOperation) ((Node) getModel()).getElement()),
-				EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,CustomPaletteToolTransferDropTargetListener.definedName);
-		if(setCommand.canExecute()){
+				EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,
+				CustomPaletteToolTransferDropTargetListener.definedName);
+		if (setCommand.canExecute()) {
 			getEditingDomain().getCommandStack().execute(setCommand);
 		}
-		CustomPaletteToolTransferDropTargetListener.definedName=null;
+		CustomPaletteToolTransferDropTargetListener.definedName = null;
 		fillConnectorOperationParameters();
 	}
 
 	protected void fillConnectorOperationParameters() {
 		TransactionalEditingDomain editingDomain = null;
-		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();		
+		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage().getActiveEditor();
 		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
 		IFile file = input.getFile();
 		IProject activeProject = file.getProject();
-		String connectorPath=activeProject.getLocation().toOSString()+File.separator+"cloudConnectors"+File.separator+"twilio-connector";
-	        
-		CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser=CloudConnectorDirectoryTraverser.getInstance(connectorPath);
+		String connectorPath = activeProject.getLocation().toOSString() + File.separator
+				+ "cloudConnectors" + File.separator + "twilio-connector";
+
+		CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
+				.getInstance(connectorPath);
 		String directory = null;
 		try {
-			directory=cloudConnectorDirectoryTraverser.getArtifactsMap().get(CustomPaletteToolTransferDropTargetListener.addedOperation);
+			directory = cloudConnectorDirectoryTraverser.getArtifactsMap().get(
+					CustomPaletteToolTransferDropTargetListener.addedOperation);
 		} catch (Exception e1) {
 			log.error("Error while retrieving data for cloud connector", e1);
 		}
-		String path = connectorPath+File.separator+directory+File.separator+CustomPaletteToolTransferDropTargetListener.addedOperation + ".xml";
-		CustomPaletteToolTransferDropTargetListener.addedOperation=null;
+		String path = connectorPath + File.separator + directory + File.separator
+				+ CustomPaletteToolTransferDropTargetListener.addedOperation + ".xml";
+		CustomPaletteToolTransferDropTargetListener.addedOperation = null;
 
 		try {
 			String source = FileUtils.getContentAsString(new File(path));

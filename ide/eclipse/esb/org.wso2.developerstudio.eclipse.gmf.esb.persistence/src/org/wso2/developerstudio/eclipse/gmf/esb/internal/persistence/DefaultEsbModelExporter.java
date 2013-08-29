@@ -68,6 +68,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CustomAPISerializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
@@ -222,6 +223,9 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			return transformer.createRecipientListConf(new TransformationInfo(),
 					(RecipientListEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),
 					visualEndpoint.getName(), null);
+		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof TemplateEndpoint){
+			TemplateEndPointTransformer transformer= new TemplateEndPointTransformer();
+			return transformer.create((TemplateEndpoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName());
 		}else{
 			return null;
 		}		

@@ -411,6 +411,9 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 		if (targetEditPart instanceof HTTPEndPointInputConnector2EditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof TemplateEndpointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof APIResourceInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -495,6 +498,7 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3654);
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3657);
 			types.add(EsbElementTypes.HTTPEndPointInputConnector_3713);
+			types.add(EsbElementTypes.TemplateEndpointInputConnector_3726);
 			types.add(EsbElementTypes.APIResourceInputConnector_3670);
 			types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
 		}

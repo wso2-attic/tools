@@ -22,19 +22,20 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MergeNodeFirstInputConnectorItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.TemplateEndpointInputConnector2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEditPart {
+public class TemplateEndpointInputConnector2EditPart extends AbstractEndpointInputConnectorEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3014;
+	public static final int VISUAL_ID = 3726;
 
 	/**
 	 * @generated
@@ -49,7 +50,7 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 	/**
 	 * @generated
 	 */
-	public MergeNodeFirstInputConnectorEditPart(View view) {
+	public TemplateEndpointInputConnector2EditPart(View view) {
 		super(view);
 	}
 
@@ -60,7 +61,7 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MergeNodeFirstInputConnectorItemSemanticEditPolicy());
+				new TemplateEndpointInputConnector2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -122,15 +123,18 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
+		IFigure shape = createNodeShapeForward();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
-		return figure;
+		figure_ = figure;
+		createNodeShapeReverse();
+		DefaultSizeNodeFigure emptyFigure = new DefaultSizeNodeFigure(0, 0);
+		return emptyFigure;
 	}
 
 	/**

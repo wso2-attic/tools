@@ -37,15 +37,5 @@ public class EsbDiagramActionBarContributor extends DiagramActionBarContributor 
 				IWorkbenchActionConstants.M_FILE);
 		assert fileMenu != null;
 		fileMenu.remove("pageSetupAction"); //$NON-NLS-1$
-		
-		// Removing Diagram menu from ESB editor.
-		IMenuManager diagramMenu = bars.getMenuManager().findMenuUsingPath(ActionIds.MENU_DIAGRAM);
-		assert diagramMenu != null;
-		bars.getMenuManager().remove("diagramMenu");
-
-		// Remove Diagram toolbar from ESB editor..
-		IToolBarManager toolBarManager = bars.getToolBarManager();
-		assert toolBarManager != null;
-		toolBarManager.removeAll();
 	}
 }

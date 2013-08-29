@@ -43,7 +43,7 @@ public class MediatorFlowMediatorFlowCompartment8EditPart extends
 		/*
 		 * Override default border.
 		 * Fixing TOOLS-1864.
-		 */	
+		 */
 		LineBorder border = new LineBorder(new Color(null, 0, 204, 0), 1, SWT.BORDER_DASH);
 		result.setBorder(border);
 		result.setToolTip(getCompartmentName());

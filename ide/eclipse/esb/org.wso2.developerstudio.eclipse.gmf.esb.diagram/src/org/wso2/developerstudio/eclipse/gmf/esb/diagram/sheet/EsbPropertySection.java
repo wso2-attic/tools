@@ -36,7 +36,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.sheet.CustomAdvan
 /**
  * @generated NOT
  */
-public class EsbPropertySection extends CustomAdvancedPropertySection implements IPropertySourceProvider {
+public class EsbPropertySection extends CustomAdvancedPropertySection implements
+		IPropertySourceProvider {
 
 	/**
 	 * @generated NOT
@@ -120,6 +121,5 @@ public class EsbPropertySection extends CustomAdvancedPropertySection implements
 		}
 		return null;
 	}
-
 
 }

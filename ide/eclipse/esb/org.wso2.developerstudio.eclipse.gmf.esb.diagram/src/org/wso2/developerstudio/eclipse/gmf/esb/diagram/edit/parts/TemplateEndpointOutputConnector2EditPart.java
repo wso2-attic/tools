@@ -24,18 +24,18 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndPointOutputConnector2ItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.TemplateEndpointOutputConnector2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
  * @generated
  */
-public class HTTPEndPointOutputConnector2EditPart extends AbstractBorderItemEditPart {
+public class TemplateEndpointOutputConnector2EditPart extends AbstractBorderItemEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3714;
+	public static final int VISUAL_ID = 3727;
 
 	/**
 	 * @generated
@@ -50,7 +50,7 @@ public class HTTPEndPointOutputConnector2EditPart extends AbstractBorderItemEdit
 	/**
 	 * @generated
 	 */
-	public HTTPEndPointOutputConnector2EditPart(View view) {
+	public TemplateEndpointOutputConnector2EditPart(View view) {
 		super(view);
 	}
 
@@ -61,7 +61,7 @@ public class HTTPEndPointOutputConnector2EditPart extends AbstractBorderItemEdit
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new HTTPEndPointOutputConnector2ItemSemanticEditPolicy());
+				new TemplateEndpointOutputConnector2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);

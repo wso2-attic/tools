@@ -326,6 +326,21 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType TemplateEndpoint_3725 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TemplateEndpoint_3725"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TemplateEndpointInputConnector_3726 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TemplateEndpointInputConnector_3726"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TemplateEndpointOutputConnector_3727 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TemplateEndpointOutputConnector_3727"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType LocalEntry_3663 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LocalEntry_3663"); //$NON-NLS-1$
 
 	/**
@@ -2224,6 +2239,14 @@ public class EsbElementTypes {
 			elements.put(HTTPEndPointOutputConnector_3714,
 					EsbPackage.eINSTANCE.getHTTPEndPointOutputConnector());
 
+			elements.put(TemplateEndpoint_3725, EsbPackage.eINSTANCE.getTemplateEndpoint());
+
+			elements.put(TemplateEndpointInputConnector_3726,
+					EsbPackage.eINSTANCE.getTemplateEndpointInputConnector());
+
+			elements.put(TemplateEndpointOutputConnector_3727,
+					EsbPackage.eINSTANCE.getTemplateEndpointOutputConnector());
+
 			elements.put(LocalEntry_3663, EsbPackage.eINSTANCE.getLocalEntry());
 
 			elements.put(Template_3664, EsbPackage.eINSTANCE.getTemplate());
@@ -2539,6 +2562,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(HTTPEndpoint_3712);
 			KNOWN_ELEMENT_TYPES.add(HTTPEndPointInputConnector_3713);
 			KNOWN_ELEMENT_TYPES.add(HTTPEndPointOutputConnector_3714);
+			KNOWN_ELEMENT_TYPES.add(TemplateEndpoint_3725);
+			KNOWN_ELEMENT_TYPES.add(TemplateEndpointInputConnector_3726);
+			KNOWN_ELEMENT_TYPES.add(TemplateEndpointOutputConnector_3727);
 			KNOWN_ELEMENT_TYPES.add(LocalEntry_3663);
 			KNOWN_ELEMENT_TYPES.add(Template_3664);
 			KNOWN_ELEMENT_TYPES.add(Sequences_3665);
@@ -3085,6 +3111,12 @@ public class EsbElementTypes {
 			return HTTPEndPointInputConnector_3713;
 		case HTTPEndPointOutputConnector2EditPart.VISUAL_ID:
 			return HTTPEndPointOutputConnector_3714;
+		case TemplateEndpoint2EditPart.VISUAL_ID:
+			return TemplateEndpoint_3725;
+		case TemplateEndpointInputConnector2EditPart.VISUAL_ID:
+			return TemplateEndpointInputConnector_3726;
+		case TemplateEndpointOutputConnector2EditPart.VISUAL_ID:
+			return TemplateEndpointOutputConnector_3727;
 		case LocalEntryEditPart.VISUAL_ID:
 			return LocalEntry_3663;
 		case TemplateEditPart.VISUAL_ID:

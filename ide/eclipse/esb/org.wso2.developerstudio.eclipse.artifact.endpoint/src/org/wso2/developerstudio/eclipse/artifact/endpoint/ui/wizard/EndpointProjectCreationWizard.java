@@ -23,11 +23,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
+import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.commons.lang.StringUtils;
@@ -474,20 +476,32 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		try {
 			refreshDistProjects();
 			OMElement documentElement = new StAXOMBuilder(new FileInputStream(file)).getDocumentElement();
-			String localName =documentElement.getFirstElement().getLocalName();
+			String localName=null;
 			String type="endpoint";
-			if ("address".equals(localName)) {
-				type=type+"-1";
-			} else if ("wsdl".equals(localName)) {
-				type=type+"-2";
-			} else if ("loadbalance".equals(localName)) {
-				type=type+"-3";
-			} else if ("failover".equals(localName)) {
-				type=type+"-4";
-			} else if ("recipientlist".equals(localName)) {
-				type=type+"-5";
+			if(documentElement.getFirstElement()!=null){
+				localName =documentElement.getFirstElement().getLocalName();				
+				if ("address".equals(localName)) {
+					type=type+"-1";
+				} else if ("wsdl".equals(localName)) {
+					type=type+"-2";
+				} else if ("loadbalance".equals(localName)) {
+					type=type+"-3";
+				} else if ("failover".equals(localName)) {
+					type=type+"-4";
+				} else if ("recipientlist".equals(localName)) {
+					type=type+"-5";
+				} else {
+					type=type+"-0";
+				}
 			} else {
-				type=type+"-0";
+				Iterator allAttributes = documentElement.getAllAttributes();
+				while(allAttributes.hasNext()){
+					OMAttribute object=(OMAttribute) allAttributes.next();
+					if(object.getLocalName().equals("template")){
+						type=type+"-6";
+						break;
+					}
+				}
 			}
 	 
 			String location = endpointFile.getParent().getFullPath()+"/";

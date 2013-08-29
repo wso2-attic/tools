@@ -568,6 +568,12 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.HTTPEndPointOutputConnector_3714);
 			return types;
 		}
+		if (editPart instanceof TemplateEndpoint2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(EsbElementTypes.TemplateEndpointInputConnector_3726);
+			types.add(EsbElementTypes.TemplateEndpointOutputConnector_3727);
+			return types;
+		}
 		if (editPart instanceof Sequences2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
 			types.add(EsbElementTypes.MediatorFlow_3615);
@@ -1630,7 +1636,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof EndpointDiagramEndpointCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(7);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(8);
 			types.add(EsbElementTypes.DefaultEndPoint_3643);
 			types.add(EsbElementTypes.AddressEndPoint_3646);
 			types.add(EsbElementTypes.FailoverEndPoint_3649);
@@ -1638,6 +1644,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.WSDLEndPoint_3653);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3656);
 			types.add(EsbElementTypes.HTTPEndpoint_3712);
+			types.add(EsbElementTypes.TemplateEndpoint_3725);
 			return types;
 		}
 		if (editPart instanceof TemplateTemplateCompartmentEditPart) {
@@ -1647,7 +1654,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof EndpointDiagramEndpointCompartment2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(7);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(8);
 			types.add(EsbElementTypes.DefaultEndPoint_3643);
 			types.add(EsbElementTypes.AddressEndPoint_3646);
 			types.add(EsbElementTypes.FailoverEndPoint_3649);
@@ -1655,6 +1662,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.WSDLEndPoint_3653);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3656);
 			types.add(EsbElementTypes.HTTPEndpoint_3712);
+			types.add(EsbElementTypes.TemplateEndpoint_3725);
 			return types;
 		}
 		if (editPart instanceof SynapseAPIAPICompartmentEditPart) {
@@ -2044,6 +2052,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (sourceEditPart instanceof HTTPEndPointOutputConnector2EditPart) {
 			return ((HTTPEndPointOutputConnector2EditPart) sourceEditPart).getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof TemplateEndpointOutputConnector2EditPart) {
+			return ((TemplateEndpointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof APIResourceOutputConnectorEditPart) {
 			return ((APIResourceOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
@@ -2291,6 +2303,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof HTTPEndPointInputConnector2EditPart) {
 			return ((HTTPEndPointInputConnector2EditPart) targetEditPart).getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof TemplateEndpointInputConnector2EditPart) {
+			return ((TemplateEndpointInputConnector2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof APIResourceInputConnectorEditPart) {
 			return ((APIResourceInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
@@ -2658,6 +2674,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((HTTPEndPointOutputConnector2EditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
+		if (sourceEditPart instanceof TemplateEndpointOutputConnector2EditPart) {
+			return ((TemplateEndpointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		if (sourceEditPart instanceof APIResourceOutputConnectorEditPart) {
 			return ((APIResourceOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
@@ -2949,6 +2969,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof HTTPEndPointInputConnector2EditPart) {
 			return ((HTTPEndPointInputConnector2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof TemplateEndpointInputConnector2EditPart) {
+			return ((TemplateEndpointInputConnector2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof APIResourceInputConnectorEditPart) {
@@ -3314,6 +3338,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof HTTPEndPointOutputConnector2EditPart) {
 			return ((HTTPEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof TemplateEndpointOutputConnector2EditPart) {
+			return ((TemplateEndpointOutputConnector2EditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof APIResourceOutputConnectorEditPart) {

@@ -2,9 +2,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -21,14 +23,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPoint2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPoint2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPoint2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HTTPEndpoint2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPoint2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RecipientListEndPoint2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateEndpoint2EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPoint2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateEndpointInputConnector2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateEndpointOutputConnector2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -36,7 +32,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated
  */
-public class EndpointDiagramEndpointCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
+public class TemplateEndpoint2CanonicalEditPolicy extends CanonicalEditPolicy {
+
+	/**
+	 * @generated
+	 */
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
 
 	/**
 	 * @generated
@@ -53,8 +54,13 @@ public class EndpointDiagramEndpointCompartmentCanonicalEditPolicy extends Canon
 	/**
 	 * @generated
 	 */
-	protected EStructuralFeature getFeatureToSynchronize() {
-		return EsbPackage.eINSTANCE.getEndpointDiagram_Child();
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getTemplateEndpoint_InputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getTemplateEndpoint_OutputConnector());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -65,7 +71,7 @@ public class EndpointDiagramEndpointCompartmentCanonicalEditPolicy extends Canon
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getEndpointDiagramEndpointCompartment_7041SemanticChildren(viewObject);
+				.getTemplateEndpoint_3725SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -84,18 +90,8 @@ public class EndpointDiagramEndpointCompartmentCanonicalEditPolicy extends Canon
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case DefaultEndPoint2EditPart.VISUAL_ID:
-		case AddressEndPoint2EditPart.VISUAL_ID:
-		case FailoverEndPoint2EditPart.VISUAL_ID:
-		case RecipientListEndPoint2EditPart.VISUAL_ID:
-		case WSDLEndPoint2EditPart.VISUAL_ID:
-		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
-		case HTTPEndpoint2EditPart.VISUAL_ID:
-		case TemplateEndpoint2EditPart.VISUAL_ID:
-			return true;
-		}
-		return false;
+		return visualID == TemplateEndpointInputConnector2EditPart.VISUAL_ID
+				|| visualID == TemplateEndpointOutputConnector2EditPart.VISUAL_ID;
 	}
 
 	/**
@@ -107,8 +103,7 @@ public class EndpointDiagramEndpointCompartmentCanonicalEditPolicy extends Canon
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getEndpointDiagramEndpointCompartment_7041SemanticChildren((View) getHost()
-						.getModel());
+				.getTemplateEndpoint_3725SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();
