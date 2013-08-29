@@ -273,10 +273,6 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
     return PHP_PRINT;
 }
 
-<ST_PHP_IN_SCRIPTING>"class" {
-    return PHP_CLASS;
-}
-
 <ST_PHP_IN_SCRIPTING>"trait" {
 	return PHP_TRAIT;
 }
@@ -408,28 +404,12 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
     return PHP_REQUIRE;
 }
 
-<ST_PHP_IN_SCRIPTING>"require_once" {
-    return PHP_REQUIRE_ONCE;
-}
-
 <ST_PHP_IN_SCRIPTING>"namespace" {
  	return PHP_NAMESPACE;
 }
 
-<ST_PHP_IN_SCRIPTING>"use" {
-    return PHP_USE;
-}
-
 <ST_PHP_IN_SCRIPTING>"global" {
     return PHP_GLOBAL;
-}
-
-<ST_PHP_IN_SCRIPTING>"isset" {
-    return PHP_ISSET;
-}
-
-<ST_PHP_IN_SCRIPTING>"empty" {
-    return PHP_EMPTY;
 }
 
 <ST_PHP_IN_SCRIPTING>"__halt_compiler" {

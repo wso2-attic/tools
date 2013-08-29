@@ -113,13 +113,7 @@ terminal  T_USE;
 terminal  T_GLOBAL;
 terminal  T_VAR;
 terminal  String T_UNSET;
-terminal  String T_ISSET;
 terminal  String T_EMPTY;
-terminal  T_HALT_COMPILER;
-terminal  T_CLASS;
-terminal  T_INTERFACE;
-terminal  T_EXTENDS;
-terminal  T_IMPLEMENTS;
 terminal  T_OBJECT_OPERATOR;
 terminal  T_DOUBLE_ARROW;
 terminal  T_LIST;
@@ -137,9 +131,8 @@ terminal  T_CURLY_OPEN;
 terminal  T_CURLY_CLOSE;
 terminal  T_PAAMAYIM_NEKUDOTAYIM;
 terminal String T_VAR_COMMENT;
-terminal String T_DEFINE;
 
-terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE,T_REQUIRE_ONCE;
+terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE;
 terminal T_COMMA;
 terminal String T_LOGICAL_OR,T_LOGICAL_XOR,T_LOGICAL_AND,T_PRINT;
 terminal T_EQUAL;
@@ -170,7 +163,7 @@ terminal T_NEW;
 terminal T_ENDIF;
 terminal T_ELSEIF;
 terminal T_ELSE;
-terminal T_STATIC, T_ABSTRACT, T_FINAL, T_PRIVATE, T_PROTECTED, T_PUBLIC;
+terminal T_STATIC;
 terminal T_OPEN_PARENTHESE,T_CLOSE_PARENTHESE;
 terminal T_NEKUDOTAIM;
 terminal T_DOLLAR;
@@ -210,7 +203,6 @@ non terminal List non_empty_function_call_parameter_list;
 non terminal List global_var_list;
 non terminal VariableBase global_var;
 non terminal List static_var_list;
-non terminal List class_statement_list;
 non terminal Statement class_statement;
 non terminal Boolean is_reference;
 non terminal List echo_expr_list;
@@ -243,39 +235,24 @@ non terminal VariableBase encaps_var;
 non terminal Expression encaps_var_offset;
 non terminal Expression internal_functions_in_yacc;
 non terminal String string_st;
-non terminal Integer interface_entry;
-non terminal List interface_extends_list;
 
 non terminal VariableBase w_variable;
 non terminal Identifier fully_qualified_class_name;
-non terminal List class_variable_declaration;
-non terminal List class_constant_declaration;
-non terminal Integer method_modifiers;
 non terminal Block method_body;
-non terminal List non_empty_member_modifiers;
-non terminal Integer member_modifier;
 non terminal List method_or_not;
 non terminal List variable_properties;
 non terminal FunctionDeclaration function_declaration_statement;
-non terminal Statement class_declaration_statement;
 non terminal VariableBase variable;
 non terminal List additional_catches;
 non terminal List non_empty_additional_catches;
 non terminal CatchClause additional_catch;
 non terminal FunctionDeclaration unticked_function_declaration_statement;
-non terminal Statement unticked_class_declaration_statement;
-non terminal Integer class_entry_type;
-non terminal Identifier extends_from;
-non terminal List implements_list;
-non terminal List interface_list;
 non terminal Identifier optional_class_type;
 non terminal VariableBase r_variable;
-non terminal Integer variable_modifiers;
 non terminal VariableBase rw_variable;
 non terminal Variable variable_without_objects;
 non terminal VariableBase variable_property;
 non terminal VariableBase static_member;
-non terminal List isset_variables;
 non terminal Variable tracked_variable;
 
 non terminal ClassName class_name_reference;
@@ -288,7 +265,7 @@ non terminal StaticConstantAccess static_class_constant;
 non terminal VariableBase base_variable_with_function_calls;
 
 
-precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE, T_REQUIRE_ONCE;
+precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE;
 precedence left T_COMMA;
 precedence left T_LOGICAL_OR;
 precedence left T_LOGICAL_XOR;
@@ -315,7 +292,7 @@ precedence nonassoc T_NEW, T_CLONE;
 precedence left T_ELSEIF;
 precedence left T_ELSE;
 precedence left T_ENDIF;
-precedence right T_STATIC, T_ABSTRACT, T_FINAL, T_PRIVATE, T_PROTECTED, T_PUBLIC;
+precedence right T_STATIC;
 
 thestart ::=
 top_statement_list:statementList
@@ -352,17 +329,6 @@ statement:statement
 {: 
 	RESULT = statement; 
 :}
-
-| class_declaration_statement:statement
-{: 
-	RESULT = statement; 
-:}
-
-| T_HALT_COMPILER T_OPEN_PARENTHESE T_CLOSE_PARENTHESE T_SEMICOLON:statement
-{: 
-	// Note: we never generate T_HALT_COMPILER
-	RESULT = null;
-:}
 ;
 
 inner_statement_list ::=
@@ -390,17 +356,6 @@ statement:statement
 | function_declaration_statement:statement
 {: 
 	RESULT = statement; 
-:}
-
-| class_declaration_statement:statement
-{: 
-	RESULT = statement; 
-:}
-
-| T_HALT_COMPILER:halt T_OPEN_PARENTHESE T_CLOSE_PARENTHESE:close T_SEMICOLON 
-{: 
-	// Note: we never generate K_HALT_COMPILER
-	RESULT = null;
 :}
 ;
 
@@ -703,13 +658,6 @@ unticked_function_declaration_statement:functionDeclaration
 :}
 ;
 
-class_declaration_statement ::=
-unticked_class_declaration_statement:classDeclaration
-{:
-	RESULT = classDeclaration;
-:}
-;
-
 is_reference ::=
 /* empty */
 {:
@@ -734,103 +682,7 @@ T_CURLY_OPEN:blockStart inner_statement_list:statementList T_CURLY_CLOSE:blockEn
 :}
 ;
 
-unticked_class_declaration_statement ::=
-class_entry_type:modifier T_STRING:className
-extends_from:superClass implements_list:interfaces
-T_CURLY_OPEN:blockStart class_statement_list:statementList T_CURLY_CLOSE:blockEnd
-{:
-	Identifier classId = new Identifier(classNameleft, classNameright, parser.ast, className);
-	Block block = new Block(blockStartleft, blockEndright, parser.ast, statementList);
-	ClassDeclaration classDeclaration = new ClassDeclaration(modifierleft ,blockEndright, parser.ast, modifier.intValue(), classId, superClass, interfaces, block);
-	RESULT = classDeclaration;
-:}
 
-|
-interface_entry:start T_STRING:className
-interface_extends_list:interfaces
-T_CURLY_OPEN:blockStart class_statement_list:statementList T_CURLY_CLOSE:blockEnd
-{:
-	Identifier classId = new Identifier(classNameleft, classNameright, parser.ast, className);
-	Block block = new Block(blockStartleft, blockEndright, parser.ast, statementList);
-	InterfaceDeclaration interfaceDeclaration = new InterfaceDeclaration(startleft ,blockEndright, parser.ast, classId, interfaces, block);
-	RESULT = interfaceDeclaration;
-:}
-;
-
-class_entry_type ::=
-T_CLASS
-{:
-	RESULT = new Integer(ClassDeclaration.MODIFIER_NONE);
-:}
-               
-| T_ABSTRACT T_CLASS
-{:
-	RESULT = new Integer(ClassDeclaration.MODIFIER_ABSTRACT);
-:}        
-
-| T_FINAL T_CLASS   
-{:
-	RESULT = new Integer(ClassDeclaration.MODIFIER_FINAL);
-:}        
-;
-
-extends_from ::=
-/* empty */
-{:
-	RESULT = null;
-:}
-
-| T_EXTENDS fully_qualified_class_name:className
-{:
-	RESULT = className;
-:}
-;
-
-/* do nothing */
-interface_entry ::=
-	T_INTERFACE            
-;
-
-interface_extends_list ::=
-/* empty */
-{:
-	List list = new LinkedList();
-	RESULT = list;
-:}
-
-| T_EXTENDS interface_list:list
-{:
-	RESULT = list;
-:}
-;
-
-implements_list ::=
-/* empty */
-{:
-	List list = new LinkedList();
-	RESULT = list;
-:}
-
-| T_IMPLEMENTS interface_list:list
-{:
-	RESULT = list;
-:}
-;
-
-interface_list ::=
-fully_qualified_class_name:className
-{:
-	List list = new LinkedList();
-	list.add(className);
-	RESULT = list;
-:}
-
-| interface_list:list T_COMMA fully_qualified_class_name:className
-{:
-	list.add(className);
-	RESULT = list;
-:}
-;
 
 foreach_optional_arg ::=
 /* empty */
@@ -1270,51 +1122,6 @@ static_var_list:list T_COMMA T_VARIABLE:var
 :}	
 ;
 
-class_statement_list ::=
-class_statement_list:list class_statement:classStatement
-{:
-	list.add(classStatement);
-	RESULT = list;
-:}
-
-| /* empty */
-{:
-	List list = new LinkedList();
-	RESULT = list;
-:}
-;
-
-class_statement ::=
-variable_modifiers:modifier class_variable_declaration:decList T_SEMICOLON:end
-{:
-	FieldsDeclaration fieldsDeclaration = new FieldsDeclaration(modifierleft, endright, parser.ast, modifier.intValue(), decList);
-	RESULT = fieldsDeclaration;
-:}
-
-| class_constant_declaration:list T_SEMICOLON:end
-{:
-	ConstantDeclaration classConstantDeclaration = new ConstantDeclaration(listleft, endright, parser.ast, list);
-	RESULT = classConstantDeclaration;
-:}
-
-| method_modifiers:modifier T_FUNCTION:start is_reference:isReference string_st:functionName
-T_OPEN_PARENTHESE parameter_list:paramList T_CLOSE_PARENTHESE
-method_body:body
-{:
-	int methodStart = modifier == null ? startleft : modifierleft;
-	modifier = modifier == null ? PhpAstParser.PUBLIC : modifier;
-	Identifier functionId = new Identifier(functionNameleft, functionNameright, parser.ast, functionName);
-	FunctionDeclaration functionDeclaration = new FunctionDeclaration(startleft, bodyright, parser.ast, functionId, paramList, body, isReference.booleanValue());
-	MethodDeclaration methodDeclaration = new MethodDeclaration(methodStart, bodyright, parser.ast, modifier.intValue(), functionDeclaration, true);
-	RESULT = methodDeclaration;
-:}
-
-| T_VAR_COMMENT:varComment unticked_statement:statement
-{:
-	RESULT = statement;
-:}
-;
-
 method_body ::=
 T_SEMICOLON /* abstract method */
 {:
@@ -1328,135 +1135,6 @@ T_SEMICOLON /* abstract method */
 :}
 ;
 
-variable_modifiers ::=
-non_empty_member_modifiers:list
-{:
-	int result = 0;
-	for (Iterator it = list.iterator(); it.hasNext() ; ) {
-		Integer modifier = (Integer)it.next();
-		result |= modifier.intValue();
-	}
-	RESULT = new Integer(result);
-:}
-
-| T_VAR
-{:
-	RESULT = PhpAstParser.PUBLIC;
-:}
-;
-
-method_modifiers ::=
-/* empty */
-{:
-	RESULT = null;
-:}
-
-| non_empty_member_modifiers:list
-{:
-	int result = 0;
-	for (Iterator it = list.iterator(); it.hasNext() ; ) {
-		Integer modifier = (Integer)it.next();
-		result |= modifier.intValue();
-	}
-	RESULT = new Integer(result);
-:}
-;
-
-non_empty_member_modifiers ::=
-member_modifier:modifier
-{:
-	List list = new LinkedList();
-	list.add(modifier);
-	RESULT = list;
-:}
-
-| non_empty_member_modifiers:list member_modifier:modifier
-{:
-	list.add(modifier);
-	RESULT = list;
-:}
-;
-
-member_modifier ::=
-T_PUBLIC
-{:
-	RESULT = PhpAstParser.PUBLIC;
-:}
-
-| T_PROTECTED
-{:
-	RESULT = PhpAstParser.PROTECTED;
-:}
-
-| T_PRIVATE
-{:
-	RESULT = PhpAstParser.PRIVATE;
-:}
-
-| T_STATIC
-{:
-	RESULT = PhpAstParser.STATIC;
-:}
-
-| T_ABSTRACT
-{:
-	RESULT = PhpAstParser.ABSTRACT;
-:}
-
-| T_FINAL
-{:
-	RESULT = PhpAstParser.FINAL;
-:}
-;
-
-class_variable_declaration ::=
-class_variable_declaration:list T_COMMA T_VARIABLE:var
-{:
-	Variable varId = new Variable(varleft, varright, parser.ast, var);
-	list.add(new ASTNode[] {varId, null});
-	RESULT = list;
-:}
-
-| class_variable_declaration:list T_COMMA T_VARIABLE:var T_EQUAL static_scalar:expr
-{:
-	Variable varId = new Variable(varleft, varright, parser.ast, var);
-	list.add(new ASTNode[] {varId, expr});
-	RESULT = list;
-:}
-
-| T_VARIABLE:var
-{:
-	List list = new LinkedList();
-	Variable varId = new Variable(varleft, varright, parser.ast, var);
-	list.add(new ASTNode[] {varId, null});
-	RESULT = list;
-:}
-
-| T_VARIABLE:var T_EQUAL static_scalar:expr
-{:
-	List list = new LinkedList();
-	Variable varId = new Variable(varleft, varright, parser.ast, var);
-	list.add(new ASTNode[] {varId, expr});
-	RESULT = list;
-:}
-;
-
-class_constant_declaration ::=
-class_constant_declaration:list T_COMMA T_STRING:constName T_EQUAL static_scalar:expr
-{:
-	Identifier constId = new Identifier(constNameleft, constNameright, parser.ast, constName);
-	list.add(new ASTNode[] {constId, expr});
-	RESULT = list;
-:}
-
-| T_CONST T_STRING:constName T_EQUAL static_scalar:expr
-{:
-	List list = new LinkedList();
-	Identifier constId = new Identifier(constNameleft, constNameright, parser.ast, constName);
-	list.add(new ASTNode[] {constId, expr});
-	RESULT = list;
-:}
-;
 
 echo_expr_list ::=
 echo_expr_list:exprList T_COMMA expr:expr 
@@ -2617,15 +2295,7 @@ string_st:string
 ;
 
 internal_functions_in_yacc ::=
-T_ISSET:start T_OPEN_PARENTHESE isset_variables:varList T_CLOSE_PARENTHESE:end
-{:
-	Identifier id = new Identifier(startleft, startright, parser.ast, "isset");
-	FunctionName name = new FunctionName(startleft, startright, parser.ast, id);
-	FunctionInvocation result = new FunctionInvocation(startleft, endright, parser.ast, name, varList);
-	RESULT = result;
-:}
-
-| T_EMPTY:start T_OPEN_PARENTHESE variable:var T_CLOSE_PARENTHESE:end
+T_EMPTY:start T_OPEN_PARENTHESE variable:var T_CLOSE_PARENTHESE:end
 {:
 	Identifier id = new Identifier(startleft, startright, parser.ast, "empty");
 	FunctionName name = new FunctionName(startleft, startright, parser.ast, id);
@@ -2662,49 +2332,10 @@ T_ISSET:start T_OPEN_PARENTHESE isset_variables:varList T_CLOSE_PARENTHESE:end
 	Include result = new Include(includeleft, exprright, parser.ast, expr, Include.IT_REQUIRE);
 	RESULT = result;
 :}
-
-| T_REQUIRE_ONCE:include expr:expr
-{:
-	Include result = new Include(includeleft, exprright, parser.ast, expr, Include.IT_REQUIRE_ONCE);
-	RESULT = result;
-:}
 ;
 
-isset_variables ::=
-variable:var 
-{:
-	List list = new LinkedList();
-	list.add(var);
-	RESULT = list;	
-:}
-
-| isset_variables:varList T_COMMA variable:var
-{:
-	varList.add(var);
-	RESULT = varList;
-:}
-;
-
-class_constant ::=
-fully_qualified_class_name:className T_PAAMAYIM_NEKUDOTAYIM T_STRING:varName
-{:
-	Identifier name = new Identifier(varNameleft, varNameright, parser.ast, varName);
-	StaticConstantAccess constant = new StaticConstantAccess(classNameleft, varNameright, parser.ast, className, name); 
-	RESULT = constant;
-:}
-;
-
-tracked_variable ::=
-T_VARIABLE:varName
-{:
-	RESULT = new Variable(varNameleft, varNameright, parser.ast, varName); 
-:}
-;
 
 string_st ::=
 T_STRING:value
-{: RESULT = value; :}
-
-| T_DEFINE:value
 {: RESULT = value; :}
 ;

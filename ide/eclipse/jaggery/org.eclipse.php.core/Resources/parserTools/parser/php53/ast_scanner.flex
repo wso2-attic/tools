@@ -346,10 +346,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_PRINT);
 }
 
-<ST_IN_SCRIPTING>"class" {
-	return createSymbol(ParserConstants.T_CLASS);
-}
-
 <ST_IN_SCRIPTING>"interface" {
 	return createSymbol(ParserConstants.T_INTERFACE);
 }
@@ -452,10 +448,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_REQUIRE);
 }
 
-<ST_IN_SCRIPTING>"require_once" {
-	return createSymbol(ParserConstants.T_REQUIRE_ONCE);
-}
-
 <ST_IN_SCRIPTING>"namespace" {
  	return createSymbol(ParserConstants.T_NAMESPACE);
 }
@@ -466,10 +458,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 
 <ST_IN_SCRIPTING>"global" {
 	return createSymbol(ParserConstants.T_GLOBAL);
-}
-
-<ST_IN_SCRIPTING>"isset" {
-	return createSymbol(ParserConstants.T_ISSET);
 }
 
 <ST_IN_SCRIPTING>"empty" {
@@ -734,39 +722,11 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
     return createSymbol(ParserConstants.T_INLINE_HTML);
 }
 
-<YYINITIAL>"<?"|"<script"{WHITESPACE}+"language"{WHITESPACE}*"="{WHITESPACE}*("php"|"\"php\""|"\'php\'"){WHITESPACE}*">" {
-    if (short_tags_allowed || yylength()>2) { /* yyleng>2 means it's not <? but <script> */
-        yybegin(ST_IN_SCRIPTING);
-        //return T_OPEN_TAG;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
-}
-
-<YYINITIAL>"<%="|"<?=" {
-    String text = yytext();
-    if ((text.charAt(1)=='%' && asp_tags)
-        || (text.charAt(1)=='?' && short_tags_allowed)) {
-        yybegin(ST_IN_SCRIPTING);
-        //return T_OPEN_TAG_WITH_ECHO;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
-}
-
-<YYINITIAL>"<%" {
-    if (asp_tags) {
-        yybegin(ST_IN_SCRIPTING);
-		//return T_OPEN_TAG;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
-}
-
-<YYINITIAL>"<?php"([ \t]|{NEWLINE}) {
+<YYINITIAL>"<%"([ \t]|{NEWLINE}) {
     yybegin(ST_IN_SCRIPTING);
 	//return T_OPEN_TAG;
 }
+
 
 <ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE,ST_VAR_OFFSET>"$"{LABEL} {
     return createFullSymbol(ParserConstants.T_VARIABLE);
@@ -825,11 +785,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	yypushback(1);
 	popState();
 	return createSymbol(ParserConstants.T_ENCAPSED_AND_WHITESPACE);
-}
-
-<ST_IN_SCRIPTING>"define" {
-    /* not a keyword, hust for recognize constans.*/
-    return createFullSymbol(ParserConstants.T_DEFINE);
 }
 
 <ST_IN_SCRIPTING,ST_VAR_OFFSET>{LABEL} {

@@ -26,26 +26,27 @@ import org.eclipse.php.internal.core.ast.visitor.Visitor;
  */
 public class EchoStatement extends Statement {
 
-	private ASTNode.NodeList<Expression> expressions = new ASTNode.NodeList<Expression>(EXPRESSIONS_PROPERTY);
+	private ASTNode.NodeList<Expression> expressions = new ASTNode.NodeList<Expression>(
+			EXPRESSIONS_PROPERTY);
 
 	/**
 	 * The "expressions" structural property of this node type.
 	 */
-	public static final ChildListPropertyDescriptor EXPRESSIONS_PROPERTY = 
-		new ChildListPropertyDescriptor(EchoStatement.class, "expressions", Expression.class, CYCLE_RISK); //$NON-NLS-1$
+	public static final ChildListPropertyDescriptor EXPRESSIONS_PROPERTY = new ChildListPropertyDescriptor(
+			EchoStatement.class, "expressions", Expression.class, CYCLE_RISK); //$NON-NLS-1$
 
 	/**
-	 * A list of property descriptors (element type: 
-	 * {@link StructuralPropertyDescriptor}),
-	 * or null if uninitialized.
+	 * A list of property descriptors (element type:
+	 * {@link StructuralPropertyDescriptor}), or null if uninitialized.
 	 */
 	private static final List<StructuralPropertyDescriptor> PROPERTY_DESCRIPTORS;
 	static {
-		List<StructuralPropertyDescriptor> properyList = new ArrayList<StructuralPropertyDescriptor>(2);
+		List<StructuralPropertyDescriptor> properyList = new ArrayList<StructuralPropertyDescriptor>(
+				2);
 		properyList.add(EXPRESSIONS_PROPERTY);
 		PROPERTY_DESCRIPTORS = Collections.unmodifiableList(properyList);
 	}
-	
+
 	private EchoStatement(int start, int end, AST ast, Expression[] expressions) {
 		super(start, end, ast);
 		if (expressions == null) {
@@ -58,9 +59,10 @@ public class EchoStatement extends Statement {
 	}
 
 	public EchoStatement(int start, int end, AST ast, List expressions) {
-		this(start, end, ast, (Expression[]) expressions.toArray(new Expression[expressions.size()]));
+		this(start, end, ast, (Expression[]) expressions
+				.toArray(new Expression[expressions.size()]));
 	}
-	
+
 	public EchoStatement(AST ast) {
 		super(ast);
 	}
@@ -71,7 +73,7 @@ public class EchoStatement extends Statement {
 			childrenAccept(visitor);
 		}
 		visitor.endVisit(this);
-	}	
+	}
 
 	public void childrenAccept(Visitor visitor) {
 		for (ASTNode node : this.expressions) {
@@ -112,16 +114,17 @@ public class EchoStatement extends Statement {
 	 * @deprecated use #expressions()
 	 */
 	public Expression[] getExpressions() {
-		return this.expressions.toArray(new Expression[this.expressions.size()]);
+		return this.expressions
+				.toArray(new Expression[this.expressions.size()]);
 	}
-	
+
 	/**
 	 * @return expression list of the echo statement
 	 */
 	public List<Expression> expressions() {
 		return this.expressions;
 	}
-	
+
 	final List internalGetChildListProperty(ChildListPropertyDescriptor property) {
 		if (property == EXPRESSIONS_PROPERTY) {
 			return expressions();
@@ -129,8 +132,8 @@ public class EchoStatement extends Statement {
 		// allow default implementation to flag the error
 		return super.internalGetChildListProperty(property);
 	}
-	
-	/* 
+
+	/*
 	 * Method declared on ASTNode.
 	 */
 	public boolean subtreeMatch(ASTMatcher matcher, Object other) {
@@ -140,13 +143,16 @@ public class EchoStatement extends Statement {
 
 	@Override
 	ASTNode clone0(AST target) {
-		final List expressions = ASTNode.copySubtrees(target, this.expressions());
-		final EchoStatement echoSt = new EchoStatement(this.getStart(), this.getEnd(), target, expressions);
+		final List expressions = ASTNode.copySubtrees(target,
+				this.expressions());
+		final EchoStatement echoSt = new EchoStatement(this.getStart(),
+				this.getEnd(), target, expressions);
 		return echoSt;
 	}
 
 	@Override
-	List<StructuralPropertyDescriptor> internalStructuralPropertiesForType(PHPVersion apiLevel) {
+	List<StructuralPropertyDescriptor> internalStructuralPropertiesForType(
+			PHPVersion apiLevel) {
 		return PROPERTY_DESCRIPTORS;
 	}
 

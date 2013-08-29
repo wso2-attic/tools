@@ -60,23 +60,30 @@ public class PHPSourceParserFactory extends AbstractSourceParser implements
 	 */
 	public static AbstractPHPSourceParser createParser(String fileName,
 			PHPVersion phpVersion) {
-		if (PHPVersion.PHP4 == phpVersion) {
-			return new org.eclipse.php.internal.core.compiler.ast.parser.php4.PhpSourceParser(
-					fileName);
-		}
-		if (PHPVersion.PHP5 == phpVersion) {
-			return new org.eclipse.php.internal.core.compiler.ast.parser.php5.PhpSourceParser(
-					fileName);
-		}
-		if (PHPVersion.PHP5_3 == phpVersion) {
-			return new org.eclipse.php.internal.core.compiler.ast.parser.php53.PhpSourceParser(
-					fileName);
-		}
-		if (PHPVersion.PHP5_4 == phpVersion) {
-			return new org.eclipse.php.internal.core.compiler.ast.parser.php54.PhpSourceParser(
-					fileName);
-		}
-		return null;
+		// if (PHPVersion.PHP4 == phpVersion) {
+		// return new
+		// org.eclipse.php.internal.core.compiler.ast.parser.php4.PhpSourceParser(
+		// fileName);
+		// }
+		// if (PHPVersion.PHP5 == phpVersion) {
+		// return new
+		// org.eclipse.php.internal.core.compiler.ast.parser.php5.PhpSourceParser(
+		// fileName);
+		// }
+		// if (PHPVersion.PHP5_3 == phpVersion) {
+		// return new
+		// org.eclipse.php.internal.core.compiler.ast.parser.php53.PhpSourceParser(
+		// fileName);
+		// }
+		// if (PHPVersion.PHP5_4 == phpVersion) {
+		// return new
+		// org.eclipse.php.internal.core.compiler.ast.parser.php54.PhpSourceParser(
+		// fileName);
+		// }
+		// return null;
+		return new org.eclipse.php.internal.core.compiler.ast.parser.php54.PhpSourceParser(
+				fileName);
+
 	}
 
 	/**
@@ -87,18 +94,24 @@ public class PHPSourceParserFactory extends AbstractSourceParser implements
 	 *         is incompatibleS
 	 */
 	public static AbstractPHPSourceParser createParser(PHPVersion phpVersion) {
-		if (PHPVersion.PHP4 == phpVersion) {
-			return new org.eclipse.php.internal.core.compiler.ast.parser.php4.PhpSourceParser();
-		}
-		if (PHPVersion.PHP5 == phpVersion) {
-			return new org.eclipse.php.internal.core.compiler.ast.parser.php5.PhpSourceParser();
-		}
-		if (PHPVersion.PHP5_3 == phpVersion) {
-			return new org.eclipse.php.internal.core.compiler.ast.parser.php53.PhpSourceParser();
-		}
-		if (PHPVersion.PHP5_4 == phpVersion) {
-			return new org.eclipse.php.internal.core.compiler.ast.parser.php54.PhpSourceParser();
-		}
-		return null;
+		// if (PHPVersion.PHP4 == phpVersion) {
+		// return new
+		// org.eclipse.php.internal.core.compiler.ast.parser.php4.PhpSourceParser();
+		// }
+		// if (PHPVersion.PHP5 == phpVersion) {
+		// return new
+		// org.eclipse.php.internal.core.compiler.ast.parser.php5.PhpSourceParser();
+		// }
+		// if (PHPVersion.PHP5_3 == phpVersion) {
+		// return new
+		// org.eclipse.php.internal.core.compiler.ast.parser.php53.PhpSourceParser();
+		// }
+		// if (PHPVersion.PHP5_4 == phpVersion) {
+		// return new
+		// org.eclipse.php.internal.core.compiler.ast.parser.php54.PhpSourceParser();
+		// }
+		// return null;
+
+		return new org.eclipse.php.internal.core.compiler.ast.parser.php54.PhpSourceParser();
 	}
 }

@@ -30,7 +30,7 @@ public class PhpSourceParser extends AbstractPHPSourceParser {
 	public IModuleDeclaration parse(Reader in, IProblemReporter reporter,
 			boolean useShortTags) throws Exception {
 		CompilerAstLexer lexer = new CompilerAstLexer(in);
-		lexer.setUseShortTags(useShortTags);
+		// lexer.setUseShortTags(useShortTags);
 		CompilerAstParser parser = new CompilerAstParser(lexer);
 		parser.setProblemReporter(reporter);
 

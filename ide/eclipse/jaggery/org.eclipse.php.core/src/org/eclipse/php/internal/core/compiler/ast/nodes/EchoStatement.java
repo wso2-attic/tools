@@ -22,14 +22,19 @@ import org.eclipse.php.internal.core.compiler.ast.visitor.ASTPrintVisitor;
 
 /**
  * Represent a echo statement.
- * <pre>e.g.<pre> echo "hello",
+ * 
+ * <pre>e.g.
+ * 
+ * <pre>
+ * echo "hello",
  * echo "hello", "world"
  */
 public class EchoStatement extends Statement {
 
 	private List<? extends Expression> expressions;
 
-	public EchoStatement(int start, int end, List<? extends Expression> expressions) {
+	public EchoStatement(int start, int end,
+			List<? extends Expression> expressions) {
 		super(start, end);
 
 		assert expressions != null;

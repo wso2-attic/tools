@@ -72,7 +72,6 @@ public class CompilerAstLexer extends
 		case CompilerParserConstants.T_FUNCTION:
 		case CompilerParserConstants.T_CONST:
 		case CompilerParserConstants.T_VAR:
-		case CompilerParserConstants.T_CLASS:
 		case CompilerParserConstants.T_STATIC:
 			symbol.value = latestDocBlock;
 			break;

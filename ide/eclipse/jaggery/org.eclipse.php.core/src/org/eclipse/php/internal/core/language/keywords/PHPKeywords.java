@@ -106,25 +106,29 @@ public class PHPKeywords {
 
 	public static PHPKeywords getInstance(IProject project) {
 		PHPVersion version = ProjectOptions.getPhpVersion(project);
-		synchronized (instances) {
-			if (!instances.containsKey(version)) {
-				PHPKeywords instance;
-				if (PHPVersion.PHP4 == version) {
-					instance = new PHPKeywords(new KeywordInitializerPHP_4());
-				} else if (PHPVersion.PHP5 == version) {
-					instance = new PHPKeywords(new KeywordInitializerPHP_5());
-				} else if (PHPVersion.PHP5_3 == version) {
-					instance = new PHPKeywords(new KeywordInitializerPHP_5_3());
-				} else if (PHPVersion.PHP5_4 == version) {
-					instance = new PHPKeywords(new KeywordInitializerPHP_5_4());
-				} else {
-					throw new IllegalArgumentException(
-							Messages.PHPKeywords_0);
-				}
-				instances.put(version, instance);
-			}
-		}
+		PHPKeywords instance;
+		instance = new PHPKeywords(new KeywordInitializerPHP_5_4());
+		instances.put(version, instance);
 		return instances.get(version);
+		// synchronized (instances) {
+		// if (!instances.containsKey(version)) {
+		// PHPKeywords instance;
+		// if (PHPVersion.PHP4 == version) {
+		// instance = new PHPKeywords(new KeywordInitializerPHP_4());
+		// } else if (PHPVersion.PHP5 == version) {
+		// instance = new PHPKeywords(new KeywordInitializerPHP_5());
+		// } else if (PHPVersion.PHP5_3 == version) {
+		// instance = new PHPKeywords(new KeywordInitializerPHP_5_3());
+		// } else if (PHPVersion.PHP5_4 == version) {
+		// instance = new PHPKeywords(new KeywordInitializerPHP_5_4());
+		// } else {
+		// throw new IllegalArgumentException(
+		// Messages.PHPKeywords_0);
+		// }
+		// instances.put(version, instance);
+		// }
+		// }
+		// return instances.get(version);
 	}
 
 	/**

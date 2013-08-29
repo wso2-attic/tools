@@ -28,9 +28,9 @@ public interface AstLexer extends Scanner {
 
 	public List getCommentList();
 
-	public void setUseAspTagsAsPhp(boolean useAspTagsAsPhp);
+	// public void setUseAspTagsAsPhp(boolean useAspTagsAsPhp);
 
-	public void setUseShortTags(boolean useShortTags);
+	// public void setUseShortTags(boolean useShortTags);
 
 	public int getCurrentLine();
 

@@ -232,6 +232,8 @@ public class LocationGroup extends Observable implements Observer,
 				fLocation.setText(selectedDirectory);
 				DLTKUIPlugin.getDefault().getDialogSettings()
 						.put(DIALOGSTORE_LAST_EXTERNAL_LOC, selectedDirectory);
+				String[] projectPathS = selectedDirectory.split("/");
+				fNameGroup.setName(projectPathS[projectPathS.length - 1]);
 			}
 		}
 	}

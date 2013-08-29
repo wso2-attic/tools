@@ -23,7 +23,6 @@ import java_cup.runtime.Scanner;
 import java_cup.runtime.lr_parser;
 
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.php.internal.core.CoreMessages;
 import org.eclipse.php.internal.core.PHPVersion;
 import org.eclipse.php.internal.core.ast.rewrite.ASTRewrite;
 import org.eclipse.php.internal.core.ast.scanner.AstLexer;
@@ -186,31 +185,31 @@ public class AST {
 	 */
 	private AstLexer getLexerInstance(Reader reader, PHPVersion phpVersion,
 			boolean aspTagsAsPhp, boolean useShortTags) throws IOException {
-		if (PHPVersion.PHP4 == phpVersion) {
-			final AstLexer lexer4 = getLexer4(reader);
-			lexer4.setUseAspTagsAsPhp(aspTagsAsPhp);
-			lexer4.setUseShortTags(useShortTags);
-			return lexer4;
-		} else if (PHPVersion.PHP5 == phpVersion) {
-			final AstLexer lexer5 = getLexer5(reader);
-			lexer5.setUseAspTagsAsPhp(aspTagsAsPhp);
-			lexer5.setUseShortTags(useShortTags);
-			return lexer5;
-		} else if (PHPVersion.PHP5_3 == phpVersion) {
-			final AstLexer lexer53 = getLexer53(reader);
-			lexer53.setUseAspTagsAsPhp(aspTagsAsPhp);
-			lexer53.setUseShortTags(useShortTags);
-			return lexer53;
-		} else if (PHPVersion.PHP5_4 == phpVersion) {
-			final AstLexer lexer54 = getLexer54(reader);
-			lexer54.setUseAspTagsAsPhp(aspTagsAsPhp);
-			lexer54.setUseShortTags(useShortTags);
-			return lexer54;
-		} else {
-			throw new IllegalArgumentException(CoreMessages
-					.getString("ASTParser_1") //$NON-NLS-1$
-					+ phpVersion);
-		}
+		// if (PHPVersion.PHP4 == phpVersion) {
+		// final AstLexer lexer4 = getLexer4(reader);
+		// lexer4.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// lexer4.setUseShortTags(useShortTags);
+		// return lexer4;
+		// } else if (PHPVersion.PHP5 == phpVersion) {
+		// final AstLexer lexer5 = getLexer5(reader);
+		// lexer5.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// lexer5.setUseShortTags(useShortTags);
+		// return lexer5;
+		// } else if (PHPVersion.PHP5_3 == phpVersion) {
+		// final AstLexer lexer53 = getLexer53(reader);
+		// lexer53.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// lexer53.setUseShortTags(useShortTags);
+		// return lexer53;
+		// } else if (PHPVersion.PHP5_4 == phpVersion) {
+		final AstLexer lexer54 = getLexer54(reader);
+		// lexer54.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// lexer54.setUseShortTags(useShortTags);
+		return lexer54;
+		// } else {
+		// throw new IllegalArgumentException(CoreMessages
+		//					.getString("ASTParser_1") //$NON-NLS-1$
+		// + phpVersion);
+		// }
 	}
 
 	private AstLexer getLexer54(Reader reader) throws IOException {
@@ -219,6 +218,7 @@ public class AST {
 		phpAstLexer5.setAST(this);
 		return phpAstLexer5;
 	}
+
 	private AstLexer getLexer53(Reader reader) throws IOException {
 		final org.eclipse.php.internal.core.ast.scanner.php53.PhpAstLexer phpAstLexer5 = new org.eclipse.php.internal.core.ast.scanner.php53.PhpAstLexer(
 				reader);
@@ -241,31 +241,44 @@ public class AST {
 	}
 
 	private lr_parser getParserInstance(PHPVersion phpVersion, Scanner lexer) {
-		if (PHPVersion.PHP4 == phpVersion) {
-			final org.eclipse.php.internal.core.ast.scanner.php4.PhpAstParser parser = new org.eclipse.php.internal.core.ast.scanner.php4.PhpAstParser(
-					lexer);
-			parser.setAST(this);
-			return parser;
-		} else if (PHPVersion.PHP5 == phpVersion) {
-			final org.eclipse.php.internal.core.ast.scanner.php5.PhpAstParser parser = new org.eclipse.php.internal.core.ast.scanner.php5.PhpAstParser(
-					lexer);
-			parser.setAST(this);
-			return parser;
-		} else if (PHPVersion.PHP5_3 == phpVersion) {
-			final org.eclipse.php.internal.core.ast.scanner.php53.PhpAstParser parser = new org.eclipse.php.internal.core.ast.scanner.php53.PhpAstParser(
-					lexer);
-			parser.setAST(this);
-			return parser;
-		} else if (PHPVersion.PHP5_4 == phpVersion) {
-			final org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser parser = new org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser(
-					lexer);
-			parser.setAST(this);
-			return parser;
-		} else {
-			throw new IllegalArgumentException(CoreMessages
-					.getString("ASTParser_1") //$NON-NLS-1$
-					+ phpVersion);
-		}
+		// if (PHPVersion.PHP4 == phpVersion) {
+		// final org.eclipse.php.internal.core.ast.scanner.php4.PhpAstParser
+		// parser = new
+		// org.eclipse.php.internal.core.ast.scanner.php4.PhpAstParser(
+		// lexer);
+		// parser.setAST(this);
+		// return parser;
+		// } else if (PHPVersion.PHP5 == phpVersion) {
+		// final org.eclipse.php.internal.core.ast.scanner.php5.PhpAstParser
+		// parser = new
+		// org.eclipse.php.internal.core.ast.scanner.php5.PhpAstParser(
+		// lexer);
+		// parser.setAST(this);
+		// return parser;
+		// } else if (PHPVersion.PHP5_3 == phpVersion) {
+		// final org.eclipse.php.internal.core.ast.scanner.php53.PhpAstParser
+		// parser = new
+		// org.eclipse.php.internal.core.ast.scanner.php53.PhpAstParser(
+		// lexer);
+		// parser.setAST(this);
+		// return parser;
+		// } else if (PHPVersion.PHP5_4 == phpVersion) {
+		// final org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser
+		// parser = new
+		// org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser(
+		// lexer);
+		// parser.setAST(this);
+		// return parser;
+		// } else {
+		// throw new IllegalArgumentException(
+		//					CoreMessages.getString("ASTParser_1") //$NON-NLS-1$
+		// + phpVersion);
+		// }
+
+		final org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser parser = new org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser(
+				lexer);
+		parser.setAST(this);
+		return parser;
 	}
 
 	/**
@@ -2782,15 +2795,14 @@ public class AST {
 		lfDeclaration.lexicalVariables().addAll(lexicalVars);
 		return lfDeclaration;
 	}
-	
-	
-	/*************************php5.4 starts***************************/
+
+	/************************* php5.4 starts ***************************/
 
 	public ChainingInstanceCall newChainingInstanceCall(
 			PHPArrayDereferenceList arrayDereferenceList,
 			List<VariableBase> chainingMethodOrProperty) {
-		ChainingInstanceCall lfDeclaration = new ChainingInstanceCall(
-				this,arrayDereferenceList, chainingMethodOrProperty);
+		ChainingInstanceCall lfDeclaration = new ChainingInstanceCall(this,
+				arrayDereferenceList, chainingMethodOrProperty);
 		return lfDeclaration;
 	}
 
@@ -2800,20 +2812,24 @@ public class AST {
 		return lfDeclaration;
 	}
 
-	public FullyQualifiedTraitMethodReference newFullyQualifiedTraitMethodReference(NamespaceName className,
-			Identifier functionName) {
-		FullyQualifiedTraitMethodReference lfDeclaration = new FullyQualifiedTraitMethodReference(this);
+	public FullyQualifiedTraitMethodReference newFullyQualifiedTraitMethodReference(
+			NamespaceName className, Identifier functionName) {
+		FullyQualifiedTraitMethodReference lfDeclaration = new FullyQualifiedTraitMethodReference(
+				this);
 		lfDeclaration.setClassName(className);
 		lfDeclaration.setFunctionName(functionName);
 		return lfDeclaration;
 	}
-	public PHPArrayDereferenceList newPHPArrayDereferenceList(List<DereferenceNode> dereferences) {
-		PHPArrayDereferenceList lfDeclaration = new PHPArrayDereferenceList(this,dereferences);
+
+	public PHPArrayDereferenceList newPHPArrayDereferenceList(
+			List<DereferenceNode> dereferences) {
+		PHPArrayDereferenceList lfDeclaration = new PHPArrayDereferenceList(
+				this, dereferences);
 		return lfDeclaration;
 	}
 
-	public TraitAlias newTraitAlias(Expression traitMethod,
-			int modifier, Identifier functionName) {
+	public TraitAlias newTraitAlias(Expression traitMethod, int modifier,
+			Identifier functionName) {
 		TraitAlias lfDeclaration = new TraitAlias(this);
 		lfDeclaration.setModifier(modifier);
 		lfDeclaration.setTraitMethod(traitMethod);
@@ -2861,7 +2877,9 @@ public class AST {
 		traitDeclaration.setBody(body);
 		return traitDeclaration;
 	}
-	public TraitPrecedence newTraitPrecedence(FullyQualifiedTraitMethodReference methodReference,
+
+	public TraitPrecedence newTraitPrecedence(
+			FullyQualifiedTraitMethodReference methodReference,
 			List<NamespaceName> trList) {
 		TraitPrecedence lfDeclaration = new TraitPrecedence(this);
 		lfDeclaration.setMethodReference(methodReference);
@@ -2869,22 +2887,23 @@ public class AST {
 		return lfDeclaration;
 	}
 
-	public TraitPrecedenceStatement newTraitPrecedenceStatement(TraitPrecedence precedence) {
-		TraitPrecedenceStatement lfDeclaration = new TraitPrecedenceStatement(this);
+	public TraitPrecedenceStatement newTraitPrecedenceStatement(
+			TraitPrecedence precedence) {
+		TraitPrecedenceStatement lfDeclaration = new TraitPrecedenceStatement(
+				this);
 		lfDeclaration.setPrecedence(precedence);
 		return lfDeclaration;
 	}
 
-	public TraitUseStatement newTraitUseStatement(List<NamespaceName> traitList, List<TraitStatement> tsList) {
+	public TraitUseStatement newTraitUseStatement(
+			List<NamespaceName> traitList, List<TraitStatement> tsList) {
 		TraitUseStatement lfDeclaration = new TraitUseStatement(this);
 		lfDeclaration.setTraitList(traitList);
 		lfDeclaration.setTsList(tsList);
 		return lfDeclaration;
 	}
 
-	
-	/*************************php5.4 ends***************************/
-	
+	/************************* php5.4 ends ***************************/
 
 	public void setInsertUseStatement(boolean isInsertUseStatement) {
 		// TODO Auto-generated method stub

@@ -752,14 +752,11 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 }
 
 <YYINITIAL>"<%"([ \t]|{NEWLINE}) {
-	return createSymbol(ParserConstants.T_INLINE_HTML);
-    //yybegin(ST_IN_SCRIPTING);
+	//return createSymbol(ParserConstants.T_INLINE_HTML);
+    yybegin(ST_IN_SCRIPTING);
 	//return T_OPEN_TAG;
 }
 
-<ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE,ST_VAR_OFFSET>"$"{LABEL} {
-    return createFullSymbol(ParserConstants.T_VARIABLE);
-}
 
 <ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>"$"{LABEL}"->"[a-zA-Z_\x7f-\xff] {
 	yypushback(3);

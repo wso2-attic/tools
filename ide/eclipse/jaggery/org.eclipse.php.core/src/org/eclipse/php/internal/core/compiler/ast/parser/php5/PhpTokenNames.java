@@ -73,7 +73,7 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_CONST, "const"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_RETURN, "return"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_IF, "if"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_ELSEIF, "elseif"); //$NON-NLS-1$
+		token2Name.put(CompilerParserConstants.T_ELSEIF, "else if"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_ENDIF, "endif"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_ELSE, "else"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_WHILE, "while"); //$NON-NLS-1$
@@ -92,28 +92,28 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_CONTINUE, "continue"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_ECHO, "echo"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_PRINT, "print"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_CLASS, "class"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_CLASS, "class"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_TRY, "try"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_CATCH, "catch"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_THROW, "throw"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_INSTANCEOF, "instanceof"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_INTERFACE, "interface"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_IMPLEMENTS, "implements"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_ABSTRACT, "abstract"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_FINAL, "final"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_PRIVATE, "private"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_PROTECTED, "protected"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_PUBLIC, "public"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_EXTENDS, "extends"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_INTERFACE, "interface"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_IMPLEMENTS, "implements"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_ABSTRACT, "abstract"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_FINAL, "final"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_PRIVATE, "private"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_PROTECTED, "protected"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_PUBLIC, "public"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_EXTENDS, "extends"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_NEW, "new"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_EVAL, "eval"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_INCLUDE, "include"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_INCLUDE_ONCE, "include_once"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_REQUIRE, "require"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_REQUIRE_ONCE, "require_once"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_REQUIRE_ONCE, "require_once"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_USE, "use"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_GLOBAL, "global"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_ISSET, "isset"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_ISSET, "isset"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_EMPTY, "empty"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_STATIC, "static"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_UNSET, "unset"); //$NON-NLS-1$

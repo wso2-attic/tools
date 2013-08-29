@@ -275,10 +275,6 @@ PHP_OPERATOR=       "=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-=
     return PHP_PRINT;
 }
 
-<ST_PHP_IN_SCRIPTING>"class" {
-    return PHP_CLASS;
-}
-
 <ST_PHP_IN_SCRIPTING>"interface" {
     return PHP_INTERFACE;
 }
@@ -390,20 +386,12 @@ PHP_OPERATOR=       "=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-=
     return PHP_REQUIRE;
 }
 
-<ST_PHP_IN_SCRIPTING>"require_once" {
-    return PHP_REQUIRE_ONCE;
-}
-
 <ST_PHP_IN_SCRIPTING>"use" {
     return PHP_USE;
 }
 
 <ST_PHP_IN_SCRIPTING>"global" {
     return PHP_GLOBAL;
-}
-
-<ST_PHP_IN_SCRIPTING>"isset" {
-    return PHP_ISSET;
 }
 
 <ST_PHP_IN_SCRIPTING>"empty" {
@@ -682,7 +670,7 @@ PHP_OPERATOR=       "=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-=
 }
 
 
-<ST_PHP_IN_SCRIPTING,ST_PHP_LINE_COMMENT>"?>"{WHITESPACE}? {
+<ST_PHP_IN_SCRIPTING,ST_PHP_LINE_COMMENT>"%>"{WHITESPACE}? {
 	return PHP_CLOSETAG;
 }
 <ST_PHP_IN_SCRIPTING>"%>"{WHITESPACE}? {

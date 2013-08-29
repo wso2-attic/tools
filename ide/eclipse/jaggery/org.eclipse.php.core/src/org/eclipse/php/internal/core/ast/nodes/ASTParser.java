@@ -24,7 +24,6 @@ import org.eclipse.dltk.core.ISourceModule;
 import org.eclipse.dltk.core.ModelException;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.php.internal.core.CoreMessages;
 import org.eclipse.php.internal.core.PHPVersion;
 import org.eclipse.php.internal.core.project.ProjectOptions;
 
@@ -393,58 +392,69 @@ public class ASTParser {
 	private static Scanner getLexer(AST ast, Reader reader,
 			PHPVersion phpVersion, boolean aspTagsAsPhp, boolean useShortTags)
 			throws IOException {
-		if (PHPVersion.PHP4 == phpVersion) {
-			final org.eclipse.php.internal.core.ast.scanner.php4.PhpAstLexer lexer4 = getLexer4(reader);
-			lexer4.setUseAspTagsAsPhp(aspTagsAsPhp);
-			lexer4.setUseShortTags(useShortTags);
-			lexer4.setAST(ast);
-			return lexer4;
-		} else if (PHPVersion.PHP5 == phpVersion) {
-			final org.eclipse.php.internal.core.ast.scanner.php5.PhpAstLexer lexer5 = getLexer5(reader);
-			lexer5.setUseAspTagsAsPhp(aspTagsAsPhp);
-			lexer5.setUseShortTags(useShortTags);
-			lexer5.setAST(ast);
-			return lexer5;
-		} else if (PHPVersion.PHP5_3 == phpVersion) {
-			final org.eclipse.php.internal.core.ast.scanner.php53.PhpAstLexer lexer53 = getLexer53(reader);
-			lexer53.setUseAspTagsAsPhp(aspTagsAsPhp);
-			lexer53.setUseShortTags(useShortTags);
-			lexer53.setAST(ast);
-			return lexer53;
-		} else if (PHPVersion.PHP5_4 == phpVersion) {
-			final org.eclipse.php.internal.core.ast.scanner.php54.PhpAstLexer lexer54 = getLexer54(reader);
-			lexer54.setUseAspTagsAsPhp(aspTagsAsPhp);
-			lexer54.setUseShortTags(useShortTags);
-			lexer54.setAST(ast);
-			return lexer54;
-		} else {
-			throw new IllegalArgumentException(
-					CoreMessages.getString("ASTParser_1") + phpVersion); //$NON-NLS-1$
-		}
+		// if (PHPVersion.PHP4 == phpVersion) {
+		// final org.eclipse.php.internal.core.ast.scanner.php4.PhpAstLexer
+		// lexer4 = getLexer4(reader);
+		// lexer4.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// lexer4.setUseShortTags(useShortTags);
+		// lexer4.setAST(ast);
+		// return lexer4;
+		// } else if (PHPVersion.PHP5 == phpVersion) {
+		// final org.eclipse.php.internal.core.ast.scanner.php5.PhpAstLexer
+		// lexer5 = getLexer5(reader);
+		// lexer5.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// lexer5.setUseShortTags(useShortTags);
+		// lexer5.setAST(ast);
+		// return lexer5;
+		// } else if (PHPVersion.PHP5_3 == phpVersion) {
+		// final org.eclipse.php.internal.core.ast.scanner.php53.PhpAstLexer
+		// lexer53 = getLexer53(reader);
+		// lexer53.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// lexer53.setUseShortTags(useShortTags);
+		// lexer53.setAST(ast);
+		// return lexer53;
+		// } else if (PHPVersion.PHP5_4 == phpVersion) {
+		final org.eclipse.php.internal.core.ast.scanner.php54.PhpAstLexer lexer54 = getLexer54(reader);
+		// lexer54.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// lexer54.setUseShortTags(useShortTags);
+		lexer54.setAST(ast);
+		return lexer54;
+		// } else {
+		// throw new IllegalArgumentException(
+		//					CoreMessages.getString("ASTParser_1") + phpVersion); //$NON-NLS-1$
+		// }
 	}
 
 	private static lr_parser getParser(PHPVersion phpVersion, AST ast)
 			throws IOException {
-		if (PHPVersion.PHP4 == phpVersion) {
-			org.eclipse.php.internal.core.ast.scanner.php4.PhpAstParser parser = createEmptyParser_4();
-			parser.setAST(ast);
-			return parser;
-		} else if (PHPVersion.PHP5 == phpVersion) {
-			org.eclipse.php.internal.core.ast.scanner.php5.PhpAstParser parser = createEmptyParser_5();
-			parser.setAST(ast);
-			return parser;
-		} else if (PHPVersion.PHP5_3 == phpVersion) {
-			org.eclipse.php.internal.core.ast.scanner.php53.PhpAstParser parser = createEmptyParser_53();
-			parser.setAST(ast);
-			return parser;
-		} else if (PHPVersion.PHP5_4 == phpVersion) {
-			org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser parser = createEmptyParser_54();
-			parser.setAST(ast);
-			return parser;
-		} else {
-			throw new IllegalArgumentException(
-					CoreMessages.getString("ASTParser_1") + phpVersion); //$NON-NLS-1$
-		}
+		// if (PHPVersion.PHP4 == phpVersion) {
+		// org.eclipse.php.internal.core.ast.scanner.php4.PhpAstParser parser =
+		// createEmptyParser_4();
+		// parser.setAST(ast);
+		// return parser;
+		// } else if (PHPVersion.PHP5 == phpVersion) {
+		// org.eclipse.php.internal.core.ast.scanner.php5.PhpAstParser parser =
+		// createEmptyParser_5();
+		// parser.setAST(ast);
+		// return parser;
+		// } else if (PHPVersion.PHP5_3 == phpVersion) {
+		// org.eclipse.php.internal.core.ast.scanner.php53.PhpAstParser parser =
+		// createEmptyParser_53();
+		// parser.setAST(ast);
+		// return parser;
+		// } else if (PHPVersion.PHP5_4 == phpVersion) {
+		// org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser parser =
+		// createEmptyParser_54();
+		// parser.setAST(ast);
+		// return parser;
+		// } else {
+		// throw new IllegalArgumentException(
+		//					CoreMessages.getString("ASTParser_1") + phpVersion); //$NON-NLS-1$
+		// }
+
+		org.eclipse.php.internal.core.ast.scanner.php54.PhpAstParser parser = createEmptyParser_54();
+		parser.setAST(ast);
+		return parser;
 
 	}
 

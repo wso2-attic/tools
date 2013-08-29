@@ -57,8 +57,8 @@ public class PHPFileCreationWizard extends Wizard implements INewWizard {
 		phpFileCreationWizardPage = new PHPFileCreationWizardPage(selection);
 		addPage(phpFileCreationWizardPage);
 
-		newPhpTemplatesWizardPage = new NewPhpTemplatesWizardPage();
-		addPage(newPhpTemplatesWizardPage);
+		// newPhpTemplatesWizardPage = new NewPhpTemplatesWizardPage();
+		// addPage(newPhpTemplatesWizardPage);
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class PHPFileCreationWizard extends Wizard implements INewWizard {
 		final String containerName = phpFileCreationWizardPage
 				.getContainerName();
 		final String fileName = phpFileCreationWizardPage.getFileName();
-		newPhpTemplatesWizardPage.resetTableViewerInput();
+		// newPhpTemplatesWizardPage.resetTableViewerInput();
 		IScriptProject project = null;
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IResource resource = root.findMember(new Path(containerName));
@@ -77,16 +77,16 @@ public class PHPFileCreationWizard extends Wizard implements INewWizard {
 			project = DLTKCore.create(resource.getProject());
 		}
 		String lineSeparator = Util.getLineSeparator(null, project);
-		final PHPTemplateStore.CompiledTemplate template = this.newPhpTemplatesWizardPage
-				.compileTemplate(containerName, fileName, lineSeparator);
+		// final PHPTemplateStore.CompiledTemplate template =
+		// this.newPhpTemplatesWizardPage
+		// .compileTemplate(containerName, fileName, lineSeparator);
 
 		IRunnableWithProgress op = new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor)
 					throws InvocationTargetException {
 				try {
 					new FileCreator().createFile(PHPFileCreationWizard.this,
-							containerName, fileName, monitor, template.string,
-							template.offset);
+							containerName, fileName, monitor, null);
 				} catch (CoreException e) {
 					throw new InvocationTargetException(e);
 				} finally {

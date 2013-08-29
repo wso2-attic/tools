@@ -93,7 +93,7 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_GOTO, "goto"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_ECHO, "echo"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_PRINT, "print"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_CLASS, "class"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_CLASS, "class"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_TRY, "try"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_CATCH, "catch"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_THROW, "throw"); //$NON-NLS-1$
@@ -111,12 +111,12 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_INCLUDE, "include"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_INCLUDE_ONCE, "include_once"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_REQUIRE, "require"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_REQUIRE_ONCE, "require_once"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_REQUIRE_ONCE, "require_once"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_NAMESPACE, "namespace"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_USE, "use"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_GLOBAL, "global"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_ISSET, "isset"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_EMPTY, "empty"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_GLOBAL, "global"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_ISSET, "isset"); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_EMPTY, "empty"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_STATIC, "static"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_UNSET, "unset"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_LIST, "array"); //$NON-NLS-1$

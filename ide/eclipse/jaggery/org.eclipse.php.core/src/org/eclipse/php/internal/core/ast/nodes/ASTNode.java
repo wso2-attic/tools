@@ -110,6 +110,7 @@ public abstract class ASTNode implements Visitable {
 	public static final int TRAIT_DECLARATION = 72;
 	public static final int FULLY_QUALIFIED_TRAIT_METHOD_REFERENCE = 73;
 	public static final int TRAIT_ALIAS = 74;
+	public static final int VAR_STATEMENT = 75;
 
 	/**
 	 * Internal convenience constant indicating that there is definite risk of

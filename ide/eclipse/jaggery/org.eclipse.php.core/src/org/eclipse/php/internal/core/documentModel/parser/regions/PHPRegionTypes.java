@@ -208,7 +208,7 @@ public interface PHPRegionTypes {
 
 	// static final String PHP_IS_SMALLER_OR_EQUAL = "PHP_IS_SMALLER_OR_EQUAL";
 
-	static final String PHP_REQUIRE_ONCE = "PHP_REQUIRE_ONCE"; //$NON-NLS-1$
+	//static final String PHP_REQUIRE_ONCE = "PHP_REQUIRE_ONCE"; //$NON-NLS-1$
 
 	// static final String PHP_LNUMBER = "PHP_LNUMBER";
 
@@ -299,7 +299,7 @@ public interface PHPRegionTypes {
 
 	static final String PHP_LOGICAL_XOR = "PHP_LOGICAL_XOR"; //$NON-NLS-1$
 
-	static final String PHP_ISSET = "PHP_ISSET"; //$NON-NLS-1$
+	//static final String PHP_ISSET = "PHP_ISSET"; //$NON-NLS-1$
 
 	// static final String PHP_QUESTION_MARK = "PHP_QUESTION_MARK";
 

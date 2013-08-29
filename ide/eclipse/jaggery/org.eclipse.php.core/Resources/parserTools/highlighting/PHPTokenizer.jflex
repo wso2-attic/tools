@@ -398,7 +398,7 @@ private AbstractPhpLexer getPhpLexer() {
 	lexer.reset(yy_reader, yy_buffer, currentParameters);
 	lexer.setPatterns(project);
 
-	lexer.setAspTags(ProjectOptions.isSupportingAspTags(project));
+	//lexer.setAspTags(ProjectOptions.isSupportingAspTags(project));
 	return lexer;
 }
 
@@ -930,8 +930,8 @@ genericTagClose      = >
 genericEndTagOpen    = <\/
 genericEmptyTagClose = \/>
 
-//PIstart = <\?
-//PIend   = \?>
+PIstart = <%
+PIend   = %>
 
 // [1] document ::= prolog element Misc*
 document = ({prolog} {element} {Misc}*)
@@ -1297,7 +1297,7 @@ Extender = [\u00B7\u02D0\u02D1\u0387\u0640\u0E46\u0EC6\u3005\u3031-\u3035\u309D-
 //PHP MACROS
 WHITESPACE = [\n\r \t]
 //PHP_START = {WHITESPACE}*(<\?{WHITESPACE}*)|(<\?[Pp][Hh][P|p]{WHITESPACE}+)
-PHP_START       = <\%{WHITESPACE}+
+PHP_START       = <%{WHITESPACE}+
 //PIend = \?>
 //PHP_ASP_START=<%
 //PHP_ASP_END=%>
@@ -1903,13 +1903,13 @@ PHP_START       = <\%{WHITESPACE}+
 
 //PHP PROCESSING ACTIONS
 <YYINITIAL,ST_XML_TAG_NAME, ST_XML_EQUALS, ST_XML_ATTRIBUTE_NAME, ST_XML_ATTRIBUTE_VALUE, ST_XML_DECLARATION, ST_XML_DOCTYPE_DECLARATION, ST_XML_ELEMENT_DECLARATION, ST_XML_ATTLIST_DECLARATION, ST_XML_DECLARATION_CLOSE, ST_XML_DOCTYPE_ID_PUBLIC, ST_XML_DOCTYPE_ID_SYSTEM, ST_XML_DOCTYPE_EXTERNAL_ID, ST_XML_COMMENT, ST_XML_ATTRIBUTE_VALUE_DQUOTED, ST_XML_ATTRIBUTE_VALUE_SQUOTED, ST_BLOCK_TAG_INTERNAL_SCAN> {PHP_START}  {
-    if (ProjectOptions.isSupportingAspTags(project) ||yytext().charAt(1) != '%') {
+   /* if (ProjectOptions.isSupportingAspTags(project) ||yytext().charAt(1) != '%') {
 		//removeing trailing whitespaces for the php open
 		String phpStart = yytext();
 		int i = phpStart.length() - 1; 
 		while(i >= 0 && Character.isWhitespace(phpStart.charAt(i--))){
 			yypushback(1);
-		}
+		}*/
 
 		fStateStack.push(yystate());
 		if(fStateStack.peek()==YYINITIAL) {
@@ -1953,7 +1953,7 @@ PHP_START       = <\%{WHITESPACE}+
 	return XML_TAG_OPEN;
 }
 
-<ST_PHP_CONTENT> {PIend} | {PHP_ASP_END} {
+<ST_PHP_CONTENT> {PIend}{
 	yybegin(fStateStack.pop());
 	return PHP_CLOSE;
 	

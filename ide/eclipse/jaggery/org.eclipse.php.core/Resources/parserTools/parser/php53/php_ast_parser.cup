@@ -114,7 +114,6 @@ terminal  T_USE;
 terminal  T_GLOBAL;
 terminal  T_VAR;
 terminal  String T_UNSET;
-terminal  String T_ISSET;
 terminal  String T_EMPTY;
 terminal  T_HALT_COMPILER;
 terminal  T_CLASS;
@@ -142,9 +141,8 @@ terminal  T_NS_C;
 terminal  T_DIR;
 terminal  T_NS_SEPARATOR;
 terminal String T_VAR_COMMENT;
-terminal String T_DEFINE;
 
-terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE,T_REQUIRE_ONCE;
+terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE;
 terminal T_COMMA;
 terminal String T_LOGICAL_OR,T_LOGICAL_XOR,T_LOGICAL_AND,T_PRINT;
 terminal T_EQUAL;
@@ -288,11 +286,9 @@ non terminal VariableBase rw_variable;
 non terminal Variable variable_without_objects;
 non terminal VariableBase variable_property;
 non terminal VariableBase static_member;
-non terminal List isset_variables;
 non terminal Variable tracked_variable;
 
 non terminal ClassName class_name_reference;
-non terminal StaticConstantAccess class_constant;
 non terminal ClassName dynamic_class_name_reference;
 non terminal VariableBase base_variable;
 non terminal List dynamic_class_name_variable_properties;
@@ -301,7 +297,7 @@ non terminal StaticConstantAccess static_class_constant;
 non terminal VariableBase base_variable_with_function_calls;
 
 
-precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE, T_REQUIRE_ONCE;
+precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE;
 precedence left T_COMMA;
 precedence left T_LOGICAL_OR;
 precedence left T_LOGICAL_XOR;
@@ -353,13 +349,6 @@ namespace_name:list T_NS_SEPARATOR T_STRING:n
 	list.add(new Identifier(nleft, nright, parser.ast, n));
 	RESULT = list;
 :}
-
-| T_DEFINE:n
-{:
-	List list = new LinkedList();
-	list.add(new Identifier(nleft, nright, parser.ast, n));
-	RESULT = list;
-:}
 ;
 
 top_statement_list ::=
@@ -394,11 +383,6 @@ statement:statement
 :}
 
 | function_declaration_statement:statement
-{: 
-	RESULT = statement; 
-:}
-
-| class_declaration_statement:statement
 {: 
 	RESULT = statement; 
 :}
@@ -2310,11 +2294,6 @@ T_STRING_VARNAME:scalar
 	RESULT = new Scalar(scalarleft, scalarright, parser.ast, scalar, Scalar.TYPE_STRING);
 :}
 
-| class_constant:classConstant
-{:
-	RESULT = classConstant;
-:}
-
 | namespace_name:list
 {:
 	if (list.size() == 1) {
@@ -2834,14 +2813,7 @@ string_st:string
 ;
 
 internal_functions_in_yacc ::=
-T_ISSET:s T_OPEN_PARENTHESE isset_variables:varList T_CLOSE_PARENTHESE:e
-{:
-	RESULT = new FunctionInvocation(sleft, eright, parser.ast, 
-		new FunctionName(sleft, sright, parser.ast, 
-			new Identifier(sleft, sright, parser.ast, "isset")), varList);
-:}
-
-| T_EMPTY:s T_OPEN_PARENTHESE variable:var T_CLOSE_PARENTHESE:e
+T_EMPTY:s T_OPEN_PARENTHESE variable:var T_CLOSE_PARENTHESE:e
 {:
 	LinkedList varList = new LinkedList();
 	varList.add(var);
@@ -2871,41 +2843,8 @@ T_ISSET:s T_OPEN_PARENTHESE isset_variables:varList T_CLOSE_PARENTHESE:e
 {:
 	RESULT = new Include(includeleft, exprright, parser.ast, expr, Include.IT_REQUIRE);
 :}
-
-| T_REQUIRE_ONCE:include expr:expr
-{:
-	RESULT = new Include(includeleft, exprright, parser.ast, expr, Include.IT_REQUIRE_ONCE);
-:}
 ;
 
-isset_variables ::=
-variable:var 
-{:
-	List list = new LinkedList();
-	list.add(var);
-	RESULT = list;	
-:}
-
-| isset_variables:varList T_COMMA variable:var
-{:
-	varList.add(var);
-	RESULT = varList;
-:}
-;
-
-class_constant ::=
-class_name:className T_PAAMAYIM_NEKUDOTAYIM T_STRING:varName
-{:
-	RESULT = new StaticConstantAccess(classNameleft, varNameright, parser.ast, className, 
-		new Identifier(varNameleft, varNameright, parser.ast, varName)); 
-:}
-
-| variable_class_name:className T_PAAMAYIM_NEKUDOTAYIM T_STRING:varName
-{:
-	RESULT = new StaticConstantAccess(classNameleft, varNameright, parser.ast, className, 
-		new Identifier(varNameleft, varNameright, parser.ast, varName)); 
-:}
-;
 
 tracked_variable ::=
 T_VARIABLE:varName
@@ -2916,8 +2855,5 @@ T_VARIABLE:varName
 
 string_st ::=
 T_STRING:value
-{: RESULT = value; :}
-
-| T_DEFINE:value
 {: RESULT = value; :}
 ;

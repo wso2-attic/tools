@@ -92,13 +92,13 @@ import org.eclipse.php.internal.core.PHPVersion;
 		commentList.add(comment);
 	}	
 	
-	public void setUseAspTagsAsPhp(boolean useAspTagsAsPhp) {
+	/*public void setUseAspTagsAsPhp(boolean useAspTagsAsPhp) {
 		asp_tags = useAspTagsAsPhp;
 	}
 	
 	public void setUseShortTags(boolean useShortTags) {
 		short_tags_allowed = useShortTags;
-	}
+	}*/
 	
     private void pushState(int state) {
         stack.pushStack(zzLexicalState);
@@ -340,22 +340,6 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
 	return createSymbol(ParserConstants.T_PRINT);
 }
 
-<ST_IN_SCRIPTING>"class" {
-	return createSymbol(ParserConstants.T_CLASS);
-}
-
-<ST_IN_SCRIPTING>"interface" {
-	return createSymbol(ParserConstants.T_INTERFACE);
-}
-
-<ST_IN_SCRIPTING>"extends" {
-	return createSymbol(ParserConstants.T_EXTENDS);
-}
-
-<ST_IN_SCRIPTING>"implements" {
-	return createSymbol(ParserConstants.T_IMPLEMENTS);
-}
-
 <ST_IN_SCRIPTING>"->" {
     pushState(ST_LOOKING_FOR_PROPERTY);
     return createSymbol(ParserConstants.T_OBJECT_OPERATOR);
@@ -439,10 +423,6 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
 	return createSymbol(ParserConstants.T_REQUIRE);
 }
 
-<ST_IN_SCRIPTING>"require_once" {
-	return createSymbol(ParserConstants.T_REQUIRE_ONCE);
-}
-
 <ST_IN_SCRIPTING>"use" {
 	return createSymbol(ParserConstants.T_USE);
 }
@@ -451,39 +431,12 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
 	return createSymbol(ParserConstants.T_GLOBAL);
 }
 
-<ST_IN_SCRIPTING>"isset" {
-	return createSymbol(ParserConstants.T_ISSET);
-}
-
 <ST_IN_SCRIPTING>"empty" {
 	return createSymbol(ParserConstants.T_EMPTY);
 }
 
-<ST_IN_SCRIPTING>"__halt_compiler" {
-	return createSymbol(ParserConstants.T_HALT_COMPILER);
-}
 <ST_IN_SCRIPTING>"static" {
 	return createSymbol(ParserConstants.T_STATIC);
-}
-
-<ST_IN_SCRIPTING>"abstract" {
-	return createSymbol(ParserConstants.T_ABSTRACT);
-}
-
-<ST_IN_SCRIPTING>"final" {
-	return createSymbol(ParserConstants.T_FINAL);
-}
-
-<ST_IN_SCRIPTING>"private" {
-	return createSymbol(ParserConstants.T_PRIVATE);
-}
-
-<ST_IN_SCRIPTING>"protected" {
-	return createSymbol(ParserConstants.T_PROTECTED);
-}
-
-<ST_IN_SCRIPTING>"public" {
-	return createSymbol(ParserConstants.T_PUBLIC);
 }
 
 <ST_IN_SCRIPTING>"unset" {
@@ -709,51 +662,27 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
     return createSymbol(ParserConstants.T_INLINE_HTML);
 }
 
-<YYINITIAL>"<?"|"<script"{WHITESPACE}+"language"{WHITESPACE}*"="{WHITESPACE}*("php"|"\"php\""|"\'php\'"){WHITESPACE}*">" {
-    if (short_tags_allowed || yylength()>2) { /* yyleng>2 means it's not <? but <script> */
+<YYINITIAL>"<%"{WHITESPACE}* {
+
         yybegin(ST_IN_SCRIPTING);
         //return T_OPEN_TAG;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
+
+        //return createSymbol(ParserConstants.T_INLINE_HTML);
+    
 }
 
-<YYINITIAL>"<%="|"<?=" {
-    String text = yytext();
-    if ((text.charAt(1)=='%' && asp_tags)
-        || (text.charAt(1)=='?' && short_tags_allowed)) {
-        yybegin(ST_IN_SCRIPTING);
-        //return T_OPEN_TAG_WITH_ECHO;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
-}
 
-<YYINITIAL>"<%" {
-    if (asp_tags) {
-        yybegin(ST_IN_SCRIPTING);
-		//return T_OPEN_TAG;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
-}
-
-<YYINITIAL>"<?php"([ \t]|{NEWLINE}) {
-    yybegin(ST_IN_SCRIPTING);
-	//return T_OPEN_TAG;
-}
-
-<ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE,ST_VAR_OFFSET>"$"{LABEL} {
+<ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE,ST_VAR_OFFSET>{LABEL} {
     return createFullSymbol(ParserConstants.T_VARIABLE);
 }
 
-<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>"$"{LABEL}"->"[a-zA-Z_\x7f-\xff] {
+<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>{LABEL}"->"[a-zA-Z_\x7f-\xff] {
 	yypushback(3);
 	pushState(ST_LOOKING_FOR_PROPERTY);
 	return createFullSymbol(ParserConstants.T_VARIABLE);
 }
 
-<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>"$"{LABEL}"[" {
+<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>{LABEL}"[" {
 	yypushback(1);
 	pushState(ST_VAR_OFFSET);
 	return createFullSymbol(ParserConstants.T_VARIABLE);
@@ -802,10 +731,6 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
 	return createSymbol(ParserConstants.T_ENCAPSED_AND_WHITESPACE);
 }
 
-<ST_IN_SCRIPTING>"define" {
-    /* not a keyword, hust for recognize constans.*/
-    return createFullSymbol(ParserConstants.T_DEFINE);
-}
 
 <ST_IN_SCRIPTING,ST_VAR_OFFSET>{LABEL} {
     return createFullSymbol(ParserConstants.T_STRING);
@@ -892,18 +817,13 @@ yybegin(ST_DOCBLOCK);
 //	yymore();
 }
 
-<ST_IN_SCRIPTING>("?>"|"</script"{WHITESPACE}*">"){NEWLINE}? {
+<ST_IN_SCRIPTING>("%>"){NEWLINE}? {
     yybegin(YYINITIAL);
     return createSymbol(ParserConstants.T_SEMICOLON);  /* implicit ';' at php-end tag */
 }
 
-<ST_IN_SCRIPTING>"%>"{NEWLINE}? {
-    if (asp_tags) {
-        yybegin(YYINITIAL);
-        return createSymbol(ParserConstants.T_SEMICOLON);  /* implicit ';' at php-end tag */
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
+<ST_IN_SCRIPTING>[^%]">"{NEWLINE}? {
+   return createSymbol(ParserConstants.T_INLINE_HTML);
 }
 
 <ST_IN_SCRIPTING>(b?[\"]{DOUBLE_QUOTES_CHARS}*("{"*|"$"*)[\"]) {

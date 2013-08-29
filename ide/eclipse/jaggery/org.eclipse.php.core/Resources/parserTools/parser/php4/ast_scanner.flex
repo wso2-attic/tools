@@ -212,10 +212,6 @@ NEWLINE=("\r"|"\n"|"\r\n")
 	return createFullSymbol(ParserConstants.T_EXIT);
 }
 
-<ST_IN_SCRIPTING>"old_function" {   
-	return createSymbol(ParserConstants.T_OLD_FUNCTION);
-}
-
 <ST_IN_SCRIPTING>"function"|"cfunction" {
 	return createSymbol(ParserConstants.T_FUNCTION);
 }
@@ -234,10 +230,6 @@ NEWLINE=("\r"|"\n"|"\r\n")
 
 <ST_IN_SCRIPTING>"elseif" {
 	return createSymbol(ParserConstants.T_ELSEIF);
-}
-
-<ST_IN_SCRIPTING>"endif" {
-	return createSymbol(ParserConstants.T_ENDIF);
 }
 
 <ST_IN_SCRIPTING>"else" {
@@ -308,21 +300,10 @@ NEWLINE=("\r"|"\n"|"\r\n")
 	return createSymbol(ParserConstants.T_CONTINUE);
 }
 
-<ST_IN_SCRIPTING>"echo" {
-	return createSymbol(ParserConstants.T_ECHO);
-}
-
 <ST_IN_SCRIPTING>"print" {
 	return createSymbol(ParserConstants.T_PRINT);
 }
 
-<ST_IN_SCRIPTING>"class" {
-	return createSymbol(ParserConstants.T_CLASS);
-}
-
-<ST_IN_SCRIPTING>"extends" {
-	return createSymbol(ParserConstants.T_EXTENDS);
-}
 
 <ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_BACKQUOTE,ST_HEREDOC>"->" {
     pushState(ST_LOOKING_FOR_PROPERTY);
@@ -393,22 +374,6 @@ NEWLINE=("\r"|"\n"|"\r\n")
 
 <ST_IN_SCRIPTING>"require" {
 	return createSymbol(ParserConstants.T_REQUIRE);
-}
-
-<ST_IN_SCRIPTING>"require_once" {
-	return createSymbol(ParserConstants.T_REQUIRE_ONCE);
-}
-
-<ST_IN_SCRIPTING>"use" {
-	return createSymbol(ParserConstants.T_USE);
-}
-
-<ST_IN_SCRIPTING>"global" {
-	return createSymbol(ParserConstants.T_GLOBAL);
-}
-
-<ST_IN_SCRIPTING>"isset" {
-	return createSymbol(ParserConstants.T_ISSET);
 }
 
 <ST_IN_SCRIPTING>"empty" {
@@ -634,47 +599,10 @@ NEWLINE=("\r"|"\n"|"\r\n")
     return createSymbol(ParserConstants.T_INLINE_HTML);
 }
 
-<YYINITIAL>"<?"|"<script"{WHITESPACE}+"language"{WHITESPACE}*"="{WHITESPACE}*("php"|"\"php\""|"\'php\'"){WHITESPACE}*">" {
-    if (short_tags_allowed || yylength()>2) { /* yyleng>2 means it's not <? but <script> */
-        yybegin(ST_IN_SCRIPTING);
-        //return T_OPEN_TAG;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
-}
 
-<YYINITIAL>"<%="|"<?=" {
-    String text = yytext();
-    if ((text.charAt(1)=='%' && asp_tags)
-        || (text.charAt(1)=='?' && short_tags_allowed)) {
-        yybegin(ST_IN_SCRIPTING);
-        //return T_OPEN_TAG_WITH_ECHO;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
-}
-
-<YYINITIAL>"<%" {
-    if (asp_tags) {
-        yybegin(ST_IN_SCRIPTING);
-		//return T_OPEN_TAG;
-    } else {
-        return createSymbol(ParserConstants.T_INLINE_HTML);
-    }
-}
-
-<YYINITIAL>"<?php"([ \t]|{NEWLINE}) {
-    yybegin(ST_IN_SCRIPTING);
-	//return T_OPEN_TAG;
-}
 
 <ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>"$"{LABEL} {
     return createFullSymbol(ParserConstants.T_VARIABLE);
-}
-
-<ST_IN_SCRIPTING>"define" {
-    /* not a keyword, hust for recognize constans.*/
-    return createFullSymbol(ParserConstants.T_DEFINE);
 }
 
 <ST_IN_SCRIPTING>{LABEL} {

@@ -92,13 +92,8 @@ terminal  T_USE;
 terminal  T_GLOBAL;
 terminal  PHPDocBlock T_VAR;
 terminal  String T_UNSET;
-terminal  String T_ISSET;
 terminal  String T_EMPTY;
 terminal  T_HALT_COMPILER;
-terminal  PHPDocBlock T_CLASS;
-terminal  PHPDocBlock T_INTERFACE;
-terminal  T_EXTENDS;
-terminal  T_IMPLEMENTS;
 terminal  T_OBJECT_OPERATOR;
 terminal  T_DOUBLE_ARROW;
 terminal  T_LIST;
@@ -116,9 +111,8 @@ terminal  T_CURLY_OPEN;
 terminal  T_CURLY_CLOSE;
 terminal  T_PAAMAYIM_NEKUDOTAYIM;
 terminal String T_VAR_COMMENT;
-terminal String T_DEFINE;
 
-terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE,T_REQUIRE_ONCE;
+terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE;
 terminal T_COMMA;
 terminal String T_LOGICAL_OR,T_LOGICAL_XOR,T_LOGICAL_AND,T_PRINT;
 terminal T_EQUAL;
@@ -149,7 +143,7 @@ terminal T_NEW;
 terminal T_ENDIF;
 terminal T_ELSEIF;
 terminal T_ELSE;
-terminal PHPDocBlock T_STATIC, T_ABSTRACT, T_FINAL, T_PRIVATE, T_PROTECTED, T_PUBLIC;
+terminal PHPDocBlock T_STATIC;
 terminal T_OPEN_PARENTHESE,T_CLOSE_PARENTHESE;
 terminal T_NEKUDOTAIM;
 terminal T_DOLLAR;
@@ -189,8 +183,6 @@ non terminal PHPCallArgumentsList non_empty_function_call_parameter_list;
 non terminal List global_var_list;
 non terminal Expression global_var;
 non terminal List static_var_list;
-non terminal class_statement_list;
-non terminal class_statement;
 non terminal Boolean is_reference;
 non terminal List echo_expr_list;
 non terminal List for_expr;
@@ -222,31 +214,19 @@ non terminal Expression encaps_var;
 non terminal Expression encaps_var_offset;
 non terminal Expression internal_functions_in_yacc;
 non terminal String string_st;
-non terminal PHPDocBlock interface_entry;
-non terminal List interface_extends_list;
 
 non terminal Expression w_variable;
 non terminal TypeReference fully_qualified_class_name;
-non terminal List class_variable_declaration;
-non terminal List class_constant_declaration;
 non terminal CompilerAstParser.ModifierDocPair method_modifiers;
 non terminal Statement method_body;
-non terminal List non_empty_member_modifiers;
-non terminal CompilerAstParser.ModifierDocPair member_modifier;
 non terminal PHPCallArgumentsList method_or_not;
 non terminal List variable_properties;
 non terminal PHPMethodDeclaration function_declaration_statement;
-non terminal Statement class_declaration_statement;
 non terminal Expression variable;
 non terminal List additional_catches;
 non terminal List non_empty_additional_catches;
 non terminal CatchClause additional_catch;
 non terminal PHPMethodDeclaration unticked_function_declaration_statement;
-non terminal Statement unticked_class_declaration_statement;
-non terminal CompilerAstParser.ModifierDocPair class_entry_type;
-non terminal TypeReference extends_from;
-non terminal List implements_list;
-non terminal List interface_list;
 non terminal TypeReference optional_class_type;
 non terminal Expression r_variable;
 non terminal CompilerAstParser.ModifierDocPair variable_modifiers;
@@ -254,11 +234,9 @@ non terminal Expression rw_variable;
 non terminal Expression variable_without_objects;
 non terminal Expression variable_property;
 non terminal StaticFieldAccess static_member;
-non terminal PHPCallArgumentsList isset_variables;
 non terminal VariableReference tracked_variable;
 
 non terminal Expression class_name_reference;
-non terminal StaticConstantAccess class_constant;
 non terminal Expression dynamic_class_name_reference;
 non terminal Expression base_variable;
 non terminal List dynamic_class_name_variable_properties;
@@ -267,11 +245,9 @@ non terminal StaticConstantAccess static_class_constant;
 non terminal Expression base_variable_with_function_calls;
 
 /* added the following rules for improving error recovery*/
-non terminal Statement class_closure;
 non terminal PHPMethodDeclaration function_body;
-non terminal errorOrNot;
 
-precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE, T_REQUIRE_ONCE;
+precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE;
 precedence left T_COMMA;
 precedence left T_LOGICAL_OR;
 precedence left T_LOGICAL_XOR;
@@ -298,7 +274,7 @@ precedence nonassoc T_NEW, T_CLONE;
 precedence left T_ELSEIF;
 precedence left T_ELSE;
 precedence left T_ENDIF;
-precedence right T_STATIC, T_ABSTRACT, T_FINAL, T_PRIVATE, T_PROTECTED, T_PUBLIC;
+precedence right T_STATIC;
 
 thestart ::=
 top_statement_list:statementList
@@ -352,11 +328,6 @@ statement:statement
 	RESULT = statement; 
 :}
 
-| class_declaration_statement:statement
-{: 
-	RESULT = statement; 
-:}
-
 | T_HALT_COMPILER T_OPEN_PARENTHESE T_CLOSE_PARENTHESE T_SEMICOLON:statement
 {: 
 	// Note: we never generate T_HALT_COMPILER
@@ -395,11 +366,6 @@ statement:statement
 :}
 
 | function_declaration_statement:statement
-{: 
-	RESULT = statement; 
-:}
-
-| class_declaration_statement:statement
 {: 
 	RESULT = statement; 
 :}
@@ -713,12 +679,6 @@ unticked_function_declaration_statement:functionDeclaration
 :}
 ;
 
-class_declaration_statement ::=
-unticked_class_declaration_statement:classDeclaration
-{:
-	RESULT = classDeclaration;
-:}
-;
 
 is_reference ::=
 /* empty */
@@ -769,177 +729,6 @@ T_CURLY_OPEN:blockStart inner_statement_list:statementList T_CURLY_CLOSE:blockEn
 :}
 ;
 
-unticked_class_declaration_statement ::=
-class_entry_type:modifier T_STRING:className
-{:
-	ClassDeclaration classDeclaration = new ClassDeclaration(modifierleft ,classNameright, classNameleft, classNameright, modifier.modifier, className, null, null, new Block(classNameright,classNameright,null), modifier.doc);
-	classDeclaration.setRecovered(true);
-	parser.addDeclarationStatement(classDeclaration);
-	parser.declarations.push(classDeclaration);
-:}
-extends_from:superClass errorOrNot implements_list:interfaces
-{:
-	ClassDeclaration classDeclaration = (ClassDeclaration)parser.declarations.peek();
-	if (superClass != null) {
-		classDeclaration.setSuperClass(superClass);
-	}
-	if (interfaces != null) {
-		classDeclaration.setInterfaceList(interfaces);
-	}
-	classDeclaration.setEnd(interfacesright);
-	classDeclaration.getBody().setStart(interfacesright);
-	classDeclaration.getBody().setEnd(interfacesright);
-:}
-T_CURLY_OPEN:blockStart class_statement_list:statementList class_closure:blockEnd
-{:
-	if(blockEnd != null) {
-		parser.reportError(new ASTError(statementListright - 1, statementListright), "syntax error, unfinished class declaration");
-		parser.pendingStatement = blockEnd;
-	}
-
-	ClassDeclaration classDeclaration = (ClassDeclaration)parser.declarations.pop();
-	classDeclaration.setRecovered(false);
-	classDeclaration.setEnd(blockEndright);
-	classDeclaration.getBody().setStart(blockStartleft);
-	classDeclaration.getBody().setEnd(blockEndright);
-	RESULT = classDeclaration;
-:}
-
-|
-interface_entry:start T_STRING:className
-interface_extends_list:interfaces
-{:
-	InterfaceDeclaration interfaceDeclaration = new InterfaceDeclaration(startleft ,interfacesright, classNameleft, classNameright, className, interfaces, new Block(interfacesright,interfacesright,null), start);
-	interfaceDeclaration.setRecovered(true);
-	parser.declarations.push(interfaceDeclaration);
-:}
-T_CURLY_OPEN:blockStart class_statement_list:statementList class_closure:blockEnd
-{:
-	if(blockEnd != null) {
-		parser.reportError(new ASTError(statementListright - 1, statementListright), "syntax error, unfinished class declaration");
-		parser.pendingStatement = blockEnd;
-	}
-
-	InterfaceDeclaration interfaceDeclaration = (InterfaceDeclaration)parser.declarations.pop();
-	interfaceDeclaration.setRecovered(false);
-	interfaceDeclaration.setEnd(blockEndright);
-	interfaceDeclaration.getBody().setStart(blockStartleft);
-	interfaceDeclaration.getBody().setEnd(blockEndright);
-	RESULT = interfaceDeclaration;
-:}
-;
-
-errorOrNot ::=
-error
-|
-;
-
-class_closure ::=
-T_CURLY_CLOSE
-|
-unticked_statement:statement /* error recovery */ 
-{: 
-	RESULT = statement;
-:}
-|class_declaration_statement:statement /* error recovery */
-{: 
-	RESULT = statement;
-:} 
-;
-
-class_entry_type ::=
-T_CLASS:value
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccDefault, value); 
-:}
-               
-| T_ABSTRACT:value T_CLASS
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccAbstract, value);
-:}        
-
-| T_FINAL:value T_CLASS   
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccFinal, value);
-:}        
-;
-
-extends_from ::=
-/* empty */
-{:
-	RESULT = null;
-:}
-
-| T_EXTENDS fully_qualified_class_name:className
-{:
-	RESULT = className;
-:}
-| T_EXTENDS error:theError /* error recovery */
-{:
-	parser.reportError(new ASTError(theErrorleft, theErrorright));
-:}
-;
-
-/* do nothing */
-interface_entry ::=
-T_INTERFACE:value
-{:
-	RESULT = value;
-:}
-;
-
-interface_extends_list ::=
-/* empty */
-{:
-	List list = new LinkedList();
-	RESULT = list;
-:}
-
-| T_EXTENDS interface_list:list
-{:
-	RESULT = list;
-:}
-;
-
-implements_list ::=
-/* empty */
-{:
-	List list = new LinkedList();
-	RESULT = list;
-:}
-
-| T_IMPLEMENTS interface_list:list
-{:
-	RESULT = list;
-:}
-;
-
-interface_list ::=
-fully_qualified_class_name:className
-{:
-	List list = new LinkedList();
-	if(className != null) {
-		list.add(className);
-	}
-	RESULT = list;
-:}
-
-| interface_list:list T_COMMA fully_qualified_class_name:className
-{:
-	list.add(className);
-	RESULT = list;
-:}
-| interface_list:list T_COMMA:comma error:theError /* error recovery */
-{:
-	parser.reportError(new ASTError(theErrorleft, theErrorright));
-	RESULT = list;
-:}
-| error:theError 
-{:
-	parser.reportError(new ASTError(theErrorleft, theErrorright));
-	RESULT = new LinkedList();
-:}
-;
 
 foreach_optional_arg ::=
 /* empty */
@@ -1390,248 +1179,11 @@ static_var_list:list T_COMMA T_VARIABLE:var
 :}	
 ;
 
-class_statement_list ::=
-class_statement_list:list class_statement:classStatement
-{:
-	if(!(parser.declarations.peek() instanceof TypeDeclaration)) {
-		parser.declarations.pop();
-	}
-:}
-
-| /* empty */
-;
-
-class_statement ::=
-variable_modifiers:modifier class_variable_declaration:decList T_SEMICOLON
-{:
-	Iterator i = decList.iterator();
-	while (i.hasNext()) {
-		ASTNode[] decl = (ASTNode[]) i.next();
-		VariableReference variable = (VariableReference)decl[0];
-		Expression initializer = (Expression)decl[1];
-		int start = variable.sourceStart();
-		int end = (initializer == null ? variable.sourceEnd() : initializer.sourceEnd());
-		parser.addDeclarationStatement(new PHPFieldDeclaration(variable, initializer, start, end, modifier.modifier, modifierleft, modifier.doc));
-	}
-:}
-
-| class_constant_declaration:decList T_SEMICOLON
-{:
-	Iterator i = decList.iterator();
-	while (i.hasNext()) {
-		ASTNode[] decl = (ASTNode[]) i.next();
-		ConstantReference constant = (ConstantReference)decl[0];
-		Expression initializer = (Expression)decl[1];
-		
-		PHPDocBlock docBlock = null;
-		if (decl.length == 3) {
-			docBlock = (PHPDocBlock)decl[2];
-		}
-		int start = constant.sourceStart();
-		int end = (initializer == null ? constant.sourceEnd() : initializer.sourceEnd());
-		parser.addDeclarationStatement(new ConstantDeclaration(constant, initializer, decListleft, end, docBlock));
-	}
-:}
-
-| method_modifiers:modifier T_FUNCTION:start is_reference:isReference string_st:functionName
-{:
-	int methodStart = modifier == null ? startleft : modifierleft;
-	int modifierValue = modifier == null ? Modifiers.AccPublic : modifier.modifier;
-	PHPDocBlock docBlock = start;
-	if (modifier != null && modifier.doc != null) {
-		docBlock = modifier.doc;
-	}
-	PHPMethodDeclaration methodDeclaration = new PHPMethodDeclaration(methodStart, functionNameright, functionNameleft, functionNameright, functionName, modifierValue, null, new Block(functionNameright, functionNameright, null), isReference.booleanValue(), docBlock);
-	parser.addDeclarationStatement(methodDeclaration);
-	parser.declarations.push(methodDeclaration);
-:}
-T_OPEN_PARENTHESE parameter_list:paramList T_CLOSE_PARENTHESE:closeParenthese
-{:
-	PHPMethodDeclaration functionDeclaration = (PHPMethodDeclaration)parser.declarations.peek();
-	functionDeclaration.acceptArguments(paramList);
-	functionDeclaration.setEnd(closeParentheseright);
-:}
-method_body:body
-{:
-	PHPMethodDeclaration methodDeclaration = (PHPMethodDeclaration)parser.declarations.pop();
-	if(body instanceof ASTError) {
-		parser.reportError(new ASTError(methodDeclaration.sourceEnd() - 1, methodDeclaration.sourceEnd()), "syntax error, unfinished method declaration");
-	}
-	TypeDeclaration type = (TypeDeclaration)parser.declarations.peek();
-	methodDeclaration.setDeclaringTypeName(type.getName());
-:}
-
-| T_VAR_COMMENT
-| error:theError /* error statement */
-{:
-	parser.reportError();
-	ASTError error = new ASTError(theErrorleft, theErrorright);
-	parser.addDeclarationStatement(error);
-:}
-;
-
-method_body ::=
-T_SEMICOLON:end /* abstract method */
-{:
-	PHPMethodDeclaration methodDeclaration = (PHPMethodDeclaration)parser.declarations.peek();
-	methodDeclaration.getBody().setStart(endleft);
-	methodDeclaration.getBody().setEnd(endright);
-	methodDeclaration.setEnd(endright);
-	RESULT = null;
-:}
-
-| T_CURLY_OPEN:start inner_statement_list:statementList T_CURLY_CLOSE:end
-{:
-	PHPMethodDeclaration methodDeclaration = (PHPMethodDeclaration)parser.declarations.peek();
-	methodDeclaration.getBody().setStart(startleft);
-	methodDeclaration.getBody().setEnd(endright);
-	methodDeclaration.getBody().getStatements().clear();
-	methodDeclaration.getBody().acceptStatements(statementList);
-	methodDeclaration.setEnd(endright);
-	RESULT = null;
-:}
-| /* error recovery */
-{:
-	parser.reportError();
-	RESULT = new ASTError(0,0);
-:}
-;
-
-variable_modifiers ::=
-non_empty_member_modifiers:list
-{:
-	int result = 0;
-	PHPDocBlock docBlock = null;
-	for (Iterator it = list.iterator(); it.hasNext() ; ) {
-		CompilerAstParser.ModifierDocPair modifier = (CompilerAstParser.ModifierDocPair)it.next();
-		if (modifier.doc != null) {
-			docBlock = modifier.doc;
-		}
-		result |= modifier.modifier;
-	}
-	RESULT = parser.new ModifierDocPair(result, docBlock);
-:}
-
-| T_VAR:var
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccPublic, var);
-:}
-;
 
 method_modifiers ::=
 /* empty */
 {:
 	RESULT = null;
-:}
-
-| non_empty_member_modifiers:list
-{:
-	int result = 0;
-	PHPDocBlock docBlock = null;
-	for (Iterator it = list.iterator(); it.hasNext() ; ) {
-		CompilerAstParser.ModifierDocPair modifier = (CompilerAstParser.ModifierDocPair)it.next();
-		if (modifier.doc != null) {
-			docBlock = modifier.doc;
-		}
-		result |= modifier.modifier;
-	}
-	RESULT = parser.new ModifierDocPair(result, docBlock);
-:}
-;
-
-non_empty_member_modifiers ::=
-member_modifier:modifier
-{:
-	List list = new LinkedList();
-	list.add(modifier);
-	RESULT = list;
-:}
-
-| non_empty_member_modifiers:list member_modifier:modifier
-{:
-	list.add(modifier);
-	RESULT = list;
-:}
-;
-
-member_modifier ::=
-T_PUBLIC:value
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccPublic, value);
-:}
-
-| T_PROTECTED:value
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccProtected, value);
-:}
-
-| T_PRIVATE:value
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccPrivate, value);
-:}
-
-| T_STATIC:value
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccStatic, value);
-:}
-
-| T_ABSTRACT:value
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccAbstract, value);
-:}
-
-| T_FINAL:value
-{:
-	RESULT = parser.new ModifierDocPair(Modifiers.AccFinal, value);
-:}
-;
-
-class_variable_declaration ::=
-class_variable_declaration:list T_COMMA T_VARIABLE:var
-{:
-	VariableReference varId = new VariableReference(varleft, varright, var);
-	list.add(new ASTNode[] {varId, null});
-	RESULT = list;
-:}
-
-| class_variable_declaration:list T_COMMA T_VARIABLE:var T_EQUAL static_scalar:expr
-{:
-	VariableReference varId = new VariableReference(varleft, varright, var);
-	list.add(new ASTNode[] {varId, expr});
-	RESULT = list;
-:}
-
-| T_VARIABLE:var
-{:
-	List list = new LinkedList();
-	VariableReference varId = new VariableReference(varleft, varright, var);
-	list.add(new ASTNode[] {varId, null});
-	RESULT = list;
-:}
-
-| T_VARIABLE:var T_EQUAL static_scalar:expr
-{:
-	List list = new LinkedList();
-	VariableReference varId = new VariableReference(varleft, varright, var);
-	list.add(new ASTNode[] {varId, expr});
-	RESULT = list;
-:}
-;
-
-class_constant_declaration ::=
-class_constant_declaration:list T_COMMA string_st:constName T_EQUAL static_scalar:expr
-{:
-	ConstantReference constId = new ConstantReference(constNameleft, constNameright, constName);
-	list.add(new ASTNode[] {constId, expr});
-	RESULT = list;
-:}
-
-| T_CONST:value string_st:constName T_EQUAL static_scalar:expr
-{:
-	List list = new LinkedList();
-	ConstantReference constId = new ConstantReference(constNameleft, constNameright, constName);
-	list.add(new ASTNode[] {constId, expr, value});
-	RESULT = list;
 :}
 ;
 
@@ -2288,11 +1840,6 @@ string_st:scalar
 	RESULT = s;
 :}
 
-| class_constant:classConstant
-{:
-	RESULT = classConstant;
-:}
-
 | common_scalar:scalar
 {:
 	RESULT = scalar;
@@ -2831,16 +2378,7 @@ string_st:string
 ;
 
 internal_functions_in_yacc ::=
-T_ISSET:start T_OPEN_PARENTHESE:openPar isset_variables:varList T_CLOSE_PARENTHESE:end
-{:
-	varList.setStart(openParright);
-	varList.setEnd(endleft);
-	SimpleReference name = new SimpleReference(startleft, startright, "isset");
-	PHPCallExpression result = new PHPCallExpression(startleft, endright, null, name, varList);
-	RESULT = result;
-:}
-
-| T_EMPTY:start T_OPEN_PARENTHESE:openPar variable:var T_CLOSE_PARENTHESE:end
+T_EMPTY:start T_OPEN_PARENTHESE:openPar variable:var T_CLOSE_PARENTHESE:end
 {:
 	SimpleReference name = new SimpleReference(startleft, startright, "empty");
 	PHPCallArgumentsList varList = new PHPCallArgumentsList(openParright, endleft);
@@ -2875,37 +2413,8 @@ T_ISSET:start T_OPEN_PARENTHESE:openPar isset_variables:varList T_CLOSE_PARENTHE
 	Include result = new Include(includeleft, exprright, expr, Include.IT_REQUIRE);
 	RESULT = result;
 :}
-
-| T_REQUIRE_ONCE:include expr:expr
-{:
-	Include result = new Include(includeleft, exprright, expr, Include.IT_REQUIRE_ONCE);
-	RESULT = result;
-:}
 ;
 
-isset_variables ::=
-variable:var 
-{:
-	PHPCallArgumentsList list = new PHPCallArgumentsList();
-	list.addNode(var);
-	RESULT = list;	
-:}
-
-| isset_variables:varList T_COMMA variable:var
-{:
-	varList.addNode(var);
-	RESULT = varList;
-:}
-;
-
-class_constant ::=
-fully_qualified_class_name:className T_PAAMAYIM_NEKUDOTAYIM string_st:varName
-{:
-	ConstantReference name = new ConstantReference(varNameleft, varNameright, varName);
-	StaticConstantAccess constant = new StaticConstantAccess(classNameleft, varNameright, className, name); 
-	RESULT = constant;
-:}
-;
 
 tracked_variable ::=
 T_VARIABLE:varName
@@ -2916,8 +2425,5 @@ T_VARIABLE:varName
 
 string_st ::=
 T_STRING:value
-{: RESULT = value; :}
-
-| T_DEFINE:value
 {: RESULT = value; :}
 ;
