@@ -181,7 +181,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		                              "templ.wsdl.ep.port" }));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep3", Arrays.asList(new String[] {}));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep4", Arrays.asList(new String[] {}));
-		map.put("org.wso2.developerstudio.eclipse.esb.template.ep0", Arrays
+		map.put("org.wso2.developerstudio.eclipse.esb.template.ep7", Arrays
 		        .asList(new String[] { "templ.template.ep.uri", "templ.target.template" }));
 		return map;
 
