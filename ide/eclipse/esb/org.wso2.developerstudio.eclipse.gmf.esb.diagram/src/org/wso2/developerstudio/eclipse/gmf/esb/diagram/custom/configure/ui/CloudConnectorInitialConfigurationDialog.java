@@ -1,9 +1,14 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Properties;
 
 import javax.xml.namespace.QName;
 
@@ -322,6 +327,37 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 			sequenceFileCreator.createSequenceFile(payload.toString());
 		} catch (Exception e) {
 			log.error("Error occured while creating the sequence file", e);
+		}
+		
+		
+		/**
+		 *  put a entry in cloudConnector.properties file
+		 */
+		
+		String pathName=EditorUtils.getActiveProject().getLocation().toOSString()+File.separator+"resources";
+		File resources=new File(pathName);
+		try {
+			resources.mkdir();
+			File cloudConnectorConfig=new File(pathName+File.separator+"cloudConnector.properties");
+			cloudConnectorConfig.createNewFile();
+			
+		Properties prop = new Properties();
+		prop.load(new FileInputStream(pathName+File.separator+"cloudConnector.properties"));
+		String sequenceConfigs=prop.getProperty("SEQUENCE_CONFIGS");
+		if(sequenceConfigs==null || "".equals(sequenceConfigs)){
+			prop.setProperty("SEQUENCE_CONFIGS", configName+"-twilio");
+		}else{
+			prop.setProperty("SEQUENCE_CONFIGS", sequenceConfigs+","+configName+"-twilio");
+		}
+		//prop.setProperty("SEQUENCE_CONFIGS", sequenceConfigs+","+configName+"-twilio");
+		prop.setProperty("INLINE_CONFIGS", "");
+			prop.store(new FileOutputStream(cloudConnectorConfig.getAbsolutePath()), null);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 		Display.getCurrent().asyncExec(new Runnable() {			

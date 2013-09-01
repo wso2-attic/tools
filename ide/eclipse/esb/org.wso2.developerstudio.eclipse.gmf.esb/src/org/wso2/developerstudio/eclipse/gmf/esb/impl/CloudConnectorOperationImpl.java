@@ -47,6 +47,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getConnectorParameters <em>Connector Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getConfigRef <em>Config Ref</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getConnectorName <em>Connector Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getOperationName <em>Operation Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -102,6 +104,46 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * @ordered
 	 */
 	protected String configRef = CONFIG_REF_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getConnectorName() <em>Connector Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectorName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CONNECTOR_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getConnectorName() <em>Connector Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnectorName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String connectorName = CONNECTOR_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperationName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OPERATION_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOperationName() <em>Operation Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperationName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String operationName = OPERATION_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,6 +288,48 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getConnectorName() {
+		return connectorName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConnectorName(String newConnectorName) {
+		String oldConnectorName = connectorName;
+		connectorName = newConnectorName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME, oldConnectorName, connectorName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getOperationName() {
+		return operationName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperationName(String newOperationName) {
+		String oldOperationName = operationName;
+		operationName = newOperationName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME, oldOperationName, operationName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -275,6 +359,10 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return getConnectorParameters();
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
 				return getConfigRef();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME:
+				return getConnectorName();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
+				return getOperationName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -301,6 +389,12 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
 				setConfigRef((String)newValue);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME:
+				setConnectorName((String)newValue);
+				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
+				setOperationName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -325,6 +419,12 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
 				setConfigRef(CONFIG_REF_EDEFAULT);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME:
+				setConnectorName(CONNECTOR_NAME_EDEFAULT);
+				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
+				setOperationName(OPERATION_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -345,6 +445,10 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return connectorParameters != null && !connectorParameters.isEmpty();
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
 				return CONFIG_REF_EDEFAULT == null ? configRef != null : !CONFIG_REF_EDEFAULT.equals(configRef);
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME:
+				return CONNECTOR_NAME_EDEFAULT == null ? connectorName != null : !CONNECTOR_NAME_EDEFAULT.equals(connectorName);
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
+				return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -361,6 +465,10 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (configRef: ");
 		result.append(configRef);
+		result.append(", connectorName: ");
+		result.append(connectorName);
+		result.append(", operationName: ");
+		result.append(operationName);
 		result.append(')');
 		return result.toString();
 	}

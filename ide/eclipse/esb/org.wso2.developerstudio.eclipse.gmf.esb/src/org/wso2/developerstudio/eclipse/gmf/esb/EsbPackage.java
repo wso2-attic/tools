@@ -18355,13 +18355,31 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CLOUD_CONNECTOR_OPERATION__CONFIG_REF = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Connector Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME = MEDIATOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD_CONNECTOR_OPERATION__OPERATION_NAME = MEDIATOR_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Cloud Connector Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLOUD_CONNECTOR_OPERATION_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 4;
+	int CLOUD_CONNECTOR_OPERATION_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationInputConnectorImpl <em>Cloud Connector Operation Input Connector</em>}' class.
@@ -25205,6 +25223,28 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getCloudConnectorOperation_ConfigRef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConnectorName <em>Connector Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Connector Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConnectorName()
+	 * @see #getCloudConnectorOperation()
+	 * @generated
+	 */
+	EAttribute getCloudConnectorOperation_ConnectorName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getOperationName <em>Operation Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operation Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getOperationName()
+	 * @see #getCloudConnectorOperation()
+	 * @generated
+	 */
+	EAttribute getCloudConnectorOperation_OperationName();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector <em>Cloud Connector Operation Input Connector</em>}'.
@@ -36801,6 +36841,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute CLOUD_CONNECTOR_OPERATION__CONFIG_REF = eINSTANCE.getCloudConnectorOperation_ConfigRef();
+
+		/**
+		 * The meta object literal for the '<em><b>Connector Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME = eINSTANCE.getCloudConnectorOperation_ConnectorName();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLOUD_CONNECTOR_OPERATION__OPERATION_NAME = eINSTANCE.getCloudConnectorOperation_OperationName();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationInputConnectorImpl <em>Cloud Connector Operation Input Connector</em>}' class.

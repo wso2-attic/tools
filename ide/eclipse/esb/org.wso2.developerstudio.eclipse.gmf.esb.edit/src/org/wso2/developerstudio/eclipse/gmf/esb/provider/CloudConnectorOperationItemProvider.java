@@ -37,6 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation} object.
@@ -66,16 +67,19 @@ public class CloudConnectorOperationItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addConnectorParametersPropertyDescriptor(object);
-			addConfigRefPropertyDescriptor(object);
+		super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		addConnectorParametersPropertyDescriptor(object);
+		addConfigRefPropertyDescriptor(object);
+		//addConnectorNamePropertyDescriptor(object);
+	    //addOperationNamePropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 
@@ -115,6 +119,50 @@ public class CloudConnectorOperationItemProvider
 				 getString("_UI_CloudConnectorOperation_configRef_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_configRef_feature", "_UI_CloudConnectorOperation_type"),
 				 EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Connector Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConnectorNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CloudConnectorOperation_connectorName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_connectorName_feature", "_UI_CloudConnectorOperation_type"),
+				 EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Operation Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperationNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CloudConnectorOperation_operationName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_operationName_feature", "_UI_CloudConnectorOperation_type"),
+				 EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME,
 				 true,
 				 false,
 				 false,
@@ -174,7 +222,7 @@ public class CloudConnectorOperationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CloudConnectorOperation)object).getDescription();
+		String label = ((CloudConnectorOperation)object).getConnectorName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_CloudConnectorOperation_type") :
 			getString("_UI_CloudConnectorOperation_type") + " " + label;
@@ -193,6 +241,8 @@ public class CloudConnectorOperationItemProvider
 
 		switch (notification.getFeatureID(CloudConnectorOperation.class)) {
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME:
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR:

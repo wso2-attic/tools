@@ -61,6 +61,7 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.capp.core.manifest.ArtifactDependency;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.Artifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.Artifacts;
@@ -1170,10 +1171,15 @@ public class EsbPaletteFactory {
 	public void addCloudConnectorOperations(IEditorPart editor, String name) {
 		Set<String> cloudConnectorOperationsSet = Collections.emptySet();
 		try {
+/*			IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+					.getActivePage().getActiveEditor();*/
+			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
+			IFile file = input.getFile();
+			IProject activeProject = file.getProject();
+			String connectorPath = activeProject.getLocation().toOSString() + File.separator
+					+ "cloudConnectors" + File.separator + "twilio-connector";
 			cloudConnectorOperationsSet = CloudConnectorDirectoryTraverser
-					.getInstance(
-							"/home/viraj/WSO2/DeveloperStudio/Trunk/eclipse/esb/org.wso2.developerstudio.eclipse.gmf.esb.diagram/resources/cloudConnectors/temp/twilio-connector")
-					.getArtifactsMap().keySet();
+					.getInstance(connectorPath).getArtifactsMap().keySet();
 		} catch (Exception e) {
 			log.error("Error occured while scanning the Cloud Connector package", e);
 		}

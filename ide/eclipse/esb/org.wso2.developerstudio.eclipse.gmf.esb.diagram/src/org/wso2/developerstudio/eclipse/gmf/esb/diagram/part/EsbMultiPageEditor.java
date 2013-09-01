@@ -13,10 +13,14 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 import java.util.UUID;
 
@@ -185,6 +189,40 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
         EsbPaletteFactory esbPaletteFactory=new EsbPaletteFactory();
         esbPaletteFactory.addDefinedSequences(getEditor(0));
         esbPaletteFactory.addDefinedEndpoints(getEditor(0));
+        
+        
+        
+        
+		IFileEditorInput input = (IFileEditorInput) getEditor(0).getEditorInput();
+		IFile file = input.getFile();
+		IProject activeProject = file.getProject();
+        
+		String pathName=activeProject.getLocation().toOSString()+File.separator+"resources";
+/*		File resources=new File(pathName);
+			resources.mkdir();
+			File cloudConnectorConfig=new File(pathName+File.separator+"cloudConnector.properties");
+			cloudConnectorConfig.createNewFile();*/
+			
+		Properties prop = new Properties();
+		try {
+			prop.load(new FileInputStream(pathName+File.separator+"cloudConnector.properties"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String sequenceConfigs=prop.getProperty("SEQUENCE_CONFIGS");
+		if(sequenceConfigs!=null){
+			String[] configs=sequenceConfigs.split(",");
+	        
+	        for(int i=0;i<configs.length;++i){
+	        	if(!"".equals(configs[i])){
+	        		esbPaletteFactory.addCloudConnectorOperations(getEditor(0), configs[i].split("-")[0]);
+	        	}
+	        }
+		}
         esbPaletteFactory.updateToolPaletteItems(graphicalEditor);
         
         EditorUtils.setLockmode(graphicalEditor, false);

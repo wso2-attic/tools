@@ -29,6 +29,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConnectorParameters <em>Connector Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConfigRef <em>Config Ref</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConnectorName <em>Connector Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getOperationName <em>Operation Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,5 +132,57 @@ public interface CloudConnectorOperation extends Mediator {
 	 * @generated
 	 */
 	void setConfigRef(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Connector Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connector Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connector Name</em>' attribute.
+	 * @see #setConnectorName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloudConnectorOperation_ConnectorName()
+	 * @model
+	 * @generated
+	 */
+	String getConnectorName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConnectorName <em>Connector Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connector Name</em>' attribute.
+	 * @see #getConnectorName()
+	 * @generated
+	 */
+	void setConnectorName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Operation Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Operation Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operation Name</em>' attribute.
+	 * @see #setOperationName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloudConnectorOperation_OperationName()
+	 * @model
+	 * @generated
+	 */
+	String getOperationName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getOperationName <em>Operation Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operation Name</em>' attribute.
+	 * @see #getOperationName()
+	 * @generated
+	 */
+	void setOperationName(String value);
 
 } // CloudConnectorOperation

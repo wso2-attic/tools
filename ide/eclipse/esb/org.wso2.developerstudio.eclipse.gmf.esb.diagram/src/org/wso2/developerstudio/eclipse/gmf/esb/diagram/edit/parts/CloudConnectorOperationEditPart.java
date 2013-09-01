@@ -23,6 +23,7 @@ import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xml.type.internal.QName;
 import org.eclipse.emf.edit.command.DeleteCommand;
@@ -95,10 +96,17 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	 * @generated
 	 */
 	protected IFigure contentPane;
+	
+	/**
+	 * Command for recording user operations.
+	 */
+	private CompoundCommand resultCommand;
 
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private static final String synapseNS = "http://ws.apache.org/ns/synapse";
 	private Properties properties = new Properties();
+	
+	private boolean activatedOnce=false;
 
 	/**
 	 * @generated
@@ -111,23 +119,51 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	public void activate() {
 		// TODO Auto-generated method stub
 		super.activate();
-
-		SetCommand setCommand = new SetCommand(getEditingDomain(),
-				((CloudConnectorOperation) ((Node) getModel()).getElement()),
-				EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,
-				CustomPaletteToolTransferDropTargetListener.definedName);
-		if (setCommand.canExecute()) {
-			getEditingDomain().getCommandStack().execute(setCommand);
+		if(!activatedOnce){
+			CloudConnectorOperation owner = (CloudConnectorOperation) ((Node) getModel()).getElement();
+			if(CustomPaletteToolTransferDropTargetListener.definedName!=null && !"".equals(CustomPaletteToolTransferDropTargetListener.definedName)){
+				SetCommand setCommand = new SetCommand(getEditingDomain(),
+						owner,
+						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,
+						CustomPaletteToolTransferDropTargetListener.definedName);
+				getResultCommand().append(setCommand);
+			}
+			if(CustomPaletteToolTransferDropTargetListener.addedConnector!=null && !"".equals(CustomPaletteToolTransferDropTargetListener.addedConnector)){
+				SetCommand setConnectorName= new SetCommand(getEditingDomain(), owner, EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME, CustomPaletteToolTransferDropTargetListener.addedConnector);
+				getResultCommand().append(setConnectorName);
+			}
+			if(CustomPaletteToolTransferDropTargetListener.addedOperation!=null && !"".equals(CustomPaletteToolTransferDropTargetListener.addedOperation)){
+				SetCommand setOperationName= new SetCommand(getEditingDomain(), owner, EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME, CustomPaletteToolTransferDropTargetListener.addedOperation);
+				getResultCommand().append(setOperationName);
+			}
+			
+			// Apply changes.
+			if (getResultCommand().canExecute()) {
+				getEditingDomain().getCommandStack().execute(getResultCommand());
+			} 
+			CustomPaletteToolTransferDropTargetListener.definedName = null;
+			fillConnectorOperationParameters();
+			activatedOnce=true;
 		}
-		CustomPaletteToolTransferDropTargetListener.definedName = null;
-		fillConnectorOperationParameters();
+	}
+	
+	
+	
+	private CompoundCommand getResultCommand() {
+		if (null == resultCommand) {
+			resultCommand = new CompoundCommand();
+		}
+		return resultCommand;
 	}
 
 	protected void fillConnectorOperationParameters() {
 		TransactionalEditingDomain editingDomain = null;
 		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 				.getActivePage().getActiveEditor();
+		if(editorpart==null)
+			return;
 		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
+		
 		IFile file = input.getFile();
 		IProject activeProject = file.getProject();
 		String connectorPath = activeProject.getLocation().toOSString() + File.separator

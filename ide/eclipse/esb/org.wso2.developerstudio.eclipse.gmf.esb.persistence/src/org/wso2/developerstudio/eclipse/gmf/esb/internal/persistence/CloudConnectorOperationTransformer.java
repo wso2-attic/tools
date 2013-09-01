@@ -64,8 +64,9 @@ public class CloudConnectorOperationTransformer extends AbstractEsbNodeTransform
 			TransformationInfo information, CloudConnectorOperation visuaCloudConnectorOperation) throws Exception {
 		
 		CloudConnectorOperationExt cloudConnectorOperation=new CloudConnectorOperationExt();
-		cloudConnectorOperation.setConnector("twilio");
-		cloudConnectorOperation.setOperation("configure");
+		
+		cloudConnectorOperation.setConnector(visuaCloudConnectorOperation.getConnectorName());
+		cloudConnectorOperation.setOperation(visuaCloudConnectorOperation.getOperationName());
 		cloudConnectorOperation.setConfigRef(visuaCloudConnectorOperation.getConfigRef());
 		
 		for (CallTemplateParameter param : visuaCloudConnectorOperation.getConnectorParameters()) {
