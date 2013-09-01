@@ -27,12 +27,15 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.impl.EAttributeImpl;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Node;
@@ -40,8 +43,11 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections.ConnectionCalculator;
@@ -77,6 +83,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputCon
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceOutputConnectorEditPart;
@@ -516,6 +524,27 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 				inputConnector = (AbstractConnectorEditPart) nearestESBLink
 						.getTarget();
 				
+				if (outputConnector instanceof SendMediatorOutputConnectorEditPart && inputConnector instanceof AbstractEndpointInputConnectorEditPart) {
+					deleteNewlyAddedMediator();
+					return;
+				}
+				
+				if (outputConnector instanceof AbstractEndpointOutputConnectorEditPart && inputConnector instanceof SequenceInputConnectorEditPart) {
+					Sequence seq = getSequenceMediatorFrom((AbstractEndpointOutputConnectorEditPart) outputConnector);
+					if (seq.isDuplicate()) {
+						deleteNewlyAddedMediator();
+						return;
+					}
+				}
+				
+				if (outputConnector instanceof SequenceOutputConnectorEditPart && inputConnector instanceof AbstractEndpointInputConnectorEditPart){
+						Sequence seq = getSequenceMediatorByBackTraverse((SequenceOutputConnectorEditPart) outputConnector);
+						if (seq.isDuplicate()) {
+							deleteNewlyAddedMediator();
+							return;
+						}
+				}
+				
 				if ((!(outputConnector instanceof ProxyOutputConnectorEditPart))
 						&& (!(outputConnector instanceof SequencesOutputConnectorEditPart))
 						&&(!(outputConnector instanceof APIResourceOutputConnectorEditPart))
@@ -631,5 +660,61 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		super.createDefaultEditPolicies();
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+	}
+	
+	private SendMediator getSendMediatorBybackTraverse(AbstractEndpointOutputConnectorEditPart outputConnector) {
+		
+		SendMediator sendMediator = null;
+		AbstractMediator mediator = getSecondLastMediatorBybackTraverse(outputConnector);
+		if (mediator != null) {
+			if (mediator instanceof SendMediatorEditPart){
+				SendMediatorEditPart sendMediatorEditPart = (SendMediatorEditPart)mediator;
+				sendMediator = (SendMediator)((Node)sendMediatorEditPart.getModel()).getElement();
+			}
+		}
+		return sendMediator;
+	}
+	
+	private AbstractMediator getSecondLastMediatorBybackTraverse(AbstractEndpointOutputConnectorEditPart outputConnector) {
+		
+		AbstractMediator mediator = null;
+		
+		AbstractEndpoint endpoint = EditorUtils.getEndpoint(outputConnector);
+		AbstractInputConnectorEditPart endpointInputConnector = EditorUtils.getInputConnector(endpoint);
+		List<AbstractGraphicalEditPart> conectedEdbLinkstoInputConnector = endpointInputConnector.getTargetConnections();
+		if (conectedEdbLinkstoInputConnector != null && conectedEdbLinkstoInputConnector.size() > 0) {
+			
+			EsbLinkEditPart linkFromSend = (EsbLinkEditPart)conectedEdbLinkstoInputConnector.get(0); //wrong assumption, what if more than one
+			EditPart sendMediatorOutputConnector = linkFromSend.getSource();
+			mediator = EditorUtils.getMediator(sendMediatorOutputConnector);
+			
+		}
+		return mediator;
+	}
+	
+	private Sequence getSequenceMediatorFrom(AbstractOutputConnectorEditPart outputConnector) {
+		
+		EditPart node = (ShapeNodeEditPart) ((EsbLinkEditPart) outputConnector.getSourceConnections().get(0)).getTarget().getParent();
+		Sequence sequenceMediator = (Sequence)((Node)node.getModel()).getElement();
+		return sequenceMediator;
+	}
+	
+	private Sequence getSequenceMediatorByBackTraverse(AbstractOutputConnectorEditPart outputConnector) {
+		
+		SequenceEditPart sequenceEditPart = (SequenceEditPart) EditorUtils.getMediator(outputConnector);
+		Sequence sequenceMediator = (Sequence)((Node)sequenceEditPart.getModel()).getElement();
+		return sequenceMediator;
+	}
+	
+	
+	private void deleteNewlyAddedMediator() {
+		RemoveCommand removeCmd = new RemoveCommand(this.getEditingDomain(), 
+													((Node)this.getModel()).getElement().eContainer(),
+													EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, 
+													((Node)this.getModel()).getElement());
+
+		if (removeCmd.canExecute()) {
+			this.getEditingDomain().getCommandStack().execute(removeCmd);
+		}
 	}
 }

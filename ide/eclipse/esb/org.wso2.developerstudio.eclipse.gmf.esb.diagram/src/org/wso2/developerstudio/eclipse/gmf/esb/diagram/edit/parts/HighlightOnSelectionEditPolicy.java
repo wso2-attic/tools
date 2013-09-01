@@ -21,6 +21,7 @@ import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.RoundedRectangleBorder;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint2;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditPartDrawingHelper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
@@ -63,6 +64,13 @@ public class HighlightOnSelectionEditPolicy extends SelectionEditPolicy {
 			AbstractEndpoint mediator = (AbstractEndpoint)getHost();
 			mediator.getEndPointPrimaryShape().setBackgroundColor(figureColor);
 			RoundedRectangleBorder border = (RoundedRectangleBorder)mediator.getEndPointPrimaryShape().getBorder();
+			border.setColor(boderColor);
+		}
+		
+		if(getHost() instanceof AbstractEndpoint2) {
+			AbstractEndpoint2 mediator = (AbstractEndpoint2)getHost();
+			mediator.getEndPoint2PrimaryShape().setBackgroundColor(figureColor);
+			RoundedRectangleBorder border = (RoundedRectangleBorder)mediator.getEndPoint2PrimaryShape().getBorder();
 			border.setColor(boderColor);
 		}
 	}

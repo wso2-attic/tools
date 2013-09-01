@@ -28,6 +28,7 @@ import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint2;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
@@ -37,9 +38,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.TemplateEn
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class TemplateEndpoint2EditPart extends AbstractBorderedShapeEditPart {
+public class TemplateEndpoint2EditPart extends AbstractEndpoint2 {
 
 	/**
 	 * @generated
@@ -50,11 +51,6 @@ public class TemplateEndpoint2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected IFigure contentPane;
-
-	/**
-	 * @generated
-	 */
-	protected IFigure primaryShape;
 
 	/**
 	 * @generated
@@ -78,8 +74,6 @@ public class TemplateEndpoint2EditPart extends AbstractBorderedShapeEditPart {
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -300,9 +294,7 @@ public class TemplateEndpoint2EditPart extends AbstractBorderedShapeEditPart {
 			fFigureTemplateEndPointNamePropertyLabel = new WrappingLabel();
 			fFigureTemplateEndPointNamePropertyLabel.setText("<...>");
 			fFigureTemplateEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
-
 			this.getPropertyValueRectangle1().add(fFigureTemplateEndPointNamePropertyLabel);
-
 		}
 
 		/**
@@ -324,17 +316,11 @@ public class TemplateEndpoint2EditPart extends AbstractBorderedShapeEditPart {
 			return THIS_BACK;
 		}
 
-		public Color getLabelBackColor() {
-			return THIS_LABEL_BACK;
-		}
-
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
-	
-	static final Color THIS_LABEL_BACK = new Color(null, 113, 198, 113);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }

@@ -458,6 +458,9 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		EditPart proxyservice = child.getParent().getParent().getParent().getParent().getParent()
 				.getParent().getParent();
 		super.removeChild(child);
+		if (this.getChildren().size() == 0) {
+			outputConnectorEditPart = null;
+		}
 		mediatorFlow.refreshConnector(proxyservice);
 	}
 

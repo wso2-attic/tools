@@ -42,9 +42,14 @@ public class XYRepossition {
 
 	public static void resizeContainers(IGraphicalEditPart editPart) {
 		IGraphicalEditPart parent = editPart;
+		
 		while (!(parent instanceof EsbServerEditPart)) {
-			resizeEditpart(parent);
-			parent = (IGraphicalEditPart) parent.getParent();
+			if (parent != null) {
+				resizeEditpart(parent);
+				parent = (IGraphicalEditPart) parent.getParent();
+			} else {
+				break;
+			}
 		}
 	}
 
@@ -148,8 +153,12 @@ public class XYRepossition {
 		
 		IGraphicalEditPart parent = editPart;
 		while (!(parent instanceof EsbServerEditPart)) {
-			rearrangeChildren(parent);
-			parent = (IGraphicalEditPart) parent.getParent();
+			if (parent != null) {
+				rearrangeChildren(parent);
+				parent = (IGraphicalEditPart) parent.getParent();
+			} else {
+				break;
+			}
 		}
 	}
 

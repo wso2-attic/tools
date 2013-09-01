@@ -20,16 +20,18 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint2;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndpoint2CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndpoint2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class HTTPEndpoint2EditPart extends AbstractBorderedShapeEditPart {
+public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 
 	/**
 	 * @generated
@@ -40,11 +42,6 @@ public class HTTPEndpoint2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected IFigure contentPane;
-
-	/**
-	 * @generated
-	 */
-	protected IFigure primaryShape;
 
 	/**
 	 * @generated
@@ -64,9 +61,6 @@ public class HTTPEndpoint2EditPart extends AbstractBorderedShapeEditPart {
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new HTTPEndpoint2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}
 
 	/**
@@ -222,13 +216,11 @@ public class HTTPEndpoint2EditPart extends AbstractBorderedShapeEditPart {
 		 * @generated
 		 */
 		private void createContents() {
-
+			
 			fFigureHTTPEndPointNamePropertyLabel = new WrappingLabel();
-
 			fFigureHTTPEndPointNamePropertyLabel.setText("<...>");
-
-			this.add(fFigureHTTPEndPointNamePropertyLabel);
-
+			fFigureHTTPEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
+			this.getPropertyValueRectangle1().add(fFigureHTTPEndPointNamePropertyLabel);
 		}
 
 		/**
@@ -243,6 +235,6 @@ public class HTTPEndpoint2EditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }
