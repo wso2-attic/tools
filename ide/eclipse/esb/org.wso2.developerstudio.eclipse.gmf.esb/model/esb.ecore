@@ -1259,7 +1259,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CalloutSecurityType">
     <eLiterals name="FALSE"/>
-    <eLiterals name="TRUE"/>
+    <eLiterals name="TRUE" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CalloutResultType">
     <eLiterals name="XPATH"/>

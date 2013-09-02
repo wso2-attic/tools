@@ -49,7 +49,7 @@ public enum CalloutSecurityType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRUE(0, "TRUE", "TRUE");
+	TRUE(1, "TRUE", "TRUE");
 
 	/**
 	 * The '<em><b>FALSE</b></em>' literal value.
@@ -79,7 +79,7 @@ public enum CalloutSecurityType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TRUE_VALUE = 0;
+	public static final int TRUE_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Callout Security Type</b></em>' enumerators.
@@ -142,6 +142,7 @@ public enum CalloutSecurityType implements Enumerator {
 	public static CalloutSecurityType get(int value) {
 		switch (value) {
 			case FALSE_VALUE: return FALSE;
+			case TRUE_VALUE: return TRUE;
 		}
 		return null;
 	}
