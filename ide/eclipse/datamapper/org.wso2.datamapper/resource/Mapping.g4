@@ -9,23 +9,44 @@ grammar Mapping;
   package org.wso2.datamapper.parsers;
 }
 
-stat: (outputelement '=' function )+            
-    ;
-    
-outputelement: ID (DOT ID)*
-             ;
+mapping : stat ';'
+     ;
+     
+stat: defdatatype | defelement | defvar | deffunc
+    ;    
+     
+deftype : ID '-''>' ID 
+        ;
 
-function: functionname '(' arg (',' arg)* ')'
-		;
-		
-functionname:ID
+defelement : outputelement '=" value
+           ;
+           
+outputelement: ID (DOT ID)* | var
+             ;
+  
+value: (function )+ | (arg)
             ;
 
-arg: ID (DOT ID)*
+var : VAR varid
+    ;   
+
+function : funcid '(' arg (',' arg)* ')'
+		 ;
+		
+funcid : ID
+       ;
+
+varid : ID
+        ;
+
+arg: ID (DOT ID)* | DELEMETER
    ;
 
+
 DOT : [.];
-ID  :   [a-zA-Z]+ ;      // match identifiers
+VAR : 'var' ;
+ID  :   [a-zA-Z]+;      // match identifiers
+DELEMETER : '"' . '"' ;  // match delemeters
 INT :   [0-9]+ ;         // match integers
 NEWLINE:'\r'? '\n' ;     // return newlines to parser (is end-statement signal)
-WS  :   [ \t]+ -> skip ; // toss out whitespace
+WS  :   [ '\t' | ' ']+ -> skip ; // toss out whitespace
