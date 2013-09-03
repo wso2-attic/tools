@@ -58,7 +58,10 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class CloudConnectorInitialConfigurationDialog extends Dialog {
-    /**
+	
+	private String droppedCloudConnector;
+	
+	/**
      * Value type constant.
      */
 	private static final String VALUE_TYPE = "Value";
@@ -74,7 +77,6 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	protected static final OMFactory fac = OMAbstractFactory.getOMFactory();
 	protected static final OMNamespace synNS = SynapseConstants.SYNAPSE_OMNAMESPACE;
 
-	private static String connectorName="twilio";
 	private static String operationName = "configure";
 	
 	private TableEditor paramTypeEditor;
@@ -97,6 +99,14 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		super(parent);
 		this.parameters=parameters;
 		parent.setText("Cloud connector Configuration.");
+	}	
+	
+    private String getDroppedCloudConnector() {
+		return droppedCloudConnector;
+	}
+
+	public void setDroppedCloudConnector(String droppedCloudConnector) {
+		this.droppedCloudConnector = droppedCloudConnector;
 	}
 
 	@Override
@@ -291,7 +301,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	}
 	
     private void serializeParams(OMElement invokeElem) {
-    	OMElement connectorEl = fac.createOMElement(connectorName+"."+operationName,synNS);
+    	OMElement connectorEl = fac.createOMElement(getDroppedCloudConnector()+"."+operationName,synNS);
     	for(int i=0;i<paramTable.getItems().length;++i){
     		TableItem tableItem=paramTable.getItems()[i];
     		CallTemplateParameter callTemplateParameter=(CallTemplateParameter) tableItem.getData();    		
@@ -345,11 +355,10 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		prop.load(new FileInputStream(pathName+File.separator+"cloudConnector.properties"));
 		String sequenceConfigs=prop.getProperty("SEQUENCE_CONFIGS");
 		if(sequenceConfigs==null || "".equals(sequenceConfigs)){
-			prop.setProperty("SEQUENCE_CONFIGS", configName+"-twilio");
+			prop.setProperty("SEQUENCE_CONFIGS", configName+"-"+getDroppedCloudConnector());
 		}else{
-			prop.setProperty("SEQUENCE_CONFIGS", sequenceConfigs+","+configName+"-twilio");
-		}
-		//prop.setProperty("SEQUENCE_CONFIGS", sequenceConfigs+","+configName+"-twilio");
+			prop.setProperty("SEQUENCE_CONFIGS", sequenceConfigs+","+configName+"-"+getDroppedCloudConnector());
+		}		
 		prop.setProperty("INLINE_CONFIGS", "");
 			prop.store(new FileOutputStream(cloudConnectorConfig.getAbsolutePath()), null);
 		} catch (FileNotFoundException e) {
@@ -378,7 +387,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 					        //esbPaletteFactory.addDefinedSequences(((EsbMultiPageEditor) editor).getGraphicalEditor());
 					        //esbPaletteFactory.addDefinedEndpoints(((EsbMultiPageEditor) editor).getGraphicalEditor());					        
 						}else{
-							esbPaletteFactory.addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor(),configName);
+							esbPaletteFactory.addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor(),configName,getDroppedCloudConnector());
 						}
 					}
 				}

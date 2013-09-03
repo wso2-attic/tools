@@ -31,8 +31,11 @@ public class CustomPaletteToolTransferDropTargetListener extends
 	@Override
 	public void drop(DropTargetEvent event) {		
 		if(event.data instanceof NodeToolEntry){
-			if("createCloudConnector1CreationTool".equals(((NodeToolEntry)event.data).getId())){
+			String[] splittedString = ((NodeToolEntry)event.data).getId().split("-");
+			String groupName = splittedString[1];
+			if("cloudConnector".equals(groupName)){
 				Collection<String> cloudConnectorConfigurationParameters = null;
+				String droppedCloudConnector = splittedString[0];
 				try {
 					
 					IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
@@ -41,7 +44,7 @@ public class CustomPaletteToolTransferDropTargetListener extends
 					IFile file = input.getFile();
 					IProject activeProject = file.getProject();
 					String connectorPath = activeProject.getLocation().toOSString() + File.separator
-							+ "cloudConnectors" + File.separator + "twilio-connector";
+							+ "cloudConnectors" + File.separator + droppedCloudConnector+"-connector";
 					
 					cloudConnectorConfigurationParameters = CloudConnectorDirectoryTraverser.getInstance(connectorPath).getCloudConnectorConfigurationParameters();
 				} catch (Exception e) {
@@ -49,13 +52,15 @@ public class CustomPaletteToolTransferDropTargetListener extends
 					e.printStackTrace();
 				}				
 				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
+				
+				cloudConnectorConfigureDialog.setDroppedCloudConnector(droppedCloudConnector);
 				cloudConnectorConfigureDialog.setBlockOnOpen(true);
 				cloudConnectorConfigureDialog.open();
 			
 				return;
 			}else if((((NodeToolEntry)event.data).getId()).contains("cloudConnectorOperation")){
-				definedName=((NodeToolEntry)event.data).getId().split("-")[2];
-				addedConnector=(((NodeToolEntry)event.data).getId().split("-")[1]).toLowerCase();
+				definedName=splittedString[2];
+				addedConnector=groupName.toLowerCase();
 				addedOperation=((NodeToolEntry)event.data).getLabel();
 			}
 		}

@@ -27,9 +27,6 @@ import org.apache.synapse.mediators.template.InvokeMediator;
 
 public class CloudConnectorOperationExtSerializer extends InvokeMediatorSerializer {
 	
-	private static String connector = "twilio";
-	private static String operation = "configure";
-	
 	@Override
 	protected OMElement serializeSpecificMediator(Mediator m) {
 		CloudConnectorOperationExt cloudConnectorOperation=(CloudConnectorOperationExt)m;

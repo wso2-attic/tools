@@ -257,7 +257,7 @@ public class EsbPaletteFactory {
 	private PaletteContainer createCloudConnectors6Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.CloudConnectors6Group_title);
 		paletteContainer.setId("createCloudConnectors6Group"); //$NON-NLS-1$
-		paletteContainer.add(createCloudConnector1CreationTool());
+		//paletteContainer.add(createCloudConnector1CreationTool());
 		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
@@ -1081,13 +1081,13 @@ public class EsbPaletteFactory {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	private ToolEntry createCloudConnector1CreationTool() {
-		NodeToolEntry entry = new NodeToolEntry(Messages.CloudConnector1CreationTool_title,
+	private ToolEntry createCloudConnector1CreationTool(String name, String ID) {
+		NodeToolEntry entry = new NodeToolEntry(name,
 				Messages.CloudConnector1CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.CloudConnector_3719));
-		entry.setId("createCloudConnector1CreationTool"); //$NON-NLS-1$
+		entry.setId(ID); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.CloudConnector_3719));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
@@ -1168,7 +1168,50 @@ public class EsbPaletteFactory {
 	 return cloudConnectorOperations;
 	 }*/
 
-	public void addCloudConnectorOperations(IEditorPart editor, String name) {
+	
+	public void addCloudConnectors(IEditorPart editor) {
+		boolean cloudConnectorsGroupAdded = false;
+		int indexOfcloudConnectorsGroup = 0;
+
+		List<?> list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
+				.getPaletteViewer().getPaletteRoot().getChildren();
+		for (int i = 0; i < list.size(); ++i) {
+			if (list.get(i) instanceof PaletteDrawer) {
+				if (("createCloudConnectors6Group").equals(((PaletteDrawer) list.get(i)).getId())) {
+					cloudConnectorsGroupAdded = true;
+					indexOfcloudConnectorsGroup = i;
+					break;
+				}
+			}
+		}
+
+		if (!cloudConnectorsGroupAdded) {
+			((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
+					.getPaletteViewer()
+					.getPaletteRoot()
+					.add(createCloudConnectors6Group());
+			indexOfcloudConnectorsGroup = list.size() - 1;
+		}
+		PaletteContainer container = ((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)
+				.getDiagramEditDomain()).getPaletteViewer().getPaletteRoot().getChildren()
+				.get(indexOfcloudConnectorsGroup));
+		container.getChildren().clear();
+		
+		
+		IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
+		IFile file = input.getFile();
+		IProject activeProject = file.getProject();
+		String connectorPath = activeProject.getLocation().toOSString() + "/cloudConnectors";
+		File directory=new File(connectorPath);
+		String [] names=directory.list();
+		if(names!=null){
+			for(int i=0;i<names.length;++i){
+				container.add(createCloudConnector1CreationTool(names[i].split("-")[0],names[i].split("-")[0]+"-cloudConnector"));
+			}
+		}
+	}
+	
+	public void addCloudConnectorOperations(IEditorPart editor, String name, String cloudConnectorName) {
 		Set<String> cloudConnectorOperationsSet = Collections.emptySet();
 		try {
 /*			IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
@@ -1177,7 +1220,7 @@ public class EsbPaletteFactory {
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
 			String connectorPath = activeProject.getLocation().toOSString() + File.separator
-					+ "cloudConnectors" + File.separator + "twilio-connector";
+					+ "cloudConnectors" + File.separator + cloudConnectorName+"-connector";
 			cloudConnectorOperationsSet = CloudConnectorDirectoryTraverser
 					.getInstance(connectorPath).getArtifactsMap().keySet();
 		} catch (Exception e) {
@@ -1191,7 +1234,7 @@ public class EsbPaletteFactory {
 				.getPaletteViewer().getPaletteRoot().getChildren();
 		for (int i = 0; i < list.size(); ++i) {
 			if (list.get(i) instanceof PaletteDrawer) {
-				if (("CloudConnector-Twilio-" + name).equals(((PaletteDrawer) list.get(i)).getId())) {
+				if (("CloudConnector-"+cloudConnectorName+"-" + name).equals(((PaletteDrawer) list.get(i)).getId())) {
 					definedEndpointsAdded = true;
 					indexOfDefinedEndpoints = i;
 					break;
@@ -1203,8 +1246,8 @@ public class EsbPaletteFactory {
 			((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
 					.getPaletteViewer()
 					.getPaletteRoot()
-					.add(createCloudConnectorGroup("Twilio operations - " + name,
-							"CloudConnector-Twilio-" + name));
+					.add(createCloudConnectorGroup(cloudConnectorName+" operations - " + name,
+							"CloudConnector-"+cloudConnectorName+"-" + name));
 			indexOfDefinedEndpoints = list.size() - 1;
 		}/*
 			if (indexOfDefinedEndpoints == 0) {
@@ -1217,7 +1260,7 @@ public class EsbPaletteFactory {
 		Object[] keys = cloudConnectorOperationsSet.toArray();
 		for (int k = 0; k < keys.length; ++k) {
 			container.add(createCloudConnectorOperationCreationTool((String) keys[k],
-					"cloudConnectorOperation-" + "Twilio-" + name));
+					"cloudConnectorOperation-" + cloudConnectorName+"-" + name));
 		}
 
 	}

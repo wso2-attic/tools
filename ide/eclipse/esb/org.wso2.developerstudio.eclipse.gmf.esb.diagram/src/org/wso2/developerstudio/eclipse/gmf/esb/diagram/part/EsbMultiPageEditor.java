@@ -190,6 +190,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
         esbPaletteFactory.addDefinedSequences(getEditor(0));
         esbPaletteFactory.addDefinedEndpoints(getEditor(0));
         
+        esbPaletteFactory.addCloudConnectors(getEditor(0));
         
         
         
@@ -219,7 +220,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	        
 	        for(int i=0;i<configs.length;++i){
 	        	if(!"".equals(configs[i])){
-	        		esbPaletteFactory.addCloudConnectorOperations(getEditor(0), configs[i].split("-")[0]);
+	        		esbPaletteFactory.addCloudConnectorOperations(getEditor(0), configs[i].split("-")[0],configs[i].split("-")[1]);
 	        	}
 	        }
 		}
