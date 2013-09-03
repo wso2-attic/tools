@@ -32,7 +32,10 @@ public class CustomPaletteToolTransferDropTargetListener extends
 	public void drop(DropTargetEvent event) {		
 		if(event.data instanceof NodeToolEntry){
 			String[] splittedString = ((NodeToolEntry)event.data).getId().split("-");
-			String groupName = splittedString[1];
+			String groupName="";
+			if(splittedString.length>1){
+				groupName = splittedString[1];
+			}
 			if("cloudConnector".equals(groupName)){
 				Collection<String> cloudConnectorConfigurationParameters = null;
 				String droppedCloudConnector = splittedString[0];
