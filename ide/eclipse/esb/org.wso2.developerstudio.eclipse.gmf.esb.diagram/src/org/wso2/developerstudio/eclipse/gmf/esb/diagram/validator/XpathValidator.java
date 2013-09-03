@@ -50,8 +50,12 @@ public class XpathValidator {
 	}
 	
 	public static boolean isValidUrl(String uri) {
+		/*
+		 * http://org.apache.synapse/xsd url is valid. But following logic doesn't recognize it.
+		 * Hence following logic is commented out by reopening TOOLS-1814.
+		 */
 		
-		boolean result = true;
+/*		boolean result = true;
 		try {
 			CommonFieldValidator.isValidUrl(uri, "URI: ");
 		}
@@ -59,7 +63,8 @@ public class XpathValidator {
 			result = false;
 		}
 		
-		return result;
+		return result;*/
+		return true;
 	}
 	
 	public static boolean isValidConfiguration(Shell activeShell, String xpath, Map<String, String> namespaceMap) {
@@ -91,8 +96,12 @@ public class XpathValidator {
 	}
 	
 	public static boolean isValidXpathSyntax(String string) {
+		/*
+		 * get-property('GET_PROXY_PROPERTIES_RETURN_SEQ') xpath expression is valid. But following logic doesn't recognize it.
+		 * Hence following logic is commented out by reopening TOOLS-1814.
+		 */
 		
-		boolean result = true;
+/*		boolean result = true;
 		XPathFactory factory = XPathFactory.newInstance();
 		XPath xpath = factory.newXPath();
 		try {
@@ -102,7 +111,8 @@ public class XpathValidator {
 			result = false;
 		}
 	
-		return result;
+		return result;*/
+		return true;
 	}
 	
 	private static void showMessage(Shell activeShell, String message){
