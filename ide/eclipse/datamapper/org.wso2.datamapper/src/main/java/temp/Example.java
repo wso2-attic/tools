@@ -9,8 +9,8 @@ public class Example {
 	public static void main(String[] args) {
 		
 		DataMapper configHandler = new DataMapper();
-		configHandler.doMapping("xml", new File("./resource/mapping_rules"),new File("./resource/input.xml"));
-
+		configHandler.doMapping(new File("./resource/mapping_rules"),new File("./resource/input.xml"),new File("./resource/inputSchema.avsc"),new File("./resource/outputSchema.avsc"));
+		
 	}
 
 }
