@@ -21,13 +21,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.avro.Schema;
+import org.apache.avro.generic.GenericData;
+import org.apache.avro.generic.GenericRecord;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.axiom.om.xpath.AXIOMXPath;
+import org.dom4j.QName;
 import org.jaxen.JaxenException;
 
 public class XmlInputReader implements InputDataReaderAdapter {
@@ -36,6 +42,7 @@ public class XmlInputReader implements InputDataReaderAdapter {
 	private List<OMElement> nodeList;
 	private List<String> inputValueList;
 	private OMElement documentElement;
+	private GenericRecord inputData;
 
 	@Override
 	public void setInputReader(File inputFile) {
@@ -51,30 +58,16 @@ public class XmlInputReader implements InputDataReaderAdapter {
 	}
 
 	@Override
-	public List readInputvalues(String elementXPath) {
+	public GenericRecord readInputvalues(Schema schema) {
 		
-		elementXPath = "//" + elementXPath.replace('.', '/');
-		this.nodeList = new ArrayList<OMElement>();
-		this.inputValueList = new ArrayList<String>();
-
-		try {
-			xpathExpression = new AXIOMXPath(elementXPath);
-			this.nodeList = xpathExpression.selectNodes(this.documentElement);
-			
-			Iterator<OMElement> xmlElementIterator = this.nodeList.listIterator();
-			OMElement element;
-			
-			while (xmlElementIterator.hasNext()) {
-				element = xmlElementIterator.next();
-				inputValueList.add(element.getText());		
-			}
-			
-
-		} catch (JaxenException e) {
-			e.printStackTrace();
+		Iterator<OMElement> childElements = this.documentElement.getChildElements();
+		inputData = new GenericData.Record(schema);
+		
+		while (childElements.hasNext()) {
+			OMElement child = childElements.next();
+			inputData.put(child.getLocalName(),child.getText());
 		}
-
-		return this.inputValueList;
+		return this.inputData;
 	}
 
 }
