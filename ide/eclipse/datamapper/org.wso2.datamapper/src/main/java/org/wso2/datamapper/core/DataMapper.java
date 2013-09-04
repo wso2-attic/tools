@@ -23,7 +23,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -35,17 +34,13 @@ import org.apache.avro.Schema.Parser;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
 import org.wso2.datamapper.inputAdapters.XmlInputReader;
-import org.wso2.datamapper.model.ConfigDataModel;
 import org.wso2.datamapper.parsers.MappingLexer;
 import org.wso2.datamapper.parsers.MappingParser;
 import org.wso2.datamapper.core.FunctionExecuter;
 
 public class DataMapper {
 
-	private List<ConfigDataModel> configData;
-	private Map<String,List<String>> result;
-
-	public Map<String,List<String>> doMapping(File configFile, File inputFile, File inputSchema, File outputSchema) {
+	public void doMapping(File configFile, File inputFile, File inputSchema, File outputSchema) {
 		
 		XmlInputReader reader = new XmlInputReader();
 		reader.setInputReader(inputFile);
@@ -109,6 +104,5 @@ public class DataMapper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        return result;
 	}
 }

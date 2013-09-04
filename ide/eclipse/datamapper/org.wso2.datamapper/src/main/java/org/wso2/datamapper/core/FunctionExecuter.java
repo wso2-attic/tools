@@ -24,14 +24,10 @@ import java.util.Map;
 
 import org.antlr.v4.runtime.misc.NotNull;
 import org.apache.avro.generic.GenericRecord;
-import org.wso2.datamapper.model.ConfigDataModel;
 import org.wso2.datamapper.parsers.MappingBaseListener;
 import org.wso2.datamapper.parsers.MappingParser.ArgContext;
-import org.wso2.datamapper.parsers.MappingParser.DefelementContext;
-import org.wso2.datamapper.parsers.MappingParser.DeftypeContext;
 import org.wso2.datamapper.parsers.MappingParser.FuncidContext;
 import org.wso2.datamapper.parsers.MappingParser.FunctionContext;
-import org.wso2.datamapper.parsers.MappingParser.MappingContext;
 import org.wso2.datamapper.parsers.MappingParser.OutputelementContext;
 import org.wso2.datamapper.parsers.MappingParser.StatContext;
 
