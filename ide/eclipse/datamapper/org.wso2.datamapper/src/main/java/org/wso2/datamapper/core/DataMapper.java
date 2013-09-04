@@ -16,53 +16,92 @@
 
 package org.wso2.datamapper.core;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.apache.avro.Schema;
+import org.apache.avro.Schema.Parser;
+import org.apache.avro.generic.GenericData;
+import org.apache.avro.generic.GenericRecord;
+import org.wso2.datamapper.inputAdapters.XmlInputReader;
+import org.wso2.datamapper.model.ConfigDataModel;
 import org.wso2.datamapper.parsers.MappingLexer;
 import org.wso2.datamapper.parsers.MappingParser;
+import org.wso2.datamapper.core.FunctionExecuter;
 
 public class DataMapper {
 
-	private Map<String,List<String>> resultMap;
+	private List<ConfigDataModel> configData;
+	private Map<String,List<String>> result;
 
-	public Map<String,List<String>> doMapping(String inputFileType, File configFile, File inputFile) {
+	public Map<String,List<String>> doMapping(File configFile, File inputFile, File inputSchema, File outputSchema) {
 		
-		ANTLRInputStream inputStream;
+		XmlInputReader reader = new XmlInputReader();
+		reader.setInputReader(inputFile);
+		GenericRecord inRecord = null;
+
+		Schema schema;
 		try {
+			schema = new Parser().parse(inputSchema);
+			inRecord = reader.readInputvalues(schema);
 			
+			System.out.println("input record "+inRecord);
+			
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		ANTLRInputStream inputStream;
+		
+		try {
 			inputStream = new ANTLRInputStream(new FileInputStream(configFile));
 			MappingLexer lexer = new MappingLexer(inputStream);
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			MappingParser parser = new MappingParser(tokens);
-
-			ParseTree tree = parser.stat();	
+			
+			ParseTree tree = parser.mapping();
 			ParseTreeWalker walker = new ParseTreeWalker();
-			FunctionExecuter funExe = new FunctionExecuter(inputFileType, inputFile);
+			FunctionExecuter conWalker = new FunctionExecuter();
+			conWalker.setInputData(inRecord);
+			
+			walker.walk(conWalker, tree);
+			
+			Map<String,String> resultMap = conWalker.getResultMap();
+			
+			Iterator<String> resultIt = resultMap.keySet().iterator();
+			String result = "";
+			String outElement = "";
+			
+			Schema outSchema = new Parser().parse(outputSchema);
+			GenericRecord outRecord = new GenericData.Record(outSchema);
+			
+			while (resultIt.hasNext()) {
+				outElement = resultIt.next();
+				result = resultMap.get(outElement);
+				outRecord.put(outElement, result);
+			}
 
-			walker.walk(funExe, tree);
-			resultMap = funExe.getResultMap();
-	
-	        Set<String> keys = resultMap.keySet();
-	        Iterator<String> it = keys.iterator();
-	        
-	        String outputElement = "";
-	        
-	        while(it.hasNext()){
-	        	outputElement = it.next();  
-	        	System.out.println("result : "+outputElement+"   : "+resultMap.get(outputElement));	
-	        }   
+			System.out.println("out record "+outRecord.toString());
+			
+			BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File("./resource/output.json")));
+			outputWriter.write(outRecord.toString());
+			outputWriter.flush();
+			outputWriter.close();
 
+			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,7 +109,6 @@ public class DataMapper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-        return resultMap;
+        return result;
 	}
 }

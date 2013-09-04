@@ -16,7 +16,6 @@
 
 package org.wso2.datamapper.core;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,80 +23,87 @@ import java.util.List;
 import java.util.Map;
 
 import org.antlr.v4.runtime.misc.NotNull;
+import org.apache.avro.generic.GenericRecord;
+import org.wso2.datamapper.model.ConfigDataModel;
 import org.wso2.datamapper.parsers.MappingBaseListener;
 import org.wso2.datamapper.parsers.MappingParser.ArgContext;
+import org.wso2.datamapper.parsers.MappingParser.DefelementContext;
+import org.wso2.datamapper.parsers.MappingParser.DeftypeContext;
+import org.wso2.datamapper.parsers.MappingParser.FuncidContext;
 import org.wso2.datamapper.parsers.MappingParser.FunctionContext;
-import org.wso2.datamapper.parsers.MappingParser.FunctionnameContext;
+import org.wso2.datamapper.parsers.MappingParser.MappingContext;
 import org.wso2.datamapper.parsers.MappingParser.OutputelementContext;
-import org.wso2.datamapper.core.InputDataHandler;
+import org.wso2.datamapper.parsers.MappingParser.StatContext;
 
 public class FunctionExecuter extends MappingBaseListener {
 
+	private GenericRecord inRecord;
 	private String outputElement;
-	private String funcName;
-	private Map<String,List<String>> resultMap;
-	private InputDataHandler inputHandler;
-	private List<String> outputList;
-	private List<String> tempArgList;
-
-	public FunctionExecuter(String inputFileType, File inputFile) {
-		resultMap = new HashMap<String, List<String>>();
-		inputHandler = new InputDataHandler(inputFileType);
-		inputHandler.setInputFile(inputFile);
-		tempArgList = new ArrayList<String>();
+	private String function;
+	private Map<String,String> resultMap;
+	private List<String> arglist;
+	private String functionResult;
+	
+	public FunctionExecuter(){
+		resultMap = new HashMap<String,String>();
+	}
+	
+	@Override
+	public void enterOutputelement(@NotNull OutputelementContext ctx) {
+		this.outputElement = getChildElement(ctx.getText());
 	}
 
-	public Map<String, List<String>> getResultMap() {
-		return resultMap;
+	@Override
+	public void exitStat(@NotNull StatContext ctx) {
+		this.resultMap.put(this.outputElement, this.functionResult);
+	}
+
+	@Override
+	public void enterFuncid(@NotNull FuncidContext ctx) {
+		this.function = ctx.getText();
 	}
 
 	@Override
 	public void enterFunction(@NotNull FunctionContext ctx) {
-		outputList = new ArrayList<String>();
+		this.arglist = new ArrayList<String>();
 	}
 
 	@Override
-	public void exitArg(@NotNull ArgContext ctx) {
-		super.exitArg(ctx);
-		String arg = ctx.getText();	
+	public void exitFunction(@NotNull FunctionContext ctx) {
+		StringBuilder result = new StringBuilder();
 		
-		List<String> functionParameterList = inputHandler.getInputvalues(arg);
-		
-		String oldElement;
-		String newElement;
-			
-		if(this.tempArgList.size() > 0){
-			Iterator<String> oldValuesIterator = this.tempArgList.listIterator();
-			Iterator<String> newValuesIterator = functionParameterList.listIterator();
-			
-			while (oldValuesIterator.hasNext() && newValuesIterator.hasNext()) {
-				oldElement = oldValuesIterator.next();
-				newElement = newValuesIterator.next();
-				
-				if(this.funcName.equals("concat")){
-					outputList.add(oldElement.concat(" "+newElement));
-				}	
+		if(this.function.equals("concat")){
+			Iterator<String> argIt = this.arglist.listIterator();
+			String temp;
+			while (argIt.hasNext()) {
+				temp = argIt.next();
+				result.append(inRecord.get(getChildElement(temp))+" ");
 			}
-			this.tempArgList = new ArrayList<String>();
-		}else{
-			this.tempArgList = functionParameterList;
+			this.functionResult = result.toString().trim();
 		}
 	}
 
 	@Override
-	public void exitFunction(@NotNull FunctionContext ctx) {		
-		resultMap.put(this.outputElement, this.outputList);
-		this.outputList = null;
+	public void enterArg(@NotNull ArgContext ctx) {
+		this.arglist.add(ctx.getText());
+	}
+	
+	public void setInputData(GenericRecord inData) {
+		this.inRecord = inData;
 	}
 
-	@Override
-	public void exitOutputelement(@NotNull OutputelementContext ctx) {
-		this.outputElement = ctx.getText();
+	private String getChildElement(String elementPath){
+		String childElement = "";	
+		String[] childElements = elementPath.split("[.]");
+		
+		for (String element : childElements) {
+			childElement = element;
+		}
+		return childElement;
 	}
-
-	@Override
-	public void exitFunctionname(@NotNull FunctionnameContext ctx) {
-		this.funcName = ctx.getText();
+	
+	public Map<String,String> getResultMap() {
+		return this.resultMap;
 	}
 
 }

@@ -44,8 +44,8 @@ public class InputDataHandler {
 	}
 
 	public List<String> getInputvalues(String element) {	
-		inputAdapter.setInputReader(inputFile);
-		this.inputValueList = inputAdapter.readInputvalues(element);
+		/*inputAdapter.setInputReader(inputFile);
+		this.inputValueList = inputAdapter.readInputvalues(element);*/
 		
 		return this.inputValueList;
 	}
