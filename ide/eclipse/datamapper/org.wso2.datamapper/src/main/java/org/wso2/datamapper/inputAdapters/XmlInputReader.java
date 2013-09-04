@@ -20,11 +20,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
@@ -32,15 +28,9 @@ import org.apache.avro.generic.GenericRecord;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMXMLBuilderFactory;
 import org.apache.axiom.om.OMXMLParserWrapper;
-import org.apache.axiom.om.xpath.AXIOMXPath;
-import org.dom4j.QName;
-import org.jaxen.JaxenException;
 
 public class XmlInputReader implements InputDataReaderAdapter {
 
-	private AXIOMXPath xpathExpression;
-	private List<OMElement> nodeList;
-	private List<String> inputValueList;
 	private OMElement documentElement;
 	private GenericRecord inputData;
 
