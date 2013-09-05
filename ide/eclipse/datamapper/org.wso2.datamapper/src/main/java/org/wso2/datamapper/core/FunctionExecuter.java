@@ -26,13 +26,16 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.apache.avro.generic.GenericRecord;
 import org.wso2.datamapper.parsers.MappingBaseListener;
 import org.wso2.datamapper.parsers.MappingParser.ArgContext;
+import org.wso2.datamapper.parsers.MappingParser.DeftypeContext;
 import org.wso2.datamapper.parsers.MappingParser.FuncidContext;
 import org.wso2.datamapper.parsers.MappingParser.FunctionContext;
 import org.wso2.datamapper.parsers.MappingParser.OutputelementContext;
-import org.wso2.datamapper.parsers.MappingParser.StatContext;
+import org.wso2.datamapper.parsers.MappingParser.StatmentContext;
 
 public class FunctionExecuter extends MappingBaseListener {
 
+	private String inputDataType;
+	private String outputDataType;
 	private GenericRecord inRecord;
 	private String outputElement;
 	private String function;
@@ -48,10 +51,16 @@ public class FunctionExecuter extends MappingBaseListener {
 	public void enterOutputelement(@NotNull OutputelementContext ctx) {
 		this.outputElement = getChildElement(ctx.getText());
 	}
-
+	
 	@Override
-	public void exitStat(@NotNull StatContext ctx) {
-		this.resultMap.put(this.outputElement, this.functionResult);
+	public void exitStatment(@NotNull StatmentContext ctx) {
+		if(this.outputElement != null){
+			this.resultMap.put(this.outputElement, this.functionResult);
+		}else{
+			String[] tokens=ctx.getText().trim().split("->");
+			this.inputDataType = tokens[0];
+			this.outputDataType = tokens[1];
+		}
 	}
 
 	@Override
@@ -101,5 +110,5 @@ public class FunctionExecuter extends MappingBaseListener {
 	public Map<String,String> getResultMap() {
 		return this.resultMap;
 	}
-
+	
 }

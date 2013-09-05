@@ -33,16 +33,17 @@ import org.apache.avro.Schema;
 import org.apache.avro.Schema.Parser;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
-import org.wso2.datamapper.inputAdapters.XmlInputReader;
 import org.wso2.datamapper.parsers.MappingLexer;
 import org.wso2.datamapper.parsers.MappingParser;
 import org.wso2.datamapper.core.FunctionExecuter;
+import org.wso2.datamapper.inputAdapters.InputDataReaderAdapter;
+import org.wso2.datamapper.inputAdapters.XmlInputReader;
 
 public class DataMapper {
 
 	public void doMapping(File configFile, File inputFile, File inputSchema, File outputSchema) {
 		
-		XmlInputReader reader = new XmlInputReader();
+		InputDataReaderAdapter reader = new XmlInputReader();
 		reader.setInputReader(inputFile);
 		GenericRecord inRecord = null;
 
@@ -52,7 +53,6 @@ public class DataMapper {
 			inRecord = reader.readInputvalues(schema);
 			
 			System.out.println("input record "+inRecord);
-			
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -67,7 +67,7 @@ public class DataMapper {
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			MappingParser parser = new MappingParser(tokens);
 			
-			ParseTree tree = parser.mapping();
+			ParseTree tree = parser.statment();
 			ParseTreeWalker walker = new ParseTreeWalker();
 			FunctionExecuter conWalker = new FunctionExecuter();
 			conWalker.setInputData(inRecord);
