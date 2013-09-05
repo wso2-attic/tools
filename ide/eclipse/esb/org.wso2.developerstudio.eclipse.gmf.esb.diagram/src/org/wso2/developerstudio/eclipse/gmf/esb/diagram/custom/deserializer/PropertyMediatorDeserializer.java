@@ -24,6 +24,7 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPE
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_LITERAL;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_TYPE;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP;
 
 import java.util.regex.Pattern;
 
@@ -165,9 +166,13 @@ public class PropertyMediatorDeserializer extends
 			}
 
 			Pattern pattern = propertyMediator.getPattern();
-			if (pattern != null)
+			if (pattern != null){
 				//vishualProp.setValueStringPattern(pattern.toString());
 				executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_STRING_PATTERN, pattern.toString());
+			}
+			
+			int groupValue = propertyMediator.getGroup();
+			executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_STRING_CAPTURING_GROUP, groupValue);
 		}
 
 		return VisualPropertyMediator;

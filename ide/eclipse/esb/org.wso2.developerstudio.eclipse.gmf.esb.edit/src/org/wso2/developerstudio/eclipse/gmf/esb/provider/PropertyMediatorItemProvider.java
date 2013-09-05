@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyDataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 
@@ -97,6 +98,10 @@ public class PropertyMediatorItemProvider
 				}
 			} else {
 				addValueExpressionPropertyDescriptor(object);
+				if (property.getPropertyDataType() == PropertyDataType.STRING) {
+					addValueStringPatternPropertyDescriptor(object);
+					addValueStringCapturingGroupPropertyDescriptor(object);
+				}
 			}
 		}								
 		
