@@ -13725,15 +13725,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
     int SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 6;
 
     /**
-	 * The feature id for the '<em><b>Endpoint Flow</b></em>' containment reference.
+	 * The feature id for the '<em><b>Mediator Flow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-    int SEND_MEDIATOR__ENDPOINT_FLOW = MEDIATOR_FEATURE_COUNT + 7;
+	int SEND_MEDIATOR__MEDIATOR_FLOW = MEDIATOR_FEATURE_COUNT + 7;
 
-    /**
+				/**
 	 * The number of structural features of the '<em>Send Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30304,17 +30304,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
     EReference getSendMediator_EndpointOutputConnector();
 
     /**
-	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getEndpointFlow <em>Endpoint Flow</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getMediatorFlow <em>Mediator Flow</em>}'.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Endpoint Flow</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getEndpointFlow()
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Mediator Flow</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getMediatorFlow()
 	 * @see #getSendMediator()
 	 * @generated
 	 */
-    EReference getSendMediator_EndpointFlow();
+	EReference getSendMediator_MediatorFlow();
 
-    /**
+				/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendContainer <em>Send Container</em>}'.
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -40875,14 +40875,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
         EReference SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR = eINSTANCE.getSendMediator_EndpointOutputConnector();
 
         /**
-		 * The meta object literal for the '<em><b>Endpoint Flow</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Mediator Flow</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-        EReference SEND_MEDIATOR__ENDPOINT_FLOW = eINSTANCE.getSendMediator_EndpointFlow();
+		EReference SEND_MEDIATOR__MEDIATOR_FLOW = eINSTANCE.getSendMediator_MediatorFlow();
 
-        /**
+								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendContainerImpl <em>Send Container</em>}' class.
 		 * <!-- begin-user-doc -->
          * <!-- end-user-doc -->

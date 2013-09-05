@@ -118,10 +118,18 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new LoadBalanceEndPointFigure();
+		return primaryShape = new LoadBalanceEndPointFigure() {
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);
+				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
+					getMostSuitableElementToConnect();
+					reAllocate(rect);
+				}
+			};
+		};
 	}
 
 	/**
@@ -151,12 +159,15 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 				/*
 				 * Position of input connector of the endpoint should be 0.5 inside ComplexEndpoints and Sequences. 
 				 */
-				position = ((source instanceof ComplexEndpoints) || (source.eContainer()
-						.eContainer() instanceof Sequences)) ? 0.5 : 0.25;
+				/*				position = ((source instanceof ComplexEndpoints) || (source
+				 .eContainer().eContainer() instanceof Sequences)) ? 0.5
+				 : 0.25;*/
+				position = 0.5;
 			} else {
-				position = ((this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart) || (this
-						.getParent().getParent().getParent() instanceof AbstractSequencesEditPart)) ? 0.5
-						: 0.25;
+				/*				position = ((this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart) || (this
+				 .getParent().getParent().getParent() instanceof AbstractSequencesEditPart)) ? 0.5
+				 : 0.25;*/
+				position = 0.5;
 			}
 			IFigure borderItemFigure = ((LoadBalanceEndPointInputConnectorEditPart) childEditPart)
 					.getFigure();

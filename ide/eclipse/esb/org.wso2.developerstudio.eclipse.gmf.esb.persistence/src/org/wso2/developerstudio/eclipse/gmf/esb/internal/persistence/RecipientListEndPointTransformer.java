@@ -102,7 +102,7 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 
 		List<EsbNode> transformedMediators = info.getTransformedMediators();
 		if (endPointModel.getOutputConnector() != null
-				&& endPointModel.getWestOutputConnector().getOutgoingLink() != null) {
+				&& endPointModel.getWestOutputConnector()!=null && endPointModel.getWestOutputConnector().getOutgoingLink() != null) {
 			EsbNode nextElement = (EsbNode) endPointModel.getWestOutputConnector()
 					.getOutgoingLink().getTarget().eContainer();
 			if (transformedMediators.contains(nextElement)) {

@@ -212,7 +212,6 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case SendMediatorInputConnectorEditPart.VISUAL_ID:
 				case SendMediatorOutputConnectorEditPart.VISUAL_ID:
 				case SendMediatorEndpointOutputConnectorEditPart.VISUAL_ID:
-				case EndpointFlowEditPart.VISUAL_ID:
 				case HeaderMediatorEditPart.VISUAL_ID:
 				case HeaderMediatorInputConnectorEditPart.VISUAL_ID:
 				case HeaderMediatorOutputConnectorEditPart.VISUAL_ID:
@@ -363,6 +362,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case MediatorFlow9EditPart.VISUAL_ID:
 				case MediatorFlow7EditPart.VISUAL_ID:
 				case MediatorFlow2EditPart.VISUAL_ID:
+				case MediatorFlow19EditPart.VISUAL_ID:
 				case MediatorFlow11EditPart.VISUAL_ID:
 				case MediatorFlow13EditPart.VISUAL_ID:
 				case MediatorFlow12EditPart.VISUAL_ID:
@@ -504,7 +504,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| SendMediatorInputConnectorEditPart.VISUAL_ID == visualID
 				|| SendMediatorOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SendMediatorEndpointOutputConnectorEditPart.VISUAL_ID == visualID
-				|| EndpointFlowEditPart.VISUAL_ID == visualID
+				|| MediatorFlow19EditPart.VISUAL_ID == visualID
 				|| HeaderMediatorEditPart.VISUAL_ID == visualID
 				|| HeaderMediatorInputConnectorEditPart.VISUAL_ID == visualID
 				|| HeaderMediatorOutputConnectorEditPart.VISUAL_ID == visualID
@@ -1004,8 +1004,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case SendMediatorEndpointOutputConnectorEditPart.VISUAL_ID:
 			return createSendMediatorEndpointOutputConnector_3539(domainElement, containerView,
 					index, persisted, preferencesHint);
-		case EndpointFlowEditPart.VISUAL_ID:
-			return createEndpointFlow_3562(domainElement, containerView, index, persisted,
+		case MediatorFlow19EditPart.VISUAL_ID:
+			return createMediatorFlow_3728(domainElement, containerView, index, persisted,
 					preferencesHint);
 		case HeaderMediatorEditPart.VISUAL_ID:
 			return createHeaderMediator_3516(domainElement, containerView, index, persisted,
@@ -6528,14 +6528,14 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 	/**
 	 * @generated
 	 */
-	public Node createEndpointFlow_3562(EObject domainElement, View containerView, int index,
+	public Node createMediatorFlow_3728(EObject domainElement, View containerView, int index,
 			boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
 		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(EsbVisualIDRegistry.getType(EndpointFlowEditPart.VISUAL_ID));
+		node.setType(EsbVisualIDRegistry.getType(MediatorFlow19EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -6559,8 +6559,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
 		createCompartment(node,
-				EsbVisualIDRegistry.getType(EndpointFlowEndpointCompartmentEditPart.VISUAL_ID),
-				false, false, false, false);
+				EsbVisualIDRegistry
+						.getType(MediatorFlowMediatorFlowCompartment19EditPart.VISUAL_ID), false,
+				true, false, false);
 		return node;
 	}
 

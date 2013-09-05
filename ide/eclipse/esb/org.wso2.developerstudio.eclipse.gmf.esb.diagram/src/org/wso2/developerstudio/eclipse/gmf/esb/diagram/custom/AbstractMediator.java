@@ -95,17 +95,17 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMedia
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.swt.widgets.Display;
 
-public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
+public abstract class AbstractMediator extends AbstractBorderedShapeEditPart implements DroppableElement{
 
 	public boolean isForward = true;
 	private int i = 0;
 	
-	public int x;
-	public int y;
-	
 	private AbstractInputConnectorEditPart connectedInputConnector;
 	private AbstractOutputConnectorEditPart connectedOutputConnector;
 	private AbstractMediator instance=null;
+	
+	public int x=0;
+	public int y=0;
 
 	/*
 	 * activete method is called twice for a mediator.so that we use this
@@ -716,5 +716,12 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		if (removeCmd.canExecute()) {
 			this.getEditingDomain().getCommandStack().execute(removeCmd);
 		}
+	}
+	
+	public void setX(int x){
+		this.x=x;
+	}
+	public void setY(int y){
+		this.y=y;
 	}
 }

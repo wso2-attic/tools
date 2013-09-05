@@ -716,7 +716,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType EndpointFlow_3562 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EndpointFlow_3562"); //$NON-NLS-1$
+	public static final IElementType MediatorFlow_3728 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3728"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -1777,7 +1777,7 @@ public class EsbElementTypes {
 			elements.put(SendMediatorEndpointOutputConnector_3539,
 					EsbPackage.eINSTANCE.getSendMediatorEndpointOutputConnector());
 
-			elements.put(EndpointFlow_3562, EsbPackage.eINSTANCE.getEndpointFlow());
+			elements.put(MediatorFlow_3728, EsbPackage.eINSTANCE.getMediatorFlow());
 
 			elements.put(HeaderMediator_3516, EsbPackage.eINSTANCE.getHeaderMediator());
 
@@ -2389,7 +2389,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(SendMediatorInputConnector_3085);
 			KNOWN_ELEMENT_TYPES.add(SendMediatorOutputConnector_3086);
 			KNOWN_ELEMENT_TYPES.add(SendMediatorEndpointOutputConnector_3539);
-			KNOWN_ELEMENT_TYPES.add(EndpointFlow_3562);
+			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3728);
 			KNOWN_ELEMENT_TYPES.add(HeaderMediator_3516);
 			KNOWN_ELEMENT_TYPES.add(HeaderMediatorInputConnector_3100);
 			KNOWN_ELEMENT_TYPES.add(HeaderMediatorOutputConnector_3101);
@@ -2765,8 +2765,8 @@ public class EsbElementTypes {
 			return SendMediatorOutputConnector_3086;
 		case SendMediatorEndpointOutputConnectorEditPart.VISUAL_ID:
 			return SendMediatorEndpointOutputConnector_3539;
-		case EndpointFlowEditPart.VISUAL_ID:
-			return EndpointFlow_3562;
+		case MediatorFlow19EditPart.VISUAL_ID:
+			return MediatorFlow_3728;
 		case HeaderMediatorEditPart.VISUAL_ID:
 			return HeaderMediator_3516;
 		case HeaderMediatorInputConnectorEditPart.VISUAL_ID:

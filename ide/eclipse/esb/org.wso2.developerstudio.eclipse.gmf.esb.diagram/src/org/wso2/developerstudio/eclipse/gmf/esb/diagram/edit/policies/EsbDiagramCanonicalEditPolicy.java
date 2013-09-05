@@ -886,9 +886,9 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case EndpointFlowEditPart.VISUAL_ID: {
+		case MediatorFlow19EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater.getEndpointFlow_3562ContainedLinks(view));
+				result.addAll(EsbDiagramUpdater.getMediatorFlow_3728ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

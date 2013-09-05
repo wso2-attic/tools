@@ -1512,7 +1512,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendMediator/StaticReceivingSequence"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendMediator/DynamicReceivingSequence"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendMediator/endpointOutputConnector"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendMediator/endpointFlow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendMediator/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SendContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendContainer/endpointFlow"/>

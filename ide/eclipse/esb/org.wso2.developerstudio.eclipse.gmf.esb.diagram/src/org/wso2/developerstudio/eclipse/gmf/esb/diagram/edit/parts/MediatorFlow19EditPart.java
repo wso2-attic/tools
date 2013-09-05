@@ -1,8 +1,13 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -10,33 +15,30 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ResizableCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint2;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndpoint2CanonicalEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndpoint2ItemSemanticEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlow19ItemSemanticEditPolicy;
 
 /**
- * @generated NOT
+ * @generated
  */
-public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
+public class MediatorFlow19EditPart extends ShapeNodeEditPart {
+
+	//Send Mediator
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3712;
+	public static final int VISUAL_ID = 3728;
 
 	/**
 	 * @generated
@@ -46,21 +48,24 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 	/**
 	 * @generated
 	 */
-	public HTTPEndpoint2EditPart(View view) {
+	protected IFigure primaryShape;
+
+	/**
+	 * @generated
+	 */
+	public MediatorFlow19EditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				EsbVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new HTTPEndpoint2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new HTTPEndpoint2CanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MediatorFlow19ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -70,12 +75,6 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				View childView = (View) child.getModel();
-				switch (EsbVisualIDRegistry.getVisualID(childView)) {
-				case HTTPEndPointInputConnector2EditPart.VISUAL_ID:
-				case HTTPEndPointOutputConnector2EditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
-				}
 				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
@@ -98,14 +97,14 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new HTTPEndpointFigure();
+		return primaryShape = new MediatorFlowFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public HTTPEndpointFigure getPrimaryShape() {
-		return (HTTPEndpointFigure) primaryShape;
+	public MediatorFlowFigure getPrimaryShape() {
+		return (MediatorFlowFigure) primaryShape;
 	}
 
 	/**
@@ -116,6 +115,24 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 		return result;
 	}
 
+	public void refreshOutputConnector(EditPart childEditPart) {
+		if (childEditPart instanceof SendMediatorEditPart) {
+			SendMediatorEditPart sendMediatorEditPart = (SendMediatorEditPart) childEditPart;
+			BorderItemLocator locator = new FixedBorderItemLocator(this.getFigure(),
+					sendMediatorEditPart.endpointOutputConnector, PositionConstants.WEST, 0.5);
+			sendMediatorEditPart.getBorderedFigure().getBorderItemContainer()
+					.add(sendMediatorEditPart.endpointOutputConnector, locator);
+		} else {
+			//Should handle properly.
+			throw new ClassCastException();
+		}
+	}
+
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		refreshOutputConnector(((SendMediatorEditPart) childEditPart.getParent().getParent()));
+		super.addChildVisual(childEditPart, -1);
+	}
+
 	/**
 	 * Creates figure for this edit part.
 	 * 
@@ -124,7 +141,7 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 	 * 
 	 * @generated
 	 */
-	protected NodeFigure createMainFigure() {
+	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
 		IFigure shape = createNodeShape();
@@ -156,6 +173,15 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 			return contentPane;
 		}
 		return super.getContentPane();
+	}
+
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof ResizableCompartmentEditPart) {
+			// Compartment should be added to the primary shape.
+			return getPrimaryShape();
+		} else {
+			return super.getContentPaneFor(editPart);
+		}
 	}
 
 	/**
@@ -195,41 +221,25 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class HTTPEndpointFigure extends EsbGraphicalShape {
+	public class MediatorFlowFigure extends EsbMediatorFlowFigure {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
-		private WrappingLabel fFigureHTTPEndPointNamePropertyLabel;
+		public MediatorFlowFigure() {
 
-		/**
-		 * @generated
-		 */
-		public HTTPEndpointFigure() {
 			this.setBackgroundColor(THIS_BACK);
-			createContents();
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode()
+					.DPtoLP(4000)));
 		}
 
-		/**
-		 * @generated
-		 */
-		private void createContents() {
+	}
 
-			fFigureHTTPEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureHTTPEndPointNamePropertyLabel.setText("<...>");
-			fFigureHTTPEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
-			this.getPropertyValueRectangle1().add(fFigureHTTPEndPointNamePropertyLabel);
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureHTTPEndPointNamePropertyLabel() {
-			return fFigureHTTPEndPointNamePropertyLabel;
-		}
-
+	public boolean isSelectable() {
+		// TODO This or using ResizableEditpolicy?
+		return false;
 	}
 
 	/**

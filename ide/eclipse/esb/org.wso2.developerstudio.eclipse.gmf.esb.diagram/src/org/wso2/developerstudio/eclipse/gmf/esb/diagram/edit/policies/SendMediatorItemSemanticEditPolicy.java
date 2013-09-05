@@ -13,12 +13,12 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EndpointFlowCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.MediatorFlow19CreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SendMediatorEndpointOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SendMediatorInputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SendMediatorOutputConnectorCreateCommand;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow19EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEndpointOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorOutputConnectorEditPart;
@@ -50,8 +50,8 @@ public class SendMediatorItemSemanticEditPolicy extends EsbBaseItemSemanticEditP
 		if (EsbElementTypes.SendMediatorEndpointOutputConnector_3539 == req.getElementType()) {
 			return getGEFWrapper(new SendMediatorEndpointOutputConnectorCreateCommand(req));
 		}
-		if (EsbElementTypes.EndpointFlow_3562 == req.getElementType()) {
-			return getGEFWrapper(new EndpointFlowCreateCommand(req));
+		if (EsbElementTypes.MediatorFlow_3728 == req.getElementType()) {
+			return getGEFWrapper(new MediatorFlow19CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -133,7 +133,7 @@ public class SendMediatorItemSemanticEditPolicy extends EsbBaseItemSemanticEditP
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case EndpointFlowEditPart.VISUAL_ID:
+			case MediatorFlow19EditPart.VISUAL_ID:
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
 						node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 

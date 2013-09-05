@@ -84,7 +84,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		}
 		
 		List<EsbNode> transformedMediators = info.getTransformedMediators();
-		if (visualEndPoint.getOutputConnector() != null && visualEndPoint.getWestOutputConnector().getOutgoingLink()!=null) {
+		if (visualEndPoint.getOutputConnector() != null && visualEndPoint.getWestOutputConnector() !=null && visualEndPoint.getWestOutputConnector().getOutgoingLink()!=null) {
 			EsbNode nextElement = (EsbNode) visualEndPoint.getWestOutputConnector().getOutgoingLink().getTarget().eContainer();
 			if (transformedMediators.contains(nextElement)) {
 				return;

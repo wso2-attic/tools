@@ -908,7 +908,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String EndpointFlowEndpointCompartmentEditPart_title;
+	public static String MediatorFlowMediatorFlowCompartment19EditPart_title;
 
 	/**
 	 * @generated

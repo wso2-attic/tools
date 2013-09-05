@@ -120,7 +120,7 @@ public class TemplateEndpoint2EditPart extends AbstractEndpoint2 {
 	public TemplateEndpointFigure getPrimaryShape() {
 		return (TemplateEndpointFigure) primaryShape;
 	}
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof TemplateEndpointInputConnector2EditPart) {
 			double position;
@@ -153,7 +153,7 @@ public class TemplateEndpoint2EditPart extends AbstractEndpoint2 {
 		}
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof TemplateEndpointInputConnector2EditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
@@ -303,15 +303,15 @@ public class TemplateEndpoint2EditPart extends AbstractEndpoint2 {
 		public WrappingLabel getFigureTemplateEndPointNamePropertyLabel() {
 			return fFigureTemplateEndPointNamePropertyLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/address-endpoint.gif";
 		}
-		
+
 		public String getNodeName() {
 			return "Template-EP";
 		}
-		
+
 		public Color getBackgroundColor() {
 			return THIS_BACK;
 		}

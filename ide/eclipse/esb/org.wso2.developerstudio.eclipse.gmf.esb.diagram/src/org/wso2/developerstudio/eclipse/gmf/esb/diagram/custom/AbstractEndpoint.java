@@ -23,21 +23,25 @@ import java.util.List;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.BorderedBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartmentEditPart;
+import org.eclipse.swt.widgets.Display;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HighlightOnSelectionEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment19EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 
-public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
+public abstract class AbstractEndpoint extends BorderedBorderItemEditPart implements DroppableElement{
 
 	// activete method is called twice for a mediator. Reason is not detected
 	// yet.so that we use this variable to avoid calling reverse method twice.
@@ -47,9 +51,15 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 
 	protected IFigure primaryShape;
 	
+	private AbstractEndpoint instance=null;
+	
+	public int x=0;
+	public int y=0;
+	
 	
 	public AbstractEndpoint(View view) {
 		super(view);
+		instance=this;
 		// TODO Auto-generated constructor stub
 	}
 	public void activate() {
@@ -71,7 +81,7 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 	}
 	
 	public void reverse(EditPart editorPart) {		
-		if (!reversed & ((editorPart.getParent() instanceof EndpointFlowEndpointCompartmentEditPart)&&(((AbstractMediator)editorPart.getParent().getParent().getParent()).reversed))){
+		if (!reversed & (/*(editorPart.getParent() instanceof EndpointFlowEndpointCompartmentEditPart)&&*/(editorPart.getParent().getParent().getParent() instanceof AbstractMediator)&&(((AbstractMediator)editorPart.getParent().getParent().getParent()).reversed))){
 			
 			AbstractEndpoint selectedEP = (AbstractEndpoint) editorPart;
 			List<IFigure> inputConnectors = new ArrayList<IFigure>();
@@ -184,11 +194,22 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 		}
 	}
 	
+	protected void reAllocate(Rectangle bounds){
+		Display.getCurrent().asyncExec(new Runnable() {			
+			@Override
+			public void run() {	
+				XYRepossition.resizeContainers((IGraphicalEditPart) instance);
+				XYRepossition.reArrange((IGraphicalEditPart) instance);	
+			}});
+	}
+	
 	protected void getMostSuitableElementToConnect(){
 		if(this.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart){
 			((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
 		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart){
 			((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).connectNormally(this);
+		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment19EditPart){
+			((MediatorFlowMediatorFlowCompartment19EditPart)this.getParent()).connectNormally(this);
 		}
 	}
 
@@ -207,5 +228,12 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 	
 	public IFigure getEndPointPrimaryShape() {
 		return primaryShape;
+	}
+	
+	public void setX(int x){
+		this.x=x;
+	}
+	public void setY(int y){
+		this.y=y;
 	}
 }

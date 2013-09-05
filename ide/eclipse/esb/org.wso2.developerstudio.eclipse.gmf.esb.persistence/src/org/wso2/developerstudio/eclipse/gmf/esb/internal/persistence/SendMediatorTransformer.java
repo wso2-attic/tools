@@ -31,8 +31,8 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 		doTransform(tmpInformation,
 					((SendMediator) subject).getEndpointOutputConnector());
 		
-		doTransform(information,
-				((SendMediator) subject).getOutputConnector());
+/*		doTransform(information,
+				((SendMediator) subject).getOutputConnector());*/
 		
 	}
 
@@ -46,7 +46,8 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		// TODO Auto-generated method stub
 		sequence.addChild(createSendMediator(subject));
-		doTransformWithinSequence(information,((SendMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
+		doTransformWithinSequence(information,((SendMediator) subject).getEndpointOutputConnector().getOutgoingLink(),sequence);
+		//doTransformWithinSequence(information,((SendMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
 		
 		
 	}

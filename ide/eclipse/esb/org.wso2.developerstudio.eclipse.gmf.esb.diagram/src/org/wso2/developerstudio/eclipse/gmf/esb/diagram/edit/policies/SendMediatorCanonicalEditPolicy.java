@@ -23,7 +23,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow19EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEndpointOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorOutputConnectorEditPart;
@@ -63,7 +63,7 @@ public class SendMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSendMediator_OutputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
 					.getSendMediator_EndpointOutputConnector());
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSendMediator_EndpointFlow());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSendMediator_MediatorFlow());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -99,7 +99,7 @@ public class SendMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		case SendMediatorInputConnectorEditPart.VISUAL_ID:
 		case SendMediatorOutputConnectorEditPart.VISUAL_ID:
 		case SendMediatorEndpointOutputConnectorEditPart.VISUAL_ID:
-		case EndpointFlowEditPart.VISUAL_ID:
+		case MediatorFlow19EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

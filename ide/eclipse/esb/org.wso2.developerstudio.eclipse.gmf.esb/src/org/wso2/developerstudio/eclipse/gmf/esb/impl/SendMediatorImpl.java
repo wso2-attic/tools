@@ -55,7 +55,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getStaticReceivingSequence <em>Static Receiving Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getDynamicReceivingSequence <em>Dynamic Receiving Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getEndpointOutputConnector <em>Endpoint Output Connector</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getEndpointFlow <em>Endpoint Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
  * </ul>
  * </p>
  *
@@ -143,16 +143,16 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
     protected SendMediatorEndpointOutputConnector endpointOutputConnector;
 
     /**
-	 * The cached value of the '{@link #getEndpointFlow() <em>Endpoint Flow</em>}' containment reference.
+	 * The cached value of the '{@link #getMediatorFlow() <em>Mediator Flow</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-	 * @see #getEndpointFlow()
+	 * <!-- end-user-doc -->
+	 * @see #getMediatorFlow()
 	 * @generated
 	 * @ordered
 	 */
-    protected EndpointFlow endpointFlow;
-    
-    /**
+	protected MediatorFlow mediatorFlow;
+
+				/**
      * value of the next node (non-EMF)
      */
     protected EndPoint nextNode;
@@ -445,48 +445,48 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 
     /**
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    public EndpointFlow getEndpointFlow() {
-		return endpointFlow;
+	public MediatorFlow getMediatorFlow() {
+		return mediatorFlow;
 	}
 
-    /**
+				/**
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    public NotificationChain basicSetEndpointFlow(EndpointFlow newEndpointFlow, NotificationChain msgs) {
-		EndpointFlow oldEndpointFlow = endpointFlow;
-		endpointFlow = newEndpointFlow;
+	public NotificationChain basicSetMediatorFlow(MediatorFlow newMediatorFlow, NotificationChain msgs) {
+		MediatorFlow oldMediatorFlow = mediatorFlow;
+		mediatorFlow = newMediatorFlow;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW, oldEndpointFlow, newEndpointFlow);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW, oldMediatorFlow, newMediatorFlow);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-    /**
+				/**
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-    public void setEndpointFlow(EndpointFlow newEndpointFlow) {
-		if (newEndpointFlow != endpointFlow) {
+	public void setMediatorFlow(MediatorFlow newMediatorFlow) {
+		if (newMediatorFlow != mediatorFlow) {
 			NotificationChain msgs = null;
-			if (endpointFlow != null)
-				msgs = ((InternalEObject)endpointFlow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW, null, msgs);
-			if (newEndpointFlow != null)
-				msgs = ((InternalEObject)newEndpointFlow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW, null, msgs);
-			msgs = basicSetEndpointFlow(newEndpointFlow, msgs);
+			if (mediatorFlow != null)
+				msgs = ((InternalEObject)mediatorFlow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			if (newMediatorFlow != null)
+				msgs = ((InternalEObject)newMediatorFlow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			msgs = basicSetMediatorFlow(newMediatorFlow, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW, newEndpointFlow, newEndpointFlow));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW, newMediatorFlow, newMediatorFlow));
 	}
 
-    /**
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -505,8 +505,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 				return basicSetDynamicReceivingSequence(null, msgs);
 			case EsbPackage.SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR:
 				return basicSetEndpointOutputConnector(null, msgs);
-			case EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW:
-				return basicSetEndpointFlow(null, msgs);
+			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
+				return basicSetMediatorFlow(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -534,8 +534,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 				return getDynamicReceivingSequence();
 			case EsbPackage.SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR:
 				return getEndpointOutputConnector();
-			case EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW:
-				return getEndpointFlow();
+			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
+				return getMediatorFlow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -572,8 +572,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 			case EsbPackage.SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR:
 				setEndpointOutputConnector((SendMediatorEndpointOutputConnector)newValue);
 				return;
-			case EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW:
-				setEndpointFlow((EndpointFlow)newValue);
+			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -609,8 +609,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 			case EsbPackage.SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR:
 				setEndpointOutputConnector((SendMediatorEndpointOutputConnector)null);
 				return;
-			case EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW:
-				setEndpointFlow((EndpointFlow)null);
+			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -639,8 +639,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 				return dynamicReceivingSequence != null;
 			case EsbPackage.SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR:
 				return endpointOutputConnector != null;
-			case EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW:
-				return endpointFlow != null;
+			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
+				return mediatorFlow != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getStaticReceivingSequence <em>Static Receiving Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getDynamicReceivingSequence <em>Dynamic Receiving Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getEndpointOutputConnector <em>Endpoint Output Connector</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getEndpointFlow <em>Endpoint Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getMediatorFlow <em>Mediator Flow</em>}</li>
  * </ul>
  * </p>
  *
@@ -208,32 +208,32 @@ public interface SendMediator extends Mediator {
     void setEndpointOutputConnector(SendMediatorEndpointOutputConnector value);
 
     /**
-	 * Returns the value of the '<em><b>Endpoint Flow</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Mediator Flow</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
-     * <p>
-     * If the meaning of the '<em>Endpoint Flow</em>' containment reference isn't clear,
-     * there really should be more of a description here...
-     * </p>
-     * <!-- end-user-doc -->
-	 * @return the value of the '<em>Endpoint Flow</em>' containment reference.
-	 * @see #setEndpointFlow(EndpointFlow)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSendMediator_EndpointFlow()
+	 * <p>
+	 * If the meaning of the '<em>Mediator Flow</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mediator Flow</em>' containment reference.
+	 * @see #setMediatorFlow(MediatorFlow)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSendMediator_MediatorFlow()
 	 * @model containment="true"
 	 * @generated
 	 */
-    EndpointFlow getEndpointFlow();
+	MediatorFlow getMediatorFlow();
 
-    /**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getEndpointFlow <em>Endpoint Flow</em>}' containment reference.
+				/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getMediatorFlow <em>Mediator Flow</em>}' containment reference.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Endpoint Flow</em>' containment reference.
-	 * @see #getEndpointFlow()
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mediator Flow</em>' containment reference.
+	 * @see #getMediatorFlow()
 	 * @generated
 	 */
-    void setEndpointFlow(EndpointFlow value);
-    
-    /**
+	void setMediatorFlow(MediatorFlow value);
+
+				/**
      * Sets the value of the next node
      * @param node
      */

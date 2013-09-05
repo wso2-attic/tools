@@ -1934,7 +1934,7 @@
         eType="#//NamespacedProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpointOutputConnector"
         eType="#//SendMediatorEndpointOutputConnector" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointFlow" eType="#//EndpointFlow"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SendContainer" eSuperTypes="#//EsbNode">

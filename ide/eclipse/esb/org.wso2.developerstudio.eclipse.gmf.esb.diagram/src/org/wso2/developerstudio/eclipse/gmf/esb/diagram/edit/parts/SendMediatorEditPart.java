@@ -45,6 +45,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLo
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SendMediatorGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SingleCompartmentComplexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.ElementDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
@@ -56,7 +57,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class SendMediatorEditPart extends FixedSizedAbstractMediator {
+public class SendMediatorEditPart extends SingleCompartmentComplexFiguredAbstractMediator {
 
 	public IFigure endpointOutputConnector;
 	/**
@@ -153,9 +154,11 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		return primaryShape = new SendMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
-				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
+				if ((!connected)
+						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
 					getMostSuitableElementToConnect();
 					reAllocate(rect);
+					connected = true;
 				}
 			};
 		};
@@ -172,7 +175,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 
 		if (childEditPart instanceof SendMediatorDescriptionEditPart) {
 			((SendMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getSendMediatorDescriptionLabel());
+					.getFigureSendMediatorPropertyValue());
 			return true;
 		}
 		if (childEditPart instanceof SendMediatorInputConnectorEditPart) {
@@ -235,6 +238,11 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		return getContentPane();
 	}
 
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
+	}
+
 	/**
 	 * Creates figure for this edit part.
 	 * 
@@ -265,6 +273,13 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 			nodeShape.setLayoutManager(layout);
 		}
 		return nodeShape; // use nodeShape itself as contentPane
+	}
+
+	public IFigure getContentPane() {
+		if (contentPane != null) {
+			return contentPane;
+		}
+		return super.getContentPane();
 	}
 
 	/**
@@ -308,7 +323,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	//public class SendMediatorFigure extends SendMediatorGraphicalShape {
 
-	public class SendMediatorFigure extends EsbGraphicalShapeWithLabel {
+	public class SendMediatorFigure extends EsbGroupingShape {
 		/**
 		 * @generated
 		 */
@@ -332,6 +347,16 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 			 this.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
 			 getMapMode().DPtoLP(100)));
 			 this.setOutline(true);*/
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(false);
+
+			this.setLayoutManager(layoutThis);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(170), getMapMode().DPtoLP(100)));
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
@@ -358,6 +383,28 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		 }
 		 }*/
 
+		public void add(IFigure figure, Object constraint, int index) {
+			if (figure instanceof DefaultSizeNodeFigure) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			} else if (figure instanceof RoundedRectangle) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			}
+
+			else {
+				super.add(figure, constraint, index);
+			}
+		}
+
 		/**
 		 * @generated NOT
 		 */
@@ -368,7 +415,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureSendMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureSendMediatorPropertyValue);
 
-			sendMediatorDescriptionLabel = getPropertyNameLabel();
+			//sendMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**

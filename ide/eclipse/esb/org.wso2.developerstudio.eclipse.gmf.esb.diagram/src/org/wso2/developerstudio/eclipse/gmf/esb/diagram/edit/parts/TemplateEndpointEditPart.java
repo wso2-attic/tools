@@ -120,9 +120,9 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 		return primaryShape = new TemplateEndpointFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
-				if (!connected) {
+				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
 					getMostSuitableElementToConnect();
-					connected = true;
+					reAllocate(rect);
 				}
 			};
 		};
@@ -143,12 +143,15 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 			if (((TemplateEndpoint) parentEndpoint).getInputConnector().getIncomingLinks().size() != 0) {
 				EObject source = ((TemplateEndpoint) parentEndpoint).getInputConnector()
 						.getIncomingLinks().get(0).getSource().eContainer();
-				position = ((source instanceof ComplexEndpoints) || (source.eContainer()
-						.eContainer() instanceof Sequences)) ? 0.5 : 0.25;
+				/*				position = ((source instanceof ComplexEndpoints) || (source
+				 .eContainer().eContainer() instanceof Sequences)) ? 0.5
+				 : 0.25;*/
+				position = 0.5;
 			} else {
-				position = ((this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart) || (this
-						.getParent().getParent().getParent() instanceof AbstractSequencesEditPart)) ? 0.5
-						: 0.25;
+				/*				position = ((this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart) || (this
+				 .getParent().getParent().getParent() instanceof AbstractSequencesEditPart)) ? 0.5
+				 : 0.25;*/
+				position = 0.5;
 			}
 			IFigure borderItemFigure = ((TemplateEndpointInputConnectorEditPart) childEditPart)
 					.getFigure();

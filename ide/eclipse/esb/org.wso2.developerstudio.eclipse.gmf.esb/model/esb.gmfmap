@@ -1242,19 +1242,10 @@
                                   href="esb.gmfgraph#SendMediatorEndpointOutputConnector"/>
                             </ownedChild>
                           </children>
-                          <children>
+                          <children
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                             <containmentFeature
-                                href="esb.ecore#//SendMediator/endpointFlow"/>
-                            <ownedChild>
-                              <domainMetaElement
-                                  href="esb.ecore#//EndpointFlow"/>
-                              <diagramNode
-                                  href="esb.gmfgraph#EndpointFlow"/>
-                              <compartments>
-                                <compartment
-                                    href="esb.gmfgraph#EndpointCompartment"/>
-                              </compartments>
-                            </ownedChild>
+                                href="esb.ecore#//SendMediator/mediatorFlow"/>
                           </children>
                         </ownedChild>
                       </children>

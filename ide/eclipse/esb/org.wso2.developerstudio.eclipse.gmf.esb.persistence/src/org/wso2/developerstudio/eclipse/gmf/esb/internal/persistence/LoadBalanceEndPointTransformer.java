@@ -108,7 +108,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		}
 
 		List<EsbNode> transformedMediators = information.getTransformedMediators();
-		if (visualEndPoint.getOutputConnector() != null && visualEndPoint.getWestOutputConnector().getOutgoingLink()!=null) {
+		if (visualEndPoint.getOutputConnector() != null && visualEndPoint.getWestOutputConnector()!=null &&visualEndPoint.getWestOutputConnector().getOutgoingLink()!=null) {
 			EsbNode nextElement = (EsbNode) visualEndPoint.getWestOutputConnector().getOutgoingLink().getTarget().eContainer();
 			if (transformedMediators.contains(nextElement)) {
 				return;

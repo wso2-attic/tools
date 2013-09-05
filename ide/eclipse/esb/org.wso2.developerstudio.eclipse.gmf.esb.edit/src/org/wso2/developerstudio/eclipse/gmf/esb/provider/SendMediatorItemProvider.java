@@ -180,7 +180,7 @@ public class SendMediatorItemProvider
 			childrenFeatures.add(EsbPackage.Literals.SEND_MEDIATOR__STATIC_RECEIVING_SEQUENCE);
 			childrenFeatures.add(EsbPackage.Literals.SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE);
 			childrenFeatures.add(EsbPackage.Literals.SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR);
-			childrenFeatures.add(EsbPackage.Literals.SEND_MEDIATOR__ENDPOINT_FLOW);
+			childrenFeatures.add(EsbPackage.Literals.SEND_MEDIATOR__MEDIATOR_FLOW);
 		}
 		return childrenFeatures;
 	}
@@ -247,7 +247,7 @@ public class SendMediatorItemProvider
 			case EsbPackage.SEND_MEDIATOR__STATIC_RECEIVING_SEQUENCE:
 			case EsbPackage.SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE:
 			case EsbPackage.SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR:
-			case EsbPackage.SEND_MEDIATOR__ENDPOINT_FLOW:
+			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -293,8 +293,8 @@ public class SendMediatorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.SEND_MEDIATOR__ENDPOINT_FLOW,
-				 EsbFactory.eINSTANCE.createEndpointFlow()));
+				(EsbPackage.Literals.SEND_MEDIATOR__MEDIATOR_FLOW,
+				 EsbFactory.eINSTANCE.createMediatorFlow()));
 	}
 
 }
