@@ -8,17 +8,14 @@ grammar Mapping;
 @lexer::header {
   package org.wso2.datamapper.parsers;
 }
-
-mapping : stat ';'
-     ;
      
-stat: defdatatype | defelement | defvar | deffunc
-    ;    
+statment: ( (deftype | defelement) ';' )+
+        ;    
      
-deftype : ID '-''>' ID 
+deftype : ID '-''>' ID
         ;
 
-defelement : outputelement '=" value
+defelement : outputelement '=' value
            ;
            
 outputelement: ID (DOT ID)* | var
@@ -37,7 +34,7 @@ funcid : ID
        ;
 
 varid : ID
-        ;
+      ;
 
 arg: ID (DOT ID)* | DELEMETER
    ;
