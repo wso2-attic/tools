@@ -386,6 +386,11 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType APIResourceOutSequenceOutputConnector_3730 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceOutSequenceOutputConnector_3730"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType APIResourceFaultInputConnector_3672 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceFaultInputConnector_3672"); //$NON-NLS-1$
 
 	/**
@@ -907,6 +912,11 @@ public class EsbElementTypes {
 	 * @generated
 	 */
 	public static final IElementType MediatorFlow_3530 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3530"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ProxyOutSequenceOutputConnector_3729 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyOutSequenceOutputConnector_3729"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -1560,6 +1570,9 @@ public class EsbElementTypes {
 
 			elements.put(ProxyInputConnector_3003, EsbPackage.eINSTANCE.getProxyInputConnector());
 
+			elements.put(ProxyOutSequenceOutputConnector_3729,
+					EsbPackage.eINSTANCE.getProxyOutSequenceOutputConnector());
+
 			elements.put(ProxyFaultInputConnector_3489,
 					EsbPackage.eINSTANCE.getProxyFaultInputConnector());
 
@@ -1654,11 +1667,11 @@ public class EsbElementTypes {
 			elements.put(SwitchMediatorInputConnector_3042,
 					EsbPackage.eINSTANCE.getSwitchMediatorInputConnector());
 
-			elements.put(SwitchCaseBranchOutputConnector_3043,
-					EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector());
-
 			elements.put(SwitchDefaultBranchOutputConnector_3044,
 					EsbPackage.eINSTANCE.getSwitchDefaultBranchOutputConnector());
+
+			elements.put(SwitchCaseBranchOutputConnector_3043,
+					EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector());
 
 			elements.put(SwitchMediatorOutputConnector_3499,
 					EsbPackage.eINSTANCE.getSwitchMediatorOutputConnector());
@@ -2267,6 +2280,9 @@ public class EsbElementTypes {
 			elements.put(APIResourceOutputConnector_3671,
 					EsbPackage.eINSTANCE.getAPIResourceOutputConnector());
 
+			elements.put(APIResourceOutSequenceOutputConnector_3730,
+					EsbPackage.eINSTANCE.getAPIResourceOutSequenceOutputConnector());
+
 			elements.put(APIResourceFaultInputConnector_3672,
 					EsbPackage.eINSTANCE.getAPIResourceFaultInputConnector());
 
@@ -2307,6 +2323,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ProxyService_3001);
 			KNOWN_ELEMENT_TYPES.add(ProxyOutputConnector_3002);
 			KNOWN_ELEMENT_TYPES.add(ProxyInputConnector_3003);
+			KNOWN_ELEMENT_TYPES.add(ProxyOutSequenceOutputConnector_3729);
 			KNOWN_ELEMENT_TYPES.add(ProxyFaultInputConnector_3489);
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceContainer_3486);
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceSequenceAndEndpointContainer_3487);
@@ -2343,8 +2360,8 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(XSLTMediatorOutputConnector_3040);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediator_3498);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediatorInputConnector_3042);
-			KNOWN_ELEMENT_TYPES.add(SwitchCaseBranchOutputConnector_3043);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultBranchOutputConnector_3044);
+			KNOWN_ELEMENT_TYPES.add(SwitchCaseBranchOutputConnector_3043);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediatorOutputConnector_3499);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediatorContainer_3500);
 			KNOWN_ELEMENT_TYPES.add(SwitchCaseContainer_3501);
@@ -2574,6 +2591,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(APIResource_3669);
 			KNOWN_ELEMENT_TYPES.add(APIResourceInputConnector_3670);
 			KNOWN_ELEMENT_TYPES.add(APIResourceOutputConnector_3671);
+			KNOWN_ELEMENT_TYPES.add(APIResourceOutSequenceOutputConnector_3730);
 			KNOWN_ELEMENT_TYPES.add(APIResourceFaultInputConnector_3672);
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceContainer_3673);
 			KNOWN_ELEMENT_TYPES.add(ComplexEndpoints_3677);
@@ -2601,6 +2619,8 @@ public class EsbElementTypes {
 			return ProxyOutputConnector_3002;
 		case ProxyInputConnectorEditPart.VISUAL_ID:
 			return ProxyInputConnector_3003;
+		case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return ProxyOutSequenceOutputConnector_3729;
 		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
 			return ProxyFaultInputConnector_3489;
 		case ProxyServiceContainerEditPart.VISUAL_ID:
@@ -2673,10 +2693,10 @@ public class EsbElementTypes {
 			return SwitchMediator_3498;
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return SwitchMediatorInputConnector_3042;
-		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
-			return SwitchCaseBranchOutputConnector_3043;
 		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 			return SwitchDefaultBranchOutputConnector_3044;
+		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+			return SwitchCaseBranchOutputConnector_3043;
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return SwitchMediatorOutputConnector_3499;
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
@@ -3135,6 +3155,8 @@ public class EsbElementTypes {
 			return APIResourceInputConnector_3670;
 		case APIResourceOutputConnectorEditPart.VISUAL_ID:
 			return APIResourceOutputConnector_3671;
+		case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return APIResourceOutSequenceOutputConnector_3730;
 		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 			return APIResourceFaultInputConnector_3672;
 		case ProxyServiceContainer2EditPart.VISUAL_ID:

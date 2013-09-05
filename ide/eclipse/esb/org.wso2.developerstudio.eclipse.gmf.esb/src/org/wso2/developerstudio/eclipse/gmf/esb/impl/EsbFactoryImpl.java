@@ -78,6 +78,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PROXY_SERVICE: return createProxyService();
 			case EsbPackage.PROXY_OUTPUT_CONNECTOR: return createProxyOutputConnector();
 			case EsbPackage.PROXY_INPUT_CONNECTOR: return createProxyInputConnector();
+			case EsbPackage.PROXY_OUT_SEQUENCE_OUTPUT_CONNECTOR: return createProxyOutSequenceOutputConnector();
 			case EsbPackage.PROXY_WSDL_RESOURCE: return createProxyWSDLResource();
 			case EsbPackage.PROXY_FAULT_INPUT_CONNECTOR: return createProxyFaultInputConnector();
 			case EsbPackage.PROXY_SERVICE_PARAMETER: return createProxyServiceParameter();
@@ -345,6 +346,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.API_RESOURCE: return createAPIResource();
 			case EsbPackage.API_RESOURCE_INPUT_CONNECTOR: return createAPIResourceInputConnector();
 			case EsbPackage.API_RESOURCE_OUTPUT_CONNECTOR: return createAPIResourceOutputConnector();
+			case EsbPackage.API_RESOURCE_OUT_SEQUENCE_OUTPUT_CONNECTOR: return createAPIResourceOutSequenceOutputConnector();
 			case EsbPackage.API_RESOURCE_FAULT_INPUT_CONNECTOR: return createAPIResourceFaultInputConnector();
 			case EsbPackage.API_RESOURCE_ENDPOINT: return createAPIResourceEndpoint();
 			case EsbPackage.API_RESOURCE_ENDPOINT_INPUT_CONNECTOR: return createAPIResourceEndpointInputConnector();
@@ -827,6 +829,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		ProxyServiceImpl proxyService = new ProxyServiceImpl();
 		proxyService.setOutputConnector(createProxyOutputConnector());
 		proxyService.setInputConnector(createProxyInputConnector());
+		proxyService.setOutSequenceOutputConnector(createProxyOutSequenceOutputConnector());
 		proxyService.setFaultInputConnector(createProxyFaultInputConnector());
 		proxyService.setContainer(createProxyServiceContainer());
 		//proxyService.setName("proxy" +proxyservicecount);
@@ -851,6 +854,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public ProxyInputConnector createProxyInputConnector() {
 		ProxyInputConnectorImpl proxyInputConnector = new ProxyInputConnectorImpl();
 		return proxyInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyOutSequenceOutputConnector createProxyOutSequenceOutputConnector() {
+		ProxyOutSequenceOutputConnectorImpl proxyOutSequenceOutputConnector = new ProxyOutSequenceOutputConnectorImpl();
+		return proxyOutSequenceOutputConnector;
 	}
 
 	/**
@@ -2117,6 +2130,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		APIResourceImpl apiResource = new APIResourceImpl();
 		apiResource.setInputConnector(createAPIResourceInputConnector());
 		apiResource.setOutputConnector(createAPIResourceOutputConnector());
+		apiResource.setOutSequenceOutputConnector(createAPIResourceOutSequenceOutputConnector());
 		apiResource.setFaultInputConnector(createAPIResourceFaultInputConnector());
 		apiResource.setContainer(createProxyServiceContainer());
 		return apiResource;
@@ -2140,6 +2154,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public APIResourceOutputConnector createAPIResourceOutputConnector() {
 		APIResourceOutputConnectorImpl apiResourceOutputConnector = new APIResourceOutputConnectorImpl();
 		return apiResourceOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIResourceOutSequenceOutputConnector createAPIResourceOutSequenceOutputConnector() {
+		APIResourceOutSequenceOutputConnectorImpl apiResourceOutSequenceOutputConnector = new APIResourceOutSequenceOutputConnectorImpl();
+		return apiResourceOutSequenceOutputConnector;
 	}
 
 	/**

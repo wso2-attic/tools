@@ -133,6 +133,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createProxyInputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseProxyOutSequenceOutputConnector(ProxyOutSequenceOutputConnector object) {
+				return createProxyOutSequenceOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseProxyWSDLResource(ProxyWSDLResource object) {
 				return createProxyWSDLResourceAdapter();
 			}
@@ -1225,6 +1229,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAPIResourceOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseAPIResourceOutSequenceOutputConnector(APIResourceOutSequenceOutputConnector object) {
+				return createAPIResourceOutSequenceOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseAPIResourceFaultInputConnector(APIResourceFaultInputConnector object) {
 				return createAPIResourceFaultInputConnectorAdapter();
 			}
@@ -1552,6 +1560,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProxyInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutSequenceOutputConnector <em>Proxy Out Sequence Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutSequenceOutputConnector
+	 * @generated
+	 */
+	public Adapter createProxyOutSequenceOutputConnectorAdapter() {
 		return null;
 	}
 
@@ -3288,6 +3310,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAPIResourceOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutSequenceOutputConnector <em>API Resource Out Sequence Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutSequenceOutputConnector
+	 * @generated
+	 */
+	public Adapter createAPIResourceOutSequenceOutputConnectorAdapter() {
 		return null;
 	}
 

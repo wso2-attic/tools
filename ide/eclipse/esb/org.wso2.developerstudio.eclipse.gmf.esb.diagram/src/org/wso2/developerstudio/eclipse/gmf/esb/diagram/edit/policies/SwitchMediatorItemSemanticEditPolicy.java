@@ -46,11 +46,11 @@ public class SwitchMediatorItemSemanticEditPolicy extends EsbBaseItemSemanticEdi
 		if (EsbElementTypes.SwitchMediatorInputConnector_3042 == req.getElementType()) {
 			return getGEFWrapper(new SwitchMediatorInputConnectorCreateCommand(req));
 		}
-		if (EsbElementTypes.SwitchCaseBranchOutputConnector_3043 == req.getElementType()) {
-			return getGEFWrapper(new SwitchCaseBranchOutputConnectorCreateCommand(req));
-		}
 		if (EsbElementTypes.SwitchDefaultBranchOutputConnector_3044 == req.getElementType()) {
 			return getGEFWrapper(new SwitchDefaultBranchOutputConnectorCreateCommand(req));
+		}
+		if (EsbElementTypes.SwitchCaseBranchOutputConnector_3043 == req.getElementType()) {
+			return getGEFWrapper(new SwitchCaseBranchOutputConnectorCreateCommand(req));
 		}
 		if (EsbElementTypes.SwitchMediatorOutputConnector_3499 == req.getElementType()) {
 			return getGEFWrapper(new SwitchMediatorOutputConnectorCreateCommand(req));
@@ -106,7 +106,7 @@ public class SwitchMediatorItemSemanticEditPolicy extends EsbBaseItemSemanticEdi
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+			case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 				for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
@@ -122,7 +122,7 @@ public class SwitchMediatorItemSemanticEditPolicy extends EsbBaseItemSemanticEdi
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+			case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 				for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {

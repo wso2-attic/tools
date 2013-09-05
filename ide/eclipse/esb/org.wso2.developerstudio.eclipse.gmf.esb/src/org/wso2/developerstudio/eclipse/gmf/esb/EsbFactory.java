@@ -89,6 +89,15 @@ public interface EsbFactory extends EFactory {
 	ProxyInputConnector createProxyInputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Proxy Out Sequence Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy Out Sequence Output Connector</em>'.
+	 * @generated
+	 */
+	ProxyOutSequenceOutputConnector createProxyOutSequenceOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Proxy WSDL Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1183,6 +1192,15 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	APIResourceOutputConnector createAPIResourceOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>API Resource Out Sequence Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource Out Sequence Output Connector</em>'.
+	 * @generated
+	 */
+	APIResourceOutSequenceOutputConnector createAPIResourceOutSequenceOutputConnector();
 
 	/**
 	 * Returns a new object of class '<em>API Resource Fault Input Connector</em>'.

@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
@@ -81,9 +82,13 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
-		result.setTitleVisibility(true);
-		// Override default border.
-		LineBorder border = new LineBorder(new Color(null, 224, 224, 224), 1, SWT.BORDER_DASH);
+		result.setTitleVisibility(false);
+		/*
+		 *  Override default border.
+		 *  Hide title for fault sequence compartment and
+		 *  distinguishes it by different border color. 
+		 */
+		LineBorder border = new LineBorder(new Color(null, 204, 0, 0), 1, SWT.BORDER_DASH);
 		result.setBorder(border);
 		result.setToolTip(getCompartmentName());
 		return result;

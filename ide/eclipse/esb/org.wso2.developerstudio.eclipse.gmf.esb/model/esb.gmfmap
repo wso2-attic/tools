@@ -59,6 +59,16 @@
           </children>
           <children>
             <containmentFeature
+                href="esb.ecore#//ProxyService/outSequenceOutputConnector"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="esb.ecore#//ProxyOutSequenceOutputConnector"/>
+              <diagramNode
+                  href="esb.gmfgraph#ProxyOutSequenceOutputConnector"/>
+            </ownedChild>
+          </children>
+          <children>
+            <containmentFeature
                 href="esb.ecore#//ProxyService/faultInputConnector"/>
             <ownedChild>
               <domainMetaElement
@@ -92,7 +102,7 @@
                       <diagramNode
                           href="esb.gmfgraph#MediatorFlow"/>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -123,7 +133,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -173,7 +183,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -248,7 +258,7 @@
                                   <diagramNode
                                       href="esb.gmfgraph#ThrottleOnAcceptContainer"/>
                                   <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                                     <containmentFeature
                                         href="esb.ecore#//ThrottleOnAcceptContainer/mediatorFlow"/>
                                   </children>
@@ -263,7 +273,7 @@
                                   <diagramNode
                                       href="esb.gmfgraph#ThrottleOnRejectContainer"/>
                                   <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                                     <containmentFeature
                                         href="esb.ecore#//ThrottleOnRejectContainer/mediatorFlow"/>
                                   </children>
@@ -274,7 +284,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -351,7 +361,7 @@
                                   <diagramNode
                                       href="esb.gmfgraph#FilterPassContainer"/>
                                   <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                                     <containmentFeature
                                         href="esb.ecore#//FilterPassContainer/mediatorFlow"/>
                                   </children>
@@ -366,7 +376,7 @@
                                   <diagramNode
                                       href="esb.gmfgraph#FilterFailContainer"/>
                                   <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                                     <containmentFeature
                                         href="esb.ecore#//FilterFailContainer/mediatorFlow"/>
                                   </children>
@@ -377,7 +387,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -427,7 +437,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -477,7 +487,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -518,7 +528,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -541,22 +551,22 @@
                           </children>
                           <children>
                             <containmentFeature
-                                href="esb.ecore#//SwitchMediator/caseBranches"/>
-                            <ownedChild>
-                              <domainMetaElement
-                                  href="esb.ecore#//SwitchCaseBranchOutputConnector"/>
-                              <diagramNode
-                                  href="esb.gmfgraph#SwitchCaseBranchOutputConnector"/>
-                            </ownedChild>
-                          </children>
-                          <children>
-                            <containmentFeature
                                 href="esb.ecore#//SwitchMediator/defaultBranch"/>
                             <ownedChild>
                               <domainMetaElement
                                   href="esb.ecore#//SwitchDefaultBranchOutputConnector"/>
                               <diagramNode
                                   href="esb.gmfgraph#SwitchDefaultBranchOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//SwitchMediator/caseBranches"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//SwitchCaseBranchOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#SwitchCaseBranchOutputConnector"/>
                             </ownedChild>
                           </children>
                           <children>
@@ -586,7 +596,7 @@
                                   <diagramNode
                                       href="esb.gmfgraph#SwitchCaseContainer"/>
                                   <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                                     <containmentFeature
                                         href="esb.ecore#//SwitchCaseContainer/mediatorFlow"/>
                                   </children>
@@ -601,7 +611,7 @@
                                   <diagramNode
                                       href="esb.gmfgraph#SwitchDefaultContainer"/>
                                   <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                                     <containmentFeature
                                         href="esb.ecore#//SwitchDefaultContainer/mediatorFlow"/>
                                   </children>
@@ -612,7 +622,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -653,7 +663,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -703,7 +713,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -753,7 +763,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -803,7 +813,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -853,7 +863,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -903,7 +913,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -953,7 +963,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1003,7 +1013,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1053,7 +1063,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1103,7 +1113,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1153,7 +1163,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1194,7 +1204,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1243,14 +1253,14 @@
                             </ownedChild>
                           </children>
                           <children
-                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                             <containmentFeature
                                 href="esb.ecore#//SendMediator/mediatorFlow"/>
                           </children>
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1299,7 +1309,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1365,7 +1375,7 @@
                                   <diagramNode
                                       href="esb.gmfgraph#CloneMediator"/>
                                   <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                                     <containmentFeature
                                         href="esb.ecore#//CloneTargetContainer/mediatorFlow"/>
                                   </children>
@@ -1376,7 +1386,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1426,14 +1436,14 @@
                             </ownedChild>
                           </children>
                           <children
-                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                             <containmentFeature
                                 href="esb.ecore#//CacheMediator/mediatorFlow"/>
                           </children>
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1483,14 +1493,14 @@
                             </ownedChild>
                           </children>
                           <children
-                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                             <containmentFeature
                                 href="esb.ecore#//IterateMediator/mediatorFlow"/>
                           </children>
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1539,7 +1549,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1580,7 +1590,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1621,7 +1631,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1663,14 +1673,14 @@
                             </ownedChild>
                           </children>
                           <children
-                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                             <containmentFeature
                                 href="esb.ecore#//RuleMediator/mediatorFlow"/>
                           </children>
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1718,7 +1728,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1768,14 +1778,14 @@
                             </ownedChild>
                           </children>
                           <children
-                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                             <containmentFeature
                                 href="esb.ecore#//AggregateMediator/mediatorFlow"/>
                           </children>
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1813,7 +1823,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1851,7 +1861,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1889,7 +1899,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1930,7 +1940,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -1971,7 +1981,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2012,7 +2022,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2054,14 +2064,14 @@
                             </ownedChild>
                           </children>
                           <children
-                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                             <containmentFeature
                                 href="esb.ecore#//ValidateMediator/mediatorFlow"/>
                           </children>
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2119,7 +2129,7 @@
                                   <diagramNode
                                       href="esb.gmfgraph#RouterTargetContainer"/>
                                   <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                                     <containmentFeature
                                         href="esb.ecore#//RouterTargetContainer/mediatorFlow"/>
                                   </children>
@@ -2130,7 +2140,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2172,14 +2182,14 @@
                             </ownedChild>
                           </children>
                           <children
-                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                             <containmentFeature
                                 href="esb.ecore#//ConditionalRouterMediator/mediatorFlow"/>
                           </children>
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2220,7 +2230,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2261,7 +2271,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2302,7 +2312,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2344,7 +2354,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2386,7 +2396,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2438,7 +2448,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2482,7 +2492,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2524,7 +2534,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2568,7 +2578,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2620,7 +2630,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2651,7 +2661,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2685,7 +2695,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2719,7 +2729,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2753,7 +2763,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2794,7 +2804,7 @@
                         </ownedChild>
                       </children>
                       <children
-                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
                         <containmentFeature
                             href="esb.ecore#//MediatorFlow/children"/>
                         <ownedChild>
@@ -2835,7 +2845,7 @@
                         </ownedChild>
                       </children>
                       <compartments
-                          children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.12 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.13 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.14 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.15 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.16 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.17 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.18 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.19 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.20 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.21 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.22 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.23 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.24 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.25 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.26 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.27 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.28 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.29 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.30 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.31 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.32 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.33 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.34 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.35 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.43 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.44 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.45 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.46 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.48 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.36 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.37 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.38 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.39 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.47 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.49 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.40 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.41 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.42 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.50 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.51 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.52 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.53 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.54 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.55">
+                          children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.12 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.13 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.14 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.15 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.16 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.17 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.18 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.19 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.20 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.21 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.22 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.23 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.24 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.25 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.26 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.27 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.28 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.29 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.30 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.31 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.32 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.33 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.34 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.35 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.43 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.44 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.45 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.46 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.48 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.36 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.37 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.38 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.39 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.47 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.49 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.40 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.41 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.42 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.50 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.51 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.52 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.53 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.54 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.55">
                         <compartment
                             href="esb.gmfgraph#MediatorFlowCompartment"/>
                       </compartments>
@@ -2852,7 +2862,7 @@
                   <diagramNode
                       href="esb.gmfgraph#ProxyServiceFaultContainer"/>
                   <children
-                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
                     <containmentFeature
                         href="esb.ecore#//ProxyServiceFaultContainer/mediatorFlow"/>
                   </children>
@@ -2949,7 +2959,7 @@
           <diagramNode
               href="esb.gmfgraph#Sequences"/>
           <children
-              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
             <containmentFeature
                 href="esb.ecore#//Sequences/mediatorFlow"/>
           </children>
@@ -3425,6 +3435,16 @@
               </children>
               <children>
                 <containmentFeature
+                    href="esb.ecore#//APIResource/outSequenceOutputConnector"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="esb.ecore#//APIResourceOutSequenceOutputConnector"/>
+                  <diagramNode
+                      href="esb.gmfgraph#APIResourceOutSequenceOutputConnector"/>
+                </ownedChild>
+              </children>
+              <children>
+                <containmentFeature
                     href="esb.ecore#//APIResource/faultInputConnector"/>
                 <ownedChild>
                   <domainMetaElement
@@ -3434,7 +3454,7 @@
                 </ownedChild>
               </children>
               <children
-                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild">
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild">
                 <containmentFeature
                     href="esb.ecore#//APIResource/container"/>
               </children>
@@ -3457,7 +3477,7 @@
           <diagramNode
               href="esb.gmfgraph#ComplexEndpoints"/>
           <children
-              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
             <containmentFeature
                 href="esb.ecore#//ComplexEndpoints/mediatorFlow"/>
           </children>

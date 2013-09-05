@@ -175,6 +175,12 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 			return false;
 		}
 
+		if (childEditPart instanceof APIResourceOutSequenceOutputConnectorEditPart) {
+			outSequenceOutputConnectorFigure = ((APIResourceOutSequenceOutputConnectorEditPart) childEditPart)
+					.getFigure();
+			return false;
+		}
+
 		if (childEditPart instanceof APIResourceFaultInputConnectorEditPart) {
 			faultInputnputConnectorFigure = ((APIResourceFaultInputConnectorEditPart) childEditPart)
 					.getFigure();

@@ -15,11 +15,13 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyFaultInputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyInputConnectorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyOutSequenceOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceContainerCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -46,6 +48,9 @@ public class ProxyServiceItemSemanticEditPolicy extends EsbBaseItemSemanticEditP
 		}
 		if (EsbElementTypes.ProxyInputConnector_3003 == req.getElementType()) {
 			return getGEFWrapper(new ProxyInputConnectorCreateCommand(req));
+		}
+		if (EsbElementTypes.ProxyOutSequenceOutputConnector_3729 == req.getElementType()) {
+			return getGEFWrapper(new ProxyOutSequenceOutputConnectorCreateCommand(req));
 		}
 		if (EsbElementTypes.ProxyFaultInputConnector_3489 == req.getElementType()) {
 			return getGEFWrapper(new ProxyFaultInputConnectorCreateCommand(req));
@@ -109,6 +114,22 @@ public class ProxyServiceItemSemanticEditPolicy extends EsbBaseItemSemanticEditP
 								incomingLink.getElement(), false);
 						cmd.add(new DestroyElementCommand(r));
 						cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+						continue;
+					}
+				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
+						node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
+				for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
+					Edge outgoingLink = (Edge) it.next();
+					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
 						continue;
 					}
 				}

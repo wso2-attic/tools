@@ -205,6 +205,7 @@ public class MergeNodeSecondInputConnectorEditPart extends AbstractBorderItemEdi
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (relationshipType == EsbElementTypes.EsbLink_4001) {
 			types.add(EsbElementTypes.ProxyOutputConnector_3002);
+			types.add(EsbElementTypes.ProxyOutSequenceOutputConnector_3729);
 			types.add(EsbElementTypes.PropertyMediatorOutputConnector_3034);
 			types.add(EsbElementTypes.ThrottleMediatorOutputConnector_3122);
 			types.add(EsbElementTypes.ThrottleMediatorOnAcceptOutputConnector_3581);
@@ -215,8 +216,8 @@ public class MergeNodeSecondInputConnectorEditPart extends AbstractBorderItemEdi
 			types.add(EsbElementTypes.LogMediatorOutputConnector_3019);
 			types.add(EsbElementTypes.EnrichMediatorOutputConnector_3037);
 			types.add(EsbElementTypes.XSLTMediatorOutputConnector_3040);
-			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3044);
+			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchMediatorOutputConnector_3499);
 			types.add(EsbElementTypes.SequenceOutputConnector_3050);
 			types.add(EsbElementTypes.EventMediatorOutputConnector_3053);
@@ -293,6 +294,7 @@ public class MergeNodeSecondInputConnectorEditPart extends AbstractBorderItemEdi
 			types.add(EsbElementTypes.HTTPEndPointOutputConnector_3714);
 			types.add(EsbElementTypes.TemplateEndpointOutputConnector_3727);
 			types.add(EsbElementTypes.APIResourceOutputConnector_3671);
+			types.add(EsbElementTypes.APIResourceOutSequenceOutputConnector_3730);
 			types.add(EsbElementTypes.ComplexEndpointsOutputConnector_3679);
 		}
 		return types;

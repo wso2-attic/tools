@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceOutputConnector <em>Out Sequence Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultInputConnector <em>Fault Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getUrlStyle <em>Url Style</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getUriTemplate <em>Uri Template</em>}</li>
@@ -95,6 +96,32 @@ public interface APIResource extends EsbNode {
 	 * @generated
 	 */
 	void setOutputConnector(APIResourceOutputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Sequence Output Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence Output Connector</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence Output Connector</em>' containment reference.
+	 * @see #setOutSequenceOutputConnector(APIResourceOutSequenceOutputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_OutSequenceOutputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+	APIResourceOutSequenceOutputConnector getOutSequenceOutputConnector();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceOutputConnector <em>Out Sequence Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence Output Connector</em>' containment reference.
+	 * @see #getOutSequenceOutputConnector()
+	 * @generated
+	 */
+	void setOutSequenceOutputConnector(APIResourceOutSequenceOutputConnector value);
 
 	/**
 	 * Returns the value of the '<em><b>Fault Input Connector</b></em>' containment reference.

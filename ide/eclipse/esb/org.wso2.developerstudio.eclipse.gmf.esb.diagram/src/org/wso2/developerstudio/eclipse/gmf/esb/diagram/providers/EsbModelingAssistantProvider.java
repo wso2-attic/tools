@@ -47,9 +47,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof ProxyServiceEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 			types.add(EsbElementTypes.ProxyOutputConnector_3002);
 			types.add(EsbElementTypes.ProxyInputConnector_3003);
+			types.add(EsbElementTypes.ProxyOutSequenceOutputConnector_3729);
 			types.add(EsbElementTypes.ProxyFaultInputConnector_3489);
 			types.add(EsbElementTypes.ProxyServiceContainer_3486);
 			return types;
@@ -137,8 +138,8 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof SwitchMediatorEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 			types.add(EsbElementTypes.SwitchMediatorInputConnector_3042);
-			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3044);
+			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchMediatorOutputConnector_3499);
 			types.add(EsbElementTypes.SwitchMediatorContainer_3500);
 			return types;
@@ -582,9 +583,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof APIResourceEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 			types.add(EsbElementTypes.APIResourceInputConnector_3670);
 			types.add(EsbElementTypes.APIResourceOutputConnector_3671);
+			types.add(EsbElementTypes.APIResourceOutSequenceOutputConnector_3730);
 			types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
 			types.add(EsbElementTypes.ProxyServiceContainer_3673);
 			return types;
@@ -1802,6 +1804,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (sourceEditPart instanceof ProxyOutputConnectorEditPart) {
 			return ((ProxyOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof ProxyOutSequenceOutputConnectorEditPart) {
+			return ((ProxyOutSequenceOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
 			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
@@ -1838,12 +1844,12 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (sourceEditPart instanceof XSLTMediatorOutputConnectorEditPart) {
 			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
-		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSource();
-		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
 			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
+			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
@@ -2119,6 +2125,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (sourceEditPart instanceof APIResourceOutputConnectorEditPart) {
 			return ((APIResourceOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof APIResourceOutSequenceOutputConnectorEditPart) {
+			return ((APIResourceOutSequenceOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof ComplexEndpointsOutputConnectorEditPart) {
 			return ((ComplexEndpointsOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
@@ -2390,6 +2400,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ProxyOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
+		if (sourceEditPart instanceof ProxyOutSequenceOutputConnectorEditPart) {
+			return ((ProxyOutSequenceOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		if (sourceEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
 			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
@@ -2430,12 +2444,12 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
 			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
+			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
@@ -2740,6 +2754,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof APIResourceOutputConnectorEditPart) {
 			return ((APIResourceOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof APIResourceOutSequenceOutputConnectorEditPart) {
+			return ((APIResourceOutSequenceOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof ComplexEndpointsOutputConnectorEditPart) {
@@ -3056,6 +3074,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((ProxyOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
+		if (sourceEditPart instanceof ProxyOutSequenceOutputConnectorEditPart) {
+			return ((ProxyOutSequenceOutputConnectorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		if (sourceEditPart instanceof PropertyMediatorOutputConnectorEditPart) {
 			return ((PropertyMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
@@ -3096,12 +3118,12 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
-		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
 			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
+			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
@@ -3406,6 +3428,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof APIResourceOutputConnectorEditPart) {
 			return ((APIResourceOutputConnectorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof APIResourceOutSequenceOutputConnectorEditPart) {
+			return ((APIResourceOutSequenceOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof ComplexEndpointsOutputConnectorEditPart) {

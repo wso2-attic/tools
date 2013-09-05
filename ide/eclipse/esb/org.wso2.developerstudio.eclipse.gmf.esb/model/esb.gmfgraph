@@ -2892,6 +2892,14 @@
       name="CloudConnectorOperationOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="ProxyOutSequenceOutputConnector"
+      figure="WestPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="APIResourceOutSequenceOutputConnector"
+      figure="WestPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

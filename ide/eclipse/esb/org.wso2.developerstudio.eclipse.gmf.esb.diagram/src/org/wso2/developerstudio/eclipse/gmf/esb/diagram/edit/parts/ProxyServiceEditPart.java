@@ -203,6 +203,7 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 	}
 
 	private void alignLeft(int y, int width, int height) {
+		y = 100;
 		Rectangle constraints = new Rectangle(0, y, width, height);
 		((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
 	}
@@ -246,6 +247,11 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 			 getBorderedFigure().getBorderItemContainer().add(inputConnectorFigure,
 			 locator);*/
 
+			return false;
+		}
+		if (childEditPart instanceof ProxyOutSequenceOutputConnectorEditPart) {
+			outSequenceOutputConnectorFigure = ((ProxyOutSequenceOutputConnectorEditPart) childEditPart)
+					.getFigure();
 			return false;
 		}
 
@@ -425,7 +431,7 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 			layoutThis.setVertical(false);
 
 			this.setLayoutManager(layoutThis);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(800), getMapMode().DPtoLP(400)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(300), getMapMode().DPtoLP(400)));
 			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			this.setForegroundColor(new Color(null, 0, 0, 0));

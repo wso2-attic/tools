@@ -133,6 +133,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case ProxyServiceEditPart.VISUAL_ID:
 				case ProxyOutputConnectorEditPart.VISUAL_ID:
 				case ProxyInputConnectorEditPart.VISUAL_ID:
+				case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
 				case ProxyFaultInputConnectorEditPart.VISUAL_ID:
 				case ProxyServiceContainerEditPart.VISUAL_ID:
 				case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
@@ -167,8 +168,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case XSLTMediatorOutputConnectorEditPart.VISUAL_ID:
 				case SwitchMediatorEditPart.VISUAL_ID:
 				case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
-				case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 				case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+				case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 				case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 				case SwitchMediatorContainerEditPart.VISUAL_ID:
 				case SwitchCaseContainerEditPart.VISUAL_ID:
@@ -354,6 +355,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case APIResourceEditPart.VISUAL_ID:
 				case APIResourceInputConnectorEditPart.VISUAL_ID:
 				case APIResourceOutputConnectorEditPart.VISUAL_ID:
+				case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
 				case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 				case ComplexEndpointsEditPart.VISUAL_ID:
 				case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
@@ -422,6 +424,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| ProxyServiceEditPart.VISUAL_ID == visualID
 				|| ProxyOutputConnectorEditPart.VISUAL_ID == visualID
 				|| ProxyInputConnectorEditPart.VISUAL_ID == visualID
+				|| ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID == visualID
 				|| ProxyFaultInputConnectorEditPart.VISUAL_ID == visualID
 				|| ProxyServiceContainerEditPart.VISUAL_ID == visualID
 				|| ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID == visualID
@@ -458,8 +461,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| XSLTMediatorOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorInputConnectorEditPart.VISUAL_ID == visualID
-				|| SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID == visualID
+				|| SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorContainerEditPart.VISUAL_ID == visualID
 				|| SwitchCaseContainerEditPart.VISUAL_ID == visualID
@@ -688,6 +691,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| APIResourceEditPart.VISUAL_ID == visualID
 				|| APIResourceInputConnectorEditPart.VISUAL_ID == visualID
 				|| APIResourceOutputConnectorEditPart.VISUAL_ID == visualID
+				|| APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID == visualID
 				|| APIResourceFaultInputConnectorEditPart.VISUAL_ID == visualID
 				|| ProxyServiceContainer2EditPart.VISUAL_ID == visualID
 				|| ComplexEndpointsEditPart.VISUAL_ID == visualID
@@ -758,6 +762,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case ProxyInputConnectorEditPart.VISUAL_ID:
 			return createProxyInputConnector_3003(domainElement, containerView, index, persisted,
 					preferencesHint);
+		case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return createProxyOutSequenceOutputConnector_3729(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
 			return createProxyFaultInputConnector_3489(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -866,12 +873,12 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return createSwitchMediatorInputConnector_3042(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
-			return createSwitchCaseBranchOutputConnector_3043(domainElement, containerView, index,
-					persisted, preferencesHint);
 		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 			return createSwitchDefaultBranchOutputConnector_3044(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+			return createSwitchCaseBranchOutputConnector_3043(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return createSwitchMediatorOutputConnector_3499(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -1558,6 +1565,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case APIResourceOutputConnectorEditPart.VISUAL_ID:
 			return createAPIResourceOutputConnector_3671(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return createAPIResourceOutSequenceOutputConnector_3730(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 			return createAPIResourceFaultInputConnector_3672(domainElement, containerView, index,
 					persisted, preferencesHint);
@@ -4058,6 +4068,43 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(EsbVisualIDRegistry.getType(APIResourceOutputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResourceOutSequenceOutputConnector_3730(EObject domainElement,
+			View containerView, int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -7961,6 +8008,42 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				node,
 				EsbVisualIDRegistry.getType(MediatorFlowMediatorFlowCompartment6EditPart.VISUAL_ID),
 				false, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createProxyOutSequenceOutputConnector_3729(EObject domainElement,
+			View containerView, int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
 		return node;
 	}
 

@@ -13,6 +13,8 @@ public class AbstractBaseFigureEditPart extends AbstractBorderedShapeEditPart{
 
 	public IFigure faultInputnputConnectorFigure;
 	
+	public IFigure outSequenceOutputConnectorFigure;
+	
 	public AbstractBaseFigureEditPart(View view) {
 		super(view);
 	}

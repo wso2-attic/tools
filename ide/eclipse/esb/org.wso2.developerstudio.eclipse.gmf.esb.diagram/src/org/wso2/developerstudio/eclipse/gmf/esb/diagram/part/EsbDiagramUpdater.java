@@ -309,6 +309,14 @@ public class EsbDiagramUpdater {
 			}
 		}
 		{
+			ProxyOutSequenceOutputConnector childElement = modelElement
+					.getOutSequenceOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
 			ProxyFaultInputConnector childElement = modelElement.getFaultInputConnector();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == ProxyFaultInputConnectorEditPart.VISUAL_ID) {
@@ -699,6 +707,13 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
+		{
+			SwitchDefaultBranchOutputConnector childElement = modelElement.getDefaultBranch();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
 		for (Iterator<?> it = modelElement.getCaseBranches().iterator(); it.hasNext();) {
 			SwitchCaseBranchOutputConnector childElement = (SwitchCaseBranchOutputConnector) it
 					.next();
@@ -706,13 +721,6 @@ public class EsbDiagramUpdater {
 			if (visualID == SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
-			}
-		}
-		{
-			SwitchDefaultBranchOutputConnector childElement = modelElement.getDefaultBranch();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
 		{
@@ -2734,6 +2742,14 @@ public class EsbDiagramUpdater {
 			APIResourceOutputConnector childElement = modelElement.getOutputConnector();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == APIResourceOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			APIResourceOutSequenceOutputConnector childElement = modelElement
+					.getOutSequenceOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -7700,6 +7716,8 @@ public class EsbDiagramUpdater {
 			return getProxyOutputConnector_3002ContainedLinks(view);
 		case ProxyInputConnectorEditPart.VISUAL_ID:
 			return getProxyInputConnector_3003ContainedLinks(view);
+		case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return getProxyOutSequenceOutputConnector_3729ContainedLinks(view);
 		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
 			return getProxyFaultInputConnector_3489ContainedLinks(view);
 		case ProxyServiceContainerEditPart.VISUAL_ID:
@@ -7772,10 +7790,10 @@ public class EsbDiagramUpdater {
 			return getSwitchMediator_3498ContainedLinks(view);
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorInputConnector_3042ContainedLinks(view);
-		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
-			return getSwitchCaseBranchOutputConnector_3043ContainedLinks(view);
 		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchDefaultBranchOutputConnector_3044ContainedLinks(view);
+		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+			return getSwitchCaseBranchOutputConnector_3043ContainedLinks(view);
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorOutputConnector_3499ContainedLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
@@ -8234,6 +8252,8 @@ public class EsbDiagramUpdater {
 			return getAPIResourceInputConnector_3670ContainedLinks(view);
 		case APIResourceOutputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceOutputConnector_3671ContainedLinks(view);
+		case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return getAPIResourceOutSequenceOutputConnector_3730ContainedLinks(view);
 		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceFaultInputConnector_3672ContainedLinks(view);
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
@@ -8267,6 +8287,8 @@ public class EsbDiagramUpdater {
 			return getProxyOutputConnector_3002IncomingLinks(view);
 		case ProxyInputConnectorEditPart.VISUAL_ID:
 			return getProxyInputConnector_3003IncomingLinks(view);
+		case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return getProxyOutSequenceOutputConnector_3729IncomingLinks(view);
 		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
 			return getProxyFaultInputConnector_3489IncomingLinks(view);
 		case ProxyServiceContainerEditPart.VISUAL_ID:
@@ -8339,10 +8361,10 @@ public class EsbDiagramUpdater {
 			return getSwitchMediator_3498IncomingLinks(view);
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorInputConnector_3042IncomingLinks(view);
-		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
-			return getSwitchCaseBranchOutputConnector_3043IncomingLinks(view);
 		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchDefaultBranchOutputConnector_3044IncomingLinks(view);
+		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+			return getSwitchCaseBranchOutputConnector_3043IncomingLinks(view);
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorOutputConnector_3499IncomingLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
@@ -8801,6 +8823,8 @@ public class EsbDiagramUpdater {
 			return getAPIResourceInputConnector_3670IncomingLinks(view);
 		case APIResourceOutputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceOutputConnector_3671IncomingLinks(view);
+		case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return getAPIResourceOutSequenceOutputConnector_3730IncomingLinks(view);
 		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceFaultInputConnector_3672IncomingLinks(view);
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
@@ -8834,6 +8858,8 @@ public class EsbDiagramUpdater {
 			return getProxyOutputConnector_3002OutgoingLinks(view);
 		case ProxyInputConnectorEditPart.VISUAL_ID:
 			return getProxyInputConnector_3003OutgoingLinks(view);
+		case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return getProxyOutSequenceOutputConnector_3729OutgoingLinks(view);
 		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
 			return getProxyFaultInputConnector_3489OutgoingLinks(view);
 		case ProxyServiceContainerEditPart.VISUAL_ID:
@@ -8906,10 +8932,10 @@ public class EsbDiagramUpdater {
 			return getSwitchMediator_3498OutgoingLinks(view);
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorInputConnector_3042OutgoingLinks(view);
-		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
-			return getSwitchCaseBranchOutputConnector_3043OutgoingLinks(view);
 		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchDefaultBranchOutputConnector_3044OutgoingLinks(view);
+		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+			return getSwitchCaseBranchOutputConnector_3043OutgoingLinks(view);
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorOutputConnector_3499OutgoingLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
@@ -9368,6 +9394,8 @@ public class EsbDiagramUpdater {
 			return getAPIResourceInputConnector_3670OutgoingLinks(view);
 		case APIResourceOutputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceOutputConnector_3671OutgoingLinks(view);
+		case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
+			return getAPIResourceOutSequenceOutputConnector_3730OutgoingLinks(view);
 		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceFaultInputConnector_3672OutgoingLinks(view);
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
@@ -9952,6 +9980,18 @@ public class EsbDiagramUpdater {
 	 */
 	public static List<EsbLinkDescriptor> getAPIResourceOutputConnector_3671ContainedLinks(View view) {
 		APIResourceOutputConnector modelElement = (APIResourceOutputConnector) view.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAPIResourceOutSequenceOutputConnector_3730ContainedLinks(
+			View view) {
+		APIResourceOutSequenceOutputConnector modelElement = (APIResourceOutSequenceOutputConnector) view
+				.getElement();
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
@@ -10886,6 +10926,18 @@ public class EsbDiagramUpdater {
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3530ContainedLinks(View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getProxyOutSequenceOutputConnector_3729ContainedLinks(
+			View view) {
+		ProxyOutSequenceOutputConnector modelElement = (ProxyOutSequenceOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
 	}
 
 	/**
@@ -12415,6 +12467,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getAPIResourceOutSequenceOutputConnector_3730IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getAPIResourceFaultInputConnector_3672IncomingLinks(
 			View view) {
 		APIResourceFaultInputConnector modelElement = (APIResourceFaultInputConnector) view
@@ -13364,6 +13424,14 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3530IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getProxyOutSequenceOutputConnector_3729IncomingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
@@ -14869,6 +14937,18 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getAPIResourceOutSequenceOutputConnector_3730OutgoingLinks(
+			View view) {
+		APIResourceOutSequenceOutputConnector modelElement = (APIResourceOutSequenceOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getAPIResourceFaultInputConnector_3672OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -15787,6 +15867,18 @@ public class EsbDiagramUpdater {
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3530OutgoingLinks(View view) {
 		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getProxyOutSequenceOutputConnector_3729OutgoingLinks(
+			View view) {
+		ProxyOutSequenceOutputConnector modelElement = (ProxyOutSequenceOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
 	}
 
 	/**

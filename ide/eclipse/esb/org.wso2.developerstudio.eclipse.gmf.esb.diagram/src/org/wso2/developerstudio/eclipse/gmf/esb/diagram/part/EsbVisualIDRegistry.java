@@ -135,6 +135,10 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getProxyInputConnector().isSuperTypeOf(domainElement.eClass())) {
 				return ProxyInputConnectorEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getProxyOutSequenceOutputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID;
+			}
 			if (EsbPackage.eINSTANCE.getProxyFaultInputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
 				return ProxyFaultInputConnectorEditPart.VISUAL_ID;
@@ -280,13 +284,13 @@ public class EsbVisualIDRegistry {
 					domainElement.eClass())) {
 				return SwitchMediatorInputConnectorEditPart.VISUAL_ID;
 			}
-			if (EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector().isSuperTypeOf(
-					domainElement.eClass())) {
-				return SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID;
-			}
 			if (EsbPackage.eINSTANCE.getSwitchDefaultBranchOutputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
 				return SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID;
 			}
 			if (EsbPackage.eINSTANCE.getSwitchMediatorOutputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -1060,6 +1064,10 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAPIResourceOutputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
 				return APIResourceOutputConnectorEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getAPIResourceOutSequenceOutputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID;
 			}
 			if (EsbPackage.eINSTANCE.getAPIResourceFaultInputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -4564,6 +4572,9 @@ public class EsbVisualIDRegistry {
 			if (ProxyInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (ProxyFaultInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4730,10 +4741,10 @@ public class EsbVisualIDRegistry {
 			if (SwitchMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+			if (SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+			if (SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (SwitchMediatorOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -5628,6 +5639,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (APIResourceOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (APIResourceFaultInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -9233,6 +9247,8 @@ public class EsbVisualIDRegistry {
 		case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 		case TemplateEndpointInputConnector2EditPart.VISUAL_ID:
 		case TemplateEndpointOutputConnector2EditPart.VISUAL_ID:
+		case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
+		case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

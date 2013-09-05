@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultInputConnector <em>Fault Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceOutputConnector <em>Out Sequence Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getPinnedServers <em>Pinned Servers</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServiceGroup <em>Service Group</em>}</li>
@@ -138,6 +139,32 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	void setFaultInputConnector(ProxyFaultInputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Sequence Output Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence Output Connector</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence Output Connector</em>' containment reference.
+	 * @see #setOutSequenceOutputConnector(ProxyOutSequenceOutputConnector)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_OutSequenceOutputConnector()
+	 * @model containment="true"
+	 * @generated
+	 */
+	ProxyOutSequenceOutputConnector getOutSequenceOutputConnector();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceOutputConnector <em>Out Sequence Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence Output Connector</em>' containment reference.
+	 * @see #getOutSequenceOutputConnector()
+	 * @generated
+	 */
+	void setOutSequenceOutputConnector(ProxyOutSequenceOutputConnector value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

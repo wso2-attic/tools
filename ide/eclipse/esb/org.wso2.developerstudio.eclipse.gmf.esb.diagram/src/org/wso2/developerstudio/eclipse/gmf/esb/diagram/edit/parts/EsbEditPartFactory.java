@@ -47,6 +47,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case ProxyInputConnectorEditPart.VISUAL_ID:
 				return new ProxyInputConnectorEditPart(view);
 
+			case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
+				return new ProxyOutSequenceOutputConnectorEditPart(view);
+
 			case ProxyFaultInputConnectorEditPart.VISUAL_ID:
 				return new ProxyFaultInputConnectorEditPart(view);
 
@@ -185,11 +188,11 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 				return new SwitchMediatorInputConnectorEditPart(view);
 
-			case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
-				return new SwitchCaseBranchOutputConnectorEditPart(view);
-
 			case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 				return new SwitchDefaultBranchOutputConnectorEditPart(view);
+
+			case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+				return new SwitchCaseBranchOutputConnectorEditPart(view);
 
 			case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 				return new SwitchMediatorOutputConnectorEditPart(view);
@@ -1048,6 +1051,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case APIResourceOutputConnectorEditPart.VISUAL_ID:
 				return new APIResourceOutputConnectorEditPart(view);
+
+			case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
+				return new APIResourceOutSequenceOutputConnectorEditPart(view);
 
 			case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 				return new APIResourceFaultInputConnectorEditPart(view);

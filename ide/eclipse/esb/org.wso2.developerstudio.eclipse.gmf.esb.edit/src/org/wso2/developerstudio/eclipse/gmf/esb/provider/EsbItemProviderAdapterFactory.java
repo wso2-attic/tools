@@ -241,6 +241,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutSequenceOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyOutSequenceOutputConnectorItemProvider proxyOutSequenceOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutSequenceOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyOutSequenceOutputConnectorAdapter() {
+		if (proxyOutSequenceOutputConnectorItemProvider == null) {
+			proxyOutSequenceOutputConnectorItemProvider = new ProxyOutSequenceOutputConnectorItemProvider(this);
+		}
+
+		return proxyOutSequenceOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3042,6 +3065,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		}
 
 		return apiResourceOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutSequenceOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceOutSequenceOutputConnectorItemProvider apiResourceOutSequenceOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutSequenceOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceOutSequenceOutputConnectorAdapter() {
+		if (apiResourceOutSequenceOutputConnectorItemProvider == null) {
+			apiResourceOutSequenceOutputConnectorItemProvider = new APIResourceOutSequenceOutputConnectorItemProvider(this);
+		}
+
+		return apiResourceOutSequenceOutputConnectorItemProvider;
 	}
 
 	/**
@@ -7192,6 +7238,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (proxyServiceItemProvider != null) proxyServiceItemProvider.dispose();
 		if (proxyOutputConnectorItemProvider != null) proxyOutputConnectorItemProvider.dispose();
 		if (proxyInputConnectorItemProvider != null) proxyInputConnectorItemProvider.dispose();
+		if (proxyOutSequenceOutputConnectorItemProvider != null) proxyOutSequenceOutputConnectorItemProvider.dispose();
 		if (proxyWSDLResourceItemProvider != null) proxyWSDLResourceItemProvider.dispose();
 		if (proxyFaultInputConnectorItemProvider != null) proxyFaultInputConnectorItemProvider.dispose();
 		if (proxyServiceParameterItemProvider != null) proxyServiceParameterItemProvider.dispose();
@@ -7459,6 +7506,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (apiResourceItemProvider != null) apiResourceItemProvider.dispose();
 		if (apiResourceInputConnectorItemProvider != null) apiResourceInputConnectorItemProvider.dispose();
 		if (apiResourceOutputConnectorItemProvider != null) apiResourceOutputConnectorItemProvider.dispose();
+		if (apiResourceOutSequenceOutputConnectorItemProvider != null) apiResourceOutSequenceOutputConnectorItemProvider.dispose();
 		if (apiResourceFaultInputConnectorItemProvider != null) apiResourceFaultInputConnectorItemProvider.dispose();
 		if (apiResourceEndpointItemProvider != null) apiResourceEndpointItemProvider.dispose();
 		if (apiResourceEndpointInputConnectorItemProvider != null) apiResourceEndpointInputConnectorItemProvider.dispose();

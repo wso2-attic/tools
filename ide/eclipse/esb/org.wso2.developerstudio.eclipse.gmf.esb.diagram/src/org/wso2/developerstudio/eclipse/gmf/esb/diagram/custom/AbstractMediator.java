@@ -195,8 +195,11 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		 }
 
 	private void rePosition(int x,int y, int width, int height) {
-		Rectangle constraints = new Rectangle(x, y, width, height);
-		((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
+		// TODO Support for other edit parts (proxy)
+		//if(!(getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart)) {
+			Rectangle constraints = new Rectangle(x, y, width, height);
+			((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
+		//}
 	}
 		 
 	protected void reAllocate(Rectangle bounds){

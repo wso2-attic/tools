@@ -177,6 +177,14 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.PROXY_OUT_SEQUENCE_OUTPUT_CONNECTOR: {
+				ProxyOutSequenceOutputConnector proxyOutSequenceOutputConnector = (ProxyOutSequenceOutputConnector)theEObject;
+				T result = caseProxyOutSequenceOutputConnector(proxyOutSequenceOutputConnector);
+				if (result == null) result = caseOutputConnector(proxyOutSequenceOutputConnector);
+				if (result == null) result = caseEsbConnector(proxyOutSequenceOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.PROXY_WSDL_RESOURCE: {
 				ProxyWSDLResource proxyWSDLResource = (ProxyWSDLResource)theEObject;
 				T result = caseProxyWSDLResource(proxyWSDLResource);
@@ -2335,6 +2343,14 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.API_RESOURCE_OUT_SEQUENCE_OUTPUT_CONNECTOR: {
+				APIResourceOutSequenceOutputConnector apiResourceOutSequenceOutputConnector = (APIResourceOutSequenceOutputConnector)theEObject;
+				T result = caseAPIResourceOutSequenceOutputConnector(apiResourceOutSequenceOutputConnector);
+				if (result == null) result = caseOutputConnector(apiResourceOutSequenceOutputConnector);
+				if (result == null) result = caseEsbConnector(apiResourceOutSequenceOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.API_RESOURCE_FAULT_INPUT_CONNECTOR: {
 				APIResourceFaultInputConnector apiResourceFaultInputConnector = (APIResourceFaultInputConnector)theEObject;
 				T result = caseAPIResourceFaultInputConnector(apiResourceFaultInputConnector);
@@ -2764,6 +2780,21 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProxyInputConnector(ProxyInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Proxy Out Sequence Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Proxy Out Sequence Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProxyOutSequenceOutputConnector(ProxyOutSequenceOutputConnector object) {
 		return null;
 	}
 
@@ -4624,6 +4655,21 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAPIResourceOutputConnector(APIResourceOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource Out Sequence Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource Out Sequence Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResourceOutSequenceOutputConnector(APIResourceOutSequenceOutputConnector object) {
 		return null;
 	}
 

@@ -1283,6 +1283,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ProxyOutSequenceOutputConnector_3729_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_EJBMediatorOutputConnector_3688_outgoinglinks;
 
 	/**
@@ -1354,6 +1359,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_FailoverEndPointWestOutputConnector_3652_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_APIResourceOutSequenceOutputConnector_3730_outgoinglinks;
 
 	/**
 	 * @generated

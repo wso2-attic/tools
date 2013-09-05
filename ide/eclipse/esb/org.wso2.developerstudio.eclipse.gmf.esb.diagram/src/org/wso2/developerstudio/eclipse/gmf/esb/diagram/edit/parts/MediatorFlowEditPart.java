@@ -125,14 +125,20 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof AbstractBaseFigureEditPart) {
 			AbstractBaseFigureEditPart baseFigureEditPart = (AbstractBaseFigureEditPart) childEditPart;
 			BorderItemLocator outputLocator = new FixedBorderItemLocator(this.getFigure(),
-					baseFigureEditPart.outputConnectorFigure, PositionConstants.WEST, 0.3);
+					baseFigureEditPart.outputConnectorFigure, PositionConstants.WEST, 0.25);
 			baseFigureEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(baseFigureEditPart.outputConnectorFigure, outputLocator);
 
 			BorderItemLocator inputLocator = new FixedBorderItemLocator(this.getFigure(),
-					baseFigureEditPart.inputConnectorFigure, PositionConstants.WEST, 0.7);
+					baseFigureEditPart.inputConnectorFigure, PositionConstants.WEST, 0.75);
 			baseFigureEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(baseFigureEditPart.inputConnectorFigure, inputLocator);
+
+			BorderItemLocator outSequenceOutputLocator = new FixedBorderItemLocator(this.getFigure(), 
+					baseFigureEditPart.outSequenceOutputConnectorFigure, PositionConstants.EAST, 0.75);
+			baseFigureEditPart.getBorderedFigure().getBorderItemContainer()
+					.add(baseFigureEditPart.outSequenceOutputConnectorFigure, outSequenceOutputLocator);
+
 		} else {
 			//Should handle properly.
 			//throw new ClassCastException();
