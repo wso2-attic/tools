@@ -383,8 +383,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		}
         EditorUtils.setLockmode(graphicalEditor, true);
 		IFile file = ((IFileEditorInput)getEditorInput()).getFile();
-        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
-        endPointDuplicator.updateAssociatedDiagrams(this);
+/*        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
+        endPointDuplicator.updateAssociatedDiagrams(this);*/
         EditorUtils.setLockmode(graphicalEditor, false);
         
         //createPage2();
@@ -415,8 +415,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 					EditorUtils.setLockmode(graphicalEditor, true);
 					final boolean dirty = isDirty(); //save previous status
 					IFile file = ((IFileEditorInput)getEditorInput()).getFile();
-			        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
-			        endPointDuplicator.updateAssociatedDiagrams(currentEditor);
+/*			        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
+			        endPointDuplicator.updateAssociatedDiagrams(currentEditor);*/
 
 					/**
 					 * This is to avoid RJS0007E Semantic refresh failed issue
@@ -541,8 +541,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 						
 						
 						IFile openedFile = ((IFileEditorInput)editor.getEditorInput()).getFile();
-				        ElementDuplicator endPointDuplicator = new ElementDuplicator(openedFile.getProject(),((EsbMultiPageEditor)editor).getGraphicalEditor());        
-				        endPointDuplicator.updateAssociatedDiagrams((EsbMultiPageEditor)editor);
+/*				        ElementDuplicator endPointDuplicator = new ElementDuplicator(openedFile.getProject(),((EsbMultiPageEditor)editor).getGraphicalEditor());        
+				        endPointDuplicator.updateAssociatedDiagrams((EsbMultiPageEditor)editor);*/
 						
 						
 /*						Map registry = ((EsbMultiPageEditor) editor).getDiagramEditPart()
@@ -596,8 +596,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		EditorUtils.setLockmode(graphicalEditor, true);
         
 		IFile file = ((IFileEditorInput)getEditorInput()).getFile();
-        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
-        endPointDuplicator.updateAssociatedDiagrams(this);
+/*        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
+        endPointDuplicator.updateAssociatedDiagrams(this);*/
         updateAssociatedDiagrams();
         getEditor(0).doSave(monitor);
         

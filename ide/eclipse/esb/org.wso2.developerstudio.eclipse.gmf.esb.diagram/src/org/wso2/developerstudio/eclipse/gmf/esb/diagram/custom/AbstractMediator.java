@@ -53,6 +53,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections.ConnectionCalculator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
@@ -80,6 +81,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
@@ -222,7 +224,8 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 							&& (((AbstractMediatorOutputConnectorEditPart) link).getParent() instanceof AbstractMediator)
 							&& (((AbstractMediator) ((AbstractMediatorOutputConnectorEditPart) link)
 									.getParent()).reversed)
-							|| (link instanceof AbstractEndpointOutputConnectorEditPart)) {
+							|| (link instanceof AbstractEndpointOutputConnectorEditPart) || (link instanceof ProxyOutSequenceOutputConnectorEditPart)
+							|| (link instanceof APIResourceOutSequenceOutputConnectorEditPart)) {
 						return true;
 					}
 				}
@@ -551,6 +554,8 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 				if ((!(outputConnector instanceof ProxyOutputConnectorEditPart))
 						&& (!(outputConnector instanceof SequencesOutputConnectorEditPart))
 						&&(!(outputConnector instanceof APIResourceOutputConnectorEditPart))
+						&& (!(outputConnector instanceof ProxyOutSequenceOutputConnectorEditPart))
+						&& (!(outputConnector instanceof APIResourceOutSequenceOutputConnectorEditPart))
 						&& (!outputConnector.getParent().getParent()
 								.equals(this.getParent()))
 						&&(!EditorUtils.getMediator(outputConnector).equals(EditorUtils.getMediator(this.getParent())))) {

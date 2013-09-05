@@ -18,7 +18,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorO
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 
 /*
  * This class is used to handle automatic connection creation stuffs. 
@@ -136,6 +138,11 @@ public class ConnectionCalculator {
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart.EastPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector.EastPointerFigure)) {
 
+						if((figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart.EastPointerFigure)
+								||(figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutputConnectorEditPart.EastPointerFigure)){
+							xLeft=xLeft-82;
+						}
+						
 						EastDistance = Math.abs(xLeft - actualCurrentPosition);
 						if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft < actualCurrentPosition))
 								|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft > actualCurrentPosition))) {
@@ -149,7 +156,9 @@ public class ConnectionCalculator {
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart.WestPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)
-							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart.WestPointerFigure)) {
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart.WestPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart.WestPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutSequenceOutputConnectorEditPart.WestPointerFigure)) {
 
 						WestDistance = Math.abs(xLeft - actualCurrentPosition);
 						if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft > actualCurrentPosition))
@@ -167,15 +176,30 @@ public class ConnectionCalculator {
 
 		if (nearForwardConnector != null) {
 			updateCurrentStatesForGivenFigure(nearForwardConnector);
-			yDistance1 = Math
-			.abs(connectorFigureLocation.y
-					- currentFigureLocation.y);
+			if((nearForwardConnector.getParent() instanceof ProxyServiceEditPart)
+					||(nearForwardConnector.getParent() instanceof APIResourceEditPart)){
+				yDistance1 = Math
+						.abs(connectorFigureLocation.y-140
+								- currentFigureLocation.y);
+			}else{
+				yDistance1 = Math
+				.abs(connectorFigureLocation.y
+						- currentFigureLocation.y);
+			}
 		}
 		if (nearReverseConnector != null) {
 			updateCurrentStatesForGivenFigure(nearReverseConnector);
+			if((nearReverseConnector.getParent() instanceof ProxyServiceEditPart)
+					||(nearForwardConnector.getParent() instanceof APIResourceEditPart)){
 			yDistance2 = Math
-			.abs(connectorFigureLocation.y
+			.abs(connectorFigureLocation.y-140
 					- currentFigureLocation.y);
+			}else{
+				yDistance2 = Math
+						.abs(connectorFigureLocation.y
+								- currentFigureLocation.y);
+			}
+			
 		}
 		if ((yDistance1 != 0)
 				&& ((yDistance2 == 0) || (yDistance1 < yDistance2))) {

@@ -32,6 +32,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorF
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServiceContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.DroppableElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
@@ -483,14 +484,14 @@ public class XYRepossition {
 				int nodeFigureWdith = nodeFigure.getBounds().width;
 				int nodeFigureHeight = nodeFigure.getBounds().height;
 
-				if (node instanceof AbstractMediator) {
-					AbstractMediator mediator = (AbstractMediator) node;
+				if (node instanceof DroppableElement) {
+					DroppableElement droppableElement = (DroppableElement) node;
 					Rectangle constraints = null;
 
-					if (!mediator.reversed) {
+					if ((node instanceof AbstractMediator &&!((AbstractMediator)droppableElement).reversed)||(node instanceof AbstractEndpoint)) {
 						// Mediator is in in sequence.
-						mediator.x = x;
-						mediator.y = y;
+						droppableElement.setX(x);
+						droppableElement.setY(y);
 						constraints = new Rectangle(x, y, nodeFigureWdith, nodeFigureHeight);
 						x = x + arrowAndtwoConnectorsLength + nodeFigureWdith;
 
@@ -502,13 +503,13 @@ public class XYRepossition {
 							y = y - node.getFigure().getBounds().height / 2;
 							x = x - arrowAndtwoConnectorsLength - nodeFigureWdith;
 
-							mediator.x = x;
-							mediator.y = y;
+							droppableElement.setX(x);
+							droppableElement.setY(y);
 							constraints = new Rectangle(x, y, nodeFigureWdith, nodeFigureHeight);
 						} else if (editPart instanceof MediatorFlowMediatorFlowCompartment6EditPart) {
 							// Mediators in fault sequence.
-							mediator.x = x;
-							mediator.y = y;
+							droppableElement.setX(x);
+							droppableElement.setY(y);
 							constraints = new Rectangle(x, y, nodeFigureWdith, nodeFigureHeight);
 							x = x + arrowAndtwoConnectorsLength + nodeFigureWdith;
 
@@ -542,8 +543,8 @@ public class XYRepossition {
 								x = x - arrowAndtwoConnectorsLength - nodeFigureWdith;
 							}
 
-							mediator.x = x;
-							mediator.y = y;
+							droppableElement.setX(x);
+							droppableElement.setY(y);
 							constraints = new Rectangle(x, y, nodeFigureWdith, nodeFigureHeight);
 							i++;
 						}
@@ -584,16 +585,19 @@ public class XYRepossition {
 					} else {
 						nodeOPconector = EditorUtils.getMediatorOutputConnector(node);
 					}
-
-					sourceConnections = nodeOPconector.getSourceConnections();
-
-					if (sourceConnections != null) {
-						if (sourceConnections.size() != 0) {
-							EsbLinkEditPart linkPart = (EsbLinkEditPart) sourceConnections.get(0);
-							node = (ShapeNodeEditPart) linkPart.getTarget().getParent();
-						} else {
-							break;
+					if(nodeOPconector!=null){
+						sourceConnections = nodeOPconector.getSourceConnections();
+	
+						if (sourceConnections != null) {
+							if (sourceConnections.size() != 0) {
+								EsbLinkEditPart linkPart = (EsbLinkEditPart) sourceConnections.get(0);
+								node = (ShapeNodeEditPart) linkPart.getTarget().getParent();
+							} else {
+								break;
+							}
 						}
+					}else {
+						break;
 					}
 				}
 			}

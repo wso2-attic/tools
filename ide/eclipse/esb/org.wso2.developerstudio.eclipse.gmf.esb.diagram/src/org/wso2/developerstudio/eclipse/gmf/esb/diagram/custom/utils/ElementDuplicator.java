@@ -193,7 +193,7 @@ public class ElementDuplicator {
 						.getModel()).getElement();
 				// if(sendMediator.getReceivingSequenceType().getValue()==1){
 				OutputConnector outputConnector = sendMediator.getOutputConnector();
-				if (outputConnector.getOutgoingLink() != null) {
+				if (outputConnector !=null && outputConnector.getOutgoingLink() != null) {
 					EObject node = outputConnector.getOutgoingLink().getTarget().eContainer();
 					if (node instanceof EndPoint) {
 						parent = node.eContainer();
@@ -340,7 +340,7 @@ public class ElementDuplicator {
 		AbstractMediatorOutputConnectorEditPart abstractMediatorOutputConnectorEditPart=EditorUtils.getMediatorOutputConnector((SendMediatorEditPart)element);
 		EditPart targetEditPart=null;
 		AbstractEndpointOutputConnectorEditPart abstractEndpointOutputConnectorEditPart=null;
-		if(abstractMediatorOutputConnectorEditPart.getSourceConnections().size()!=0){
+		if(abstractMediatorOutputConnectorEditPart!=null && abstractMediatorOutputConnectorEditPart.getSourceConnections().size()!=0){
 			targetEditPart=((EsbLinkEditPart)abstractMediatorOutputConnectorEditPart.getSourceConnections().get(0)).getTarget();
 			abstractEndpointOutputConnectorEditPart=EditorUtils.getEndpointOutputConnector((ShapeNodeEditPart) targetEditPart.getParent());
 			return abstractEndpointOutputConnectorEditPart;

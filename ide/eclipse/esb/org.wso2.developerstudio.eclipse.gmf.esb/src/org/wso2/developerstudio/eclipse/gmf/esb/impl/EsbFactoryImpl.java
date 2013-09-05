@@ -3757,7 +3757,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public SendMediator createSendMediator() {
 		SendMediatorImpl sendMediator = new SendMediatorImpl();
 		sendMediator.setInputConnector(createSendMediatorInputConnector());
-		//sendMediator.setOutputConnector(createSendMediatorOutputConnector());
+		sendMediator.setOutputConnector(createSendMediatorOutputConnector());
 		sendMediator.setEndpointOutputConnector(createSendMediatorEndpointOutputConnector());
 		sendMediator.setMediatorFlow(createMediatorFlow());
 		return sendMediator;

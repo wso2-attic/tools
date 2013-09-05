@@ -142,5 +142,11 @@ public class EsbLinkEditPart extends ConnectionNodeEditPart implements ITreeBran
 	public PolylineConnectionEx getPrimaryShape() {
 		return (PolylineConnectionEx) getFigure();
 	}
+	
+	@Override
+	public boolean isSelectable() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }

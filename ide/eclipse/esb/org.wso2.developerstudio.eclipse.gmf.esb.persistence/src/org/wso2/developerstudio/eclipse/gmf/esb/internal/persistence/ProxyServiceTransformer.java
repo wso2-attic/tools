@@ -391,6 +391,12 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			// Transform output data flow.
 			doTransform(info, visualService.getOutputConnector());
 			
+			// Transform outSequence
+			
+			info.setParentSequence(info.getOriginOutSequence());
+			info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
+			doTransform(info, visualService.getOutSequenceOutputConnector());
+			
 			//Set Fault Sequence
 			SequenceMediator faultSequence = new SequenceMediator();			
 			switch (visualService.getFaultSequenceType()) {

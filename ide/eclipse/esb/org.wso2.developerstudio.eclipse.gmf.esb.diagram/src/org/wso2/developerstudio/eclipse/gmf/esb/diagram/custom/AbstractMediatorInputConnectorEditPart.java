@@ -23,7 +23,9 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 
 public abstract class AbstractMediatorInputConnectorEditPart extends AbstractInputConnectorEditPart {
@@ -94,7 +96,8 @@ public abstract class AbstractMediatorInputConnectorEditPart extends AbstractInp
 				if (((link instanceof AbstractMediatorOutputConnectorEditPart)
 						&& (((AbstractMediatorOutputConnectorEditPart) link).getParent() instanceof AbstractMediator)
 						&& (((AbstractMediator) ((AbstractMediatorOutputConnectorEditPart) link)
-								.getParent()).reversed)) || (link instanceof AbstractEndpointOutputConnectorEditPart)) {
+								.getParent()).reversed)) || (link instanceof AbstractEndpointOutputConnectorEditPart)||(link instanceof ProxyOutSequenceOutputConnectorEditPart)
+								||(link instanceof APIResourceOutSequenceOutputConnectorEditPart)) {
 					if(this.getParent() instanceof AbstractMediator){
 					((AbstractMediator) this.getParent()).reverse(this
 							.getParent());	
