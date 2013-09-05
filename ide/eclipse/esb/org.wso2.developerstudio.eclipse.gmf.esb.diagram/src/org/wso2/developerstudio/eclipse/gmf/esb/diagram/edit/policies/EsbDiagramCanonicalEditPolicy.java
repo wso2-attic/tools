@@ -544,14 +544,6 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
-		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getSwitchDefaultBranchOutputConnector_3044ContainedLinks(view));
-			}
-			domain2NotationMap.putView(view.getElement(), view);
-			break;
-		}
 		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater
@@ -564,6 +556,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater
 						.getSwitchMediatorOutputConnector_3499ContainedLinks(view));
+			}
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getSwitchDefaultBranchOutputConnector_3044ContainedLinks(view));
 			}
 			domain2NotationMap.putView(view.getElement(), view);
 			break;

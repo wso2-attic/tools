@@ -55,7 +55,7 @@ public class APIResourceOutSequenceOutputConnectorEditPart extends AbstractOutpu
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	protected IFigure primaryShapeForward;
 
 	public final boolean isInput = false;
@@ -66,9 +66,9 @@ public class APIResourceOutSequenceOutputConnectorEditPart extends AbstractOutpu
 	public APIResourceOutSequenceOutputConnectorEditPart(View view) {
 		super(view);
 	}
-	
+
 	public NodeFigure figure_;
-	
+
 	public NodeFigure getNodeFigureOutput() {
 		return figure_;
 	}
@@ -155,7 +155,7 @@ public class APIResourceOutSequenceOutputConnectorEditPart extends AbstractOutpu
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
 		figure_ = figure;
-		
+
 		return figure;
 	}
 
@@ -595,7 +595,7 @@ public class APIResourceOutSequenceOutputConnectorEditPart extends AbstractOutpu
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public boolean isSelectable() {
 		return false;

@@ -707,13 +707,6 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		{
-			SwitchDefaultBranchOutputConnector childElement = modelElement.getDefaultBranch();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
 		for (Iterator<?> it = modelElement.getCaseBranches().iterator(); it.hasNext();) {
 			SwitchCaseBranchOutputConnector childElement = (SwitchCaseBranchOutputConnector) it
 					.next();
@@ -727,6 +720,13 @@ public class EsbDiagramUpdater {
 			SwitchMediatorOutputConnector childElement = modelElement.getOutputConnector();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == SwitchMediatorOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			SwitchDefaultBranchOutputConnector childElement = modelElement.getDefaultBranch();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -7790,12 +7790,12 @@ public class EsbDiagramUpdater {
 			return getSwitchMediator_3498ContainedLinks(view);
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorInputConnector_3042ContainedLinks(view);
-		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
-			return getSwitchDefaultBranchOutputConnector_3044ContainedLinks(view);
 		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchCaseBranchOutputConnector_3043ContainedLinks(view);
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorOutputConnector_3499ContainedLinks(view);
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+			return getSwitchDefaultBranchOutputConnector_3044ContainedLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return getSwitchMediatorContainer_3500ContainedLinks(view);
 		case SwitchCaseContainerEditPart.VISUAL_ID:
@@ -8361,12 +8361,12 @@ public class EsbDiagramUpdater {
 			return getSwitchMediator_3498IncomingLinks(view);
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorInputConnector_3042IncomingLinks(view);
-		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
-			return getSwitchDefaultBranchOutputConnector_3044IncomingLinks(view);
 		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchCaseBranchOutputConnector_3043IncomingLinks(view);
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorOutputConnector_3499IncomingLinks(view);
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+			return getSwitchDefaultBranchOutputConnector_3044IncomingLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return getSwitchMediatorContainer_3500IncomingLinks(view);
 		case SwitchCaseContainerEditPart.VISUAL_ID:
@@ -8932,12 +8932,12 @@ public class EsbDiagramUpdater {
 			return getSwitchMediator_3498OutgoingLinks(view);
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorInputConnector_3042OutgoingLinks(view);
-		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
-			return getSwitchDefaultBranchOutputConnector_3044OutgoingLinks(view);
 		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchCaseBranchOutputConnector_3043OutgoingLinks(view);
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getSwitchMediatorOutputConnector_3499OutgoingLinks(view);
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+			return getSwitchDefaultBranchOutputConnector_3044OutgoingLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return getSwitchMediatorContainer_3500OutgoingLinks(view);
 		case SwitchCaseContainerEditPart.VISUAL_ID:

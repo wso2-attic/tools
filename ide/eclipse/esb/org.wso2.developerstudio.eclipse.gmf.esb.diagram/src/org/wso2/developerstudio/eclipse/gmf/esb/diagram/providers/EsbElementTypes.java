@@ -1667,14 +1667,14 @@ public class EsbElementTypes {
 			elements.put(SwitchMediatorInputConnector_3042,
 					EsbPackage.eINSTANCE.getSwitchMediatorInputConnector());
 
-			elements.put(SwitchDefaultBranchOutputConnector_3044,
-					EsbPackage.eINSTANCE.getSwitchDefaultBranchOutputConnector());
-
 			elements.put(SwitchCaseBranchOutputConnector_3043,
 					EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector());
 
 			elements.put(SwitchMediatorOutputConnector_3499,
 					EsbPackage.eINSTANCE.getSwitchMediatorOutputConnector());
+
+			elements.put(SwitchDefaultBranchOutputConnector_3044,
+					EsbPackage.eINSTANCE.getSwitchDefaultBranchOutputConnector());
 
 			elements.put(SwitchMediatorContainer_3500,
 					EsbPackage.eINSTANCE.getSwitchMediatorContainer());
@@ -2360,9 +2360,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(XSLTMediatorOutputConnector_3040);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediator_3498);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediatorInputConnector_3042);
-			KNOWN_ELEMENT_TYPES.add(SwitchDefaultBranchOutputConnector_3044);
 			KNOWN_ELEMENT_TYPES.add(SwitchCaseBranchOutputConnector_3043);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediatorOutputConnector_3499);
+			KNOWN_ELEMENT_TYPES.add(SwitchDefaultBranchOutputConnector_3044);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediatorContainer_3500);
 			KNOWN_ELEMENT_TYPES.add(SwitchCaseContainer_3501);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3502);
@@ -2693,12 +2693,12 @@ public class EsbElementTypes {
 			return SwitchMediator_3498;
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return SwitchMediatorInputConnector_3042;
-		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
-			return SwitchDefaultBranchOutputConnector_3044;
 		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 			return SwitchCaseBranchOutputConnector_3043;
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return SwitchMediatorOutputConnector_3499;
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+			return SwitchDefaultBranchOutputConnector_3044;
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return SwitchMediatorContainer_3500;
 		case SwitchCaseContainerEditPart.VISUAL_ID:

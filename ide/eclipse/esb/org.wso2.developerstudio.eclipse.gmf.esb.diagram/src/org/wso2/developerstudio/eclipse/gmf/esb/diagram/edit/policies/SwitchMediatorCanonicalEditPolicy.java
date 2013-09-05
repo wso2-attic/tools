@@ -61,9 +61,9 @@ public class SwitchMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSwitchMediator_InputConnector());
-			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSwitchMediator_DefaultBranch());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSwitchMediator_CaseBranches());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSwitchMediator_OutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSwitchMediator_DefaultBranch());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getSwitchMediator_SwitchContainer());
 		}
 		return myFeaturesToSynchronize;
@@ -98,9 +98,9 @@ public class SwitchMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
-		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return true;
 		}

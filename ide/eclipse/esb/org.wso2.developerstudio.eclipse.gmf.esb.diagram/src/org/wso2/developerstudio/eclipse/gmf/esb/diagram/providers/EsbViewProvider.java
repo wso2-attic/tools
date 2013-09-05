@@ -168,9 +168,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case XSLTMediatorOutputConnectorEditPart.VISUAL_ID:
 				case SwitchMediatorEditPart.VISUAL_ID:
 				case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
-				case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 				case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 				case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
+				case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 				case SwitchMediatorContainerEditPart.VISUAL_ID:
 				case SwitchCaseContainerEditPart.VISUAL_ID:
 				case SequenceEditPart.VISUAL_ID:
@@ -461,9 +461,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| XSLTMediatorOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorInputConnectorEditPart.VISUAL_ID == visualID
-				|| SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorOutputConnectorEditPart.VISUAL_ID == visualID
+				|| SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorContainerEditPart.VISUAL_ID == visualID
 				|| SwitchCaseContainerEditPart.VISUAL_ID == visualID
 				|| MediatorFlow2EditPart.VISUAL_ID == visualID
@@ -873,15 +873,15 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 			return createSwitchMediatorInputConnector_3042(domainElement, containerView, index,
 					persisted, preferencesHint);
-		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
-			return createSwitchDefaultBranchOutputConnector_3044(domainElement, containerView,
-					index, persisted, preferencesHint);
 		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 			return createSwitchCaseBranchOutputConnector_3043(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 			return createSwitchMediatorOutputConnector_3499(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+			return createSwitchDefaultBranchOutputConnector_3044(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return createSwitchMediatorContainer_3500(domainElement, containerView, index,
 					persisted, preferencesHint);

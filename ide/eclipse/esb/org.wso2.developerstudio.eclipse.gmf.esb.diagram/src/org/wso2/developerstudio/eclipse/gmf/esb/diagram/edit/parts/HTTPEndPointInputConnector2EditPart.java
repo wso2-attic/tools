@@ -216,9 +216,9 @@ public class HTTPEndPointInputConnector2EditPart extends AbstractBorderItemEditP
 			types.add(EsbElementTypes.LogMediatorOutputConnector_3019);
 			types.add(EsbElementTypes.EnrichMediatorOutputConnector_3037);
 			types.add(EsbElementTypes.XSLTMediatorOutputConnector_3040);
-			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3044);
 			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchMediatorOutputConnector_3499);
+			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3044);
 			types.add(EsbElementTypes.SequenceOutputConnector_3050);
 			types.add(EsbElementTypes.EventMediatorOutputConnector_3053);
 			types.add(EsbElementTypes.EntitlementMediatorOutputConnector_3056);

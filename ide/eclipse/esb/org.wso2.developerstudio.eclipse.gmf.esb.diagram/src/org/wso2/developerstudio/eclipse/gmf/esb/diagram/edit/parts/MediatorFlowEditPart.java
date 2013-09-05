@@ -134,10 +134,14 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 			baseFigureEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(baseFigureEditPart.inputConnectorFigure, inputLocator);
 
-			BorderItemLocator outSequenceOutputLocator = new FixedBorderItemLocator(this.getFigure(), 
-					baseFigureEditPart.outSequenceOutputConnectorFigure, PositionConstants.EAST, 0.75);
-			baseFigureEditPart.getBorderedFigure().getBorderItemContainer()
-					.add(baseFigureEditPart.outSequenceOutputConnectorFigure, outSequenceOutputLocator);
+			BorderItemLocator outSequenceOutputLocator = new FixedBorderItemLocator(
+					this.getFigure(), baseFigureEditPart.outSequenceOutputConnectorFigure,
+					PositionConstants.EAST, 0.75);
+			baseFigureEditPart
+					.getBorderedFigure()
+					.getBorderItemContainer()
+					.add(baseFigureEditPart.outSequenceOutputConnectorFigure,
+							outSequenceOutputLocator);
 
 		} else {
 			//Should handle properly.

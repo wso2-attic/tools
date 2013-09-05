@@ -551,16 +551,6 @@
                           </children>
                           <children>
                             <containmentFeature
-                                href="esb.ecore#//SwitchMediator/defaultBranch"/>
-                            <ownedChild>
-                              <domainMetaElement
-                                  href="esb.ecore#//SwitchDefaultBranchOutputConnector"/>
-                              <diagramNode
-                                  href="esb.gmfgraph#SwitchDefaultBranchOutputConnector"/>
-                            </ownedChild>
-                          </children>
-                          <children>
-                            <containmentFeature
                                 href="esb.ecore#//SwitchMediator/caseBranches"/>
                             <ownedChild>
                               <domainMetaElement
@@ -577,6 +567,16 @@
                                   href="esb.ecore#//SwitchMediatorOutputConnector"/>
                               <diagramNode
                                   href="esb.gmfgraph#SwitchMediatorOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//SwitchMediator/defaultBranch"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//SwitchDefaultBranchOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#SwitchDefaultBranchOutputConnector"/>
                             </ownedChild>
                           </children>
                           <children>
