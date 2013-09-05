@@ -267,8 +267,8 @@ public abstract class ApplyAll extends AbstractVisitor {
 		return apply(staticMethodInvocation);
 	}
 
-	public boolean visit(StaticStatement staticStatement) {
-		return apply(staticStatement);
+	public boolean visit(VarStatement varStatement) {
+		return apply(varStatement);
 	}
 
 	public boolean visit(SwitchStatement switchStatement) {
@@ -543,8 +543,8 @@ public abstract class ApplyAll extends AbstractVisitor {
 		endVisitNode(staticMethodInvocation);
 	}
 
-	public void endVisit(StaticStatement staticStatement) {
-		endVisitNode(staticStatement);
+	public void endVisit(VarStatement varStatement) {
+		endVisitNode(varStatement);
 	}
 
 	public void endVisit(SwitchCase switchCase) {

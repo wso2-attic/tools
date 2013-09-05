@@ -74,7 +74,7 @@ import org.eclipse.php.internal.core.ast.nodes.Statement;
 import org.eclipse.php.internal.core.ast.nodes.StaticConstantAccess;
 import org.eclipse.php.internal.core.ast.nodes.StaticFieldAccess;
 import org.eclipse.php.internal.core.ast.nodes.StaticMethodInvocation;
-import org.eclipse.php.internal.core.ast.nodes.StaticStatement;
+import org.eclipse.php.internal.core.ast.nodes.VarStatement;
 import org.eclipse.php.internal.core.ast.nodes.SwitchCase;
 import org.eclipse.php.internal.core.ast.nodes.SwitchStatement;
 import org.eclipse.php.internal.core.ast.nodes.TryStatement;
@@ -1920,8 +1920,8 @@ public class ASTRewriteTests extends TestCase {
 		String str = "<?php static $a;?>";
 		initialize(str);
 
-		List<StaticStatement> statements = getAllOfType(program,
-				StaticStatement.class);
+		List<VarStatement> statements = getAllOfType(program,
+				VarStatement.class);
 		statements
 				.get(0)
 				.expressions()

@@ -326,8 +326,8 @@ public class HierarchicalVisitor extends AbstractVisitor {
 		return visit((StaticDispatch) staticMethodInvocation);
 	}
 
-	public boolean visit(StaticStatement staticStatement) {
-		return visit((Statement) staticStatement);
+	public boolean visit(VarStatement varStatement) {
+		return visit((Statement) varStatement);
 	}
 
 	public boolean visit(SwitchCase switchCase) {

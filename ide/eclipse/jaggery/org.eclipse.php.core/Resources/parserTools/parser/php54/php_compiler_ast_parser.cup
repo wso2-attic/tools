@@ -226,6 +226,8 @@ non terminal List static_array_pair_list;
 non terminal possible_comma;
 non terminal List non_empty_static_array_pair_list;
 non terminal Expression expr;
+non terminal List var_expr;
+non terminal List nekudotaim_expr;
 non terminal Expression reference_variable;
 non terminal Expression variable_class_name;
 non terminal Expression compound_variable;
@@ -616,10 +618,6 @@ unticked_statement:statement
 {: 
 	RESULT = statement; 
 :}
-| T_STRING:label T_NEKUDOTAIM:end
-{:
-	RESULT = new GotoLabel(labelleft, endright, label);
-:}
 ;
 
 unticked_statement ::=
@@ -736,7 +734,7 @@ inner_statement_list:statementList T_CURLY_CLOSE:end
 
 | T_VAR:start static_var_list:list T_SEMICOLON:end
 {:
-	StaticStatement s = new StaticStatement(startleft, endright, list);
+	VarStatement s = new VarStatement(startleft, endright, list);
 	RESULT = s;
 :}
 
@@ -1193,7 +1191,7 @@ parameter:parameter
 ;
 
 parameter ::=
-optional_class_type:classType T_VARIABLE:var
+optional_class_type:classType T_STRING:var
 {:
 	int start = classType == null ? varleft : classTypeleft;
 	VariableReference v = new VariableReference(varleft, varright, var, PHPVariableKind.LOCAL);
@@ -1201,29 +1199,6 @@ optional_class_type:classType T_VARIABLE:var
 	RESULT = parameter;	
 :}
 
-| optional_class_type:classType T_REFERENCE:ref T_VARIABLE:var
-{:
-	int start = classType == null ? refleft : classTypeleft;
-	VariableReference v = new VariableReference(varleft, varright, var, PHPVariableKind.LOCAL);
-	FormalParameter parameter = new FormalParameterByReference(start, varright, classType, v);
-	RESULT = parameter;	
-:}
-
-| optional_class_type:classType T_VARIABLE:var T_EQUAL static_scalar:scalar
-{:
-	int start = classType == null ? varleft : classTypeleft;
-	VariableReference v = new VariableReference(varleft, varright, var, PHPVariableKind.LOCAL);
-	FormalParameter parameter = new FormalParameter(start, scalarright, classType, v, scalar);
-	RESULT = parameter;	
-:}
-
-| optional_class_type:classType T_REFERENCE:ref T_VARIABLE:var T_EQUAL static_scalar:scalar
-{:
-	int start = classType == null ? refleft : classTypeleft;
-	VariableReference v = new VariableReference(varleft, varright, var, PHPVariableKind.LOCAL);
-	FormalParameter parameter = new FormalParameterByReference(start, scalarright, classType, v, scalar);
-	RESULT = parameter;	
-:}
 | error:theError
 {:
 	parser.reportError(new ASTError(theErrorleft, theErrorright));
@@ -1336,7 +1311,7 @@ static_var_list:list T_COMMA T_STRING:var
 	RESULT = list;
 :}
 
-| static_var_list:list T_COMMA T_STRING:var T_EQUAL static_scalar:expr
+| static_var_list:list T_COMMA T_STRING:var T_EQUAL var_expr:expr
 {:
 	VariableReference v = new VariableReference(varleft, varright, var); 
 	Assignment assignment = new Assignment(varleft, exprright, v, Assignment.OP_EQUAL, expr); 
@@ -1352,7 +1327,7 @@ static_var_list:list T_COMMA T_STRING:var
 	RESULT = list;
 :}
 
-| T_STRING:var T_EQUAL static_scalar:expr
+| T_STRING:var T_EQUAL var_expr:expr
 {:
 	VariableReference v = new VariableReference(varleft, varright, var); 
 	Assignment assignment = new Assignment(varleft, exprright, v, Assignment.OP_EQUAL, expr); 
@@ -1658,6 +1633,11 @@ non_empty_for_expr:exprList T_COMMA expr:expr
 	exprList.add(expr);
 	RESULT = exprList;
 :}
+
+| T_VAR static_var_list:list
+{:
+	RESULT = list;
+:}
 ;
 
 constant_declaration ::=
@@ -1732,6 +1712,11 @@ T_LIST:start T_OPEN_PARENTHESE assignment_list:varList T_CLOSE_PARENTHESE:close 
 {: 
 	RESULT = new Assignment(varleft, refvarright, var, Assignment.OP_REF_EQUAL, refvar); 
 :}
+
+/*| T_CURLY_OPEN variable:var T_NEKUDOTAIM expr:expr T_CURLY_CLOSE
+{:
+	RESULT = new Assignment(varleft, exprright, var, Assignment.OP_NEKUDOTAIM, expr);
+:}*/
 
 | variable:var T_EQUAL T_REFERENCE:reftoken T_NEW:start class_name_reference:className ctor_arguments:ctor
 {:
@@ -2467,6 +2452,40 @@ non_empty_static_array_pair_list:list T_COMMA static_scalar:key T_DOUBLE_ARROW s
 	List list = new LinkedList();
 	ArrayElement element = new ArrayElement(valueleft, valueright, value);
 	list.add(element);
+	RESULT = list;
+:}
+;
+
+nekudotaim_expr ::=
+variable:var T_NEKUDOTAIM expr:expr
+{:
+	List list = new LinkedList();
+	Assignment assignment = new Assignment(varleft, exprright, var, Assignment.OP_NEKUDOTAIM, expr);
+	list.add(assignment);
+	RESULT = list;
+:}
+
+| nekudotaim_expr:list T_COMMA variable:var T_NEKUDOTAIM expr:expr
+{:
+		Assignment assignment = new Assignment(varleft, exprright, var, Assignment.OP_NEKUDOTAIM, expr);
+		list.add(assignment);
+		RESULT = list;
+:}
+;
+
+
+var_expr ::=
+expr:expr
+{:
+	List list = new LinkedList();
+	list.add(expr);
+	RESULT = list;
+:}
+
+| T_CURLY_OPEN nekudotaim_expr:expr T_CURLY_CLOSE
+{:
+	List list = new LinkedList();
+	list.add(expr);
 	RESULT = list;
 :}
 ;

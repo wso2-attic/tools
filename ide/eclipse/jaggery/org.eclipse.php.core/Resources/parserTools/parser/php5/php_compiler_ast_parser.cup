@@ -510,7 +510,7 @@ inner_statement_list:statementList T_CURLY_CLOSE:end
 
 | T_STATIC:start static_var_list:list T_SEMICOLON:end
 {:
-	StaticStatement s = new StaticStatement(startleft, endright, list);
+	VarStatement s = new VarStatement(startleft, endright, list);
 	RESULT = s;
 :}
 

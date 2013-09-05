@@ -244,15 +244,15 @@ public class VariableDeclarationSearcher extends ContextFinder {
 				String variableName = ((SimpleReference) key).getName();
 				getScope().addDeclaration(variableName, foreachStatement);
 			}
-		} else if (node instanceof StaticStatement) {
-			StaticStatement staticStatement = (StaticStatement) node;
+		} else if (node instanceof VarStatement) {
+			VarStatement varStatement = (VarStatement) node;
 			// Collection<? extends Expression> expressions =
 			// staticStatement.getExpressions();
-			for (Expression variable : staticStatement.getExpressions()) {
+			for (Expression variable : varStatement.getExpressions()) {
 				if (variable instanceof VariableReference) {
 					VariableReference varReference = (VariableReference) variable;
 					getScope().addDeclaration(varReference.getName(),
-							staticStatement);
+							varStatement);
 				}
 			}
 			// VariableReference varReference =

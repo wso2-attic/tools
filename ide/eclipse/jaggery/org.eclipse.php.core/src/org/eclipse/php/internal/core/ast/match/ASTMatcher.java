@@ -836,11 +836,11 @@ public class ASTMatcher {
 				node.getMethod(), o.getMethod()));
 	}
 
-	public boolean match(StaticStatement node, Object other) {
-		if (!(other instanceof StaticStatement)) {
+	public boolean match(VarStatement node, Object other) {
+		if (!(other instanceof VarStatement)) {
 			return false;
 		}
-		StaticStatement o = (StaticStatement) other;
+		VarStatement o = (VarStatement) other;
 
 		return safeSubtreeListMatch(node.getExpressions(), o.getExpressions());
 	}

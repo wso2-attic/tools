@@ -957,10 +957,10 @@ public class ASTRewriteFlattener extends AbstractVisitor {
 		return false;
 	}
 
-	public boolean visit(StaticStatement staticStatement) {
+	public boolean visit(VarStatement varStatement) {
 		result.append("static "); //$NON-NLS-1$
 		boolean isFirst = true;
-		Expression[] expressions = staticStatement.getExpressions();
+		Expression[] expressions = varStatement.getExpressions();
 		for (int i = 0; i < expressions.length; i++) {
 			if (!isFirst) {
 				result.append(", "); //$NON-NLS-1$

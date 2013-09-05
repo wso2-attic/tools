@@ -89,7 +89,7 @@ public abstract class ASTNode implements Visitable {
 	public static final int SCALAR = 51;
 	public static final int STATIC_FIELD_ACCESS = 52;
 	public static final int STATIC_METHOD_INVOCATION = 53;
-	public static final int STATIC_STATEMENT = 54;
+	public static final int VAR_STATEMENT = 54;
 	public static final int SWITCH_CASE = 55;
 	public static final int SWITCH_STATEMENT = 56;
 	public static final int THROW_STATEMENT = 57;
@@ -110,7 +110,6 @@ public abstract class ASTNode implements Visitable {
 	public static final int TRAIT_DECLARATION = 72;
 	public static final int FULLY_QUALIFIED_TRAIT_METHOD_REFERENCE = 73;
 	public static final int TRAIT_ALIAS = 74;
-	public static final int VAR_STATEMENT = 75;
 
 	/**
 	 * Internal convenience constant indicating that there is definite risk of
@@ -685,8 +684,8 @@ public abstract class ASTNode implements Visitable {
 			return StaticFieldAccess.class;
 		case STATIC_METHOD_INVOCATION:
 			return StaticMethodInvocation.class;
-		case STATIC_STATEMENT:
-			return StaticStatement.class;
+		case VAR_STATEMENT:
+			return VarStatement.class;
 		case SWITCH_CASE:
 			return SwitchCase.class;
 		case SWITCH_STATEMENT:

@@ -312,7 +312,7 @@ public abstract class PHPASTVisitor extends ASTVisitor {
 		return false;
 	}
 
-	public boolean endvisit(StaticStatement s) throws Exception {
+	public boolean endvisit(VarStatement s) throws Exception {
 		endvisitGeneral(s);
 		return false;
 	}
@@ -626,7 +626,7 @@ public abstract class PHPASTVisitor extends ASTVisitor {
 		return visitGeneral(s);
 	}
 
-	public boolean visit(StaticStatement s) throws Exception {
+	public boolean visit(VarStatement s) throws Exception {
 		return visitGeneral(s);
 	}
 
@@ -864,8 +864,8 @@ public abstract class PHPASTVisitor extends ASTVisitor {
 		if (nodeClass.equals(StaticMethodInvocation.class)) {
 			return endvisit((StaticMethodInvocation) s);
 		}
-		if (nodeClass.equals(StaticStatement.class)) {
-			return endvisit((StaticStatement) s);
+		if (nodeClass.equals(VarStatement.class)) {
+			return endvisit((VarStatement) s);
 		}
 		if (nodeClass.equals(SwitchCase.class)) {
 			return endvisit((SwitchCase) s);
@@ -1154,8 +1154,8 @@ public abstract class PHPASTVisitor extends ASTVisitor {
 		if (nodeClass.equals(StaticMethodInvocation.class)) {
 			return visit((StaticMethodInvocation) s);
 		}
-		if (nodeClass.equals(StaticStatement.class)) {
-			return visit((StaticStatement) s);
+		if (nodeClass.equals(VarStatement.class)) {
+			return visit((VarStatement) s);
 		}
 		if (nodeClass.equals(SwitchCase.class)) {
 			return visit((SwitchCase) s);

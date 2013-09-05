@@ -294,9 +294,9 @@ public interface Visitor {
 
 	public void endVisit(StaticMethodInvocation staticMethodInvocation);
 
-	public boolean visit(StaticStatement staticStatement);
+	public boolean visit(VarStatement varStatement);
 
-	public void endVisit(StaticStatement staticStatement);
+	public void endVisit(VarStatement varStatement);
 
 	public boolean visit(SwitchCase switchCase);
 

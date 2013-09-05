@@ -413,7 +413,7 @@ T_IF:token T_OPEN_PARENTHESE expr:condition T_CLOSE_PARENTHESE statement:iftrue 
 
 | T_STATIC:start static_var_list:list T_SEMICOLON:end
 {:
-	StaticStatement s = new StaticStatement(startleft, endright, parser.ast, list);
+	VarStatement s = new VarStatement(startleft, endright, parser.ast, list);
 	RESULT = s;
 :}
 

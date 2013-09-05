@@ -3659,12 +3659,12 @@ public final class ASTRewriteAnalyzer extends AbstractVisitor {
 	 * org.eclipse.php.internal.core.ast.visitor.AbstractVisitor#visit(org.eclipse
 	 * .php.internal.core.ast.nodes.StaticStatement)
 	 */
-	public boolean visit(StaticStatement staticStatement) {
-		if (!hasChildrenChanges(staticStatement)) {
-			return doVisitUnchangedChildren(staticStatement);
+	public boolean visit(VarStatement varStatement) {
+		if (!hasChildrenChanges(varStatement)) {
+			return doVisitUnchangedChildren(varStatement);
 		}
-		rewriteNodeList(staticStatement, StaticStatement.EXPRESSIONS_PROPERTY,
-				staticStatement.getStart(), "", ", "); //$NON-NLS-1$ //$NON-NLS-2$
+		rewriteNodeList(varStatement, VarStatement.EXPRESSIONS_PROPERTY,
+				varStatement.getStart(), "", ", "); //$NON-NLS-1$ //$NON-NLS-2$
 		return false;
 	}
 

@@ -2479,25 +2479,25 @@ public class AST {
 	}
 
 	/**
-	 * Creates a new {@link StaticStatement}.
+	 * Creates a new {@link VarStatement}.
 	 * 
 	 * @return A new StaticStatement.
 	 */
-	public StaticStatement newStaticStatement() {
-		StaticStatement staticStatement = new StaticStatement(this);
-		return staticStatement;
+	public VarStatement newStaticStatement() {
+		VarStatement varStatement = new VarStatement(this);
+		return varStatement;
 	}
 
 	/**
-	 * Creates a new {@link StaticStatement}.
+	 * Creates a new {@link VarStatement}.
 	 * 
 	 * @param expressions
 	 * @return A new StaticStatement.
 	 */
-	public StaticStatement newStaticStatement(List<Expression> expressions) {
-		StaticStatement staticStatement = new StaticStatement(this);
-		staticStatement.expressions().addAll(expressions);
-		return staticStatement;
+	public VarStatement newStaticStatement(List<Expression> expressions) {
+		VarStatement varStatement = new VarStatement(this);
+		varStatement.expressions().addAll(expressions);
+		return varStatement;
 	}
 
 	/**

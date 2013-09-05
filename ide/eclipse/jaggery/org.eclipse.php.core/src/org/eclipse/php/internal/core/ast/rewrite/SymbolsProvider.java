@@ -106,8 +106,8 @@ public class SymbolsProvider {
 			org.eclipse.php.internal.core.ast.scanner.php54.ParserConstants.T_ENDFOR);
 	private static final Symbol END_WHILE_SYMBOL_PHP54 = new Symbol(
 			org.eclipse.php.internal.core.ast.scanner.php54.ParserConstants.T_ENDWHILE);
-	private static final Symbol END_FOREACH_SYMBOL_PHP54 = new Symbol(
-			org.eclipse.php.internal.core.ast.scanner.php54.ParserConstants.T_ENDFOREACH);
+	// private static final Symbol END_FOREACH_SYMBOL_PHP54 = new Symbol(
+	// org.eclipse.php.internal.core.ast.scanner.php54.ParserConstants.T_ENDFOREACH);
 	private static final Symbol END_SWITCH_SYMBOL_PHP54 = new Symbol(
 			org.eclipse.php.internal.core.ast.scanner.php54.ParserConstants.T_ENDSWITCH);
 
@@ -173,8 +173,8 @@ public class SymbolsProvider {
 				// return IMPLEMENTS_SYMBOL_PHP54;
 			case END_FOR_ID:
 				return END_FOR_SYMBOL_PHP54;
-			case END_FOREACH_ID:
-				return END_FOREACH_SYMBOL_PHP54;
+				// case END_FOREACH_ID:
+				// return END_FOREACH_SYMBOL_PHP54;
 			case END_IF_ID:
 				return END_IF_SYMBOL_PHP54;
 			case END_WHILE_ID:

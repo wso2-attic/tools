@@ -475,7 +475,7 @@ T_CURLY_OPEN:token inner_statement_list:statementList T_CURLY_CLOSE:end
 
 | T_STATIC:start static_var_list:list T_SEMICOLON:end
 {:
-	StaticStatement s = new StaticStatement(startleft, endright, parser.ast, list);
+	VarStatement s = new VarStatement(startleft, endright, parser.ast, list);
 	RESULT = s;
 :}
 

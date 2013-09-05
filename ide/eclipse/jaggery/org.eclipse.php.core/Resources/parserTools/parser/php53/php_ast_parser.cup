@@ -618,7 +618,7 @@ T_CURLY_OPEN:token inner_statement_list:sList T_CURLY_CLOSE:e
 
 | T_STATIC:s static_var_list:list T_SEMICOLON:e
 {:
-	RESULT = new StaticStatement(sleft, eright, parser.ast, list);
+	RESULT = new VarStatement(sleft, eright, parser.ast, list);
 :}
 
 | T_ECHO:s echo_expr_list:exprList T_SEMICOLON:e

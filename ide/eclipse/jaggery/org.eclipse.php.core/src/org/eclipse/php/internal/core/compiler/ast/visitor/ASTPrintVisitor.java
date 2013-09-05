@@ -392,8 +392,8 @@ public class ASTPrintVisitor extends PHPASTVisitor {
 		return true;
 	}
 
-	public boolean endvisit(StaticStatement s) throws Exception {
-		xmlWriter.endTag("StaticStatement"); //$NON-NLS-1$
+	public boolean endvisit(VarStatement s) throws Exception {
+		xmlWriter.endTag("VarStatement"); //$NON-NLS-1$
 		return true;
 	}
 
@@ -900,9 +900,9 @@ public class ASTPrintVisitor extends PHPASTVisitor {
 		return true;
 	}
 
-	public boolean visit(StaticStatement s) throws Exception {
+	public boolean visit(VarStatement s) throws Exception {
 		Map<String, String> parameters = createInitialParameters(s);
-		xmlWriter.startTag("StaticStatement", parameters); //$NON-NLS-1$
+		xmlWriter.startTag("VarStatement", parameters); //$NON-NLS-1$
 		return true;
 	}
 

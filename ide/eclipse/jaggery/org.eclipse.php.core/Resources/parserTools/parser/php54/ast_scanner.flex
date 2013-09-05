@@ -219,13 +219,13 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 
 %%
 
-<ST_IN_SCRIPTING>"exit" {
+/*<ST_IN_SCRIPTING>"exit" {
 	return createFullSymbol(ParserConstants.T_EXIT);
 }
 
 <ST_IN_SCRIPTING>"die" {
 	return createFullSymbol(ParserConstants.T_EXIT);
-}
+}*/
 
 <ST_IN_SCRIPTING>"function" {
 	return createSymbol(ParserConstants.T_FUNCTION);
@@ -287,7 +287,7 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_ENDFOR);
 }
 
-<ST_IN_SCRIPTING>"foreach" {
+/*<ST_IN_SCRIPTING>"foreach" {
 	return createSymbol(ParserConstants.T_FOREACH);
 }
 
@@ -301,15 +301,15 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 
 <ST_IN_SCRIPTING>"enddeclare" {
 	return createSymbol(ParserConstants.T_ENDDECLARE);
-}
+}*/
 
 <ST_IN_SCRIPTING>"instanceof" {
 	return createSymbol(ParserConstants.T_INSTANCEOF);
 }
 
-<ST_IN_SCRIPTING>"as" {
+/*<ST_IN_SCRIPTING>"as" {
 	return createSymbol(ParserConstants.T_AS);
-}
+}*/
 
 <ST_IN_SCRIPTING>"switch" {
 	return createSymbol(ParserConstants.T_SWITCH);
@@ -339,15 +339,15 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
  	return createSymbol(ParserConstants.T_GOTO);
 }
 
-<ST_IN_SCRIPTING>"echo" {
+/*<ST_IN_SCRIPTING>"echo" {
 	return createSymbol(ParserConstants.T_ECHO);
-}
+}*/
 
 <ST_IN_SCRIPTING>"print" {
 	return createSymbol(ParserConstants.T_PRINT);
 }
 
-<ST_IN_SCRIPTING>"class" {
+/*<ST_IN_SCRIPTING>"class" {
 	return createSymbol(ParserConstants.T_CLASS);
 }
 
@@ -373,7 +373,7 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 
 <ST_IN_SCRIPTING>"implements" {
 	return createSymbol(ParserConstants.T_IMPLEMENTS);
-}
+}*/
 
 <ST_IN_SCRIPTING>"->" {
     pushState(ST_LOOKING_FOR_PROPERTY);
@@ -401,17 +401,17 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_PAAMAYIM_NEKUDOTAYIM);
 }
 
-<ST_IN_SCRIPTING>"\\" {
+/*<ST_IN_SCRIPTING>"\\" {
 	return createSymbol(ParserConstants.T_NS_SEPARATOR);
-}
+}*/
 
 <ST_IN_SCRIPTING>"new" {
 	return createSymbol(ParserConstants.T_NEW);
 }
 
-<ST_IN_SCRIPTING>"clone" {
+/*<ST_IN_SCRIPTING>"clone" {
 	return createSymbol(ParserConstants.T_CLONE);
-}
+}*/
 
 <ST_IN_SCRIPTING>"var" {
 	return createSymbol(ParserConstants.T_VAR);
@@ -445,9 +445,9 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_BOOL_CAST);
 }
 
-<ST_IN_SCRIPTING>"("{TABS_AND_SPACES}("unset"){TABS_AND_SPACES}")" {
+/*<ST_IN_SCRIPTING>"("{TABS_AND_SPACES}("unset"){TABS_AND_SPACES}")" {
 	return createSymbol(ParserConstants.T_UNSET_CAST);
-}
+}*/
 
 <ST_IN_SCRIPTING>"eval" {
 	return createSymbol(ParserConstants.T_EVAL);
@@ -469,11 +469,11 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_REQUIRE_ONCE);
 }
 
-<ST_IN_SCRIPTING>"namespace" {
+/*<ST_IN_SCRIPTING>"namespace" {
  	return createSymbol(ParserConstants.T_NAMESPACE);
-}
+}*/
 
-<ST_IN_SCRIPTING>"use" {
+/*<ST_IN_SCRIPTING>"use" {
 	return createSymbol(ParserConstants.T_USE);
 }
 
@@ -502,35 +502,35 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 
 <ST_IN_SCRIPTING>"final" {
 	return createSymbol(ParserConstants.T_FINAL);
-}
+}*/
 
-<ST_IN_SCRIPTING>"private" {
+/*<ST_IN_SCRIPTING>"private" {
 	return createSymbol(ParserConstants.T_PRIVATE);
 }
 
 <ST_IN_SCRIPTING>"protected" {
 	return createSymbol(ParserConstants.T_PROTECTED);
-}
+}*/
 
-<ST_IN_SCRIPTING>"public" {
+/*<ST_IN_SCRIPTING>"public" {
 	return createSymbol(ParserConstants.T_PUBLIC);
 }
 
 <ST_IN_SCRIPTING>"unset" {
 	return createSymbol(ParserConstants.T_UNSET);
-}
+}*/
 
 <ST_IN_SCRIPTING>"=>" {
 	return createSymbol(ParserConstants.T_DOUBLE_ARROW);
 }
 
-<ST_IN_SCRIPTING>"list" {
+/*<ST_IN_SCRIPTING>"list" {
 	return createSymbol(ParserConstants.T_LIST);
 }
 
 <ST_IN_SCRIPTING>"array" {
 	return createSymbol(ParserConstants.T_ARRAY);
-}
+}*/
 
 <ST_IN_SCRIPTING>"++" {
 	return createSymbol(ParserConstants.T_INC);
@@ -719,7 +719,7 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
     return createFullSymbol(ParserConstants.T_DNUMBER);
 }
 
-<ST_IN_SCRIPTING>"__CLASS__" {
+/*<ST_IN_SCRIPTING>"__CLASS__" {
     return createSymbol(ParserConstants.T_CLASS_C);
 }
 
@@ -745,7 +745,7 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 
 <ST_IN_SCRIPTING>"__NAMESPACE__" {
 	return createSymbol(ParserConstants.T_NS_C);
-}
+}*/
 
 <YYINITIAL>(([^<]|"<"[^?%s<])+)|"<s"|"<" {
     return createSymbol(ParserConstants.T_INLINE_HTML);
@@ -813,10 +813,9 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_ENCAPSED_AND_WHITESPACE);
 }
 
-<ST_IN_SCRIPTING>"define" {
-    /* not a keyword, hust for recognize constans.*/
+/*<ST_IN_SCRIPTING>"define" {
     return createFullSymbol(ParserConstants.T_DEFINE);
-}
+}*/
 
 <ST_IN_SCRIPTING,ST_VAR_OFFSET>{LABEL} {
     return createFullSymbol(ParserConstants.T_STRING);

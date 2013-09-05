@@ -283,7 +283,7 @@ public abstract class AbstractVisitor implements Visitor {
 		return true;
 	}
 
-	public boolean visit(StaticStatement staticStatement) {
+	public boolean visit(VarStatement varStatement) {
 		return true;
 	}
 
@@ -503,7 +503,7 @@ public abstract class AbstractVisitor implements Visitor {
 	public void endVisit(StaticMethodInvocation staticMethodInvocation) {
 	}
 
-	public void endVisit(StaticStatement staticStatement) {
+	public void endVisit(VarStatement varStatement) {
 	}
 
 	public void endVisit(SwitchCase switchCase) {
