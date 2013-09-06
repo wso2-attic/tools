@@ -230,7 +230,7 @@ public class EditorUtils {
 				|| editPart instanceof MediatorFlowMediatorFlowCompartment2EditPart		// switch case
 				|| editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart		// switch default
 				|| editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart) { // clone target
-			return editPart.getParent().getParent();
+			return editPart.getParent().getParent().getParent().getParent();
 		}
 		else {
 				return null;

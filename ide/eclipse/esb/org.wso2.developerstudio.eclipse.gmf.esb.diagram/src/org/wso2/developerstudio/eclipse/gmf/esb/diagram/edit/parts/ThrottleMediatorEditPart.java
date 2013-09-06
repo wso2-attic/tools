@@ -127,7 +127,7 @@ public class ThrottleMediatorEditPart extends MultipleCompartmentComplexFiguredA
 				super.setBounds(rect);
 				if ((!connected)
 						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
-					getMostSuitableElementToConnect();
+					connectToMostSuitableElement();
 					reAllocate(rect);
 					connected = true;
 				}

@@ -125,7 +125,7 @@ public class IterateMediatorEditPart extends SingleCompartmentComplexFiguredAbst
 				super.setBounds(rect);
 				if ((!connected)
 						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
-					getMostSuitableElementToConnect();
+					connectToMostSuitableElement();
 					reAllocate(rect);
 					connected = true;
 				}
