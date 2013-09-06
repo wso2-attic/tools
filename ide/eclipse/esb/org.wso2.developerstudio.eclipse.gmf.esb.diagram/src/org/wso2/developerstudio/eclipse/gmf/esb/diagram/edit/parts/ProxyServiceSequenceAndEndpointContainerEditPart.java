@@ -232,6 +232,7 @@ public class ProxyServiceSequenceAndEndpointContainerEditPart extends ShapeNodeE
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
+			this.setLayoutManager(layoutThis);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 			//this.setLineStyle(Graphics.LINE_SOLID);

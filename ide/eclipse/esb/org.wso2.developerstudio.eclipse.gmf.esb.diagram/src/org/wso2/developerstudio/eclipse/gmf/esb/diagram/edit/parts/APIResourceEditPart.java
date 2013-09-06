@@ -313,7 +313,7 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 			layoutThis.setVertical(false);
 
 			this.setLayoutManager(layoutThis);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(800), getMapMode().DPtoLP(400)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(300), getMapMode().DPtoLP(400)));
 			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			this.setForegroundColor(new Color(null, 0, 0, 0));

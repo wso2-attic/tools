@@ -7,6 +7,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
@@ -14,11 +15,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultBranchOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseBranchOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchDefaultBranchOutputConnectorImpl;
 
 public class SwitchMediatorUtils {
 	
@@ -78,6 +82,23 @@ public class SwitchMediatorUtils {
 		SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) child;
 		EObject parentContainer = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (switchMediatorEditPart)
 				.getModel()).getElement();
+		
+		/*if(((SwitchMediator) parentContainer).getDefaultBranch() == null) {
+			SwitchDefaultBranchOutputConnector defaultOuputConnector = EsbFactory.eINSTANCE.createSwitchDefaultBranchOutputConnector();
+			SetCommand setDefaultConnectorCmd = new SetCommand(domain, parentContainer,
+					EsbPackage.Literals.SWITCH_MEDIATOR__DEFAULT_BRANCH, defaultOuputConnector);
+			if(setDefaultConnectorCmd.canExecute()) {
+				domain.getCommandStack().execute(setDefaultConnectorCmd);
+			}
+			
+			SwitchDefaultContainer defaultContainer = EsbFactory.eINSTANCE.createSwitchDefaultContainer();
+			SetCommand setDefaultContainerCmd = new SetCommand(domain, ((SwitchMediator) parentContainer).getSwitchContainer(),
+					EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER, defaultContainer);
+			if(setDefaultContainerCmd.canExecute()) {
+				domain.getCommandStack().execute(setDefaultContainerCmd);
+			}
+		}*/
+ 		
 		if (((SwitchMediator) parentContainer).getCaseBranches().size() == 0) {
 			SwitchCaseBranchOutputConnector caseOutputConnector = EsbFactory.eINSTANCE
 					.createSwitchCaseBranchOutputConnector();
