@@ -16,26 +16,39 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import org.apache.synapse.endpoints.IndirectEndpoint;
+import java.util.Map;
+
+import org.apache.synapse.endpoints.ResolvingEndpoint;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
-public class IndirectEndpointDeserializer extends
-		AbstractEsbNodeDeserializer<IndirectEndpoint, NamedEndpoint> {
-
-	public NamedEndpoint createNode(IGraphicalEditPart part, IndirectEndpoint indirectEndpoint) {
+public class ResolvingEndpointDeserializer extends
+AbstractEsbNodeDeserializer<ResolvingEndpoint, NamedEndpoint>{
+	public NamedEndpoint createNode(IGraphicalEditPart part, ResolvingEndpoint resolvingEndpoint) {
 
 		NamedEndpoint endPoint = (NamedEndpoint) DeserializerUtils.createNode(part,
 				EsbElementTypes.NamedEndpoint_3660);
-		setElementToEdit(endPoint);
-
-		executeSetValueCommand(NAMED_ENDPOINT__NAME,indirectEndpoint.getKey());
-		executeSetValueCommand(NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE,KeyType.STATIC);
+		setElementToEdit(endPoint);		
+		if(resolvingEndpoint.getKeyExpression() != null){			
+			SynapseXPath xpath  = resolvingEndpoint.getKeyExpression();			
+			NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();			
+			nsp.setPropertyValue(xpath.toString());			
+			if (xpath.getNamespaces() != null) {
+				@SuppressWarnings("unchecked")
+				Map<String, String> map = xpath.getNamespaces();
+				nsp.setNamespaces(map);
+			}	
+			executeSetValueCommand(NAMED_ENDPOINT__DYNAMIC_REFERENCE_KEY,nsp);		
+		}
+		
+		executeSetValueCommand(NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE,KeyType.DYNAMIC);
 
 		return endPoint;
 	}
-
 }
