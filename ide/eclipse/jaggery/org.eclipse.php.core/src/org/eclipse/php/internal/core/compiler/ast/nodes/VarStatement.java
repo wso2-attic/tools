@@ -25,11 +25,11 @@ import org.eclipse.php.internal.core.compiler.ast.visitor.ASTPrintVisitor;
  * <pre>e.g.<pre> static $a
  * static $a, $b=5;
  */
-public class StaticStatement extends Statement {
+public class VarStatement extends Statement {
 
 	private final List<? extends Expression> expressions;
 
-	public StaticStatement(int start, int end, List<? extends Expression> expressions) {
+	public VarStatement(int start, int end, List<? extends Expression> expressions) {
 		super(start, end);
 
 		assert expressions != null;
