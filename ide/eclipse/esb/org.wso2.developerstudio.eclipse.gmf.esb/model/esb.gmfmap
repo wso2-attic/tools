@@ -1210,13 +1210,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//SendMediator"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping">
-                            <diagramLabel
-                                href="esb.gmfgraph#SendMediatorDescription"/>
-                            <features
-                                href="esb.ecore#//EsbElement/description"/>
-                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.18"/>

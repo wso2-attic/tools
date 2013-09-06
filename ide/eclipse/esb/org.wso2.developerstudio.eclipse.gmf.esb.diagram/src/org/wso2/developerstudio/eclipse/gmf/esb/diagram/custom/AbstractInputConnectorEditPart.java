@@ -96,9 +96,9 @@ public abstract class AbstractInputConnectorEditPart extends AbstractConnectorEd
 				if (target instanceof AbstractInputConnectorEditPart) {
 					EditPart parent = target.getParent();
 					if(parent!=null){
-						if (EditorUtils.hasCycle(source, parent)) {
+/*						if (EditorUtils.hasCycle(source, parent)) {
 							return UnexecutableCommand.INSTANCE;
-						}
+						}*/
 						/* please improve EditorUtils.isConnectableTarget */
 						if(!EditorUtils.isConnectableTarget(source, parent)){
 							return UnexecutableCommand.INSTANCE;

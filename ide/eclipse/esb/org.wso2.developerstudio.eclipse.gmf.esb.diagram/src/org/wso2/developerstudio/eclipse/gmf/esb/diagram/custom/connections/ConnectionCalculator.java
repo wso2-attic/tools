@@ -190,7 +190,7 @@ public class ConnectionCalculator {
 		if (nearReverseConnector != null) {
 			updateCurrentStatesForGivenFigure(nearReverseConnector);
 			if((nearReverseConnector.getParent() instanceof ProxyServiceEditPart)
-					||(nearForwardConnector.getParent() instanceof APIResourceEditPart)){
+					||(nearReverseConnector.getParent() instanceof APIResourceEditPart)){
 			yDistance2 = Math
 			.abs(connectorFigureLocation.y-140
 					- currentFigureLocation.y);

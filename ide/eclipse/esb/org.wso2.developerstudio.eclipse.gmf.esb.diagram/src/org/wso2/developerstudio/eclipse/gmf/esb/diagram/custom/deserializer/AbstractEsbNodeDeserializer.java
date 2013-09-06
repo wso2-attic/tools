@@ -247,6 +247,28 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	
 	private static void pairMediatorFlows() {
 		for (Map.Entry<EsbConnector, EsbConnector> pair : pairMediatorFlowMap.entrySet()) {
+			LinkedList<EsbNode> outSeq = connectionFlowMap.get(pair.getValue());
+			if (outSeq == null) {
+				continue;
+			}
+		AbstractConnectorEditPart sourceConnector = EditorUtils.getProxyOutSequenceOutputConnector((ShapeNodeEditPart) EditorUtils.getProxy((EditPart) getEditpart(outSeq.getLast())));
+		AbstractConnectorEditPart targetConnector = null;
+		if(outSeq.size() > 0 && outSeq.getLast() != null){
+			targetConnector = EditorUtils
+			.getInputConnector((ShapeNodeEditPart) getEditpart(outSeq.getLast()));
+		} else{
+			if(pair.getValue() instanceof AbstractConnectorEditPart){
+				targetConnector = (AbstractConnectorEditPart) pair.getValue();
+			} else continue;
+			
+		}
+		
+		if (sourceConnector != null && targetConnector != null) {
+			ConnectionUtils.createConnection(targetConnector,sourceConnector);
+		}
+		}
+		
+/*		for (Map.Entry<EsbConnector, EsbConnector> pair : pairMediatorFlowMap.entrySet()) {
 			LinkedList<EsbNode> inSeq = connectionFlowMap.get(pair.getKey());
 			LinkedList<EsbNode> outSeq = connectionFlowMap.get(pair.getValue());
 			
@@ -339,7 +361,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 					ConnectionUtils.createConnection(targetConnector, sourceConnector);
 				}
 			}
-		}
+		}*/
 
 	}
 	

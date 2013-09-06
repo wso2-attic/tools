@@ -678,24 +678,6 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	/**
 	 * @generated
 	 */
-	private IParser sendMediatorDescription_5182Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getSendMediatorDescription_5182Parser() {
-		if (sendMediatorDescription_5182Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEsbElement_Description() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			sendMediatorDescription_5182Parser = parser;
-		}
-		return sendMediatorDescription_5182Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser headerMediatorValueLiteral_5143Parser;
 
 	/**
@@ -1384,8 +1366,6 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 			return getDBReportMediatorDescription_5180Parser();
 		case SmooksMediatorDescriptionEditPart.VISUAL_ID:
 			return getSmooksMediatorDescription_5181Parser();
-		case SendMediatorDescriptionEditPart.VISUAL_ID:
-			return getSendMediatorDescription_5182Parser();
 		case HeaderMediatorValueLiteralEditPart.VISUAL_ID:
 			return getHeaderMediatorValueLiteral_5143Parser();
 		case HeaderMediatorDescriptionEditPart.VISUAL_ID:

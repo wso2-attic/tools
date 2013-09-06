@@ -45,6 +45,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
@@ -58,6 +59,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.Sequences2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
@@ -180,6 +182,17 @@ public class EditorUtils {
 				return (ProxyFaultInputConnectorEditPart) parent.getChildren().get(i);
 			}else if(parent.getChildren().get(i) instanceof APIResourceFaultInputConnectorEditPart){
 				return (APIResourceFaultInputConnectorEditPart) parent.getChildren().get(i);
+			}
+		}
+		return null;
+	}
+	
+	public static AbstractOutputConnectorEditPart getProxyOutSequenceOutputConnector(ShapeNodeEditPart parent){
+		for(int i=0;i<parent.getChildren().size();++i){					
+			if(parent.getChildren().get(i) instanceof ProxyOutSequenceOutputConnectorEditPart){
+				return (ProxyOutSequenceOutputConnectorEditPart) parent.getChildren().get(i);
+			}else if(parent.getChildren().get(i) instanceof APIResourceOutSequenceOutputConnectorEditPart){
+				return (APIResourceOutSequenceOutputConnectorEditPart) parent.getChildren().get(i);
 			}
 		}
 		return null;

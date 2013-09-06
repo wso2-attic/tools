@@ -383,9 +383,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case SendMediatorEditPart.VISUAL_ID:
 				return new SendMediatorEditPart(view);
 
-			case SendMediatorDescriptionEditPart.VISUAL_ID:
-				return new SendMediatorDescriptionEditPart(view);
-
 			case SendMediatorInputConnectorEditPart.VISUAL_ID:
 				return new SendMediatorInputConnectorEditPart(view);
 

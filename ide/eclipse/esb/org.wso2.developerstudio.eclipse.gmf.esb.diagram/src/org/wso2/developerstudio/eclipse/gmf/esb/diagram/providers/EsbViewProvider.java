@@ -6458,8 +6458,6 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
-		Node label5182 = createLabel(node,
-				EsbVisualIDRegistry.getType(SendMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 

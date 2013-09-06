@@ -4935,9 +4935,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case SendMediatorEditPart.VISUAL_ID:
-			if (SendMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (SendMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
