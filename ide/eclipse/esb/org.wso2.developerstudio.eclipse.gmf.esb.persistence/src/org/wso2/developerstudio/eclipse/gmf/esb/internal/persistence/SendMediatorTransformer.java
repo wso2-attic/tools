@@ -28,6 +28,10 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 		tmpInformation.setOriginOutSequence(information.getOriginOutSequence());
 		tmpInformation.setPreviousNode(information.getPreviouNode());
 		tmpInformation.setSynapseConfiguration(information.getSynapseConfiguration());
+		tmpInformation.setCurrentAPI(information.getCurrentAPI());
+		tmpInformation.setCurrentProxy(information.getCurrentProxy());
+		tmpInformation.setCurrentReferredSequence(information.getCurrentReferredSequence());
+		tmpInformation.setMainSequence(information.getMainSequence());
 		doTransform(tmpInformation,
 					((SendMediator) subject).getEndpointOutputConnector());
 		
