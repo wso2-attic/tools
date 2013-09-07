@@ -45,6 +45,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow1
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow13EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow19EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment12EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment14EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment16EditPart;
@@ -52,10 +53,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment13EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment19EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
@@ -167,15 +170,15 @@ public class MediatorFigureReverser {
 					.getChildren().get(4)).getChildren().get(0)).getChildren();
 		}
 
-/*		if (editorPart instanceof SendMediatorEditPart) {
+		if (editorPart instanceof SendMediatorEditPart) {
 			arrangeType1Compartment(editorPart,
 					((SendMediatorEditPart) editorPart).endpointOutputConnector, childFigures);
-			
+			/*
 			 * Reverse the mediators inside the Send mediator.
-			 
-			children = ((EndpointFlowEndpointCompartmentEditPart) ((EndpointFlowEditPart) editorPart
-					.getChildren().get(3)).getChildren().get(0)).getChildren();
-		}*/
+			 */
+/*			children = ((MediatorFlowMediatorFlowCompartment19EditPart) ((MediatorFlow19EditPart) editorPart
+					.getChildren().get(3)).getChildren().get(0)).getChildren();*/
+		}
 
 
 		if (editorPart instanceof FilterMediatorEditPart) {

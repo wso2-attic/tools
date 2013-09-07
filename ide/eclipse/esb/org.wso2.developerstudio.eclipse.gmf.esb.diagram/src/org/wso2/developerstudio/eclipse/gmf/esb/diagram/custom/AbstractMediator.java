@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
@@ -50,6 +52,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections.ConnectionCalculator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
@@ -101,6 +104,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleConta
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMediatorEditPart;
 import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.StatusDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.PlatformUI;
@@ -485,8 +490,10 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 				}
 				
 				if ((!(nearestEsbLinkOutputConnector instanceof ProxyOutputConnectorEditPart))
+						&& (!(nearestEsbLinkOutputConnector instanceof ProxyOutSequenceOutputConnectorEditPart))
 						&& (!(nearestEsbLinkOutputConnector instanceof SequencesOutputConnectorEditPart))
 						&&(!(nearestEsbLinkOutputConnector instanceof APIResourceOutputConnectorEditPart))
+						&& (!(nearestEsbLinkOutputConnector instanceof APIResourceOutSequenceOutputConnectorEditPart))
 						&& (!nearestEsbLinkOutputConnector.getParent().getParent()
 								.equals(this.getParent()))
 						&&(!EditorUtils.getMediator(nearestEsbLinkOutputConnector).equals(EditorUtils.getMediator(this.getParent())))) {
@@ -635,6 +642,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 	private boolean checkComplexity() {
 		if ((this instanceof AggregateMediatorEditPart) || (this instanceof SwitchMediatorEditPart)
 				|| (this instanceof FilterMediatorEditPart)
+				|| (this instanceof SendMediatorEditPart)
 				|| (this instanceof ThrottleMediatorEditPart)
 				|| (this instanceof CacheMediatorEditPart)
 				|| (this instanceof CloneMediatorEditPart)
@@ -805,10 +813,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 	}
 
 	private void showSendMediatorRestrictionMessage(String reason) {
-		System.out.println(reason);
-		MessageBox mb = new MessageBox(PlatformUI.getWorkbench().getDisplay().getActiveShell());
-		mb.setMessage(reason);
-		mb.open();
+		String errorMsgHeader = "Warning !";
+		IStatus editorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, reason);
+		ErrorDialog.openError(Display.getCurrent().getActiveShell(), "Warning ", errorMsgHeader, editorStatus);
 	}
 	
 	private AbstractMediator getPreviousMediator(AbstractConnectorEditPart nearestEsbLinkOutputConnector, 

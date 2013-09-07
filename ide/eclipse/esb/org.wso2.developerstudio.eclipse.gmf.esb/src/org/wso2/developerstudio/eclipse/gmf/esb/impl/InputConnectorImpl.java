@@ -21,6 +21,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorOutputConnector;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,6 +85,12 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 	 */
 	public boolean shouldConnect(OutputConnector sourceEnd) {
 		EObject container = sourceEnd.eContainer();
+		/*
+		 * Avoid connecting send mediator output connector and endpoint inside the send mediator.  
+		 */
+		if(sourceEnd instanceof SendMediatorOutputConnector && this.eContainer instanceof EndPoint){
+			return false;
+		}
 		if (this.eContainer.equals(container)) {
 			return false;
 		} else if(sourceEnd.eContainer() instanceof EndPoint){

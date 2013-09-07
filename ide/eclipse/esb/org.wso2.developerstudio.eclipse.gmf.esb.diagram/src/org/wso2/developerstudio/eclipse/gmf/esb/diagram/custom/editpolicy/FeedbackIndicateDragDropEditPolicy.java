@@ -36,6 +36,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment19EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -142,36 +143,49 @@ public class FeedbackIndicateDragDropEditPolicy extends DragDropEditPolicy {
 	public Command getCommand(Request request) {
 
 		if (request instanceof CreateUnspecifiedTypeRequest) {
-			/*
-			 * Allowing endpoints only in proxy-service sequence & endpoints
-			 * compartment
-			 */
-			if (!(getHost() instanceof MediatorFlowMediatorFlowCompartmentEditPart || getHost() instanceof MediatorFlowMediatorFlowCompartment5EditPart)) {
+			List<IElementType> endPointTypes = Arrays.asList(
+					EsbElementTypes.AddressEndPoint_3610, 						
+					EsbElementTypes.AddressEndPoint_3646,
+					EsbElementTypes.AddressingEndpoint_3689,
+					EsbElementTypes.DefaultEndPoint_3609,
+					EsbElementTypes.DefaultEndPoint_3643,
+					EsbElementTypes.HTTPEndpoint_3709,
+					EsbElementTypes.HTTPEndpoint_3712,
+					EsbElementTypes.WSDLEndPoint_3612,
+					EsbElementTypes.WSDLEndPoint_3653,							
+					EsbElementTypes.RecipientListEndPoint_3692,
+					EsbElementTypes.RecipientListEndPoint_3696,
+					EsbElementTypes.TemplateEndpoint_3716,
+					EsbElementTypes.TemplateEndpoint_3725,
+					EsbElementTypes.NamedEndpoint_3660,
+					EsbElementTypes.LoadBalanceEndPoint_3613,
+					EsbElementTypes.LoadBalanceEndPoint_3656,
+					EsbElementTypes.FailoverEndPoint_3611,
+					EsbElementTypes.FailoverEndPoint_3649);
+			
+			@SuppressWarnings("rawtypes")
+			List elementTypes = ((CreateUnspecifiedTypeRequest) request).getElementTypes();
 				@SuppressWarnings("rawtypes")
-				List elementTypes = ((CreateUnspecifiedTypeRequest) request).getElementTypes();
-				@SuppressWarnings("rawtypes")
-				Iterator types = elementTypes.iterator();
-				
-				List<IElementType> endPointTypes = Arrays.asList(
-						EsbElementTypes.AddressEndPoint_3610, 
-						EsbElementTypes.DefaultEndPoint_3609,
-						EsbElementTypes.WSDLEndPoint_3612, 
-						EsbElementTypes.AddressEndPoint_3646,
-						EsbElementTypes.DefaultEndPoint_3643, 
-						EsbElementTypes.WSDLEndPoint_3653,
-						EsbElementTypes.NamedEndpoint_3660,
-						EsbElementTypes.LoadBalanceEndPoint_3613,
-						EsbElementTypes.LoadBalanceEndPoint_3656,
-						EsbElementTypes.FailoverEndPoint_3611,
-						EsbElementTypes.FailoverEndPoint_3649);
-				
+				Iterator types = elementTypes.iterator();			
 				while(types.hasNext()){
-					Object object = types.next();
-					if(endPointTypes.contains(object)){
-						return UnexecutableCommand.INSTANCE;
+					Object object = types.next();					
+
+					if (!(getHost() instanceof MediatorFlowMediatorFlowCompartment19EditPart)) {	
+						/*
+						 * Allowing endpoints only in Send mediator compartment.
+						 */
+						if(endPointTypes.contains(object)){
+							return UnexecutableCommand.INSTANCE;
+						}
+					} else{
+						/*
+						 * Not allowing mediators in Send mediator compartment.
+						 */
+						if(!endPointTypes.contains(object)){
+							return UnexecutableCommand.INSTANCE;
+						}
 					}
 				}
-			}
 		}
 		return super.getCommand(request);
 	}
