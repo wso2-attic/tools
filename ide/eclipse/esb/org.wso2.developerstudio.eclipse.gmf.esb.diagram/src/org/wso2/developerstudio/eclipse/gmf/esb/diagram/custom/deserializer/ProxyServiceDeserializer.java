@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -28,16 +29,19 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.PolicyInfo;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServicePolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
@@ -182,11 +186,29 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					.getDeserializer(targetInLineEndpoint);
 
 			if (deserializer != null) {
-				@SuppressWarnings("unchecked")
-				EndPoint endPointModel = (EndPoint) deserializer.createNode(
-						getRootCompartment(), targetInLineEndpoint);
-				executeSetValueCommand(endPointModel, END_POINT__IN_LINE, true);
-				getConnectionFlow(proxy.getOutputConnector()).add(endPointModel);
+				LinkedList<EsbNode> connectionFlow = getConnectionFlow(proxy.getOutputConnector());
+				if (connectionFlow.size() > 0 && connectionFlow.getLast() instanceof SendMediator) {
+					EditPart sendMediatorFlow = getEditpart(((SendMediator)connectionFlow.getLast()).getMediatorFlow());
+					@SuppressWarnings("unchecked")
+					EndPoint endPointModel = (EndPoint) deserializer.createNode(
+							(IGraphicalEditPart) sendMediatorFlow.getChildren().get(0),targetInLineEndpoint);
+					executeSetValueCommand(endPointModel, END_POINT__IN_LINE,true);
+					connectionFlow.add(endPointModel);
+					
+				} else{
+					SendMediator sendModel = (SendMediator) DeserializerUtils.createNode(getRootCompartment(), EsbElementTypes.SendMediator_3515);
+					executeSetValueCommand(sendModel, SEND_MEDIATOR__SKIP_SERIALIZATION, true);
+					refreshEditPartMap();
+					EditPart sendMediatorFlow=getEditpart(sendModel.getMediatorFlow());
+					connectionFlow.add(sendModel);
+					
+					@SuppressWarnings("unchecked")
+					EndPoint endPointModel = (EndPoint) deserializer.createNode(
+							(IGraphicalEditPart) sendMediatorFlow.getChildren().get(0), targetInLineEndpoint);
+					executeSetValueCommand(endPointModel, END_POINT__IN_LINE, true);
+					connectionFlow.add(endPointModel);
+				}
+			
 			}
 		}
 		

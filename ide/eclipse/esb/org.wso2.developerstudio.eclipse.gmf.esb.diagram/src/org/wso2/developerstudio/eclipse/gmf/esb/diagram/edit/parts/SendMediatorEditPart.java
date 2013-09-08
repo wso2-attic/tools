@@ -1,5 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.util.Iterator;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
@@ -11,6 +13,7 @@ import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -19,6 +22,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
@@ -28,6 +32,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -36,7 +42,9 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
@@ -53,6 +61,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SendMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SendMediatorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.END_POINT__IN_LINE;
 
 /**
  * @generated NOT
@@ -125,8 +134,9 @@ public class SendMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 		return lep;
 	}
 
-	/*	public void notifyChanged(Notification notification) {
+	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
+		/*
 		if(notification.getFeature() instanceof EReference){
 		if("StaticReceivingSequence".equals(((EReference)notification.getFeature()).getName())){
 			
@@ -141,11 +151,49 @@ public class SendMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 			        endPointDuplicator.updateAssociatedDiagrams((EsbMultiPageEditor)activeEditor);
 				}
 			}
+		}	
+		}*/
+		if (notification.getFeature() instanceof EAttribute) {
+			if (EsbPackage.eINSTANCE.getSendMediator_SkipSerialization()
+					.equals(notification.getFeature())) {
+				updateEndpointInlineProperty(notification);
+			}
 		}
-	}
 		
 	}
+
+	/**
+	 * Updates inlineProperty of endpoint when skip serialization property has changed
+	 * @param notification
 	 */
+	private void updateEndpointInlineProperty(Notification notification) {
+		if (notification.getNewBooleanValue() != notification.getOldBooleanValue()) {
+			IGraphicalEditPart mediatorFlow = getChildBySemanticHint(EsbVisualIDRegistry
+					.getType(MediatorFlow19EditPart.VISUAL_ID));
+			if (mediatorFlow != null) {
+				IGraphicalEditPart mediatorFlowCompartment = mediatorFlow
+						.getChildBySemanticHint(EsbVisualIDRegistry
+								.getType(MediatorFlowMediatorFlowCompartment19EditPart.VISUAL_ID));
+				if (mediatorFlowCompartment != null) {
+					Iterator<?> iterator = mediatorFlowCompartment.getChildren().iterator();
+					while (iterator.hasNext()) {
+						Object next = iterator.next();
+						if (next instanceof AbstractEndpoint) {
+							SetRequest reqSet = new SetRequest(getEditingDomain(),
+									((View) ((AbstractEndpoint) next).getModel()).getElement(),
+									END_POINT__IN_LINE, notification.getNewBooleanValue());
+							SetValueCommand operation = new SetValueCommand(reqSet);
+							if (operation.canExecute()) {
+								getDiagramEditDomain().getDiagramCommandStack().execute(
+										new ICommandProxy(operation));
+							}
+							break;
+						}
+					}
+				}
+			}
+		}
+	}
 
 	/**
 	 * @generated NOT

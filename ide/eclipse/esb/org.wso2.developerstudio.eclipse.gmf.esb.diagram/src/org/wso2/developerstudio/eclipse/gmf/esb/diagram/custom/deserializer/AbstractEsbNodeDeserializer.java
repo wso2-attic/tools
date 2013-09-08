@@ -48,19 +48,19 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
-import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
+//import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+//import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
+//import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+//import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
@@ -72,9 +72,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart;
+//import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+//import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -171,6 +171,9 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 					}
 				}
 			}
+			
+			/*safe to remove : not valid in current implementation/UI*/ 
+			/*
 			if (!reversed) {
 								if (!nodeList.isEmpty()) {
 									EsbNode last = nodeList.getLast();
@@ -188,6 +191,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 									}
 								}
 							}
+			*/
 			connectionFlowMap.put(connector, nodeList);
 		} else if(connector instanceof InputConnector){
 			for (int i = sequence.getList().size() -1; i >= 0; --i) {
