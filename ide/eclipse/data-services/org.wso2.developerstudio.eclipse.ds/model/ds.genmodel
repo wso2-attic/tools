@@ -50,6 +50,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceGroup"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceNamespace"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/serviceStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//DataService/disableStreaming"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//DataSourceConfiguration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//DataSourceConfiguration/mixed"/>

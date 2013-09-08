@@ -521,6 +521,14 @@ public class DetailSection {
 				voidMaker();
 				voidMaker();
 			}
+			
+			if(displayName.equals(DetailSectionCustomUiConstants.DISABLE_STREAMING)){				
+				labelMaker(displayName);
+				sectionUtil.getBooleanComboField(detailsclient,toolkit,selectedObject,dataService.isDisableStreaming()
+						,DsPackage.eINSTANCE.getDataService_DisableStreaming());
+				voidMaker();
+				voidMaker();
+			}
 		}	
 	}
 	}

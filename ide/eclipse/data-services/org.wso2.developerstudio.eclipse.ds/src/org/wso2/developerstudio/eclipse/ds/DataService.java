@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.DataService#getServiceGroup <em>Service Group</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.DataService#getServiceNamespace <em>Service Namespace</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.DataService#getServiceStatus <em>Service Status</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.DataService#isDisableStreaming <em>Disable Streaming</em>}</li>
  * </ul>
  * </p>
  *
@@ -416,5 +417,31 @@ public interface DataService extends EObject {
 	 * @generated
 	 */
 	boolean isSetServiceStatus();
+
+	/**
+	 * Returns the value of the '<em><b>Disable Streaming</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Disable Streaming</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Disable Streaming</em>' attribute.
+	 * @see #setDisableStreaming(boolean)
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_DisableStreaming()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean isDisableStreaming();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.ds.DataService#isDisableStreaming <em>Disable Streaming</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Disable Streaming</em>' attribute.
+	 * @see #isDisableStreaming()
+	 * @generated
+	 */
+	void setDisableStreaming(boolean value);
 
 } // DataService

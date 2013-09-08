@@ -58,6 +58,7 @@ import org.wso2.developerstudio.eclipse.ds.ServiceStatus;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl#getServiceGroup <em>Service Group</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl#getServiceNamespace <em>Service Namespace</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl#getServiceStatus <em>Service Status</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl#isDisableStreaming <em>Disable Streaming</em>}</li>
  * </ul>
  * </p>
  *
@@ -242,6 +243,26 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @ordered
 	 */
 	protected boolean serviceStatusESet;
+
+	/**
+	 * The default value of the '{@link #isDisableStreaming() <em>Disable Streaming</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDisableStreaming()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DISABLE_STREAMING_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDisableStreaming() <em>Disable Streaming</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDisableStreaming()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean disableStreaming = DISABLE_STREAMING_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -546,6 +567,27 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDisableStreaming() {
+		return disableStreaming;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDisableStreaming(boolean newDisableStreaming) {
+		boolean oldDisableStreaming = disableStreaming;
+		disableStreaming = newDisableStreaming;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__DISABLE_STREAMING, oldDisableStreaming, disableStreaming));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	
 	@Override
@@ -610,6 +652,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 				return getServiceNamespace();
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				return getServiceStatus();
+			case DsPackage.DATA_SERVICE__DISABLE_STREAMING:
+				return isDisableStreaming();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -675,6 +719,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				setServiceStatus((ServiceStatus)newValue);
 				return;
+			case DsPackage.DATA_SERVICE__DISABLE_STREAMING:
+				setDisableStreaming((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -734,6 +781,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				unsetServiceStatus();
 				return;
+			case DsPackage.DATA_SERVICE__DISABLE_STREAMING:
+				setDisableStreaming(DISABLE_STREAMING_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -778,6 +828,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 				return SERVICE_NAMESPACE_EDEFAULT == null ? serviceNamespace != null : !SERVICE_NAMESPACE_EDEFAULT.equals(serviceNamespace);
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				return isSetServiceStatus();
+			case DsPackage.DATA_SERVICE__DISABLE_STREAMING:
+				return disableStreaming != DISABLE_STREAMING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -812,6 +864,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 		result.append(serviceNamespace);
 		result.append(", serviceStatus: ");
 		if (serviceStatusESet) result.append(serviceStatus); else result.append("<unset>");
+		result.append(", disableStreaming: ");
+		result.append(disableStreaming);
 		result.append(')');
 		return result.toString();
 	}

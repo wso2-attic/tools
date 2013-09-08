@@ -420,13 +420,22 @@ public interface DsPackage extends EPackage {
 	int DATA_SERVICE__SERVICE_STATUS = 14;
 
 	/**
+	 * The feature id for the '<em><b>Disable Streaming</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SERVICE__DISABLE_STREAMING = 15;
+
+	/**
 	 * The number of structural features of the '<em>Data Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE_FEATURE_COUNT = 15;
+	int DATA_SERVICE_FEATURE_COUNT = 16;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.DataSourceConfigurationImpl <em>Data Source Configuration</em>}' class.
@@ -2459,6 +2468,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getDataService_ServiceStatus();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.DataService#isDisableStreaming <em>Disable Streaming</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Disable Streaming</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.DataService#isDisableStreaming()
+	 * @see #getDataService()
+	 * @generated
+	 */
+	EAttribute getDataService_DisableStreaming();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration <em>Data Source Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4394,6 +4414,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_SERVICE__SERVICE_STATUS = eINSTANCE.getDataService_ServiceStatus();
+
+		/**
+		 * The meta object literal for the '<em><b>Disable Streaming</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SERVICE__DISABLE_STREAMING = eINSTANCE.getDataService_DisableStreaming();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.DataSourceConfigurationImpl <em>Data Source Configuration</em>}' class.

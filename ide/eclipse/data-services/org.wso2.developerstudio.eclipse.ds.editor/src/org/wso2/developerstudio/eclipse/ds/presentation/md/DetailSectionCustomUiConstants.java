@@ -22,6 +22,7 @@ public interface DetailSectionCustomUiConstants {
 	public String ENABLE_BATCH_REQUESTS ="Enable Batch Requests";
 	public String ENABLE_BOX_CARRING ="Enable Boxcarring";
 	public String ENABLE_DTP ="Enable Distributed Transactions";
+	public String DISABLE_STREAMING="Disable Streaming";
 	public String SERVICE_STATUS ="Service Status";
 	
 	public String DATA_SERVICE_DESCRIPTION ="Description";

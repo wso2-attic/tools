@@ -705,6 +705,15 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDataService_DisableStreaming() {
+		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataSourceConfiguration() {
 		return dataSourceConfigurationEClass;
 	}
@@ -2126,6 +2135,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_GROUP);
 		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_NAMESPACE);
 		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_STATUS);
+		createEAttribute(dataServiceEClass, DATA_SERVICE__DISABLE_STREAMING);
 
 		dataSourceConfigurationEClass = createEClass(DATA_SOURCE_CONFIGURATION);
 		createEAttribute(dataSourceConfigurationEClass, DATA_SOURCE_CONFIGURATION__MIXED);
@@ -2385,6 +2395,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getDataService_ServiceGroup(), theXMLTypePackage.getString(), "serviceGroup", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_ServiceNamespace(), theXMLTypePackage.getString(), "serviceNamespace", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_ServiceStatus(), this.getServiceStatus(), "serviceStatus", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataService_DisableStreaming(), theXMLTypePackage.getBoolean(), "disableStreaming", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSourceConfigurationEClass, DataSourceConfiguration.class, "DataSourceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataSourceConfiguration_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, DataSourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

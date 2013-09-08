@@ -55,6 +55,7 @@ public final class DsEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	
+	@Override
 	public ResourceLocator getPluginResourceLocator() {
 		return plugin;
 	}
