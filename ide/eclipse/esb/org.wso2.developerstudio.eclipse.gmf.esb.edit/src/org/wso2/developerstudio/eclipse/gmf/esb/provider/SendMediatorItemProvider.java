@@ -67,18 +67,22 @@ public class SendMediatorItemProvider
 			itemPropertyDescriptors.clear();
 		}	
 		super.getPropertyDescriptors(object);	
-		addReceivingSequenceTypePropertyDescriptor(object);
-		switch (sendMediator.getReceivingSequenceType()) {
-		case DEFAULT:
-			break;
-		case STATIC:
-			addStaticReceivingSequencePropertyDescriptor(object);
-			break;
-		case DYNAMIC:
-			addDynamicReceivingSequencePropertyDescriptor(object);
-			break;
-		}	
-		addDescriptionPropertyDescriptor(object);
+		addSkipSerializationPropertyDescriptor(object);
+		
+		if (!sendMediator.isSkipSerialization()) {
+			addReceivingSequenceTypePropertyDescriptor(object);
+			switch (sendMediator.getReceivingSequenceType()) {
+			case DEFAULT:
+				break;
+			case STATIC:
+				addStaticReceivingSequencePropertyDescriptor(object);
+				break;
+			case DYNAMIC:
+				addDynamicReceivingSequencePropertyDescriptor(object);
+				break;
+			}
+			addDescriptionPropertyDescriptor(object);
+		}
 		
 		return itemPropertyDescriptors;
 	}
@@ -128,6 +132,28 @@ public class SendMediatorItemProvider
 	}
 
 	
+	/**
+	 * This adds a property descriptor for the Skip Serialization feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSkipSerializationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SendMediator_skipSerialization_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_skipSerialization_feature", "_UI_SendMediator_type"),
+				 EsbPackage.Literals.SEND_MEDIATOR__SKIP_SERIALIZATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
 	protected void addStaticReceivingSequencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
@@ -240,6 +266,7 @@ public class SendMediatorItemProvider
 
 		switch (notification.getFeatureID(SendMediator.class)) {
 			case EsbPackage.SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE:
+			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.SEND_MEDIATOR__INPUT_CONNECTOR:
