@@ -13771,13 +13771,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SEND_MEDIATOR__MEDIATOR_FLOW = MEDIATOR_FEATURE_COUNT + 7;
 
 				/**
+	 * The feature id for the '<em><b>Skip Serialization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_MEDIATOR__SKIP_SERIALIZATION = MEDIATOR_FEATURE_COUNT + 8;
+
+				/**
 	 * The number of structural features of the '<em>Send Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 8;
+	int SEND_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendContainerImpl <em>Send Container</em>}' class.
@@ -30431,6 +30440,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getSendMediator_MediatorFlow();
 
 				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isSkipSerialization <em>Skip Serialization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Skip Serialization</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isSkipSerialization()
+	 * @see #getSendMediator()
+	 * @generated
+	 */
+	EAttribute getSendMediator_SkipSerialization();
+
+				/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendContainer <em>Send Container</em>}'.
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -41033,6 +41053,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference SEND_MEDIATOR__MEDIATOR_FLOW = eINSTANCE.getSendMediator_MediatorFlow();
+
+								/**
+		 * The meta object literal for the '<em><b>Skip Serialization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEND_MEDIATOR__SKIP_SERIALIZATION = eINSTANCE.getSendMediator_SkipSerialization();
 
 								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendContainerImpl <em>Send Container</em>}' class.

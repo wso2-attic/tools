@@ -1515,6 +1515,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendMediator/DynamicReceivingSequence"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendMediator/endpointOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendMediator/mediatorFlow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SendMediator/skipSerialization"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SendContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SendContainer/endpointFlow"/>

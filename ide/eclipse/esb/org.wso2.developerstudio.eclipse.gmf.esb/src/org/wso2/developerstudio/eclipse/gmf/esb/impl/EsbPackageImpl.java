@@ -12596,6 +12596,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 				/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSendMediator_SkipSerialization() {
+		return (EAttribute)sendMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -15291,6 +15300,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(sendMediatorEClass, SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE);
 		createEReference(sendMediatorEClass, SEND_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR);
 		createEReference(sendMediatorEClass, SEND_MEDIATOR__MEDIATOR_FLOW);
+		createEAttribute(sendMediatorEClass, SEND_MEDIATOR__SKIP_SERIALIZATION);
 
 		sendContainerEClass = createEClass(SEND_CONTAINER);
 		createEReference(sendContainerEClass, SEND_CONTAINER__ENDPOINT_FLOW);
@@ -17147,6 +17157,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getSendMediator_DynamicReceivingSequence(), this.getNamespacedProperty(), null, "DynamicReceivingSequence", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendMediator_EndpointOutputConnector(), this.getSendMediatorEndpointOutputConnector(), null, "endpointOutputConnector", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSendMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSendMediator_SkipSerialization(), ecorePackage.getEBoolean(), "skipSerialization", null, 0, 1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sendContainerEClass, SendContainer.class, "SendContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSendContainer_EndpointFlow(), this.getEndpointFlow(), null, "endpointFlow", null, 0, 1, SendContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

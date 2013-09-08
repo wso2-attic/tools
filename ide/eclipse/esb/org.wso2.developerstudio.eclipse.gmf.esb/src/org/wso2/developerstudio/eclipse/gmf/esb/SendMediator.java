@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getDynamicReceivingSequence <em>Dynamic Receiving Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getEndpointOutputConnector <em>Endpoint Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isSkipSerialization <em>Skip Serialization</em>}</li>
  * </ul>
  * </p>
  *
@@ -232,6 +233,32 @@ public interface SendMediator extends Mediator {
 	 * @generated
 	 */
 	void setMediatorFlow(MediatorFlow value);
+
+				/**
+	 * Returns the value of the '<em><b>Skip Serialization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Skip Serialization</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Skip Serialization</em>' attribute.
+	 * @see #setSkipSerialization(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSendMediator_SkipSerialization()
+	 * @model
+	 * @generated
+	 */
+	boolean isSkipSerialization();
+
+				/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isSkipSerialization <em>Skip Serialization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Skip Serialization</em>' attribute.
+	 * @see #isSkipSerialization()
+	 * @generated
+	 */
+	void setSkipSerialization(boolean value);
 
 				/**
      * Sets the value of the next node

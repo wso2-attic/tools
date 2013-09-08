@@ -56,6 +56,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getDynamicReceivingSequence <em>Dynamic Receiving Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getEndpointOutputConnector <em>Endpoint Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#isSkipSerialization <em>Skip Serialization</em>}</li>
  * </ul>
  * </p>
  *
@@ -151,6 +152,26 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 	 * @ordered
 	 */
 	protected MediatorFlow mediatorFlow;
+
+				/**
+	 * The default value of the '{@link #isSkipSerialization() <em>Skip Serialization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSkipSerialization()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SKIP_SERIALIZATION_EDEFAULT = false;
+
+				/**
+	 * The cached value of the '{@link #isSkipSerialization() <em>Skip Serialization</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSkipSerialization()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean skipSerialization = SKIP_SERIALIZATION_EDEFAULT;
 
 				/**
      * value of the next node (non-EMF)
@@ -491,6 +512,27 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSkipSerialization() {
+		return skipSerialization;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSkipSerialization(boolean newSkipSerialization) {
+		boolean oldSkipSerialization = skipSerialization;
+		skipSerialization = newSkipSerialization;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION, oldSkipSerialization, skipSerialization));
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -536,6 +578,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 				return getEndpointOutputConnector();
 			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
 				return getMediatorFlow();
+			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
+				return isSkipSerialization();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -575,6 +619,9 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)newValue);
 				return;
+			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
+				setSkipSerialization((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -612,6 +659,9 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)null);
 				return;
+			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
+				setSkipSerialization(SKIP_SERIALIZATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -641,6 +691,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 				return endpointOutputConnector != null;
 			case EsbPackage.SEND_MEDIATOR__MEDIATOR_FLOW:
 				return mediatorFlow != null;
+			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
+				return skipSerialization != SKIP_SERIALIZATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -657,6 +709,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (receivingSequenceType: ");
 		result.append(receivingSequenceType);
+		result.append(", skipSerialization: ");
+		result.append(skipSerialization);
 		result.append(')');
 		return result.toString();
 	}
