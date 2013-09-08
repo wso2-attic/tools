@@ -60,13 +60,7 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 		Assert.isTrue(subject instanceof RecipientListEndPoint, "Invalid subject.");
 		RecipientListEndPoint endPointModel = (RecipientListEndPoint) subject;
 
-		SendMediator sendMediator = null;
-		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			sendMediator = (SendMediator) info.getParentSequence().getList()
-					.get(info.getParentSequence().getList().size() - 1);
-		} else if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence) {
-			sendMediator = null;
-		}
+		SendMediator sendMediator = getSendMediator(info);
 
 		if (endPointModel.isInLine()) {
 			info.getCurrentProxy().setTargetInLineEndpoint(
@@ -127,13 +121,8 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 		Assert.isTrue(subject instanceof RecipientListEndPoint, "Invalid subject");
 		RecipientListEndPoint endPointModel = (RecipientListEndPoint) subject;
 
-		SendMediator sendMediator = null;
-		if (sequence.getList().get(sequence.getList().size() - 1) instanceof SendMediator) {
-			sendMediator = (SendMediator) sequence.getList().get(sequence.getList().size() - 1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}
+		SendMediator sendMediator = getSendMediator(sequence);
+		
 		sendMediator.setEndpoint(createRecipientListConf(information, endPointModel, null, null));
 
 	}

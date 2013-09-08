@@ -23,8 +23,6 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -49,16 +47,8 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
 		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {			
-			sendMediator = (SendMediator) info.getParentSequence().getList()
-			.get(info.getParentSequence().getList().size() - 1);
-		}else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){			
-			sendMediator=null;
-		} else{
-		//sendMediator = new SendMediator();
-			//info.getParentSequence().addChild(sendMediator);
-		}
+		SendMediator sendMediator = getSendMediator(info);
+		
 		if(visualEndPoint.isInLine()){
 			info.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
 		}else{
@@ -219,13 +209,7 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
 		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
-			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(sequence);
 		sendMediator.setEndpoint(create(visualEndPoint,null));
 
 	}

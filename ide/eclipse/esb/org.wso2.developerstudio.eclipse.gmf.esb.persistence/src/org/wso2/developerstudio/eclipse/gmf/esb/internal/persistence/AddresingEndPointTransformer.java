@@ -25,16 +25,7 @@ public class AddresingEndPointTransformer extends AbstractEndpointTransformer{
 		AddressingEndpoint visualEP = (AddressingEndpoint) subject;
 
 		// Send the message.
-		SendMediator sendMediator = null;
-		if (information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			sendMediator = (SendMediator) information.getParentSequence().getList()
-			.get(information.getParentSequence().getList().size() - 1);
-		} else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-			sendMediator=null;
-		} else {
-			//sendMediator = new SendMediator();
-			//information.getParentSequence().addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(information); //FIXME: unused variable
 /*		if(visualEP.isInLine()){
 			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEP,null));
 		}else{

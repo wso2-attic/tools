@@ -26,18 +26,8 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
 		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			sendMediator = (SendMediator) information.getParentSequence().getList()
-					.get(information.getParentSequence().getList().size() - 1);
+		SendMediator sendMediator = getSendMediator(information);
 
-		}else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-			sendMediator=null;
-		} 
-		else {
-			//sendMediator = new SendMediator();
-			//information.getParentSequence().addChild(sendMediator);
-		}		
 		if(visualEndPoint.isInLine()){
 			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
 		}else{
@@ -157,13 +147,8 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
 		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
-			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(sequence);
+		
 		sendMediator.setEndpoint(create(visualEndPoint,null));
 		
 	}

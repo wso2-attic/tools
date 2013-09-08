@@ -46,16 +46,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject.");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			sendMediator = (SendMediator) info.getParentSequence().getList()
-					.get(info.getParentSequence().getList().size() - 1);
-		}else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-			sendMediator=null;
-		} else {
-			//sendMediator = new SendMediator();
-			//info.getParentSequence().addChild(sendMediator);
-		}
+		SendMediator sendMediator = getSendMediator(info);
 		
 		if(visualEndPoint.isInLine()){
 			info.getCurrentProxy().setTargetInLineEndpoint(create(info,visualEndPoint,null,null));
@@ -164,13 +155,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
-			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(sequence);
 		sendMediator.setEndpoint(create(information,visualEndPoint,null,null));
 	}
 	

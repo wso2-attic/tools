@@ -55,16 +55,8 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;
 		
 		
-		SendMediator sendMediator = null;
-		if (information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			sendMediator = (SendMediator) information.getParentSequence().getList()
-					.get(information.getParentSequence().getList().size() - 1);
-		}else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-			sendMediator=null;
-		} else {
-			//sendMediator = new SendMediator();	
-			//information.getParentSequence().addChild(sendMediator);
-		}
+		SendMediator sendMediator = getSendMediator(information);
+		
 /*		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		
@@ -192,13 +184,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		Assert.isTrue(subject instanceof LoadBalanceEndPoint, "Invalid subject");
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
-			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(sequence);
 		sendMediator.setEndpoint(create(information, visualEndPoint, null, null));
 		
 	}

@@ -1,14 +1,28 @@
+/*
+ * Copyright WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
-import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
-import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
@@ -26,16 +40,8 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 		Assert.isTrue(subject instanceof HTTPEndpoint, "Invalid subject");
 		HTTPEndpoint visualEndPoint = (HTTPEndpoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {			
-			sendMediator = (SendMediator) information.getParentSequence().getList()
-			.get(information.getParentSequence().getList().size() - 1);
-		}else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){			
-			sendMediator=null;
-		} else{
-		//sendMediator = new SendMediator();
-			//info.getParentSequence().addChild(sendMediator);
-		}
+		SendMediator sendMediator = getSendMediator(information);
+
 		if(visualEndPoint.isInLine()){
 			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
 		}else{
@@ -119,13 +125,8 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 		Assert.isTrue(subject instanceof HTTPEndpoint, "Invalid subject");
 		HTTPEndpoint visualEndPoint = (HTTPEndpoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
-			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(sequence);
+		
 		sendMediator.setEndpoint(create(visualEndPoint,null));
 	}
 

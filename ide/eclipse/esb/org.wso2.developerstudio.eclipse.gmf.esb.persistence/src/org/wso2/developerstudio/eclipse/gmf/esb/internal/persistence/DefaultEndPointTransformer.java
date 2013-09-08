@@ -23,8 +23,6 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -50,16 +48,8 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 		DefaultEndPoint visualEP = (DefaultEndPoint) subject;
 
 		// Send the message.
-		SendMediator sendMediator = null;
-		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			sendMediator = (SendMediator) info.getParentSequence().getList()
-			.get(info.getParentSequence().getList().size() - 1);
-		} else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-			sendMediator=null;
-		} else {
-			//sendMediator = new SendMediator();
-			//info.getParentSequence().addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(info);
+		
 		if(visualEP.isInLine()){
 			info.getCurrentProxy().setTargetInLineEndpoint(create(visualEP,null));
 		}else{
@@ -170,16 +160,9 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 		Assert.isTrue(subject instanceof DefaultEndPoint, "Invalid subject");
 		DefaultEndPoint visualEndPoint = (DefaultEndPoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
-			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(sequence);		
 		sendMediator.setEndpoint(create(visualEndPoint,null));
 		
 	}
-
 
 }

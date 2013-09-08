@@ -19,7 +19,10 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {		
-		information.getParentSequence().addChild(createSendMediator(subject));
+		org.apache.synapse.mediators.builtin.SendMediator sendMediator = createSendMediator(subject);
+		if(sendMediator!=null){
+			information.getParentSequence().addChild(sendMediator);
+		}
 		
 		TransformationInfo tmpInformation = new TransformationInfo();
 		tmpInformation.setParentSequence(information.getParentSequence());
@@ -48,8 +51,10 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
-		sequence.addChild(createSendMediator(subject));
+		org.apache.synapse.mediators.builtin.SendMediator sendMediator = createSendMediator(subject);
+		if(sendMediator!=null){
+			sequence.addChild(sendMediator);
+		}
 		doTransformWithinSequence(information,((SendMediator) subject).getEndpointOutputConnector().getOutgoingLink(),sequence);
 		//doTransformWithinSequence(information,((SendMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
 		
@@ -60,6 +65,10 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof SendMediator, "Invalid subject.");
 		SendMediator visualSend = (SendMediator) subject;
+		
+		if(visualSend.isSkipSerialization()){
+			return null;
+		}
 
 		// Configure send mediator.
 		org.apache.synapse.mediators.builtin.SendMediator sendMediator = new org.apache.synapse.mediators.builtin.SendMediator();

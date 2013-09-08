@@ -1,18 +1,32 @@
+/*
+ * Copyright WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.synapse.Mediator;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.IndirectEndpoint;
 import org.apache.synapse.endpoints.ResolvingEndpoint;
-import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
@@ -30,16 +44,7 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 		Assert.isTrue(subject instanceof NamedEndpoint, "Invalid subject.");
 		NamedEndpoint visualEndPoint = (NamedEndpoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			sendMediator = (SendMediator) information.getParentSequence().getList()
-			.get(information.getParentSequence().getList().size() - 1);
-		}else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){			
-			sendMediator=null;
-		}else {
-			//sendMediator = new SendMediator();
-			//information.getParentSequence().addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(information);
 		
 		if(visualEndPoint.isInLine()){
 			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
@@ -93,13 +98,8 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 		Assert.isTrue(subject instanceof NamedEndpoint, "Invalid subject");
 		NamedEndpoint visualEndPoint = (NamedEndpoint) subject;
 		
-		SendMediator sendMediator = null;
-		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
-			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}		
+		SendMediator sendMediator = getSendMediator(sequence);
+		
 		sendMediator.setEndpoint(create(visualEndPoint,null));
 		
 	}
@@ -121,6 +121,37 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 			return indirectEndpoint;
 		}
 		
+	}
+	
+	private SendMediator getSendMediator(TransformationInfo info) {
+		SendMediator sendMediator = null;
+		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {			
+			int size = info.getParentSequence().getList().size();
+			if (size > 0) {
+				Mediator lastObj = info.getParentSequence().getList().get(size - 1);
+				if (lastObj instanceof SendMediator) {
+					sendMediator = (SendMediator) lastObj;
+				}
+			}
+		}else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){			
+			sendMediator=null;
+		} else{
+		//sendMediator = new SendMediator();
+			//info.getParentSequence().addChild(sendMediator);
+		}
+		return sendMediator;
+	}
+	
+	private SendMediator getSendMediator(SequenceMediator sequence) {
+		SendMediator sendMediator = null;
+		int size = sequence.getList().size();
+		if (size > 0 && sequence.getList().get(size-1) instanceof SendMediator) {			
+			sendMediator = (SendMediator)sequence.getList().get(size-1);
+		} else {
+			sendMediator = new SendMediator();
+			sequence.addChild(sendMediator);
+		}
+		return sendMediator;
 	}
 
 }

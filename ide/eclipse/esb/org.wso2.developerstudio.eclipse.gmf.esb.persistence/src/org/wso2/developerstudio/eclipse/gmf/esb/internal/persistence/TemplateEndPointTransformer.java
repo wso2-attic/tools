@@ -40,16 +40,8 @@ public class TemplateEndPointTransformer extends AbstractEndpointTransformer{
             Assert.isTrue(subject instanceof TemplateEndpoint, "Invalid subject");
             TemplateEndpoint visualEndPoint = (TemplateEndpoint) subject;
  
-            SendMediator sendMediator = null;
-            if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-                    sendMediator = (SendMediator) info.getParentSequence().getList()
-                    .get(info.getParentSequence().getList().size() - 1);
-            }else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-                    sendMediator=null;
-            } else{
-            //sendMediator = new SendMediator();
-            //info.getParentSequence().addChild(sendMediator);
-            }
+            SendMediator sendMediator = getSendMediator(info);
+            
             if(visualEndPoint.isInLine()){
                     info.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
             }else{
