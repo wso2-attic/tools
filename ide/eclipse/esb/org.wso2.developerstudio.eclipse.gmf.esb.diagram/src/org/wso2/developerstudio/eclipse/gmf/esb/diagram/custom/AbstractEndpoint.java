@@ -46,6 +46,8 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart implem
 	// activete method is called twice for a mediator. Reason is not detected
 	// yet.so that we use this variable to avoid calling reverse method twice.
 	public boolean reversed = false;
+	public static int FigureWidth = 75;
+	public static int FigureHeight = 75;
 	
 	protected boolean connected;
 
@@ -70,13 +72,13 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart implem
 	
 	public IFigure getFigure() {
 		IFigure figure = super.getFigure();
-		figure.setMaximumSize(new Dimension(104, 44));
+		figure.setMaximumSize(new Dimension(FigureWidth, FigureHeight));
 		return figure;
 	}
 	
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(104, 44);
-		result.setMinimumSize(new Dimension(104, 44));
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(FigureWidth, FigureHeight);
+		result.setMinimumSize(new Dimension(FigureWidth, FigureHeight));
 		return result;
 	}
 	

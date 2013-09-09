@@ -96,6 +96,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ComplexFiguredAbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
@@ -124,7 +125,7 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 /**
  * @generated NOT
  */
-public class NamedEndpointEditPart extends AbstractEndpoint {
+public class NamedEndpointEditPart extends ComplexFiguredAbstractEndpoint {
 
 	/**
 	 * @generated
@@ -324,18 +325,11 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		return getContentPane();
 	}
 
-	public IFigure getFigure() {
-		IFigure figure = super.getFigure();
-		figure.setMaximumSize(new Dimension(75, 70));
-		return figure;
-	}
-
 	/**
 	 * @generated NOT
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(75, 70);
-		result.setMinimumSize(new Dimension(75, 70));
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 

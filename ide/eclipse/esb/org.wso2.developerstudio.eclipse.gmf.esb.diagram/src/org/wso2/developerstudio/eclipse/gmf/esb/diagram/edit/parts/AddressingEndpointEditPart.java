@@ -36,6 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequences
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEditPart.DefaultEndPointFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.AddressingEndpointCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.AddressingEndpointItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -118,9 +119,9 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 		return primaryShape = new AddressingEndpointFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
-				if (!connected) {
+				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
 					getMostSuitableElementToConnect();
-					connected = true;
+					reAllocate(rect);
 				}
 			};
 		};
@@ -146,10 +147,12 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 				 */
 				position = ((source instanceof ComplexEndpoints) || (source.eContainer()
 						.eContainer() instanceof Sequences)) ? 0.5 : 0.25;
+				position = 0.5;
 			} else {
 				position = ((this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart) || (this
 						.getParent().getParent().getParent() instanceof AbstractSequencesEditPart)) ? 0.5
 						: 0.25;
+				position = 0.5;
 			}
 			IFigure borderItemFigure = ((AddressingEndpointInputConnectorEditPart) childEditPart)
 					.getFigure();

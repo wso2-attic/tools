@@ -455,12 +455,11 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 					deleteNewlyAddedMediator("Adding of send mediator is not allowed inside this mediator since there is a send mediator already present in the meeasge flow.");
 					return;
 				} 
-			} else {
-				if (restrictAddingOfSendMediator(nearestInputConnector, nearestEsbLinkInputConnector)) {
-					deleteNewlyAddedMediator("Adding of send mediator is not allowed in the middle of the meeasge flow.");
-					return;
-				} 
 			}
+			if (restrictAddingOfSendMediator(nearestInputConnector, nearestEsbLinkInputConnector)) {
+				deleteNewlyAddedMediator("Adding of send mediator is not allowed in the middle of the meeasge flow.");
+				return;
+			} 
 		}
 		
 		if (nearestESBLink == null) {
@@ -811,18 +810,21 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		}
 		return hasNext;
 	}
-
-	private void showSendMediatorRestrictionMessage(String reason) {
+	
+ 	private void showSendMediatorRestrictionMessage(String reason) {
 		String errorMsgHeader = "Warning !";
 		IStatus editorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, reason);
 		ErrorDialog.openError(Display.getCurrent().getActiveShell(), "Warning ", errorMsgHeader, editorStatus);
-	}
+ 	}
+	
 	
 	private AbstractMediator getPreviousMediator(AbstractConnectorEditPart nearestEsbLinkOutputConnector, 
 			AbstractOutputConnectorEditPart nearestOutputConnector) {
 		AbstractMediator previousMediator = null;
 		if (nearestEsbLinkOutputConnector != null) {
-			previousMediator = EditorUtils.getMediator(nearestEsbLinkOutputConnector);
+			if (!(nearestEsbLinkOutputConnector instanceof AdditionalOutputConnector)) {
+				previousMediator = EditorUtils.getMediator(nearestEsbLinkOutputConnector);
+			}
 		} else if (nearestOutputConnector != null) {
 			if (!(nearestOutputConnector instanceof AdditionalOutputConnector)) {
 				previousMediator = EditorUtils.getMediator(nearestOutputConnector);
