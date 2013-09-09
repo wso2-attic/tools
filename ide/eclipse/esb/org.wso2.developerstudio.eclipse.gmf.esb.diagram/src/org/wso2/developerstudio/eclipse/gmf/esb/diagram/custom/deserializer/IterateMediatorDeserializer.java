@@ -46,6 +46,7 @@ public class IterateMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		executeSetValueCommand(ITERATE_MEDIATOR__PRESERVE_PAYLOAD, mediator.isPreservePayload());
 		executeSetValueCommand(ITERATE_MEDIATOR__CONTINUE_PARENT, mediator.isContinueParent());
 		executeSetValueCommand(ITERATE_MEDIATOR__ITERATE_ID, mediator.getId());
+		executeSetValueCommand(ITERATE_MEDIATOR__SEQUENTIAL_MEDIATION, !mediator.getTarget().isAsynchronous());
 		
 		Target target = mediator.getTarget();
 		IterateTarget targetModel = mediatorModel.getTarget();

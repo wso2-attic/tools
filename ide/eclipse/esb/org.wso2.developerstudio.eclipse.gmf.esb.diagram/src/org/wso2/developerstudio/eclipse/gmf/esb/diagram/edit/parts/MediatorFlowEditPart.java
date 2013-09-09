@@ -266,8 +266,8 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			this.setForegroundColor(new Color(null, 0, 0, 0));
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode()
-					.DPtoLP(4000)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(30000), getMapMode()
+					.DPtoLP(30000)));
 		}
 
 		public void add(IFigure figure, Object constraint, int index) {

@@ -85,8 +85,7 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 			
 			iterateMediator.setContinueParent(visualIterate.isContinueParent());
 			
-			iterateMediator.setId(visualIterate.getIterateID());
-			
+			iterateMediator.setId(visualIterate.getIterateID());	
 			
 			Target target = new Target();
 			target.setSoapAction(visualIterate.getTarget().getSoapAction());
@@ -107,7 +106,10 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 			//targetSequence.addAll(targetList.getList());
 			target.setSequence(targetSequence);
 			
-			
+			if(visualIterate.isSequentialMediation()) {
+				target.setAsynchronous(false);
+			}
+						
 			iterateMediator.setTarget(target);
 
 		}

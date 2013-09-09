@@ -147,6 +147,10 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 				
 			}
 			
+			if (StringUtils.isNotBlank(visualAggregate.getAggregateID())) {
+				aggregateMediator.setId(visualAggregate.getAggregateID());
+			}
+			
 			if (visualAggregate.getCorrelationExpression() != null
 					&& visualAggregate.getCorrelationExpression()
 							.getPropertyValue() != null
