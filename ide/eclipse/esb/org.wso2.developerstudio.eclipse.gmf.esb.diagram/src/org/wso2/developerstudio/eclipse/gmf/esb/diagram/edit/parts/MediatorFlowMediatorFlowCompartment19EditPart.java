@@ -7,6 +7,7 @@ import org.eclipse.draw2d.LineBorder;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gef.internal.ui.palette.editparts.ToolEntryEditPart;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -23,8 +24,11 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
@@ -39,7 +43,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFl
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment19ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * @generated NOT
@@ -51,6 +58,8 @@ public class MediatorFlowMediatorFlowCompartment19EditPart extends
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 7046;
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
 	 * @generated
@@ -90,6 +99,29 @@ public class MediatorFlowMediatorFlowCompartment19EditPart extends
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment19CanonicalEditPolicy());
+	}
+	
+	protected void addChild(EditPart child, int index) {
+		super.addChild(child, index);
+		if (child instanceof NamedEndpointEditPart) {
+			NamedEndpointEditPart namedEndPointEditPart = (NamedEndpointEditPart) child;
+			EditPart editpart = (EditPart) ((StructuredSelection) namedEndPointEditPart.getViewer()
+					.getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
+			if (editpart instanceof ToolEntryEditPart) {
+				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
+					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
+							.getLabel();
+					if ((!label.equals("")) && (!label.equals("Named EndPoint"))) {
+						try {
+							((NamedEndpoint) ((View) namedEndPointEditPart.getModel()).getElement())
+									.setName(label);
+						} catch (java.lang.IllegalStateException e) {
+							log.error("This is occured while undo operation..", e);
+						}
+					}
+				} 
+			}
+		}
 	}
 
 	public boolean isSelectable() {

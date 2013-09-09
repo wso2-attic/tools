@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.swt.widgets.Control;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
@@ -130,10 +131,11 @@ public class ConnectionCalculator {
 					updateCurrentStatesForGivenFigure(connectors.get(i));
 				
 					int xLeft=connectorFigureLocation.x;
-					int actualCurrentPosition = currentFigureLocation.x;
+					int actualCurrentPosition = currentFigureLocation.x;					
 					if ((figure instanceof EastPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.EastPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart.EastPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutputConnectorEditPart.EastPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesOutputConnectorEditPart.EastPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart.EastPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector.EastPointerFigure)) {
@@ -142,7 +144,6 @@ public class ConnectionCalculator {
 								||(figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutputConnectorEditPart.EastPointerFigure)){
 							xLeft=xLeft-82;
 						}
-						
 						EastDistance = Math.abs(xLeft - actualCurrentPosition);
 						if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft < actualCurrentPosition))
 								|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft > actualCurrentPosition))) {
@@ -155,6 +156,7 @@ public class ConnectionCalculator {
 					} else if ((figure instanceof WestPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart.WestPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceInputConnectorEditPart.WestPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart.WestPointerFigure)
 							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart.WestPointerFigure)
@@ -178,8 +180,9 @@ public class ConnectionCalculator {
 			updateCurrentStatesForGivenFigure(nearForwardConnector);
 			if((nearForwardConnector.getParent() instanceof ProxyServiceEditPart)
 					||(nearForwardConnector.getParent() instanceof APIResourceEditPart)){
+				int parentY=((AbstractBaseFigureEditPart)nearForwardConnector.getParent()).getLocation().y;
 				yDistance1 = Math
-						.abs(connectorFigureLocation.y-140
+						.abs(connectorFigureLocation.y-parentY
 								- currentFigureLocation.y);
 			}else{
 				yDistance1 = Math
@@ -191,9 +194,10 @@ public class ConnectionCalculator {
 			updateCurrentStatesForGivenFigure(nearReverseConnector);
 			if((nearReverseConnector.getParent() instanceof ProxyServiceEditPart)
 					||(nearReverseConnector.getParent() instanceof APIResourceEditPart)){
-			yDistance2 = Math
-			.abs(connectorFigureLocation.y-140
-					- currentFigureLocation.y);
+				int parentY=((AbstractBaseFigureEditPart)nearReverseConnector.getParent()).getLocation().y;
+				yDistance2 = Math
+				.abs(connectorFigureLocation.y-parentY
+						- currentFigureLocation.y);
 			}else{
 				yDistance2 = Math
 						.abs(connectorFigureLocation.y

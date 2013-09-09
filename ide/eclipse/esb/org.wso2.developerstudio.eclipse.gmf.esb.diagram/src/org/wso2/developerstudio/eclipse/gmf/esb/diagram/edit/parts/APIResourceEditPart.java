@@ -68,7 +68,7 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 	 */
 	public APIResourceEditPart(View view) {
 		super(view);
-	}
+	}	
 
 	/**
 	 * @generated NOT
@@ -124,6 +124,7 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 		super.notifyChanged(notification);
 		if (notification.getFeature() instanceof EAttributeImpl) {
 			if (notification.getNotifier() instanceof BoundsImpl) {
+				y=((BoundsImpl) notification.getNotifier()).getY();
 				alignLeft(((BoundsImpl) notification.getNotifier()).getY(),
 						((BoundsImpl) notification.getNotifier()).getWidth(),
 						((BoundsImpl) notification.getNotifier()).getHeight());
@@ -142,6 +143,8 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
 					alignLeft();
+					x=this.getBounds().getLocation().x;
+					y=this.getBounds().getLocation().y;
 				}
 			};
 		};

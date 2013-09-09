@@ -265,10 +265,17 @@ public class XYRepossition {
 			newHeight = inOutSeqHeight + faultSequenceHeight;
 		}
 		
-		Rectangle mediatorFlowConstraints = new Rectangle(0, 100, newWidth, inOutSeqHeight);
-		Rectangle faultContainerConstraints = new Rectangle(0, 100, newWidth, faultSequenceHeight);
-		Rectangle proxyServiceContainerConstraints = new Rectangle(0, 100, newWidth, newHeight);
-		Rectangle proxyConstraints = new Rectangle(0, 100, proxyServiceContainerConstraints.width()
+		int positionY=0;
+		if(proxyServiceEditPart instanceof APIResourceEditPart){
+			positionY=((APIResourceEditPart)proxyServiceEditPart).getY();
+		}else if(proxyServiceEditPart instanceof ProxyServiceEditPart){
+			positionY=100;
+		}
+		
+		Rectangle mediatorFlowConstraints = new Rectangle(0, positionY, newWidth, inOutSeqHeight);
+		Rectangle faultContainerConstraints = new Rectangle(0, positionY, newWidth, faultSequenceHeight);
+		Rectangle proxyServiceContainerConstraints = new Rectangle(0, positionY, newWidth, newHeight);
+		Rectangle proxyConstraints = new Rectangle(0, positionY, proxyServiceContainerConstraints.width()
 				+ complexMediatorLeftRectWidth, proxyServiceContainerConstraints.height() + 4);
 		
 		// Resize MediatorFlowEditPart.
