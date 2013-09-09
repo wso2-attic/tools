@@ -25,6 +25,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
@@ -35,6 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServ
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.DroppableElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
@@ -133,6 +135,7 @@ public class XYRepossition {
 		
 		boolean mainSequence = false;
 
+		AbstractBaseFigureEditPart proxyServiceEditPart = null;
 		AbstractProxyServiceContainerEditPart proxyServiceContainerEditPart = null;
 
 		if(parent.getParent().getParent().getParent() instanceof ProxyServiceContainerEditPart) {
@@ -141,8 +144,12 @@ public class XYRepossition {
 			proxyServiceContainerEditPart = (ProxyServiceContainer2EditPart) parent.getParent().getParent().getParent();
 		}
 		
-		ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) parent.getParent().getParent().getParent().getParent();
-
+		if (parent.getParent().getParent().getParent().getParent() instanceof APIResourceEditPart) {
+			proxyServiceEditPart = (APIResourceEditPart) parent.getParent().getParent().getParent().getParent();
+		} else {
+			proxyServiceEditPart = (ProxyServiceEditPart) parent.getParent().getParent().getParent().getParent();
+		}
+		
 		ProxyServiceSequenceAndEndpointContainerEditPart seqAndEPContainerEditPart = (ProxyServiceSequenceAndEndpointContainerEditPart) proxyServiceContainerEditPart
 				.getChildren().get(0);
 		MediatorFlowEditPart mediatorFlowEditPart = (MediatorFlowEditPart) seqAndEPContainerEditPart
@@ -210,18 +217,30 @@ public class XYRepossition {
 
 		inOutSeqWidth = x;
 
-		if (outSequenceHeight == 0 && inSequenceHeight > 0) {
-			outSequenceHeight = inSequenceHeight;
+		/*if (outSequenceHeight == 0 && inSequenceHeight > 0) {
+			//outSequenceHeight = inSequenceHeight;
+			outSequenceHeight = defaultProxyAndEPContainerHeight/2;
 		}
 		if(inSequenceHeight == 0 && outSequenceHeight > 0) {
+			//inSequenceHeight = outSequenceHeight;
+			inSequenceHeight = defaultProxyAndEPContainerHeight/2;
+		}*/
+		
+		/*
+		 * Both in-sequence and out-sequence should be 
+		 * symmetric, otherwise arrows will be bend.  
+		 */
+		if (inSequenceHeight > outSequenceHeight) {
+			outSequenceHeight = inSequenceHeight;
+		} else {
 			inSequenceHeight = outSequenceHeight;
 		}
-
+		
 		inOutSeqHeight = inSequenceHeight + outSequenceHeight + (constantY * 2);
 
 		if(faultSequenceWidth > inOutSeqWidth) {
 			// Check whether fault sequence is longer than in & out sequences.
-			newWidth = faultSequenceWidth;
+			newWidth = faultSequenceWidth + sendToEPDistance;
 		} else {
 			newWidth = inOutSeqWidth;
 		}
@@ -244,25 +263,17 @@ public class XYRepossition {
 			// In & Out sequences are not empty Fault sequence is empty.
 			faultSequenceHeight = defaultFaultContainerHeight;
 			newHeight = inOutSeqHeight + faultSequenceHeight;
-			//faulSeqEditPart.getFigure().setSize(new Dimension(newWidth, faultSequenceHeight));
 		}
 		
 		Rectangle mediatorFlowConstraints = new Rectangle(0, 100, newWidth, inOutSeqHeight);
 		Rectangle faultContainerConstraints = new Rectangle(0, 100, newWidth, faultSequenceHeight);
 		Rectangle proxyServiceContainerConstraints = new Rectangle(0, 100, newWidth, newHeight);
-		Rectangle proxyConstraints = new Rectangle(0, 100,
-				proxyServiceContainerConstraints.width() + 100,
-				proxyServiceContainerConstraints.height());
-		
-		//inAndOutSeqEditPart.getFigure().setSize(mediatorFlowConstraints.width, mediatorFlowConstraints.height-10);
-		//inAndOutSeqEditPart.getFigure().setMinimumSize(new Dimension(mediatorFlowConstraints.width, mediatorFlowConstraints.height-10));
-		//inAndOutSeqEditPart.getFigure().setBounds(new Rectangle(0, 100, mediatorFlowConstraints.width, mediatorFlowConstraints.height-10));
+		Rectangle proxyConstraints = new Rectangle(0, 100, proxyServiceContainerConstraints.width()
+				+ complexMediatorLeftRectWidth, proxyServiceContainerConstraints.height() + 4);
 		
 		// Resize MediatorFlowEditPart.
 		((GraphicalEditPart) seqAndEPContainerEditPart).setLayoutConstraint(mediatorFlowEditPart,
 				((GraphicalEditPart) mediatorFlowEditPart).getFigure(), mediatorFlowConstraints);
-		//mediatorFlowEditPart.getFigure().setMinimumSize(new Dimension(mediatorFlowConstraints.width, mediatorFlowConstraints.height));
-		//mediatorFlowEditPart.getFigure().setPreferredSize(new Dimension(mediatorFlowConstraints.width, mediatorFlowConstraints.height));
 		((GraphicalEditPart) seqAndEPContainerEditPart).getFigure().setBounds(
 				mediatorFlowConstraints);
 
@@ -271,22 +282,16 @@ public class XYRepossition {
 				seqAndEPContainerEditPart,
 				((GraphicalEditPart) seqAndEPContainerEditPart).getFigure(),
 				mediatorFlowConstraints);
-		//seqAndEPContainerEditPart.getFigure().setSize(mediatorFlowConstraints.width, mediatorFlowConstraints.height);
-		//seqAndEPContainerEditPart.getFigure().setMinimumSize(new Dimension(mediatorFlowConstraints.width, mediatorFlowConstraints.height));
+		seqAndEPContainerEditPart.getFigure().setMinimumSize(
+				new Dimension(mediatorFlowConstraints.width, mediatorFlowConstraints.height));
 		((GraphicalEditPart) proxyServiceContainerEditPart).getFigure().setBounds(
 				mediatorFlowConstraints);
 
 		if(!mainSequence) {
-			//faulSeqEditPart.getFigure().setSize(faultContainerConstraints.width, faultContainerConstraints.height-10);
-			//faulSeqEditPart.getFigure().setMinimumSize(new Dimension(faultContainerConstraints.width, faultContainerConstraints.height-10));
-			//faulSeqEditPart.getFigure().setBounds(new Rectangle(0, 100, faultContainerConstraints.width, faultContainerConstraints.height-10));
-
 			// Resize MediatorFlow6EditPart (fault sequence).
 			((GraphicalEditPart) proxyServiceFaultContainerEditPart).setLayoutConstraint(
 					mediatorFlow6EditPart, ((GraphicalEditPart) mediatorFlow6EditPart).getFigure(),
 					faultContainerConstraints);
-			//mediatorFlow6EditPart.getFigure().setSize(faultContainerConstraints.width, faultContainerConstraints.height);
-			//mediatorFlow6EditPart.getFigure().setMinimumSize(new Dimension(faultContainerConstraints.width, faultContainerConstraints.height));
 			((GraphicalEditPart) proxyServiceFaultContainerEditPart).getFigure().setBounds(
 					faultContainerConstraints);
 
@@ -295,8 +300,10 @@ public class XYRepossition {
 					proxyServiceFaultContainerEditPart,
 					((GraphicalEditPart) proxyServiceFaultContainerEditPart).getFigure(),
 					faultContainerConstraints);
-			//proxyServiceFaultContainerEditPart.getFigure().setSize(faultContainerConstraints.width, faultContainerConstraints.height);
-			//proxyServiceFaultContainerEditPart.getFigure().setMinimumSize(new Dimension(faultContainerConstraints.width, faultContainerConstraints.height));
+			proxyServiceFaultContainerEditPart.getFigure()
+					.setMinimumSize(
+							new Dimension(faultContainerConstraints.width,
+									faultContainerConstraints.height));
 			((GraphicalEditPart) proxyServiceContainerEditPart).getFigure().setBounds(
 					faultContainerConstraints);
 		}
@@ -306,18 +313,12 @@ public class XYRepossition {
 				proxyServiceContainerEditPart,
 				((GraphicalEditPart) proxyServiceContainerEditPart).getFigure(),
 				proxyServiceContainerConstraints);
-		//proxyServiceContainerEditPart.getFigure().setSize(proxyServiceContainerConstraints.width, proxyServiceContainerConstraints.height);
-		//proxyServiceContainerEditPart.getFigure().setMinimumSize(new Dimension(proxyServiceContainerConstraints.width, proxyServiceContainerConstraints.height));
-		//((GraphicalEditPart) proxyServiceContainerEditPart).getFigure().setBounds(proxyServiceContainerConstraints);
 		
 		// Resize ProxyServiceEditPart.
 		((GraphicalEditPart) parent.getParent().getParent().getParent().getParent().getParent())
 				.setLayoutConstraint(proxyServiceEditPart,
 						((GraphicalEditPart) proxyServiceEditPart).getFigure(), proxyConstraints);
-		//proxyServiceEditPart.getFigure().setMinimumSize(new Dimension(proxyConstraints.width, proxyConstraints.height));
-		//((GraphicalEditPart)parent.getParent().getParent().getParent().getParent()).getFigure().setSize(proxyConstraints.width, proxyConstraints.height);
-		//((GraphicalEditPart)parent.getParent().getParent().getParent().getParent()).getFigure().setPreferredSize(new Dimension(proxyConstraints.width, proxyConstraints.height));
-
+		
 	}
 
 	/**
@@ -364,13 +365,13 @@ public class XYRepossition {
 
 		if (mediator instanceof complexFiguredAbstractMediator) {
 
-			if (parent != null && parent.getChildren().size() == 0) {
+			if (noOfChildren == 0) {
 				/*
 				 * Complex mediator doesn't contain any children, bring
 				 * it to its initial size.
 				 */
 				boundsWidth = 170;
-				boundsHeight = 100; // initial size
+				boundsHeight = 100;
 			}
 
 			if (mediator instanceof FilterMediatorEditPart
@@ -382,7 +383,8 @@ public class XYRepossition {
 				int totalKids = getTotalChildCount((ShapeNodeEditPart) parent
 				                                   .getParent().getParent());
 				if (totalKids == 0) {
-					boundsHeight = 100; // initial size
+					// Initial size.
+					boundsHeight = 100; 
 				} else {
 					boundsHeight = totalHeight + constantY + 20;
 				}
@@ -478,6 +480,8 @@ public class XYRepossition {
 			int arrowAndtwoConnectorsLength = arraowLength + 2 * connectorLength;
 			int x = arrowAndtwoConnectorsLength - connectorLength;
 			int i = 0;
+			
+			boolean reversed = false;
 
 			ShapeNodeEditPart node = getLeftMostNodeFromEditPart(editPart);
 			
@@ -485,11 +489,13 @@ public class XYRepossition {
 			 * In sequence is empty of the proxy, api or main sequence editor,
 			 * but out sequence is not empty.  
 			 */
-			if ((editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart) && (node == null) && editPart.getChildren().size() > 0) {
+			if ((editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart) && (node == null)
+					&& editPart.getChildren().size() > 0) {
 				// Started to traverse out sequence.
 				node = getRightMostNodeOfOutSequence(editPart);
-				x = ((IGraphicalEditPart) editPart.getParent().getParent()).getFigure()
-						.getBounds().width - arrowAndtwoConnectorsLength * 2;
+				x = ((IGraphicalEditPart) editPart.getParent().getParent()).getFigure().getBounds().width
+						- (arrowAndtwoConnectorsLength * 2);
+				reversed = true;
 			}
 			
 			while (node instanceof AbstractMediator || node instanceof AbstractEndpoint) {
@@ -510,7 +516,7 @@ public class XYRepossition {
 					verticalSpacing = 10;
 				}
 
-				y = y - node.getFigure().getBounds().height / 2 - verticalSpacing;
+				y = y - (node.getFigure().getBounds().height / 2) - verticalSpacing;
 
 				IFigure nodeFigure = ((GraphicalEditPart) node).getFigure();
 				int nodeFigureWdith = nodeFigure.getBounds().width;
@@ -520,8 +526,9 @@ public class XYRepossition {
 					DroppableElement droppableElement = (DroppableElement) node;
 					Rectangle constraints = null;
 
-					if ((node instanceof AbstractMediator &&!((AbstractMediator)droppableElement).reversed)||(node instanceof AbstractEndpoint)) {
-						// Mediator is in in sequence.
+					if ((node instanceof AbstractMediator && !((AbstractMediator) droppableElement).reversed)
+							|| (node instanceof AbstractEndpoint)) {
+						// In sequence mediators
 						droppableElement.setX(x);
 						droppableElement.setY(y);
 						constraints = new Rectangle(x, y, nodeFigureWdith, nodeFigureHeight);
@@ -532,7 +539,7 @@ public class XYRepossition {
 							// In&out sequence mediator.
 							y = ((IGraphicalEditPart) editPart.getParent().getParent()).getFigure()
 									.getBounds().height * 3 / 4;
-							y = y - node.getFigure().getBounds().height / 2;
+							y = y - (node.getFigure().getBounds().height/2) - verticalSpacing;
 							x = x - arrowAndtwoConnectorsLength - nodeFigureWdith;
 
 							droppableElement.setX(x);
@@ -585,7 +592,6 @@ public class XYRepossition {
 					GraphicalEditPart nodeParent = (GraphicalEditPart) ((GraphicalEditPart) node)
 							.getParent();
 					nodeParent.setLayoutConstraint(node, nodeFigure, constraints);
-
 				}
 
 				AbstractOutputConnectorEditPart nodeOPconector = null;
@@ -618,11 +624,12 @@ public class XYRepossition {
 								EsbLinkEditPart linkPart = (EsbLinkEditPart) sourceConnections.get(0);
 								node = (ShapeNodeEditPart) linkPart.getTarget().getParent();
 							} else {
-								if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart) {
+								if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart && !reversed) {
 									// Started to traverse out sequence.
 									node = getRightMostNodeOfOutSequence(editPart);
 									x = ((IGraphicalEditPart) editPart.getParent().getParent()).getFigure()
-											.getBounds().width - arrowAndtwoConnectorsLength * 2;
+											.getBounds().width - (arrowAndtwoConnectorsLength * 2);
+									reversed = true;
 								} else {
 									break;
 								}		
