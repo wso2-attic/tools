@@ -25,7 +25,7 @@ import org.eclipse.php.internal.core.codeassist.contexts.PHPDocTagContext;
  */
 public class PHPDocReturnTypeStrategy extends GlobalClassesStrategy {
 
-	private static final String[] ALL_TYPE = new String[] { "array", "array", //$NON-NLS-1$ //$NON-NLS-2$
+	private static final String[] ALL_TYPE = new String[] { "Array", "Array", //$NON-NLS-1$ //$NON-NLS-2$
 			"mixed", "void", "integer", "int", "string", "float", "double", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 			"bool", "boolean", "resource", "null", "NULL" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$
 	private static final String EMPTY = ""; //$NON-NLS-1$

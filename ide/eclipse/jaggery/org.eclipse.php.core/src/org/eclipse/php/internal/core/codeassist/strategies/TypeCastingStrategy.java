@@ -20,7 +20,7 @@ import org.eclipse.php.internal.core.codeassist.contexts.TypeCastingContext;
 public class TypeCastingStrategy extends AbstractCompletionStrategy {
 
 	private static final String[] TYPE_CASTS = { "int", "integer", "bool", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			"boolean", "float", "double", "real", "string", "array", "object", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
+			"boolean", "float", "double", "real", "string", "Array", "object", //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$ //$NON-NLS-5$ //$NON-NLS-6$ //$NON-NLS-7$
 			"unset", "binary" }; //$NON-NLS-1$ //$NON-NLS-2$
 
 	public TypeCastingStrategy(ICompletionContext context) {

@@ -41,7 +41,7 @@ public class PHPSimpleTypes {
 
 	static {
 		SIMPLE_TYPES = new HashMap<String, IEvaluatedType>();
-		SIMPLE_TYPES.put("array", new MultiTypeType()); //$NON-NLS-1$
+		SIMPLE_TYPES.put("Array", new MultiTypeType()); //$NON-NLS-1$
 		SIMPLE_TYPES.put("bool", BOOLEAN); //$NON-NLS-1$
 		SIMPLE_TYPES.put("boolean", BOOLEAN); //$NON-NLS-1$
 		SIMPLE_TYPES.put("int", NUMBER); //$NON-NLS-1$

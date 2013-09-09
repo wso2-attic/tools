@@ -107,7 +107,7 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_EMPTY, "empty"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_STATIC, "static"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_UNSET, "unset"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_LIST, "array"); //$NON-NLS-1$
+		token2Name.put(CompilerParserConstants.T_LIST, "Array"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_VAR, "var"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_DECLARE, "declare"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_ENDDECLARE, "enddeclare"); //$NON-NLS-1$

@@ -20,9 +20,6 @@ import org.eclipse.php.internal.core.util.collections.IntHashtable;
 %extends org.eclipse.php.internal.core.documentModel.parser.AbstractPhpLexer
 %type String
 %unicode
-%caseless
-
-
 
 
 %state ST_PHP_IN_SCRIPTING
@@ -372,7 +369,7 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 	return PHP_CASTING;
 }
 
-<ST_PHP_IN_SCRIPTING>"("{TABS_AND_SPACES}"array"{TABS_AND_SPACES}")" {
+<ST_PHP_IN_SCRIPTING>"("{TABS_AND_SPACES}"Array"{TABS_AND_SPACES}")" {
     return PHP_CASTING;
 }
 
@@ -448,7 +445,7 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
     return PHP_LIST;
 }
 
-<ST_PHP_IN_SCRIPTING>"array" {
+<ST_PHP_IN_SCRIPTING>"Array" {
     return PHP_ARRAY;
 }
 

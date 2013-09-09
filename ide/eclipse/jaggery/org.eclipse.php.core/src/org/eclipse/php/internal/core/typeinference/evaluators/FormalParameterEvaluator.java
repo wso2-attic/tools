@@ -42,7 +42,7 @@ public class FormalParameterEvaluator extends GoalEvaluator {
 		FormalParameter parameter = (FormalParameter) typedGoal.getExpression();
 
 		SimpleReference type = parameter.getParameterType();
-		if (type != null && "array".equals(type.getName()) == false) { //$NON-NLS-1$
+		if (type != null && "Array".equals(type.getName()) == false) { //$NON-NLS-1$
 			result = PHPClassType.fromSimpleReference(type);
 		} else {
 			IContext context = typedGoal.getContext();

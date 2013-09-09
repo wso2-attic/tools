@@ -171,10 +171,7 @@ terminal T_TRAIT_C;
 /* Non terminals */
 
 non terminal ModuleDeclaration thestart;
-non terminal FullyQualifiedReference namespace_name;
 non terminal List namespace_name_list;
-non terminal UsePart use_declaration;
-non terminal List use_declarations;
 non terminal top_statement_list;
 non terminal List namespace_statement_list;
 non terminal Statement top_statement;
@@ -226,7 +223,7 @@ non terminal List static_array_pair_list;
 non terminal possible_comma;
 non terminal List non_empty_static_array_pair_list;
 non terminal Expression expr;
-non terminal List var_expr;
+non terminal Expression var_expr;
 non terminal List nekudotaim_expr;
 non terminal Expression reference_variable;
 non terminal Expression variable_class_name;
@@ -238,6 +235,8 @@ non terminal Expression variable_name;
 non terminal Integer simple_indirect_reference;
 non terminal List assignment_list;
 non terminal Expression assignment_list_element;
+non terminal List object_pair_list;
+non terminal List non_empty_object_pair_list;
 non terminal List array_pair_list;
 non terminal List non_empty_array_pair_list;
 non terminal List encaps_list;
@@ -374,43 +373,6 @@ top_statement_list:statementList
 :}
 ;
 
-namespace_name ::=
-namespace_name_list:list
-{:
-	StringBuilder namespaceNameBuf = new StringBuilder();
-	FullyQualifiedReference fullyQualifiedName = null;
-	Iterator i = list.iterator();
-	while (i.hasNext()) {
-		String s = (String) i.next();
-		if (i.hasNext()) {
-			if (namespaceNameBuf.length() != 0) {
-				namespaceNameBuf.append('\\');
-			}
-			namespaceNameBuf.append(s);
-		} else {
-			NamespaceReference namespaceRef = (namespaceNameBuf.length() != 0) ? 
-				new NamespaceReference(listleft, listright - s.length() - 1, namespaceNameBuf.toString()) : null;
-			fullyQualifiedName = new FullyQualifiedReference(listleft, listright, s, namespaceRef);
-		}
-	}
-	RESULT = fullyQualifiedName;
-:}
-;
-
-namespace_name_list ::=
-T_STRING:name
-{:
-	List list = new LinkedList();
-	list.add(name);
-	RESULT = list;
-:}
-|
-namespace_name_list:list T_NS_SEPARATOR T_STRING:name
-{:
-	list.add(name);
-	RESULT = list;
-:}
-;
 
 top_statement_list ::=
 top_statement_list:statementList top_statement:statement
@@ -516,65 +478,6 @@ T_CURLY_OPEN:start namespace_statement_list:statementList T_CURLY_CLOSE:end
 :}
 ;
 
-
-use_declarations ::=
-use_declarations:useDeclList T_COMMA use_declaration:useDecl
-{:
-	useDeclList.add(useDecl);
-	RESULT = useDeclList;
-:}
-
-| use_declaration:useDecl
-{:
-	List useDeclList = new LinkedList();
-	useDeclList.add(useDecl);
-	RESULT = useDeclList;
-:}
-;
-
-use_declaration ::=
-namespace_name:name
-{:
-	UsePart usePart = new UsePart(name, null);
-	RESULT = usePart;
-:}
-
-| namespace_name:name T_AS T_STRING:aliasName
-{:
-	UsePart usePart = new UsePart(name, 
-		new SimpleReference(aliasNameleft, aliasNameright, aliasName));
-	RESULT = usePart;
-:}
-
-| T_NS_SEPARATOR:s namespace_name:name
-{:
-	NamespaceReference namespace = name.getNamespace();
-	if (namespace == null) {
-		namespace = new NamespaceReference(sleft, sright, "");
-		name.setNamespace(namespace);
-	}
-		namespace.setGlobal(true);
-		namespace.setStart(namespace.sourceStart() - 1);
-
-	UsePart usePart = new UsePart(name, null);
-	RESULT = usePart;
-:}
-
-| T_NS_SEPARATOR:s namespace_name:name T_AS T_STRING:aliasName
-{:
-	NamespaceReference namespace = name.getNamespace();
-	if (namespace == null) {
-		namespace = new NamespaceReference(sleft, sright, "");
-		name.setNamespace(namespace);
-	}
-		namespace.setGlobal(true);
-		namespace.setStart(namespace.sourceStart() - 1);
-	
-	UsePart usePart = new UsePart(name,
-		new SimpleReference(aliasNameleft, aliasNameright, aliasName));
-	RESULT = usePart;
-:}
-;
 
 inner_statement_list ::=
 inner_statement_list:statementList inner_statement:statement
@@ -1210,18 +1113,6 @@ optional_class_type ::=
 /* empty */
 {:
 	RESULT = null;
-:}
-
-| T_ARRAY:array
-{:
-	TypeReference reference = new TypeReference(arrayleft, arrayright, "array");
-	RESULT = reference;
-:}
-
-| T_CALLABLE:callable
-{:
-	TypeReference reference = new TypeReference(callableleft, callableright, "callable");
-	RESULT = reference;
 :}
 ;
 
@@ -2176,6 +2067,11 @@ T_STATIC:s
 {:
 	RESULT = new FullyQualifiedReference(sleft, sright, "static", null);
 :}
+
+| T_ARRAY:s
+{:
+	RESULT = new FullyQualifiedReference(sleft, sright, "Array", null);
+:}
 ;
 
 class_name_reference ::=
@@ -2477,16 +2373,13 @@ variable:var T_NEKUDOTAIM expr:expr
 var_expr ::=
 expr:expr
 {:
-	List list = new LinkedList();
-	list.add(expr);
-	RESULT = list;
+	RESULT = expr;
 :}
 
-| T_CURLY_OPEN nekudotaim_expr:expr T_CURLY_CLOSE
+| T_CURLY_OPEN:start object_pair_list:list T_CURLY_CLOSE:end
 {:
-	List list = new LinkedList();
-	list.add(expr);
-	RESULT = list;
+	Expression expr = new ArrayCreation(startleft, endright, list);
+	RESULT = expr;
 :}
 ;
 
@@ -2848,38 +2741,39 @@ variable:var
 :}
 ;
 
-array_pair_list ::=
+object_pair_list ::=
 /* empty */
 {:
 	List list = new LinkedList();
 	RESULT = list;	
 :}
 
-| non_empty_array_pair_list:list possible_comma
+| non_empty_object_pair_list:list possible_comma
 {:
 	RESULT = list;
 :}
 ;
 
-non_empty_array_pair_list ::=
-non_empty_array_pair_list:list T_COMMA expr:key T_DOUBLE_ARROW expr:value
+
+non_empty_object_pair_list ::=
+non_empty_object_pair_list:list T_COMMA expr:key T_NEKUDOTAIM expr:value
 {:
 	ArrayElement element = new ArrayElement(keyleft, valueright, key, value);
 	list.add(element);
 	RESULT = list;
 :}
 
-| non_empty_array_pair_list:list T_COMMA expr:expr
-{:
-	ArrayElement element = new ArrayElement(exprleft, exprright, expr);
-	list.add(element);
-	RESULT = list;
-:}
-
-| expr:key T_DOUBLE_ARROW expr:value
+| expr:key T_NEKUDOTAIM expr:value
 {:
 	List list = new LinkedList();
 	ArrayElement element = new ArrayElement(keyleft, valueright, key, value);
+	list.add(element);
+	RESULT = list;
+:}
+
+| non_empty_object_pair_list:list T_COMMA expr:expr
+{:
+	ArrayElement element = new ArrayElement(exprleft, exprright, expr);
 	list.add(element);
 	RESULT = list;
 :}
@@ -2891,37 +2785,35 @@ non_empty_array_pair_list:list T_COMMA expr:key T_DOUBLE_ARROW expr:value
 	list.add(element);
 	RESULT = list;
 :}
+;
 
-| non_empty_array_pair_list:list T_COMMA expr:key T_DOUBLE_ARROW T_REFERENCE:start w_variable:var
-{:
-	ReferenceExpression value = new ReferenceExpression(startleft, varright, var);
-	ArrayElement element = new ArrayElement(keyleft, varright, key, value);	
-	list.add(element);
-	RESULT = list;
-:}
 
-| non_empty_array_pair_list:list T_COMMA T_REFERENCE:start w_variable:var
-{:
-	ReferenceExpression ref = new ReferenceExpression(startleft, varright, var);
-	ArrayElement element = new ArrayElement(startleft, varright, ref);	
-	list.add(element);
-	RESULT = list;
-:}
 
-| expr:key T_DOUBLE_ARROW T_REFERENCE:start w_variable:var
+array_pair_list ::=
+/* empty */
 {:
 	List list = new LinkedList();
-	ReferenceExpression value = new ReferenceExpression(startleft, varright, var);
-	ArrayElement element = new ArrayElement(keyleft, varright, key, value);	
+	RESULT = list;	
+:}
+
+| non_empty_array_pair_list:list 
+{:
+	RESULT = list;
+:}
+;
+
+non_empty_array_pair_list ::=
+non_empty_array_pair_list:list T_COMMA expr:expr
+{:
+	ArrayElement element = new ArrayElement(exprleft, exprright, expr);
 	list.add(element);
 	RESULT = list;
 :}
 
-| T_REFERENCE:start w_variable:var
+| expr:expr
 {:
 	List list = new LinkedList();
-	ReferenceExpression ref = new ReferenceExpression(startleft, varright, var);
-	ArrayElement element = new ArrayElement(startleft, varright, ref);	
+	ArrayElement element = new ArrayElement(exprleft, exprright, expr);
 	list.add(element);
 	RESULT = list;
 :}

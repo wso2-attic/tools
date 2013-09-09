@@ -39,7 +39,6 @@ import org.eclipse.php.internal.core.PHPVersion;
 %eofval}
 %eofclose
 
-%caseless
 
 %standalone
 %state ST_IN_SCRIPTING
@@ -433,7 +432,7 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_STRING_CAST);
 }
 
-<ST_IN_SCRIPTING>"("{TABS_AND_SPACES}"array"{TABS_AND_SPACES}")" {
+<ST_IN_SCRIPTING>"("{TABS_AND_SPACES}"Array"{TABS_AND_SPACES}")" {
 	return createSymbol(ParserConstants.T_ARRAY_CAST);
 }
 
@@ -512,6 +511,7 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_PROTECTED);
 }*/
 
+
 /*<ST_IN_SCRIPTING>"public" {
 	return createSymbol(ParserConstants.T_PUBLIC);
 }
@@ -526,11 +526,11 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 
 /*<ST_IN_SCRIPTING>"list" {
 	return createSymbol(ParserConstants.T_LIST);
-}
-
-<ST_IN_SCRIPTING>"array" {
-	return createSymbol(ParserConstants.T_ARRAY);
 }*/
+
+<ST_IN_SCRIPTING>"Array" {
+	return createSymbol(ParserConstants.T_ARRAY);
+}
 
 <ST_IN_SCRIPTING>"++" {
 	return createSymbol(ParserConstants.T_INC);

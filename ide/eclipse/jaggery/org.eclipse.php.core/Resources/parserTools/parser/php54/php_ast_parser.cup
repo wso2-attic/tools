@@ -191,9 +191,6 @@ terminal T_TRAIT_C;
 /* Non terminals */
 
 non terminal Program thestart;
-non terminal List namespace_name;
-non terminal UseStatementPart use_declaration;
-non terminal List use_declarations;
 non terminal List top_statement_list;
 non terminal Statement top_statement;
 non terminal Statement statement;
@@ -244,7 +241,7 @@ non terminal List static_array_pair_list;
 non terminal possible_comma;
 non terminal List non_empty_static_array_pair_list;
 non terminal Expression expr;
-non terminal List var_expr;
+non terminal Expression var_expr;
 non terminal List nekudotaim_expr;
 non terminal Variable reference_variable;
 non terminal Variable variable_class_name;
@@ -256,6 +253,8 @@ non terminal VariableBase variable_name;
 non terminal Integer simple_indirect_reference;
 non terminal List assignment_list;
 non terminal VariableBase assignment_list_element;
+non terminal List object_pair_list;
+non terminal List non_empty_object_pair_list;
 non terminal List array_pair_list;
 non terminal List non_empty_array_pair_list;
 non terminal List encaps_list;
@@ -372,29 +371,6 @@ top_statement_list:sList
 :}
 ;
 
-namespace_name ::=
-T_STRING:n
-{:
-	List list = new LinkedList();
-	list.add(new Identifier(nleft, nright, parser.ast, n));
-	RESULT = list;
-:}
-
-|
-namespace_name:list T_NS_SEPARATOR T_STRING:n
-{:
-	list.add(new Identifier(nleft, nright, parser.ast, n));
-	RESULT = list;
-:}
-
-| T_DEFINE:n
-{:
-	List list = new LinkedList();
-	list.add(new Identifier(nleft, nright, parser.ast, n));
-	RESULT = list;
-:}
-;
-
 top_statement_list ::=
 top_statement_list:sList top_statement:statement
 {:
@@ -429,52 +405,6 @@ statement:statement
 | function_declaration_statement:statement
 {: 
 	RESULT = statement; 
-:}
-
-;
-
-use_declarations ::=
-use_declarations:list T_COMMA use_declaration:useDecl
-{:
-	list.add(useDecl);
-	RESULT = list;
-:}
-
-| use_declaration:useDecl
-{:
-	List list = new LinkedList();
-	list.add(useDecl);
-	RESULT = list;
-:}
-
-;
-
- 
-use_declaration ::=
-namespace_name:list
-{:
-	RESULT = new UseStatementPart(listleft, listright, parser.ast, 
-		new NamespaceName(listleft, listright, parser.ast, list, false, false), null);
-:}
-
-| namespace_name:list T_AS T_STRING:aliasName
-{:
-	RESULT = new UseStatementPart(listleft, aliasNameright, parser.ast, 
-		new NamespaceName(listleft, listright, parser.ast, list, false, false),
-		new Identifier(aliasNameleft, aliasNameright, parser.ast, aliasName));
-:}
-
-| T_NS_SEPARATOR namespace_name:list
-{:
-	RESULT = new UseStatementPart(listleft, listright, parser.ast, 
-		new NamespaceName(listleft, listright, parser.ast, list, true, false), null);
-:}
-
-| T_NS_SEPARATOR namespace_name:list T_AS T_STRING:aliasName
-{:
-	RESULT = new UseStatementPart(listleft, aliasNameright, parser.ast,
-		new NamespaceName(listleft, listright, parser.ast, list, true, false),
-		new Identifier(aliasNameleft, aliasNameright, parser.ast, aliasName));
 :}
 
 ;
@@ -1038,16 +968,6 @@ optional_class_type ::=
 /* empty */
 {:
 	RESULT = null;
-:}
-
-| T_ARRAY:array
-{:
-	RESULT = new Identifier(arrayleft, arrayright, parser.ast, "array");
-:}
-
-| T_CALLABLE:callable
-{:
-	RESULT = new Identifier(callableleft, callableright, parser.ast, "callable");
 :}
 ;
 
@@ -1914,6 +1834,11 @@ T_STATIC:s
 {:
 	RESULT = new Identifier(sleft, sright, parser.ast, "static");
 :}
+
+| T_ARRAY:s
+{:
+	RESULT = new Identifier(sleft, sright, parser.ast, "Array");
+:}
 ;
 
 class_name_reference ::=
@@ -2170,36 +2095,15 @@ non_empty_static_array_pair_list:list T_COMMA static_scalar:key T_DOUBLE_ARROW s
 :}
 ;
 
-nekudotaim_expr ::=
-variable:var T_NEKUDOTAIM expr:expr
-{:
-	List list = new LinkedList();
-	Assignment assignment = new Assignment(varleft, exprright, parser.ast, var, Assignment.OP_NEKUDOTAIM, expr);
-	list.add(assignment);
-	RESULT = list;
-:}
-
-| nekudotaim_expr:list T_COMMA variable:var T_NEKUDOTAIM expr:expr
-{:
-		Assignment assignment = new Assignment(varleft, exprright, parser.ast, var, Assignment.OP_NEKUDOTAIM, expr);
-		list.add(assignment);
-		RESULT = list;
-:}
-;
-
 var_expr ::= 
 expr:expr
 {:
-		List list = new LinkedList();
-		list.add(expr);
-		RESULT = list;
+		RESULT = expr;
 :}
 
-| T_CURLY_OPEN nekudotaim_expr:expr T_CURLY_CLOSE
+| T_CURLY_OPEN:s object_pair_list:list  T_CURLY_CLOSE:e
 {:
-		List list = new LinkedList();
-		list.add(expr);
-		RESULT = list;
+		RESULT = new ArrayCreation(sleft, eright, parser.ast, list);
 :} 
 ;
 
@@ -2545,35 +2449,36 @@ variable:var
 :}
 ;
 
-array_pair_list ::=
+object_pair_list ::=
 /* empty */
 {:
 	RESULT = new LinkedList();
 :}
 
-| non_empty_array_pair_list:list possible_comma
+| non_empty_object_pair_list:list possible_comma
 {:
 	RESULT = list;
 :}
 ;
 
-non_empty_array_pair_list ::=
-non_empty_array_pair_list:list T_COMMA expr:key T_DOUBLE_ARROW expr:value
+
+non_empty_object_pair_list ::=
+non_empty_object_pair_list:list T_COMMA expr:key T_NEKUDOTAIM expr:value
 {:
 	list.add(new ArrayElement(keyleft, valueright, parser.ast, key, value));
 	RESULT = list;
 :}
 
-| non_empty_array_pair_list:list T_COMMA expr:expr
-{:
-	list.add(new ArrayElement(exprleft, exprright, parser.ast, expr));
-	RESULT = list;
-:}
-
-| expr:key T_DOUBLE_ARROW expr:value
+| expr:key T_NEKUDOTAIM expr:value
 {:
 	List list = new LinkedList();
 	list.add(new ArrayElement(keyleft, valueright, parser.ast, key, value));
+	RESULT = list;
+:}
+
+| non_empty_object_pair_list:list T_COMMA expr:expr
+{:
+	list.add(new ArrayElement(exprleft, exprright, parser.ast, expr));
 	RESULT = list;
 :}
 
@@ -2583,30 +2488,32 @@ non_empty_array_pair_list:list T_COMMA expr:key T_DOUBLE_ARROW expr:value
 	list.add(new ArrayElement(exprleft, exprright, parser.ast, expr));
 	RESULT = list;
 :}
+;
 
-| non_empty_array_pair_list:list T_COMMA expr:key T_DOUBLE_ARROW T_REFERENCE:s w_variable:var
+
+array_pair_list ::=
+/* empty */
 {:
-	list.add(new ArrayElement(keyleft, varright, parser.ast, key, new Reference(sleft, varright, parser.ast, var)));
+	RESULT = new LinkedList();
+:}
+
+| non_empty_array_pair_list:list 
+{:
+	RESULT = list;
+:}
+;
+
+non_empty_array_pair_list ::=
+non_empty_array_pair_list:list T_COMMA expr:expr
+{:
+	list.add(new ArrayElement(exprleft, exprright, parser.ast, expr));
 	RESULT = list;
 :}
 
-| non_empty_array_pair_list:list T_COMMA T_REFERENCE:s w_variable:var
-{:
-	list.add(new ArrayElement(sleft, varright, parser.ast, new Reference(sleft, varright, parser.ast, var)));
-	RESULT = list;
-:}
-
-| expr:key T_DOUBLE_ARROW T_REFERENCE:s w_variable:var
+| expr:expr
 {:
 	List list = new LinkedList();
-	list.add(new ArrayElement(keyleft, varright, parser.ast, key, new Reference(sleft, varright, parser.ast, var)));
-	RESULT = list;
-:}
-
-| T_REFERENCE:s w_variable:var
-{:
-	List list = new LinkedList();
-	list.add(new ArrayElement(sleft, varright, parser.ast, new Reference(sleft, varright, parser.ast, var)));
+	list.add(new ArrayElement(exprleft, exprright, parser.ast, expr));
 	RESULT = list;
 :}
 ;

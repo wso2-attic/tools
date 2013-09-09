@@ -569,7 +569,7 @@ public final class PHPHeuristicScanner implements Symbols {
 				return TokenCLASS;
 			if ("while".equals(s)) //$NON-NLS-1$
 				return TokenWHILE;
-			if ("array".equals(s)) //$NON-NLS-1$
+			if ("Array".equals(s)) //$NON-NLS-1$
 				return TokenARRAY;
 			break;
 		case 6:

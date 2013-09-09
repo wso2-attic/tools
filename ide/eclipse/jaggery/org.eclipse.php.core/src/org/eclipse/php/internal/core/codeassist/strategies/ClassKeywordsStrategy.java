@@ -46,7 +46,7 @@ public class ClassKeywordsStrategy extends KeywordsStrategy {
 	}
 
 	protected boolean filterKeyword(KeywordData keyword) {
-		if (keyword.name.equals("array") //$NON-NLS-1$
+		if (keyword.name.equals("Array") //$NON-NLS-1$
 				&& statementText.toString().indexOf("=") > 0) { //$NON-NLS-1$
 			return false;
 		}

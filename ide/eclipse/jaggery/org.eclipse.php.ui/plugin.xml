@@ -114,10 +114,13 @@
 	</extension>
 
 	<extension point="org.eclipse.ui.newWizards">
-		<category name="%category.name.1" id="org.eclipse.php.project.ui" />
+		<category 
+			name="%category.name.1" 
+			id="org.eclipse.php.project.ui"
+			parentCategory="org.wso2.developerstudio.eclipse.capp.project" />
 		<!--PHP Project wizard:-->
 		<wizard id="org.eclipse.php.ui.wizards.PHPProjectCreationWizard"
-			category="org.eclipse.php.project.ui"
+			category="org.wso2.developerstudio.eclipse.capp.project/org.eclipse.php.project.ui"
 			class="org.eclipse.php.internal.ui.wizards.PHPProjectCreationWizard"
 			name="%PHPProject.name" icon="icons/full/obj16/add_php_project.gif"
 			finalPerspective="org.eclipse.php.perspective" preferredPerspectives="org.eclipse.php.perspective"
@@ -126,7 +129,7 @@
 			<selection class="org.eclipse.core.resources.IResource" />
 		</wizard>
 		<wizard id="org.eclipse.php.ui.wizards.PHPFileCreationWizard"
-			category="org.eclipse.php.project.ui" class="org.eclipse.php.internal.ui.wizards.PHPFileCreationWizard"
+			category="org.wso2.developerstudio.eclipse.capp.project/org.eclipse.php.project.ui" class="org.eclipse.php.internal.ui.wizards.PHPFileCreationWizard"
 			name="%wizard.name.0" icon="icons/full/obj16/add_php_file.gif" />
 		<!--<wizard id="org.eclipse.php.ui.wizards.UntitledPHPDocumentWizard"
 			category="org.eclipse.php.project.ui" class="org.eclipse.php.internal.ui.wizards.UntitledPHPDocumentWizard"

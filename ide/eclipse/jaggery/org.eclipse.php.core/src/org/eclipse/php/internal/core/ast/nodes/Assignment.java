@@ -105,20 +105,20 @@ public class Assignment extends Expression implements IOperationNode {
 		super(ast);
 	}
 
-	public Assignment(int start, int end, AST ast, VariableBase leftHandSide,
-			int operator, List expressions) {
-		super(start, end, ast);
-
-		setLeftHandSide(leftHandSide);
-		setOperator(operator);
-
-		Expression[] list_expression = (Expression[]) expressions
-				.toArray(new Expression[expressions.size()]);
-		for (Expression expression : list_expression) {
-			setRightHandSide(expression);
-		}
-
-	}
+	// public Assignment(int start, int end, AST ast, VariableBase leftHandSide,
+	// int operator, List expressions) {
+	// super(start, end, ast);
+	//
+	// setLeftHandSide(leftHandSide);
+	// setOperator(operator);
+	//
+	// Expression[] list_expression = (Expression[]) expressions
+	// .toArray(new Expression[expressions.size()]);
+	// for (Expression expression : list_expression) {
+	// setRightHandSide(expression);
+	// }
+	//
+	// }
 
 	public static String getOperator(int operator) {
 		switch (operator) {
