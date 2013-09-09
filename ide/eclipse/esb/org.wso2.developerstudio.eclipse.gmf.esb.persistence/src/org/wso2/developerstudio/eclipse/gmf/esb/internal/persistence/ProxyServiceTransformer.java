@@ -466,7 +466,13 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			info.setOriginOutSequence(outMediator);
 			info.setParentSequence(inMediator);
 			
-			doTransform(info, visualService.getOutputConnector());			
+			doTransform(info, visualService.getOutputConnector());		
+			
+			// Transform outSequence
+			
+			info.setParentSequence(outMediator);
+			info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
+			doTransform(info, visualService.getOutSequenceOutputConnector());
 		} 
 	}
 
