@@ -30,10 +30,12 @@ public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeseriali
 		
 		executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__FORMAT, payloadFactoryMediator.getFormat());
 		
-		if(payloadFactoryMediator.getType().equals(XML_LITERAL)){
-			executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE, MediaType.XML);
-		}else if(payloadFactoryMediator.getType().equals(JSON_LITERAL)){
-			executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE, MediaType.JSON);
+		if (payloadFactoryMediator.getType() != null) {
+			if(payloadFactoryMediator.getType().equals(XML_LITERAL)){
+				executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE, MediaType.XML);
+			} else if(payloadFactoryMediator.getType().equals(JSON_LITERAL)){
+				executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE, MediaType.JSON);
+			}
 		}
 		
 		EList<PayloadFactoryArgument> arguments=new BasicEList<PayloadFactoryArgument>();
