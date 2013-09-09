@@ -158,7 +158,7 @@ public class DashboardPage extends FormPage {
 		toolkit.paintBordersFor(body);
 		
 		Section sctnCreate = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnCreate.setBounds(10, 10, 600, 800);
+		sctnCreate.setBounds(10, 10, 600, 1200);
 		managedForm.getToolkit().paintBordersFor(sctnCreate);
 		sctnCreate.setText("Create");
 		sctnCreate.setExpanded(true);
