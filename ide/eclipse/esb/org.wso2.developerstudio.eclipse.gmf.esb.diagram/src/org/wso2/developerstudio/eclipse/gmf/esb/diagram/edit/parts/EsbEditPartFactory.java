@@ -722,6 +722,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case DefaultEndPointEndPointNameEditPart.VISUAL_ID:
 				return new DefaultEndPointEndPointNameEditPart(view);
 
+			case DefaultEndPointDescriptionEditPart.VISUAL_ID:
+				return new DefaultEndPointDescriptionEditPart(view);
+
 			case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
 				return new DefaultEndPointInputConnectorEditPart(view);
 
@@ -733,6 +736,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case AddressEndPointEndPointNameEditPart.VISUAL_ID:
 				return new AddressEndPointEndPointNameEditPart(view);
+
+			case AddressEndPointDescriptionEditPart.VISUAL_ID:
+				return new AddressEndPointDescriptionEditPart(view);
 
 			case AddressEndPointInputConnectorEditPart.VISUAL_ID:
 				return new AddressEndPointInputConnectorEditPart(view);
@@ -746,6 +752,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case FailoverEndPointEndPointNameEditPart.VISUAL_ID:
 				return new FailoverEndPointEndPointNameEditPart(view);
 
+			case FailoverEndPointDescriptionEditPart.VISUAL_ID:
+				return new FailoverEndPointDescriptionEditPart(view);
+
 			case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
 				return new FailoverEndPointInputConnectorEditPart(view);
 
@@ -757,6 +766,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case RecipientListEndPointEditPart.VISUAL_ID:
 				return new RecipientListEndPointEditPart(view);
+
+			case RecipientListEndPointDescriptionEditPart.VISUAL_ID:
+				return new RecipientListEndPointDescriptionEditPart(view);
 
 			case RecipientListEndPointInputConnectorEditPart.VISUAL_ID:
 				return new RecipientListEndPointInputConnectorEditPart(view);
@@ -772,6 +784,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case WSDLEndPointEndPointNameEditPart.VISUAL_ID:
 				return new WSDLEndPointEndPointNameEditPart(view);
+
+			case WSDLEndPointDescriptionEditPart.VISUAL_ID:
+				return new WSDLEndPointDescriptionEditPart(view);
 
 			case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
 				return new WSDLEndPointInputConnectorEditPart(view);
@@ -797,6 +812,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID:
 				return new LoadBalanceEndPointEndPointNameEditPart(view);
 
+			case LoadBalanceEndPointDescriptionEditPart.VISUAL_ID:
+				return new LoadBalanceEndPointDescriptionEditPart(view);
+
 			case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
 				return new LoadBalanceEndPointInputConnectorEditPart(view);
 
@@ -818,6 +836,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case AddressingEndpointEditPart.VISUAL_ID:
 				return new AddressingEndpointEditPart(view);
 
+			case AddressingEndpointDescriptionEditPart.VISUAL_ID:
+				return new AddressingEndpointDescriptionEditPart(view);
+
 			case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
 				return new AddressingEndpointInputConnectorEditPart(view);
 
@@ -827,6 +848,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case HTTPEndpointEditPart.VISUAL_ID:
 				return new HTTPEndpointEditPart(view);
 
+			case HTTPEndpointDescriptionEditPart.VISUAL_ID:
+				return new HTTPEndpointDescriptionEditPart(view);
+
 			case HTTPEndPointInputConnectorEditPart.VISUAL_ID:
 				return new HTTPEndPointInputConnectorEditPart(view);
 
@@ -835,6 +859,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case TemplateEndpointEditPart.VISUAL_ID:
 				return new TemplateEndpointEditPart(view);
+
+			case TemplateEndpointDescriptionEditPart.VISUAL_ID:
+				return new TemplateEndpointDescriptionEditPart(view);
 
 			case TemplateEndpointInputConnectorEditPart.VISUAL_ID:
 				return new TemplateEndpointInputConnectorEditPart(view);

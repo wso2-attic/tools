@@ -443,7 +443,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		if (previousMediator != null) {
 			boolean hasSendMediatorChild = hasSendMediator(previousMediator);
 			if (hasSendMediatorChild || previousMediator instanceof SendMediatorEditPart) {
-				deleteNewlyAddedMediator("Adding of mediators is not allowed since there are send mediators present in the meeasge (or parts of the message) flow.");
+				deleteNewlyAddedMediator("Adding of mediators is not allowed since there are send(or drop) mediators present in the meeasge (or parts of the message) flow.");
 				return;
 			}
 		}
@@ -452,12 +452,12 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 			EditPart compartment = this.getParent();
 			if (isComplexCompartment(compartment)) {
 				if (restrictAddingOfSendMediatorInsideComlpexMediators(nearestInputConnector, nearestEsbLinkInputConnector)) {
-					deleteNewlyAddedMediator("Adding of send mediator is not allowed inside this mediator since there is a send mediator already present in the meeasge flow.");
+					deleteNewlyAddedMediator("Adding of send(or drop) mediator is not allowed inside this mediator since there is a send(or drop) mediator already present in the meeasge flow.");
 					return;
 				} 
 			}
 			if (restrictAddingOfSendMediator(nearestInputConnector, nearestEsbLinkInputConnector)) {
-				deleteNewlyAddedMediator("Adding of send mediator is not allowed in the middle of the meeasge flow.");
+				deleteNewlyAddedMediator("Adding of send(or drop) mediator is not allowed in the middle of the meeasge flow.");
 				return;
 			} 
 		}

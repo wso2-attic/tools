@@ -36,6 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.TemplateEndpointCanonicalEditPolicy;
@@ -168,6 +169,11 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
+		if (childEditPart instanceof TemplateEndpointDescriptionEditPart) {
+			((TemplateEndpointDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEndpointDescriptionLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -180,6 +186,9 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 		if (childEditPart instanceof TemplateEndpointOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((TemplateEndpointOutputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof TemplateEndpointDescriptionEditPart) {
 			return true;
 		}
 		return false;
@@ -295,12 +304,13 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	public class TemplateEndpointFigure extends EsbGraphicalShape {
+	public class TemplateEndpointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureTemplateEndPointNamePropertyLabel;
+		private WrappingLabel endpointDescriptionLabel;
 
 		/**
 		 * @generated
@@ -316,6 +326,7 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureTemplateEndPointNamePropertyLabel = new WrappingLabel();
+			endpointDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -323,6 +334,10 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 		 */
 		public WrappingLabel getFigureTemplateEndPointNamePropertyLabel() {
 			return fFigureTemplateEndPointNamePropertyLabel;
+		}
+
+		public WrappingLabel getEndpointDescriptionLabel() {
+			return endpointDescriptionLabel;
 		}
 
 		public String getIconPath() {

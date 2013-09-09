@@ -6792,6 +6792,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5203 = createLabel(node,
+				EsbVisualIDRegistry.getType(RecipientListEndPointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -6941,6 +6943,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5158 = createLabel(node,
 				EsbVisualIDRegistry.getType(WSDLEndPointEndPointNameEditPart.VISUAL_ID));
+		Node label5204 = createLabel(node,
+				EsbVisualIDRegistry.getType(WSDLEndPointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -7161,6 +7165,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5159 = createLabel(node,
 				EsbVisualIDRegistry.getType(LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID));
+		Node label5205 = createLabel(node,
+				EsbVisualIDRegistry.getType(LoadBalanceEndPointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -7418,6 +7424,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5200 = createLabel(node,
+				EsbVisualIDRegistry.getType(AddressingEndpointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -7528,6 +7536,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5206 = createLabel(node,
+				EsbVisualIDRegistry.getType(HTTPEndpointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -7636,6 +7646,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5207 = createLabel(node,
+				EsbVisualIDRegistry.getType(TemplateEndpointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -10601,6 +10613,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5155 = createLabel(node,
 				EsbVisualIDRegistry.getType(DefaultEndPointEndPointNameEditPart.VISUAL_ID));
+		Node label5201 = createLabel(node,
+				EsbVisualIDRegistry.getType(DefaultEndPointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -11866,6 +11880,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5156 = createLabel(node,
 				EsbVisualIDRegistry.getType(AddressEndPointEndPointNameEditPart.VISUAL_ID));
+		Node label5199 = createLabel(node,
+				EsbVisualIDRegistry.getType(AddressEndPointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -11976,6 +11992,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5157 = createLabel(node,
 				EsbVisualIDRegistry.getType(FailoverEndPointEndPointNameEditPart.VISUAL_ID));
+		Node label5202 = createLabel(node,
+				EsbVisualIDRegistry.getType(FailoverEndPointDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 

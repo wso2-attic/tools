@@ -78,6 +78,7 @@ public class TemplateEndpointItemProvider
 		//addAddressPropertyDescriptor(object);
 		addTargetTemplatePropertyDescriptor(object);
 		addParametersPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 

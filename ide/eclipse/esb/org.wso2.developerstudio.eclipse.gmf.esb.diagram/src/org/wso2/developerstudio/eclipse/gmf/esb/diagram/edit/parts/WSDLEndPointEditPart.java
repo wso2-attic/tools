@@ -39,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.EndpointUtils;
@@ -181,6 +182,11 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
+		if (childEditPart instanceof WSDLEndPointDescriptionEditPart) {
+			((WSDLEndPointDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEndpointDescriptionLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -199,6 +205,9 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 		if (childEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((WSDLEndPointOutputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof WSDLEndPointDescriptionEditPart) {
 			return true;
 		}
 		return false;
@@ -355,12 +364,14 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	public class WSDLEndPointFigure extends EsbGraphicalShape {
+	public class WSDLEndPointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureWSDLEndPointNamePropertyLabel;
+
+		private WrappingLabel endpointDescriptionLabel;
 
 		/**
 		 * @generated
@@ -377,6 +388,7 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureWSDLEndPointNamePropertyLabel = new WrappingLabel();
+			endpointDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -384,6 +396,10 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 		 */
 		public WrappingLabel getFigureWSDLEndPointNamePropertyLabel() {
 			return fFigureWSDLEndPointNamePropertyLabel;
+		}
+
+		public WrappingLabel getEndpointDescriptionLabel() {
+			return endpointDescriptionLabel;
 		}
 
 		public String getIconPath() {

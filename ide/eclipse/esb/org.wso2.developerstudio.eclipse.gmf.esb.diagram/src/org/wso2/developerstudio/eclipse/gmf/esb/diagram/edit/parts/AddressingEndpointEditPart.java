@@ -34,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEditPart.DefaultEndPointFigure;
@@ -169,6 +170,11 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
+		if (childEditPart instanceof AddressingEndpointDescriptionEditPart) {
+			((AddressingEndpointDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEndpointDescriptionLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -181,6 +187,9 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 		if (childEditPart instanceof AddressingEndpointOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((AddressingEndpointOutputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof AddressingEndpointDescriptionEditPart) {
 			return true;
 		}
 		return false;
@@ -296,12 +305,13 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	public class AddressingEndpointFigure extends EsbGraphicalShape {
+	public class AddressingEndpointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureAddressingEndPointNamePropertyLabel;
+		private WrappingLabel endpointDescriptionLabel;
 
 		/**
 		 * @generated
@@ -318,6 +328,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureAddressingEndPointNamePropertyLabel = new WrappingLabel();
+			endpointDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -327,12 +338,16 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 			return fFigureAddressingEndPointNamePropertyLabel;
 		}
 
+		public WrappingLabel getEndpointDescriptionLabel() {
+			return endpointDescriptionLabel;
+		}
+
 		public String getIconPath() {
 			return "icons/ico20/defalut-endpoint.gif";
 		}
 
 		public String getNodeName() {
-			return "EP";
+			return "Addr-EP";
 		}
 
 		public Color getBackgroundColor() {

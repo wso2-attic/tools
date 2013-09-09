@@ -183,6 +183,10 @@ public class FeedbackIndicateDragDropEditPolicy extends DragDropEditPolicy {
 						 */
 						if(!endPointTypes.contains(object)){
 							return UnexecutableCommand.INSTANCE;
+						} else {
+							if (getHost().getChildren().size() >= 1) {
+								return UnexecutableCommand.INSTANCE;
+							}
 						}
 					}
 				}

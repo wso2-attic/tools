@@ -703,7 +703,7 @@ public class NamedEndpointEditPart extends ComplexFiguredAbstractEndpoint {
 		}
 
 		public String getNodeName() {
-			return "WSDL-EP";
+			return "Named-EP";
 		}
 
 		public Color getBackgroundColor() {

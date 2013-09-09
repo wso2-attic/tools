@@ -67,9 +67,13 @@ public class AddressingEndpointItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		
+		super.getPropertyDescriptors(object); // since we need to initialize itemPropertyDescriptors
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
-		}
+		} 
+		
+		addDescriptionPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 

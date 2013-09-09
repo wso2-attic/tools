@@ -5304,6 +5304,9 @@ public class EsbVisualIDRegistry {
 			if (DefaultEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (DefaultEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (DefaultEndPointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5313,6 +5316,9 @@ public class EsbVisualIDRegistry {
 			break;
 		case AddressEndPointEditPart.VISUAL_ID:
 			if (AddressEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (AddressEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (AddressEndPointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -5326,6 +5332,9 @@ public class EsbVisualIDRegistry {
 			if (FailoverEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (FailoverEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (FailoverEndPointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5337,6 +5346,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case RecipientListEndPointEditPart.VISUAL_ID:
+			if (RecipientListEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (RecipientListEndPointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5349,6 +5361,9 @@ public class EsbVisualIDRegistry {
 			break;
 		case WSDLEndPointEditPart.VISUAL_ID:
 			if (WSDLEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (WSDLEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (WSDLEndPointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -5373,6 +5388,9 @@ public class EsbVisualIDRegistry {
 			if (LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (LoadBalanceEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5392,6 +5410,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case AddressingEndpointEditPart.VISUAL_ID:
+			if (AddressingEndpointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (AddressingEndpointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5400,6 +5421,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case HTTPEndpointEditPart.VISUAL_ID:
+			if (HTTPEndpointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (HTTPEndPointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5408,6 +5432,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case TemplateEndpointEditPart.VISUAL_ID:
+			if (TemplateEndpointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (TemplateEndpointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

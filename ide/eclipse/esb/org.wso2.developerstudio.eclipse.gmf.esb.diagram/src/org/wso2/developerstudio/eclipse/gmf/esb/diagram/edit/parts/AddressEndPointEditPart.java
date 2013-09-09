@@ -53,6 +53,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
@@ -157,9 +158,9 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof AddressEndPointEndPointNameEditPart) {
-			((AddressEndPointEndPointNameEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getFigureAddressEndPointNamePropertyLabel());
+		if (childEditPart instanceof AddressEndPointDescriptionEditPart) {
+			((AddressEndPointDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEndpointDescriptionLabel());
 			return true;
 		}
 		if (childEditPart instanceof AddressEndPointInputConnectorEditPart) {
@@ -200,6 +201,11 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
+		if (childEditPart instanceof AddressEndPointEndPointNameEditPart) {
+			((AddressEndPointEndPointNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureAddressEndPointNamePropertyLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -208,6 +214,9 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof AddressEndPointEndPointNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof AddressEndPointDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof AddressEndPointInputConnectorEditPart) {
@@ -376,12 +385,14 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	public class AddressEndPointFigure extends EsbGraphicalShape {
+	public class AddressEndPointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureAddressEndPointNamePropertyLabel;
+
+		private WrappingLabel endpointDescriptionLabel;
 
 		/**
 		 * @generated
@@ -398,6 +409,7 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureAddressEndPointNamePropertyLabel = new WrappingLabel();
+			endpointDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -405,6 +417,10 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 		 */
 		public WrappingLabel getFigureAddressEndPointNamePropertyLabel() {
 			return fFigureAddressEndPointNamePropertyLabel;
+		}
+
+		public WrappingLabel getEndpointDescriptionLabel() {
+			return endpointDescriptionLabel;
 		}
 
 		public String getIconPath() {

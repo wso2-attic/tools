@@ -154,12 +154,12 @@ public class SendMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 		}	
 		}*/
 		if (notification.getFeature() instanceof EAttribute) {
-			if (EsbPackage.eINSTANCE.getSendMediator_SkipSerialization()
-					.equals(notification.getFeature())) {
+			if (EsbPackage.eINSTANCE.getSendMediator_SkipSerialization().equals(
+					notification.getFeature())) {
 				updateEndpointInlineProperty(notification);
 			}
 		}
-		
+
 	}
 
 	/**

@@ -75,6 +75,7 @@ public class LoadBalanceEndPointItemProvider
 			addSessionTimeoutPropertyDescriptor(object);
 		}
 		addAlgorithmPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
  		return itemPropertyDescriptors;
 	}
 

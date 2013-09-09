@@ -2319,6 +2319,13 @@
                             <features
                                 href="esb.ecore#//EndPoint/endPointName"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#DefaultEndPointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.2/@tools.0"/>
@@ -2361,6 +2368,14 @@
                             <features
                                 href="esb.ecore#//EndPoint/endPointName"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping"
+                              editorPattern="">
+                            <diagramLabel
+                                href="esb.gmfgraph#AddressEndPointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.2/@tools.1"/>
@@ -2402,6 +2417,13 @@
                                 href="esb.gmfgraph#FailoverEndPointName"/>
                             <features
                                 href="esb.ecore#//EndPoint/endPointName"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#FailoverEndPointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -2447,6 +2469,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//RecipientListEndPoint"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#RecipientListEndPointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.2/@tools.7"/>
@@ -2498,6 +2527,13 @@
                                 href="esb.gmfgraph#WSDLEndPointName"/>
                             <features
                                 href="esb.ecore#//EndPoint/endPointName"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#WSDLEndPointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -2585,6 +2621,13 @@
                             <features
                                 href="esb.ecore#//EndPoint/endPointName"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#LoadBalanceEndPointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.2/@tools.4"/>
@@ -2660,6 +2703,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//AddressingEndpoint"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#AddressingEndpointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.2/@tools.6"/>
@@ -2694,6 +2744,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//HTTPEndpoint"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#HTTPEndpointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.2/@tools.8"/>
@@ -2728,6 +2785,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//TemplateEndpoint"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#TemplateEndpointDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.2/@tools.9"/>

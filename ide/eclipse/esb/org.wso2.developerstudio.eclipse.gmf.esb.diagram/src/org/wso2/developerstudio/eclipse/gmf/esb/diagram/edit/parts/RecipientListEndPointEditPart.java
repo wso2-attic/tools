@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -29,6 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ComplexFiguredAbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.OpenSeparatelyEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.RecipientListEndPointCanonicalEditPolicy;
@@ -144,6 +146,11 @@ public class RecipientListEndPointEditPart extends ComplexFiguredAbstractEndpoin
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
+		if (childEditPart instanceof RecipientListEndPointDescriptionEditPart) {
+			((RecipientListEndPointDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEndpointDescriptionLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -159,6 +166,9 @@ public class RecipientListEndPointEditPart extends ComplexFiguredAbstractEndpoin
 		if (childEditPart instanceof RecipientListEndPointOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((RecipientListEndPointOutputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof RecipientListEndPointDescriptionEditPart) {
 			return true;
 		}
 		return false;
@@ -306,7 +316,9 @@ public class RecipientListEndPointEditPart extends ComplexFiguredAbstractEndpoin
 	/**
 	 * @generated
 	 */
-	public class RecipientListEndPointFigure extends EsbGraphicalShape {
+	public class RecipientListEndPointFigure extends EsbGraphicalShapeWithLabel {
+
+		private WrappingLabel endpointDescriptionLabel;
 
 		/**
 		 * @generated
@@ -314,11 +326,20 @@ public class RecipientListEndPointEditPart extends ComplexFiguredAbstractEndpoin
 		public RecipientListEndPointFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
+			endpointDescriptionLabel = getPropertyNameLabel();
+		}
+
+		public WrappingLabel getEndpointDescriptionLabel() {
+			return endpointDescriptionLabel;
 		}
 
 		@Override
 		public String getIconPath() {
 			return "icons/ico20/recipientlist-endpoint.gif";
+		}
+
+		public String getNodeName() {
+			return "Recipient List";
 		}
 
 	}

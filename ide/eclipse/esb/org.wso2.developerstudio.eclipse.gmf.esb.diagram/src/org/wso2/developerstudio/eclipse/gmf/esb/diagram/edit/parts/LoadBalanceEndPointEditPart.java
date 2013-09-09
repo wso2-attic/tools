@@ -184,6 +184,11 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
+		if (childEditPart instanceof LoadBalanceEndPointDescriptionEditPart) {
+			((LoadBalanceEndPointDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEndpointDescriptionLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -202,6 +207,9 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 		if (childEditPart instanceof LoadBalanceEndPointOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((LoadBalanceEndPointOutputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof LoadBalanceEndPointDescriptionEditPart) {
 			return true;
 		}
 		return false;
@@ -340,6 +348,7 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 		 * @generated
 		 */
 		private WrappingLabel fFigureLoadBalanceEndPointNamePropertyLabel;
+		private WrappingLabel endpointDescriptionLabel;
 
 		/**
 		 * @generated
@@ -355,6 +364,7 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 		 */
 		private void createContents() {
 			fFigureLoadBalanceEndPointNamePropertyLabel = getPropertyNameLabel();
+			endpointDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -362,6 +372,10 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 		 */
 		public WrappingLabel getFigureLoadBalanceEndPointNamePropertyLabel() {
 			return fFigureLoadBalanceEndPointNamePropertyLabel;
+		}
+
+		public WrappingLabel getEndpointDescriptionLabel() {
+			return endpointDescriptionLabel;
 		}
 
 		public String getIconPath() {

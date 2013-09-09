@@ -331,6 +331,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="DefaultEndPointGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="248"
@@ -340,9 +342,15 @@
             xsi:type="gmfgraph:Label"
             name="DefaultEndPointNamePropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DefaultEndPointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.16/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.16/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="AddressEndPointFigure">
@@ -350,6 +358,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="DefaultEndPointGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="248"
@@ -359,9 +369,21 @@
             xsi:type="gmfgraph:Label"
             name="AddressEndPointNamePropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AddressEndPointDescriptionFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AddressEndPointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.17/@actualFigure/@children.1"/>
+      <accessors
+          figure="//@figures.0/@descriptors.17/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="SwitchMediatorFigure">
@@ -728,6 +750,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="FailoverEndPointGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -737,10 +761,16 @@
             xsi:type="gmfgraph:Label"
             name="FailoverEndPointNamePropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="FailoverEndPointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureFailoverEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.32/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.32/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="FailoverEndPointOutputConnectorFigure">
@@ -754,6 +784,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="WSDLEndPointGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -763,10 +795,16 @@
             xsi:type="gmfgraph:Label"
             name="WSDLEndPointNamePropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="WSDLEndPointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureWSDLEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.34/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.34/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="LoadBalanceEndPointFigure">
@@ -774,6 +812,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="LoadBalanceEndPointGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -783,10 +823,16 @@
             xsi:type="gmfgraph:Label"
             name="LoadBalanceEndPointNamePropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="LoadBalanceEndPointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureLoadBalanceEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.35/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.35/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="HeaderMediatorFigure">
@@ -1874,6 +1920,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="AddressingEndPointGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -1883,10 +1931,16 @@
             xsi:type="gmfgraph:Label"
             name="AddressingEndPointNamePropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AddressingEndpointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureAddressingEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.93/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.93/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="RecipientListEndPointFigure">
@@ -1894,12 +1948,20 @@
           xsi:type="gmfgraph:CustomFigure"
           name="RecipientListEndPointFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
             green="151"
             blue="248"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RecipientListEndPointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.94/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="MessageStoreFigure">
@@ -1933,6 +1995,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="HTTPEndPointGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -1942,10 +2006,16 @@
             xsi:type="gmfgraph:Label"
             name="HTTPEndPointNamePropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="HTTPEndpointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureHTTPEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.97/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.97/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="TemplateEndpointFigure">
@@ -1953,6 +2023,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="TemplateEndPointGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="40"
@@ -1962,10 +2034,16 @@
             xsi:type="gmfgraph:Label"
             name="TemplateEndPointNamePropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TemplateEndpointDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureTemplateEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.98/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.98/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CloudConnectorFigure">
@@ -3290,4 +3368,49 @@
       figure="CloudConnectorOperationFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.100/@accessors.0"/>
+  <labels
+      name="AddressEndPointDescription"
+      figure="AddressEndPointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.17/@accessors.1"/>
+  <labels
+      name="AddressingEndpointDescription"
+      figure="AddressingEndpointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.93/@accessors.1"/>
+  <labels
+      name="DefaultEndPointDescription"
+      figure="DefaultEndPointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.16/@accessors.1"/>
+  <labels
+      name="TemplateEndpointDescription"
+      figure="TemplateEndpointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.98/@accessors.1"/>
+  <labels
+      name="HTTPEndpointDescription"
+      figure="HTTPEndpointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.97/@accessors.1"/>
+  <labels
+      name="FailoverEndPointDescription"
+      figure="FailoverEndPointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.32/@accessors.1"/>
+  <labels
+      name="WSDLEndPointDescription"
+      figure="WSDLEndPointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.34/@accessors.1"/>
+  <labels
+      name="LoadBalanceEndPointDescription"
+      figure="LoadBalanceEndPointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.35/@accessors.1"/>
+  <labels
+      name="RecipientListEndPointDescription"
+      figure="RecipientListEndPointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.94/@accessors.0"/>
 </gmfgraph:Canvas>

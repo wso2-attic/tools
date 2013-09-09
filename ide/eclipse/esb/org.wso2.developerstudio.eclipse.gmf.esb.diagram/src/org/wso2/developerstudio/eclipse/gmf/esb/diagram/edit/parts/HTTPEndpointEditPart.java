@@ -39,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
@@ -178,6 +179,11 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
+		if (childEditPart instanceof HTTPEndpointDescriptionEditPart) {
+			((HTTPEndpointDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEndpointDescriptionLabel());
+			return true;
+		}
 		return false;
 	}
 
@@ -190,6 +196,9 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 		if (childEditPart instanceof HTTPEndPointOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((HTTPEndPointOutputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof HTTPEndpointDescriptionEditPart) {
 			return true;
 		}
 		return false;
@@ -336,12 +345,13 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	public class HTTPEndpointFigure extends EsbGraphicalShape {
+	public class HTTPEndpointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureHTTPEndPointNamePropertyLabel;
+		private WrappingLabel endpointDescriptionLabel;
 
 		/**
 		 * @generated
@@ -357,6 +367,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureHTTPEndPointNamePropertyLabel = new WrappingLabel();
+			endpointDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -366,12 +377,16 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 			return fFigureHTTPEndPointNamePropertyLabel;
 		}
 
+		public WrappingLabel getEndpointDescriptionLabel() {
+			return endpointDescriptionLabel;
+		}
+
 		public String getIconPath() {
 			return "icons/ico20/address-endpoint.gif";
 		}
 
 		public String getNodeName() {
-			return "Add-EP";
+			return "Http-EP";
 		}
 
 		public Color getBackgroundColor() {
