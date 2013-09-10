@@ -16,6 +16,10 @@
 
 package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
@@ -34,11 +38,6 @@ import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
-import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class EndpointRenameRefactorParticipant extends RenameParticipant {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
@@ -47,8 +46,12 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 	private String changedFileName;
 	private IProject esbProject;
 	private static List<String> skipList;
-	
-	static{
+	private static final String SEQUENCE_RESOURCE_DIR =
+	                                                    "/src/main/graphical-synapse-config/sequences";
+	protected final static String EDITOR_ID =
+	                                          "org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor";
+
+	static {
 		skipList = new ArrayList<String>();
 		skipList.add("target");
 		skipList.add("bin");
@@ -60,14 +63,16 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		if (originalFile != null) {
 			List<String> matchinFilesList = new ArrayList<String>();
 
-			FileUtils.getAllExactMatchingFiles(esbProject.getLocation().toOSString(),
-			                                   changedFileName.substring(0,
-			                                                             changedFileName.lastIndexOf(".")),
-			                                   changedFileName.substring(changedFileName.lastIndexOf(".") + 1),
-			                                   matchinFilesList, skipList);
+			org.wso2.developerstudio.eclipse.utils.file.FileUtils.getAllExactMatchingFiles(esbProject.getLocation()
+			                                                                                         .toOSString(),
+			                                                                               changedFileName.substring(0,
+			                                                                                                         changedFileName.lastIndexOf(".")),
+			                                                                               changedFileName.substring(changedFileName.lastIndexOf(".") + 1),
+			                                                                               matchinFilesList,
+			                                                                               skipList);
 
 			if (!matchinFilesList.isEmpty()) {
-				return RefactoringStatus.createFatalErrorStatus("An ESB Artifact already exist with the same name " +
+				return RefactoringStatus.createFatalErrorStatus("An ESB Artifact already exists with the same name " +
 				                                                changedFileName +
 				                                                " in the project " +
 				                                                esbProject.getName());
@@ -76,15 +81,21 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 				return RefactoringStatus.createFatalErrorStatus("You are trying to rename your ESB Artifact to have the project name.");
 			}
 
-			return RefactoringStatus.createInfoStatus("You are about the rename your ESB Artifact " +
-			                                          originalFile.getName() +
-			                                          " to " +
+			return RefactoringStatus.createInfoStatus("You are about to rename your ESB Artifact " +
+			                                          originalFile.getName() + " to " +
 			                                          changedFileName);
 		}
 
 		return RefactoringStatus.createFatalErrorStatus("You are trying to rename a different resource than a file");
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.eclipse.ltk.core.refactoring.participants.RefactoringParticipant#
+	 * createPreChange(org.eclipse.core.runtime.IProgressMonitor)
+	 */
 	public Change createPreChange(IProgressMonitor arg0) throws CoreException,
 	                                                    OperationCanceledException {
 		CompositeChange endpointChange = new CompositeChange("Endpoint Artifact Rename");
@@ -98,18 +109,62 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		EndpointArtifactFileChange endpointArtifactFileChange =
 		                                                        new EndpointArtifactFileChange(
 		                                                                                       "Renaming ESB Artifact " +
-		                                                                                           originalFile.getName()
-		                                                                                                       .substring(0,
-		                                                                                                                  originalFile.getName()
-		                                                                                                                              .length() -
-		                                                                                                                      originalFile.getFileExtension()
-		                                                                                                                                  .length()),
+		                                                                                               originalFile.getName()
+		                                                                                                           .substring(0,
+		                                                                                                                      originalFile.getName()
+		                                                                                                                                  .length() -
+		                                                                                                                              originalFile.getFileExtension()
+		                                                                                                                                          .length()),
 		                                                                                       originalFile,
 		                                                                                       originalNameWithoutExtension,
 		                                                                                       changedNameWithoutExtention);
 		endpointChange.add(endpointArtifactFileChange);
 
+		/*
+		 * Rename sequence_<name>.esb and sequence_<name>.esb_diagram
+		 */
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+
+		String originalEsbFileName = "sequence_" + originalNameWithoutExtension + ".esb";
+		String originalEsbDiagramFileName =
+		                                    "sequence_" + originalNameWithoutExtension +
+		                                            ".esb_diagram";
+		String changedEsbFileName = "sequence_" + changedNameWithoutExtention + ".esb";
+		String changedEsbDiagramFileName =
+		                                   "sequence_" + changedNameWithoutExtention +
+		                                           ".esb_diagram";
+
+		IFile esbIFile = esbProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + originalEsbFileName);
+		EndpointEsbFileChange esbFileChange =
+		                                      new EndpointEsbFileChange(
+		                                                                "Changing ESB file content",
+		                                                                esbIFile,
+		                                                                "sequence_" +
+		                                                                        originalNameWithoutExtension,
+		                                                                "sequence_" +
+		                                                                        changedNameWithoutExtention);
+		endpointChange.add(esbFileChange);
+		EndpointEsbFileRename esbFileRename =
+		                                      new EndpointEsbFileRename(esbIFile,
+		                                                                changedEsbFileName);
+		endpointChange.add(esbFileRename);
+
+		IFile esbDiagramIFile =
+		                        esbProject.getFile(SEQUENCE_RESOURCE_DIR + "/" +
+		                                           originalEsbDiagramFileName);
+		EndpointEsbFileChange esbDiagramFileChange =
+		                                             new EndpointEsbFileChange(
+		                                                                       "Changing ESB diagram file content",
+		                                                                       esbDiagramIFile,
+		                                                                       "sequence_" +
+		                                                                               originalNameWithoutExtension,
+		                                                                       "sequence_" +
+		                                                                               changedNameWithoutExtention);
+		endpointChange.add(esbDiagramFileChange);
+		EndpointEsbFileRename esbDiagramFileRename =
+		                                             new EndpointEsbFileRename(esbDiagramIFile,
+		                                                                       changedEsbDiagramFileName);
+		endpointChange.add(esbDiagramFileRename);
 
 		for (int i = 0; i < projects.length; i++) {
 			if (projects[i].isOpen() &&
@@ -132,7 +187,7 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 						}
 					}
 				} catch (Exception e) {
-					log.error("Error occured wile trying to generate the Refactoring.", e);
+					log.error("Error occured while trying to generate the Refactoring.", e);
 				}
 			}
 		}

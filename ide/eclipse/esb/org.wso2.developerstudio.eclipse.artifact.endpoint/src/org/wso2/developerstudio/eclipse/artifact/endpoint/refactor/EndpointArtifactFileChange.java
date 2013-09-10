@@ -59,10 +59,8 @@ public class EndpointArtifactFileChange extends TextFileChange {
 
 	private void identifyReplaces() throws IOException {
 		int fullIndex = 0;
-		FileReader fileReader = new FileReader(endpointFile.getLocation()
-		                                              .toFile());
-		BufferedReader reader =
-		                        new BufferedReader(fileReader);
+		FileReader fileReader = new FileReader(endpointFile.getLocation().toFile());
+		BufferedReader reader = new BufferedReader(fileReader);
 		String case1String = "\"" + originalName + "\"";
 		String nameElement = "name=";
 		String line = reader.readLine();
@@ -86,12 +84,11 @@ public class EndpointArtifactFileChange extends TextFileChange {
 					String keyElement = "key=";
 					int localEntryArrayIndex = getArrayIndexWithString(keyElement, stringArray);
 					if (localEntryArrayIndex != -1) {
-						if (stringArray[localEntryArrayIndex].startsWith(keyElement +
-						                                                       case1String) ||
-						    stringArray[localEntryArrayIndex].startsWith(keyElement +
-						                                                       case1String + ">") ||
-						    stringArray[localEntryArrayIndex].startsWith(keyElement +
-						                                                       case1String + "/>")) {
+						if (stringArray[localEntryArrayIndex].startsWith(keyElement + case1String) ||
+						    stringArray[localEntryArrayIndex].startsWith(keyElement + case1String +
+						                                                 ">") ||
+						    stringArray[localEntryArrayIndex].startsWith(keyElement + case1String +
+						                                                 "/>")) {
 							int case1LineIndex = line.indexOf(case1String) + 1;
 							addEdit(new ReplaceEdit(fullIndex + case1LineIndex,
 							                        originalName.length(), newName));
@@ -108,7 +105,7 @@ public class EndpointArtifactFileChange extends TextFileChange {
 
 	private int charsOnTheLine(String line) {
 		// Here we need to add one to represent the newline character
-		return line.length()+1;
+		return line.length() + 1;
 	}
 
 	private int getArrayIndexWithString(String stringToSearch, String[] array) {

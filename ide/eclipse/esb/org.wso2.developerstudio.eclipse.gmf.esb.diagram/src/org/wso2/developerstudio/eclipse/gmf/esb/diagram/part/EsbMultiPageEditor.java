@@ -11,6 +11,8 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
 
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.SEQUENCE_RESOURCE_DIR;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -49,7 +51,6 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocumentListener;
 import org.eclipse.swt.SWT;
@@ -62,6 +63,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IPropertyListener;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -81,18 +83,15 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ExceptionMessageMapper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ExceptionMessageMapper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.ElementDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-
-import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
 /**
  * The main editor class which contains design view and source view
@@ -141,7 +140,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	
 	/*source editor dirty state*/
 	private boolean sourceDirty;
-
+	
     /**
      * Creates a multi-page editor
      */
@@ -227,6 +226,20 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
         esbPaletteFactory.updateToolPaletteItems(graphicalEditor);
         
         EditorUtils.setLockmode(graphicalEditor, false);
+
+		// change editor title when a file rename occurs
+		getEditor(0).addPropertyListener(new IPropertyListener() {
+
+			@Override
+			public void propertyChanged(Object source, int propId) {
+				setInput(getEditor(0).getEditorInput());
+				IFileEditorInput editorInp = (IFileEditorInput) getEditor(0).getEditorInput();
+				String fileName = editorInp.getFile().getName();
+				setTitle(fileName.substring(fileName.indexOf('_') + 1, fileName.length() -
+				                                                       "esb_diagram".length()) +
+				         "xml");
+			}
+		});
     }
 
     /**
@@ -246,7 +259,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			sourceEditor.getDocument().addDocumentListener(new IDocumentListener() {  
 			    
 	            public void documentAboutToBeChanged(final DocumentEvent event) {  
-	                // nothing to do  
+	                // nothing to do
 	            }  
 	   
 	            public void documentChanged(final DocumentEvent event) {  
@@ -492,7 +505,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	private void updateAssociatedXMLFile(IProgressMonitor monitor) {
 		EsbDiagram diagram = (EsbDiagram) graphicalEditor.getDiagram().getElement();
 		EsbServer server = diagram.getServer();
-		IEditorInput editorInput = getEditorInput();
+		IEditorInput editorInput = getEditor(0).getEditorInput();
 		
 		if (editorInput instanceof IFileEditorInput) {
 			IFile diagramFile = ((FileEditorInput) editorInput).getFile();
