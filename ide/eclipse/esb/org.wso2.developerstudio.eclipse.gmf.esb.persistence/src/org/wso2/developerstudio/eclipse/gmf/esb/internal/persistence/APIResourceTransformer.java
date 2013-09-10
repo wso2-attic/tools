@@ -145,6 +145,12 @@ public class APIResourceTransformer extends AbstractEsbNodeTransformer {
 
 			// Transform output data flow.
 			doTransform(information, visualResource.getOutputConnector());
+			
+			// Transform outSequence
+			
+			information.setParentSequence(information.getOriginOutSequence());
+			information.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
+			doTransform(information, visualResource.getOutSequenceOutputConnector());
 
 			// Set Fault Sequence
 			SequenceMediator faultSequence = new SequenceMediator();
