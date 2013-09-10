@@ -290,6 +290,17 @@ public class EditorUtils {
 		}
 	}
 	
+	public static AbstractBaseFigureEditPart getAbstractBaseFigureEditPart(EditPart child){
+		while ((child.getParent()!=null)&&!(child.getParent() instanceof AbstractBaseFigureEditPart)){
+			child=child.getParent();
+		}		
+		if(child.getParent()!=null){
+			return (AbstractBaseFigureEditPart) child.getParent();
+		}else{
+			return null;
+		}
+	}
+	
 	public static IGraphicalEditPart getRootContainer(EditPart child) {
 		while ((child.getParent() != null)
 				&& !(child.getParent() instanceof AbstractBaseFigureEditPart)) {

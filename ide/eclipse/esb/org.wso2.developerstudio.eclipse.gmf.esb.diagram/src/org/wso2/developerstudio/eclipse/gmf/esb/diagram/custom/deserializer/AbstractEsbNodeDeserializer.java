@@ -255,7 +255,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			if (outSeq == null || outSeq.size()==0) {
 				continue;
 			}
-		AbstractConnectorEditPart sourceConnector = EditorUtils.getProxyOutSequenceOutputConnector((ShapeNodeEditPart) EditorUtils.getProxy((EditPart) getEditpart(outSeq.getLast())));
+		AbstractConnectorEditPart sourceConnector = EditorUtils.getProxyOutSequenceOutputConnector((ShapeNodeEditPart) EditorUtils.getAbstractBaseFigureEditPart((EditPart) getEditpart(outSeq.getLast())));
 		AbstractConnectorEditPart targetConnector = null;
 		if(outSeq.size() > 0 && outSeq.getLast() != null){
 			targetConnector = EditorUtils
