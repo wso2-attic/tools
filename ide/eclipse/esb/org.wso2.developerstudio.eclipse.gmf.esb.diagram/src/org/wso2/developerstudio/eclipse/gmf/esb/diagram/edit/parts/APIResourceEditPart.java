@@ -69,7 +69,7 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 	public APIResourceEditPart(View view) {
 		super(view);
 	}	
-
+	
 	/**
 	 * @generated NOT
 	 */
@@ -146,6 +146,9 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 					x=this.getBounds().getLocation().x;
 					y=this.getBounds().getLocation().y;
 				}
+				if(rect.width != 0 && rect.height != 0) {
+					arrangeAPIResources(rect);
+				}
 			};
 		};
 	}
@@ -158,6 +161,29 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 	private void alignLeft(int y, int width, int height) {
 		Rectangle constraints = new Rectangle(0, y, width, height);
 		((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
+	}
+	
+	/**
+	 * Arrange API Resources 
+	 * @param rectangle
+	 */
+	private void arrangeAPIResources(Rectangle rectangle) {
+		int noOfResources = getParent().getChildren().size();
+		if (noOfResources > 1) {
+			for (int i = 0; i < (noOfResources - 1); i++) {
+				IFigure currentFigure = ((GraphicalEditPart) getParent().getChildren().get(i)).getFigure();
+				Rectangle currentFigureBounds = currentFigure.getBounds();
+				IFigure nextFigure = ((GraphicalEditPart) getParent().getChildren().get(i + 1)).getFigure();
+				Rectangle nextFigureBounds = nextFigure.getBounds();
+				int currentResourceBottomMargin = currentFigureBounds.y + currentFigureBounds.height;
+				
+				APIResourceEditPart editPart = (APIResourceEditPart) getParent().getChildren().get(i + 1);
+				Rectangle constraints = new Rectangle(0, (currentResourceBottomMargin + 20), nextFigureBounds.width, nextFigureBounds.height);
+				((GraphicalEditPart) getParent()).setLayoutConstraint(editPart, nextFigure, constraints);
+				nextFigure.setBounds(constraints);
+			}
+			
+		}
 	}
 
 	/**
