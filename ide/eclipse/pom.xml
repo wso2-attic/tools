@@ -37,7 +37,8 @@
 		<module>distribution</module>
 		<module>library</module>
 		<module>features</module>     
-		<module>docs</module>   
+		<module>docs</module> 
+  		<module>jaggery</module>
             </modules>
         </profile>
         <profile>
@@ -64,6 +65,7 @@
 		<module>distribution</module>
 		<module>library</module>
 		<module>features</module> 
+		<module>jaggery</module>
             </modules>
         </profile>
 </profiles>
@@ -284,6 +286,7 @@
 	<esb.graphical.editor.feature.version>1.3.0-SNAPSHOT</esb.graphical.editor.feature.version>
 	<ds.content.assist.feature.version>1.3.0-SNAPSHOT</ds.content.assist.feature.version>
 	<cep.feature.version>1.3.0-SNAPSHOT</cep.feature.version>
+	<jaggery.feature.version>1.0.0</jaggery.feature.version>
 	<brs.feature.version>1.3.0-SNAPSHOT</brs.feature.version>
 	<soapui.feature.version>4.0.1</soapui.feature.version>
 	<tcpmon.feature.version>1.0.0</tcpmon.feature.version>

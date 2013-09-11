@@ -1452,58 +1452,6 @@ class_variable_declaration:list T_COMMA T_VARIABLE:var
 :}
 ;
 
-chaining_method_or_property ::=
-chaining_method_or_property:chaining_method_or_property variable_property:vp
-{:
-	chaining_method_or_property.addNode(vp);
-	RESULT = chaining_method_or_property;
-:}
-
-|variable_property:vp
-{:
-	ChainingMethodPropertyList chaining_method_or_property = new ChainingMethodPropertyList();
-	chaining_method_or_property.addNode(vp);
-	RESULT = chaining_method_or_property;
-:}
-;
-
-chaining_dereference ::=
-chaining_dereference:arrayDereferenceList T_OPEN_RECT:start dim_offset:index T_CLOSE_RECT:end	
-{:
-	DereferenceNode var = new DereferenceNode(index,startleft, endright);
-	arrayDereferenceList.addNode(var);
-	RESULT = arrayDereferenceList;
-:}
-
-|T_OPEN_RECT:start dim_offset:index T_CLOSE_RECT:end		
-{:
-	PHPArrayDereferenceList arrayDereferenceList = new PHPArrayDereferenceList();
-	DereferenceNode var = new DereferenceNode(index,startleft, endright);
-	arrayDereferenceList.addNode(var);
-	RESULT = arrayDereferenceList;
-:}
-;
-
-chaining_instance_call ::=
-chaining_dereference:arrayDereferenceList chaining_method_or_property:chaining_method_or_property
-{:
-	ChainingInstanceCall call = new ChainingInstanceCall(arrayDereferenceList,chaining_method_or_property); 
-	RESULT = call;
-:}
-
-|	chaining_dereference:arrayDereferenceList
-{:
-	ChainingInstanceCall call = new ChainingInstanceCall(arrayDereferenceList,null); 
-	RESULT = call;
-:}
-
-|	chaining_method_or_property:chaining_method_or_property
-{:
-	ChainingInstanceCall call = new ChainingInstanceCall(null,chaining_method_or_property); 
-	RESULT = call;
-:}
-;
-
 instance_call ::=
 /* empty */
 {:
@@ -2413,36 +2361,6 @@ base_variable_with_function_calls:var
 :}
 ;
 
-variable_properties ::=
-variable_properties:variables variable_property:variableProperty
-{:
-	variables.add(variableProperty);
-	RESULT = variables;	
-:}
-
-| /* empty */
-{:
-	RESULT = new LinkedList();
-:}
-;
-
-variable_property ::=
-T_OBJECT_OPERATOR object_property:memberProperty method_or_not:paramsList
-{:
-	Expression result = null;
-	if (paramsList == null) {
-		result = memberProperty;
-	} else {
-		if (memberProperty.getClass().equals(SimpleReference.class)) {
-			result = new PHPCallExpression(memberPropertyleft, paramsListright, null, (SimpleReference)memberProperty, paramsList);
-		} else {
-			result = new ReflectionCallExpression(memberPropertyleft, paramsListright, null, memberProperty, paramsList);
-		}
-	}
-	RESULT = result;
-:}
-;
-
 method ::=
 T_OPEN_PARENTHESE:start function_call_parameter_list:paramsList T_CLOSE_PARENTHESE:end
 {:
@@ -2528,42 +2446,11 @@ reference_variable:var
 :}
 ;
 
-array_function_dereference ::=
-array_function_dereference:method T_OPEN_RECT:start dim_offset:index T_CLOSE_RECT:end
-{:
-	if(method instanceof Dereferencable){
-		Dereferencable dereferencable=(Dereferencable)method;
-		DereferenceNode var = new DereferenceNode( index,startleft, endright);
-		dereferencable.getArrayDereferenceList().addNode(var);
-		RESULT = method;
-	}else{
-		RESULT = null;
-	}
-:}
-
-|function_call:method T_OPEN_RECT:start dim_offset:index T_CLOSE_RECT:end
-{:
-	if(method instanceof Dereferencable){
-		Dereferencable dereferencable=(Dereferencable)method;
-		PHPArrayDereferenceList arrayDereferenceList = new PHPArrayDereferenceList(method);
-		DereferenceNode var = new DereferenceNode( index,startleft, endright);
-		arrayDereferenceList.addNode(var);
-		dereferencable.setArrayDereferenceList(arrayDereferenceList);
-		RESULT = method;
-	}else{
-		RESULT = null;
-	}
-:}
-;
-
 base_variable_with_function_calls ::=
 base_variable:var
 {: RESULT = var; :}
 
 | function_call:var
-{: RESULT = var; :}
-
-| array_function_dereference:var
 {: RESULT = var; :}
 ;
 
@@ -2629,55 +2516,12 @@ tracked_variable:var
 ;
 
 dim_offset ::=
-/* empty */
-{: 
-	RESULT = null;
-:}
-
-| expr:expr 
+expr:expr 
 {: 
 	RESULT = expr; 
 :}
 ;
 
-object_property ::=
-object_dim_list:var
-{: 
-	RESULT = var; 
-:}
-
-| variable_without_objects:var
-{:
-	RESULT = var;
-:}
-;
-
-object_dim_list ::=
-object_dim_list:var T_OPEN_RECT dim_offset:index T_CLOSE_RECT:end
-{:
-	Expression varArray;
-	if(var.getKind() == ExpressionConstants.E_IDENTIFIER) { // VariableReference - $a
-		varArray = new ArrayVariableReference(varleft, endright, ((SimpleReference)var).getName(), index, ArrayVariableReference.VARIABLE_ARRAY);
-	} else {
-		varArray = new ReflectionArrayVariableReference(varleft, endright, var, index, ReflectionArrayVariableReference.VARIABLE_ARRAY);
-	}
-	RESULT = varArray;	
-:}
-
-| object_dim_list:var T_CURLY_OPEN expr:index T_CURLY_CLOSE:end
-{:
-	Expression varArray;
-	if(var.getKind() == ExpressionConstants.E_IDENTIFIER) { // VariableReference - $a
-		varArray = new ArrayVariableReference(varleft, endright, ((SimpleReference)var).getName(), index, ArrayVariableReference.VARIABLE_HASHTABLE);
-	} else {
-		varArray = new ReflectionArrayVariableReference(varleft, endright, var, index, ReflectionArrayVariableReference.VARIABLE_HASHTABLE);
-	}
-	RESULT = varArray;	
-:}
-
-| tracked_variable:var
-{: RESULT = var; :}
-;
 
 variable_name ::=
 T_STRING:varName
