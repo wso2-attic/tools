@@ -82,6 +82,8 @@ public class HeaderMediatorItemProvider
 				}else {
 					addValueInlinePropertyDescriptor(object);
 				}			
+			}else if(headerMediator.getHeaderAction().equals(HeaderAction.REMOVE)){
+				addHeaderNamePropertyDescriptor(object);
 			}
 		
 		return itemPropertyDescriptors;

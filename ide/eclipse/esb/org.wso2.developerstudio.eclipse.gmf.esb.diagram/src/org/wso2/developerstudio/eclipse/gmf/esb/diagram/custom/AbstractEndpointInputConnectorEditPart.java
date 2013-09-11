@@ -127,6 +127,10 @@ public abstract class AbstractEndpointInputConnectorEditPart extends AbstractInp
 			}
 	}
 	
+	public boolean isSelectable() {
+		return false;
+	}
+	
 	public class EastPointerFigure extends Figure {
 		
 	}

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.Map.Entry;
 
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.Value;
@@ -13,6 +14,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
@@ -67,7 +69,12 @@ public class ScriptMediatorTransformer extends AbstractEsbNodeTransformer {
 		    	value = new Value(visualScript.getScriptStaticKey().getKeyValue());
 		    	 
 		    }else{
-		    	SynapseXPath synapseXPath = new SynapseXPath(visualScript.getScriptDynamicKey().getPropertyValue());
+		    	NamespacedProperty scriptDynamicKey = visualScript.getScriptDynamicKey();
+				SynapseXPath synapseXPath = new SynapseXPath(scriptDynamicKey.getPropertyValue());
+				for (Entry<String, String> entry : scriptDynamicKey
+						.getNamespaces().entrySet()) {
+					synapseXPath.addNamespace(entry.getKey(), entry.getValue());
+				}
 		        value = new Value(synapseXPath);
 		    }
 			scriptMediator = new org.apache.synapse.mediators.bsf.ScriptMediator(language,includeMap,value,visualScript.getMediateFunction());

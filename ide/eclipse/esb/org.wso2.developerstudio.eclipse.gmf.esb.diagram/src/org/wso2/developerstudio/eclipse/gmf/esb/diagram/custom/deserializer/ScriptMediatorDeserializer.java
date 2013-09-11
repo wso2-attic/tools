@@ -66,7 +66,7 @@ public class ScriptMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 			  RegistryKeyProperty registryKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 			  registryKeyProperty.setKeyValue(keyValue);
 			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__KEY_TYPE, scriptKeyTypeEnum.STATIC_KEY);
-			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, registryKeyProperty);
+			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY, registryKeyProperty);
 		  }
 		  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__MEDIATE_FUNCTION, scriptMediator.getFunction());
 		}
