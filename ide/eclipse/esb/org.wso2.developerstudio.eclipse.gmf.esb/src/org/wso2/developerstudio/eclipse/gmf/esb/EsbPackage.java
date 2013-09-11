@@ -13780,13 +13780,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SEND_MEDIATOR__SKIP_SERIALIZATION = MEDIATOR_FEATURE_COUNT + 8;
 
 				/**
+	 * The feature id for the '<em><b>Build Message Before Sending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING = MEDIATOR_FEATURE_COUNT + 9;
+
+				/**
 	 * The number of structural features of the '<em>Send Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEND_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
+	int SEND_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendContainerImpl <em>Send Container</em>}' class.
@@ -30451,6 +30460,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getSendMediator_SkipSerialization();
 
 				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isBuildMessageBeforeSending <em>Build Message Before Sending</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Build Message Before Sending</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isBuildMessageBeforeSending()
+	 * @see #getSendMediator()
+	 * @generated
+	 */
+	EAttribute getSendMediator_BuildMessageBeforeSending();
+
+				/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendContainer <em>Send Container</em>}'.
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -41061,6 +41081,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute SEND_MEDIATOR__SKIP_SERIALIZATION = eINSTANCE.getSendMediator_SkipSerialization();
+
+								/**
+		 * The meta object literal for the '<em><b>Build Message Before Sending</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING = eINSTANCE.getSendMediator_BuildMessageBeforeSending();
 
 								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendContainerImpl <em>Send Container</em>}' class.

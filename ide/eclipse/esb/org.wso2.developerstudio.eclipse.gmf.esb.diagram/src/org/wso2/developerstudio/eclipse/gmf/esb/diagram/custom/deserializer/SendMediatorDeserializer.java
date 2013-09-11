@@ -100,6 +100,8 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			refreshEditPartMap();
 		}*/
 			
+		executeSetValueCommand(SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING, sendMediator.isBuildMessage());
+		
 		return visualSendMediator;
 	}
 	

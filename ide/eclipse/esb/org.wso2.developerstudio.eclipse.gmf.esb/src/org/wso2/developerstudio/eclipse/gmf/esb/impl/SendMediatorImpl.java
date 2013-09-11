@@ -57,6 +57,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getEndpointOutputConnector <em>Endpoint Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#isSkipSerialization <em>Skip Serialization</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SendMediatorImpl#isBuildMessageBeforeSending <em>Build Message Before Sending</em>}</li>
  * </ul>
  * </p>
  *
@@ -172,6 +173,26 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 	 * @ordered
 	 */
 	protected boolean skipSerialization = SKIP_SERIALIZATION_EDEFAULT;
+
+				/**
+	 * The default value of the '{@link #isBuildMessageBeforeSending() <em>Build Message Before Sending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBuildMessageBeforeSending()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BUILD_MESSAGE_BEFORE_SENDING_EDEFAULT = false;
+
+				/**
+	 * The cached value of the '{@link #isBuildMessageBeforeSending() <em>Build Message Before Sending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBuildMessageBeforeSending()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean buildMessageBeforeSending = BUILD_MESSAGE_BEFORE_SENDING_EDEFAULT;
 
 				/**
      * value of the next node (non-EMF)
@@ -533,6 +554,27 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isBuildMessageBeforeSending() {
+		return buildMessageBeforeSending;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setBuildMessageBeforeSending(boolean newBuildMessageBeforeSending) {
+		boolean oldBuildMessageBeforeSending = buildMessageBeforeSending;
+		buildMessageBeforeSending = newBuildMessageBeforeSending;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING, oldBuildMessageBeforeSending, buildMessageBeforeSending));
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -580,6 +622,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 				return getMediatorFlow();
 			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
 				return isSkipSerialization();
+			case EsbPackage.SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING:
+				return isBuildMessageBeforeSending();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -622,6 +666,9 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
 				setSkipSerialization((Boolean)newValue);
 				return;
+			case EsbPackage.SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING:
+				setBuildMessageBeforeSending((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -662,6 +709,9 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
 				setSkipSerialization(SKIP_SERIALIZATION_EDEFAULT);
 				return;
+			case EsbPackage.SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING:
+				setBuildMessageBeforeSending(BUILD_MESSAGE_BEFORE_SENDING_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -693,6 +743,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 				return mediatorFlow != null;
 			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
 				return skipSerialization != SKIP_SERIALIZATION_EDEFAULT;
+			case EsbPackage.SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING:
+				return buildMessageBeforeSending != BUILD_MESSAGE_BEFORE_SENDING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -711,6 +763,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 		result.append(receivingSequenceType);
 		result.append(", skipSerialization: ");
 		result.append(skipSerialization);
+		result.append(", buildMessageBeforeSending: ");
+		result.append(buildMessageBeforeSending);
 		result.append(')');
 		return result.toString();
 	}

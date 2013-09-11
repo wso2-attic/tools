@@ -1940,6 +1940,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="skipSerialization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildMessageBeforeSending"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SendContainer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpointFlow" eType="#//EndpointFlow"

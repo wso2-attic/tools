@@ -117,6 +117,11 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 				}
 
 			}
+			
+			if (visualSend.isBuildMessageBeforeSending()) {
+				sendMediator.setBuildMessage(visualSend.isBuildMessageBeforeSending());
+			}
+			
 			return sendMediator;
 		}
 	}

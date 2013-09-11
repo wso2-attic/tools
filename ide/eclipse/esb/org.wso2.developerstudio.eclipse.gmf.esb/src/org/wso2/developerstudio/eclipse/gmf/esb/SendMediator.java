@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getEndpointOutputConnector <em>Endpoint Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#getMediatorFlow <em>Mediator Flow</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isSkipSerialization <em>Skip Serialization</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isBuildMessageBeforeSending <em>Build Message Before Sending</em>}</li>
  * </ul>
  * </p>
  *
@@ -259,6 +260,32 @@ public interface SendMediator extends Mediator {
 	 * @generated
 	 */
 	void setSkipSerialization(boolean value);
+
+				/**
+	 * Returns the value of the '<em><b>Build Message Before Sending</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Build Message Before Sending</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Build Message Before Sending</em>' attribute.
+	 * @see #setBuildMessageBeforeSending(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSendMediator_BuildMessageBeforeSending()
+	 * @model
+	 * @generated
+	 */
+	boolean isBuildMessageBeforeSending();
+
+				/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator#isBuildMessageBeforeSending <em>Build Message Before Sending</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Build Message Before Sending</em>' attribute.
+	 * @see #isBuildMessageBeforeSending()
+	 * @generated
+	 */
+	void setBuildMessageBeforeSending(boolean value);
 
 				/**
      * Sets the value of the next node

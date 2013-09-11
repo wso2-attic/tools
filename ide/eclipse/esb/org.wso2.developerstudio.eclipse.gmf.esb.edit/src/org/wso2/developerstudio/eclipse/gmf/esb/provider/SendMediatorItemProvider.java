@@ -68,6 +68,7 @@ public class SendMediatorItemProvider
 		}	
 		super.getPropertyDescriptors(object);	
 		addSkipSerializationPropertyDescriptor(object);
+		addBuildMessageBeforeSendingPropertyDescriptor(object);
 		
 		if (!sendMediator.isSkipSerialization()) {
 			addReceivingSequenceTypePropertyDescriptor(object);
@@ -146,6 +147,28 @@ public class SendMediatorItemProvider
 				 getString("_UI_SendMediator_skipSerialization_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_skipSerialization_feature", "_UI_SendMediator_type"),
 				 EsbPackage.Literals.SEND_MEDIATOR__SKIP_SERIALIZATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Build Message Before Sending feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBuildMessageBeforeSendingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SendMediator_buildMessageBeforeSending_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SendMediator_buildMessageBeforeSending_feature", "_UI_SendMediator_type"),
+				 EsbPackage.Literals.SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING,
 				 true,
 				 false,
 				 false,
@@ -267,6 +290,7 @@ public class SendMediatorItemProvider
 		switch (notification.getFeatureID(SendMediator.class)) {
 			case EsbPackage.SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE:
 			case EsbPackage.SEND_MEDIATOR__SKIP_SERIALIZATION:
+			case EsbPackage.SEND_MEDIATOR__BUILD_MESSAGE_BEFORE_SENDING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.SEND_MEDIATOR__INPUT_CONNECTOR:
