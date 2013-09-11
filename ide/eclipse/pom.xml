@@ -38,7 +38,7 @@
 		<module>library</module>
 		<module>features</module>     
 		<module>docs</module> 
-  		<module>jaggery</module>
+  		<!--module>jaggery</module-->
             </modules>
         </profile>
         <profile>
@@ -65,7 +65,7 @@
 		<module>distribution</module>
 		<module>library</module>
 		<module>features</module> 
-		<module>jaggery</module>
+		<!--module>jaggery</module-->
             </modules>
         </profile>
 </profiles>

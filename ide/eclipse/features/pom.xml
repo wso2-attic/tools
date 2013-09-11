@@ -59,7 +59,7 @@
         <!--module>gadgets</module-->                        
         <module>carbon-studio</module>
         <module>repository</module>
-	<module>jaggery</module>
+	<!--module>jaggery</module-->
 	<!--module>installed-distributions</module-->
     </modules>        
 
