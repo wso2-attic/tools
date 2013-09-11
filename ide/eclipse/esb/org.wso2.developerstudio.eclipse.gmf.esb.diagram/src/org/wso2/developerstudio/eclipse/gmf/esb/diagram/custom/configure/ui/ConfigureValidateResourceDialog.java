@@ -1,3 +1,19 @@
+/*
+ * Copyright 2013 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -29,6 +45,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource;
@@ -47,7 +64,11 @@ public class ConfigureValidateResourceDialog extends Dialog {
 	
 	private CompoundCommand resultCommand;
 	
+	private TableEditor locationEditor;
+	
 	private TableEditor keyPropertyEditor;
+	
+	private Text txtLocation;
 	
 	private PropertyText keyPropertyText;
 	
@@ -76,10 +97,10 @@ public class ConfigureValidateResourceDialog extends Dialog {
 		TableColumn location = new TableColumn(resourcesTable, SWT.LEFT);
 		TableColumn staticKey = new TableColumn(resourcesTable, SWT.LEFT);
 		
-		location.setText("Key");
+		location.setText("Location");
 		location.setWidth(150);
 		
-		staticKey.setText("Location");
+		staticKey.setText("Key");
 		staticKey.setWidth(150);
 
 		resourcesTable.setHeaderVisible(true);
@@ -105,6 +126,9 @@ public class ConfigureValidateResourceDialog extends Dialog {
 				int selectedIndex = resourcesTable.getSelectionIndex();
 				if (-1 != selectedIndex) {
 
+					initTableEditor(locationEditor, resourcesTable);
+					initTableEditor(keyPropertyEditor, resourcesTable);
+					
 					unbindResource(selectedIndex);
 
 					// Select the next available candidate for deletion.
@@ -199,23 +223,46 @@ public class ConfigureValidateResourceDialog extends Dialog {
 	
 	private void editItem(final TableItem item) {
 		
+		locationEditor = initTableEditor(locationEditor, item.getParent());
+		txtLocation = new Text(item.getParent(), SWT.NONE);
+		txtLocation.setText(item.getText(0));
+		locationEditor.setEditor(txtLocation, item, 0);
+		item.getParent().redraw();
+		item.getParent().layout();
+		txtLocation.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+				item.setText(0,txtLocation.getText());
+			}
+		});
+		
 		RegistryKeyProperty staticKey = (RegistryKeyProperty)item.getData("staticKey"); 
 		keyPropertyEditor = initTableEditor(keyPropertyEditor, item.getParent());
 		
 		keyPropertyText = new PropertyText(item.getParent(), SWT.NONE);
 		
 		keyPropertyText.addProperties(staticKey);
+		keyPropertyEditor.setEditor(keyPropertyText, item, 1);
 		item.getParent().redraw();
 		item.getParent().layout();
 		
-		item.setText(1,keyPropertyText.getText());
+		keyPropertyText.addModifyListener(new ModifyListener() {		
+			public void modifyText(ModifyEvent e) {
+				item.setText(1, keyPropertyText.getText());
+				Object property = keyPropertyText.getProperty();
+				if(property instanceof RegistryKeyProperty){
+					item.setData("staticKey",(RegistryKeyProperty)property);
+				} 
+			}
+		});
+		
+		/*item.setText(1,keyPropertyText.getText());
 		Object property = keyPropertyText.getProperty();
 
 		if(property instanceof RegistryKeyProperty){
 			item.setData("staticKey",(RegistryKeyProperty)property);
 		}
 		
-		keyPropertyEditor.setEditor(keyPropertyText, item, 1);
+		keyPropertyEditor.setEditor(keyPropertyText, item, 1);*/
 	}
 	
 	private TableEditor initTableEditor(TableEditor editor, Table table) {
@@ -330,7 +377,7 @@ public class ConfigureValidateResourceDialog extends Dialog {
 							editingDomain,
 							resource,
 							EsbPackage.Literals.ABSTRACT_LOCATION_KEY_RESOURCE__KEY,
-							item.getText(1));
+							staticKey);
 					getResultCommand().append(setTypeCmd);
 				}
 			}
@@ -347,7 +394,7 @@ public class ConfigureValidateResourceDialog extends Dialog {
 	
 	protected void configureShell(Shell shell) {
 		super.configureShell(shell);
-		shell.setText("Configure Features.");
+		shell.setText("Configure Resources.");
 	}
 	
 }

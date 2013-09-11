@@ -197,6 +197,8 @@ public class EsbPropertySource extends PropertySource {
 			//Validate Mediator Features Custom property descriptors.
 		}else if(pkg.getValidateMediator_Features().equals(feature)){			
 			return new ValidateFeaturePropertyDescriptor(object, itemPropertyDescriptor);			
+		} else if (pkg.getValidateMediator_Resources().equals(feature)) {
+			return new ValidateResourcePropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getURLRewriteMediator_UrlRewriteRules().equals(feature)){			
 			return new URLRewiterConfigurationPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Builder Mediator message builder custom property descriptor.
