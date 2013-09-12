@@ -22,7 +22,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -33,6 +35,11 @@ import org.apache.avro.Schema;
 import org.apache.avro.Schema.Parser;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
+import org.apache.axiom.om.OMElement;
+import org.codehaus.jackson.JsonNode;
+import org.stringtemplate.v4.compiler.CodeGenerator.primary_return;
+import org.wso2.datamapper.model.ConfigDataModel;
+import org.wso2.datamapper.model.OutputDataModel;
 import org.wso2.datamapper.parsers.MappingLexer;
 import org.wso2.datamapper.parsers.MappingParser;
 import org.wso2.datamapper.core.FunctionExecuter;
@@ -41,62 +48,63 @@ import org.wso2.datamapper.inputAdapters.XmlInputReader;
 
 public class DataMapper {
 
+	private File outputSchema;
+	private BufferedWriter outputWriter;
+	private Map<String, String> dataTypes;
+	
+
+	public DataMapper() throws IOException {
+		outputWriter = new BufferedWriter(new FileWriter(new File("./resource/output.json")));
+	}
+
 	public void doMapping(File configFile, File inputFile, File inputSchema, File outputSchema) {
-		
-		InputDataReaderAdapter reader = new XmlInputReader();
-		reader.setInputReader(inputFile);
-		GenericRecord inRecord = null;
-
-		Schema schema;
-		try {
-			schema = new Parser().parse(inputSchema);
-			inRecord = reader.readInputvalues(schema);
-			
-			System.out.println("input record "+inRecord);
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		ANTLRInputStream inputStream;
-		
+	    List<GenericRecord> resulRecordtList = new ArrayList<GenericRecord>();
+
 		try {
 			inputStream = new ANTLRInputStream(new FileInputStream(configFile));
 			MappingLexer lexer = new MappingLexer(inputStream);
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			MappingParser parser = new MappingParser(tokens);
-			
+
 			ParseTree tree = parser.statment();
 			ParseTreeWalker walker = new ParseTreeWalker();
-			FunctionExecuter conWalker = new FunctionExecuter();
-			conWalker.setInputData(inRecord);
-			
-			walker.walk(conWalker, tree);
-			
-			Map<String,String> resultMap = conWalker.getResultMap();
-			
-			Iterator<String> resultIt = resultMap.keySet().iterator();
-			String result = "";
-			String outElement = "";
-			
+
+			ConfigModelGenerator conGen = new ConfigModelGenerator();
+			walker.walk(conGen, tree);
+
+			InputDataReaderAdapter reader = new XmlInputReader();
+			reader.setInputReader(inputFile);
+			Schema inSchema = new Parser().parse(inputSchema);
 			Schema outSchema = new Parser().parse(outputSchema);
-			GenericRecord outRecord = new GenericData.Record(outSchema);
+
+			FunctionExecuter funcExecuter = new FunctionExecuter();
+			ConfigDataModel confDataModel = conGen.getConfigModel();
+
+			String inputType = confDataModel.getInputDatatype();
+			String outputtype = confDataModel.getOutputdataType();
+
+			System.out.println("data types " + inputType + " " + outputtype);
+
+			Iterator<GenericRecord> inRecordsItr = reader.getChildItr(inputType, inSchema);
+			OutputDataModel outModel = confDataModel.getOutDataModel();
 			
-			while (resultIt.hasNext()) {
-				outElement = resultIt.next();
-				result = resultMap.get(outElement);
-				outRecord.put(outElement, result);
+			GenericRecord outRecord;
+			
+
+			while (inRecordsItr.hasNext()) {
+				GenericRecord inRecord = inRecordsItr.next();
+				outRecord = funcExecuter.executeFunction(inRecord, outModel, outSchema);
+				System.out.println("result "+outRecord);
+				outputWriter.write(outRecord.toString());
+				 
 			}
-
-			System.out.println("out record "+outRecord.toString());
 			
-			BufferedWriter outputWriter = new BufferedWriter(new FileWriter(new File("./resource/output.json")));
-			outputWriter.write(outRecord.toString());
 			outputWriter.flush();
-			outputWriter.close();
-
+			outputWriter.close(); 
 			
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -105,4 +113,17 @@ public class DataMapper {
 			e.printStackTrace();
 		}
 	}
+
+	public OMElement getChild(OMElement element) {
+		OMElement chilElement = null;
+		if (this.dataTypes.containsKey(element.getLocalName())) {
+			Iterator<OMElement> childs = element.getChildElements();
+			while (childs.hasNext()) {
+				chilElement = childs.next();
+
+			}
+		}
+		return getChild(chilElement);
+	}
+
 }

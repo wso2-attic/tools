@@ -16,99 +16,47 @@
 
 package org.wso2.datamapper.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
-import org.antlr.v4.runtime.misc.NotNull;
+import org.apache.avro.Schema;
+import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
-import org.wso2.datamapper.parsers.MappingBaseListener;
-import org.wso2.datamapper.parsers.MappingParser.ArgContext;
-import org.wso2.datamapper.parsers.MappingParser.DeftypeContext;
-import org.wso2.datamapper.parsers.MappingParser.FuncidContext;
-import org.wso2.datamapper.parsers.MappingParser.FunctionContext;
-import org.wso2.datamapper.parsers.MappingParser.OutputelementContext;
-import org.wso2.datamapper.parsers.MappingParser.StatmentContext;
+import org.wso2.datamapper.model.ConfigDataModel;
+import org.wso2.datamapper.model.OutputDataModel;
 
-public class FunctionExecuter extends MappingBaseListener {
+import com.sun.org.apache.regexp.internal.recompile;
 
-	private String inputDataType;
-	private String outputDataType;
-	private GenericRecord inRecord;
-	private String outputElement;
-	private String function;
-	private Map<String,String> resultMap;
-	private List<String> arglist;
-	private String functionResult;
+public class FunctionExecuter{
 	
-	public FunctionExecuter(){
-		resultMap = new HashMap<String,String>();
-	}
-	
-	@Override
-	public void enterOutputelement(@NotNull OutputelementContext ctx) {
-		this.outputElement = getChildElement(ctx.getText());
-	}
-	
-	@Override
-	public void exitStatment(@NotNull StatmentContext ctx) {
-		if(this.outputElement != null){
-			this.resultMap.put(this.outputElement, this.functionResult);
-		}else{
-			String[] tokens=ctx.getText().trim().split("->");
-			this.inputDataType = tokens[0];
-			this.outputDataType = tokens[1];
-		}
-	}
-
-	@Override
-	public void enterFuncid(@NotNull FuncidContext ctx) {
-		this.function = ctx.getText();
-	}
-
-	@Override
-	public void enterFunction(@NotNull FunctionContext ctx) {
-		this.arglist = new ArrayList<String>();
-	}
-
-	@Override
-	public void exitFunction(@NotNull FunctionContext ctx) {
+	public GenericRecord executeFunction(GenericRecord inputRecord, OutputDataModel dataModel, Schema outSchema) {
+		
+		String function = dataModel.getFunction();
+		List<String> args = dataModel.getArgList();
 		StringBuilder result = new StringBuilder();
+		Iterator<String> argItr = args.listIterator();
+		GenericRecord outRecord = new GenericData.Record(outSchema);
 		
-		if(this.function.equals("concat")){
-			Iterator<String> argIt = this.arglist.listIterator();
-			String temp;
-			while (argIt.hasNext()) {
-				temp = argIt.next();
-				result.append(inRecord.get(getChildElement(temp))+" ");
+		if(function.equals("concat")){
+			while (argItr.hasNext()) {
+				result.append(inputRecord.get(getElementName(argItr.next()))+" ");
 			}
-			this.functionResult = result.toString().trim();
+			outRecord.put(getElementName(dataModel.getOutputElement()),result.toString().trim());
 		}
+		return outRecord;
 	}
 
-	@Override
-	public void enterArg(@NotNull ArgContext ctx) {
-		this.arglist.add(ctx.getText());
-	}
-	
-	public void setInputData(GenericRecord inData) {
-		this.inRecord = inData;
-	}
-
-	private String getChildElement(String elementPath){
-		String childElement = "";	
-		String[] childElements = elementPath.split("[.]");
+	public String getElementName(String element) {
+		String value= "";
+		StringTokenizer st = new StringTokenizer(element, ".");
 		
-		for (String element : childElements) {
-			childElement = element;
-		}
-		return childElement;
+		while (st.hasMoreTokens()) {
+			value = (String)st.nextElement();
+		}	
+		return value;
 	}
 	
-	public Map<String,String> getResultMap() {
-		return this.resultMap;
-	}
 	
 }
