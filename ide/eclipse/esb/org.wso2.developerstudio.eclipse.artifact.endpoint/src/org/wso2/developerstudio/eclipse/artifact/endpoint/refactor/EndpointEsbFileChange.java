@@ -38,9 +38,8 @@ public class EndpointEsbFileChange extends TextFileChange {
 	public EndpointEsbFileChange(String name, IFile file, String originalName, String newName) {
 		super(name, file);
 		esbFile = file;
-		// discard "sequence_"
-		match = originalName.replaceFirst("sequence_", "");
-		replace = newName.replaceFirst("sequence_", "");
+		match = originalName;
+		replace = newName;
 		addTextEdits();
 	}
 
@@ -59,9 +58,7 @@ public class EndpointEsbFileChange extends TextFileChange {
 	}
 
 	private void identifyReplaces() throws IOException {
-		String fileContent =
-		                     FileUtils.readFileToString(new File(esbFile.getRawLocation()
-		                                                                .toString()));
+		String fileContent = FileUtils.readFileToString(new File(esbFile.getRawLocation().toString()));
 		int i = 0;
 		while ((i = (fileContent.indexOf(match, i) + 1)) > 0) {
 			addEdit(new ReplaceEdit(i - 1, match.length(), replace));

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
@@ -46,10 +47,8 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 	private String changedFileName;
 	private IProject esbProject;
 	private static List<String> skipList;
-	private static final String SEQUENCE_RESOURCE_DIR =
-	                                                    "/src/main/graphical-synapse-config/sequences";
-	protected final static String EDITOR_ID =
-	                                          "org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor";
+	private static final String GRAPHICAL_SYNAPSE_CONFIG_DIR = "/src/main/graphical-synapse-config/";
+	protected final static String EDITOR_ID = "org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor";
 
 	static {
 		skipList = new ArrayList<String>();
@@ -63,27 +62,21 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		if (originalFile != null) {
 			List<String> matchinFilesList = new ArrayList<String>();
 
-			org.wso2.developerstudio.eclipse.utils.file.FileUtils.getAllExactMatchingFiles(esbProject.getLocation()
-			                                                                                         .toOSString(),
-			                                                                               changedFileName.substring(0,
-			                                                                                                         changedFileName.lastIndexOf(".")),
+			org.wso2.developerstudio.eclipse.utils.file.FileUtils.getAllExactMatchingFiles(esbProject.getLocation().toOSString(),
+			                                                                               changedFileName.substring(0, changedFileName.lastIndexOf(".")),
 			                                                                               changedFileName.substring(changedFileName.lastIndexOf(".") + 1),
 			                                                                               matchinFilesList,
 			                                                                               skipList);
 
 			if (!matchinFilesList.isEmpty()) {
 				return RefactoringStatus.createFatalErrorStatus("An ESB Artifact already exists with the same name " +
-				                                                changedFileName +
-				                                                " in the project " +
-				                                                esbProject.getName());
-			} else if (changedFileName.substring(0, changedFileName.lastIndexOf("."))
-			                          .equalsIgnoreCase(esbProject.getName())) {
+				                                                changedFileName + " in the project " + esbProject.getName());
+			} else if (changedFileName.substring(0, changedFileName.lastIndexOf(".")).equalsIgnoreCase(esbProject.getName())) {
 				return RefactoringStatus.createFatalErrorStatus("You are trying to rename your ESB Artifact to have the project name.");
 			}
 
 			return RefactoringStatus.createInfoStatus("You are about to rename your ESB Artifact " +
-			                                          originalFile.getName() + " to " +
-			                                          changedFileName);
+			                                          originalFile.getName() + " to " + changedFileName);
 		}
 
 		return RefactoringStatus.createFatalErrorStatus("You are trying to rename a different resource than a file");
@@ -96,76 +89,50 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 	 * org.eclipse.ltk.core.refactoring.participants.RefactoringParticipant#
 	 * createPreChange(org.eclipse.core.runtime.IProgressMonitor)
 	 */
-	public Change createPreChange(IProgressMonitor arg0) throws CoreException,
-	                                                    OperationCanceledException {
-		CompositeChange endpointChange = new CompositeChange("Endpoint Artifact Rename");
-		String originalFileNamewithExtension = originalFile.getName();
-		String changedNameWithoutExtention =
-		                                     changedFileName.substring(0,
-		                                                               changedFileName.length() - 4);
-		String originalNameWithoutExtension =
-		                                      originalFileNamewithExtension.substring(0,
-		                                                                              originalFileNamewithExtension.length() - 4);
-		EndpointArtifactFileChange endpointArtifactFileChange =
-		                                                        new EndpointArtifactFileChange(
-		                                                                                       "Renaming ESB Artifact " +
-		                                                                                               originalFile.getName()
-		                                                                                                           .substring(0,
-		                                                                                                                      originalFile.getName()
-		                                                                                                                                  .length() -
-		                                                                                                                              originalFile.getFileExtension()
-		                                                                                                                                          .length()),
-		                                                                                       originalFile,
-		                                                                                       originalNameWithoutExtension,
-		                                                                                       changedNameWithoutExtention);
-		endpointChange.add(endpointArtifactFileChange);
+	public Change createPreChange(IProgressMonitor arg0) throws CoreException, OperationCanceledException {
+		
+		
+		String changedNameWithoutExtention = FilenameUtils.removeExtension(changedFileName);
+		String originalNameWithoutExtension = FilenameUtils.removeExtension(originalFile.getName());
+		String originalEsbFileName = getEsbFile(originalNameWithoutExtension);
+		String originalEsbDiagramFileName = getEsbDiagramFile(originalNameWithoutExtension);
+		String changedEsbFileName = getEsbFile(changedNameWithoutExtention);
+		String changedEsbDiagramFileName = getEsbDiagramFile(changedNameWithoutExtention);
+
+		CompositeChange compositeChange = new CompositeChange("ESB Artifact Rename");
+		
+		EndpointArtifactFileChange endpointArtifactFileChange = new EndpointArtifactFileChange("Renaming ESB Artifact " + originalNameWithoutExtension, 
+																								originalFile,
+		                                                                                        originalNameWithoutExtension,
+		                                                                                        changedNameWithoutExtention);
+		compositeChange.add(endpointArtifactFileChange);
 
 		/*
 		 * Rename sequence_<name>.esb and sequence_<name>.esb_diagram
 		 */
-		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
-
-		String originalEsbFileName = "sequence_" + originalNameWithoutExtension + ".esb";
-		String originalEsbDiagramFileName =
-		                                    "sequence_" + originalNameWithoutExtension +
-		                                            ".esb_diagram";
-		String changedEsbFileName = "sequence_" + changedNameWithoutExtention + ".esb";
-		String changedEsbDiagramFileName =
-		                                   "sequence_" + changedNameWithoutExtention +
-		                                           ".esb_diagram";
-
-		IFile esbIFile = esbProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + originalEsbFileName);
-		EndpointEsbFileChange esbFileChange =
-		                                      new EndpointEsbFileChange(
-		                                                                "Changing ESB file content",
+		
+		String imediateDirectory = GRAPHICAL_SYNAPSE_CONFIG_DIR + originalFile.getParent().getName();
+		
+		IFile esbIFile = esbProject.getFile(imediateDirectory + "/" + originalEsbFileName);
+		EndpointEsbFileChange esbFileChange = new EndpointEsbFileChange("Changing ESB file content",
 		                                                                esbIFile,
-		                                                                "sequence_" +
-		                                                                        originalNameWithoutExtension,
-		                                                                "sequence_" +
-		                                                                        changedNameWithoutExtention);
-		endpointChange.add(esbFileChange);
-		EndpointEsbFileRename esbFileRename =
-		                                      new EndpointEsbFileRename(esbIFile,
-		                                                                changedEsbFileName);
-		endpointChange.add(esbFileRename);
+		                                                               	originalNameWithoutExtension,
+		                                                                changedNameWithoutExtention);
+		compositeChange.add(esbFileChange);
+		EndpointEsbFileRename esbFileRename = new EndpointEsbFileRename(esbIFile, changedEsbFileName);
+		compositeChange.add(esbFileRename);
 
-		IFile esbDiagramIFile =
-		                        esbProject.getFile(SEQUENCE_RESOURCE_DIR + "/" +
-		                                           originalEsbDiagramFileName);
-		EndpointEsbFileChange esbDiagramFileChange =
-		                                             new EndpointEsbFileChange(
-		                                                                       "Changing ESB diagram file content",
+		IFile esbDiagramIFile = esbProject.getFile(imediateDirectory + "/" + originalEsbDiagramFileName);
+		
+		EndpointEsbFileChange esbDiagramFileChange = new EndpointEsbFileChange("Changing ESB diagram file content",
 		                                                                       esbDiagramIFile,
-		                                                                       "sequence_" +
-		                                                                               originalNameWithoutExtension,
-		                                                                       "sequence_" +
-		                                                                               changedNameWithoutExtention);
-		endpointChange.add(esbDiagramFileChange);
-		EndpointEsbFileRename esbDiagramFileRename =
-		                                             new EndpointEsbFileRename(esbDiagramIFile,
-		                                                                       changedEsbDiagramFileName);
-		endpointChange.add(esbDiagramFileRename);
+		                                                                       originalNameWithoutExtension,
+		                                                                       changedNameWithoutExtention);
+		compositeChange.add(esbDiagramFileChange);
+		EndpointEsbFileRename esbDiagramFileRename = new EndpointEsbFileRename(esbDiagramIFile, changedEsbDiagramFileName);
+		compositeChange.add(esbDiagramFileRename);
 
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		for (int i = 0; i < projects.length; i++) {
 			if (projects[i].isOpen() &&
 			    projects[i].hasNature("org.wso2.developerstudio.eclipse.distribution.project.nature")) {
@@ -178,7 +145,7 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 					for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
 						Dependency dependency = (Dependency) iterator.next();
 						if (originalNameWithoutExtension.equalsIgnoreCase(dependency.getArtifactId())) {
-							endpointChange.add(new MavenConfigurationFileChange(
+							compositeChange.add(new MavenConfigurationFileChange(
 							                                                    projects[i].getName(),
 							                                                    projects[i].getFile("pom.xml"),
 							                                                    originalNameWithoutExtension,
@@ -192,7 +159,42 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 			}
 		}
 
-		return endpointChange;
+		return compositeChange;
+	}
+
+	private String getEsbDiagramFile(String fileName) {
+		String prefix = getDirectoryPrefix();
+		return prefix + fileName + ".esb_diagram";
+	}
+
+	private String getEsbFile(String fileName) {
+		String prefix = getDirectoryPrefix();
+		return prefix + fileName + ".esb";
+	}
+
+	private String getDirectoryPrefix() {
+		String imediateDirectory = originalFile.getParent().getName();
+		String directoryPrefix = "";
+		if (imediateDirectory.equalsIgnoreCase("api")){
+			directoryPrefix = "api_";
+		} else if (imediateDirectory.equalsIgnoreCase("endpoints")){
+			directoryPrefix = "endpoint_";
+		} else if (imediateDirectory.equalsIgnoreCase("local-entries")){
+			directoryPrefix = "localentry_";
+		} else if (imediateDirectory.equalsIgnoreCase("message-processors")){
+			directoryPrefix = "messageProcessor_";
+		} else if (imediateDirectory.equalsIgnoreCase("message-stores")){
+			directoryPrefix = "messageStore_";
+		} else if (imediateDirectory.equalsIgnoreCase("proxy-services")){
+			directoryPrefix = "proxy_";		
+		} else if (imediateDirectory.equalsIgnoreCase("sequences")){
+			directoryPrefix = "sequence_";
+		} else if (imediateDirectory.equalsIgnoreCase("tasks")){
+			directoryPrefix = "task_";
+		} else if (imediateDirectory.equalsIgnoreCase("templates")){
+			directoryPrefix = "template_";
+		}
+		return directoryPrefix;
 	}
 
 	public String getName() {

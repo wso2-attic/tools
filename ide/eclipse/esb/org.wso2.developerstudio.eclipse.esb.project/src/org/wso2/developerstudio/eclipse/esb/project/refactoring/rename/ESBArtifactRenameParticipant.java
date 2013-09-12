@@ -84,7 +84,7 @@ public class ESBArtifactRenameParticipant extends RenameParticipant {
 	
 	public Change createChange(IProgressMonitor arg0) throws CoreException,
 	                                                 OperationCanceledException {
-		CompositeChange change=new CompositeChange("ESB Artifact Rename");
+		CompositeChange change=new CompositeChange("ESB Artifact Model Rename");
 		String originalFileNamewithExtension = originalFile.getName();
 		change.add(new ESBMetaDataFileChange("Meta data file", esbProject.getFile("artifact.xml"),originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4),changedFileName.substring(0,changedFileName.length()-4)));
 		return change;
