@@ -12,7 +12,7 @@ grammar Mapping;
 statment: ( (deftype | defelement) ';' )+
         ;    
      
-deftype : ID '-''>' ID
+deftype : ID (DOT ID)* '-''>' ID (DOT ID)*
         ;
 
 defelement : outputelement '=' value
