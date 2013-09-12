@@ -18,16 +18,13 @@ package org.wso2.datamapper.core;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
-import org.wso2.datamapper.model.ConfigDataModel;
 import org.wso2.datamapper.model.OutputDataModel;
 
-import com.sun.org.apache.regexp.internal.recompile;
 
 public class FunctionExecuter{
 	
