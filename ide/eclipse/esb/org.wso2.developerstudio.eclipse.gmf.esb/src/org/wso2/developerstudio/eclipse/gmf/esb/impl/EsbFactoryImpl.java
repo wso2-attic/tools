@@ -535,6 +535,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createRuleOptionTypeFromString(eDataType, initialValue);
 			case EsbPackage.SMOOKS_IO_DATA_TYPE:
 				return createSmooksIODataTypeFromString(eDataType, initialValue);
+			case EsbPackage.SMOOKS_OUTPUT_DATA_TYPE:
+				return createSmooksOutputDataTypeFromString(eDataType, initialValue);
 			case EsbPackage.EXPRESSION_ACTION:
 				return createExpressionActionFromString(eDataType, initialValue);
 			case EsbPackage.OUTPUT_METHOD:
@@ -735,6 +737,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertRuleOptionTypeToString(eDataType, instanceValue);
 			case EsbPackage.SMOOKS_IO_DATA_TYPE:
 				return convertSmooksIODataTypeToString(eDataType, instanceValue);
+			case EsbPackage.SMOOKS_OUTPUT_DATA_TYPE:
+				return convertSmooksOutputDataTypeToString(eDataType, instanceValue);
 			case EsbPackage.EXPRESSION_ACTION:
 				return convertExpressionActionToString(eDataType, instanceValue);
 			case EsbPackage.OUTPUT_METHOD:
@@ -5506,6 +5510,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertSmooksIODataTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SmooksOutputDataType createSmooksOutputDataTypeFromString(EDataType eDataType, String initialValue) {
+		SmooksOutputDataType result = SmooksOutputDataType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSmooksOutputDataTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

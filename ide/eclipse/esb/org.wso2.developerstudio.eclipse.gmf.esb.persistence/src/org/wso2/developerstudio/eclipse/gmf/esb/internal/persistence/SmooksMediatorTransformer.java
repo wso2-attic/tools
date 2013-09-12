@@ -32,6 +32,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutputDataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class SmooksMediatorTransformer extends AbstractEsbNodeTransformer {
@@ -76,9 +77,16 @@ public class SmooksMediatorTransformer extends AbstractEsbNodeTransformer {
 			input.setType((visualSmooks.getInputType().equals(SmooksIODataType.XML)) ? TYPES.XML
 					: TYPES.TEXT);
 			smooksMediator.setInput(input);
+			
 			Output output = new Output();
-			output.setType((visualSmooks.getOutputType().equals(SmooksIODataType.XML)) ? TYPES.XML
-					: TYPES.TEXT);
+			if (visualSmooks.getOutputType().equals(SmooksOutputDataType.TEXT)) {
+				output.setType(TYPES.TEXT);
+			} else if (visualSmooks.getOutputType().equals(SmooksOutputDataType.JAVA)) {
+				output.setType(TYPES.JAVA);
+			} else {
+				output.setType(TYPES.XML);
+			}
+
 			if (visualSmooks.getOutputMethod().equals(OutputMethod.PROPERTY)) {
 				output.setProperty(visualSmooks.getOutputProperty());
 			} else if (visualSmooks.getOutputMethod().equals(OutputMethod.EXPRESSION)) {

@@ -407,6 +407,11 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SmooksIODataType/XML"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SmooksIODataType/TEXT"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//SmooksOutputDataType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SmooksOutputDataType/XML"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SmooksOutputDataType/TEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SmooksOutputDataType/JAVA"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ExpressionAction">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ExpressionAction/ADD"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ExpressionAction/REPLACE"/>

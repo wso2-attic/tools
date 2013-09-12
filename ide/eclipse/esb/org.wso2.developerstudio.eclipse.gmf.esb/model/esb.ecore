@@ -1801,7 +1801,12 @@
       eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="SmooksIODataType">
     <eLiterals name="XML" literal="xml"/>
-    <eLiterals name="TEXT" literal="text"/>
+    <eLiterals name="TEXT" value="1" literal="text"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SmooksOutputDataType">
+    <eLiterals name="XML" literal="xml"/>
+    <eLiterals name="TEXT" value="1" literal="text"/>
+    <eLiterals name="JAVA" value="2" literal="java"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SmooksMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurationKey" eType="#//RegistryKeyProperty"
@@ -1809,7 +1814,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputType" eType="#//SmooksIODataType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputExpression" eType="#//NamespacedProperty"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputType" eType="#//SmooksIODataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputType" eType="#//SmooksOutputDataType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputExpression" eType="#//NamespacedProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

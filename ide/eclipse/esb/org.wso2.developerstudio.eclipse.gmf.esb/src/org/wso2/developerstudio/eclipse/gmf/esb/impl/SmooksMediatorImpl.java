@@ -25,6 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutputDataType;
 import org.wso2.developerstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
 import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
@@ -100,7 +101,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SmooksIODataType OUTPUT_TYPE_EDEFAULT = SmooksIODataType.XML;
+	protected static final SmooksOutputDataType OUTPUT_TYPE_EDEFAULT = SmooksOutputDataType.XML;
 
 	/**
 	 * The cached value of the '{@link #getOutputType() <em>Output Type</em>}' attribute.
@@ -110,7 +111,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * @generated
 	 * @ordered
 	 */
-	protected SmooksIODataType outputType = OUTPUT_TYPE_EDEFAULT;
+	protected SmooksOutputDataType outputType = OUTPUT_TYPE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOutputExpression() <em>Output Expression</em>}' containment reference.
@@ -355,7 +356,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SmooksIODataType getOutputType() {
+	public SmooksOutputDataType getOutputType() {
 		return outputType;
 	}
 
@@ -364,8 +365,8 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutputType(SmooksIODataType newOutputType) {
-		SmooksIODataType oldOutputType = outputType;
+	public void setOutputType(SmooksOutputDataType newOutputType) {
+		SmooksOutputDataType oldOutputType = outputType;
 		outputType = newOutputType == null ? OUTPUT_TYPE_EDEFAULT : newOutputType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SMOOKS_MEDIATOR__OUTPUT_TYPE, oldOutputType, outputType));
@@ -635,7 +636,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 				setInputExpression((NamespacedProperty)newValue);
 				return;
 			case EsbPackage.SMOOKS_MEDIATOR__OUTPUT_TYPE:
-				setOutputType((SmooksIODataType)newValue);
+				setOutputType((SmooksOutputDataType)newValue);
 				return;
 			case EsbPackage.SMOOKS_MEDIATOR__OUTPUT_EXPRESSION:
 				setOutputExpression((NamespacedProperty)newValue);

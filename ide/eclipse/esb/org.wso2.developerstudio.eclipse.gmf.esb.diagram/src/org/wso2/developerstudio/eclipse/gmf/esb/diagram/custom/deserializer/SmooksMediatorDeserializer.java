@@ -25,6 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ExpressionAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutputDataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 import static org.wso2.carbon.mediator.transform.Output.*;
@@ -66,10 +67,13 @@ public class SmooksMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		} else{
 			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_METHOD, OutputMethod.DEFAULT);
 		}
-		if(smooksMediator.getOutput().getType().equals(TYPES.XML)){
-			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_TYPE, SmooksIODataType.XML);
-		}else if(smooksMediator.getOutput().getType().equals(TYPES.TEXT)){
-			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_TYPE, SmooksIODataType.TEXT);
+		
+		if(smooksMediator.getOutput().getType().equals(TYPES.TEXT)){
+			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_TYPE, SmooksOutputDataType.TEXT);
+		} else if(smooksMediator.getOutput().getType().equals(TYPES.JAVA)){
+			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_TYPE, SmooksOutputDataType.JAVA);
+		} else {
+			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_TYPE, SmooksOutputDataType.XML);
 		}
 		
 		executeSetValueCommand(visualSmooksMediator.getConfigurationKey(),REGISTRY_KEY_PROPERTY__KEY_VALUE, smooksMediator.getConfigKey());

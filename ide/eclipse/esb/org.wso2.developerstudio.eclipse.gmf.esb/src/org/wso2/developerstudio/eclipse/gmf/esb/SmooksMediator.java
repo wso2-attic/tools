@@ -116,7 +116,7 @@ public interface SmooksMediator extends Mediator {
 
 	/**
 	 * Returns the value of the '<em><b>Output Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType}.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutputDataType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output Type</em>' attribute isn't clear,
@@ -124,24 +124,24 @@ public interface SmooksMediator extends Mediator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output Type</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType
-	 * @see #setOutputType(SmooksIODataType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutputDataType
+	 * @see #setOutputType(SmooksOutputDataType)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSmooksMediator_OutputType()
 	 * @model
 	 * @generated
 	 */
-	SmooksIODataType getOutputType();
+	SmooksOutputDataType getOutputType();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator#getOutputType <em>Output Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Output Type</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutputDataType
 	 * @see #getOutputType()
 	 * @generated
 	 */
-	void setOutputType(SmooksIODataType value);
+	void setOutputType(SmooksOutputDataType value);
 
 	/**
 	 * Returns the value of the '<em><b>Output Expression</b></em>' containment reference.

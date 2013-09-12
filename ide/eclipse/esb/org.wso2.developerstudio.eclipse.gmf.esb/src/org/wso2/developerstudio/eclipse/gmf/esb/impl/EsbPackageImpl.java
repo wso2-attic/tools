@@ -350,6 +350,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SmooksInConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutputDataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.SomeXML;
 import org.wso2.developerstudio.eclipse.gmf.esb.SpringMediator;
@@ -3182,6 +3183,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum smooksIODataTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum smooksOutputDataTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -14047,6 +14055,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getSmooksOutputDataType() {
+		return smooksOutputDataTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getExpressionAction() {
 		return expressionActionEEnum;
 	}
@@ -15743,6 +15760,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		ruleResultValueTypeEEnum = createEEnum(RULE_RESULT_VALUE_TYPE);
 		ruleOptionTypeEEnum = createEEnum(RULE_OPTION_TYPE);
 		smooksIODataTypeEEnum = createEEnum(SMOOKS_IO_DATA_TYPE);
+		smooksOutputDataTypeEEnum = createEEnum(SMOOKS_OUTPUT_DATA_TYPE);
 		expressionActionEEnum = createEEnum(EXPRESSION_ACTION);
 		outputMethodEEnum = createEEnum(OUTPUT_METHOD);
 		receivingSequenceTypeEEnum = createEEnum(RECEIVING_SEQUENCE_TYPE);
@@ -17119,7 +17137,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getSmooksMediator_ConfigurationKey(), this.getRegistryKeyProperty(), null, "configurationKey", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSmooksMediator_InputType(), this.getSmooksIODataType(), "inputType", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSmooksMediator_InputExpression(), this.getNamespacedProperty(), null, "inputExpression", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSmooksMediator_OutputType(), this.getSmooksIODataType(), "outputType", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSmooksMediator_OutputType(), this.getSmooksOutputDataType(), "outputType", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSmooksMediator_OutputExpression(), this.getNamespacedProperty(), null, "outputExpression", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSmooksMediator_OutputProperty(), ecorePackage.getEString(), "outputProperty", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSmooksMediator_OutputAction(), this.getExpressionAction(), "outputAction", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -17930,6 +17948,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(smooksIODataTypeEEnum, SmooksIODataType.class, "SmooksIODataType");
 		addEEnumLiteral(smooksIODataTypeEEnum, SmooksIODataType.XML);
 		addEEnumLiteral(smooksIODataTypeEEnum, SmooksIODataType.TEXT);
+
+		initEEnum(smooksOutputDataTypeEEnum, SmooksOutputDataType.class, "SmooksOutputDataType");
+		addEEnumLiteral(smooksOutputDataTypeEEnum, SmooksOutputDataType.XML);
+		addEEnumLiteral(smooksOutputDataTypeEEnum, SmooksOutputDataType.TEXT);
+		addEEnumLiteral(smooksOutputDataTypeEEnum, SmooksOutputDataType.JAVA);
 
 		initEEnum(expressionActionEEnum, ExpressionAction.class, "ExpressionAction");
 		addEEnumLiteral(expressionActionEEnum, ExpressionAction.ADD);
