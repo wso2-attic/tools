@@ -15,18 +15,23 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 
@@ -48,6 +53,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EJBMediatorImpl#isRemove <em>Remove</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EJBMediatorImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EJBMediatorImpl#getJNDIName <em>JNDI Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EJBMediatorImpl#getMethodArguments <em>Method Arguments</em>}</li>
  * </ul>
  * </p>
  *
@@ -243,6 +249,16 @@ public class EJBMediatorImpl extends MediatorImpl implements EJBMediator {
 	 * @ordered
 	 */
 	protected String jndiName = JNDI_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getMethodArguments() <em>Method Arguments</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMethodArguments()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MethodArgument> methodArguments;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -570,6 +586,18 @@ public class EJBMediatorImpl extends MediatorImpl implements EJBMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<MethodArgument> getMethodArguments() {
+		if (methodArguments == null) {
+			methodArguments = new EObjectContainmentEList<MethodArgument>(MethodArgument.class, this, EsbPackage.EJB_MEDIATOR__METHOD_ARGUMENTS);
+		}
+		return methodArguments;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -579,6 +607,8 @@ public class EJBMediatorImpl extends MediatorImpl implements EJBMediator {
 				return basicSetOutputConnector(null, msgs);
 			case EsbPackage.EJB_MEDIATOR__SESSION_ID_EXPRESSION:
 				return basicSetSessionIdExpression(null, msgs);
+			case EsbPackage.EJB_MEDIATOR__METHOD_ARGUMENTS:
+				return ((InternalEList<?>)getMethodArguments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -613,6 +643,8 @@ public class EJBMediatorImpl extends MediatorImpl implements EJBMediator {
 				return getTarget();
 			case EsbPackage.EJB_MEDIATOR__JNDI_NAME:
 				return getJNDIName();
+			case EsbPackage.EJB_MEDIATOR__METHOD_ARGUMENTS:
+				return getMethodArguments();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -622,6 +654,7 @@ public class EJBMediatorImpl extends MediatorImpl implements EJBMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -657,6 +690,10 @@ public class EJBMediatorImpl extends MediatorImpl implements EJBMediator {
 				return;
 			case EsbPackage.EJB_MEDIATOR__JNDI_NAME:
 				setJNDIName((String)newValue);
+				return;
+			case EsbPackage.EJB_MEDIATOR__METHOD_ARGUMENTS:
+				getMethodArguments().clear();
+				getMethodArguments().addAll((Collection<? extends MethodArgument>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -703,6 +740,9 @@ public class EJBMediatorImpl extends MediatorImpl implements EJBMediator {
 			case EsbPackage.EJB_MEDIATOR__JNDI_NAME:
 				setJNDIName(JNDI_NAME_EDEFAULT);
 				return;
+			case EsbPackage.EJB_MEDIATOR__METHOD_ARGUMENTS:
+				getMethodArguments().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -737,6 +777,8 @@ public class EJBMediatorImpl extends MediatorImpl implements EJBMediator {
 				return TARGET_EDEFAULT == null ? target != null : !TARGET_EDEFAULT.equals(target);
 			case EsbPackage.EJB_MEDIATOR__JNDI_NAME:
 				return JNDI_NAME_EDEFAULT == null ? jndiName != null : !JNDI_NAME_EDEFAULT.equals(jndiName);
+			case EsbPackage.EJB_MEDIATOR__METHOD_ARGUMENTS:
+				return methodArguments != null && !methodArguments.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

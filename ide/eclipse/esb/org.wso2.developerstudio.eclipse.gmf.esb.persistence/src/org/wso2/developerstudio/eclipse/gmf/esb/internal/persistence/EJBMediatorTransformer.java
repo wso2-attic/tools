@@ -21,12 +21,14 @@ import java.util.Map.Entry;
 
 import org.apache.synapse.Mediator;
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EJBMediatorExt;
@@ -93,7 +95,29 @@ public class EJBMediatorTransformer extends AbstractEsbNodeTransformer {
 			}
 		}
 		
-		//TODO : Method Arguments
+		// Method Arguments
+		for (MethodArgument visualMethodArgument : mediatorModel.getMethodArguments()) {
+			Value methodArgument = null;
+
+			if (visualMethodArgument.getPropertyValueType().getLiteral().equals("LITERAL")) {
+				methodArgument = new Value(visualMethodArgument.getPropertyValue());
+			} else {
+				NamespacedProperty namespacedExpression = visualMethodArgument
+						.getPropertyExpression();
+				if (namespacedExpression != null) {
+					SynapseXPath argumentExpression = new SynapseXPath(
+							namespacedExpression.getPropertyValue());
+					for (Entry<String, String> entry : namespacedExpression.getNamespaces()
+							.entrySet()) {
+						argumentExpression.addNamespace(entry.getKey(), entry.getValue());
+					}
+
+					methodArgument = new Value(argumentExpression);
+				}
+			}
+
+			mediator.addArgument(methodArgument);
+		}
 		
 		return mediator;
 	}

@@ -92,6 +92,8 @@ public class EJBMediatorItemProvider
 		addTargetPropertyDescriptor(object);
 		addJNDINamePropertyDescriptor(object);
 		addDescriptionPropertyDescriptor(object);
+		
+		addMethodArgumentsPropertyDescriptor(object);
 			
 		return itemPropertyDescriptors;
 	}
@@ -295,6 +297,28 @@ public class EJBMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Method Arguments feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMethodArgumentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EJBMediator_methodArguments_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EJBMediator_methodArguments_feature", "_UI_EJBMediator_type"),
+				 EsbPackage.Literals.EJB_MEDIATOR__METHOD_ARGUMENTS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -309,6 +333,7 @@ public class EJBMediatorItemProvider
 			childrenFeatures.add(EsbPackage.Literals.EJB_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.EJB_MEDIATOR__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.EJB_MEDIATOR__SESSION_ID_EXPRESSION);
+			childrenFeatures.add(EsbPackage.Literals.EJB_MEDIATOR__METHOD_ARGUMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -376,6 +401,7 @@ public class EJBMediatorItemProvider
 			case EsbPackage.EJB_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.EJB_MEDIATOR__OUTPUT_CONNECTOR:
 			case EsbPackage.EJB_MEDIATOR__SESSION_ID_EXPRESSION:
+			case EsbPackage.EJB_MEDIATOR__METHOD_ARGUMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -407,6 +433,11 @@ public class EJBMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.EJB_MEDIATOR__SESSION_ID_EXPRESSION,
 				 EsbFactory.eINSTANCE.createNamespacedProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.EJB_MEDIATOR__METHOD_ARGUMENTS,
+				 EsbFactory.eINSTANCE.createMethodArgument()));
 	}
 
 }

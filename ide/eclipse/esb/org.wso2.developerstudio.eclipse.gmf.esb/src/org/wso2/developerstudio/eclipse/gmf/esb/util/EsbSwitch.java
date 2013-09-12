@@ -612,6 +612,14 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.METHOD_ARGUMENT: {
+				MethodArgument methodArgument = (MethodArgument)theEObject;
+				T result = caseMethodArgument(methodArgument);
+				if (result == null) result = caseAbstractNameValueExpressionProperty(methodArgument);
+				if (result == null) result = caseEsbNode(methodArgument);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.REGISTRY_KEY_PROPERTY: {
 				RegistryKeyProperty registryKeyProperty = (RegistryKeyProperty)theEObject;
 				T result = caseRegistryKeyProperty(registryKeyProperty);
@@ -3590,6 +3598,21 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEJBMediatorOutputConnector(EJBMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Method Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Method Argument</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMethodArgument(MethodArgument object) {
 		return null;
 	}
 

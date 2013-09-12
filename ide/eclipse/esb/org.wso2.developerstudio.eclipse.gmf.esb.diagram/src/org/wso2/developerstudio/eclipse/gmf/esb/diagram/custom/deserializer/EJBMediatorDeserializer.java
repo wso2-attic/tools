@@ -16,9 +16,18 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Map;
+
+import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.Value;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EJBMediatorExt;
@@ -52,7 +61,35 @@ public class EJBMediatorDeserializer extends
 			}
 		}
 
-		// TODO: Method Arguments
+		// Method Arguments
+		EList<MethodArgument> methodArgumentList = new BasicEList<MethodArgument>();
+
+		for (Value methodArgument : mediator.getArgumentList()) {
+
+			MethodArgument argument = EsbFactory.eINSTANCE.createMethodArgument();
+
+			if (methodArgument.getKeyValue() != null) {
+				argument.setPropertyValueType(PropertyValueType.LITERAL);
+				argument.setPropertyValue(methodArgument.getKeyValue());
+
+			} else if (methodArgument.getExpression() != null) {
+				argument.setPropertyValueType(PropertyValueType.EXPRESSION);
+				NamespacedProperty namespaceProperty = EsbFactory.eINSTANCE
+						.createNamespacedProperty();
+				namespaceProperty.setPropertyValue(methodArgument.getExpression().toString());
+				Map namespaces = methodArgument.getExpression().getNamespaces();
+				Object[] namespacesKeys = namespaces.keySet().toArray();
+				for (int i = 0; i < namespacesKeys.length; ++i) {
+					namespaceProperty.getNamespaces().put((String) namespacesKeys[i],
+							(String) namespaces.get(namespacesKeys[i]));
+				}
+				argument.setPropertyExpression(namespaceProperty);
+
+			}
+
+			methodArgumentList.add(argument);
+		}
+		executeSetValueCommand(EJB_MEDIATOR__METHOD_ARGUMENTS, methodArgumentList);
 
 		return mediatorModel;
 	}

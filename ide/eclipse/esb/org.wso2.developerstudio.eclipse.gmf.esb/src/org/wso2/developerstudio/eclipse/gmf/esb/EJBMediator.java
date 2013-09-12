@@ -15,6 +15,8 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -35,6 +37,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator#isRemove <em>Remove</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator#getTarget <em>Target</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator#getJNDIName <em>JNDI Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator#getMethodArguments <em>Method Arguments</em>}</li>
  * </ul>
  * </p>
  *
@@ -331,5 +334,21 @@ public interface EJBMediator extends Mediator {
 	 * @generated
 	 */
 	void setJNDIName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Method Arguments</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Method Arguments</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Method Arguments</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEJBMediator_MethodArguments()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<MethodArgument> getMethodArguments();
 
 } // EJBMediator

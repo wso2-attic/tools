@@ -1250,6 +1250,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MethodArgumentItemProvider methodArgumentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMethodArgumentAdapter() {
+		if (methodArgumentItemProvider == null) {
+			methodArgumentItemProvider = new MethodArgumentItemProvider(this);
+		}
+
+		return methodArgumentItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7291,6 +7314,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (ejbMediatorItemProvider != null) ejbMediatorItemProvider.dispose();
 		if (ejbMediatorInputConnectorItemProvider != null) ejbMediatorInputConnectorItemProvider.dispose();
 		if (ejbMediatorOutputConnectorItemProvider != null) ejbMediatorOutputConnectorItemProvider.dispose();
+		if (methodArgumentItemProvider != null) methodArgumentItemProvider.dispose();
 		if (registryKeyPropertyItemProvider != null) registryKeyPropertyItemProvider.dispose();
 		if (propertyMediatorItemProvider != null) propertyMediatorItemProvider.dispose();
 		if (propertyMediatorInputConnectorItemProvider != null) propertyMediatorInputConnectorItemProvider.dispose();

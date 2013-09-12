@@ -310,6 +310,8 @@ public class EsbPropertySource extends PropertySource {
 			return new PayloadFactoryMediatorFormatPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getMessageProcessor_MessageStore().equals(feature)){
 			return new MessageProcessorMesageStorePropertyDescriptor(object, itemPropertyDescriptor);
+		} else if (pkg.getEJBMediator_MethodArguments().equals(feature)) {
+			return new EJBMediatorMethodArgumentConfigurationPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

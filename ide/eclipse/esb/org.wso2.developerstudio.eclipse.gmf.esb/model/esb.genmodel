@@ -773,9 +773,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/remove"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/target"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/JNDIName"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EJBMediator/methodArguments"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//EJBMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//EJBMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//MethodArgument"/>
     <genClasses ecoreClass="esb.ecore#//RegistryKeyProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RegistryKeyProperty/prettyName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RegistryKeyProperty/keyName"/>

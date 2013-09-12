@@ -566,6 +566,15 @@ public interface EsbFactory extends EFactory {
 	EJBMediatorOutputConnector createEJBMediatorOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Method Argument</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Method Argument</em>'.
+	 * @generated
+	 */
+	MethodArgument createMethodArgument();
+
+	/**
 	 * Returns a new object of class '<em>Registry Key Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

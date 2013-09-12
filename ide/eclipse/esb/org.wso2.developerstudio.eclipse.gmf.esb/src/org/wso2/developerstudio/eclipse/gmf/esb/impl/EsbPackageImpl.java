@@ -244,6 +244,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessorType;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType;
+import org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.NameValueTypeProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointInputConnector;
@@ -934,6 +935,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass ejbMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass methodArgumentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5381,6 +5389,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEJBMediator_MethodArguments() {
+		return (EReference)ejbMediatorEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEJBMediatorInputConnector() {
 		return ejbMediatorInputConnectorEClass;
 	}
@@ -5392,6 +5409,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getEJBMediatorOutputConnector() {
 		return ejbMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMethodArgument() {
+		return methodArgumentEClass;
 	}
 
 	/**
@@ -14504,10 +14530,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__REMOVE);
 		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__TARGET);
 		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__JNDI_NAME);
+		createEReference(ejbMediatorEClass, EJB_MEDIATOR__METHOD_ARGUMENTS);
 
 		ejbMediatorInputConnectorEClass = createEClass(EJB_MEDIATOR_INPUT_CONNECTOR);
 
 		ejbMediatorOutputConnectorEClass = createEClass(EJB_MEDIATOR_OUTPUT_CONNECTOR);
+
+		methodArgumentEClass = createEClass(METHOD_ARGUMENT);
 
 		registryKeyPropertyEClass = createEClass(REGISTRY_KEY_PROPERTY);
 		createEAttribute(registryKeyPropertyEClass, REGISTRY_KEY_PROPERTY__PRETTY_NAME);
@@ -15829,6 +15858,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		ejbMediatorEClass.getESuperTypes().add(this.getMediator());
 		ejbMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		ejbMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		methodArgumentEClass.getESuperTypes().add(this.getAbstractNameValueExpressionProperty());
 		propertyMediatorEClass.getESuperTypes().add(this.getMediator());
 		propertyMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		propertyMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -16352,10 +16382,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEJBMediator_Remove(), ecorePackage.getEBoolean(), "remove", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEJBMediator_Target(), ecorePackage.getEString(), "target", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEJBMediator_JNDIName(), ecorePackage.getEString(), "JNDIName", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEJBMediator_MethodArguments(), this.getMethodArgument(), null, "methodArguments", null, 0, -1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ejbMediatorInputConnectorEClass, EJBMediatorInputConnector.class, "EJBMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(ejbMediatorOutputConnectorEClass, EJBMediatorOutputConnector.class, "EJBMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(methodArgumentEClass, MethodArgument.class, "MethodArgument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(registryKeyPropertyEClass, RegistryKeyProperty.class, "RegistryKeyProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRegistryKeyProperty_PrettyName(), ecorePackage.getEString(), "prettyName", "Registry Key", 0, 1, RegistryKeyProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

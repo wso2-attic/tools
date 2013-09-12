@@ -131,6 +131,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.EJB_MEDIATOR: return createEJBMediator();
 			case EsbPackage.EJB_MEDIATOR_INPUT_CONNECTOR: return createEJBMediatorInputConnector();
 			case EsbPackage.EJB_MEDIATOR_OUTPUT_CONNECTOR: return createEJBMediatorOutputConnector();
+			case EsbPackage.METHOD_ARGUMENT: return createMethodArgument();
 			case EsbPackage.REGISTRY_KEY_PROPERTY: return createRegistryKeyProperty();
 			case EsbPackage.PROPERTY_MEDIATOR: return createPropertyMediator();
 			case EsbPackage.PROPERTY_MEDIATOR_INPUT_CONNECTOR: return createPropertyMediatorInputConnector();
@@ -1319,6 +1320,23 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public EJBMediatorOutputConnector createEJBMediatorOutputConnector() {
 		EJBMediatorOutputConnectorImpl ejbMediatorOutputConnector = new EJBMediatorOutputConnectorImpl();
 		return ejbMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public MethodArgument createMethodArgument() {
+		MethodArgumentImpl methodArgument = new MethodArgumentImpl();
+		NamespacedProperty namespacedProperty = createNamespacedProperty();
+		namespacedProperty.setPrettyName("property expression");
+		namespacedProperty.setPropertyName("expression");
+		namespacedProperty.setPropertyValue("/default/expression");
+		methodArgument.setPropertyExpression(namespacedProperty);
+		methodArgument.setPropertyName("property_name");
+		methodArgument.setPropertyValue("property_value");
+		return methodArgument;
 	}
 
 	/**

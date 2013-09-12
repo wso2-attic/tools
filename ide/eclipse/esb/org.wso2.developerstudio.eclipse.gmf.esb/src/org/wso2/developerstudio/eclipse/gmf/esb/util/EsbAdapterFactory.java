@@ -349,6 +349,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createEJBMediatorOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseMethodArgument(MethodArgument object) {
+				return createMethodArgumentAdapter();
+			}
+			@Override
 			public Adapter caseRegistryKeyProperty(RegistryKeyProperty object) {
 				return createRegistryKeyPropertyAdapter();
 			}
@@ -2316,6 +2320,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEJBMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument <em>Method Argument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MethodArgument
+	 * @generated
+	 */
+	public Adapter createMethodArgumentAdapter() {
 		return null;
 	}
 
