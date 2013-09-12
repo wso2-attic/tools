@@ -60,21 +60,21 @@ public class CacheMediatorDeserializer extends
 			if(mediator.getDigestGenerator()!=null){
 				executeSetValueCommand(CACHE_MEDIATOR__HASH_GENERATOR, mediator.getDigestGenerator().getClass().getName());
 			}
-		}
-		
-		String onCacheHitRef = mediator.getOnCacheHitRef();
-		SequenceMediator onCacheHitSequence = mediator.getOnCacheHitSequence();
-		
-		if(onCacheHitSequence!= null){
-			executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_TYPE, CacheSequenceType.ANONYMOUS);
-			refreshEditPartMap();
-			IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(mediatorModel.getMediatorFlow()).getChildren().get(0);
-			deserializeSequence(compartment, onCacheHitSequence, mediatorModel.getOnHitOutputConnector());
-		} else if(onCacheHitRef != null && !onCacheHitRef.equals("")){
-				executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_TYPE, CacheSequenceType.REGISTRY_REFERENCE);
-				RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
-				regkey.setKeyValue(onCacheHitRef);
-				executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_KEY, regkey);
+			
+			String onCacheHitRef = mediator.getOnCacheHitRef();
+			SequenceMediator onCacheHitSequence = mediator.getOnCacheHitSequence();
+			
+			if(onCacheHitSequence!= null){
+				executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_TYPE, CacheSequenceType.ANONYMOUS);
+				refreshEditPartMap();
+				IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(mediatorModel.getMediatorFlow()).getChildren().get(0);
+				deserializeSequence(compartment, onCacheHitSequence, mediatorModel.getOnHitOutputConnector());
+			} else if(onCacheHitRef != null && !onCacheHitRef.equals("")){
+					executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_TYPE, CacheSequenceType.REGISTRY_REFERENCE);
+					RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+					regkey.setKeyValue(onCacheHitRef);
+					executeSetValueCommand(CACHE_MEDIATOR__SEQUENCE_KEY, regkey);
+			}
 		}
 		
 		return mediatorModel;

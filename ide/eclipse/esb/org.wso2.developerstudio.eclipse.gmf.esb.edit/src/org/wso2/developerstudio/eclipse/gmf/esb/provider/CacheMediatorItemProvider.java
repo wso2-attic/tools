@@ -74,20 +74,19 @@ public class CacheMediatorItemProvider
 		addCacheScopePropertyDescriptor(object);
 		addCacheActionPropertyDescriptor(object);
 		
-		
-		addSequenceTypePropertyDescriptor(object);
-		if(cacheMediator.getSequenceType().equals(CacheSequenceType.REGISTRY_REFERENCE)){
-			//adding cache on hit property descriptor.
-			addSequenceKeyPropertyDescriptor(object);
-		}
-		
 		if (cacheMediator.getCacheAction().equals(CacheAction.FINDER)) {
 			addHashGeneratorPropertyDescriptor(object);
 			addCacheTimeoutPropertyDescriptor(object);
 			addMaxMessageSizePropertyDescriptor(object);
 			addImplementationTypePropertyDescriptor(object);
 			addMaxEntryCountPropertyDescriptor(object);
-		}
+			
+			addSequenceTypePropertyDescriptor(object);
+			if(cacheMediator.getSequenceType().equals(CacheSequenceType.REGISTRY_REFERENCE)){
+				//adding cache on hit property descriptor.
+				addSequenceKeyPropertyDescriptor(object);
+			}
+		} 
 		return itemPropertyDescriptors;
 	}
 
@@ -263,7 +262,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 "General",
+				 "Implementation",
 				 null));
 	}
 	
@@ -285,7 +284,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "General",
+				 "On Cache Hit",
 				 null));
 	}
 
@@ -307,7 +306,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 true,
 				 null,
-				 "General",
+				 "On Cache Hit",
 				 null));
 	}
 	
