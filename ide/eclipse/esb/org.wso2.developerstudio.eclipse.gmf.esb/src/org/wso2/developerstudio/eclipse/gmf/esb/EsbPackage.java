@@ -9879,13 +9879,31 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int OAUTH_MEDIATOR__REMOTE_SERVICE_URL = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Username</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OAUTH_MEDIATOR__USERNAME = MEDIATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Password</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OAUTH_MEDIATOR__PASSWORD = MEDIATOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OAUTH_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 1;
+	int OAUTH_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -9894,7 +9912,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int OAUTH_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 2;
+	int OAUTH_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>OAuth Mediator</em>' class.
@@ -9903,7 +9921,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int OAUTH_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 3;
+	int OAUTH_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OAuthMediatorInputConnectorImpl <em>OAuth Mediator Input Connector</em>}' class.
@@ -27824,6 +27842,28 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getOAuthMediator_RemoteServiceUrl();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator#getUsername <em>Username</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Username</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator#getUsername()
+	 * @see #getOAuthMediator()
+	 * @generated
+	 */
+	EAttribute getOAuthMediator_Username();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator#getPassword <em>Password</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Password</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator#getPassword()
+	 * @see #getOAuthMediator()
+	 * @generated
+	 */
+	EAttribute getOAuthMediator_Password();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator#getInputConnector <em>Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39072,6 +39112,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute OAUTH_MEDIATOR__REMOTE_SERVICE_URL = eINSTANCE.getOAuthMediator_RemoteServiceUrl();
+
+		/**
+		 * The meta object literal for the '<em><b>Username</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OAUTH_MEDIATOR__USERNAME = eINSTANCE.getOAuthMediator_Username();
+
+		/**
+		 * The meta object literal for the '<em><b>Password</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OAUTH_MEDIATOR__PASSWORD = eINSTANCE.getOAuthMediator_Password();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Connector</b></em>' containment reference feature.

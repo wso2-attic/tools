@@ -10337,8 +10337,26 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOAuthMediator_Username() {
+		return (EAttribute)oAuthMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOAuthMediator_Password() {
+		return (EAttribute)oAuthMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getOAuthMediator_InputConnector() {
-		return (EReference)oAuthMediatorEClass.getEStructuralFeatures().get(1);
+		return (EReference)oAuthMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -10347,7 +10365,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getOAuthMediator_OutputConnector() {
-		return (EReference)oAuthMediatorEClass.getEStructuralFeatures().get(2);
+		return (EReference)oAuthMediatorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -15066,6 +15084,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		oAuthMediatorEClass = createEClass(OAUTH_MEDIATOR);
 		createEAttribute(oAuthMediatorEClass, OAUTH_MEDIATOR__REMOTE_SERVICE_URL);
+		createEAttribute(oAuthMediatorEClass, OAUTH_MEDIATOR__USERNAME);
+		createEAttribute(oAuthMediatorEClass, OAUTH_MEDIATOR__PASSWORD);
 		createEReference(oAuthMediatorEClass, OAUTH_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(oAuthMediatorEClass, OAUTH_MEDIATOR__OUTPUT_CONNECTOR);
 
@@ -16932,6 +16952,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(oAuthMediatorEClass, OAuthMediator.class, "OAuthMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOAuthMediator_RemoteServiceUrl(), ecorePackage.getEString(), "remoteServiceUrl", "service_url", 0, 1, OAuthMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOAuthMediator_Username(), ecorePackage.getEString(), "username", "", 0, 1, OAuthMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOAuthMediator_Password(), ecorePackage.getEString(), "password", "", 0, 1, OAuthMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOAuthMediator_InputConnector(), this.getOAuthMediatorInputConnector(), null, "inputConnector", null, 0, 1, OAuthMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOAuthMediator_OutputConnector(), this.getOAuthMediatorOutputConnector(), null, "outputConnector", null, 0, 1, OAuthMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

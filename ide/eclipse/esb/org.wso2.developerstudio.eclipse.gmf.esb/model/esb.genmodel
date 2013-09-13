@@ -1217,6 +1217,8 @@
     <genClasses ecoreClass="esb.ecore#//TransactionMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//OAuthMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//OAuthMediator/remoteServiceUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//OAuthMediator/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//OAuthMediator/password"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//OAuthMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//OAuthMediator/outputConnector"/>
     </genClasses>

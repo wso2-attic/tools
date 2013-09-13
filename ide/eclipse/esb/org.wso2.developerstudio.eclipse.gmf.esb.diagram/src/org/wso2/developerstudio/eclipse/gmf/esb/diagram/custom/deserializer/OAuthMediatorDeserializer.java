@@ -1,5 +1,6 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -17,7 +18,17 @@ public class OAuthMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		OAuthMediator visualOauthMediator = (OAuthMediator) DeserializerUtils.createNode(part, EsbElementTypes.OAuthMediator_3524);
 		setElementToEdit(visualOauthMediator);
 		
-		executeSetValueCommand(OAUTH_MEDIATOR__REMOTE_SERVICE_URL, oauthMediator.getRemoteServiceUrl());
+		if (StringUtils.isNotBlank(oauthMediator.getRemoteServiceUrl())) {
+			executeSetValueCommand(OAUTH_MEDIATOR__REMOTE_SERVICE_URL, oauthMediator.getRemoteServiceUrl());
+		}
+		
+		if (StringUtils.isNotBlank(oauthMediator.getUsername())) {
+			executeSetValueCommand(OAUTH_MEDIATOR__USERNAME, oauthMediator.getUsername());
+		}
+		
+		if (StringUtils.isNotBlank(oauthMediator.getPassword())) {
+			executeSetValueCommand(OAUTH_MEDIATOR__PASSWORD, oauthMediator.getPassword());
+		}
 		
 		return visualOauthMediator;
 	}

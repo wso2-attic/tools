@@ -27,6 +27,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediatorOutputConnector;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OAuthMediatorImpl#getRemoteServiceUrl <em>Remote Service Url</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OAuthMediatorImpl#getUsername <em>Username</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OAuthMediatorImpl#getPassword <em>Password</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OAuthMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.OAuthMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
@@ -54,6 +56,46 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 	 * @ordered
 	 */
 	protected String remoteServiceUrl = REMOTE_SERVICE_URL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUsername()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String USERNAME_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getUsername() <em>Username</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUsername()
+	 * @generated
+	 * @ordered
+	 */
+	protected String username = USERNAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPassword() <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PASSWORD_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getPassword() <em>Password</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPassword()
+	 * @generated
+	 * @ordered
+	 */
+	protected String password = PASSWORD_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
@@ -114,6 +156,48 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 		remoteServiceUrl = newRemoteServiceUrl;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL, oldRemoteServiceUrl, remoteServiceUrl));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getUsername() {
+		return username;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUsername(String newUsername) {
+		String oldUsername = username;
+		username = newUsername;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.OAUTH_MEDIATOR__USERNAME, oldUsername, username));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPassword(String newPassword) {
+		String oldPassword = password;
+		password = newPassword;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.OAUTH_MEDIATOR__PASSWORD, oldPassword, password));
 	}
 
 	/**
@@ -229,6 +313,10 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 		switch (featureID) {
 			case EsbPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
 				return getRemoteServiceUrl();
+			case EsbPackage.OAUTH_MEDIATOR__USERNAME:
+				return getUsername();
+			case EsbPackage.OAUTH_MEDIATOR__PASSWORD:
+				return getPassword();
 			case EsbPackage.OAUTH_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.OAUTH_MEDIATOR__OUTPUT_CONNECTOR:
@@ -248,6 +336,12 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 		switch (featureID) {
 			case EsbPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
 				setRemoteServiceUrl((String)newValue);
+				return;
+			case EsbPackage.OAUTH_MEDIATOR__USERNAME:
+				setUsername((String)newValue);
+				return;
+			case EsbPackage.OAUTH_MEDIATOR__PASSWORD:
+				setPassword((String)newValue);
 				return;
 			case EsbPackage.OAUTH_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((OAuthMediatorInputConnector)newValue);
@@ -271,6 +365,12 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 			case EsbPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
 				setRemoteServiceUrl(REMOTE_SERVICE_URL_EDEFAULT);
 				return;
+			case EsbPackage.OAUTH_MEDIATOR__USERNAME:
+				setUsername(USERNAME_EDEFAULT);
+				return;
+			case EsbPackage.OAUTH_MEDIATOR__PASSWORD:
+				setPassword(PASSWORD_EDEFAULT);
+				return;
 			case EsbPackage.OAUTH_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((OAuthMediatorInputConnector)null);
 				return;
@@ -292,6 +392,10 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 		switch (featureID) {
 			case EsbPackage.OAUTH_MEDIATOR__REMOTE_SERVICE_URL:
 				return REMOTE_SERVICE_URL_EDEFAULT == null ? remoteServiceUrl != null : !REMOTE_SERVICE_URL_EDEFAULT.equals(remoteServiceUrl);
+			case EsbPackage.OAUTH_MEDIATOR__USERNAME:
+				return USERNAME_EDEFAULT == null ? username != null : !USERNAME_EDEFAULT.equals(username);
+			case EsbPackage.OAUTH_MEDIATOR__PASSWORD:
+				return PASSWORD_EDEFAULT == null ? password != null : !PASSWORD_EDEFAULT.equals(password);
 			case EsbPackage.OAUTH_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.OAUTH_MEDIATOR__OUTPUT_CONNECTOR:
@@ -313,6 +417,10 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (remoteServiceUrl: ");
 		result.append(remoteServiceUrl);
+		result.append(", username: ");
+		result.append(username);
+		result.append(", password: ");
+		result.append(password);
 		result.append(')');
 		return result.toString();
 	}

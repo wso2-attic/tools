@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
@@ -42,10 +43,20 @@ public class OAuthMediatorTransformer extends AbstractEsbNodeTransformer  {
 		Assert.isTrue(subject instanceof OAuthMediator, "Invalid subject.");
 		OAuthMediator visualOauth = (OAuthMediator) subject;
 
-		// Configure property mediator.
+		// Configure properties of the mediator.
 		org.wso2.carbon.identity.oauth.mediator.OAuthMediator OauthMediator = new org.wso2.carbon.identity.oauth.mediator.OAuthMediator();
 		{
-			OauthMediator.setRemoteServiceUrl(visualOauth.getRemoteServiceUrl());
+			if (StringUtils.isNotBlank(visualOauth.getRemoteServiceUrl())) {
+				OauthMediator.setRemoteServiceUrl(visualOauth.getRemoteServiceUrl());
+			}
+			
+			if (StringUtils.isNotBlank(visualOauth.getUsername())) {
+				OauthMediator.setUsername(visualOauth.getUsername());
+			}
+			
+			if (StringUtils.isNotBlank(visualOauth.getPassword())) {
+				OauthMediator.setPassword(visualOauth.getPassword());
+			}
 		}
 		return OauthMediator;
 	}

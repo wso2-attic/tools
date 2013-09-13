@@ -1317,6 +1317,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="OAuthMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteServiceUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="service_url"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//OAuthMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//OAuthMediatorOutputConnector"
