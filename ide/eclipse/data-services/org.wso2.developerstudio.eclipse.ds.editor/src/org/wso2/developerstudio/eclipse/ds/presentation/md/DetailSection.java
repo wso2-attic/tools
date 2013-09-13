@@ -1767,6 +1767,14 @@ public class DetailSection {
 					voidMaker();
 					voidMaker();
 				}
+
+               if(displayName.equals(DetailSectionCustomUiConstants.RESOURCE_RETURN_REQUEST_STATUS)){
+					
+					labelMaker(DetailSectionCustomUiConstants.RESOURCE_RETURN_REQUEST_STATUS);
+					sectionUtil.getBooleanComboField(detailsclient, toolkit, resource, resource.isReturnRequestStatus(),
+							DsPackage.eINSTANCE.getResource_ReturnRequestStatus());
+					
+				}
 				
 			}
 			

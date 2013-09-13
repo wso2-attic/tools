@@ -1765,13 +1765,22 @@ public interface DsPackage extends EPackage {
 	int RESOURCE__PATH = 3;
 
 	/**
+	 * The feature id for the '<em><b>Return Request Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__RETURN_REQUEST_STATUS = 4;
+
+	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = 4;
+	int RESOURCE_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.
@@ -3821,6 +3830,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getResource_Path();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.Resource#isReturnRequestStatus <em>Return Request Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Return Request Status</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.Resource#isReturnRequestStatus()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_ReturnRequestStatus();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.ResultMapping <em>Result Mapping</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5458,6 +5478,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RESOURCE__PATH = eINSTANCE.getResource_Path();
+
+		/**
+		 * The meta object literal for the '<em><b>Return Request Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__RETURN_REQUEST_STATUS = eINSTANCE.getResource_ReturnRequestStatus();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.

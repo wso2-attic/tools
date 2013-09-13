@@ -75,6 +75,7 @@ public class ResourceItemProvider
 
 			addMethodPropertyDescriptor(object);
 			addPathPropertyDescriptor(object);
+			addReturnRequestStatusPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -119,6 +120,28 @@ public class ResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Return Request Status feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturnRequestStatusPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Resource_returnRequestStatus_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Resource_returnRequestStatus_feature", "_UI_Resource_type"),
+				 DsPackage.Literals.RESOURCE__RETURN_REQUEST_STATUS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -201,6 +224,7 @@ public class ResourceItemProvider
 		switch (notification.getFeatureID(Resource.class)) {
 			case DsPackage.RESOURCE__METHOD:
 			case DsPackage.RESOURCE__PATH:
+			case DsPackage.RESOURCE__RETURN_REQUEST_STATUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DsPackage.RESOURCE__MIXED:

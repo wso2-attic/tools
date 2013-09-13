@@ -197,6 +197,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//Resource/callQuery"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/method"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//Resource/returnRequestStatus"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//ResultMapping">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/mixed"/>
