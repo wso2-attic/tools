@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.namespace.QName;
+import javax.xml.xquery.XQItemType;
 
-import net.sf.saxon.javax.xml.xquery.XQItemType;
 
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.Value;

@@ -79,9 +79,32 @@ public class XQueryMediatorItemProvider
 					break;
 				}
 				addTargetXPathPropertyDescriptor(object);
+				addVariablesPropertyDescriptor(object);
 				addDescriptionPropertyDescriptor(object);
 			
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Variables feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVariablesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_XQueryMediator_variables_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_XQueryMediator_variables_feature", "_UI_XQueryMediator_type"),
+				 EsbPackage.Literals.XQUERY_MEDIATOR__VARIABLES,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

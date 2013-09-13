@@ -27,7 +27,6 @@ Export-Package: org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.cu
 Import-Package: com.damnhandy.uri.template,
  com.sun.phobos.script.javascript,
  javax.xml.xquery,
- net.sf.saxon.javax.xml.xquery,
  org.apache.axiom.om,
  org.apache.axiom.om.impl.llom,
  org.apache.axiom.om.util,

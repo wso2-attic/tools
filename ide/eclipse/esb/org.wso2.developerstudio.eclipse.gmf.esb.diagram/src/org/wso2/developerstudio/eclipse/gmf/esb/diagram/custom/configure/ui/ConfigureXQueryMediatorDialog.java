@@ -117,6 +117,10 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 				public void handleEvent(Event event) {
 					int selectedIndex = xqueryVariableTable.getSelectionIndex();
 					if (-1 != selectedIndex) {
+						initTableEditor(variableTypeEditor, xqueryVariableTable);
+						initTableEditor(valueTypeEditor, xqueryVariableTable);
+						initTableEditor(regKeyEditor, xqueryVariableTable);
+						
 						unbindXQueryVariable(selectedIndex);
 
 						// Select the next available candidate for deletion.

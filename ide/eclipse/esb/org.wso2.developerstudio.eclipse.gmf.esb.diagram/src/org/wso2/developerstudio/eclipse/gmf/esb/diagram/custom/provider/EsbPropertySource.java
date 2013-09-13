@@ -124,6 +124,8 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getXQueryMediator_StaticScriptKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getXQueryMediator_Variables().equals(feature)){
+			return new XQueryVariablesPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getFaultMediator_FaultReasonExpression().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getFaultMediator_FaultDetailExpression().equals(feature)){

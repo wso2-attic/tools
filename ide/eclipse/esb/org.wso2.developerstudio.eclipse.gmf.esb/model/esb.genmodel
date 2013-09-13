@@ -1149,7 +1149,7 @@
     <genClasses ecoreClass="esb.ecore#//CacheMediatorOnHitOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CacheOnHitBranch"/>
     <genClasses ecoreClass="esb.ecore#//XQueryMediator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/variables"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/variables"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/targetXPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//XQueryMediator/scriptKeyType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/staticScriptKey"/>

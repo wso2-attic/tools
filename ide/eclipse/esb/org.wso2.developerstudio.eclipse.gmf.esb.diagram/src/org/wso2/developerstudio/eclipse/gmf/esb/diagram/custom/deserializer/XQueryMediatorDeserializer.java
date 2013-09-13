@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.saxon.javax.xml.xquery.XQItemType;
+import javax.xml.xquery.XQItemType;
 
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
@@ -162,7 +162,7 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 							break;
 					}
 					
-				}else if(mediatorVariable instanceof MediatorCustomVariable){
+				} else if(mediatorVariable instanceof MediatorCustomVariable){
 					
 					vishualVariable.setValueType(XQueryVariableValueType.EXPRESSION);
 					
@@ -240,13 +240,13 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 						case XQItemType.XQITEMKIND_ELEMENT:
 							vishualVariable.setVariableType(XQueryVariableType.ELEMENT);
 							break;
-					}
-					
+					}					
 				}
 				
-				varList.add(vishualVariable);
-			
+				varList.add(vishualVariable);			
 			}
+			
+			executeSetValueCommand(XQUERY_MEDIATOR__VARIABLES, varList);
 		}
 
 	    return VisualXqueryMediator;
