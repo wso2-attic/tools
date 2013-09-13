@@ -132,18 +132,18 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		tbtmBasic.setControl(cBasic);
 
 		Label lblSourceXPath = new Label(cBasic, SWT.NONE);
-		lblSourceXPath.setBounds(10, 24, 76, 15);
+		lblSourceXPath.setBounds(10, 24, 100, 15);
 		lblSourceXPath.setText("Source XPath");
 
 		Label lblXsltKey = new Label(cBasic, SWT.NONE);
-		lblXsltKey.setBounds(10, 57, 55, 15);
+		lblXsltKey.setBounds(10, 57, 100, 15);
 		lblXsltKey.setText("XSLT Key");
 
 		txtSourceXPath = new Text(cBasic, SWT.BORDER);
-		txtSourceXPath.setBounds(87, 21, 256, 21);
+		txtSourceXPath.setBounds(116, 21, 256, 21);
 
 		txtXsltKey = new Text(cBasic, SWT.BORDER);
-		txtXsltKey.setBounds(87, 54, 256, 21);
+		txtXsltKey.setBounds(116, 54, 256, 21);
 
 		Button cmdBrowseSourceXPath = new Button(cBasic, SWT.NONE);
 		cmdBrowseSourceXPath.addSelectionListener(new SelectionAdapter() {
@@ -157,7 +157,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 			}
 		});
 		cmdBrowseSourceXPath.setText("...");
-		cmdBrowseSourceXPath.setBounds(345, 21, 20, 20);
+		cmdBrowseSourceXPath.setBounds(378, 21, 20, 20);
 
 		Button cmdXsltKey = new Button(cBasic, SWT.NONE);
 		cmdXsltKey.addSelectionListener(new SelectionAdapter() {
@@ -165,7 +165,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 			}
 		});
 		cmdXsltKey.setText("...");
-		cmdXsltKey.setBounds(345, 54, 20, 20);
+		cmdXsltKey.setBounds(378, 54, 20, 20);
 		
 		//TODO: add registry browser support
 		cmdXsltKey.setVisible(false);
@@ -477,7 +477,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		for(TableItem item:tableResources.getItems()){
 			XSLTResource resource = EsbFactory.eINSTANCE.createXSLTResource();
 			RegistryKeyProperty key = EsbFactory.eINSTANCE.createRegistryKeyProperty();
-			key.setKeyName(item.getText(1));
+			key.setKeyName(item.getText(0));
 			key.setKeyValue(item.getText(1));
 			resource.setKey(key);
 			resource.setLocation(item.getText(1));

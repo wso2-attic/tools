@@ -48,7 +48,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction;
 public class ConfigureURLrewriteruleDialog extends Dialog {
 	private final FormToolkit formToolkit = new FormToolkit(
 			Display.getDefault());
-	private Text txtRuleEditor;
+	private Text txtCondition;
 	private Table tableRules;
 	private Button btnAdd;
 	private Button btnAddAction;
@@ -94,30 +94,13 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		container.setLayout(new FormLayout());
 		final Shell newshell = parent.getShell();
 
-		txtRuleEditor = formToolkit.createText(container, null, SWT.BORDER
-				| SWT.MULTI);
-		txtRuleEditor.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent arg0) {
-				int selectionIndex = tableRules.getSelectionIndex();
-				String rule = txtRuleEditor.getText();
-				if (selectionIndex > -1) {
-					TableItem item = tableRules.getItem(selectionIndex);
-					//item.setText(txtRuleEditor.getText());
-					EvaluatorExpressionProperty property = EsbFactory.eINSTANCE
-							.createEvaluatorExpressionProperty();
-					property.setEvaluatorName("Condition");
-					property.setEvaluatorValue(rule);
-					UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) item
-							.getData();
-					wraprule.setCondition(property);
-				}
-			}
-		});
+		createConditionLabel(container);
+		createConditionTextBox(container);
 		FormData fd_txtRuleEditor = new FormData();
-		fd_txtRuleEditor.right = new FormAttachment(100, -168);
-		fd_txtRuleEditor.left = new FormAttachment(0, 10);
-		txtRuleEditor.setLayoutData(fd_txtRuleEditor);
-		txtRuleEditor.setEnabled(false);
+		fd_txtRuleEditor.right = new FormAttachment(100, -10);
+		fd_txtRuleEditor.left = new FormAttachment(0, 80);
+		txtCondition.setLayoutData(fd_txtRuleEditor);
+		txtCondition.setEnabled(false);
 
 		btnAdd = new Button(container, SWT.NONE);
 		FormData fd_btnsave = new FormData();
@@ -163,8 +146,8 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				int selectedIndex = tableRules.getSelectionIndex();
 				if (-1 != selectedIndex) {
 					unbindRules(selectedIndex);
-					txtRuleEditor.setText("");
-					txtRuleEditor.setEnabled(false);
+					txtCondition.setText("");
+					txtCondition.setEnabled(false);
 					tableActions.removeAll();
 					btnRemoveAction.setEnabled(false);
 					btnAddAction.setEnabled(false);
@@ -261,6 +244,10 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		Label lblNewLabel = new Label(container, SWT.NONE);
 		FormData fd_lblNewLabel = new FormData();
 		fd_lblNewLabel.bottom = new FormAttachment(tableActions, -6);
+		fd_lblNewLabel.left = new FormAttachment(0, 10);
+		lblNewLabel.setLayoutData(fd_lblNewLabel);
+		formToolkit.adapt(lblNewLabel, true, true);
+		lblNewLabel.setText("Actions");
 
 		TableColumn tblclmnNewColumn_1 = new TableColumn(tableActions, SWT.NONE);
 		tblclmnNewColumn_1.setWidth(100);
@@ -285,10 +272,8 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		TableColumn tblclmnNewColumn_6 = new TableColumn(tableActions, SWT.NONE);
 		tblclmnNewColumn_6.setWidth(100);
 		tblclmnNewColumn_6.setText("Regex");
-		fd_lblNewLabel.left = new FormAttachment(0, 10);
-		lblNewLabel.setLayoutData(fd_lblNewLabel);
-		formToolkit.adapt(lblNewLabel, true, true);
-		lblNewLabel.setText("Actions");
+		
+		
 		tableRules.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				int selectedIndex = tableRules.getSelectionIndex();
@@ -349,18 +334,48 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		}
 		return container;
 	}
+
+	private void createConditionLabel(Composite container) {
+		Label lblCondition = new Label(container, SWT.NONE);
+		FormData lblConditionFormData = new FormData();
+		lblConditionFormData.top = new FormAttachment(tableRules, 190);
+		lblConditionFormData.left = new FormAttachment(0, 10);
+		lblCondition.setLayoutData(lblConditionFormData);
+		formToolkit.adapt(lblCondition, true, true);
+		lblCondition.setText("Condition");
+	}
+
+	private void createConditionTextBox(Composite container) {
+		txtCondition = formToolkit.createText(container, null, SWT.BORDER | SWT.MULTI);
+		txtCondition.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				int selectionIndex = tableRules.getSelectionIndex();
+				String rule = txtCondition.getText();
+				if (selectionIndex > -1) {
+					TableItem item = tableRules.getItem(selectionIndex);
+					//item.setText(txtRuleEditor.getText());
+					EvaluatorExpressionProperty property = EsbFactory.eINSTANCE.createEvaluatorExpressionProperty();
+					property.setEvaluatorName("Condition");
+					property.setEvaluatorValue(rule);
+					UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) item.getData();
+					wraprule.setCondition(property);
+				}
+			}
+		});
+	}
 	
 	private void fillActionsTable(int selectedIndex) {
 		TableItem item = tableRules.getItem(selectedIndex);
-		UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) item
-				.getData();
+		UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) item.getData();
 		if(wraprule.getCondition()!=null){
 			if(wraprule.getCondition().getEvaluatorValue()!=null){
-				txtRuleEditor.setText(wraprule.getCondition()
-						.getEvaluatorValue());
+				txtCondition.setText(wraprule.getCondition().getEvaluatorValue());
+			} else {
+				txtCondition.setText("");
 			}
 		}
-		txtRuleEditor.setEnabled(true);
+		
+		txtCondition.setEnabled(true);
 		btnRemoveAction.setEnabled(true);
 		btnAddAction.setEnabled(true);
 		tableActions.setEnabled(true);
@@ -464,6 +479,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		}
 	}
 
+	
 	private void createActionContorls(final TableItem item, final Shell newshell) {
 
 		updateSelection();
@@ -478,12 +494,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				RuleActionType.get(4).getLiteral() });
 		actionEditor.setEditor(comboAction, item, 0);
 		comboAction.select(action.getAction());
-		comboAction.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				item.setText(0, comboAction.getText());
-				action.setAction(comboAction.getSelectionIndex());
-			}
-		});
+		
 		fragmentEditor = new TableEditor(tableActions);
 		fragmentEditor.grabHorizontal = true;
 		final Combo comboFragment = createCombo(new String[] {
@@ -514,7 +525,6 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 
 		valueEditor = new TableEditor(tableActions);
 		final Text text = new Text(tableActions, SWT.NONE);
-		;
 		if (action.getOption() == 0) {
 			text.setEnabled(true);
 			if(action.getValue()!=null){
@@ -596,6 +606,29 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		regEditor.grabHorizontal = true;
 		regEditor.setEditor(txtreg, item, 5);
 		tableActions.redraw();
+		
+		comboAction.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				
+				int selectionIndex = comboAction.getSelectionIndex();
+				enableControls(comboOption, text, btnNS, txtreg, selectionIndex, action.getOption());
+				
+				item.setText(0, comboAction.getText());
+				action.setAction(comboAction.getSelectionIndex());
+			}
+		});
+		
+		enableControls(comboOption, text, btnNS, txtreg, action.getAction(), action.getOption());
+	}
+
+	private void enableControls(final Combo comboOption, final Text text, final Button btnNS,
+		final Text txtreg, int actionIndex, int optionIndex) {
+		boolean txtRegEnable = (actionIndex == 3);
+		boolean comboOptionEnable = (actionIndex != 4);
+		txtreg.setEnabled(txtRegEnable);
+		comboOption.setEnabled(comboOptionEnable);
+		text.setEnabled(comboOptionEnable && (optionIndex == 0));
+		btnNS.setEnabled(comboOptionEnable && (optionIndex == 1));
 	}
 
 	private Combo createCombo(String[] values) {
@@ -652,11 +685,11 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 			UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) tableItem
 					.getData();
 			URLRewriteRule rule = wraprule.getUrlRule();
-			EList<URLRewriteRuleAction> rewriteRuleAction = rule
-					.getRewriteRuleAction();
-			/* adding a new rule */
-			if (null == rule.eContainer()) {
-				rule.setUrlRewriteRuleCondition(wraprule.getCondition());
+			EList<URLRewriteRuleAction> rewriteRuleAction = rule.getRewriteRuleAction();
+ 			/* adding a new rule */
+ 			if (null == rule.eContainer()) {
+ 				rule.setUrlRewriteRuleCondition(wraprule.getCondition());
+			
 				List<UrlActionWrapper> actions = wraprule.getActions();
 				for (UrlActionWrapper urlActionWrapper : actions) {
 					URLRewriteRuleAction ruleAction = EsbFactory.eINSTANCE
