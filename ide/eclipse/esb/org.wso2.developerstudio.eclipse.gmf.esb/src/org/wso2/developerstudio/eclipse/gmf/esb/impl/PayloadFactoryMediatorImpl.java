@@ -27,6 +27,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,10 +38,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorOutputConn
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getFormatKey <em>Format Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getArgs <em>Args</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getMediaType <em>Media Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getPayloadFormat <em>Payload Format</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,6 +69,16 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 	 * @ordered
 	 */
 	protected String format = FORMAT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFormatKey() <em>Format Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFormatKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty formatKey;
 
 	/**
 	 * The cached value of the '{@link #getArgs() <em>Args</em>}' containment reference list.
@@ -117,6 +131,26 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 	protected MediaType mediaType = MEDIA_TYPE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getPayloadFormat() <em>Payload Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPayloadFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final PayloadFormatType PAYLOAD_FORMAT_EDEFAULT = PayloadFormatType.INLINE;
+
+	/**
+	 * The cached value of the '{@link #getPayloadFormat() <em>Payload Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPayloadFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected PayloadFormatType payloadFormat = PAYLOAD_FORMAT_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -124,6 +158,12 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 	protected PayloadFactoryMediatorImpl() {
 		super();
 		setFormat("<inline/>");
+		
+		RegistryKeyProperty payloadFormatKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		payloadFormatKey.setKeyName("Sequence Key");
+		payloadFormatKey.setPrettyName("Sequence Key");
+		payloadFormatKey.setKeyValue("/default/key");
+		setFormatKey(payloadFormatKey);
 	}
 
 	/**
@@ -155,6 +195,49 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 		format = newFormat;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT, oldFormat, format));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getFormatKey() {
+		return formatKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFormatKey(RegistryKeyProperty newFormatKey, NotificationChain msgs) {
+		RegistryKeyProperty oldFormatKey = formatKey;
+		formatKey = newFormatKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY, oldFormatKey, newFormatKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFormatKey(RegistryKeyProperty newFormatKey) {
+		if (newFormatKey != formatKey) {
+			NotificationChain msgs = null;
+			if (formatKey != null)
+				msgs = ((InternalEObject)formatKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY, null, msgs);
+			if (newFormatKey != null)
+				msgs = ((InternalEObject)newFormatKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY, null, msgs);
+			msgs = basicSetFormatKey(newFormatKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY, newFormatKey, newFormatKey));
 	}
 
 	/**
@@ -281,9 +364,32 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PayloadFormatType getPayloadFormat() {
+		return payloadFormat;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPayloadFormat(PayloadFormatType newPayloadFormat) {
+		PayloadFormatType oldPayloadFormat = payloadFormat;
+		payloadFormat = newPayloadFormat == null ? PAYLOAD_FORMAT_EDEFAULT : newPayloadFormat;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT, oldPayloadFormat, payloadFormat));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY:
+				return basicSetFormatKey(null, msgs);
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
 				return ((InternalEList<?>)getArgs()).basicRemove(otherEnd, msgs);
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__INPUT_CONNECTOR:
@@ -304,6 +410,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 		switch (featureID) {
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
 				return getFormat();
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY:
+				return getFormatKey();
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
 				return getArgs();
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__INPUT_CONNECTOR:
@@ -312,6 +420,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 				return getOutputConnector();
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
 				return getMediaType();
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT:
+				return getPayloadFormat();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,6 +438,9 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
 				setFormat((String)newValue);
 				return;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY:
+				setFormatKey((RegistryKeyProperty)newValue);
+				return;
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
 				getArgs().clear();
 				getArgs().addAll((Collection<? extends PayloadFactoryArgument>)newValue);
@@ -340,6 +453,9 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 				return;
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
 				setMediaType((MediaType)newValue);
+				return;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT:
+				setPayloadFormat((PayloadFormatType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -356,6 +472,9 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
 				setFormat(FORMAT_EDEFAULT);
 				return;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY:
+				setFormatKey((RegistryKeyProperty)null);
+				return;
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
 				getArgs().clear();
 				return;
@@ -367,6 +486,9 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 				return;
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
 				setMediaType(MEDIA_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT:
+				setPayloadFormat(PAYLOAD_FORMAT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -382,6 +504,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 		switch (featureID) {
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
 				return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY:
+				return formatKey != null;
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
 				return args != null && !args.isEmpty();
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__INPUT_CONNECTOR:
@@ -390,6 +514,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 				return outputConnector != null;
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
 				return mediaType != MEDIA_TYPE_EDEFAULT;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT:
+				return payloadFormat != PAYLOAD_FORMAT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -408,6 +534,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 		result.append(format);
 		result.append(", mediaType: ");
 		result.append(mediaType);
+		result.append(", payloadFormat: ");
+		result.append(payloadFormat);
 		result.append(')');
 		return result.toString();
 	}

@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.transform.Argument;
 import org.apache.synapse.util.xpath.SynapseJsonPath;
@@ -33,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 /**
@@ -69,7 +71,16 @@ public class PayloadFactoryMediatorTransformer extends AbstractEsbNodeTransforme
 		PayloadFactoryMediator visualPayloadFactory = (PayloadFactoryMediator) subject;
 
 		org.apache.synapse.mediators.transform.PayloadFactoryMediator payloadFactoryMediator = new org.apache.synapse.mediators.transform.PayloadFactoryMediator();
-		payloadFactoryMediator.setFormat(visualPayloadFactory.getFormat());
+		
+		if (visualPayloadFactory.getPayloadFormat().equals(PayloadFormatType.REGISTRY_REFERENCE)) {
+			Value formatKey = new Value(visualPayloadFactory.getFormatKey().getKeyValue());
+			payloadFactoryMediator.setFormatKey(formatKey);
+			payloadFactoryMediator.setFormatDynamic(true);
+		} else {
+			payloadFactoryMediator.setFormat(visualPayloadFactory.getFormat());
+			payloadFactoryMediator.setFormatDynamic(false);
+		}
+		
 		String mediaType = visualPayloadFactory.getMediaType().toString();
 		payloadFactoryMediator.setType(mediaType);
 		EList<PayloadFactoryArgument> args = visualPayloadFactory.getArgs();

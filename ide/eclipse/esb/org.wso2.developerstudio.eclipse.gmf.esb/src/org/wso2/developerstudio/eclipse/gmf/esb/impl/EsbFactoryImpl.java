@@ -549,6 +549,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createMediaTypeFromString(eDataType, initialValue);
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
 				return createPayloadFactoryArgumentTypeFromString(eDataType, initialValue);
+			case EsbPackage.PAYLOAD_FORMAT_TYPE:
+				return createPayloadFormatTypeFromString(eDataType, initialValue);
 			case EsbPackage.TYPE:
 				return createTypeFromString(eDataType, initialValue);
 			case EsbPackage.LOAD_BALANCE_SESSION_TYPE:
@@ -751,6 +753,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertMediaTypeToString(eDataType, instanceValue);
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
 				return convertPayloadFactoryArgumentTypeToString(eDataType, instanceValue);
+			case EsbPackage.PAYLOAD_FORMAT_TYPE:
+				return convertPayloadFormatTypeToString(eDataType, instanceValue);
 			case EsbPackage.TYPE:
 				return convertTypeToString(eDataType, instanceValue);
 			case EsbPackage.LOAD_BALANCE_SESSION_TYPE:
@@ -5650,6 +5654,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertPayloadFactoryArgumentTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PayloadFormatType createPayloadFormatTypeFromString(EDataType eDataType, String initialValue) {
+		PayloadFormatType result = PayloadFormatType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPayloadFormatTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

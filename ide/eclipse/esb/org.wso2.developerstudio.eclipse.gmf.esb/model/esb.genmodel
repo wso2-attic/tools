@@ -439,6 +439,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFactoryArgumentType/VALUE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFactoryArgumentType/EXPRESSION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//PayloadFormatType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFormatType/INLINE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PayloadFormatType/REGISTRY_REFERENCE"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//Type">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//Type/HTTP"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//Type/SIMPLE_CLIENT_SESSION"/>
@@ -1483,11 +1487,13 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//PayloadFactoryMediator">
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute esb.ecore#//PayloadFactoryMediator/format"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryMediator/formatKey"/>
       <genFeatures children="true" createChild="true" propertyDescription="Arguments"
           ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryMediator/args"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryMediator/outputConnector"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//PayloadFactoryMediator/mediaType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//PayloadFactoryMediator/payloadFormat"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//PayloadFactoryMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//PayloadFactoryMediatorOutputConnector"/>

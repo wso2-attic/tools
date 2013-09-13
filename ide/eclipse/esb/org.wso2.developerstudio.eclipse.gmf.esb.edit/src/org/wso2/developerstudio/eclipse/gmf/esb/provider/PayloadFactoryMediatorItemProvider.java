@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator} object.
@@ -61,12 +62,20 @@ public class PayloadFactoryMediatorItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		PayloadFactoryMediator mediator = (PayloadFactoryMediator)object;
+		
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
 		super.getPropertyDescriptors(object);
 
-		addFormatPropertyDescriptor(object);
+		addPayloadFormatPropertyDescriptor(object);
+		if (mediator.getPayloadFormat().equals(PayloadFormatType.REGISTRY_REFERENCE)) {
+			addFormatKeyPropertyDescriptor(object);
+		} else {
+			addFormatPropertyDescriptor(object);
+		}
+		
 		addArgsPropertyDescriptor(object);
 		addMediaTypePropertyDescriptor(object);
 		addDescriptionPropertyDescriptor(object);
@@ -92,6 +101,28 @@ public class PayloadFactoryMediatorItemProvider
 				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Format Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFormatKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PayloadFactoryMediator_formatKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryMediator_formatKey_feature", "_UI_PayloadFactoryMediator_type"),
+				 EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}
@@ -141,6 +172,28 @@ public class PayloadFactoryMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Payload Format feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPayloadFormatPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PayloadFactoryMediator_payloadFormat_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryMediator_payloadFormat_feature", "_UI_PayloadFactoryMediator_type"),
+				 EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -152,6 +205,7 @@ public class PayloadFactoryMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__ARGS);
 			childrenFeatures.add(EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__OUTPUT_CONNECTOR);
@@ -208,8 +262,10 @@ public class PayloadFactoryMediatorItemProvider
 		switch (notification.getFeatureID(PayloadFactoryMediator.class)) {
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT:
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY:
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__ARGS:
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__OUTPUT_CONNECTOR:
@@ -229,6 +285,11 @@ public class PayloadFactoryMediatorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter

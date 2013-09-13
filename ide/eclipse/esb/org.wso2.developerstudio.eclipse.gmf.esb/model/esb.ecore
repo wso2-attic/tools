@@ -1875,6 +1875,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PayloadFactoryMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="formatKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="args" upperBound="-1" eType="#//PayloadFactoryArgument"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//PayloadFactoryMediatorInputConnector"
@@ -1883,6 +1885,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mediaType" eType="#//MediaType"
         defaultValueLiteral="xml"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="payloadFormat" eType="#//PayloadFormatType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MediaType">
     <eLiterals name="XML" literal="xml"/>
@@ -1903,6 +1906,10 @@
   <eClassifiers xsi:type="ecore:EEnum" name="PayloadFactoryArgumentType">
     <eLiterals name="VALUE" literal="Value"/>
     <eLiterals name="EXPRESSION" value="1" literal="Expression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PayloadFormatType">
+    <eLiterals name="INLINE" literal="Inline"/>
+    <eLiterals name="REGISTRY_REFERENCE" value="1" literal="Registry Reference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalRouteBranch" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakAfterRoute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

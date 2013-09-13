@@ -13,6 +13,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MediaType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
@@ -28,7 +30,17 @@ public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeseriali
 		PayloadFactoryMediator visualPayloadFactoryMediator = (PayloadFactoryMediator) DeserializerUtils.createNode(part, EsbElementTypes.PayloadFactoryMediator_3597);
 		setElementToEdit(visualPayloadFactoryMediator);
 		
-		executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__FORMAT, payloadFactoryMediator.getFormat());
+		if (payloadFactoryMediator.getFormatKey() != null) {
+			executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT, PayloadFormatType.REGISTRY_REFERENCE);
+			RegistryKeyProperty payloadFormatKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+			payloadFormatKey.setKeyValue(payloadFactoryMediator.getFormatKey().getKeyValue());
+			
+			executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__FORMAT_KEY, payloadFormatKey);
+			
+		} else {
+			executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT, PayloadFormatType.INLINE);
+			executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__FORMAT, payloadFactoryMediator.getFormat());
+		}
 		
 		if (payloadFactoryMediator.getType() != null) {
 			if(payloadFactoryMediator.getType().equals(XML_LITERAL)){

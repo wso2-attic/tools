@@ -17,10 +17,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getFormatKey <em>Format Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getArgs <em>Args</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getMediaType <em>Media Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getPayloadFormat <em>Payload Format</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,6 +56,32 @@ public interface PayloadFactoryMediator extends Mediator {
 	 * @generated
 	 */
 	void setFormat(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Format Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Format Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Format Key</em>' containment reference.
+	 * @see #setFormatKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getPayloadFactoryMediator_FormatKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getFormatKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getFormatKey <em>Format Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Format Key</em>' containment reference.
+	 * @see #getFormatKey()
+	 * @generated
+	 */
+	void setFormatKey(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Args</b></em>' containment reference list.
@@ -152,5 +180,34 @@ public interface PayloadFactoryMediator extends Mediator {
 	 * @generated
 	 */
 	void setMediaType(MediaType value);
+
+	/**
+	 * Returns the value of the '<em><b>Payload Format</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Payload Format</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Payload Format</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType
+	 * @see #setPayloadFormat(PayloadFormatType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getPayloadFactoryMediator_PayloadFormat()
+	 * @model
+	 * @generated
+	 */
+	PayloadFormatType getPayloadFormat();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getPayloadFormat <em>Payload Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Payload Format</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType
+	 * @see #getPayloadFormat()
+	 * @generated
+	 */
+	void setPayloadFormat(PayloadFormatType value);
 
 } // PayloadFactoryMediator
