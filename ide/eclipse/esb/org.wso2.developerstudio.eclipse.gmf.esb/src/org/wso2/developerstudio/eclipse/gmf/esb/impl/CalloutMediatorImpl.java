@@ -68,7 +68,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SERVICE_URL_EDEFAULT = "service_url";
+	protected static final String SERVICE_URL_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getServiceURL() <em>Service URL</em>}' attribute.
@@ -88,7 +88,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SOAP_ACTION_EDEFAULT = "soap_action";
+	protected static final String SOAP_ACTION_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
@@ -460,7 +460,7 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 		endpointKey.setPrettyName("endpoint Key");
 		endpointKey.setKeyName("key");
 		endpointKey.setKeyValue(DEFAULT_REGISTRY_KEY);
-		setAddressEndpoint(endpointKey);
+		//setAddressEndpoint(endpointKey);	//purposely commented since we do not want to default values to be serialized
 		
 	}
 

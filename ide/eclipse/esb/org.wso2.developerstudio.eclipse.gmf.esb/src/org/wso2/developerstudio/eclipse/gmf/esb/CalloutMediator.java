@@ -46,7 +46,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
 public interface CalloutMediator extends Mediator {
 	/**
 	 * Returns the value of the '<em><b>Service URL</b></em>' attribute.
-	 * The default value is <code>"service_url"</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Service URL</em>' attribute isn't clear,
@@ -56,7 +56,7 @@ public interface CalloutMediator extends Mediator {
 	 * @return the value of the '<em>Service URL</em>' attribute.
 	 * @see #setServiceURL(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_ServiceURL()
-	 * @model default="service_url"
+	 * @model default=""
 	 * @generated
 	 */
 	String getServiceURL();
@@ -73,7 +73,7 @@ public interface CalloutMediator extends Mediator {
 
 	/**
 	 * Returns the value of the '<em><b>Soap Action</b></em>' attribute.
-	 * The default value is <code>"soap_action"</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Soap Action</em>' attribute isn't clear,
@@ -83,7 +83,7 @@ public interface CalloutMediator extends Mediator {
 	 * @return the value of the '<em>Soap Action</em>' attribute.
 	 * @see #setSoapAction(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCalloutMediator_SoapAction()
-	 * @model default="soap_action"
+	 * @model default=""
 	 * @generated
 	 */
 	String getSoapAction();

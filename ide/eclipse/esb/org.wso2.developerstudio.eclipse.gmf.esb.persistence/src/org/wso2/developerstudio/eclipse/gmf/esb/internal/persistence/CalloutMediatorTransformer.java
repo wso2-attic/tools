@@ -57,13 +57,18 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 		{
 			
 			if(visualCallout.getEndpointType().getValue()==CalloutEndpointType.URL_VALUE){
-				calloutMediator.setServiceURL(visualCallout.getServiceURL());
+				if (!visualCallout.getServiceURL().isEmpty()) {
+					calloutMediator.setServiceURL(visualCallout.getServiceURL());
+				}
 			}else{
-				if (visualCallout.getAddressEndpoint() != null){
-				calloutMediator.setEndpointKey(visualCallout.getAddressEndpoint().getKeyValue());
+				if (visualCallout.getAddressEndpoint() != null && !visualCallout.getAddressEndpoint().getKeyValue().isEmpty()){
+					calloutMediator.setEndpointKey(visualCallout.getAddressEndpoint().getKeyValue());
 				}
 			}
-			calloutMediator.setAction(visualCallout.getSoapAction());
+			
+			if (!visualCallout.getSoapAction().isEmpty()) {
+				calloutMediator.setAction(visualCallout.getSoapAction());
+			}
 
 			if (visualCallout.getPayloadType().getValue() == 0) {
 
