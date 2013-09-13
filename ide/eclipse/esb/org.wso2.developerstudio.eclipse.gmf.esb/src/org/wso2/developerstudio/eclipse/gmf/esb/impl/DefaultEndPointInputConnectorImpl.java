@@ -43,9 +43,9 @@ public class DefaultEndPointInputConnectorImpl extends InputConnectorImpl implem
 	}
 	
 	
-	public boolean shouldConnect(OutputConnector sourceEnd) {
+/*	public boolean shouldConnect(OutputConnector sourceEnd) {
 		// making endpoint usable by more than one sequence
 		return true;
-	}
+	}*/
 
 } //DefaultEndPointInputConnectorImpl

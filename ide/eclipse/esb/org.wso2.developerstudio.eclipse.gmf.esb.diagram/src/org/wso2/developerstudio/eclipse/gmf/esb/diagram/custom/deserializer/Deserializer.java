@@ -121,9 +121,9 @@ public class Deserializer {
 	@SuppressWarnings("unchecked")
 	public void updateDesign(String source, EsbDiagramEditor graphicalEditor) throws Exception {
 		
-		Map<String, Object> artifacts = getArtifacts(source);
-		
 		EsbDeserializerRegistry.getInstance().init(graphicalEditor);
+		Map<String, Object> artifacts = getArtifacts(source);		
+		
 		Diagram diagram = graphicalEditor.getDiagram();
 		EsbDiagram esbDiagram = (EsbDiagram) diagram.getElement();
 		EsbServer esbServer = esbDiagram.getServer();
