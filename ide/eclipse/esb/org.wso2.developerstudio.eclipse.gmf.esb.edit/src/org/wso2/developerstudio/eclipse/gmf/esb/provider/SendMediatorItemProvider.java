@@ -26,7 +26,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 
 /**
@@ -68,10 +67,10 @@ public class SendMediatorItemProvider
 		}	
 		super.getPropertyDescriptors(object);	
 		addSkipSerializationPropertyDescriptor(object);
-		addBuildMessageBeforeSendingPropertyDescriptor(object);
 		
 		if (!sendMediator.isSkipSerialization()) {
 			addReceivingSequenceTypePropertyDescriptor(object);
+			addBuildMessageBeforeSendingPropertyDescriptor(object);
 			switch (sendMediator.getReceivingSequenceType()) {
 			case DEFAULT:
 				break;
