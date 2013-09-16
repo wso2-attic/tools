@@ -27,6 +27,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleType;
@@ -87,7 +88,7 @@ public String getMediatorClassName() {
 			}
 			
 			fact.setTypeClass(ruleResult.getResultType().getClass());
-			fact.setXpath(ruleResult.getValueExpression().getPropertyValue());
+			//fact.setXpath(ruleResult.getValueExpression().getPropertyValue());
 			fact.setNamespace(visualRule.getOutputNameSpace());
 			resultfactsList.add(fact);
         }
@@ -119,6 +120,13 @@ public String getMediatorClassName() {
         	 rulesetMap.put(ruleSetCreationProperty.getPropertyName(),ruleSetCreationProperty.getPropertyValue());
 		}
         ruleSet.setProperties(rulesetMap);*/
+        
+        Map<String,String> rulesetMap = new HashMap<String, String>();
+        EList<RuleSessionProperty> ruleSetProperties = visualRule.getRuleSessionProperties();
+        for (RuleSessionProperty ruleSetCreationProperty : ruleSetProperties) {
+        	 rulesetMap.put(ruleSetCreationProperty.getPropertyName(),ruleSetCreationProperty.getPropertyValue());
+		}
+        ruleSet.setProperties(rulesetMap);
         
         List<Rule> list = new ArrayList<Rule>();
         Rule rule = new Rule();

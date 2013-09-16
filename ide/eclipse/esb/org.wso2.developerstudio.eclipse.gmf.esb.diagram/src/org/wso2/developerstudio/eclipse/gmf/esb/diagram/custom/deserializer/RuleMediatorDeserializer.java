@@ -16,9 +16,13 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Map;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.carbon.rule.common.Fact;
 import org.wso2.carbon.rule.common.Input;
@@ -29,12 +33,14 @@ import org.wso2.carbon.rule.mediator.config.RuleMediatorConfig;
 import org.wso2.carbon.rule.mediator.config.Source;
 import org.wso2.carbon.rule.mediator.config.Target;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleActions;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -133,12 +139,27 @@ public class RuleMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_URL, rule.getValue());			
 				} else if("registry".equals(rule.getSourceType())) {
 					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_TYPE, RuleSourceType.REGISTRY);
-					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_KEY, rule.getValue());
+					RegistryKeyProperty ruleSourceKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+					ruleSourceKey.setKeyValue(rule.getValue());
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_KEY, ruleSourceKey);
 				} else {
 					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_TYPE, RuleSourceType.INLINE);
 					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_CODE, rule.getValue());
 				}
 			}
+			
+			// RuleSet Properties.
+			EList<RuleSessionProperty> sessionPropertyList = new BasicEList<RuleSessionProperty>();
+			for (Map.Entry<String, String> property : ruleSet.getProperties().entrySet()) {
+				RuleSessionProperty sessionProperty = EsbFactory.eINSTANCE
+						.createRuleSessionProperty();
+				sessionProperty.setPropertyName(property.getKey());
+				sessionProperty.setPropertyValue(property.getValue());
+
+				sessionPropertyList.add(sessionProperty);
+			}
+
+			executeSetValueCommand(RULE_MEDIATOR__RULE_SESSION_PROPERTIES, sessionPropertyList);
 		}
 		
 		Source source = ruleMediatorConfig.getSource();
