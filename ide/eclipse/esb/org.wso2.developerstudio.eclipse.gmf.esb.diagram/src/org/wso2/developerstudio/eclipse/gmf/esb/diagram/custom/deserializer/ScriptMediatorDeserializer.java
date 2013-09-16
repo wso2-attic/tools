@@ -29,6 +29,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
 import org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum;
@@ -41,9 +42,16 @@ public class ScriptMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		org.apache.synapse.mediators.bsf.ScriptMediator scriptMediator = (org.apache.synapse.mediators.bsf.ScriptMediator)mediator;		
 		ScriptMediator visualScriptMediator = (ScriptMediator) DeserializerUtils.createNode(part, EsbElementTypes.ScriptMediator_3508);
 		setElementToEdit(visualScriptMediator);
-		String type = scriptMediator.getScriptSrc();
-
-		executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_LANGUAGE, scriptMediator.getLanguage());
+		String type = scriptMediator.getScriptSrc();		
+		
+		if("js".equals(scriptMediator.getLanguage())){
+			executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_LANGUAGE, ScriptLanguage.JAVASCRIPT);
+		}else if("rb".equals(scriptMediator.getLanguage())){
+			executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_LANGUAGE, ScriptLanguage.RUBY);
+		}else if("groovy".equals(scriptMediator.getLanguage())){
+			executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_LANGUAGE, ScriptLanguage.GROOVY);
+		}
+		
 		if(type!=null){
 		   executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_TYPE, ScriptType.INLINE);
 		   executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_BODY, scriptMediator.getScriptSrc());
