@@ -15,6 +15,8 @@ public class AbstractBaseFigureEditPart extends AbstractBorderedShapeEditPart{
 	
 	public IFigure outSequenceOutputConnectorFigure;
 	
+	public IFigure inSequenceInputConnectorFigure;
+	
 	protected int y=0;
 	protected int x=0;
 	

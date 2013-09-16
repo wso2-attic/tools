@@ -58,7 +58,7 @@ public class MediatorFlowMediatorFlowCompartment19EditPart extends
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 7046;
-	
+
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
@@ -100,7 +100,7 @@ public class MediatorFlowMediatorFlowCompartment19EditPart extends
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment19CanonicalEditPolicy());
 	}
-	
+
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
 		if (child instanceof NamedEndpointEditPart) {
@@ -119,7 +119,7 @@ public class MediatorFlowMediatorFlowCompartment19EditPart extends
 							log.error("This is occured while undo operation..", e);
 						}
 					}
-				} 
+				}
 			}
 		}
 	}

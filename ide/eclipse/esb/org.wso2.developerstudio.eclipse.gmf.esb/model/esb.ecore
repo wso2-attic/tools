@@ -102,6 +102,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outSequenceOutputConnector"
         eType="#//ProxyOutSequenceOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inSequenceInputConnectors"
+        upperBound="-1" eType="#//ProxyInSequenceInputConnector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="proxy1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pinnedServers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -170,6 +172,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ProxyOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyOutSequenceOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyInSequenceInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyWSDLResource" eSuperTypes="#//AbstractLocationKeyResource"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyFaultInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceParameter">

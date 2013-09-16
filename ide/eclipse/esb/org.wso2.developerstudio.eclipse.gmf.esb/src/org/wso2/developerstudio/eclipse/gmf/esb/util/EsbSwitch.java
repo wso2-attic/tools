@@ -185,6 +185,14 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.PROXY_IN_SEQUENCE_INPUT_CONNECTOR: {
+				ProxyInSequenceInputConnector proxyInSequenceInputConnector = (ProxyInSequenceInputConnector)theEObject;
+				T result = caseProxyInSequenceInputConnector(proxyInSequenceInputConnector);
+				if (result == null) result = caseInputConnector(proxyInSequenceInputConnector);
+				if (result == null) result = caseEsbConnector(proxyInSequenceInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.PROXY_WSDL_RESOURCE: {
 				ProxyWSDLResource proxyWSDLResource = (ProxyWSDLResource)theEObject;
 				T result = caseProxyWSDLResource(proxyWSDLResource);
@@ -2803,6 +2811,21 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProxyOutSequenceOutputConnector(ProxyOutSequenceOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Proxy In Sequence Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Proxy In Sequence Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProxyInSequenceInputConnector(ProxyInSequenceInputConnector object) {
 		return null;
 	}
 

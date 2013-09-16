@@ -2978,6 +2978,10 @@
       name="APIResourceOutSequenceOutputConnector"
       figure="WestPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="ProxyInSequenceInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

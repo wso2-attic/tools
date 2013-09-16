@@ -142,6 +142,16 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 					.getBorderItemContainer()
 					.add(baseFigureEditPart.outSequenceOutputConnectorFigure,
 							outSequenceOutputLocator);
+			/*			if(baseFigureEditPart.inSequenceInputConnectorFigure !=null){
+			 BorderItemLocator inSequenceInputLocator = new FixedBorderItemLocator(
+			 this.getFigure(), baseFigureEditPart.inSequenceInputConnectorFigure,
+			 PositionConstants.EAST, 0.25);
+			 baseFigureEditPart
+			 .getBorderedFigure()
+			 .getBorderItemContainer()
+			 .add(baseFigureEditPart.inSequenceInputConnectorFigure,
+			 inSequenceInputLocator);
+			 }*/
 
 		} else {
 			//Should handle properly.
@@ -266,8 +276,8 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			this.setForegroundColor(new Color(null, 0, 0, 0));
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(30000), getMapMode()
-					.DPtoLP(30000)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(30000), getMapMode().DPtoLP(
+					30000)));
 		}
 
 		public void add(IFigure figure, Object constraint, int index) {

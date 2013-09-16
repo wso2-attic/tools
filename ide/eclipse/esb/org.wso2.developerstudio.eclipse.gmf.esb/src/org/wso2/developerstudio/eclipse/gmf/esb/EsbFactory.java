@@ -98,6 +98,15 @@ public interface EsbFactory extends EFactory {
 	ProxyOutSequenceOutputConnector createProxyOutSequenceOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Proxy In Sequence Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy In Sequence Input Connector</em>'.
+	 * @generated
+	 */
+	ProxyInSequenceInputConnector createProxyInSequenceInputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Proxy WSDL Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

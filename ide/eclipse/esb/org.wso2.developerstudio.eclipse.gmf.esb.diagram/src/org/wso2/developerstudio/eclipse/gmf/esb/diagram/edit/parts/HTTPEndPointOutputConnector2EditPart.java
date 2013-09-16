@@ -378,6 +378,9 @@ public class HTTPEndPointOutputConnector2EditPart extends AbstractBorderItemEdit
 		if (targetEditPart instanceof CloudConnectorOperationInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof ProxyInSequenceInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -487,6 +490,7 @@ public class HTTPEndPointOutputConnector2EditPart extends AbstractBorderItemEdit
 			types.add(EsbElementTypes.TemplateEndpointInputConnector_3717);
 			types.add(EsbElementTypes.CloudConnectorInputConnector_3720);
 			types.add(EsbElementTypes.CloudConnectorOperationInputConnector_3723);
+			types.add(EsbElementTypes.ProxyInSequenceInputConnector_3731);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);

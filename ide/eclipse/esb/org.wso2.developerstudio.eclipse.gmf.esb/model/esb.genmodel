@@ -570,6 +570,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/faultInputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/outSequenceOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/inSequenceInputConnectors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/pinnedServers"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/serviceGroup"/>
@@ -612,6 +613,7 @@
     <genClasses ecoreClass="esb.ecore#//ProxyOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyOutSequenceOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//ProxyInSequenceInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyWSDLResource"/>
     <genClasses ecoreClass="esb.ecore#//ProxyFaultInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceParameter">

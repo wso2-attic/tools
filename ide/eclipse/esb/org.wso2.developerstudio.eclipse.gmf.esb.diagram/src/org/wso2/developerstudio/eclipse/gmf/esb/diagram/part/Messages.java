@@ -1488,6 +1488,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ProxyInSequenceInputConnector_3731_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_AggregateMediatorOutputConnector_3113_outgoinglinks;
 
 	/**

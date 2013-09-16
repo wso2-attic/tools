@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyFaultInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutSequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutputConnector;
@@ -58,6 +59,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultInputConnector <em>Fault Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getOutSequenceOutputConnector <em>Out Sequence Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getInSequenceInputConnectors <em>In Sequence Input Connectors</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getPinnedServers <em>Pinned Servers</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getServiceGroup <em>Service Group</em>}</li>
@@ -136,6 +138,16 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @ordered
 	 */
 	protected ProxyOutSequenceOutputConnector outSequenceOutputConnector;
+
+	/**
+	 * The cached value of the '{@link #getInSequenceInputConnectors() <em>In Sequence Input Connectors</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInSequenceInputConnectors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ProxyInSequenceInputConnector> inSequenceInputConnectors;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -918,6 +930,18 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR, newOutSequenceOutputConnector, newOutSequenceOutputConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProxyInSequenceInputConnector> getInSequenceInputConnectors() {
+		if (inSequenceInputConnectors == null) {
+			inSequenceInputConnectors = new EObjectContainmentEList<ProxyInSequenceInputConnector>(ProxyInSequenceInputConnector.class, this, EsbPackage.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS);
+		}
+		return inSequenceInputConnectors;
 	}
 
 	/**
@@ -1823,6 +1847,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return basicSetFaultInputConnector(null, msgs);
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				return basicSetOutSequenceOutputConnector(null, msgs);
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS:
+				return ((InternalEList<?>)getInSequenceInputConnectors()).basicRemove(otherEnd, msgs);
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 				return ((InternalEList<?>)getServiceParameters()).basicRemove(otherEnd, msgs);
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
@@ -1870,6 +1896,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return getFaultInputConnector();
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				return getOutSequenceOutputConnector();
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS:
+				return getInSequenceInputConnectors();
 			case EsbPackage.PROXY_SERVICE__NAME:
 				return getName();
 			case EsbPackage.PROXY_SERVICE__PINNED_SERVERS:
@@ -1961,6 +1989,10 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return;
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				setOutSequenceOutputConnector((ProxyOutSequenceOutputConnector)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS:
+				getInSequenceInputConnectors().clear();
+				getInSequenceInputConnectors().addAll((Collection<? extends ProxyInSequenceInputConnector>)newValue);
 				return;
 			case EsbPackage.PROXY_SERVICE__NAME:
 				setName((String)newValue);
@@ -2089,6 +2121,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				setOutSequenceOutputConnector((ProxyOutSequenceOutputConnector)null);
 				return;
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS:
+				getInSequenceInputConnectors().clear();
+				return;
 			case EsbPackage.PROXY_SERVICE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -2209,6 +2244,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return faultInputConnector != null;
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				return outSequenceOutputConnector != null;
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS:
+				return inSequenceInputConnectors != null && !inSequenceInputConnectors.isEmpty();
 			case EsbPackage.PROXY_SERVICE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case EsbPackage.PROXY_SERVICE__PINNED_SERVERS:

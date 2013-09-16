@@ -21,6 +21,8 @@ import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
@@ -41,6 +43,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElemen
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
@@ -54,7 +57,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
@@ -66,6 +71,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorF
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SlidingBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMediatorUtils;
@@ -203,15 +209,31 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 				new MediatorFlowMediatorFlowCompartmentCanonicalEditPolicy());
 	}
 
+	private void addInSequenceInputConnector() {
+		ProxyInSequenceInputConnector inSequenceInputConnector = EsbFactory.eINSTANCE
+				.createProxyInSequenceInputConnector();
+		AddCommand addCommand = new AddCommand(getEditingDomain(), ((Node) EditorUtils.getProxy(
+				this).getModel()).getElement(),
+				EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS,
+				inSequenceInputConnector);
+		if (addCommand.canExecute()) {
+			getEditingDomain().getCommandStack().execute(addCommand);
+		}
+	}
+
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
+		if (child instanceof SendMediatorEditPart) {
+			//addInSequenceInputConnector();
+		}
+
 		//Refresh connector's position.
 		((MediatorFlowEditPart) child.getParent().getParent()).refreshConnector(child.getParent()
 				.getParent().getParent().getParent().getParent());
+
 		if (child instanceof AbstractMediator) {
 			((AbstractMediator) child).reverse(child);
 		}
-
 		if (child instanceof SwitchMediatorEditPart) {
 			SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) child;
 			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart, getEditingDomain());
@@ -460,6 +482,15 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		super.removeChild(child);
 		if (this.getChildren().size() == 0) {
 			outputConnectorEditPart = null;
+		}
+
+		if (child instanceof SendMediatorEditPart) {
+			/*			RemoveCommand removeCmd = new RemoveCommand(getEditingDomain(), ((Node)EditorUtils.getProxy(this).getModel()).getElement(),
+			 EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS,
+			 connectorAndEndpointMap.get(child));
+			 if (removeCmd.canExecute()) {
+			 editingDomain.getCommandStack().execute(removeCmd);
+			 }*/
 		}
 		mediatorFlow.refreshConnector(proxyservice);
 	}

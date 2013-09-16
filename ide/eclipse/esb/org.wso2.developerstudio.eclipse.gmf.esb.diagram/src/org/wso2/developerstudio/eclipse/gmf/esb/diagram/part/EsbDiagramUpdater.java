@@ -330,6 +330,14 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
+		for (Iterator<?> it = modelElement.getInSequenceInputConnectors().iterator(); it.hasNext();) {
+			ProxyInSequenceInputConnector childElement = (ProxyInSequenceInputConnector) it.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == ProxyInSequenceInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
 		return result;
 	}
 
@@ -8156,6 +8164,8 @@ public class EsbDiagramUpdater {
 			return getProxyServiceFaultContainer_3488ContainedLinks(view);
 		case MediatorFlow6EditPart.VISUAL_ID:
 			return getMediatorFlow_3530ContainedLinks(view);
+		case ProxyInSequenceInputConnectorEditPart.VISUAL_ID:
+			return getProxyInSequenceInputConnector_3731ContainedLinks(view);
 		case MessageMediatorEditPart.VISUAL_ID:
 			return getMessageMediator_3045ContainedLinks(view);
 		case MessageInputConnectorEditPart.VISUAL_ID:
@@ -8727,6 +8737,8 @@ public class EsbDiagramUpdater {
 			return getProxyServiceFaultContainer_3488IncomingLinks(view);
 		case MediatorFlow6EditPart.VISUAL_ID:
 			return getMediatorFlow_3530IncomingLinks(view);
+		case ProxyInSequenceInputConnectorEditPart.VISUAL_ID:
+			return getProxyInSequenceInputConnector_3731IncomingLinks(view);
 		case MessageMediatorEditPart.VISUAL_ID:
 			return getMessageMediator_3045IncomingLinks(view);
 		case MessageInputConnectorEditPart.VISUAL_ID:
@@ -9298,6 +9310,8 @@ public class EsbDiagramUpdater {
 			return getProxyServiceFaultContainer_3488OutgoingLinks(view);
 		case MediatorFlow6EditPart.VISUAL_ID:
 			return getMediatorFlow_3530OutgoingLinks(view);
+		case ProxyInSequenceInputConnectorEditPart.VISUAL_ID:
+			return getProxyInSequenceInputConnector_3731OutgoingLinks(view);
 		case MessageMediatorEditPart.VISUAL_ID:
 			return getMessageMediator_3045OutgoingLinks(view);
 		case MessageInputConnectorEditPart.VISUAL_ID:
@@ -9458,6 +9472,14 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getProxyFaultInputConnector_3489ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getProxyInSequenceInputConnector_3731ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
@@ -11917,6 +11939,20 @@ public class EsbDiagramUpdater {
 	 */
 	public static List<EsbLinkDescriptor> getProxyFaultInputConnector_3489IncomingLinks(View view) {
 		ProxyFaultInputConnector modelElement = (ProxyFaultInputConnector) view.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getProxyInSequenceInputConnector_3731IncomingLinks(
+			View view) {
+		ProxyInSequenceInputConnector modelElement = (ProxyInSequenceInputConnector) view
+				.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
 				.find(view.eResource().getResourceSet().getResources());
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
@@ -14409,6 +14445,14 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getProxyFaultInputConnector_3489OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getProxyInSequenceInputConnector_3731OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 

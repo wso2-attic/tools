@@ -249,6 +249,8 @@ public class SwitchCaseContainerEditPart extends ShapeNodeEditPart {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			/*			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(700),
 			 getMapMode().DPtoLP(300)));*/
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20000), getMapMode().DPtoLP(
+					4000)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
 		}

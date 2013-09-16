@@ -2927,6 +2927,16 @@
               </children>
             </ownedChild>
           </children>
+          <children>
+            <containmentFeature
+                href="esb.ecore#//ProxyService/inSequenceInputConnectors"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="esb.ecore#//ProxyInSequenceInputConnector"/>
+              <diagramNode
+                  href="esb.gmfgraph#ProxyInSequenceInputConnector"/>
+            </ownedChild>
+          </children>
         </ownedChild>
       </children>
       <children>

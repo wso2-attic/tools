@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInSequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
@@ -66,6 +67,8 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getProxyService_OutSequenceOutputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getProxyService_FaultInputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getProxyService_Container());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getProxyService_InSequenceInputConnectors());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -103,6 +106,7 @@ public class ProxyServiceCanonicalEditPolicy extends CanonicalEditPolicy {
 		case ProxyOutSequenceOutputConnectorEditPart.VISUAL_ID:
 		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
 		case ProxyServiceContainerEditPart.VISUAL_ID:
+		case ProxyInSequenceInputConnectorEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

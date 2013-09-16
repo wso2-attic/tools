@@ -880,6 +880,7 @@ public class ProxyServiceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_PARAMETERS);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_POLICIES);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__CONTAINER);
@@ -976,6 +977,7 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__INPUT_CONNECTOR:
 			case EsbPackage.PROXY_SERVICE__FAULT_INPUT_CONNECTOR:
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS:
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
 			case EsbPackage.PROXY_SERVICE__CONTAINER:
@@ -1025,6 +1027,11 @@ public class ProxyServiceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createProxyOutSequenceOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS,
+				 EsbFactory.eINSTANCE.createProxyInSequenceInputConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter

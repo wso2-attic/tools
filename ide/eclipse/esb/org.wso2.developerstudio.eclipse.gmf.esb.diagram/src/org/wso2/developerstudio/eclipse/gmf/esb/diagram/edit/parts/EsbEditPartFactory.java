@@ -917,6 +917,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case MediatorFlow6EditPart.VISUAL_ID:
 				return new MediatorFlow6EditPart(view);
 
+			case ProxyInSequenceInputConnectorEditPart.VISUAL_ID:
+				return new ProxyInSequenceInputConnectorEditPart(view);
+
 			case MessageMediatorEditPart.VISUAL_ID:
 				return new MessageMediatorEditPart(view);
 

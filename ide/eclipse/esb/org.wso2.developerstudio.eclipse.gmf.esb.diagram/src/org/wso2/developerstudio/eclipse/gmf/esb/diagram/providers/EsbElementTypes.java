@@ -76,6 +76,11 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ProxyInSequenceInputConnector_3731 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyInSequenceInputConnector_3731"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ProxyServiceContainer_3486 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceContainer_3486"); //$NON-NLS-1$
 
 	/**
@@ -2155,6 +2160,9 @@ public class EsbElementTypes {
 
 			elements.put(MediatorFlow_3530, EsbPackage.eINSTANCE.getMediatorFlow());
 
+			elements.put(ProxyInSequenceInputConnector_3731,
+					EsbPackage.eINSTANCE.getProxyInSequenceInputConnector());
+
 			elements.put(MessageMediator_3045, EsbPackage.eINSTANCE.getMessageMediator());
 
 			elements.put(MessageInputConnector_3046,
@@ -2543,6 +2551,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3587);
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceFaultContainer_3488);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3530);
+			KNOWN_ELEMENT_TYPES.add(ProxyInSequenceInputConnector_3731);
 			KNOWN_ELEMENT_TYPES.add(MessageMediator_3045);
 			KNOWN_ELEMENT_TYPES.add(MessageInputConnector_3046);
 			KNOWN_ELEMENT_TYPES.add(MessageOutputConnector_3047);
@@ -3059,6 +3068,8 @@ public class EsbElementTypes {
 			return ProxyServiceFaultContainer_3488;
 		case MediatorFlow6EditPart.VISUAL_ID:
 			return MediatorFlow_3530;
+		case ProxyInSequenceInputConnectorEditPart.VISUAL_ID:
+			return ProxyInSequenceInputConnector_3731;
 		case MessageMediatorEditPart.VISUAL_ID:
 			return MessageMediator_3045;
 		case MessageInputConnectorEditPart.VISUAL_ID:

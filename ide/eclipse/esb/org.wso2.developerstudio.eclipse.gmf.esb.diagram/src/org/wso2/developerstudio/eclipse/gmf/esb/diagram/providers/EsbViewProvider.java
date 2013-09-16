@@ -337,6 +337,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case FilterFailContainerEditPart.VISUAL_ID:
 				case ThrottleOnRejectContainerEditPart.VISUAL_ID:
 				case ProxyServiceFaultContainerEditPart.VISUAL_ID:
+				case ProxyInSequenceInputConnectorEditPart.VISUAL_ID:
 				case MessageMediatorEditPart.VISUAL_ID:
 				case MessageInputConnectorEditPart.VISUAL_ID:
 				case MessageOutputConnectorEditPart.VISUAL_ID:
@@ -644,6 +645,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| MediatorFlow10EditPart.VISUAL_ID == visualID
 				|| ProxyServiceFaultContainerEditPart.VISUAL_ID == visualID
 				|| MediatorFlow6EditPart.VISUAL_ID == visualID
+				|| ProxyInSequenceInputConnectorEditPart.VISUAL_ID == visualID
 				|| MessageMediatorEditPart.VISUAL_ID == visualID
 				|| MessageInputConnectorEditPart.VISUAL_ID == visualID
 				|| MessageOutputConnectorEditPart.VISUAL_ID == visualID
@@ -1422,6 +1424,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case MediatorFlow6EditPart.VISUAL_ID:
 			return createMediatorFlow_3530(domainElement, containerView, index, persisted,
 					preferencesHint);
+		case ProxyInSequenceInputConnectorEditPart.VISUAL_ID:
+			return createProxyInSequenceInputConnector_3731(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case MessageMediatorEditPart.VISUAL_ID:
 			return createMessageMediator_3045(domainElement, containerView, index, persisted,
 					preferencesHint);
@@ -1771,6 +1776,42 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(EsbVisualIDRegistry.getType(ProxyFaultInputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createProxyInSequenceInputConnector_3731(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(ProxyInSequenceInputConnectorEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 

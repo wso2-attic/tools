@@ -7,6 +7,7 @@ import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -29,6 +30,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPo
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -40,6 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigur
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.CustomNonResizableEditPolicyEx;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ProxyServiceGroupBox;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
@@ -264,11 +267,26 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 			return false;
 		}
 
+		if (childEditPart instanceof ProxyInSequenceInputConnectorEditPart) {
+			inSequenceInputConnectorFigure = ((ProxyInSequenceInputConnectorEditPart) childEditPart)
+					.getFigure();
+			IFigure figure = ((GraphicalEditPart) ((GraphicalEditPart) ((GraphicalEditPart) getChildren()
+					.get(5)).getChildren().get(0)).getChildren().get(0)).getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+			/*(IFigure) ((IFigure) ((IFigure) (IFigure) getFigure()
+			.getChildren().get(0)).getChildren().get(0))
+			.getChildren().get(1)*/figure, inSequenceInputConnectorFigure, PositionConstants.EAST,
+					0.25);
+			getBorderedFigure().getBorderItemContainer().add(inSequenceInputConnectorFigure,
+					locator);
+			return true;
+		}
+
 		return false;
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ProxyServiceNameEditPart) {
@@ -282,6 +300,11 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 		if (childEditPart instanceof ProxyInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((ProxyInputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProxyInSequenceInputConnectorEditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((ProxyInSequenceInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
