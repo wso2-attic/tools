@@ -476,11 +476,11 @@ public class ConfigureEJBMediatorMethodArgumentsDialog extends Dialog {
 	private TableItem bindMethodArgument(MethodArgument argument) {
 		TableItem item = new TableItem(methodArgumentsTable, SWT.NONE);
 		if (argument.getPropertyValueType().getLiteral().equals("LITERAL")) {
-			item.setText(new String[] { argument.getPropertyValueType().getLiteral(),
+			item.setText(new String[] { LITERAL_VALUE,
 					argument.getPropertyValue() });
 		}
 		if (argument.getPropertyValueType().getLiteral().equals("EXPRESSION")) {
-			item.setText(new String[] { argument.getPropertyValueType().getLiteral(),
+			item.setText(new String[] { LITERAL_EXPRESSION,
 					argument.getPropertyExpression().getPropertyValue() });
 		}
 
