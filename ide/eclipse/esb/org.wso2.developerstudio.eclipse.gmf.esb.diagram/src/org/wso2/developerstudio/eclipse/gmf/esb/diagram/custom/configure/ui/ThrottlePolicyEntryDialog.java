@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
@@ -33,6 +34,7 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleAccessType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleConditionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
@@ -114,6 +116,9 @@ public class ThrottlePolicyEntryDialog extends Dialog {
 	 * Pattern Holder
 	 */
 	private Pattern pattern;
+	
+	private Label lblMaxConcurentAccess;
+	private Text txtMaxConcurrentAccess;
 	/**
 	 * 
 	 * @param parentShell -Shell for the dialog box
@@ -124,6 +129,11 @@ public class ThrottlePolicyEntryDialog extends Dialog {
 		this.throttleMediator = throttleMediator;
 		this.editingDomain = TransactionUtil.getEditingDomain(throttleMediator);
 		pattern = Pattern.compile(intExpression);  
+	}
+	
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText("Throttle Policy Editor");
 	}
 	
 	/**
@@ -139,10 +149,43 @@ public class ThrottlePolicyEntryDialog extends Dialog {
 		mainLayout.marginHeight = 5;
 		mainLayout.marginWidth = 5;
 		container.setLayout(mainLayout);
+		
+		lblMaxConcurentAccess = new Label(container, SWT.NONE);
+		FormData lblConditionFormData = new FormData();
+		lblConditionFormData.top = new FormAttachment(0, 20);
+		lblConditionFormData.left = new FormAttachment(0, 10);
+		lblMaxConcurentAccess.setLayoutData(lblConditionFormData);
+		lblMaxConcurentAccess.setText("Max Concurent Access");
+		
+		txtMaxConcurrentAccess = new Text(container, SWT.BORDER);
+		{
+			FormData nsUriTextFieldLayoutData = new FormData();
+			nsUriTextFieldLayoutData.top = new FormAttachment(0, 14);
+			nsUriTextFieldLayoutData.left = new FormAttachment(0, 175);
+			nsUriTextFieldLayoutData.right = new FormAttachment(0, 250);
+			txtMaxConcurrentAccess.setLayoutData(nsUriTextFieldLayoutData);
+		}
+		
+		txtMaxConcurrentAccess.setText(Integer.toString(throttleMediator.getMaxConcurrentAccessCount()));
+//		txtMaxConcurrentAccess.addModifyListener(new ModifyListener() {
+//			public void modifyText(ModifyEvent arg0) {
+//				try {
+//					maxConcurentAcess = Integer.parseInt(txtMaxConcurrentAccess.getText());
+//				} catch (Exception e) {
+//					// String message = "Invalid Max Concurent Acess value"
+//					maxConcurentAcess = 0;
+//				}
+//			}
+//		});
 
 		// setting up the policy entry table
 		policyEntryTable = new Table(container, SWT.BORDER | SWT.FULL_SELECTION
 				| SWT.HIDE_SELECTION);
+		// Layout related configurations
+		FormData policyEntryTableLayoutData = new FormData(SWT.DEFAULT, 150);
+		policyEntryTableLayoutData.top = new FormAttachment(0, 48);
+		policyEntryTableLayoutData.left = new FormAttachment(0, 10);
+		policyEntryTable.setLayoutData(policyEntryTableLayoutData);
 
 		TableColumn rangeColumn = new TableColumn(policyEntryTable, SWT.LEFT);
 
@@ -233,14 +276,10 @@ public class ThrottlePolicyEntryDialog extends Dialog {
 		}
 		
 		setupTableEditor(policyEntryTable);
-		
-		// Layout related configurations
-		FormData policyEntryTableLayoutData = new FormData(SWT.DEFAULT, 150);
-		policyEntryTableLayoutData.top = new FormAttachment(0, 0);
-		policyEntryTableLayoutData.left = new FormAttachment(0, 0);
-		policyEntryTable.setLayoutData(policyEntryTableLayoutData);
+	
 		
 		FormData frmData = new FormData();
+		frmData.top = new FormAttachment(0, 48);
 		frmData.left = new FormAttachment(policyEntryTable,5);
 		frmData.right = new FormAttachment(100,0);
 	    addBtn.setLayoutData(frmData);
@@ -446,6 +485,18 @@ public class ThrottlePolicyEntryDialog extends Dialog {
 	}
 	
 	protected void okPressed() {
+		
+		int maxConcurentAcess = 0;
+		try {
+			maxConcurentAcess = Integer.parseInt(txtMaxConcurrentAccess.getText());
+		} catch (Exception e) {
+			// String message = "Invalid Max Concurent Acess value"
+			maxConcurentAcess = 0;
+		}
+		
+		SetCommand addCmdMaxConcCount = new SetCommand(editingDomain, throttleMediator,
+				EsbPackage.Literals.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT, maxConcurentAcess);
+		getResultCommand().append(addCmdMaxConcCount);
 		
 		for(TableItem item : policyEntryTable.getItems()){
 			

@@ -78,7 +78,7 @@ public class ThrottleMediatorItemProvider
 		addOnRejectBranchsequenceTypePropertyDescriptor(object);
 		
 		if (mediator.getPolicyType().equals(ThrottlePolicyType.INLINE)) {
-			addMaxConcurrentAccessCountPropertyDescriptor(object);
+			//addMaxConcurrentAccessCountPropertyDescriptor(object);
 			addPolicyEntriesPropertyDescriptor(object);
 		} else {
 			addPolicyKeyPropertyDescriptor(object);
