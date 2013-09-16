@@ -46,7 +46,7 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	public NodeFigure figure_;
 
 	public NodeFigure getNodeFigureInput() {
@@ -324,7 +324,7 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		return false;
 	}

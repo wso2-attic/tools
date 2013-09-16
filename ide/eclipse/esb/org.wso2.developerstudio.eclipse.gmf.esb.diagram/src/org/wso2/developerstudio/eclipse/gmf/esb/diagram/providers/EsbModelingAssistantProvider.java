@@ -139,8 +139,8 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (editPart instanceof SwitchMediatorEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 			types.add(EsbElementTypes.SwitchMediatorInputConnector_3042);
-			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchMediatorOutputConnector_3499);
+			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3044);
 			types.add(EsbElementTypes.SwitchMediatorContainer_3500);
 			return types;
@@ -1845,12 +1845,12 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		if (sourceEditPart instanceof XSLTMediatorOutputConnectorEditPart) {
 			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
+			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
 			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
-		}
-		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
-			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
 			return ((SwitchDefaultBranchOutputConnectorEditPart) sourceEditPart)
@@ -2448,12 +2448,12 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
-		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
-					.getMARelTypesOnSourceAndTarget(targetEditPart);
-		}
 		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
 			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
+			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
@@ -3126,12 +3126,12 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((XSLTMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
-		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
-			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
-					.getMATypesForTarget(relationshipType);
-		}
 		if (sourceEditPart instanceof SwitchMediatorOutputConnectorEditPart) {
 			return ((SwitchMediatorOutputConnectorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
+			return ((SwitchCaseBranchOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {

@@ -188,11 +188,11 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
 				return new SwitchMediatorInputConnectorEditPart(view);
 
-			case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
-				return new SwitchCaseBranchOutputConnectorEditPart(view);
-
 			case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
 				return new SwitchMediatorOutputConnectorEditPart(view);
+
+			case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+				return new SwitchCaseBranchOutputConnectorEditPart(view);
 
 			case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 				return new SwitchDefaultBranchOutputConnectorEditPart(view);

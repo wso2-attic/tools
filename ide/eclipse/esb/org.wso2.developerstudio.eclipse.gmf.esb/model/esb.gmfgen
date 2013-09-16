@@ -1619,6 +1619,41 @@
         </modelFacet>
       </childNodes>
       <childNodes
+          visualID="3499"
+          editPartClassName="SwitchMediatorOutputConnectorEditPart"
+          itemSemanticEditPolicyClassName="SwitchMediatorOutputConnectorItemSemanticEditPolicy"
+          notationViewFactoryClassName="SwitchMediatorOutputConnectorViewFactory"
+          canonicalEditPolicyClassName="SwitchMediatorOutputConnectorCanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="SwitchMediatorOutputConnectorGraphicalNodeEditPolicy"
+          createCommandClassName="SwitchMediatorOutputConnectorCreateCommand"
+          containers="/0/@diagram/@childNodes.38">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="SwitchMediatorOutputConnectorEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/SwitchMediatorOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/SwitchMediator/outputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/SwitchMediator/outputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
           visualID="3043"
           editPartClassName="SwitchCaseBranchOutputConnectorEditPart"
@@ -1653,41 +1688,6 @@
               href="esb.genmodel#//esb/SwitchMediator/caseBranches"/>
           <childMetaFeature
               href="esb.genmodel#//esb/SwitchMediator/caseBranches"/>
-        </modelFacet>
-      </childNodes>
-      <childNodes
-          visualID="3499"
-          editPartClassName="SwitchMediatorOutputConnectorEditPart"
-          itemSemanticEditPolicyClassName="SwitchMediatorOutputConnectorItemSemanticEditPolicy"
-          notationViewFactoryClassName="SwitchMediatorOutputConnectorViewFactory"
-          canonicalEditPolicyClassName="SwitchMediatorOutputConnectorCanonicalEditPolicy"
-          graphicalNodeEditPolicyClassName="SwitchMediatorOutputConnectorGraphicalNodeEditPolicy"
-          createCommandClassName="SwitchMediatorOutputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.38">
-        <diagramRunTimeClass
-            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <elementType
-            xsi:type="gmfgen:MetamodelType"
-            editHelperClassName="SwitchMediatorOutputConnectorEditHelper"/>
-        <viewmap
-            xsi:type="gmfgen:InnerClassViewmap"
-            className="EastPointerFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
-          <attributes
-              xsi:type="gmfgen:StyleAttributes"
-              fixedBackground="true"/>
-          <attributes
-              xsi:type="gmfgen:DefaultSizeAttributes"
-              width="12"
-              height="10"/>
-        </viewmap>
-        <modelFacet>
-          <metaClass
-              href="esb.genmodel#//esb/SwitchMediatorOutputConnector"/>
-          <containmentMetaFeature
-              href="esb.genmodel#//esb/SwitchMediator/outputConnector"/>
-          <childMetaFeature
-              href="esb.genmodel#//esb/SwitchMediator/outputConnector"/>
         </modelFacet>
       </childNodes>
       <childNodes

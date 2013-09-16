@@ -288,13 +288,13 @@ public class EsbVisualIDRegistry {
 					domainElement.eClass())) {
 				return SwitchMediatorInputConnectorEditPart.VISUAL_ID;
 			}
-			if (EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector().isSuperTypeOf(
-					domainElement.eClass())) {
-				return SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID;
-			}
 			if (EsbPackage.eINSTANCE.getSwitchMediatorOutputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
 				return SwitchMediatorOutputConnectorEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID;
 			}
 			if (EsbPackage.eINSTANCE.getSwitchDefaultBranchOutputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -4748,10 +4748,10 @@ public class EsbVisualIDRegistry {
 			if (SwitchMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+			if (SwitchMediatorOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SwitchMediatorOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+			if (SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
