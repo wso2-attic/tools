@@ -46,10 +46,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutSequenceOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
@@ -63,6 +67,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSeque
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.Sequences2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
@@ -620,4 +628,60 @@ public class EditorUtils {
 		}
 		return activeProject;
 	}
+	
+	public static ShapeNodeEditPart getChildContainer(MultipleCompartmentComplexFiguredAbstractMediator mediator) {
+		
+		if (mediator instanceof SwitchMediatorEditPart) {
+			
+			for(int i=0;i<mediator.getChildren().size();++i){					
+				if(mediator.getChildren().get(i) instanceof SwitchMediatorContainerEditPart){
+					return (SwitchMediatorContainerEditPart) mediator.getChildren().get(i);
+				}
+			} 
+		}else if (mediator instanceof FilterMediatorEditPart) {
+			
+			for(int i=0;i<mediator.getChildren().size();++i){					
+				if(mediator.getChildren().get(i) instanceof FilterContainerEditPart){
+					return (FilterContainerEditPart) mediator.getChildren().get(i);
+				}
+			}
+		}else if (mediator instanceof ThrottleMediatorEditPart) {
+			
+			for(int i=0;i<mediator.getChildren().size();++i){					
+				if(mediator.getChildren().get(i) instanceof ThrottleContainerEditPart){
+					return (ThrottleContainerEditPart) mediator.getChildren().get(i);
+				}
+			}
+		}else if (mediator instanceof CloneMediatorEditPart) {
+			
+			for(int i=0;i<mediator.getChildren().size();++i){					
+				if(mediator.getChildren().get(i) instanceof CloneMediatorContainerEditPart){
+					return (CloneMediatorContainerEditPart) mediator.getChildren().get(i);
+				}
+			}
+		}
+	
+		return null;
+	}
+	
+    public static boolean isAChildOf(AbstractMediator parentMediator, AbstractMediator thisMediator) {
+		
+		ShapeNodeEditPart childContainer = getChildContainer((MultipleCompartmentComplexFiguredAbstractMediator)parentMediator);
+		List<EditPart> childEditParts =  childContainer.getChildren();
+		for (EditPart editPart : childEditParts) {
+			IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)editPart.getChildren().get(0);
+			IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart)mediatorFlow.getChildren().get(0);
+			if (mediatorFlowCompartment.getChildren().size() >= 1) {
+				for (int i = 0; i < mediatorFlowCompartment.getChildren().size(); ++i) {
+					AbstractMediator gep = (AbstractMediator) mediatorFlowCompartment.getChildren().get(i);
+					if (gep.equals(thisMediator)) {
+						return true;
+					}
+				}
+			}
+		}
+		
+		return false;
+	}
+	
 }

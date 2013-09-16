@@ -439,36 +439,49 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		AbstractMediatorInputConnectorEditPart mediatorInputConnector = EditorUtils.getMediatorInputConnector(this);
 		AbstractMediatorOutputConnectorEditPart mediatorOutputConnector = EditorUtils.getMediatorOutputConnector(this);
 		
-		AbstractMediator previousMediator = getPreviousMediator(nearestEsbLinkOutputConnector, nearestOutputConnector);
-		if (previousMediator != null) {
-			boolean hasSendMediatorChild = hasSendMediator(previousMediator);
-			if (hasSendMediatorChild || previousMediator instanceof SendMediatorEditPart) {
-				deleteNewlyAddedMediator("Adding of mediators is not allowed since there are send(or drop) mediators present in the message (or parts of the message) flow.");
-				return;
-			}
-		}
+		boolean mediatorRestricted = false;
 		
 		if  (this instanceof SendMediatorEditPart || this instanceof DropMediatorEditPart) {
 			EditPart compartment = this.getParent();
 			if (isComplexCompartment(compartment)) {
 				if (restrictAddingOfSendMediatorInsideComlpexMediators(nearestInputConnector, nearestEsbLinkInputConnector)) {
+					mediatorRestricted = true;
 					deleteNewlyAddedMediator("Adding of send(or drop) mediator is not allowed inside this mediator since there is a send(or drop) mediator already present in the message flow.");
 					return;
 				} 
 			}
-			if (restrictAddingOfSendMediator(nearestInputConnector, nearestEsbLinkInputConnector)) {
-				deleteNewlyAddedMediator("Adding of send(or drop) mediator is not allowed in the middle of the message flow.");
-				return;
-			} 
+			if (!mediatorRestricted) {
+				if (restrictAddingOfSendMediator(nearestInputConnector, nearestEsbLinkInputConnector)) {
+					mediatorRestricted = true;
+					deleteNewlyAddedMediator("Adding of send(or drop) mediator is not allowed in the middle of the message flow.");
+					return;
+				} 
+			}
 		}
+		
+		if (!mediatorRestricted) {
+			AbstractMediator previousMediator = getPreviousMediator(nearestEsbLinkOutputConnector, nearestOutputConnector);
+			if (previousMediator != null) {
+				boolean hasSendMediatorChild = hasSendMediator(previousMediator);
+				if (hasSendMediatorChild || previousMediator instanceof SendMediatorEditPart) {
+					mediatorRestricted = true;
+					deleteNewlyAddedMediator("Adding of mediators is not allowed since there are send(or drop) mediators present in the message (or parts of the message) flow.");
+					return;
+				}
+			}
+		}
+		
 		
 		if (nearestESBLink == null) {
 			if ((nearestOutputConnector != null)) {
 				
 				if (nearestOutputConnector instanceof SendMediatorEndpointOutputConnectorEditPart
 					|| nearestOutputConnector instanceof SendMediatorOutputConnectorEditPart) {
-					deleteNewlyAddedMediator(null); // restrict mediators after send mediator
-					return;
+					if (!mediatorRestricted) {
+						mediatorRestricted = true;
+						deleteNewlyAddedMediator(null); // restrict mediators after send mediator
+						return;
+					}
 				} else {
 					previouslyConnected = connectToNearestConnector(nearestOutputConnector);
 					updateCurrentStates(mediatorOutputConnector);
@@ -483,7 +496,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		if (!previouslyConnected) {
 			if (nearestESBLink != null) {
 				
-				if (!isValidMediatorAddition(nearestEsbLinkOutputConnector, nearestEsbLinkInputConnector)) {
+				if (!isValidMediatorAddition(nearestEsbLinkOutputConnector, nearestEsbLinkInputConnector) && !mediatorRestricted) {
 					deleteNewlyAddedMediator(null);
 					return;
 				}
@@ -830,15 +843,26 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 				previousMediator = EditorUtils.getMediator(nearestOutputConnector);
 			}
 		}
+		
+		//Handle incorrect previous mediator returns 
+		//Ignore if previous mediator is parent mediator
+		if (previousMediator != null) {
+			if (EditorUtils.isAChildOf(previousMediator, this)) {
+				previousMediator = null;
+			}
+		}
+		
 		return previousMediator;
 	}
 	
+	
+
 	private boolean hasSendMediator(AbstractMediator mediator) {
 		
 		boolean hasSendMediator = false;
 		if (mediator instanceof MultipleCompartmentComplexFiguredAbstractMediator) {
 
-			ShapeNodeEditPart childContainer = getChildContainer((MultipleCompartmentComplexFiguredAbstractMediator)mediator);
+			ShapeNodeEditPart childContainer = EditorUtils.getChildContainer((MultipleCompartmentComplexFiguredAbstractMediator)mediator);
 			List<EditPart> childEditParts =  childContainer.getChildren();
 			for (EditPart editPart : childEditParts) {
 				IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)editPart.getChildren().get(0);
@@ -862,40 +886,6 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 	}
 	
 
-	private ShapeNodeEditPart getChildContainer(MultipleCompartmentComplexFiguredAbstractMediator mediator) {
-		
-		if (mediator instanceof SwitchMediatorEditPart) {
-			
-			for(int i=0;i<mediator.getChildren().size();++i){					
-				if(mediator.getChildren().get(i) instanceof SwitchMediatorContainerEditPart){
-					return (SwitchMediatorContainerEditPart) mediator.getChildren().get(i);
-				}
-			} 
-		}else if (mediator instanceof FilterMediatorEditPart) {
-			
-			for(int i=0;i<mediator.getChildren().size();++i){					
-				if(mediator.getChildren().get(i) instanceof FilterContainerEditPart){
-					return (FilterContainerEditPart) mediator.getChildren().get(i);
-				}
-			}
-		}else if (mediator instanceof ThrottleMediatorEditPart) {
-			
-			for(int i=0;i<mediator.getChildren().size();++i){					
-				if(mediator.getChildren().get(i) instanceof ThrottleContainerEditPart){
-					return (ThrottleContainerEditPart) mediator.getChildren().get(i);
-				}
-			}
-		}else if (mediator instanceof CloneMediatorEditPart) {
-			
-			for(int i=0;i<mediator.getChildren().size();++i){					
-				if(mediator.getChildren().get(i) instanceof CloneMediatorContainerEditPart){
-					return (CloneMediatorContainerEditPart) mediator.getChildren().get(i);
-				}
-			}
-		}
-	
-		return null;
-	}
 	
 
 	private boolean isValidMediatorAddition(
