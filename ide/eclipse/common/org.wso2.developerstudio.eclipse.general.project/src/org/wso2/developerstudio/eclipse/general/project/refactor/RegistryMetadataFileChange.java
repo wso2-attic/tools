@@ -32,7 +32,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
-public class RegistryMeataDataFileChange extends TextFileChange  {
+public class RegistryMetadataFileChange extends TextFileChange  {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	
 	private IFile metaDataFile;
@@ -40,7 +40,7 @@ public class RegistryMeataDataFileChange extends TextFileChange  {
 	private IResource originalName;
 	private RegistryArtifactType type;
 
-	public RegistryMeataDataFileChange(String name, IFile file,IResource originalName, String newName, RegistryArtifactType type) {
+	public RegistryMetadataFileChange(String name, IFile file,IResource originalName, String newName, RegistryArtifactType type) {
 	    super(name, file);
 		metaDataFile = file;
 		this.originalName=originalName;
@@ -94,8 +94,8 @@ public class RegistryMeataDataFileChange extends TextFileChange  {
 			if(line.contains(case1String) && stringArray[getarrayIndexWithString(nameElement, stringArray)].equals(nameElement+case1String)){
 				//CASE 1 => <artifact name="proxy1" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
 				//Swapping 1 element for "\""
-//				int case1LineIndex = line.indexOf(case1String)+1;
-//				addEdit(new ReplaceEdit(fullIndex+case1LineIndex, originalName.getName().substring(0, originalName.getName().length()-(originalName.getFileExtension().length()+1)).length(), newName.substring(0, newName.lastIndexOf("."))));
+				int case1LineIndex = line.indexOf(case1String)+1;
+				addEdit(new ReplaceEdit(fullIndex+case1LineIndex, originalName.getName().substring(0, originalName.getName().length()-(originalName.getFileExtension().length()+1)).length(), newName.substring(0, newName.lastIndexOf("."))));
 			} else {
 	            if(type==RegistryArtifactType.Resource && line.contains(case2String) && line.endsWith(originalResourceName+"</file>")){
 	            	//CASE 2 => <file>src/main/synapse-config/proxy-services/proxy1.xml</file>

@@ -17,10 +17,10 @@
 package org.wso2.developerstudio.eclipse.general.project.refactor;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.ltk.core.refactoring.resource.RenameResourceChange;
+import org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange;
 
-public class RegistryResourceEsbFileRename extends RenameResourceChange {
-	public RegistryResourceEsbFileRename(IFile file, String newName) {
-		super(file.getFullPath(), newName);
+public class RegistryResourceGraphicalFileDeleteChange extends DeleteResourceChange {
+	public RegistryResourceGraphicalFileDeleteChange(IFile file) {
+		super(file.getFullPath(), true);
 	}
 }

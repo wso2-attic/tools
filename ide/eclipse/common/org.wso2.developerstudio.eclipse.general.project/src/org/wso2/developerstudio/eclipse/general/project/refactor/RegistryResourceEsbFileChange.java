@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2013, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,8 @@ public class RegistryResourceEsbFileChange extends TextFileChange {
 	private String match;
 	private String replace;
 
-	public RegistryResourceEsbFileChange(String name, IFile file, String originalName, String newName) {
+	public RegistryResourceEsbFileChange(String name, IFile file, String originalName,
+	                                     String newName) {
 		super(name, file);
 		esbFile = file;
 		match = originalName;
@@ -54,9 +55,11 @@ public class RegistryResourceEsbFileChange extends TextFileChange {
 	}
 
 	private void identifyReplaces() throws IOException {
-		String fileContent = FileUtils.readFileToString(new File(esbFile.getRawLocation().toString()));
+		String fileContent =
+		                     FileUtils.readFileToString(new File(esbFile.getRawLocation()
+		                                                                .toString()));
 		int i = 0;
-		while ( (i = (fileContent.indexOf(match, i) + 1)) > 0 ) {
+		while ((i = (fileContent.indexOf(match, i) + 1)) > 0) {
 			addEdit(new ReplaceEdit(i - 1, match.length(), replace));
 		}
 	}

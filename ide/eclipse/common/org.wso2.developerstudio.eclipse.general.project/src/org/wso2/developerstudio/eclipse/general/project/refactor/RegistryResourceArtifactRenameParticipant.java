@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -46,63 +46,65 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 	private IProject registryProject;
 	private static List<String> skipList;
 
-    public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
-                                                                                                throws OperationCanceledException {
+	public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
+	                                                                                            throws OperationCanceledException {
 		if (originalFile != null || originalFolder != null) {
-			List<String> matchinFilesList = new ArrayList<String>();			
-			skipList=new ArrayList<String>();
+			List<String> matchinFilesList = new ArrayList<String>();
+			skipList = new ArrayList<String>();
 			skipList.add("target");
 			skipList.add("bin");
 			skipList.add(".svn");
-			
+
 			if (originalFile != null) {
-	            FileUtils.getAllExactMatchingFiles(registryProject.getLocation().toOSString(),
-	                                               changedFileName.substring(0,
-	                                                                         changedFileName.lastIndexOf(".")),
-	                                               changedFileName.substring(changedFileName.lastIndexOf(".") + 1),
-	                                               matchinFilesList, skipList);
-            }else{
-            	FileUtils.getAllExactMatchingFiles(registryProject.getLocation().toOSString(),
-	                                               changedFolderName, null,
-	                                               matchinFilesList, skipList);
-            }
+				FileUtils.getAllExactMatchingFiles(registryProject.getLocation().toOSString(),
+				                                   changedFileName.substring(0,
+				                                                             changedFileName.lastIndexOf(".")),
+				                                   changedFileName.substring(changedFileName.lastIndexOf(".") + 1),
+				                                   matchinFilesList, skipList);
+			} else {
+				FileUtils.getAllExactMatchingFiles(registryProject.getLocation().toOSString(),
+				                                   changedFolderName, null, matchinFilesList,
+				                                   skipList);
+			}
 			if (!matchinFilesList.isEmpty()) {
 				if (changedFileName != null) {
-	                return RefactoringStatus.createFatalErrorStatus("An Registry Artifact already exist with the same name " +
-	                                                                changedFileName +
-	                                                                " in the project " +
-	                                                                registryProject.getName());
-                }else{
-                	return RefactoringStatus.createFatalErrorStatus("An Registry Artifact already exist with the same name " +
-	                                                                changedFolderName +
-	                                                                " in the project " +
-	                                                                registryProject.getName());
-                }
-			} else if (changedFileName!= null && changedFileName.substring(0, changedFileName.lastIndexOf("."))
+					return RefactoringStatus.createFatalErrorStatus("A Registry Artifact already exist with the same name " +
+					                                                changedFileName +
+					                                                " in the project " +
+					                                                registryProject.getName());
+				} else {
+					return RefactoringStatus.createFatalErrorStatus("A Registry Artifact already exist with the same name " +
+					                                                changedFolderName +
+					                                                " in the project " +
+					                                                registryProject.getName());
+				}
+			} else if (changedFileName != null &&
+			           changedFileName.substring(0, changedFileName.lastIndexOf("."))
 			                          .equalsIgnoreCase(registryProject.getName())) {
 				return RefactoringStatus.createFatalErrorStatus("You are trying to rename your Registry Artifact to have the project name.");
-			}else if (changedFolderName!= null && changedFolderName.equalsIgnoreCase(registryProject.getName())) {
+			} else if (changedFolderName != null &&
+			           changedFolderName.equalsIgnoreCase(registryProject.getName())) {
 				return RefactoringStatus.createFatalErrorStatus("You are trying to rename your Registry Artifact to have the project name.");
 			}
 
 			if (originalFile != null) {
-	            return RefactoringStatus.createInfoStatus("You are about the rename your Registry Artifact " +
-	                                                      originalFile.getName() +
-	                                                      " to " +
-	                                                      changedFileName);
-            }else{
-            	return RefactoringStatus.createInfoStatus("You are about the rename your Registry Artifact " +
-	                                                      originalFolder.getName() +
-	                                                      " to " +
-	                                                      changedFolderName);
-            }
+				return RefactoringStatus.createInfoStatus("You are about the rename your Registry Artifact " +
+				                                          originalFile.getName() +
+				                                          " to " +
+				                                          changedFileName);
+			} else {
+				return RefactoringStatus.createInfoStatus("You are about the rename your Registry Artifact " +
+				                                          originalFolder.getName() +
+				                                          " to " +
+				                                          changedFolderName);
+			}
 		}
 
 		return RefactoringStatus.createFatalErrorStatus("You are trying to rename a different entity than a collection or a resource");
-    }
+	}
 
-    public Change createPreChange(IProgressMonitor arg0) throws CoreException,
-                                                     OperationCanceledException {
+	public Change createPreChange(IProgressMonitor arg0) throws CoreException,
+	                                                    OperationCanceledException {
 
 		String changedNameWithoutExtention = FilenameUtils.removeExtension(changedFileName);
 		String originalNameWithoutExtension = FilenameUtils.removeExtension(originalFile.getName());
@@ -110,62 +112,77 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 		String originalEsbDiagramFileName = getEsbDiagramFile(originalNameWithoutExtension);
 		String changedEsbFileName = getEsbFile(changedNameWithoutExtention);
 		String changedEsbDiagramFileName = getEsbDiagramFile(changedNameWithoutExtention);
-		
-		CompositeChange change=new CompositeChange("Registry Artifact Rename");
-		
-		RegistryResourceArtifactFileChange registryResourceArtifactFileChange = new RegistryResourceArtifactFileChange("Changing original file content " + originalNameWithoutExtension, 
-				originalFile,
-                originalNameWithoutExtension,
-                changedNameWithoutExtention);
+
+		CompositeChange change = new CompositeChange("Registry Artifact Rename");
+
+		RegistryResourceArtifactFileChange registryResourceArtifactFileChange =
+		                                                                        new RegistryResourceArtifactFileChange(
+		                                                                                                               "Changing original file content " +
+		                                                                                                                       originalNameWithoutExtension,
+		                                                                                                               originalFile,
+		                                                                                                               originalNameWithoutExtension,
+		                                                                                                               changedNameWithoutExtention);
 		change.add(registryResourceArtifactFileChange);
-		
+
 		if (originalFile != null) {
-	        change.add(new RegistryMeataDataFileChange(
-	                                                   "Meta data file",
-	                                                   registryProject.getFile("artifact.xml"),
-	                                                   originalFile,
-	                                                   changedFileName, RegistryArtifactType.Resource));
-        }else{
-	        change.add(new RegistryMeataDataFileChange(
-	                                                   "Meta data file",
-	                                                   registryProject.getFile("artifact.xml"),
-	                                                   originalFolder,
-	                                                   changedFolderName, RegistryArtifactType.Collection));
-        }
+			change.add(new RegistryMetadataFileChange("Meta data file",
+			                                          registryProject.getFile("artifact.xml"),
+			                                          originalFile, changedFileName,
+			                                          RegistryArtifactType.Resource));
+		} else {
+			change.add(new RegistryMetadataFileChange("Meta data file",
+			                                          registryProject.getFile("artifact.xml"),
+			                                          originalFolder, changedFolderName,
+			                                          RegistryArtifactType.Collection));
+		}
 
 		/*
 		 * Rename artifact_<name>.esb and artifact_<name>.esb_diagram
 		 */
-		
-		
 		String immediateDirectory;
-		if(originalFile.getParent().getName().equals(registryProject.getName()))
+		if (originalFile.getParent().getName().equals(registryProject.getName()))
 			immediateDirectory = "";
 		else
 			immediateDirectory = originalFile.getParent().getProjectRelativePath().toString();
-		
+
 		IFile esbIFile = registryProject.getFile(immediateDirectory + "/" + originalEsbFileName);
-		RegistryResourceEsbFileChange esbFileChange = new RegistryResourceEsbFileChange("Changing ESB file content",
-		                                                                esbIFile,
-		                                                               	originalNameWithoutExtension,
-		                                                                changedNameWithoutExtention);
-		change.add(esbFileChange);
-		RegistryResourceEsbFileRename esbFileRename = new RegistryResourceEsbFileRename(esbIFile, changedEsbFileName);
-		change.add(esbFileRename);
+		if (esbIFile.exists()) {
+			RegistryResourceEsbFileChange esbFileChange =
+			                                              new RegistryResourceEsbFileChange(
+			                                                                                "Changing ESB file content",
+			                                                                                esbIFile,
+			                                                                                originalNameWithoutExtension,
+			                                                                                changedNameWithoutExtention);
+			change.add(esbFileChange);
+			RegistryResourceEsbFileRename esbFileRename =
+			                                              new RegistryResourceEsbFileRename(
+			                                                                                esbIFile,
+			                                                                                changedEsbFileName);
+			change.add(esbFileRename);
+		}
 
-		IFile esbDiagramIFile = registryProject.getFile(immediateDirectory + "/" + originalEsbDiagramFileName);
-		RegistryResourceEsbFileChange esbDiagramFileChange = new RegistryResourceEsbFileChange("Changing ESB diagram file content",
-		                                                                       esbDiagramIFile,
-		                                                                       originalNameWithoutExtension,
-		                                                                       changedNameWithoutExtention);
-		change.add(esbDiagramFileChange);
-		RegistryResourceEsbFileRename esbDiagramFileRename = new RegistryResourceEsbFileRename(esbDiagramIFile, changedEsbDiagramFileName);
-		change.add(esbDiagramFileRename);
-		
+		IFile esbDiagramIFile =
+		                        registryProject.getFile(immediateDirectory + "/" +
+		                                                originalEsbDiagramFileName);
+		if (esbDiagramIFile.exists()) {
+			RegistryResourceEsbFileChange esbDiagramFileChange =
+			                                                     new RegistryResourceEsbFileChange(
+			                                                                                       "Changing ESB diagram file content",
+			                                                                                       esbDiagramIFile,
+			                                                                                       originalNameWithoutExtension,
+			                                                                                       changedNameWithoutExtention);
+			change.add(esbDiagramFileChange);
+			RegistryResourceEsbFileRename esbDiagramFileRename =
+			                                                     new RegistryResourceEsbFileRename(
+			                                                                                       esbDiagramIFile,
+			                                                                                       changedEsbDiagramFileName);
+			change.add(esbDiagramFileRename);
+		}
+
 		return change;
-    }
+	}
 
-    private String getEsbDiagramFile(String fileName) {
+	private String getEsbDiagramFile(String fileName) {
 		String prefix = getDirectoryPrefix();
 		return prefix + fileName + ".esb_diagram";
 	}
@@ -178,24 +195,24 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 	private String getDirectoryPrefix() {
 
 		String directoryPrefix = "";
-		
+
 		try {
 			InputStream in = originalFile.getContents(true);
 			OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
 			OMElement documentElement = builder.getDocumentElement();
 			directoryPrefix = documentElement.getLocalName() + "_";
-        } catch (CoreException e) {
-        	e.printStackTrace();
-        }
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
 
 		return directoryPrefix;
 	}
-	
-    public String getName() {
-		return "RegistryResourceArtifactRename";
-    }
 
-    protected boolean initialize(Object arg0) {
+	public String getName() {
+		return "RegistryResourceArtifactRename";
+	}
+
+	protected boolean initialize(Object arg0) {
 		// Similar to check initial conditions
 
 		if (arg0 instanceof IFile) {
@@ -204,18 +221,18 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 			RenameArguments arguments = getArguments();
 			changedFileName = arguments.getNewName();
 			return true;
-		}else if(arg0 instanceof IFolder){
-			originalFolder=(IFolder) arg0;
-			registryProject=originalFolder.getProject();
-			changedFolderName=getArguments().getNewName();
+		} else if (arg0 instanceof IFolder) {
+			originalFolder = (IFolder) arg0;
+			registryProject = originalFolder.getProject();
+			changedFolderName = getArguments().getNewName();
 			return true;
 		}
 		return false;
-    }
+	}
 
 	@Override
 	public Change createChange(IProgressMonitor pm) throws CoreException,
-			OperationCanceledException {
+	                                               OperationCanceledException {
 		// TODO Auto-generated method stub
 		return null;
 	}

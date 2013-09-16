@@ -16,6 +16,10 @@
 
 package org.wso2.developerstudio.eclipse.general.project.refactor;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -29,10 +33,6 @@ import org.eclipse.text.edits.MalformedTreeException;
 import org.eclipse.text.edits.MultiTextEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.text.edits.UndoEdit;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class RegistryResourceArtifactFileChange extends TextFileChange {
 
