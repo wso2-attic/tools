@@ -666,21 +666,22 @@ public class EditorUtils {
 	
     public static boolean isAChildOf(AbstractMediator parentMediator, AbstractMediator thisMediator) {
 		
-		ShapeNodeEditPart childContainer = getChildContainer((MultipleCompartmentComplexFiguredAbstractMediator)parentMediator);
-		List<EditPart> childEditParts =  childContainer.getChildren();
-		for (EditPart editPart : childEditParts) {
-			IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)editPart.getChildren().get(0);
-			IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart)mediatorFlow.getChildren().get(0);
-			if (mediatorFlowCompartment.getChildren().size() >= 1) {
-				for (int i = 0; i < mediatorFlowCompartment.getChildren().size(); ++i) {
-					AbstractMediator gep = (AbstractMediator) mediatorFlowCompartment.getChildren().get(i);
-					if (gep.equals(thisMediator)) {
-						return true;
+    	if (parentMediator instanceof MultipleCompartmentComplexFiguredAbstractMediator) {
+			ShapeNodeEditPart childContainer = getChildContainer((MultipleCompartmentComplexFiguredAbstractMediator)parentMediator);
+			List<EditPart> childEditParts =  childContainer.getChildren();
+			for (EditPart editPart : childEditParts) {
+				IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)editPart.getChildren().get(0);
+				IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart)mediatorFlow.getChildren().get(0);
+				if (mediatorFlowCompartment.getChildren().size() >= 1) {
+					for (int i = 0; i < mediatorFlowCompartment.getChildren().size(); ++i) {
+						AbstractMediator gep = (AbstractMediator) mediatorFlowCompartment.getChildren().get(i);
+						if (gep.equals(thisMediator)) {
+							return true;
+						}
 					}
 				}
 			}
 		}
-		
 		return false;
 	}
 	
