@@ -25,18 +25,18 @@ import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.config.xml.MessageStoreSerializer;
-import org.apache.synapse.message.store.InMemoryMessageStore;
 import org.eclipse.emf.common.util.EList;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType;
+import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 
 public class MessageStoreTransformer {
 
 	public static OMElement createMessageStore(MessageStore model) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		String className = "org.apache.synapse.message.store.InMemoryMessageStore";
-		org.apache.synapse.message.store.MessageStore messageStore = new InMemoryMessageStore();
+		org.apache.synapse.message.store.MessageStore messageStore = new InMemoryStore();
 		messageStore.setName(model.getStoreName());
 
 		if (model.getStoreType() == MessageStoreType.CUSTOM) {

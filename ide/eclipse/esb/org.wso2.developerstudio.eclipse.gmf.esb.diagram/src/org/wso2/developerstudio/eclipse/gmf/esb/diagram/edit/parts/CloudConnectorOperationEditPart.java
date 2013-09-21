@@ -12,6 +12,7 @@ import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.mediators.template.TemplateMediator;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
@@ -43,15 +44,20 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.e4.compatibility.SelectionService;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
@@ -75,6 +81,8 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 3722;
+	
+	private String iconPath;
 
 	/**
 	 * @generated
@@ -133,10 +141,44 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 				getEditingDomain().getCommandStack().execute(getResultCommand());
 			}
 			CustomPaletteToolTransferDropTargetListener.definedName = null;
-			fillConnectorOperationParameters();
+			fillConnectorOperationParameters();			
 			activatedOnce = true;
 		}
 	}
+	
+	private void setIcon(){
+		/*
+		 * This method should be rewrite to set the icon path properly.
+		 */
+		IProject project=EditorUtils.getActiveProject();
+		if(project ==null){
+	        IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+	        try {
+				project=getProject(((SelectionService)window.getSelectionService()).getSelection());
+			} catch (Exception e) {
+				log.error("Error while getting the project", e);
+			}
+		}
+		String connectorName=CustomPaletteToolTransferDropTargetListener.addedConnector;
+		if(connectorName==null){
+			connectorName=((CloudConnectorOperation)((Node)getModel()).getElement()).getConnectorName();
+		}
+		iconPath = project.getLocation().toOSString() + File.separator
+				+ "cloudConnectors" + File.separator
+				+ connectorName + "-connector"+  File.separator + "icon"+ File.separator +"icon-large.gif";
+	}
+	
+	public static IProject getProject(Object obj) throws Exception {
+        if (obj == null) {
+            return null;
+        }
+        if (obj instanceof IResource) {
+            return ((IResource) obj).getProject();
+        } else if (obj instanceof IStructuredSelection) {
+            return getProject(((IStructuredSelection) obj).getFirstElement());
+        }
+        return null;
+    }
 
 	private CompoundCommand getResultCommand() {
 		if (null == resultCommand) {
@@ -144,70 +186,85 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		}
 		return resultCommand;
 	}
+	
+/*	private IProject getActiveProject(){
+		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage().getActiveEditor();
+		if (editorpart == null)
+			return null;
+		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
+
+		IFile file = input.getFile();
+		return file.getProject();
+	}*/
 
 	protected void fillConnectorOperationParameters() {
 		TransactionalEditingDomain editingDomain = null;
-		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+/*		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 				.getActivePage().getActiveEditor();
 		if (editorpart == null)
 			return;
 		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
 
 		IFile file = input.getFile();
-		IProject activeProject = file.getProject();
-		String connectorPath = activeProject.getLocation().toOSString() + File.separator
-				+ "cloudConnectors" + File.separator
-				+ CustomPaletteToolTransferDropTargetListener.addedConnector + "-connector";
-
-		CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
-				.getInstance(connectorPath);
-		String directory = null;
-		try {
-			directory = cloudConnectorDirectoryTraverser.getArtifactsMap().get(
-					CustomPaletteToolTransferDropTargetListener.addedOperation);
-		} catch (Exception e1) {
-			log.error("Error while retrieving data for cloud connector", e1);
-		}
-		String path = connectorPath + File.separator + directory + File.separator
-				+ CustomPaletteToolTransferDropTargetListener.addedOperation + ".xml";
-		CustomPaletteToolTransferDropTargetListener.addedOperation = null;
-
-		try {
-			String source = FileUtils.getContentAsString(new File(path));
-			OMElement element = AXIOMUtil.stringToOM(source);
-
-			if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
-				TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
-				TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
-						.createMediator(element, properties);
-				editingDomain = getEditingDomain();
-				DeleteCommand modelDeleteCommand = new DeleteCommand(editingDomain,
-						((CloudConnectorOperation) ((Node) getModel()).getElement())
-								.getConnectorParameters());
-				if (modelDeleteCommand.canExecute()) {
-					editingDomain.getCommandStack().execute(modelDeleteCommand);
-				}
-				for (String parameter : templateMediator.getParameters()) {
-					final CallTemplateParameter callTemplateParameter = EsbFactory.eINSTANCE
-							.createCallTemplateParameter();
-					callTemplateParameter.setParameterName(parameter);
-					RecordingCommand command = new RecordingCommand(editingDomain) {
-						protected void doExecute() {
+		IProject activeProject = file.getProject();*/
+		IProject activeProject = EditorUtils.getActiveProject();
+		if(activeProject!=null){
+			String connectorPath = activeProject.getLocation().toOSString() + File.separator
+					+ "cloudConnectors" + File.separator
+					+ CustomPaletteToolTransferDropTargetListener.addedConnector + "-connector";
+	
+			CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
+					.getInstance(connectorPath);
+			String directory = null;
+			String operationFileName=null;
+			try {
+				operationFileName=cloudConnectorDirectoryTraverser.getOperationsMap().get(CustomPaletteToolTransferDropTargetListener.addedOperation);
+				directory = cloudConnectorDirectoryTraverser.getOperationFileNamesMap().get(operationFileName);			
+			} catch (Exception e1) {
+				log.error("Error while retrieving data for cloud connector", e1);
+			}
+			String path = connectorPath + File.separator + directory + File.separator
+					+ operationFileName + ".xml";
+			CustomPaletteToolTransferDropTargetListener.addedOperation = null;
+	
+			try {
+				String source = FileUtils.getContentAsString(new File(path));
+				OMElement element = AXIOMUtil.stringToOM(source);
+	
+				if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+					TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
+					TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
+							.createMediator(element, properties);
+					editingDomain = getEditingDomain();
+					DeleteCommand modelDeleteCommand = new DeleteCommand(editingDomain,
 							((CloudConnectorOperation) ((Node) getModel()).getElement())
-									.getConnectorParameters().add(callTemplateParameter);
+									.getConnectorParameters());
+					if (modelDeleteCommand.canExecute()) {
+						editingDomain.getCommandStack().execute(modelDeleteCommand);
+					}
+					for (String parameter : templateMediator.getParameters()) {
+						final CallTemplateParameter callTemplateParameter = EsbFactory.eINSTANCE
+								.createCallTemplateParameter();
+						callTemplateParameter.setParameterName(parameter);
+						RecordingCommand command = new RecordingCommand(editingDomain) {
+							protected void doExecute() {
+								((CloudConnectorOperation) ((Node) getModel()).getElement())
+										.getConnectorParameters().add(callTemplateParameter);
+							}
+						};
+						if (command.canExecute()) {
+							editingDomain.getCommandStack().execute(command);
 						}
-					};
-					if (command.canExecute()) {
-						editingDomain.getCommandStack().execute(command);
 					}
 				}
+			} catch (XMLStreamException e) {
+				log.error("Error occured while parsing selected template file", e);
+				//ErrorDialog.openError(shell,"Error occured while parsing selected template file", e.getMessage(), null);
+			} catch (IOException e) {
+				log.error("Error occured while reading selected template file", e);
+				//ErrorDialog.openError(shell,"Error occured while reading selected template file", e.getMessage(), null);
 			}
-		} catch (XMLStreamException e) {
-			log.error("Error occured while parsing selected template file", e);
-			//ErrorDialog.openError(shell,"Error occured while parsing selected template file", e.getMessage(), null);
-		} catch (IOException e) {
-			log.error("Error occured while reading selected template file", e);
-			//ErrorDialog.openError(shell,"Error occured while reading selected template file", e.getMessage(), null);
 		}
 	}
 
@@ -504,7 +561,8 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/log-mediator.gif";
+			setIcon();
+			return iconPath;
 		}
 
 		public String getNodeName() {

@@ -35,6 +35,9 @@ import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
 import org.apache.maven.project.MavenProject;
 import org.apache.synapse.config.xml.MessageProcessorSerializer;
+import org.apache.synapse.message.processor.MessageProcessor;
+import org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor;
+import org.apache.synapse.message.processor.impl.sampler.SamplingProcessor;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -57,9 +60,6 @@ import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
 import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-import org.apache.synapse.message.processors.MessageProcessor;
-import org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor;
-import org.apache.synapse.message.processors.sampler.SamplingProcessor;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
 
 public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationWizard {

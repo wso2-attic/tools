@@ -31,8 +31,8 @@ import org.apache.synapse.SynapseConstants;
 import org.apache.synapse.SynapseException;
 import org.apache.synapse.config.xml.MessageStoreFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
-import org.apache.synapse.message.store.InMemoryMessageStore;
 import org.apache.synapse.message.store.MessageStore;
+import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyMessageStore;
 
 /**
@@ -61,7 +61,7 @@ public class DummyMessageStoreFactory {
 	           messageStore = new DummyMessageStore();
 	           ((DummyMessageStore)messageStore).setClassName(clss.getAttributeValue());
 	        } else {
-	            messageStore = new InMemoryMessageStore();
+	            messageStore = new InMemoryStore();
 	        }
 
 

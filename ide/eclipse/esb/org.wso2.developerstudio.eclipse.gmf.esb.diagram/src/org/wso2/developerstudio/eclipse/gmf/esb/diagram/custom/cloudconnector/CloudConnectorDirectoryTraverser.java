@@ -18,9 +18,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -34,6 +36,7 @@ import org.eclipse.emf.ecore.xml.type.internal.QName;
 import org.wso2.developerstudio.eclipse.capp.core.manifest.ArtifactDependency;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.Artifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.Artifacts;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.MediatorFactoryUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class CloudConnectorDirectoryTraverser {
@@ -65,6 +68,7 @@ public class CloudConnectorDirectoryTraverser {
 				TemplateMediator templateMediator=null;
 				
 				if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+					MediatorFactoryUtils.registerFactories();
 					TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
 					templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, properties);						
 				}
@@ -72,31 +76,60 @@ public class CloudConnectorDirectoryTraverser {
 	}
 	
 	public Collection<String> getCloudConnectorConfigurationParameters() throws Exception{
-		return readTemplateConfiguration(getConfigurationFileLocation(getArtifactsMap())).getParameters();
+		return readTemplateConfiguration(getConfigurationFileLocation(getOperationFileNamesMap())).getParameters();
 	}
 	
-	public Map<String, String> getArtifactsMap() throws Exception{		
-		Map<String, String> artifactsMap=new HashMap<String,String>();
-		File artifactsFile = new File(rootDirectory+"/artifacts.xml");
+	public Map<String, String> getOperationFileNamesMap() throws Exception{		
+		Map<String, String> operationFileNamesMap=new HashMap<String,String>();
+		File artifactsFile = new File(rootDirectory+"/connector.xml");
 		String artifactsContent = FileUtils.getContentAsString(artifactsFile);
-		Artifacts artifacts = new Artifacts();
-		artifacts.deserialize(artifactsContent);
+		Connector connector = new Connector();
+		connector.deserialize(artifactsContent);
 
-		for (ArtifactDependency artifactDependency : artifacts.getArtifactDependencies()) {
-			String pathname = rootDirectory +"/"+ artifactDependency.getName();
-			File artifactFile = new File(pathname + "/artifact.xml");
+		for (Dependency dependency : connector.getComponentDependencies()) {
+			String pathname = rootDirectory +"/"+ dependency.getComponent();
+			File artifactFile = new File(pathname + "/component.xml");
 			String artifactContent = FileUtils.getContentAsString(artifactFile);
-			Artifact artifact = new Artifact();
-			artifact.deserialize(artifactContent);
-			for (org.wso2.developerstudio.eclipse.capp.core.manifest.Artifact artifact_ : artifact.getArtifacts()) {
-				artifactsMap.put(artifact_.getName(),artifactDependency.getName());
+			Component subComponent = new Component();
+			subComponent.deserialize(artifactContent);
+			for (SubComponents subComponents : subComponent.getSubComponents()) {
+				operationFileNamesMap.put(subComponents.getFileName(),dependency.getComponent());
 			}
 
 		}
-		return artifactsMap;
+		return operationFileNamesMap;
+	}
+	
+	/**
+	 * Returning Operations map in the Cloud Connector zip. This map contains
+	 * the name of the operation and the file name of the operation.
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	
+	public Map<String, String> getOperationsMap() throws Exception{
+		Map<String, String> operationNamesAndFileNamesMap=new HashMap<String,String>();
+		File connectorFile = new File(rootDirectory+"/connector.xml");
+		String connectorFileContent = FileUtils.getContentAsString(connectorFile);
+		Connector connector = new Connector();
+		connector.deserialize(connectorFileContent);
+
+		for (Dependency dependency : connector.getComponentDependencies()) {
+			String pathname = rootDirectory +"/"+ dependency.getComponent();
+			File artifactFile = new File(pathname + "/component.xml");
+			String artifactContent = FileUtils.getContentAsString(artifactFile);
+			Component subComponent = new Component();
+			subComponent.deserialize(artifactContent);
+			for (SubComponents subComponents : subComponent.getSubComponents()) {
+				operationNamesAndFileNamesMap.put(subComponents.getName(),subComponents.getFileName());
+			}
+
+		}
+		return operationNamesAndFileNamesMap;
 	}
 	
 	public String getConfigurationFileLocation(Map<String, String> artifactsMap) throws Exception{
-		return rootDirectory+"/"+artifactsMap.get("configure")+"/configure.xml";
+		return rootDirectory+"/"+artifactsMap.get("config")+"/config.xml";
 	}
 }

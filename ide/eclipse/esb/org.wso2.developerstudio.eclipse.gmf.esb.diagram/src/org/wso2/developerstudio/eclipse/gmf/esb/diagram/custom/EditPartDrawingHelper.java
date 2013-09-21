@@ -37,8 +37,12 @@ public class EditPartDrawingHelper {
 	public static Image getImage(String iconPath, int width, int height) {
 		ImageDescriptor mainImgDesc = EsbDiagramEditorPlugin
 				.getBundledImageDescriptor(iconPath);
-		
-		Image image =mainImgDesc.createImage();
+		Image image;
+		if(mainImgDesc!=null){
+			image =mainImgDesc.createImage();
+		}else{
+			image =new Image(Display.getDefault(), iconPath);
+		}
 		Image scaled = new Image(Display.getDefault(), width, height);
         GC gc = new GC(scaled);
         gc.setAntialias(SWT.ON);

@@ -60,11 +60,11 @@ import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
 import org.apache.maven.project.MavenProject;
 import org.apache.synapse.config.xml.MessageStoreSerializer;
-import org.apache.synapse.message.store.InMemoryMessageStore;
 import org.apache.synapse.message.store.MessageStore;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.commons.lang.StringUtils;
+import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 
 /**
  * WSO2 message-store creation wizard class
@@ -164,7 +164,7 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 	private String getTemplateContent(){
 		Map<String,Object> parameters = new HashMap<String,Object>();
 		String className = "org.apache.synapse.message.store.InMemoryMessageStore";
-		MessageStore store = new InMemoryMessageStore();
+		MessageStore store = new InMemoryStore();
 		store.setName(messageStoreModel.getStoreName());
 		String lineSeparator = System.getProperty("line.separator","\n");
 		

@@ -67,7 +67,6 @@ import org.apache.synapse.mediators.transform.PayloadFactoryMediator;
 import org.apache.synapse.mediators.transform.XSLTMediator;
 import org.apache.synapse.mediators.transform.url.URLRewriteMediator;
 import org.apache.synapse.mediators.xquery.XQueryMediator;
-import org.apache.synapse.message.store.InMemoryMessageStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyMessageStore;
 import org.apache.synapse.rest.API;
 import org.apache.synapse.task.TaskDescription;
@@ -87,6 +86,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EJBM
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.POJOCommandMediatorExt;
+import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 
 
 /**
@@ -177,7 +177,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(IndirectEndpoint.class, new IndirectEndpointDeserializer());
 		addDeserializer(ResolvingEndpoint.class, new ResolvingEndpointDeserializer());
 		addDeserializer(RecipientListEndpoint.class, new RecipientListEndpointDeserializer());
-		addDeserializer(InMemoryMessageStore.class , new MessageStoreDeserializer());
+		addDeserializer(InMemoryStore.class , new MessageStoreDeserializer());
 		addDeserializer(DummyMessageStore.class , new MessageStoreDeserializer());
 		addDeserializer(DummyMessageProcessor.class, new MessageProcessorDeserializer());
 		addDeserializer(HTTPEndpoint.class, new HTTPEndpointDeserializer());

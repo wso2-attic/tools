@@ -107,7 +107,7 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		doTransform(newThenInfo, visualFilter.getPassOutputConnector());		
 		
 		// Transform fail output data flow path.
-		ListMediator elseMediator = new AnonymousListMediator();
+		AnonymousListMediator elseMediator = new AnonymousListMediator();
 		filterMediator.setElseMediator(elseMediator);
 		TransformationInfo newElseInfo = new TransformationInfo();
 		//newElseInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
@@ -191,7 +191,7 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		//doTransformWithinSequence(newThenInfo,((FilterMediator) subject).getPassOutputConnector().getOutgoingLink(),sequence);
 		
 		// Transform fail output data flow path.
-		ListMediator elseMediator = new AnonymousListMediator();
+		AnonymousListMediator elseMediator = new AnonymousListMediator();
 		filterMediator.setElseMediator(elseMediator);
 		TransformationInfo newElseInfo = new TransformationInfo();
 		newElseInfo.setTraversalDirection(info.getTraversalDirection());

@@ -25,7 +25,7 @@ import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.config.xml.MessageProcessorSerializer;
-import org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor;
+import org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor;
 import org.eclipse.emf.common.util.EList;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessorParameter;
@@ -42,7 +42,7 @@ public class MessageProcessorTransformer {
 	public static OMElement createMessageProcessor(MessageProcessor model) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		String className = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
-		org.apache.synapse.message.processors.MessageProcessor messageProcessor = new ScheduledMessageForwardingProcessor();
+		org.apache.synapse.message.processor.MessageProcessor messageProcessor = new ScheduledMessageForwardingProcessor();
 
 		messageProcessor.setName(model.getProcessorName());
 		messageProcessor.setMessageStoreName(model.getMessageStore());

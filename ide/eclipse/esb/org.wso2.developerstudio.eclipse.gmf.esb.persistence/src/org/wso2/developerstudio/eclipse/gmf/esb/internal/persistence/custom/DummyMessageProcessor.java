@@ -16,7 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom;
 
-import org.apache.synapse.message.processors.AbstractMessageProcessor;
+import org.apache.synapse.message.processor.impl.AbstractMessageProcessor;
 
 public class DummyMessageProcessor extends AbstractMessageProcessor {
 	private String className;
@@ -29,12 +29,14 @@ public class DummyMessageProcessor extends AbstractMessageProcessor {
 		this.className = className;
 	}
 
-	public void start() {
+	public boolean start() {
+		return false;
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void stop() {
+	public boolean stop() {
+		return false;
 		// TODO Auto-generated method stub
 		
 	}
@@ -50,6 +52,36 @@ public class DummyMessageProcessor extends AbstractMessageProcessor {
 	}
 
 	public void setDestroyed() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean activate() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean deactivate() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isDeactivated() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean isPaused() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void pauseService() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void resumeService() {
 		// TODO Auto-generated method stub
 		
 	}

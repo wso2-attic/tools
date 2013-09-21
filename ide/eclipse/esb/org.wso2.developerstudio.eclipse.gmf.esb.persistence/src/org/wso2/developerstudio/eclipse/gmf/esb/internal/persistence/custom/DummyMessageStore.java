@@ -22,6 +22,7 @@ import java.util.NoSuchElementException;
 
 import org.apache.synapse.MessageContext;
 import org.apache.synapse.message.MessageConsumer;
+import org.apache.synapse.message.MessageProducer;
 import org.apache.synapse.message.store.AbstractMessageStore;
 
 public class DummyMessageStore extends AbstractMessageStore {
@@ -82,6 +83,16 @@ public class DummyMessageStore extends AbstractMessageStore {
 	}
 
 	public MessageConsumer newConsumer() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MessageConsumer getConsumer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public MessageProducer getProducer() {
 		// TODO Auto-generated method stub
 		return null;
 	}

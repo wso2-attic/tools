@@ -1222,7 +1222,7 @@ public class EsbPaletteFactory {
 
 	public void addCloudConnectorOperations(IEditorPart editor, String name,
 			String cloudConnectorName) {
-		Set<String> cloudConnectorOperationsSet = Collections.emptySet();
+		Set<String> cloudConnectorOperations = Collections.emptySet();
 		try {
 			/*			IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 			 .getActivePage().getActiveEditor();*/
@@ -1231,8 +1231,8 @@ public class EsbPaletteFactory {
 			IProject activeProject = file.getProject();
 			String connectorPath = activeProject.getLocation().toOSString() + File.separator
 					+ "cloudConnectors" + File.separator + cloudConnectorName + "-connector";
-			cloudConnectorOperationsSet = CloudConnectorDirectoryTraverser
-					.getInstance(connectorPath).getArtifactsMap().keySet();
+			cloudConnectorOperations = CloudConnectorDirectoryTraverser
+					.getInstance(connectorPath).getOperationsMap().keySet();
 		} catch (Exception e) {
 			log.error("Error occured while scanning the Cloud Connector package", e);
 		}
@@ -1268,7 +1268,7 @@ public class EsbPaletteFactory {
 				.getDiagramEditDomain()).getPaletteViewer().getPaletteRoot().getChildren()
 				.get(indexOfDefinedEndpoints));
 		container.getChildren().clear();
-		Object[] keys = cloudConnectorOperationsSet.toArray();
+		Object[] keys = cloudConnectorOperations.toArray();
 		for (int k = 0; k < keys.length; ++k) {
 			container.add(createCloudConnectorOperationCreationTool((String) keys[k],
 					"cloudConnectorOperation-" + cloudConnectorName + "-" + name));

@@ -74,7 +74,7 @@ import org.apache.synapse.config.xml.endpoints.WSDLEndpointFactory;
 import org.apache.synapse.task.TaskDescription;
 import org.apache.synapse.task.TaskDescriptionFactory;
 import org.apache.synapse.config.xml.MessageStoreFactory;
-import org.apache.synapse.message.processors.MessageProcessor;
+import org.apache.synapse.message.processor.MessageProcessor;
 import org.apache.synapse.message.store.MessageStore;
 
 /**
