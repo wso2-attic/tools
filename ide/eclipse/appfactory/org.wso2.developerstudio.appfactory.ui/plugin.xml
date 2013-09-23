@@ -129,7 +129,7 @@
                  class="org.wso2.developerstudio.appfactory.ui.perspective.AppFactoryPerspectiveFactory"
                  icon="icons/appfac.png"
                  id="org.wso2.developerstudio.appfactory.ui.perspective"
-                 name="AppFactory">
+                 name="WSO2 AppFactory">
            </perspective>
         </extension>
         <extension
