@@ -232,7 +232,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 						// Extract the endPoint info from the sendMediator
 						if (endPoint != null) {
 							if(reversed){
-								nodeList.add(nodeList.size()-1, endPoint);
+								nodeList.add(nodeList.size(), endPoint);
 							} else{
 								nodeList.add(endPoint);
 							}

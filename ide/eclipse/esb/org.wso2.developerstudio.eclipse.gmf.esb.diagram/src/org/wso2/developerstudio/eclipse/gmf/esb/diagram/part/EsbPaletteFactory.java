@@ -58,7 +58,9 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
@@ -1223,13 +1225,14 @@ public class EsbPaletteFactory {
 	public void addCloudConnectorOperations(IEditorPart editor, String name,
 			String cloudConnectorName) {
 		Set<String> cloudConnectorOperations = Collections.emptySet();
+		String connectorPath = null;
 		try {
 			/*			IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 			 .getActivePage().getActiveEditor();*/
 			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
-			String connectorPath = activeProject.getLocation().toOSString() + File.separator
+			connectorPath = activeProject.getLocation().toOSString() + File.separator
 					+ "cloudConnectors" + File.separator + cloudConnectorName + "-connector";
 			cloudConnectorOperations = CloudConnectorDirectoryTraverser
 					.getInstance(connectorPath).getOperationsMap().keySet();
@@ -1271,7 +1274,7 @@ public class EsbPaletteFactory {
 		Object[] keys = cloudConnectorOperations.toArray();
 		for (int k = 0; k < keys.length; ++k) {
 			container.add(createCloudConnectorOperationCreationTool((String) keys[k],
-					"cloudConnectorOperation-" + cloudConnectorName + "-" + name));
+					"cloudConnectorOperation-" + cloudConnectorName + "-" + name,connectorPath+File.separator+"icon"+File.separator+"icon-small.gif"));
 		}
 
 	}
@@ -1558,13 +1561,16 @@ public class EsbPaletteFactory {
 		return paletteContainer;
 	}
 
-	private ToolEntry createCloudConnectorOperationCreationTool(String name, String ID) {
+	private ToolEntry createCloudConnectorOperationCreationTool(String name, String ID,String imagePath) {
 		NodeToolEntry entry = new NodeToolEntry(name,
 				Messages.CloudConnectorOperation6CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.CloudConnectorOperation_3722));
 		entry.setId(ID); //$NON-NLS-1$
-		entry.setSmallIcon(EsbElementTypes
-				.getImageDescriptor(EsbElementTypes.CloudConnectorOperation_3722));
+		Image i=new Image(null,imagePath);
+		ImageDescriptor imgDesc=ImageDescriptor.createFromImage(i);
+		entry.setSmallIcon(imgDesc);
+/*		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.CloudConnectorOperation_3722));*/
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

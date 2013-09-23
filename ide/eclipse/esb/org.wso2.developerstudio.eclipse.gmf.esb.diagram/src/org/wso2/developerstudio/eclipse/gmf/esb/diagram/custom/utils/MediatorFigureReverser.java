@@ -176,8 +176,8 @@ public class MediatorFigureReverser {
 			/*
 			 * Reverse the mediators inside the Send mediator.
 			 */
-/*			children = ((MediatorFlowMediatorFlowCompartment19EditPart) ((MediatorFlow19EditPart) editorPart
-					.getChildren().get(3)).getChildren().get(0)).getChildren();*/
+			children = ((MediatorFlowMediatorFlowCompartment19EditPart) ((MediatorFlow19EditPart) editorPart
+					.getChildren().get(3)).getChildren().get(0)).getChildren();
 		}
 
 
