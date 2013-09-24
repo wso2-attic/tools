@@ -43,6 +43,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutSequenceOutputConnectorEditPart;
@@ -67,6 +68,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSeque
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.Sequences2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseParentContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleContainerEditPart;
@@ -235,10 +238,11 @@ public class EditorUtils {
 				|| editPart instanceof MediatorFlowMediatorFlowCompartment8EditPart		// filter fail
 				|| editPart instanceof MediatorFlowMediatorFlowCompartment9EditPart		// throttle onaccept
 				|| editPart instanceof MediatorFlowMediatorFlowCompartment10EditPart	// throttle onreject
-				|| editPart instanceof MediatorFlowMediatorFlowCompartment2EditPart		// switch case
-				|| editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart		// switch default
 				|| editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart) { // clone target
 			return editPart.getParent().getParent().getParent().getParent();
+		} else if (editPart instanceof MediatorFlowMediatorFlowCompartment2EditPart		// switch case
+				|| editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart	) { // switch default
+			return editPart.getParent().getParent().getParent().getParent().getParent();
 		}
 		else {
 				return null;
@@ -665,10 +669,22 @@ public class EditorUtils {
 	}
 	
     public static boolean isAChildOf(AbstractMediator parentMediator, AbstractMediator thisMediator) {
-		
-    	if (parentMediator instanceof MultipleCompartmentComplexFiguredAbstractMediator) {
+		if(parentMediator instanceof MultipleCompartmentComplexFiguredAbstractMediator){
+			List<EditPart> childEditParts = new ArrayList<EditPart>();
 			ShapeNodeEditPart childContainer = getChildContainer((MultipleCompartmentComplexFiguredAbstractMediator)parentMediator);
-			List<EditPart> childEditParts =  childContainer.getChildren();
+			if (childContainer instanceof SwitchMediatorContainerEditPart) {
+				List<EditPart> caseEditParts = ((SwitchCaseParentContainerEditPart)childContainer.getChildren().get(0)).getChildren();
+				List<EditPart> defaultEditParts = ((SwitchDefaultParentContainerEditPart)childContainer.getChildren().get(1)).getChildren();
+				for (EditPart caseEditPart : caseEditParts) {
+					childEditParts.add(caseEditPart);
+				}
+				for (EditPart defaultEditPart : defaultEditParts) {
+					childEditParts.add(defaultEditPart);
+				}
+			} else {
+				childEditParts =  childContainer.getChildren();
+			}
+
 			for (EditPart editPart : childEditParts) {
 				IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)editPart.getChildren().get(0);
 				IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart)mediatorFlow.getChildren().get(0);
@@ -682,6 +698,7 @@ public class EditorUtils {
 				}
 			}
 		}
+		
 		return false;
 	}
 	

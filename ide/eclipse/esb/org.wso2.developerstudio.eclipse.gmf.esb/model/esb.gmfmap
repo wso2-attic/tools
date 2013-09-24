@@ -589,31 +589,51 @@
                                   href="esb.gmfgraph#SwitchMediatorContainer"/>
                               <children>
                                 <containmentFeature
-                                    href="esb.ecore#//SwitchMediatorContainer/switchCaseContainer"/>
+                                    href="esb.ecore#//SwitchMediatorContainer/switchCaseParentContainer"/>
                                 <ownedChild>
                                   <domainMetaElement
-                                      href="esb.ecore#//SwitchCaseContainer"/>
+                                      href="esb.ecore#//SwitchCaseParentContainer"/>
                                   <diagramNode
-                                      href="esb.gmfgraph#SwitchCaseContainer"/>
-                                  <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      href="esb.gmfgraph#SwitchCaseParentContainer"/>
+                                  <children>
                                     <containmentFeature
-                                        href="esb.ecore#//SwitchCaseContainer/mediatorFlow"/>
+                                        href="esb.ecore#//SwitchCaseParentContainer/switchCaseContainer"/>
+                                    <ownedChild>
+                                      <domainMetaElement
+                                          href="esb.ecore#//SwitchCaseContainer"/>
+                                      <diagramNode
+                                          href="esb.gmfgraph#SwitchCaseContainer"/>
+                                      <children
+                                          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                        <containmentFeature
+                                            href="esb.ecore#//SwitchCaseContainer/mediatorFlow"/>
+                                      </children>
+                                    </ownedChild>
                                   </children>
                                 </ownedChild>
                               </children>
                               <children>
                                 <containmentFeature
-                                    href="esb.ecore#//SwitchMediatorContainer/switchDefaultContainer"/>
+                                    href="esb.ecore#//SwitchMediatorContainer/switchDefaultParentContainer"/>
                                 <ownedChild>
                                   <domainMetaElement
-                                      href="esb.ecore#//SwitchDefaultContainer"/>
+                                      href="esb.ecore#//SwitchDefaultParentContainer"/>
                                   <diagramNode
-                                      href="esb.gmfgraph#SwitchDefaultContainer"/>
-                                  <children
-                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                      href="esb.gmfgraph#SwitchDefaultParentContainer"/>
+                                  <children>
                                     <containmentFeature
-                                        href="esb.ecore#//SwitchDefaultContainer/mediatorFlow"/>
+                                        href="esb.ecore#//SwitchDefaultParentContainer/switchDefaultContainer"/>
+                                    <ownedChild>
+                                      <domainMetaElement
+                                          href="esb.ecore#//SwitchDefaultContainer"/>
+                                      <diagramNode
+                                          href="esb.gmfgraph#SwitchDefaultContainer"/>
+                                      <children
+                                          referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                        <containmentFeature
+                                            href="esb.ecore#//SwitchDefaultContainer/mediatorFlow"/>
+                                      </children>
+                                    </ownedChild>
                                   </children>
                                 </ownedChild>
                               </children>

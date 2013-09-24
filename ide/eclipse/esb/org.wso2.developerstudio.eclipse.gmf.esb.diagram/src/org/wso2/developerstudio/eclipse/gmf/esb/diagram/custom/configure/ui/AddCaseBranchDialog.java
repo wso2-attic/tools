@@ -2,10 +2,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import java.util.ArrayList;
 
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -18,6 +20,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableItem;
@@ -29,6 +32,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 
@@ -94,7 +98,7 @@ public class AddCaseBranchDialog extends Dialog {
 			countLayoutData.top = new FormAttachment(caseCount, 0, SWT.CENTER);
 			countLayoutData.left = new FormAttachment(caseCount, 5);
 			count.setLayoutData(countLayoutData);
-			int i =switchMediator.getSwitchContainer().getSwitchCaseContainer().size();
+			int i =switchMediator.getSwitchContainer().getSwitchCaseParentContainer().getSwitchCaseContainer().size();
 			count.setText(Integer.toString(i));
 		}
 
@@ -104,11 +108,11 @@ public class AddCaseBranchDialog extends Dialog {
 	
 	
 	protected void okPressed() {		
-			int number=Integer.parseInt(count.getText())-switchMediator.getSwitchContainer().getSwitchCaseContainer().size();
+			int number=Integer.parseInt(count.getText())-switchMediator.getSwitchContainer().getSwitchCaseParentContainer().getSwitchCaseContainer().size();
 			if(number>0){
 			for(int i=0;i<number;++i){
 			SwitchCaseContainer caseContainer = EsbFactory.eINSTANCE.createSwitchCaseContainer();
-			AddCommand addCmd = new AddCommand(editingDomain,switchMediator.getSwitchContainer(),EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER, caseContainer);
+			AddCommand addCmd = new AddCommand(editingDomain,switchMediator.getSwitchContainer().getSwitchCaseParentContainer(),EsbPackage.Literals.SWITCH_CASE_PARENT_CONTAINER__SWITCH_CASE_CONTAINER, caseContainer);
 			if (addCmd.canExecute()){
 				editingDomain.getCommandStack().execute(addCmd);
 			}
@@ -121,7 +125,7 @@ public class AddCaseBranchDialog extends Dialog {
 			}else{
 				
 				for(int i=0;i<Math.abs(number);++i){
-					SwitchCaseContainer lastCaseContainer=switchMediator.getSwitchContainer().getSwitchCaseContainer().get(switchMediator.getSwitchContainer().getSwitchCaseContainer().size()-1);
+					SwitchCaseContainer lastCaseContainer=switchMediator.getSwitchContainer().getSwitchCaseParentContainer().getSwitchCaseContainer().get(switchMediator.getSwitchContainer().getSwitchCaseParentContainer().getSwitchCaseContainer().size()-1);
 					caseBranches.add(lastCaseContainer);
 				DeleteCommand deleteCmd=new DeleteCommand(editingDomain, caseBranches);
 				if (deleteCmd.canExecute()){
@@ -149,5 +153,20 @@ public class AddCaseBranchDialog extends Dialog {
 				}
 			}
 			super.okPressed();
+			
+			// Rearrange Switch mediator on add or remove of case branches. 
+			reArrange();
 		}	
+	
+	/**
+	 * Rearrange Switch mediator on add or remove of case branches.
+	 */
+	private void reArrange(){
+		Display.getCurrent().asyncExec(new Runnable() {			
+			@Override
+			public void run() {	
+				XYRepossition.resizeContainers((IGraphicalEditPart) editpart);
+				XYRepossition.reArrange((IGraphicalEditPart) editpart);	
+			}});
+	}
 }

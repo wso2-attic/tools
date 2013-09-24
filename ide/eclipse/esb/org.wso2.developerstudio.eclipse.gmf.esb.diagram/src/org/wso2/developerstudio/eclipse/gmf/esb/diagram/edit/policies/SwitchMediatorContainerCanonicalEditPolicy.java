@@ -24,7 +24,9 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -58,9 +60,9 @@ public class SwitchMediatorContainerCanonicalEditPolicy extends CanonicalEditPol
 		if (myFeaturesToSynchronize == null) {
 			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getSwitchMediatorContainer_SwitchCaseContainer());
+					.getSwitchMediatorContainer_SwitchCaseParentContainer());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
-					.getSwitchMediatorContainer_SwitchDefaultContainer());
+					.getSwitchMediatorContainer_SwitchDefaultParentContainer());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -92,8 +94,8 @@ public class SwitchMediatorContainerCanonicalEditPolicy extends CanonicalEditPol
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == SwitchCaseContainerEditPart.VISUAL_ID
-				|| visualID == SwitchDefaultContainerEditPart.VISUAL_ID;
+		return visualID == SwitchCaseParentContainerEditPart.VISUAL_ID
+				|| visualID == SwitchDefaultParentContainerEditPart.VISUAL_ID;
 	}
 
 	/**

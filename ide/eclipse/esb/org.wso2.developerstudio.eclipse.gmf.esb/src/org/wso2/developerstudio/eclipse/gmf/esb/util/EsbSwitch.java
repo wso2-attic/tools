@@ -809,6 +809,20 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.SWITCH_CASE_PARENT_CONTAINER: {
+				SwitchCaseParentContainer switchCaseParentContainer = (SwitchCaseParentContainer)theEObject;
+				T result = caseSwitchCaseParentContainer(switchCaseParentContainer);
+				if (result == null) result = caseEsbNode(switchCaseParentContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SWITCH_DEFAULT_PARENT_CONTAINER: {
+				SwitchDefaultParentContainer switchDefaultParentContainer = (SwitchDefaultParentContainer)theEObject;
+				T result = caseSwitchDefaultParentContainer(switchDefaultParentContainer);
+				if (result == null) result = caseEsbNode(switchDefaultParentContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.SWITCH_CASE_CONTAINER: {
 				SwitchCaseContainer switchCaseContainer = (SwitchCaseContainer)theEObject;
 				T result = caseSwitchCaseContainer(switchCaseContainer);
@@ -3981,6 +3995,36 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSwitchMediatorContainer(SwitchMediatorContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Case Parent Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Case Parent Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchCaseParentContainer(SwitchCaseParentContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Switch Default Parent Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Switch Default Parent Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSwitchDefaultParentContainer(SwitchDefaultParentContainer object) {
 		return null;
 	}
 

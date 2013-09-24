@@ -16,8 +16,8 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer#getSwitchCaseContainer <em>Switch Case Container</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer#getSwitchDefaultContainer <em>Switch Default Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer#getSwitchCaseParentContainer <em>Switch Case Parent Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer#getSwitchDefaultParentContainer <em>Switch Default Parent Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,45 +27,55 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SwitchMediatorContainer extends EsbNode {
 	/**
-	 * Returns the value of the '<em><b>Switch Case Container</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer}.
+	 * Returns the value of the '<em><b>Switch Case Parent Container</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Switch Case Container</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Switch Case Parent Container</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Switch Case Container</em>' containment reference list.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSwitchMediatorContainer_SwitchCaseContainer()
-	 * @model containment="true" required="true"
-	 * @generated
-	 */
-	EList<SwitchCaseContainer> getSwitchCaseContainer();
-
-	/**
-	 * Returns the value of the '<em><b>Switch Default Container</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Switch Default Container</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Switch Default Container</em>' containment reference.
-	 * @see #setSwitchDefaultContainer(SwitchDefaultContainer)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSwitchMediatorContainer_SwitchDefaultContainer()
+	 * @return the value of the '<em>Switch Case Parent Container</em>' containment reference.
+	 * @see #setSwitchCaseParentContainer(SwitchCaseParentContainer)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSwitchMediatorContainer_SwitchCaseParentContainer()
 	 * @model containment="true"
 	 * @generated
 	 */
-	SwitchDefaultContainer getSwitchDefaultContainer();
+	SwitchCaseParentContainer getSwitchCaseParentContainer();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer#getSwitchDefaultContainer <em>Switch Default Container</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer#getSwitchCaseParentContainer <em>Switch Case Parent Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Switch Default Container</em>' containment reference.
-	 * @see #getSwitchDefaultContainer()
+	 * @param value the new value of the '<em>Switch Case Parent Container</em>' containment reference.
+	 * @see #getSwitchCaseParentContainer()
 	 * @generated
 	 */
-	void setSwitchDefaultContainer(SwitchDefaultContainer value);
+	void setSwitchCaseParentContainer(SwitchCaseParentContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>Switch Default Parent Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Switch Default Parent Container</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Switch Default Parent Container</em>' containment reference.
+	 * @see #setSwitchDefaultParentContainer(SwitchDefaultParentContainer)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSwitchMediatorContainer_SwitchDefaultParentContainer()
+	 * @model containment="true"
+	 * @generated
+	 */
+	SwitchDefaultParentContainer getSwitchDefaultParentContainer();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer#getSwitchDefaultParentContainer <em>Switch Default Parent Container</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Switch Default Parent Container</em>' containment reference.
+	 * @see #getSwitchDefaultParentContainer()
+	 * @generated
+	 */
+	void setSwitchDefaultParentContainer(SwitchDefaultParentContainer value);
 
 } // SwitchMediatorContainer

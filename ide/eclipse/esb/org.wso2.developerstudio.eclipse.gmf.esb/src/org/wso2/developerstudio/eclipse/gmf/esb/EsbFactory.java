@@ -789,6 +789,24 @@ public interface EsbFactory extends EFactory {
 	SwitchMediatorContainer createSwitchMediatorContainer();
 
 	/**
+	 * Returns a new object of class '<em>Switch Case Parent Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Case Parent Container</em>'.
+	 * @generated
+	 */
+	SwitchCaseParentContainer createSwitchCaseParentContainer();
+
+	/**
+	 * Returns a new object of class '<em>Switch Default Parent Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Default Parent Container</em>'.
+	 * @generated
+	 */
+	SwitchDefaultParentContainer createSwitchDefaultParentContainer();
+
+	/**
 	 * Returns a new object of class '<em>Switch Case Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

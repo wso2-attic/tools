@@ -200,6 +200,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case SwitchMediatorContainerEditPart.VISUAL_ID:
 				return new SwitchMediatorContainerEditPart(view);
 
+			case SwitchCaseParentContainerEditPart.VISUAL_ID:
+				return new SwitchCaseParentContainerEditPart(view);
+
 			case SwitchCaseContainerEditPart.VISUAL_ID:
 				return new SwitchCaseContainerEditPart(view);
 
@@ -892,6 +895,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 				return new CloudConnectorOperationOutputConnectorEditPart(view);
+
+			case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+				return new SwitchDefaultParentContainerEditPart(view);
 
 			case SwitchDefaultContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultContainerEditPart(view);

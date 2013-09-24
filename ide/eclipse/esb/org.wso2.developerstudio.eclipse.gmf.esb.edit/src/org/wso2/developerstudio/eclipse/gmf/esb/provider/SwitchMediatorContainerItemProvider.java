@@ -78,8 +78,8 @@ public class SwitchMediatorContainerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER);
-			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER);
 		}
 		return childrenFeatures;
 	}
@@ -131,8 +131,8 @@ public class SwitchMediatorContainerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SwitchMediatorContainer.class)) {
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER:
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER:
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER:
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,13 +152,13 @@ public class SwitchMediatorContainerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER,
-				 EsbFactory.eINSTANCE.createSwitchCaseContainer()));
+				(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER,
+				 EsbFactory.eINSTANCE.createSwitchCaseParentContainer()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER,
-				 EsbFactory.eINSTANCE.createSwitchDefaultContainer()));
+				(EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER,
+				 EsbFactory.eINSTANCE.createSwitchDefaultParentContainer()));
 	}
 
 }

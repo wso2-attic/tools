@@ -372,8 +372,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultParentContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorInputConnector;
@@ -1113,6 +1115,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass switchMediatorContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchCaseParentContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass switchDefaultParentContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6268,7 +6284,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSwitchMediatorContainer_SwitchCaseContainer() {
+	public EReference getSwitchMediatorContainer_SwitchCaseParentContainer() {
 		return (EReference)switchMediatorContainerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -6277,8 +6293,44 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSwitchMediatorContainer_SwitchDefaultContainer() {
+	public EReference getSwitchMediatorContainer_SwitchDefaultParentContainer() {
 		return (EReference)switchMediatorContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitchCaseParentContainer() {
+		return switchCaseParentContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwitchCaseParentContainer_SwitchCaseContainer() {
+		return (EReference)switchCaseParentContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSwitchDefaultParentContainer() {
+		return switchDefaultParentContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSwitchDefaultParentContainer_SwitchDefaultContainer() {
+		return (EReference)switchDefaultParentContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -14748,8 +14800,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		switchMediatorOutputConnectorEClass = createEClass(SWITCH_MEDIATOR_OUTPUT_CONNECTOR);
 
 		switchMediatorContainerEClass = createEClass(SWITCH_MEDIATOR_CONTAINER);
-		createEReference(switchMediatorContainerEClass, SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER);
-		createEReference(switchMediatorContainerEClass, SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER);
+		createEReference(switchMediatorContainerEClass, SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER);
+		createEReference(switchMediatorContainerEClass, SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER);
+
+		switchCaseParentContainerEClass = createEClass(SWITCH_CASE_PARENT_CONTAINER);
+		createEReference(switchCaseParentContainerEClass, SWITCH_CASE_PARENT_CONTAINER__SWITCH_CASE_CONTAINER);
+
+		switchDefaultParentContainerEClass = createEClass(SWITCH_DEFAULT_PARENT_CONTAINER);
+		createEReference(switchDefaultParentContainerEClass, SWITCH_DEFAULT_PARENT_CONTAINER__SWITCH_DEFAULT_CONTAINER);
 
 		switchCaseContainerEClass = createEClass(SWITCH_CASE_CONTAINER);
 		createEReference(switchCaseContainerEClass, SWITCH_CASE_CONTAINER__MEDIATOR_FLOW);
@@ -15987,6 +16045,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		switchMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		switchMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		switchMediatorContainerEClass.getESuperTypes().add(this.getEsbNode());
+		switchCaseParentContainerEClass.getESuperTypes().add(this.getEsbNode());
+		switchDefaultParentContainerEClass.getESuperTypes().add(this.getEsbNode());
 		switchCaseContainerEClass.getESuperTypes().add(this.getEsbNode());
 		switchDefaultContainerEClass.getESuperTypes().add(this.getEsbNode());
 		esbSequenceEClass.getESuperTypes().add(this.getEsbNode());
@@ -16620,8 +16680,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(switchMediatorOutputConnectorEClass, SwitchMediatorOutputConnector.class, "SwitchMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(switchMediatorContainerEClass, SwitchMediatorContainer.class, "SwitchMediatorContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSwitchMediatorContainer_SwitchCaseContainer(), this.getSwitchCaseContainer(), null, "switchCaseContainer", null, 1, -1, SwitchMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSwitchMediatorContainer_SwitchDefaultContainer(), this.getSwitchDefaultContainer(), null, "switchDefaultContainer", null, 0, 1, SwitchMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwitchMediatorContainer_SwitchCaseParentContainer(), this.getSwitchCaseParentContainer(), null, "switchCaseParentContainer", null, 0, 1, SwitchMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSwitchMediatorContainer_SwitchDefaultParentContainer(), this.getSwitchDefaultParentContainer(), null, "switchDefaultParentContainer", null, 0, 1, SwitchMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(switchCaseParentContainerEClass, SwitchCaseParentContainer.class, "SwitchCaseParentContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSwitchCaseParentContainer_SwitchCaseContainer(), this.getSwitchCaseContainer(), null, "switchCaseContainer", null, 1, -1, SwitchCaseParentContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(switchDefaultParentContainerEClass, SwitchDefaultParentContainer.class, "SwitchDefaultParentContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSwitchDefaultParentContainer_SwitchDefaultContainer(), this.getSwitchDefaultContainer(), null, "switchDefaultContainer", null, 0, 1, SwitchDefaultParentContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(switchCaseContainerEClass, SwitchCaseContainer.class, "SwitchCaseContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSwitchCaseContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, SwitchCaseContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

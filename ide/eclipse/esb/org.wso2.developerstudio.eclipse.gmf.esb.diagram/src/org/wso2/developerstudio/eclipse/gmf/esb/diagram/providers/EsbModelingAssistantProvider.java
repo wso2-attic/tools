@@ -147,8 +147,13 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof SwitchMediatorContainerEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
-			types.add(EsbElementTypes.SwitchCaseContainer_3501);
-			types.add(EsbElementTypes.SwitchDefaultContainer_3527);
+			types.add(EsbElementTypes.SwitchCaseParentContainer_3732);
+			types.add(EsbElementTypes.SwitchDefaultParentContainer_3734);
+			return types;
+		}
+		if (editPart instanceof SwitchCaseParentContainerEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(EsbElementTypes.SwitchCaseContainer_3733);
 			return types;
 		}
 		if (editPart instanceof SwitchCaseContainerEditPart) {
@@ -483,6 +488,11 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(EsbElementTypes.CloudConnectorOperationInputConnector_3723);
 			types.add(EsbElementTypes.CloudConnectorOperationOutputConnector_3724);
+			return types;
+		}
+		if (editPart instanceof SwitchDefaultParentContainerEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			types.add(EsbElementTypes.SwitchDefaultContainer_3735);
 			return types;
 		}
 		if (editPart instanceof SwitchDefaultContainerEditPart) {

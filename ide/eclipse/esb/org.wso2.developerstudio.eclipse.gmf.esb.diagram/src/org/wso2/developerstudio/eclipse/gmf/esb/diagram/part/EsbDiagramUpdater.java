@@ -62,8 +62,10 @@ public class EsbDiagramUpdater {
 			return getSwitchMediator_3498SemanticChildren(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return getSwitchMediatorContainer_3500SemanticChildren(view);
+		case SwitchCaseParentContainerEditPart.VISUAL_ID:
+			return getSwitchCaseParentContainer_3732SemanticChildren(view);
 		case SwitchCaseContainerEditPart.VISUAL_ID:
-			return getSwitchCaseContainer_3501SemanticChildren(view);
+			return getSwitchCaseContainer_3733SemanticChildren(view);
 		case SequenceEditPart.VISUAL_ID:
 			return getSequence_3503SemanticChildren(view);
 		case EventMediatorEditPart.VISUAL_ID:
@@ -168,8 +170,10 @@ public class EsbDiagramUpdater {
 			return getCloudConnector_3719SemanticChildren(view);
 		case CloudConnectorOperationEditPart.VISUAL_ID:
 			return getCloudConnectorOperation_3722SemanticChildren(view);
+		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+			return getSwitchDefaultParentContainer_3734SemanticChildren(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
-			return getSwitchDefaultContainer_3527SemanticChildren(view);
+			return getSwitchDefaultContainer_3735SemanticChildren(view);
 		case FilterFailContainerEditPart.VISUAL_ID:
 			return getFilterFailContainer_3537SemanticChildren(view);
 		case ThrottleOnRejectContainerEditPart.VISUAL_ID:
@@ -757,18 +761,18 @@ public class EsbDiagramUpdater {
 		}
 		SwitchMediatorContainer modelElement = (SwitchMediatorContainer) view.getElement();
 		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getSwitchCaseContainer().iterator(); it.hasNext();) {
-			SwitchCaseContainer childElement = (SwitchCaseContainer) it.next();
+		{
+			SwitchCaseParentContainer childElement = modelElement.getSwitchCaseParentContainer();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == SwitchCaseContainerEditPart.VISUAL_ID) {
+			if (visualID == SwitchCaseParentContainerEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
 			}
 		}
 		{
-			SwitchDefaultContainer childElement = modelElement.getSwitchDefaultContainer();
+			SwitchDefaultParentContainer childElement = modelElement
+					.getSwitchDefaultParentContainer();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
-			if (visualID == SwitchDefaultContainerEditPart.VISUAL_ID) {
+			if (visualID == SwitchDefaultParentContainerEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -778,7 +782,28 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSwitchCaseContainer_3501SemanticChildren(View view) {
+	public static List<EsbNodeDescriptor> getSwitchCaseParentContainer_3732SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		SwitchCaseParentContainer modelElement = (SwitchCaseParentContainer) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getSwitchCaseContainer().iterator(); it.hasNext();) {
+			SwitchCaseContainer childElement = (SwitchCaseContainer) it.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == SwitchCaseContainerEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getSwitchCaseContainer_3733SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
@@ -2292,7 +2317,28 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getSwitchDefaultContainer_3527SemanticChildren(View view) {
+	public static List<EsbNodeDescriptor> getSwitchDefaultParentContainer_3734SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		SwitchDefaultParentContainer modelElement = (SwitchDefaultParentContainer) view
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			SwitchDefaultContainer childElement = modelElement.getSwitchDefaultContainer();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == SwitchDefaultContainerEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getSwitchDefaultContainer_3735SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
 		}
@@ -7806,8 +7852,10 @@ public class EsbDiagramUpdater {
 			return getSwitchDefaultBranchOutputConnector_3044ContainedLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return getSwitchMediatorContainer_3500ContainedLinks(view);
+		case SwitchCaseParentContainerEditPart.VISUAL_ID:
+			return getSwitchCaseParentContainer_3732ContainedLinks(view);
 		case SwitchCaseContainerEditPart.VISUAL_ID:
-			return getSwitchCaseContainer_3501ContainedLinks(view);
+			return getSwitchCaseContainer_3733ContainedLinks(view);
 		case MediatorFlow2EditPart.VISUAL_ID:
 			return getMediatorFlow_3502ContainedLinks(view);
 		case SequenceEditPart.VISUAL_ID:
@@ -8148,8 +8196,10 @@ public class EsbDiagramUpdater {
 			return getCloudConnectorOperationInputConnector_3723ContainedLinks(view);
 		case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 			return getCloudConnectorOperationOutputConnector_3724ContainedLinks(view);
+		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+			return getSwitchDefaultParentContainer_3734ContainedLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
-			return getSwitchDefaultContainer_3527ContainedLinks(view);
+			return getSwitchDefaultContainer_3735ContainedLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
 			return getMediatorFlow_3528ContainedLinks(view);
 		case FilterFailContainerEditPart.VISUAL_ID:
@@ -8379,8 +8429,10 @@ public class EsbDiagramUpdater {
 			return getSwitchDefaultBranchOutputConnector_3044IncomingLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return getSwitchMediatorContainer_3500IncomingLinks(view);
+		case SwitchCaseParentContainerEditPart.VISUAL_ID:
+			return getSwitchCaseParentContainer_3732IncomingLinks(view);
 		case SwitchCaseContainerEditPart.VISUAL_ID:
-			return getSwitchCaseContainer_3501IncomingLinks(view);
+			return getSwitchCaseContainer_3733IncomingLinks(view);
 		case MediatorFlow2EditPart.VISUAL_ID:
 			return getMediatorFlow_3502IncomingLinks(view);
 		case SequenceEditPart.VISUAL_ID:
@@ -8721,8 +8773,10 @@ public class EsbDiagramUpdater {
 			return getCloudConnectorOperationInputConnector_3723IncomingLinks(view);
 		case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 			return getCloudConnectorOperationOutputConnector_3724IncomingLinks(view);
+		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+			return getSwitchDefaultParentContainer_3734IncomingLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
-			return getSwitchDefaultContainer_3527IncomingLinks(view);
+			return getSwitchDefaultContainer_3735IncomingLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
 			return getMediatorFlow_3528IncomingLinks(view);
 		case FilterFailContainerEditPart.VISUAL_ID:
@@ -8952,8 +9006,10 @@ public class EsbDiagramUpdater {
 			return getSwitchDefaultBranchOutputConnector_3044OutgoingLinks(view);
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return getSwitchMediatorContainer_3500OutgoingLinks(view);
+		case SwitchCaseParentContainerEditPart.VISUAL_ID:
+			return getSwitchCaseParentContainer_3732OutgoingLinks(view);
 		case SwitchCaseContainerEditPart.VISUAL_ID:
-			return getSwitchCaseContainer_3501OutgoingLinks(view);
+			return getSwitchCaseContainer_3733OutgoingLinks(view);
 		case MediatorFlow2EditPart.VISUAL_ID:
 			return getMediatorFlow_3502OutgoingLinks(view);
 		case SequenceEditPart.VISUAL_ID:
@@ -9294,8 +9350,10 @@ public class EsbDiagramUpdater {
 			return getCloudConnectorOperationInputConnector_3723OutgoingLinks(view);
 		case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 			return getCloudConnectorOperationOutputConnector_3724OutgoingLinks(view);
+		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+			return getSwitchDefaultParentContainer_3734OutgoingLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
-			return getSwitchDefaultContainer_3527OutgoingLinks(view);
+			return getSwitchDefaultContainer_3735OutgoingLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
 			return getMediatorFlow_3528OutgoingLinks(view);
 		case FilterFailContainerEditPart.VISUAL_ID:
@@ -10231,7 +10289,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseContainer_3501ContainedLinks(View view) {
+	public static List<EsbLinkDescriptor> getSwitchCaseParentContainer_3732ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSwitchCaseContainer_3733ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -10939,6 +11004,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getSwitchDefaultParentContainer_3734ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3735ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getProxyServiceFaultContainer_3488ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -11571,13 +11651,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getDefaultEndPoint_3609ContainedLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3527ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -12723,7 +12796,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseContainer_3501IncomingLinks(View view) {
+	public static List<EsbLinkDescriptor> getSwitchCaseParentContainer_3732IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSwitchCaseContainer_3733IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -13452,6 +13532,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getSwitchDefaultParentContainer_3734IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3735IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getProxyServiceFaultContainer_3488IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -14079,13 +14174,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getDefaultEndPoint_3609IncomingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3527IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -15201,7 +15289,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getSwitchCaseContainer_3501OutgoingLinks(View view) {
+	public static List<EsbLinkDescriptor> getSwitchCaseParentContainer_3732OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSwitchCaseContainer_3733OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -15902,6 +15997,21 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getSwitchDefaultParentContainer_3734OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3735OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getProxyServiceFaultContainer_3488OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -16530,13 +16640,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getDefaultEndPoint_3609OutgoingLinks(View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3527OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

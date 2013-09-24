@@ -26,6 +26,8 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
@@ -60,7 +62,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterTargetC
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
@@ -227,67 +231,59 @@ public class MediatorFigureReverser {
 		}
 
 		if (editorPart instanceof SwitchMediatorEditPart) {
-			if( ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
-					.get(0)).getChildren().size()!=0){
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0))
-							.getChildren().get(0)).getChildren().get(1), // Default branch always as the second element. Fixing TOOLS-1808.
-					((SwitchMediatorEditPart) editorPart).defaultOutputConnector,
-					PositionConstants.EAST, 0.5);
-			((SwitchMediatorEditPart) editorPart).getBorderedFigure().getBorderItemContainer()
-					.add(((SwitchMediatorEditPart) editorPart).defaultOutputConnector, locator);
-
-			for (int i = 0; ((i < ((SwitchMediatorEditPart) editorPart).caseOutputConnectors.size()) && ((i + 1) < (((IFigure) ((DefaultSizeNodeFigure) childFigures
-					.get(0)).getChildren().get(0)).getChildren().size()))); ++i) {
-				
-				// Fixing TOOLS-1808.
-				int caseIndex = i;
-				if(caseIndex == 1) {
-					caseIndex = caseIndex + 1;
-				}
-				
-				BorderItemLocator caseLocator = new FixedBorderItemLocator(
-						(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0))
-								.getChildren().get(0)).getChildren().get(caseIndex),
-						((SwitchMediatorEditPart) editorPart).caseOutputConnectors.get(i),
+			if (((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren().get(0))
+					.getChildren().size() != 0) {
+				BorderItemLocator locator = new FixedBorderItemLocator(
+						(IFigure) ((IFigure) ((DefaultSizeNodeFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures
+								.get(0)).getChildren().get(0)).getChildren().get(1)).getChildren()
+								.get(0)).getChildren().get(0),
+						((SwitchMediatorEditPart) editorPart).defaultOutputConnector,
 						PositionConstants.EAST, 0.5);
-				((SwitchMediatorEditPart) editorPart)
-						.getBorderedFigure()
-						.getBorderItemContainer()
-						.add(((SwitchMediatorEditPart) editorPart).caseOutputConnectors.get(i),
-								caseLocator);
-			}
+				((SwitchMediatorEditPart) editorPart).getBorderedFigure().getBorderItemContainer()
+						.add(((SwitchMediatorEditPart) editorPart).defaultOutputConnector, locator);
 
-			for (int j = 0; j < editorPart.getChildren().size(); ++j) {
-				if (editorPart.getChildren().get(j) instanceof SwitchMediatorContainerEditPart) {
+				for (int i = 0; ((i < ((SwitchMediatorEditPart) editorPart).caseOutputConnectors
+						.size()) && (i < (((IFigure) ((DefaultSizeNodeFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures
+						.get(0)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0))
+						.getChildren().size()))); ++i) {
 
-					List<SwitchCaseContainerEditPart> switchCaseContainerEditPartList = ((SwitchMediatorContainerEditPart) editorPart
-							.getChildren().get(j)).getChildren();
-					for (int p = 0; p < switchCaseContainerEditPartList.size(); ++p) {
-						childrenCaseContainer
-								.addAll(((EditPart) ((EditPart) ((EditPart) switchCaseContainerEditPartList
-										.get(p)).getChildren().get(0)).getChildren().get(0))
-										.getChildren());
-					}				
-					for (int k = 0; k < ((SwitchMediatorContainerEditPart) editorPart.getChildren()
-							.get(j)).getChildren().size(); ++k) {
-						if (((SwitchMediatorContainerEditPart) editorPart.getChildren().get(j))
-								.getChildren().get(k) instanceof SwitchDefaultContainerEditPart) {
-							childrenDefaultContainer = ((MediatorFlowMediatorFlowCompartment4EditPart) ((MediatorFlow4EditPart) ((SwitchDefaultContainerEditPart) ((SwitchMediatorContainerEditPart) editorPart
-									.getChildren().get(j)).getChildren().get(k)).getChildren().get(
-									0)).getChildren().get(0)).getChildren();
-							break;
+					BorderItemLocator caseLocator = new FixedBorderItemLocator(
+							(IFigure) ((IFigure) ((DefaultSizeNodeFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures
+									.get(0)).getChildren().get(0)).getChildren().get(0))
+									.getChildren().get(0)).getChildren().get(i),
+							((SwitchMediatorEditPart) editorPart).caseOutputConnectors.get(i),
+							PositionConstants.EAST, 0.5);
+					((SwitchMediatorEditPart) editorPart)
+							.getBorderedFigure()
+							.getBorderItemContainer()
+							.add(((SwitchMediatorEditPart) editorPart).caseOutputConnectors.get(i),
+									caseLocator);
+				}
+
+				for (int j = 0; j < editorPart.getChildren().size(); ++j) {
+					if (editorPart.getChildren().get(j) instanceof SwitchMediatorContainerEditPart) {
+
+						List<SwitchCaseContainerEditPart> switchCaseContainerEditPartList = ((SwitchCaseParentContainerEditPart) ((SwitchMediatorContainerEditPart) editorPart
+								.getChildren().get(j)).getChildren().get(0)).getChildren();
+						for (int p = 0; p < switchCaseContainerEditPartList.size(); ++p) {
+							childrenCaseContainer
+									.addAll(((EditPart) ((EditPart) ((EditPart) switchCaseContainerEditPartList
+											.get(p)).getChildren().get(0)).getChildren().get(0))
+											.getChildren());
 						}
-					}
 
-					children = childrenCaseContainer;
-					break;
+						SwitchDefaultContainerEditPart switchDefaultContainerEditPart = (SwitchDefaultContainerEditPart) ((SwitchDefaultParentContainerEditPart) ((SwitchMediatorContainerEditPart) editorPart
+								.getChildren().get(j)).getChildren().get(1)).getChildren().get(0);
+						childrenDefaultContainer = ((MediatorFlowMediatorFlowCompartment4EditPart) ((MediatorFlow4EditPart) switchDefaultContainerEditPart
+								.getChildren().get(0)).getChildren().get(0)).getChildren();
+
+						children = childrenCaseContainer;
+						break;
+					}
 				}
 			}
 		}
-		}
-		
-		
+			
 		if (editorPart instanceof CloneMediatorEditPart) {
 
 			for (int i = 0; (i < ((CloneMediatorEditPart) editorPart).targetOutputConnectors.size()&&(i < (((IFigure) ((DefaultSizeNodeFigure) childFigures

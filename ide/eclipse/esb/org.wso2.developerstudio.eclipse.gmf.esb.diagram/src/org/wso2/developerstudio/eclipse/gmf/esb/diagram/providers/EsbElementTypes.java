@@ -516,7 +516,12 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType SwitchCaseContainer_3501 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchCaseContainer_3501"); //$NON-NLS-1$
+	public static final IElementType SwitchCaseParentContainer_3732 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchCaseParentContainer_3732"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SwitchCaseContainer_3733 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchCaseContainer_3733"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -911,6 +916,16 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType SwitchDefaultParentContainer_3734 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultParentContainer_3734"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType SwitchDefaultContainer_3735 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultContainer_3735"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ProxyServiceFaultContainer_3488 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceFaultContainer_3488"); //$NON-NLS-1$
 
 	/**
@@ -1267,11 +1282,6 @@ public class EsbElementTypes {
 	 * @generated
 	 */
 	public static final IElementType DefaultEndPoint_3609 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3609"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType SwitchDefaultContainer_3527 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultContainer_3527"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -1684,7 +1694,10 @@ public class EsbElementTypes {
 			elements.put(SwitchMediatorContainer_3500,
 					EsbPackage.eINSTANCE.getSwitchMediatorContainer());
 
-			elements.put(SwitchCaseContainer_3501, EsbPackage.eINSTANCE.getSwitchCaseContainer());
+			elements.put(SwitchCaseParentContainer_3732,
+					EsbPackage.eINSTANCE.getSwitchCaseParentContainer());
+
+			elements.put(SwitchCaseContainer_3733, EsbPackage.eINSTANCE.getSwitchCaseContainer());
 
 			elements.put(MediatorFlow_3502, EsbPackage.eINSTANCE.getMediatorFlow());
 
@@ -2141,7 +2154,10 @@ public class EsbElementTypes {
 			elements.put(CloudConnectorOperationOutputConnector_3724,
 					EsbPackage.eINSTANCE.getCloudConnectorOperationOutputConnector());
 
-			elements.put(SwitchDefaultContainer_3527,
+			elements.put(SwitchDefaultParentContainer_3734,
+					EsbPackage.eINSTANCE.getSwitchDefaultParentContainer());
+
+			elements.put(SwitchDefaultContainer_3735,
 					EsbPackage.eINSTANCE.getSwitchDefaultContainer());
 
 			elements.put(MediatorFlow_3528, EsbPackage.eINSTANCE.getMediatorFlow());
@@ -2372,7 +2388,8 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(SwitchCaseBranchOutputConnector_3043);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultBranchOutputConnector_3044);
 			KNOWN_ELEMENT_TYPES.add(SwitchMediatorContainer_3500);
-			KNOWN_ELEMENT_TYPES.add(SwitchCaseContainer_3501);
+			KNOWN_ELEMENT_TYPES.add(SwitchCaseParentContainer_3732);
+			KNOWN_ELEMENT_TYPES.add(SwitchCaseContainer_3733);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3502);
 			KNOWN_ELEMENT_TYPES.add(Sequence_3503);
 			KNOWN_ELEMENT_TYPES.add(SequenceInputConnector_3049);
@@ -2543,7 +2560,8 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperation_3722);
 			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperationInputConnector_3723);
 			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperationOutputConnector_3724);
-			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3527);
+			KNOWN_ELEMENT_TYPES.add(SwitchDefaultParentContainer_3734);
+			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3735);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
 			KNOWN_ELEMENT_TYPES.add(FilterFailContainer_3537);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3538);
@@ -2710,8 +2728,10 @@ public class EsbElementTypes {
 			return SwitchDefaultBranchOutputConnector_3044;
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return SwitchMediatorContainer_3500;
+		case SwitchCaseParentContainerEditPart.VISUAL_ID:
+			return SwitchCaseParentContainer_3732;
 		case SwitchCaseContainerEditPart.VISUAL_ID:
-			return SwitchCaseContainer_3501;
+			return SwitchCaseContainer_3733;
 		case MediatorFlow2EditPart.VISUAL_ID:
 			return MediatorFlow_3502;
 		case SequenceEditPart.VISUAL_ID:
@@ -3052,8 +3072,10 @@ public class EsbElementTypes {
 			return CloudConnectorOperationInputConnector_3723;
 		case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 			return CloudConnectorOperationOutputConnector_3724;
+		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+			return SwitchDefaultParentContainer_3734;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
-			return SwitchDefaultContainer_3527;
+			return SwitchDefaultContainer_3735;
 		case MediatorFlow4EditPart.VISUAL_ID:
 			return MediatorFlow_3528;
 		case FilterFailContainerEditPart.VISUAL_ID:

@@ -153,6 +153,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.SWITCH_MEDIATOR_INPUT_CONNECTOR: return createSwitchMediatorInputConnector();
 			case EsbPackage.SWITCH_MEDIATOR_OUTPUT_CONNECTOR: return createSwitchMediatorOutputConnector();
 			case EsbPackage.SWITCH_MEDIATOR_CONTAINER: return createSwitchMediatorContainer();
+			case EsbPackage.SWITCH_CASE_PARENT_CONTAINER: return createSwitchCaseParentContainer();
+			case EsbPackage.SWITCH_DEFAULT_PARENT_CONTAINER: return createSwitchDefaultParentContainer();
 			case EsbPackage.SWITCH_CASE_CONTAINER: return createSwitchCaseContainer();
 			case EsbPackage.SWITCH_DEFAULT_CONTAINER: return createSwitchDefaultContainer();
 			case EsbPackage.SEQUENCE_DIAGRAM: return createSequenceDiagram();
@@ -1693,8 +1695,30 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 */
 	public SwitchMediatorContainer createSwitchMediatorContainer() {
 		SwitchMediatorContainerImpl switchMediatorContainer = new SwitchMediatorContainerImpl();
-		switchMediatorContainer.setSwitchDefaultContainer(createSwitchDefaultContainer());
+		switchMediatorContainer.setSwitchCaseParentContainer(createSwitchCaseParentContainer());
+		switchMediatorContainer.setSwitchDefaultParentContainer(createSwitchDefaultParentContainer());
 		return switchMediatorContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchCaseParentContainer createSwitchCaseParentContainer() {
+		SwitchCaseParentContainerImpl switchCaseParentContainer = new SwitchCaseParentContainerImpl();
+		return switchCaseParentContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public SwitchDefaultParentContainer createSwitchDefaultParentContainer() {
+		SwitchDefaultParentContainerImpl switchDefaultParentContainer = new SwitchDefaultParentContainerImpl();
+		switchDefaultParentContainer.setSwitchDefaultContainer(createSwitchDefaultContainer());
+		return switchDefaultParentContainer;
 	}
 
 	/**

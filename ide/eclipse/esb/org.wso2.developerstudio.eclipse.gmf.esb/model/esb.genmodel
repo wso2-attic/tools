@@ -888,8 +888,14 @@
     <genClasses ecoreClass="esb.ecore#//SwitchMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SwitchMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SwitchMediatorContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediatorContainer/switchCaseContainer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediatorContainer/switchDefaultContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediatorContainer/switchCaseParentContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchMediatorContainer/switchDefaultParentContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//SwitchCaseParentContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchCaseParentContainer/switchCaseContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//SwitchDefaultParentContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchDefaultParentContainer/switchDefaultContainer"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SwitchCaseContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SwitchCaseContainer/mediatorFlow"/>

@@ -65,7 +65,7 @@ public class SwitchMediatorDeserializer extends
 			SequenceMediator defaultSequence = new SequenceMediator();
 			defaultSequence.addAll(defaultCase.getCaseMediator().getList());
 			IGraphicalEditPart defaultCompartment = (IGraphicalEditPart) getEditpart(
-					visualSwitchMediator.getSwitchContainer().getSwitchDefaultContainer()
+					visualSwitchMediator.getSwitchContainer().getSwitchDefaultParentContainer().getSwitchDefaultContainer()
 							.getMediatorFlow()).getChildren().get(0);
 			deserializeSequence((IGraphicalEditPart) defaultCompartment, defaultSequence,
 					visualSwitchMediator.getDefaultBranch());
@@ -76,15 +76,15 @@ public class SwitchMediatorDeserializer extends
 				SwitchCaseContainer switchContainer = null;
 				SwitchCaseBranchOutputConnector connector = null;
 				if (count++ == 0
-						&& visualSwitchMediator.getSwitchContainer().getSwitchCaseContainer()
+						&& visualSwitchMediator.getSwitchContainer().getSwitchCaseParentContainer().getSwitchCaseContainer()
 								.size() == 1) {
-					switchContainer = visualSwitchMediator.getSwitchContainer().getSwitchCaseContainer().get(0);
+					switchContainer = visualSwitchMediator.getSwitchContainer().getSwitchCaseParentContainer().getSwitchCaseContainer().get(0);
 					connector = visualSwitchMediator.getCaseBranches().get(0);
 				} else {
 					switchContainer = (SwitchCaseContainer) DeserializerUtils.createNode(
 							(IGraphicalEditPart) getEditpart(visualSwitchMediator
-									.getSwitchContainer()),
-							EsbElementTypes.SwitchCaseContainer_3501);
+									.getSwitchContainer().getSwitchCaseParentContainer()),
+							EsbElementTypes.SwitchCaseContainer_3733);
 					connector = (SwitchCaseBranchOutputConnector) DeserializerUtils.createNode(
 							(IGraphicalEditPart) getEditpart(visualSwitchMediator),
 							EsbElementTypes.SwitchCaseBranchOutputConnector_3043);

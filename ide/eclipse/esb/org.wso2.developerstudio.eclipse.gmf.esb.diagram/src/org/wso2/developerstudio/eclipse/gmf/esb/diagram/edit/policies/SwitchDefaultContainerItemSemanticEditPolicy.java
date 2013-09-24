@@ -26,7 +26,7 @@ public class SwitchDefaultContainerItemSemanticEditPolicy extends EsbBaseItemSem
 	 * @generated
 	 */
 	public SwitchDefaultContainerItemSemanticEditPolicy() {
-		super(EsbElementTypes.SwitchDefaultContainer_3527);
+		super(EsbElementTypes.SwitchDefaultContainer_3735);
 	}
 
 	/**

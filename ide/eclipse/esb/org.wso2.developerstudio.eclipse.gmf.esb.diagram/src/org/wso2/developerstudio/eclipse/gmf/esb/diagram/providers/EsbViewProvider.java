@@ -172,6 +172,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
 				case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
 				case SwitchMediatorContainerEditPart.VISUAL_ID:
+				case SwitchCaseParentContainerEditPart.VISUAL_ID:
 				case SwitchCaseContainerEditPart.VISUAL_ID:
 				case SequenceEditPart.VISUAL_ID:
 				case SequenceInputConnectorEditPart.VISUAL_ID:
@@ -333,6 +334,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case CloudConnectorOperationEditPart.VISUAL_ID:
 				case CloudConnectorOperationInputConnectorEditPart.VISUAL_ID:
 				case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
+				case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 				case SwitchDefaultContainerEditPart.VISUAL_ID:
 				case FilterFailContainerEditPart.VISUAL_ID:
 				case ThrottleOnRejectContainerEditPart.VISUAL_ID:
@@ -466,6 +468,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchMediatorContainerEditPart.VISUAL_ID == visualID
+				|| SwitchCaseParentContainerEditPart.VISUAL_ID == visualID
 				|| SwitchCaseContainerEditPart.VISUAL_ID == visualID
 				|| MediatorFlow2EditPart.VISUAL_ID == visualID
 				|| SequenceEditPart.VISUAL_ID == visualID
@@ -637,6 +640,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| CloudConnectorOperationEditPart.VISUAL_ID == visualID
 				|| CloudConnectorOperationInputConnectorEditPart.VISUAL_ID == visualID
 				|| CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID == visualID
+				|| SwitchDefaultParentContainerEditPart.VISUAL_ID == visualID
 				|| SwitchDefaultContainerEditPart.VISUAL_ID == visualID
 				|| MediatorFlow4EditPart.VISUAL_ID == visualID
 				|| FilterFailContainerEditPart.VISUAL_ID == visualID
@@ -887,8 +891,11 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
 			return createSwitchMediatorContainer_3500(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case SwitchCaseParentContainerEditPart.VISUAL_ID:
+			return createSwitchCaseParentContainer_3732(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case SwitchCaseContainerEditPart.VISUAL_ID:
-			return createSwitchCaseContainer_3501(domainElement, containerView, index, persisted,
+			return createSwitchCaseContainer_3733(domainElement, containerView, index, persisted,
 					preferencesHint);
 		case MediatorFlow2EditPart.VISUAL_ID:
 			return createMediatorFlow_3502(domainElement, containerView, index, persisted,
@@ -1400,8 +1407,11 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 			return createCloudConnectorOperationOutputConnector_3724(domainElement, containerView,
 					index, persisted, preferencesHint);
+		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+			return createSwitchDefaultParentContainer_3734(domainElement, containerView, index,
+					persisted, preferencesHint);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
-			return createSwitchDefaultContainer_3527(domainElement, containerView, index,
+			return createSwitchDefaultContainer_3735(domainElement, containerView, index,
 					persisted, preferencesHint);
 		case MediatorFlow4EditPart.VISUAL_ID:
 			return createMediatorFlow_3528(domainElement, containerView, index, persisted,
@@ -5051,7 +5061,43 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 	/**
 	 * @generated
 	 */
-	public Node createSwitchCaseContainer_3501(EObject domainElement, View containerView,
+	public Node createSwitchCaseParentContainer_3732(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(SwitchCaseParentContainerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createSwitchCaseContainer_3733(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
 		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
@@ -7989,6 +8035,78 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 	/**
 	 * @generated
 	 */
+	public Node createSwitchDefaultParentContainer_3734(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(SwitchDefaultParentContainerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createSwitchDefaultContainer_3735(EObject domainElement, View containerView,
+			int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(SwitchDefaultContainerEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
 	public Node createProxyServiceFaultContainer_3488(EObject domainElement, View containerView,
 			int index, boolean persisted, PreferencesHint preferencesHint) {
 		Node node = NotationFactory.eINSTANCE.createNode();
@@ -10656,42 +10774,6 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				EsbVisualIDRegistry.getType(DefaultEndPointEndPointNameEditPart.VISUAL_ID));
 		Node label5201 = createLabel(node,
 				EsbVisualIDRegistry.getType(DefaultEndPointDescriptionEditPart.VISUAL_ID));
-		return node;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Node createSwitchDefaultContainer_3527(EObject domainElement, View containerView,
-			int index, boolean persisted, PreferencesHint preferencesHint) {
-		Node node = NotationFactory.eINSTANCE.createNode();
-		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
-		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
-		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
-		node.setType(EsbVisualIDRegistry.getType(SwitchDefaultContainerEditPart.VISUAL_ID));
-		ViewUtil.insertChildView(containerView, node, index, persisted);
-		node.setElement(domainElement);
-		// initializeFromPreferences 
-		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
-
-		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
-				IPreferenceConstants.PREF_LINE_COLOR);
-		ViewUtil.setStructuralFeatureValue(node,
-				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
-				FigureUtilities.RGBToInteger(lineRGB));
-		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
-		if (nodeFontStyle != null) {
-			FontData fontData = PreferenceConverter.getFontData(prefStore,
-					IPreferenceConstants.PREF_DEFAULT_FONT);
-			nodeFontStyle.setFontName(fontData.getName());
-			nodeFontStyle.setFontHeight(fontData.getHeight());
-			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
-			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
-			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
-					IPreferenceConstants.PREF_FONT_COLOR);
-			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
-		}
 		return node;
 	}
 

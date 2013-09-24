@@ -678,8 +678,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="SwitchMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SwitchMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SwitchMediatorContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchCaseParentContainer"
+        eType="#//SwitchCaseParentContainer" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="switchDefaultParentContainer"
+        eType="#//SwitchDefaultParentContainer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchCaseParentContainer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="switchCaseContainer" lowerBound="1"
         upperBound="-1" eType="#//SwitchCaseContainer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchDefaultParentContainer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="switchDefaultContainer"
         eType="#//SwitchDefaultContainer" containment="true"/>
   </eClassifiers>

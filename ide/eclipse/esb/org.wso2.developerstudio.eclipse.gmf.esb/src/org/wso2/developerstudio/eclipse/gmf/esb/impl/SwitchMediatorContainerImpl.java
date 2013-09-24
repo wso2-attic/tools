@@ -22,6 +22,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultParentContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
@@ -33,8 +35,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorContainerImpl#getSwitchCaseContainer <em>Switch Case Container</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorContainerImpl#getSwitchDefaultContainer <em>Switch Default Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorContainerImpl#getSwitchCaseParentContainer <em>Switch Case Parent Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SwitchMediatorContainerImpl#getSwitchDefaultParentContainer <em>Switch Default Parent Container</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,24 +44,24 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
  */
 public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMediatorContainer {
 	/**
-	 * The cached value of the '{@link #getSwitchCaseContainer() <em>Switch Case Container</em>}' containment reference list.
+	 * The cached value of the '{@link #getSwitchCaseParentContainer() <em>Switch Case Parent Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSwitchCaseContainer()
+	 * @see #getSwitchCaseParentContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SwitchCaseContainer> switchCaseContainer;
+	protected SwitchCaseParentContainer switchCaseParentContainer;
 
 	/**
-	 * The cached value of the '{@link #getSwitchDefaultContainer() <em>Switch Default Container</em>}' containment reference.
+	 * The cached value of the '{@link #getSwitchDefaultParentContainer() <em>Switch Default Parent Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSwitchDefaultContainer()
+	 * @see #getSwitchDefaultParentContainer()
 	 * @generated
 	 * @ordered
 	 */
-	protected SwitchDefaultContainer switchDefaultContainer;
+	protected SwitchDefaultParentContainer switchDefaultParentContainer;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -85,11 +87,8 @@ public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SwitchCaseContainer> getSwitchCaseContainer() {
-		if (switchCaseContainer == null) {
-			switchCaseContainer = new EObjectContainmentEList<SwitchCaseContainer>(SwitchCaseContainer.class, this, EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER);
-		}
-		return switchCaseContainer;
+	public SwitchCaseParentContainer getSwitchCaseParentContainer() {
+		return switchCaseParentContainer;
 	}
 
 	/**
@@ -97,20 +96,11 @@ public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SwitchDefaultContainer getSwitchDefaultContainer() {
-		return switchDefaultContainer;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSwitchDefaultContainer(SwitchDefaultContainer newSwitchDefaultContainer, NotificationChain msgs) {
-		SwitchDefaultContainer oldSwitchDefaultContainer = switchDefaultContainer;
-		switchDefaultContainer = newSwitchDefaultContainer;
+	public NotificationChain basicSetSwitchCaseParentContainer(SwitchCaseParentContainer newSwitchCaseParentContainer, NotificationChain msgs) {
+		SwitchCaseParentContainer oldSwitchCaseParentContainer = switchCaseParentContainer;
+		switchCaseParentContainer = newSwitchCaseParentContainer;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER, oldSwitchDefaultContainer, newSwitchDefaultContainer);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER, oldSwitchCaseParentContainer, newSwitchCaseParentContainer);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -121,18 +111,61 @@ public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSwitchDefaultContainer(SwitchDefaultContainer newSwitchDefaultContainer) {
-		if (newSwitchDefaultContainer != switchDefaultContainer) {
+	public void setSwitchCaseParentContainer(SwitchCaseParentContainer newSwitchCaseParentContainer) {
+		if (newSwitchCaseParentContainer != switchCaseParentContainer) {
 			NotificationChain msgs = null;
-			if (switchDefaultContainer != null)
-				msgs = ((InternalEObject)switchDefaultContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER, null, msgs);
-			if (newSwitchDefaultContainer != null)
-				msgs = ((InternalEObject)newSwitchDefaultContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER, null, msgs);
-			msgs = basicSetSwitchDefaultContainer(newSwitchDefaultContainer, msgs);
+			if (switchCaseParentContainer != null)
+				msgs = ((InternalEObject)switchCaseParentContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER, null, msgs);
+			if (newSwitchCaseParentContainer != null)
+				msgs = ((InternalEObject)newSwitchCaseParentContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER, null, msgs);
+			msgs = basicSetSwitchCaseParentContainer(newSwitchCaseParentContainer, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER, newSwitchDefaultContainer, newSwitchDefaultContainer));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER, newSwitchCaseParentContainer, newSwitchCaseParentContainer));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchDefaultParentContainer getSwitchDefaultParentContainer() {
+		return switchDefaultParentContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSwitchDefaultParentContainer(SwitchDefaultParentContainer newSwitchDefaultParentContainer, NotificationChain msgs) {
+		SwitchDefaultParentContainer oldSwitchDefaultParentContainer = switchDefaultParentContainer;
+		switchDefaultParentContainer = newSwitchDefaultParentContainer;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER, oldSwitchDefaultParentContainer, newSwitchDefaultParentContainer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSwitchDefaultParentContainer(SwitchDefaultParentContainer newSwitchDefaultParentContainer) {
+		if (newSwitchDefaultParentContainer != switchDefaultParentContainer) {
+			NotificationChain msgs = null;
+			if (switchDefaultParentContainer != null)
+				msgs = ((InternalEObject)switchDefaultParentContainer).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER, null, msgs);
+			if (newSwitchDefaultParentContainer != null)
+				msgs = ((InternalEObject)newSwitchDefaultParentContainer).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER, null, msgs);
+			msgs = basicSetSwitchDefaultParentContainer(newSwitchDefaultParentContainer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER, newSwitchDefaultParentContainer, newSwitchDefaultParentContainer));
 	}
 
 	/**
@@ -143,10 +176,10 @@ public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER:
-				return ((InternalEList<?>)getSwitchCaseContainer()).basicRemove(otherEnd, msgs);
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER:
-				return basicSetSwitchDefaultContainer(null, msgs);
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER:
+				return basicSetSwitchCaseParentContainer(null, msgs);
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER:
+				return basicSetSwitchDefaultParentContainer(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -159,10 +192,10 @@ public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMe
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER:
-				return getSwitchCaseContainer();
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER:
-				return getSwitchDefaultContainer();
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER:
+				return getSwitchCaseParentContainer();
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER:
+				return getSwitchDefaultParentContainer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -176,12 +209,11 @@ public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMe
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER:
-				getSwitchCaseContainer().clear();
-				getSwitchCaseContainer().addAll((Collection<? extends SwitchCaseContainer>)newValue);
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER:
+				setSwitchCaseParentContainer((SwitchCaseParentContainer)newValue);
 				return;
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER:
-				setSwitchDefaultContainer((SwitchDefaultContainer)newValue);
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER:
+				setSwitchDefaultParentContainer((SwitchDefaultParentContainer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -195,11 +227,11 @@ public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMe
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER:
-				getSwitchCaseContainer().clear();
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER:
+				setSwitchCaseParentContainer((SwitchCaseParentContainer)null);
 				return;
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER:
-				setSwitchDefaultContainer((SwitchDefaultContainer)null);
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER:
+				setSwitchDefaultParentContainer((SwitchDefaultParentContainer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -213,10 +245,10 @@ public class SwitchMediatorContainerImpl extends EsbNodeImpl implements SwitchMe
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER:
-				return switchCaseContainer != null && !switchCaseContainer.isEmpty();
-			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER:
-				return switchDefaultContainer != null;
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_PARENT_CONTAINER:
+				return switchCaseParentContainer != null;
+			case EsbPackage.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_PARENT_CONTAINER:
+				return switchDefaultParentContainer != null;
 		}
 		return super.eIsSet(featureID);
 	}

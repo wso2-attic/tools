@@ -98,6 +98,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditP
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseParentContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleContainerEditPart;
@@ -258,8 +260,8 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 						| (((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment2EditPart) | (editorPart
 								.getParent() instanceof MediatorFlowMediatorFlowCompartment4EditPart))
 								&& (editorPart.getParent().getParent().getParent().getParent()
-										.getParent() instanceof SwitchMediatorEditPart) && (((AbstractMediator) editorPart
-								.getParent().getParent().getParent().getParent().getParent()).reversed))
+										.getParent().getParent() instanceof SwitchMediatorEditPart) && (((AbstractMediator) editorPart
+								.getParent().getParent().getParent().getParent().getParent().getParent()).reversed))
 						| (((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment7EditPart) | (editorPart
 								.getParent() instanceof MediatorFlowMediatorFlowCompartment8EditPart))
 								&& (editorPart.getParent().getParent().getParent().getParent()
@@ -863,7 +865,21 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		if (mediator instanceof MultipleCompartmentComplexFiguredAbstractMediator) {
 
 			ShapeNodeEditPart childContainer = EditorUtils.getChildContainer((MultipleCompartmentComplexFiguredAbstractMediator)mediator);
-			List<EditPart> childEditParts =  childContainer.getChildren();
+			List<EditPart> childEditParts = new ArrayList<EditPart>();
+			
+			if (childContainer instanceof SwitchMediatorContainerEditPart) {
+				List<EditPart> caseEditParts = ((SwitchCaseParentContainerEditPart)childContainer.getChildren().get(0)).getChildren();
+				List<EditPart> defaultEditParts = ((SwitchDefaultParentContainerEditPart)childContainer.getChildren().get(1)).getChildren();
+				for (EditPart caseEditPart : caseEditParts) {
+					childEditParts.add(caseEditPart);
+				}
+				for (EditPart defaultEditPart : defaultEditParts) {
+					childEditParts.add(defaultEditPart);
+				}
+			} else {
+				childEditParts =  childContainer.getChildren();
+			}
+			
 			for (EditPart editPart : childEditParts) {
 				IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)editPart.getChildren().get(0);
 				IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart)mediatorFlow.getChildren().get(0);

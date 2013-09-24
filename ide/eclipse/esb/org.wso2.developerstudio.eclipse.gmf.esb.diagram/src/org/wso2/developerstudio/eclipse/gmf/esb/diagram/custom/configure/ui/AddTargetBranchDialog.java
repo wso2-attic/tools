@@ -7,6 +7,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormAttachment;
@@ -14,6 +15,7 @@ import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -23,6 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.CloneMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 
@@ -193,6 +196,21 @@ public class AddTargetBranchDialog extends Dialog {
 			}
 		}
 		super.okPressed();
+		
+		// Rearrange Clone mediator on add or remove of targets.
+		reArrange();
+	}
+	
+	/**
+	 * Rearrange Clone mediator on add or remove of targets.
+	 */
+	private void reArrange(){
+		Display.getCurrent().asyncExec(new Runnable() {			
+			@Override
+			public void run() {	
+				XYRepossition.resizeContainers((IGraphicalEditPart) editpart);
+				XYRepossition.reArrange((IGraphicalEditPart) editpart);	
+			}});
 	}
 
 }

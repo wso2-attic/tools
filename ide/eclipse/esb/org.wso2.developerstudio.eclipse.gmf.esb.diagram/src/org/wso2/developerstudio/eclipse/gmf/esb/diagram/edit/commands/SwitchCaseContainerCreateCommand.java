@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
 
 /**
@@ -54,7 +55,7 @@ public class SwitchCaseContainerCreateCommand extends EditElementCommand {
 			throws ExecutionException {
 		SwitchCaseContainer newElement = EsbFactory.eINSTANCE.createSwitchCaseContainer();
 
-		SwitchMediatorContainer owner = (SwitchMediatorContainer) getElementToEdit();
+		SwitchCaseParentContainer owner = (SwitchCaseParentContainer) getElementToEdit();
 		owner.getSwitchCaseContainer().add(newElement);
 
 		doConfigure(newElement, monitor, info);

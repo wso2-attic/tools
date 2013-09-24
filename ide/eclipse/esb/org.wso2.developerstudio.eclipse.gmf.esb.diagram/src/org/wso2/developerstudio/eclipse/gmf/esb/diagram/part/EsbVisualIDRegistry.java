@@ -306,12 +306,18 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
+			if (EsbPackage.eINSTANCE.getSwitchCaseParentContainer().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SwitchCaseParentContainerEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getSwitchDefaultParentContainer().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SwitchDefaultParentContainerEditPart.VISUAL_ID;
+			}
+			break;
+		case SwitchCaseParentContainerEditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getSwitchCaseContainer().isSuperTypeOf(domainElement.eClass())) {
 				return SwitchCaseContainerEditPart.VISUAL_ID;
-			}
-			if (EsbPackage.eINSTANCE.getSwitchDefaultContainer().isSuperTypeOf(
-					domainElement.eClass())) {
-				return SwitchDefaultContainerEditPart.VISUAL_ID;
 			}
 			break;
 		case SwitchCaseContainerEditPart.VISUAL_ID:
@@ -896,6 +902,12 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getCloudConnectorOperationOutputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
 				return CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID;
+			}
+			break;
+		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+			if (EsbPackage.eINSTANCE.getSwitchDefaultContainer().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SwitchDefaultContainerEditPart.VISUAL_ID;
 			}
 			break;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
@@ -4762,10 +4774,15 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case SwitchMediatorContainerEditPart.VISUAL_ID:
-			if (SwitchCaseContainerEditPart.VISUAL_ID == nodeVisualID) {
+			if (SwitchCaseParentContainerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (SwitchDefaultContainerEditPart.VISUAL_ID == nodeVisualID) {
+			if (SwitchDefaultParentContainerEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SwitchCaseParentContainerEditPart.VISUAL_ID:
+			if (SwitchCaseContainerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -5468,6 +5485,11 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
+			if (SwitchDefaultContainerEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

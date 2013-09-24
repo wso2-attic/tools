@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultParentContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
 
 /**
@@ -43,7 +44,7 @@ public class SwitchDefaultContainerCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		SwitchMediatorContainer container = (SwitchMediatorContainer) getElementToEdit();
+		SwitchDefaultParentContainer container = (SwitchDefaultParentContainer) getElementToEdit();
 		if (container.getSwitchDefaultContainer() != null) {
 			return false;
 		}
@@ -58,7 +59,7 @@ public class SwitchDefaultContainerCreateCommand extends EditElementCommand {
 			throws ExecutionException {
 		SwitchDefaultContainer newElement = EsbFactory.eINSTANCE.createSwitchDefaultContainer();
 
-		SwitchMediatorContainer owner = (SwitchMediatorContainer) getElementToEdit();
+		SwitchDefaultParentContainer owner = (SwitchDefaultParentContainer) getElementToEdit();
 		owner.setSwitchDefaultContainer(newElement);
 
 		doConfigure(newElement, monitor, info);

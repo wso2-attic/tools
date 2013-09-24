@@ -40,7 +40,7 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3527;
+	public static final int VISUAL_ID = 3735;
 
 	/**
 	 * @generated
@@ -138,7 +138,7 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		refreshOutputConnector(((SwitchMediatorEditPart) childEditPart.getParent().getParent()
-				.getParent()));
+				.getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 

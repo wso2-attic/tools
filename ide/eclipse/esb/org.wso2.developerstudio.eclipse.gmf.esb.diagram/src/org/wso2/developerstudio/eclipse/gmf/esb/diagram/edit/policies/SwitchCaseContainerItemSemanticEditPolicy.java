@@ -26,7 +26,7 @@ public class SwitchCaseContainerItemSemanticEditPolicy extends EsbBaseItemSemant
 	 * @generated
 	 */
 	public SwitchCaseContainerItemSemanticEditPolicy() {
-		super(EsbElementTypes.SwitchCaseContainer_3501);
+		super(EsbElementTypes.SwitchCaseContainer_3733);
 	}
 
 	/**

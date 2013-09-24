@@ -13,9 +13,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchCaseContainerCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchCaseParentContainerCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchDefaultContainerCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchDefaultParentContainerCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultParentContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -35,11 +39,11 @@ public class SwitchMediatorContainerItemSemanticEditPolicy extends EsbBaseItemSe
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (EsbElementTypes.SwitchCaseContainer_3501 == req.getElementType()) {
-			return getGEFWrapper(new SwitchCaseContainerCreateCommand(req));
+		if (EsbElementTypes.SwitchCaseParentContainer_3732 == req.getElementType()) {
+			return getGEFWrapper(new SwitchCaseParentContainerCreateCommand(req));
 		}
-		if (EsbElementTypes.SwitchDefaultContainer_3527 == req.getElementType()) {
-			return getGEFWrapper(new SwitchDefaultContainerCreateCommand(req));
+		if (EsbElementTypes.SwitchDefaultParentContainer_3734 == req.getElementType()) {
+			return getGEFWrapper(new SwitchDefaultParentContainerCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -73,13 +77,13 @@ public class SwitchMediatorContainerItemSemanticEditPolicy extends EsbBaseItemSe
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
 			Node node = (Node) nit.next();
 			switch (EsbVisualIDRegistry.getVisualID(node)) {
-			case SwitchCaseContainerEditPart.VISUAL_ID:
+			case SwitchCaseParentContainerEditPart.VISUAL_ID:
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
 						node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
 				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
 				break;
-			case SwitchDefaultContainerEditPart.VISUAL_ID:
+			case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(),
 						node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 

@@ -2007,6 +2007,52 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SwitchCaseParentContainerItemProvider switchCaseParentContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSwitchCaseParentContainerAdapter() {
+		if (switchCaseParentContainerItemProvider == null) {
+			switchCaseParentContainerItemProvider = new SwitchCaseParentContainerItemProvider(this);
+		}
+
+		return switchCaseParentContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultParentContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SwitchDefaultParentContainerItemProvider switchDefaultParentContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultParentContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSwitchDefaultParentContainerAdapter() {
+		if (switchDefaultParentContainerItemProvider == null) {
+			switchDefaultParentContainerItemProvider = new SwitchDefaultParentContainerItemProvider(this);
+		}
+
+		return switchDefaultParentContainerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7359,6 +7405,8 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (switchMediatorInputConnectorItemProvider != null) switchMediatorInputConnectorItemProvider.dispose();
 		if (switchMediatorOutputConnectorItemProvider != null) switchMediatorOutputConnectorItemProvider.dispose();
 		if (switchMediatorContainerItemProvider != null) switchMediatorContainerItemProvider.dispose();
+		if (switchCaseParentContainerItemProvider != null) switchCaseParentContainerItemProvider.dispose();
+		if (switchDefaultParentContainerItemProvider != null) switchDefaultParentContainerItemProvider.dispose();
 		if (switchCaseContainerItemProvider != null) switchCaseContainerItemProvider.dispose();
 		if (switchDefaultContainerItemProvider != null) switchDefaultContainerItemProvider.dispose();
 		if (sequenceDiagramItemProvider != null) sequenceDiagramItemProvider.dispose();

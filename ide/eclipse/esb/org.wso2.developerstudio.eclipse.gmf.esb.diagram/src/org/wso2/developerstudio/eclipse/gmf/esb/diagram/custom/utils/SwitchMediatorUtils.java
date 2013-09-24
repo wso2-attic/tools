@@ -40,10 +40,10 @@ public class SwitchMediatorUtils {
 		ArrayList<SwitchCaseBranchOutputConnectorEditPart> caseOutputConnectorsList = new ArrayList<SwitchCaseBranchOutputConnectorEditPart>();
 		List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
 
-		for (int i = 0; i < ((EditPart) editpart.getChildren().get(4)).getChildren().size(); ++i) {
-			if (((EditPart) editpart.getChildren().get(4)).getChildren().get(i) instanceof SwitchCaseContainerEditPart) {
-				SwitchCaseContainerEditPart caseContainerEditPart = (SwitchCaseContainerEditPart) ((EditPart) editpart
-						.getChildren().get(4)).getChildren().get(i);
+		for (int i = 0; i < ((EditPart)((EditPart) editpart.getChildren().get(4)).getChildren().get(0)).getChildren().size(); ++i) {
+			if (((EditPart)((EditPart) editpart.getChildren().get(4)).getChildren().get(0)).getChildren().get(i) instanceof SwitchCaseContainerEditPart) {
+				SwitchCaseContainerEditPart caseContainerEditPart = (SwitchCaseContainerEditPart) ((EditPart) ((EditPart) editpart
+						.getChildren().get(4)).getChildren().get(0)).getChildren().get(i);
 				caseContainers.add(caseContainerEditPart);
 			}
 		}
@@ -110,8 +110,8 @@ public class SwitchMediatorUtils {
 
 			SwitchCaseContainer caseContainer = EsbFactory.eINSTANCE.createSwitchCaseContainer();
 			AddCommand addCmd = new AddCommand(domain,
-					((SwitchMediator) parentContainer).getSwitchContainer(),
-					EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_CASE_CONTAINER,
+					((SwitchMediator) parentContainer).getSwitchContainer().getSwitchCaseParentContainer(),
+					EsbPackage.Literals.SWITCH_CASE_PARENT_CONTAINER__SWITCH_CASE_CONTAINER,
 					caseContainer);
 			if (addCmd.canExecute()) {
 				domain.getCommandStack().execute(addCmd);

@@ -25,6 +25,8 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
@@ -569,15 +571,19 @@ public class XYRepossition {
 										|| editPart instanceof MediatorFlowMediatorFlowCompartment8EditPart
 										|| editPart instanceof MediatorFlowMediatorFlowCompartment9EditPart
 										|| editPart instanceof MediatorFlowMediatorFlowCompartment10EditPart
-										|| editPart instanceof MediatorFlowMediatorFlowCompartment2EditPart
-										|| editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart
 										|| editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart) {
-
 									x = ((IGraphicalEditPart) editPart.getParent().getParent()
 											.getParent().getParent()).getFigure().getBounds().width
 											- complexMediatorLeftRectWidth
 											- arrowAndtwoConnectorsLength - nodeFigureWdith;
 
+								} else if (editPart instanceof MediatorFlowMediatorFlowCompartment2EditPart
+										|| editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart) {
+									x = ((IGraphicalEditPart) editPart.getParent().getParent()
+											.getParent().getParent().getParent()).getFigure()
+											.getBounds().width
+											- complexMediatorLeftRectWidth
+											- arrowAndtwoConnectorsLength - nodeFigureWdith;
 								} else {
 									x = ((IGraphicalEditPart) editPart.getParent().getParent())
 											.getFigure().getBounds().width
@@ -672,12 +678,24 @@ public class XYRepossition {
 				|| first instanceof CloneTargetContainerEditPart) {
 
 			int editPartIndex = getEditPartIndexFromParent(first);
-			ShapeNodeEditPart mediatorEditPart = (ShapeNodeEditPart) first
-					.getParent().getParent();
-			firstOutputConnector = EditorUtils
-					.getMediatorAdditionalOutputConnectors(mediatorEditPart)
-					.get(editPartIndex);
-
+			ShapeNodeEditPart mediatorEditPart = null;
+			if (first instanceof SwitchCaseContainerEditPart) {
+				mediatorEditPart = (ShapeNodeEditPart) first.getParent().getParent().getParent();
+				if (editPartIndex > 0) {
+					editPartIndex += 1;
+				} 
+				firstOutputConnector = EditorUtils.getMediatorAdditionalOutputConnectors(
+						mediatorEditPart).get(editPartIndex);
+			} else if (first instanceof SwitchDefaultContainerEditPart) {
+				mediatorEditPart = (ShapeNodeEditPart) first.getParent().getParent().getParent();
+				firstOutputConnector = EditorUtils.getMediatorAdditionalOutputConnectors(
+						mediatorEditPart).get(1);
+			} else {
+				mediatorEditPart = (ShapeNodeEditPart) first.getParent().getParent();
+				firstOutputConnector = EditorUtils.getMediatorAdditionalOutputConnectors(
+						mediatorEditPart).get(editPartIndex);
+			}
+			
 		} else {
 			if (parent instanceof MediatorFlowMediatorFlowCompartment6EditPart) {
 				faultInputConnector = EditorUtils.getProxyFaultInputConnector(first);

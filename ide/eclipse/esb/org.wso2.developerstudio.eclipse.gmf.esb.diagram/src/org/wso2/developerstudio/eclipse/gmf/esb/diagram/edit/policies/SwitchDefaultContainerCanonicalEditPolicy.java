@@ -58,7 +58,7 @@ public class SwitchDefaultContainerCanonicalEditPolicy extends CanonicalEditPoli
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getSwitchDefaultContainer_3527SemanticChildren(viewObject);
+				.getSwitchDefaultContainer_3735SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -88,7 +88,7 @@ public class SwitchDefaultContainerCanonicalEditPolicy extends CanonicalEditPoli
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getSwitchDefaultContainer_3527SemanticChildren((View) getHost().getModel());
+				.getSwitchDefaultContainer_3735SemanticChildren((View) getHost().getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours
 		LinkedList<View> knownViewChildren = new LinkedList<View>();

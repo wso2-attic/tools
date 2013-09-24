@@ -42,7 +42,7 @@ public class SwitchCaseContainerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3501;
+	public static final int VISUAL_ID = 3733;
 
 	/**
 	 * @generated
@@ -145,7 +145,7 @@ public class SwitchCaseContainerEditPart extends ShapeNodeEditPart {
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		refreshOutputConnector(((SwitchMediatorEditPart) childEditPart.getParent().getParent()
-				.getParent()));
+				.getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 
@@ -246,7 +246,7 @@ public class SwitchCaseContainerEditPart extends ShapeNodeEditPart {
 			layoutThis.setVertical(true);
 			this.setLayoutManager(layoutThis);
 			this.setAlpha(0); //to make this transparent
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 			/*			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(700),
 			 getMapMode().DPtoLP(300)));*/
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20000), getMapMode().DPtoLP(
