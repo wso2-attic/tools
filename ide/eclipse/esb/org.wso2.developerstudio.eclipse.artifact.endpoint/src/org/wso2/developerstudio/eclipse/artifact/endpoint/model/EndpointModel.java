@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
+import org.wso2.developerstudio.eclipse.platform.core.types.HttpMethodType;
 
 import java.io.File;
 import java.io.IOException;
@@ -66,8 +67,9 @@ public class EndpointModel extends ProjectDataModel {
 	private String wsdlEPPort;
 	private String templateEPURI;
 	private String templateEPTargetTemp = "";
+	private String httpUriTemplate;
+	private HttpMethodType httpMethod;
 	private List<OMElement> selectedEPList=new ArrayList<OMElement>();
-
 	
 	
 	public Object getModelPropertyValue(String key) {
@@ -163,6 +165,10 @@ public class EndpointModel extends ProjectDataModel {
 			setTemplateEPURI(data.toString());
 		}else if(key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_TEMP_TARGET)){
 			setTemplateEPTargetTemp(data.toString());
+		}else if(key.equals(EpArtifactConstants.WIZARD_OPTION_HTTP_EP_URITEMPLATE)){
+			setHttpUriTemplate(data.toString());
+		}else if(key.equals(EpArtifactConstants.WIZARD_OPTION_HTTP_EP_METHOD)){
+			setHttpMethod((HttpMethodType)data);
 		}else if(key.equals(EpArtifactConstants.WIZARD_OPTION_AVAILABLE_EPS)){
 			Object[] selectedEPs = (Object[])data;
 			selectedEPList.clear();
@@ -357,4 +363,22 @@ public class EndpointModel extends ProjectDataModel {
 	public String getRegistryPathID() {
 		return registryPathID;
 	}
+	
+	
+	public void setHttpUriTemplate(String uriTemplate) {
+		this.httpUriTemplate = uriTemplate;
+	}
+
+	public String getHttpUriTemplate() {
+		return httpUriTemplate;
+	}
+	
+	public void setHttpMethod(HttpMethodType method) {
+		this.httpMethod = method;
+	}
+
+	public HttpMethodType getHttpMethod() {
+		return httpMethod;
+	}
+	
 }

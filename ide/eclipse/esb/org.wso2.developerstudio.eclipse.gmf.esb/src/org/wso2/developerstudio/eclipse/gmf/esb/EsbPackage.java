@@ -3363,13 +3363,22 @@ public interface EsbPackage extends EPackage {
 	int HTTP_ENDPOINT__URI_TEMPLATE = ABSTRACT_END_POINT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Http Method</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_ENDPOINT__HTTP_METHOD = ABSTRACT_END_POINT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>HTTP Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HTTP_ENDPOINT_FEATURE_COUNT = ABSTRACT_END_POINT_FEATURE_COUNT + 3;
+	int HTTP_ENDPOINT_FEATURE_COUNT = ABSTRACT_END_POINT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HTTPEndPointInputConnectorImpl <em>HTTP End Point Input Connector</em>}' class.
@@ -18763,6 +18772,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int PROXY_WSDL_TYPE = 322;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType <em>Http Method Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHttpMethodType()
+	 * @generated
+	 */
+	int HTTP_METHOD_TYPE = 323;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType <em>Filter Condition Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18770,7 +18789,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFilterConditionType()
 	 * @generated
 	 */
-	int FILTER_CONDITION_TYPE = 323;
+	int FILTER_CONDITION_TYPE = 324;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LogCategory <em>Log Category</em>}' enum.
@@ -18780,7 +18799,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogCategory()
 	 * @generated
 	 */
-	int LOG_CATEGORY = 324;
+	int LOG_CATEGORY = 325;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LogLevel <em>Log Level</em>}' enum.
@@ -18790,7 +18809,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogLevel()
 	 * @generated
 	 */
-	int LOG_LEVEL = 325;
+	int LOG_LEVEL = 326;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorAction <em>Bean Mediator Action</em>}' enum.
@@ -18800,7 +18819,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getBeanMediatorAction()
 	 * @generated
 	 */
-	int BEAN_MEDIATOR_ACTION = 326;
+	int BEAN_MEDIATOR_ACTION = 327;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion <em>End Point Addressing Version</em>}' enum.
@@ -18810,7 +18829,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointAddressingVersion()
 	 * @generated
 	 */
-	int END_POINT_ADDRESSING_VERSION = 327;
+	int END_POINT_ADDRESSING_VERSION = 328;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction <em>End Point Time Out Action</em>}' enum.
@@ -18820,7 +18839,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointTimeOutAction()
 	 * @generated
 	 */
-	int END_POINT_TIME_OUT_ACTION = 328;
+	int END_POINT_TIME_OUT_ACTION = 329;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat <em>End Point Message Format</em>}' enum.
@@ -18830,7 +18849,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointMessageFormat()
 	 * @generated
 	 */
-	int END_POINT_MESSAGE_FORMAT = 329;
+	int END_POINT_MESSAGE_FORMAT = 330;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization <em>End Point Attachment Optimization</em>}' enum.
@@ -18840,7 +18859,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointAttachmentOptimization()
 	 * @generated
 	 */
-	int END_POINT_ATTACHMENT_OPTIMIZATION = 330;
+	int END_POINT_ATTACHMENT_OPTIMIZATION = 331;
 
 
 	/**
@@ -18851,7 +18870,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyDataType()
 	 * @generated
 	 */
-	int PROPERTY_DATA_TYPE = 331;
+	int PROPERTY_DATA_TYPE = 332;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction <em>Property Action</em>}' enum.
@@ -18861,7 +18880,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyAction()
 	 * @generated
 	 */
-	int PROPERTY_ACTION = 332;
+	int PROPERTY_ACTION = 333;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PropertyScope <em>Property Scope</em>}' enum.
@@ -18871,7 +18890,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyScope()
 	 * @generated
 	 */
-	int PROPERTY_SCOPE = 333;
+	int PROPERTY_SCOPE = 334;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType <em>Property Value Type</em>}' enum.
@@ -18881,7 +18900,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyValueType()
 	 * @generated
 	 */
-	int PROPERTY_VALUE_TYPE = 334;
+	int PROPERTY_VALUE_TYPE = 335;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceInlineType <em>Enrich Source Inline Type</em>}' enum.
@@ -18891,7 +18910,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichSourceInlineType()
 	 * @generated
 	 */
-	int ENRICH_SOURCE_INLINE_TYPE = 335;
+	int ENRICH_SOURCE_INLINE_TYPE = 336;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType <em>Enrich Source Type</em>}' enum.
@@ -18901,7 +18920,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichSourceType()
 	 * @generated
 	 */
-	int ENRICH_SOURCE_TYPE = 336;
+	int ENRICH_SOURCE_TYPE = 337;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction <em>Enrich Target Action</em>}' enum.
@@ -18911,7 +18930,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichTargetAction()
 	 * @generated
 	 */
-	int ENRICH_TARGET_ACTION = 337;
+	int ENRICH_TARGET_ACTION = 338;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetType <em>Enrich Target Type</em>}' enum.
@@ -18921,7 +18940,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichTargetType()
 	 * @generated
 	 */
-	int ENRICH_TARGET_TYPE = 338;
+	int ENRICH_TARGET_TYPE = 339;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EventTopicType <em>Event Topic Type</em>}' enum.
@@ -18931,7 +18950,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEventTopicType()
 	 * @generated
 	 */
-	int EVENT_TOPIC_TYPE = 339;
+	int EVENT_TOPIC_TYPE = 340;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum <em>script Key Type Enum</em>}' enum.
@@ -18941,7 +18960,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getscriptKeyTypeEnum()
 	 * @generated
 	 */
-	int SCRIPT_KEY_TYPE_ENUM = 340;
+	int SCRIPT_KEY_TYPE_ENUM = 341;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptType <em>Script Type</em>}' enum.
@@ -18951,7 +18970,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptType()
 	 * @generated
 	 */
-	int SCRIPT_TYPE = 341;
+	int SCRIPT_TYPE = 342;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage <em>Script Language</em>}' enum.
@@ -18961,7 +18980,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptLanguage()
 	 * @generated
 	 */
-	int SCRIPT_LANGUAGE = 342;
+	int SCRIPT_LANGUAGE = 343;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultSoapVersion <em>Fault Soap Version</em>}' enum.
@@ -18971,7 +18990,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultSoapVersion()
 	 * @generated
 	 */
-	int FAULT_SOAP_VERSION = 343;
+	int FAULT_SOAP_VERSION = 344;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap11 <em>Fault Code Soap11</em>}' enum.
@@ -18981,7 +19000,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultCodeSoap11()
 	 * @generated
 	 */
-	int FAULT_CODE_SOAP11 = 344;
+	int FAULT_CODE_SOAP11 = 345;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap12 <em>Fault Code Soap12</em>}' enum.
@@ -18991,7 +19010,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultCodeSoap12()
 	 * @generated
 	 */
-	int FAULT_CODE_SOAP12 = 345;
+	int FAULT_CODE_SOAP12 = 346;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeType <em>Fault Code Type</em>}' enum.
@@ -19001,7 +19020,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultCodeType()
 	 * @generated
 	 */
-	int FAULT_CODE_TYPE = 346;
+	int FAULT_CODE_TYPE = 347;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultStringType <em>Fault String Type</em>}' enum.
@@ -19011,7 +19030,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultStringType()
 	 * @generated
 	 */
-	int FAULT_STRING_TYPE = 347;
+	int FAULT_STRING_TYPE = 348;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultReasonType <em>Fault Reason Type</em>}' enum.
@@ -19021,7 +19040,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultReasonType()
 	 * @generated
 	 */
-	int FAULT_REASON_TYPE = 348;
+	int FAULT_REASON_TYPE = 349;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultDetailType <em>Fault Detail Type</em>}' enum.
@@ -19031,7 +19050,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultDetailType()
 	 * @generated
 	 */
-	int FAULT_DETAIL_TYPE = 349;
+	int FAULT_DETAIL_TYPE = 350;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType <em>Completion Messages Type</em>}' enum.
@@ -19041,7 +19060,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCompletionMessagesType()
 	 * @generated
 	 */
-	int COMPLETION_MESSAGES_TYPE = 350;
+	int COMPLETION_MESSAGES_TYPE = 351;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType <em>Aggregate Sequence Type</em>}' enum.
@@ -19051,7 +19070,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAggregateSequenceType()
 	 * @generated
 	 */
-	int AGGREGATE_SEQUENCE_TYPE = 351;
+	int AGGREGATE_SEQUENCE_TYPE = 352;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType <em>Target Sequence Type</em>}' enum.
@@ -19061,7 +19080,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTargetSequenceType()
 	 * @generated
 	 */
-	int TARGET_SEQUENCE_TYPE = 352;
+	int TARGET_SEQUENCE_TYPE = 353;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType <em>Target Endpoint Type</em>}' enum.
@@ -19071,7 +19090,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTargetEndpointType()
 	 * @generated
 	 */
-	int TARGET_ENDPOINT_TYPE = 353;
+	int TARGET_ENDPOINT_TYPE = 354;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType <em>Cache Sequence Type</em>}' enum.
@@ -19081,7 +19100,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheSequenceType()
 	 * @generated
 	 */
-	int CACHE_SEQUENCE_TYPE = 354;
+	int CACHE_SEQUENCE_TYPE = 355;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType <em>Cache Implementation Type</em>}' enum.
@@ -19091,7 +19110,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheImplementationType()
 	 * @generated
 	 */
-	int CACHE_IMPLEMENTATION_TYPE = 355;
+	int CACHE_IMPLEMENTATION_TYPE = 356;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheAction <em>Cache Action</em>}' enum.
@@ -19101,7 +19120,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheAction()
 	 * @generated
 	 */
-	int CACHE_ACTION = 356;
+	int CACHE_ACTION = 357;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheScope <em>Cache Scope</em>}' enum.
@@ -19111,7 +19130,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheScope()
 	 * @generated
 	 */
-	int CACHE_SCOPE = 357;
+	int CACHE_SCOPE = 358;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableType <em>XQuery Variable Type</em>}' enum.
@@ -19121,7 +19140,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryVariableType()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE_TYPE = 358;
+	int XQUERY_VARIABLE_TYPE = 359;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableValueType <em>XQuery Variable Value Type</em>}' enum.
@@ -19131,7 +19150,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryVariableValueType()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE_VALUE_TYPE = 359;
+	int XQUERY_VARIABLE_VALUE_TYPE = 360;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutEndpointType <em>Callout Endpoint Type</em>}' enum.
@@ -19141,7 +19160,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutEndpointType()
 	 * @generated
 	 */
-	int CALLOUT_ENDPOINT_TYPE = 360;
+	int CALLOUT_ENDPOINT_TYPE = 361;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType <em>Callout Payload Type</em>}' enum.
@@ -19151,7 +19170,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutPayloadType()
 	 * @generated
 	 */
-	int CALLOUT_PAYLOAD_TYPE = 361;
+	int CALLOUT_PAYLOAD_TYPE = 362;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityPolicies <em>Callout Security Policies</em>}' enum.
@@ -19161,7 +19180,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutSecurityPolicies()
 	 * @generated
 	 */
-	int CALLOUT_SECURITY_POLICIES = 362;
+	int CALLOUT_SECURITY_POLICIES = 363;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutSecurityType <em>Callout Security Type</em>}' enum.
@@ -19171,7 +19190,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutSecurityType()
 	 * @generated
 	 */
-	int CALLOUT_SECURITY_TYPE = 363;
+	int CALLOUT_SECURITY_TYPE = 364;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType <em>Callout Result Type</em>}' enum.
@@ -19181,7 +19200,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutResultType()
 	 * @generated
 	 */
-	int CALLOUT_RESULT_TYPE = 364;
+	int CALLOUT_RESULT_TYPE = 365;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSpecVersion <em>RM Spec Version</em>}' enum.
@@ -19191,7 +19210,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSpecVersion()
 	 * @generated
 	 */
-	int RM_SPEC_VERSION = 365;
+	int RM_SPEC_VERSION = 366;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceType <em>RM Sequence Type</em>}' enum.
@@ -19201,7 +19220,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceType()
 	 * @generated
 	 */
-	int RM_SEQUENCE_TYPE = 366;
+	int RM_SEQUENCE_TYPE = 367;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TransactionAction <em>Transaction Action</em>}' enum.
@@ -19211,7 +19230,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionAction()
 	 * @generated
 	 */
-	int TRANSACTION_ACTION = 367;
+	int TRANSACTION_ACTION = 368;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderAction <em>Header Action</em>}' enum.
@@ -19221,7 +19240,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderAction()
 	 * @generated
 	 */
-	int HEADER_ACTION = 368;
+	int HEADER_ACTION = 369;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderValueType <em>Header Value Type</em>}' enum.
@@ -19231,7 +19250,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderValueType()
 	 * @generated
 	 */
-	int HEADER_VALUE_TYPE = 369;
+	int HEADER_VALUE_TYPE = 370;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScopeType <em>Scope Type</em>}' enum.
@@ -19241,7 +19260,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScopeType()
 	 * @generated
 	 */
-	int SCOPE_TYPE = 370;
+	int SCOPE_TYPE = 371;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyType <em>Throttle Policy Type</em>}' enum.
@@ -19251,7 +19270,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottlePolicyType()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_TYPE = 371;
+	int THROTTLE_POLICY_TYPE = 372;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleConditionType <em>Throttle Condition Type</em>}' enum.
@@ -19261,7 +19280,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleConditionType()
 	 * @generated
 	 */
-	int THROTTLE_CONDITION_TYPE = 372;
+	int THROTTLE_CONDITION_TYPE = 373;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleAccessType <em>Throttle Access Type</em>}' enum.
@@ -19271,7 +19290,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleAccessType()
 	 * @generated
 	 */
-	int THROTTLE_ACCESS_TYPE = 373;
+	int THROTTLE_ACCESS_TYPE = 374;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleSequenceType <em>Throttle Sequence Type</em>}' enum.
@@ -19281,7 +19300,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleSequenceType()
 	 * @generated
 	 */
-	int THROTTLE_SEQUENCE_TYPE = 374;
+	int THROTTLE_SEQUENCE_TYPE = 375;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType <em>Command Property Value Type</em>}' enum.
@@ -19291,7 +19310,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyValueType()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_VALUE_TYPE = 375;
+	int COMMAND_PROPERTY_VALUE_TYPE = 376;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction <em>Command Property Message Action</em>}' enum.
@@ -19301,7 +19320,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyMessageAction()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_MESSAGE_ACTION = 376;
+	int COMMAND_PROPERTY_MESSAGE_ACTION = 377;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyContextAction <em>Command Property Context Action</em>}' enum.
@@ -19311,7 +19330,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyContextAction()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_CONTEXT_ACTION = 377;
+	int COMMAND_PROPERTY_CONTEXT_ACTION = 378;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorConnectionType <em>Sql Executor Connection Type</em>}' enum.
@@ -19321,7 +19340,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorConnectionType()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_CONNECTION_TYPE = 378;
+	int SQL_EXECUTOR_CONNECTION_TYPE = 379;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorDatasourceType <em>Sql Executor Datasource Type</em>}' enum.
@@ -19331,7 +19350,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorDatasourceType()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_DATASOURCE_TYPE = 379;
+	int SQL_EXECUTOR_DATASOURCE_TYPE = 380;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorBooleanValue <em>Sql Executor Boolean Value</em>}' enum.
@@ -19341,7 +19360,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorBooleanValue()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_BOOLEAN_VALUE = 380;
+	int SQL_EXECUTOR_BOOLEAN_VALUE = 381;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorIsolationLevel <em>Sql Executor Isolation Level</em>}' enum.
@@ -19351,7 +19370,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorIsolationLevel()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_ISOLATION_LEVEL = 381;
+	int SQL_EXECUTOR_ISOLATION_LEVEL = 382;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlParameterValueType <em>Sql Parameter Value Type</em>}' enum.
@@ -19361,7 +19380,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlParameterValueType()
 	 * @generated
 	 */
-	int SQL_PARAMETER_VALUE_TYPE = 382;
+	int SQL_PARAMETER_VALUE_TYPE = 383;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlParameterDataType <em>Sql Parameter Data Type</em>}' enum.
@@ -19371,7 +19390,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlParameterDataType()
 	 * @generated
 	 */
-	int SQL_PARAMETER_DATA_TYPE = 383;
+	int SQL_PARAMETER_DATA_TYPE = 384;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActions <em>Rule Actions</em>}' enum.
@@ -19381,7 +19400,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleActions()
 	 * @generated
 	 */
-	int RULE_ACTIONS = 384;
+	int RULE_ACTIONS = 385;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleType <em>Rule Type</em>}' enum.
@@ -19391,7 +19410,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleType()
 	 * @generated
 	 */
-	int RULE_TYPE = 385;
+	int RULE_TYPE = 386;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType <em>Rule Source Type</em>}' enum.
@@ -19401,7 +19420,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSourceType()
 	 * @generated
 	 */
-	int RULE_SOURCE_TYPE = 386;
+	int RULE_SOURCE_TYPE = 387;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType <em>Rule Fact Type</em>}' enum.
@@ -19411,7 +19430,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactType()
 	 * @generated
 	 */
-	int RULE_FACT_TYPE = 387;
+	int RULE_FACT_TYPE = 388;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType <em>Rule Fact Value Type</em>}' enum.
@@ -19421,7 +19440,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactValueType()
 	 * @generated
 	 */
-	int RULE_FACT_VALUE_TYPE = 388;
+	int RULE_FACT_VALUE_TYPE = 389;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType <em>Rule Result Type</em>}' enum.
@@ -19431,7 +19450,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultType()
 	 * @generated
 	 */
-	int RULE_RESULT_TYPE = 389;
+	int RULE_RESULT_TYPE = 390;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType <em>Rule Result Value Type</em>}' enum.
@@ -19441,7 +19460,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultValueType()
 	 * @generated
 	 */
-	int RULE_RESULT_VALUE_TYPE = 390;
+	int RULE_RESULT_VALUE_TYPE = 391;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType <em>Rule Option Type</em>}' enum.
@@ -19451,7 +19470,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleOptionType()
 	 * @generated
 	 */
-	int RULE_OPTION_TYPE = 391;
+	int RULE_OPTION_TYPE = 392;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType <em>Smooks IO Data Type</em>}' enum.
@@ -19461,7 +19480,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksIODataType()
 	 * @generated
 	 */
-	int SMOOKS_IO_DATA_TYPE = 392;
+	int SMOOKS_IO_DATA_TYPE = 393;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutputDataType <em>Smooks Output Data Type</em>}' enum.
@@ -19471,7 +19490,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksOutputDataType()
 	 * @generated
 	 */
-	int SMOOKS_OUTPUT_DATA_TYPE = 393;
+	int SMOOKS_OUTPUT_DATA_TYPE = 394;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ExpressionAction <em>Expression Action</em>}' enum.
@@ -19481,7 +19500,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getExpressionAction()
 	 * @generated
 	 */
-	int EXPRESSION_ACTION = 394;
+	int EXPRESSION_ACTION = 395;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod <em>Output Method</em>}' enum.
@@ -19491,7 +19510,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOutputMethod()
 	 * @generated
 	 */
-	int OUTPUT_METHOD = 395;
+	int OUTPUT_METHOD = 396;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType <em>Receiving Sequence Type</em>}' enum.
@@ -19501,7 +19520,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getReceivingSequenceType()
 	 * @generated
 	 */
-	int RECEIVING_SEQUENCE_TYPE = 396;
+	int RECEIVING_SEQUENCE_TYPE = 397;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.KeyType <em>Key Type</em>}' enum.
@@ -19511,7 +19530,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getKeyType()
 	 * @generated
 	 */
-	int KEY_TYPE = 397;
+	int KEY_TYPE = 398;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.MediaType <em>Media Type</em>}' enum.
@@ -19521,7 +19540,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMediaType()
 	 * @generated
 	 */
-	int MEDIA_TYPE = 398;
+	int MEDIA_TYPE = 399;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType <em>Payload Factory Argument Type</em>}' enum.
@@ -19531,7 +19550,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryArgumentType()
 	 * @generated
 	 */
-	int PAYLOAD_FACTORY_ARGUMENT_TYPE = 399;
+	int PAYLOAD_FACTORY_ARGUMENT_TYPE = 400;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType <em>Payload Format Type</em>}' enum.
@@ -19541,7 +19560,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFormatType()
 	 * @generated
 	 */
-	int PAYLOAD_FORMAT_TYPE = 400;
+	int PAYLOAD_FORMAT_TYPE = 401;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Type <em>Type</em>}' enum.
@@ -19551,7 +19570,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 401;
+	int TYPE = 402;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType <em>Load Balance Session Type</em>}' enum.
@@ -19561,7 +19580,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceSessionType()
 	 * @generated
 	 */
-	int LOAD_BALANCE_SESSION_TYPE = 402;
+	int LOAD_BALANCE_SESSION_TYPE = 403;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.
@@ -19571,7 +19590,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLocalEntryValueType()
 	 * @generated
 	 */
-	int LOCAL_ENTRY_VALUE_TYPE = 403;
+	int LOCAL_ENTRY_VALUE_TYPE = 404;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType <em>Rule Action Type</em>}' enum.
@@ -19581,7 +19600,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleActionType()
 	 * @generated
 	 */
-	int RULE_ACTION_TYPE = 404;
+	int RULE_ACTION_TYPE = 405;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFragmentType <em>Rule Fragment Type</em>}' enum.
@@ -19591,7 +19610,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFragmentType()
 	 * @generated
 	 */
-	int RULE_FRAGMENT_TYPE = 405;
+	int RULE_FRAGMENT_TYPE = 406;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateType <em>Template Type</em>}' enum.
@@ -19601,7 +19620,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTemplateType()
 	 * @generated
 	 */
-	int TEMPLATE_TYPE = 406;
+	int TEMPLATE_TYPE = 407;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TaskPropertyType <em>Task Property Type</em>}' enum.
@@ -19611,7 +19630,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTaskPropertyType()
 	 * @generated
 	 */
-	int TASK_PROPERTY_TYPE = 407;
+	int TASK_PROPERTY_TYPE = 408;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType <em>Task Trigger Type</em>}' enum.
@@ -19621,7 +19640,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTaskTriggerType()
 	 * @generated
 	 */
-	int TASK_TRIGGER_TYPE = 408;
+	int TASK_TRIGGER_TYPE = 409;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle <em>Api Resource Url Style</em>}' enum.
@@ -19631,7 +19650,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getApiResourceUrlStyle()
 	 * @generated
 	 */
-	int API_RESOURCE_URL_STYLE = 409;
+	int API_RESOURCE_URL_STYLE = 410;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType <em>Message Store Type</em>}' enum.
@@ -19641,7 +19660,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMessageStoreType()
 	 * @generated
 	 */
-	int MESSAGE_STORE_TYPE = 410;
+	int MESSAGE_STORE_TYPE = 411;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.JMSSpecVersion <em>JMS Spec Version</em>}' enum.
@@ -19651,7 +19670,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getJMSSpecVersion()
 	 * @generated
 	 */
-	int JMS_SPEC_VERSION = 411;
+	int JMS_SPEC_VERSION = 412;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessorType <em>Message Processor Type</em>}' enum.
@@ -19661,7 +19680,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMessageProcessorType()
 	 * @generated
 	 */
-	int MESSAGE_PROCESSOR_TYPE = 412;
+	int MESSAGE_PROCESSOR_TYPE = 413;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -19671,7 +19690,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 413;
+	int MAP = 414;
 
 
 	/**
@@ -21249,6 +21268,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getHTTPEndpoint_URITemplate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint#getHttpMethod <em>Http Method</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Http Method</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint#getHttpMethod()
+	 * @see #getHTTPEndpoint()
+	 * @generated
+	 */
+	EAttribute getHTTPEndpoint_HttpMethod();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointInputConnector <em>HTTP End Point Input Connector</em>}'.
@@ -31727,6 +31757,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EEnum getProxyWsdlType();
 
 	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType <em>Http Method Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Http Method Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType
+	 * @generated
+	 */
+	EEnum getHttpMethodType();
+
+	/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType <em>Filter Condition Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -33916,6 +33956,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute HTTP_ENDPOINT__URI_TEMPLATE = eINSTANCE.getHTTPEndpoint_URITemplate();
+
+		/**
+		 * The meta object literal for the '<em><b>Http Method</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute HTTP_ENDPOINT__HTTP_METHOD = eINSTANCE.getHTTPEndpoint_HttpMethod();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HTTPEndPointInputConnectorImpl <em>HTTP End Point Input Connector</em>}' class.
@@ -42304,6 +42352,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EEnum PROXY_WSDL_TYPE = eINSTANCE.getProxyWsdlType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType <em>Http Method Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHttpMethodType()
+		 * @generated
+		 */
+		EEnum HTTP_METHOD_TYPE = eINSTANCE.getHttpMethodType();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType <em>Filter Condition Type</em>}' enum.

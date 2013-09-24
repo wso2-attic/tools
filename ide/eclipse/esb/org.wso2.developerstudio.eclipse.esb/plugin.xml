@@ -1323,6 +1323,13 @@
              mediaType="application/vnd.wso2.esb.endpoint"
              extension="xml">
        </template>
+        <template
+             file="resources/templates/endpoints/http_endpoint.xml"
+             id="org.wso2.developerstudio.eclipse.esb.template.ep8"
+             name="HTTP Endpoint"
+             mediaType="application/vnd.wso2.esb.endpoint"
+             extension="xml">
+       </template>
        <template
              file="resources/templates/endpoints/default_endpoint.xml"
              id="org.wso2.developerstudio.eclipse.esb.template.ep2"

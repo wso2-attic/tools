@@ -23,6 +23,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndPointOutputConnector2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -30,7 +31,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated
  */
-public class HTTPEndPointOutputConnector2EditPart extends AbstractBorderItemEditPart {
+public class HTTPEndPointOutputConnector2EditPart extends AbstractEndpointOutputConnectorEditPart {
 
 	/**
 	 * @generated
@@ -123,14 +124,16 @@ public class HTTPEndPointOutputConnector2EditPart extends AbstractBorderItemEdit
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
+		IFigure shape = createNodeShapeForward();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		figure_ = figure;
+		createNodeShapeReverse();
 		return figure;
 	}
 

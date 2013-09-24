@@ -27,6 +27,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint#getURITemplate <em>URI Template</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint#getHttpMethod <em>Http Method</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,5 +113,34 @@ public interface HTTPEndpoint extends AbstractEndPoint {
 	 * @generated
 	 */
 	void setURITemplate(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Http Method</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Http Method</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Http Method</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType
+	 * @see #setHttpMethod(HttpMethodType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getHTTPEndpoint_HttpMethod()
+	 * @model
+	 * @generated
+	 */
+	HttpMethodType getHttpMethod();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint#getHttpMethod <em>Http Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Http Method</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType
+	 * @see #getHttpMethod()
+	 * @generated
+	 */
+	void setHttpMethod(HttpMethodType value);
 
 } // HTTPEndpoint

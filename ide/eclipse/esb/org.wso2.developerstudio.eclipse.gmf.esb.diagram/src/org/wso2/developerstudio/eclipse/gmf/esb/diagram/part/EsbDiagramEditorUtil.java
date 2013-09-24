@@ -296,6 +296,9 @@ public class EsbDiagramEditorUtil {
 						case 6:
 							endpoints.setChild(EsbFactory.eINSTANCE.createTemplateEndpoint());
 							break;
+						case 7:
+							endpoints.setChild(EsbFactory.eINSTANCE.createHTTPEndpoint());
+							break;
 						default:
 							break;
 						}

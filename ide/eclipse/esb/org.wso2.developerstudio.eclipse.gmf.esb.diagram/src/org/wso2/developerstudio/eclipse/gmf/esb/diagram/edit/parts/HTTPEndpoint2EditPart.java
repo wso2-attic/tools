@@ -1,8 +1,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -11,9 +15,13 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -22,8 +30,18 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint2;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.AddressEndPoint2CanonicalEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.AddressEndPoint2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndpoint2CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndpoint2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -54,13 +72,15 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				EsbVisualIDRegistry.TYPED_INSTANCE));
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new HTTPEndpoint2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new HTTPEndpoint2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
 	}
 
 	/**
@@ -106,6 +126,96 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 	 */
 	public HTTPEndpointFigure getPrimaryShape() {
 		return (HTTPEndpointFigure) primaryShape;
+	}
+
+	/**
+	 * @generated NOT
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+//		if (childEditPart instanceof HTTPEndPointName2EditPart) {
+//			((AddressEndPointEndPointName2EditPart) childEditPart).setLabel(getPrimaryShape()
+//					.getFigureAddressEndPointNamePropertyLabel());
+//			return true;
+//		}
+		if (childEditPart instanceof HTTPEndPointInputConnector2EditPart) {
+			double position;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
+					.getParent()).getModel()).getElement();
+			if (((HTTPEndpoint) parentEndpoint).getInputConnector().getIncomingLinks().size() != 0) {
+				EObject source = ((HTTPEndpoint) parentEndpoint).getInputConnector()
+						.getIncomingLinks().get(0).getSource().eContainer();
+				position = ((source instanceof LoadBalanceEndPoint)
+						|| (source instanceof FailoverEndPoint) || (source instanceof SendMediator)) ? 0.5
+						: 0.25;
+			} else {
+				position = 0.5;
+			}
+			IFigure borderItemFigure = ((HTTPEndPointInputConnector2EditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, position);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			return true;
+		}
+		if (childEditPart instanceof HTTPEndPointOutputConnector2EditPart) {
+			IFigure borderItemFigure = ((HTTPEndPointOutputConnector2EditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, 0.75);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+//		if (childEditPart instanceof HTTPEndPointEndPointName2EditPart) {
+//			return true;
+//		}
+		if (childEditPart instanceof HTTPEndPointInputConnector2EditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((HTTPEndPointInputConnector2EditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof HTTPEndPointOutputConnector2EditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((HTTPEndPointOutputConnector2EditPart) childEditPart).getFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+	
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof IBorderItemEditPart) {
+			return getBorderedFigure().getBorderItemContainer();
+		}
+		return getContentPane();
 	}
 
 	/**
@@ -193,6 +303,35 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
+	
+	/**
+	 * @generated
+	 */
+	public EditPart getPrimaryChildEditPart() {
+		return null;
+//		return getChildBySemanticHint(EsbVisualIDRegistry
+//				.getType(HTTPEndPointEndPointName2EditPart.VISUAL_ID));
+	}
+
+	protected void refreshVisuals() {
+		super.refreshVisuals();
+		
+		HTTPEndpoint addEp = (HTTPEndpoint) resolveSemanticElement();
+		
+//		if (addEp != null) {
+//			if (addEp.getURI() != null) {
+//				getPrimaryShape().setToolTip(new Label(addEp.getURI()));
+//			}
+//
+//		}
+	}
+
+	protected void handleNotificationEvent(Notification notification) {
+		super.handleNotificationEvent(notification);
+		if (notification.getNotifier() instanceof HTTPEndpoint) {
+			refreshVisuals();
+		}
+	}
 
 	/**
 	 * @generated
@@ -221,6 +360,19 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 			fFigureHTTPEndPointNamePropertyLabel.setText("<...>");
 			fFigureHTTPEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
 			this.getPropertyValueRectangle1().add(fFigureHTTPEndPointNamePropertyLabel);
+		}
+
+		
+		public String getIconPath() {
+			return "icons/ico20/address-endpoint.gif";
+		}
+
+		public String getNodeName() {
+			return "Add-EP";
+		}
+
+		public Color getBackgroundColor() {
+			return THIS_BACK;
 		}
 
 		/**

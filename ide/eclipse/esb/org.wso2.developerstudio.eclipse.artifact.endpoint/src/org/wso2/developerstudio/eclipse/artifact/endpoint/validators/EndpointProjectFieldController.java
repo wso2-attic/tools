@@ -45,6 +45,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		}
 		boolean isAddressEP = EpArtifactConstants.ADDRESS_EP.equals(templateName);
 		boolean isWSDlEP = EpArtifactConstants.WSDL_EP.equals(templateName);
+		boolean isHttpEP = EpArtifactConstants.HTTP_EP.equals(templateName);
 		
 		if (modelProperty.equals("ep.name")) {
 			CommonFieldValidator.validateArtifactName(value);	
@@ -83,7 +84,13 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 				throw new FieldValidationException("Address url cannot be empty");
 			} else{
 				CommonFieldValidator.isValidUrl(value.toString().trim(), "Address url");
-			}	
+			}
+		} else if (modelProperty.equals("templ.http.ep.uritemplate") && isHttpEP) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("URI Template cannot be empty");
+			} else{
+				CommonFieldValidator.isValidUrl(value.toString().trim(), "URI Template");
+			}
 		} else if (modelProperty.equals("templ.wsdl.ep.uri") && isWSDlEP) {	
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("WSDL url cannot be empty");
@@ -183,6 +190,8 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep4", Arrays.asList(new String[] {}));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep7", Arrays
 		        .asList(new String[] { "templ.template.ep.uri", "templ.target.template" }));
+		map.put("org.wso2.developerstudio.eclipse.esb.template.ep8", Arrays
+		        .asList(new String[] { "templ.http.ep.uritemplate", "templ.http.ep.method"}));
 		return map;
 
 	}

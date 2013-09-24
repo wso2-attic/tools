@@ -203,6 +203,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorInputConnector;
@@ -2724,6 +2725,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum httpMethodTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum filterConditionTypeEEnum = null;
 
 	/**
@@ -4738,6 +4746,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getHTTPEndpoint_URITemplate() {
 		return (EAttribute)httpEndpointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHTTPEndpoint_HttpMethod() {
+		return (EAttribute)httpEndpointEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -13547,6 +13564,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getHttpMethodType() {
+		return httpMethodTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getFilterConditionType() {
 		return filterConditionTypeEEnum;
 	}
@@ -14576,6 +14602,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(httpEndpointEClass, HTTP_ENDPOINT__INPUT_CONNECTOR);
 		createEReference(httpEndpointEClass, HTTP_ENDPOINT__OUTPUT_CONNECTOR);
 		createEAttribute(httpEndpointEClass, HTTP_ENDPOINT__URI_TEMPLATE);
+		createEAttribute(httpEndpointEClass, HTTP_ENDPOINT__HTTP_METHOD);
 
 		httpEndPointInputConnectorEClass = createEClass(HTTP_END_POINT_INPUT_CONNECTOR);
 
@@ -15834,6 +15861,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		endPointPropertyScopeEEnum = createEEnum(END_POINT_PROPERTY_SCOPE);
 		sequenceTypeEEnum = createEEnum(SEQUENCE_TYPE);
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
+		httpMethodTypeEEnum = createEEnum(HTTP_METHOD_TYPE);
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
 		logCategoryEEnum = createEEnum(LOG_CATEGORY);
 		logLevelEEnum = createEEnum(LOG_LEVEL);
@@ -16446,6 +16474,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getHTTPEndpoint_InputConnector(), this.getHTTPEndPointInputConnector(), null, "inputConnector", null, 0, 1, HTTPEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHTTPEndpoint_OutputConnector(), this.getHTTPEndPointOutputConnector(), null, "outputConnector", null, 0, 1, HTTPEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHTTPEndpoint_URITemplate(), ecorePackage.getEString(), "URITemplate", null, 0, 1, HTTPEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHTTPEndpoint_HttpMethod(), this.getHttpMethodType(), "HttpMethod", null, 0, 1, HTTPEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(httpEndPointInputConnectorEClass, HTTPEndPointInputConnector.class, "HTTPEndPointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -17740,6 +17769,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(proxyWsdlTypeEEnum, ProxyWsdlType.INLINE);
 		addEEnumLiteral(proxyWsdlTypeEEnum, ProxyWsdlType.SOURCE_URL);
 		addEEnumLiteral(proxyWsdlTypeEEnum, ProxyWsdlType.REGISTRY_KEY);
+
+		initEEnum(httpMethodTypeEEnum, HttpMethodType.class, "HttpMethodType");
+		addEEnumLiteral(httpMethodTypeEEnum, HttpMethodType.GET);
+		addEEnumLiteral(httpMethodTypeEEnum, HttpMethodType.POST);
+		addEEnumLiteral(httpMethodTypeEEnum, HttpMethodType.PUT);
+		addEEnumLiteral(httpMethodTypeEEnum, HttpMethodType.DELETE);
+		addEEnumLiteral(httpMethodTypeEEnum, HttpMethodType.HEAD);
 
 		initEEnum(filterConditionTypeEEnum, FilterConditionType.class, "FilterConditionType");
 		addEEnumLiteral(filterConditionTypeEEnum, FilterConditionType.SOURCE_AND_REGEX);

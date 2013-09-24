@@ -38,6 +38,13 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/SOURCE_URL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/REGISTRY_KEY"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//HttpMethodType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HttpMethodType/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HttpMethodType/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HttpMethodType/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HttpMethodType/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HttpMethodType/HEAD"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//FilterConditionType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FilterConditionType/SOURCE_AND_REGEX"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FilterConditionType/XPATH"/>
@@ -696,6 +703,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HTTPEndpoint/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HTTPEndpoint/outputConnector"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/URITemplate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/HttpMethod"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//HTTPEndPointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//HTTPEndPointOutputConnector"/>

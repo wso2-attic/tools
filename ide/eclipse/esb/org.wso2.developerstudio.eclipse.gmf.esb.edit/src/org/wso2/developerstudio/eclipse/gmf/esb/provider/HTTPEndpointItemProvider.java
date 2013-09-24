@@ -74,6 +74,7 @@ public class HTTPEndpointItemProvider
 			super.getPropertyDescriptors(object);
 
 			addURITemplatePropertyDescriptor(object);
+			addHttpMethodPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,6 +93,28 @@ public class HTTPEndpointItemProvider
 				 getString("_UI_HTTPEndpoint_URITemplate_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_HTTPEndpoint_URITemplate_feature", "_UI_HTTPEndpoint_type"),
 				 EsbPackage.Literals.HTTP_ENDPOINT__URI_TEMPLATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Http Method feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHttpMethodPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HTTPEndpoint_HttpMethod_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HTTPEndpoint_HttpMethod_feature", "_UI_HTTPEndpoint_type"),
+				 EsbPackage.Literals.HTTP_ENDPOINT__HTTP_METHOD,
 				 true,
 				 false,
 				 false,
@@ -169,6 +192,7 @@ public class HTTPEndpointItemProvider
 
 		switch (notification.getFeatureID(HTTPEndpoint.class)) {
 			case EsbPackage.HTTP_ENDPOINT__URI_TEMPLATE:
+			case EsbPackage.HTTP_ENDPOINT__HTTP_METHOD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.HTTP_ENDPOINT__INPUT_CONNECTOR:

@@ -57,6 +57,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
@@ -226,6 +227,9 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof TemplateEndpoint){
 			TemplateEndPointTransformer transformer= new TemplateEndPointTransformer();
 			return transformer.create((TemplateEndpoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName());
+		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof HTTPEndpoint){
+			HTTPEndPointTransformer transformer= new HTTPEndPointTransformer();
+			return transformer.create((HTTPEndpoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName());
 		}else{
 			return null;
 		}		

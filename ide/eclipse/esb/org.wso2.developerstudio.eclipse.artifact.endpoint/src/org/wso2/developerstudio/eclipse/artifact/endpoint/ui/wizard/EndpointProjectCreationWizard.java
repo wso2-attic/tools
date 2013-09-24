@@ -72,6 +72,7 @@ import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
+
 public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -189,6 +190,11 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				template = createEPTemplate(templateContent,
 						EpArtifactConstants.TEMPLATE_EP);
 				
+			} else if (selectedTemplate.getName().equals(
+						EpArtifactConstants.HTTP_EP)) {
+				template = createEPTemplate(templateContent,
+							EpArtifactConstants.HTTP_EP);
+				
 			} else {
 				template = createEPTemplate(templateContent, "");
 				
@@ -260,6 +266,11 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				EpArtifactConstants.TEMPLATE_EP)) {
 			template = createEPTemplate(templateContent,
 					EpArtifactConstants.TEMPLATE_EP);
+			
+		} else if (selectedTemplate.getName().equals(
+				EpArtifactConstants.HTTP_EP)) {
+			template = createEPTemplate(templateContent,
+					EpArtifactConstants.HTTP_EP);
 			
 		} else {
 			template = createEPTemplate(templateContent, "");
@@ -468,7 +479,11 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		}else if(type.equals(EpArtifactConstants.TEMPLATE_EP)){
 			newContent = StringUtils.replace(newContent,"<ep.uri>", epModel.getTemplateEPURI());
 			newContent = StringUtils.replace(newContent,"<ep.template>", epModel.getTemplateEPTargetTemp());
+		}else if(type.equals(EpArtifactConstants.HTTP_EP)){
+			newContent = StringUtils.replace(newContent,"<http.uritemplate>", epModel.getHttpUriTemplate());
+			newContent = StringUtils.replace(newContent,"<http.method>", epModel.getHttpMethod().name().toLowerCase());
 		}
+		
         return newContent;
 	}
 	
@@ -490,6 +505,8 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 					type=type+"-4";
 				} else if ("recipientlist".equals(localName)) {
 					type=type+"-5";
+				} else if ("http".equals(localName)) {
+					type=type+"-7";
 				} else {
 					type=type+"-0";
 				}

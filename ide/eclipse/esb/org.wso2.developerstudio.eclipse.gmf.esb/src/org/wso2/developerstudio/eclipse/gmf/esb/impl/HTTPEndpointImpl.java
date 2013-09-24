@@ -27,6 +27,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.HttpMethodType;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HTTPEndpointImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HTTPEndpointImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HTTPEndpointImpl#getURITemplate <em>URI Template</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HTTPEndpointImpl#getHttpMethod <em>Http Method</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,6 +85,26 @@ public class HTTPEndpointImpl extends AbstractEndPointImpl implements HTTPEndpoi
 	 * @ordered
 	 */
 	protected String uriTemplate = URI_TEMPLATE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getHttpMethod() <em>Http Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHttpMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final HttpMethodType HTTP_METHOD_EDEFAULT = HttpMethodType.GET;
+
+	/**
+	 * The cached value of the '{@link #getHttpMethod() <em>Http Method</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHttpMethod()
+	 * @generated
+	 * @ordered
+	 */
+	protected HttpMethodType httpMethod = HTTP_METHOD_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,6 +237,27 @@ public class HTTPEndpointImpl extends AbstractEndPointImpl implements HTTPEndpoi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public HttpMethodType getHttpMethod() {
+		return httpMethod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setHttpMethod(HttpMethodType newHttpMethod) {
+		HttpMethodType oldHttpMethod = httpMethod;
+		httpMethod = newHttpMethod == null ? HTTP_METHOD_EDEFAULT : newHttpMethod;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.HTTP_ENDPOINT__HTTP_METHOD, oldHttpMethod, httpMethod));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -240,6 +283,8 @@ public class HTTPEndpointImpl extends AbstractEndPointImpl implements HTTPEndpoi
 				return getOutputConnector();
 			case EsbPackage.HTTP_ENDPOINT__URI_TEMPLATE:
 				return getURITemplate();
+			case EsbPackage.HTTP_ENDPOINT__HTTP_METHOD:
+				return getHttpMethod();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -260,6 +305,9 @@ public class HTTPEndpointImpl extends AbstractEndPointImpl implements HTTPEndpoi
 				return;
 			case EsbPackage.HTTP_ENDPOINT__URI_TEMPLATE:
 				setURITemplate((String)newValue);
+				return;
+			case EsbPackage.HTTP_ENDPOINT__HTTP_METHOD:
+				setHttpMethod((HttpMethodType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -282,6 +330,9 @@ public class HTTPEndpointImpl extends AbstractEndPointImpl implements HTTPEndpoi
 			case EsbPackage.HTTP_ENDPOINT__URI_TEMPLATE:
 				setURITemplate(URI_TEMPLATE_EDEFAULT);
 				return;
+			case EsbPackage.HTTP_ENDPOINT__HTTP_METHOD:
+				setHttpMethod(HTTP_METHOD_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -300,6 +351,8 @@ public class HTTPEndpointImpl extends AbstractEndPointImpl implements HTTPEndpoi
 				return outputConnector != null;
 			case EsbPackage.HTTP_ENDPOINT__URI_TEMPLATE:
 				return URI_TEMPLATE_EDEFAULT == null ? uriTemplate != null : !URI_TEMPLATE_EDEFAULT.equals(uriTemplate);
+			case EsbPackage.HTTP_ENDPOINT__HTTP_METHOD:
+				return httpMethod != HTTP_METHOD_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -316,6 +369,8 @@ public class HTTPEndpointImpl extends AbstractEndPointImpl implements HTTPEndpoi
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (URITemplate: ");
 		result.append(uriTemplate);
+		result.append(", HttpMethod: ");
+		result.append(httpMethod);
 		result.append(')');
 		return result.toString();
 	}

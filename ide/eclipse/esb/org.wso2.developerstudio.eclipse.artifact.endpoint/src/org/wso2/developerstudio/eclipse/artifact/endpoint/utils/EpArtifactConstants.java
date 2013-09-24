@@ -25,6 +25,7 @@ public final class EpArtifactConstants extends NLS{
 	public static  String WSDL_EP;
 	public static  String DEFAULT_EP;
 	public static  String FAIL_OVER_EP;
+	public static  String HTTP_EP;
 	public static  String LOAD_BALANCE_EP;
 	public static  String TEMPLATE_EP;
 	public static  String ESB_PROJECT_NATURE;
@@ -46,6 +47,8 @@ public final class EpArtifactConstants extends NLS{
 	public static String WIZARD_OPTION_TEMPLATE_TEMP_EP_URL;
 	public static String WIZARD_OPTION_TEMPLATE_TEMP_TARGET;
 	public static String WIZARD_OPTION_AVAILABLE_EPS;
+	public static String WIZARD_OPTION_HTTP_EP_URITEMPLATE;
+	public static String WIZARD_OPTION_HTTP_EP_METHOD;
 	
 	
 	

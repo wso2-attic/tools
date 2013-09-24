@@ -398,6 +398,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createSequenceTypeFromString(eDataType, initialValue);
 			case EsbPackage.PROXY_WSDL_TYPE:
 				return createProxyWsdlTypeFromString(eDataType, initialValue);
+			case EsbPackage.HTTP_METHOD_TYPE:
+				return createHttpMethodTypeFromString(eDataType, initialValue);
 			case EsbPackage.FILTER_CONDITION_TYPE:
 				return createFilterConditionTypeFromString(eDataType, initialValue);
 			case EsbPackage.LOG_CATEGORY:
@@ -602,6 +604,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertSequenceTypeToString(eDataType, instanceValue);
 			case EsbPackage.PROXY_WSDL_TYPE:
 				return convertProxyWsdlTypeToString(eDataType, instanceValue);
+			case EsbPackage.HTTP_METHOD_TYPE:
+				return convertHttpMethodTypeToString(eDataType, instanceValue);
 			case EsbPackage.FILTER_CONDITION_TYPE:
 				return convertFilterConditionTypeToString(eDataType, instanceValue);
 			case EsbPackage.LOG_CATEGORY:
@@ -4149,6 +4153,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertProxyWsdlTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HttpMethodType createHttpMethodTypeFromString(EDataType eDataType, String initialValue) {
+		HttpMethodType result = HttpMethodType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertHttpMethodTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

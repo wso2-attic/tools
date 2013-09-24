@@ -18,11 +18,13 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
@@ -91,8 +93,14 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 		}
 		
 		createAdvanceOptions(httpEndPoint,synapseHttpEP);
-		UriTemplate template = UriTemplate.fromTemplate(httpEndPoint.getURITemplate());
-		synapseHttpEP.setUriTemplate(template);
+		if (httpEndPoint.getURITemplate() != null ) {
+			UriTemplate template = UriTemplate.fromTemplate(httpEndPoint.getURITemplate());
+			synapseHttpEP.setUriTemplate(template);
+		}
+		
+		if (visualEndPoint.getHttpMethod() != null) {
+			synapseHttpEP.setHttpMethod(visualEndPoint.getHttpMethod().getName().toLowerCase());
+		}
 
 		return synapseHttpEP;
 	} 
