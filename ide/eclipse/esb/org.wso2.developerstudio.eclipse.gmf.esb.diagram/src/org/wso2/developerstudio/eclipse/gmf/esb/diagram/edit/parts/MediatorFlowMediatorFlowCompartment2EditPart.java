@@ -52,14 +52,18 @@ public class MediatorFlowMediatorFlowCompartment2EditPart extends
 	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
-		result.setTitleVisibility(false);
+		result.setTitle("Case");
+		result.setTitleVisibility(true);
 		/*
 		 * Override default border.
 		 * Fixing TOOLS-1864.
 		 */
 		LineBorder border = new LineBorder(new Color(null, 0, 0, 204), 1, SWT.BORDER_DASH);
 		result.setBorder(border);
-		result.setToolTip((String) null);
+		result.setToolTip("Case");
+		ConstrainedToolbarLayout layoutManager = new ConstrainedToolbarLayout(false);
+		layoutManager.setSpacing(-15);
+		result.setLayoutManager(layoutManager);
 		return result;
 	}
 

@@ -82,22 +82,6 @@ public class SwitchMediatorUtils {
 		SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) child;
 		EObject parentContainer = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (switchMediatorEditPart)
 				.getModel()).getElement();
-		
-		/*if(((SwitchMediator) parentContainer).getDefaultBranch() == null) {
-			SwitchDefaultBranchOutputConnector defaultOuputConnector = EsbFactory.eINSTANCE.createSwitchDefaultBranchOutputConnector();
-			SetCommand setDefaultConnectorCmd = new SetCommand(domain, parentContainer,
-					EsbPackage.Literals.SWITCH_MEDIATOR__DEFAULT_BRANCH, defaultOuputConnector);
-			if(setDefaultConnectorCmd.canExecute()) {
-				domain.getCommandStack().execute(setDefaultConnectorCmd);
-			}
-			
-			SwitchDefaultContainer defaultContainer = EsbFactory.eINSTANCE.createSwitchDefaultContainer();
-			SetCommand setDefaultContainerCmd = new SetCommand(domain, ((SwitchMediator) parentContainer).getSwitchContainer(),
-					EsbPackage.Literals.SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER, defaultContainer);
-			if(setDefaultContainerCmd.canExecute()) {
-				domain.getCommandStack().execute(setDefaultContainerCmd);
-			}
-		}*/
  		
 		if (((SwitchMediator) parentContainer).getCaseBranches().size() == 0) {
 			SwitchCaseBranchOutputConnector caseOutputConnector = EsbFactory.eINSTANCE
