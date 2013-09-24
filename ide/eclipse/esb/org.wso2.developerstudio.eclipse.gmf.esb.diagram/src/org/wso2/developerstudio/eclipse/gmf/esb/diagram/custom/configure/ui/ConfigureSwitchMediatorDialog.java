@@ -56,7 +56,7 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 		Composite container = (Composite) super.createDialogArea(parent);
 		container.setLayout(null);
 		
-		txtXPath = new Text(container, SWT.BORDER);
+		/*txtXPath = new Text(container, SWT.BORDER);
 		txtXPath.setBounds(60, 10, 297, 21);
 		
 		Label lblXPath = new Label(container, SWT.NONE);
@@ -75,12 +75,16 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 			}
 		});
 		cmdBrowseXPath.setText("..");
-		cmdBrowseXPath.setBounds(360, 10, 20, 20);
+		cmdBrowseXPath.setBounds(360, 10, 20, 20);*/
+		
+		Label caseBranchesLabel = new Label(container, SWT.NONE);
+		caseBranchesLabel.setText("Case Branches:");
+		caseBranchesLabel.setBounds(10, 13, 100, 15);
 		
 		tblCases = new Table(container, SWT.BORDER | SWT.FULL_SELECTION );
 		tblCases.setLinesVisible(true);
 		tblCases.setHeaderVisible(true);
-		tblCases.setBounds(10, 47, 430, 162);
+		tblCases.setBounds(10, 40, 430, 162);
 		
 		TableColumn tblclmnCase = new TableColumn(tblCases, SWT.NONE);
 		tblclmnCase.setWidth(100);
@@ -128,10 +132,10 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 			 bindCase(s);
 		}
 		
-		NamespacedProperty sourceXPath = mediator.getSourceXpath();
+		/*NamespacedProperty sourceXPath = mediator.getSourceXpath();
 		if(sourceXPath.getPropertyValue()!=null){
 			txtXPath.setText(sourceXPath.getPropertyValue());
-		}
+		}*/
 		
 		return container;
 	}
@@ -160,11 +164,11 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 	
 	protected void okPressed() {
 		
-		if(!mediator.getSourceXpath().getPropertyValue().equals(txtXPath.getText())){
+		/*if(!mediator.getSourceXpath().getPropertyValue().equals(txtXPath.getText())){
 			NamespacedProperty xPath = mediator.getSourceXpath();
 			SetCommand setCmd = new SetCommand(editingDomain, xPath,EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE, txtXPath.getText());
 			getResultCommand().append(setCmd);
-		}
+		}*/
 		for (TableItem item : tblCases.getItems()) {
 			SwitchCaseBranchOutputConnector s = (SwitchCaseBranchOutputConnector) item.getData();
 			if (null == s.eContainer()) {
