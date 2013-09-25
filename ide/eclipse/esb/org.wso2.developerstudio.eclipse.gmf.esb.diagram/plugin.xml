@@ -3803,13 +3803,14 @@
    </extension>
 
    <extension point="org.eclipse.ui.menus" id="context-menus">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
       </menuContribution>
       <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=">
       </menuContribution -->
       <menuContribution locationURI="popup:org.eclipse.gmf.runtime.diagram.ui.DiagramEditorContextMenu">
-         <command commandId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadResourceAction">
+      	<!-- Fixing TOOLS-1959 -->
+        <!-- <command commandId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadResourceAction">
             <visibleWhen>
                <and>
                   <with variable="activePartId"><equals value="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorID"/></with>
@@ -3818,11 +3819,11 @@
                   </iterate></with>
                </and>
             </visibleWhen>
-         </command>
+         </command> -->
       </menuContribution>
    </extension>
 
-   <extension point="org.eclipse.ui.commands" id="menu-commands">
+  <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
       <category id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadResourceAction"

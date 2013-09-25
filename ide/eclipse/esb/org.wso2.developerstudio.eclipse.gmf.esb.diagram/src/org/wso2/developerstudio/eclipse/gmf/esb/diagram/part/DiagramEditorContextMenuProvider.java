@@ -299,9 +299,15 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 							ContributionItemService.getInstance().contributeToPopupMenu(
 									DiagramEditorContextMenuProvider.this, part);
 							//menu.removeAll();
+							// Fixing TOOLS-1959.
 							menu.remove(ActionIds.ACTION_DELETE_FROM_MODEL);
-							menu.remove(ActionIds.ACTION_ADD_NOTE);
+							menu.remove(ActionIds.ACTION_ADD_NOTELINK);
 							menu.remove(ActionIds.MENU_DIAGRAM_ADD);
+							//menu.remove(ActionIds.MENU_EDIT);
+							menu.remove(ActionIds.MENU_NAVIGATE);
+							menu.remove(ActionIds.MENU_VIEW);
+							menu.remove(ActionIds.MENU_SELECT);
+							menu.remove(ActionIds.ACTION_TOOLBAR_ARRANGE_ALL);
 
 							// Remove Zoom menu item.
 							menu.remove(ActionIds.CUSTOM_ZOOM);
@@ -312,7 +318,7 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 
 							menu.appendToGroup("editGroup", deleteAction);
 							menu.remove(EsbModelExportAction.ACTION_ID);
-							menu.appendToGroup("editGroup", exportAction);
+							//menu.appendToGroup("editGroup", exportAction);
 
 							// Custom configuration menu item.
 							List<?> selectedEPs = getViewer().getSelectedEditParts();
