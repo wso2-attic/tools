@@ -48,11 +48,11 @@
 				type="string"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController">Axis2 Configuration</data>
 			<data modelProperty="Forwarding_processor.Reply_sequence_name"
-				type="registry+text"
+				type="resource+text"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController"
 				controlData="select=single;modify=readonly;registry.selection.type=resource">Reply sequence name</data>
 			<data modelProperty="Forwarding_processor.Fault_sequence_name"
-				type="registry+text"
+				type="resource+text"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController"
 				controlData="select=single;modify=readonly;registry.selection.type=resource">Fault sequence name</data>
 			<!-- Forwarding_Processor : end -->

@@ -46,5 +46,11 @@
 			wizard="org.wso2.developerstudio.eclipse.artifact.messageprocessor.wizard" priority="10">
 		</wizardLink>
 	</extension>
+ <extension
+       point="org.eclipse.ui.startup">
+    <startup
+          class="org.wso2.developerstudio.eclipse.artifact.messageprocessor.startup.MessageProcessorStartup">
+    </startup>
+ </extension>
 
 </plugin>
