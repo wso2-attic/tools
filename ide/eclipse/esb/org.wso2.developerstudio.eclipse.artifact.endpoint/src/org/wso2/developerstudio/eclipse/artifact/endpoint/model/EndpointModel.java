@@ -28,14 +28,18 @@ import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndPointTemplateList;
+import org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.validators.ProjectFilter;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
 import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
+import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.core.types.HttpMethodType;
@@ -45,6 +49,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 
 public class EndpointModel extends ProjectDataModel {
@@ -56,10 +61,12 @@ public class EndpointModel extends ProjectDataModel {
 
 	private ArtifactTemplate selectedTemplate;
 	private boolean saveAsDynamic = false;
+	private String availableTemplate;
 	private String registryPathID = GOV_REG_ID;
 	private String dynamicEpRegistryPath= new String();
 	private List<OMElement> availableEPList;
 	private IContainer endpointSaveLocation;
+	private IProject project;
 	private String epName;
 	private String addressEPURI;
 	private String wsdlEPURI;
@@ -72,6 +79,7 @@ public class EndpointModel extends ProjectDataModel {
 	private List<OMElement> selectedEPList=new ArrayList<OMElement>();
 	
 	
+
 	public Object getModelPropertyValue(String key) {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
 		if (modelPropertyValue == null) {
@@ -87,8 +95,11 @@ public class EndpointModel extends ProjectDataModel {
 				modelPropertyValue = selectedEPList.toArray();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_PATH)){
 				modelPropertyValue = getDynamicEpRegistryPath();
-			}
-
+			}else if(key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_TEMP_TARGET)){
+				modelPropertyValue = getAvailableTemplates();
+			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_AVAILABLE)){
+			    modelPropertyValue = getAvailableTemplates();
+			}  
 		}
 		return modelPropertyValue;
 	}
@@ -122,7 +133,10 @@ public class EndpointModel extends ProjectDataModel {
 					log.error("An unexpected error has occurred", e);
 				}
 			}
-		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_EP_TYPE)) {
+			
+	
+		
+		}else if (key.equals(EpArtifactConstants.WIZARD_OPTION_EP_TYPE)) {
 			ArtifactTemplate template = (ArtifactTemplate) data;
 			setSelectedTemplate(template);
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_DYNAMIC_EP)) {
@@ -134,6 +148,7 @@ public class EndpointModel extends ProjectDataModel {
 			setRegistryPathID(data.toString());
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
 			setEndpointSaveLocation((IContainer) data);
+			
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_CREATE_ESB_PROJECT)) {
 			if(isSaveAsDynamic()){
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
@@ -182,9 +197,13 @@ public class EndpointModel extends ProjectDataModel {
 			if(null!=data){
 				setDynamicEpRegistryPath(data.toString());
 			}
+		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_AVAILABLE)) {
+			setAvailableTemplates(data.toString());
+			
 		}
 
-		return returnResult;
+	return returnResult;
+
 	}
 
 	public void setSelectedTemplate(ArtifactTemplate selectedTemplate) {
@@ -204,7 +223,18 @@ public class EndpointModel extends ProjectDataModel {
 		}
 		return selectedTemplate;
 	}
+	
+	public void setAvailableTemplates(String availableTemplate) {
+		this.availableTemplate = availableTemplate;
+	}
+	
+	public String getAvailableTemplates() {
+		return availableTemplate;
+	}
 
+	protected ListData createListData(String caption, Object data) {
+		return new ListData(caption, data);
+	}
 	public void setSaveAsDynamic(boolean saveAsDynamic) {
 		this.saveAsDynamic = saveAsDynamic;
 	}
@@ -224,6 +254,8 @@ public class EndpointModel extends ProjectDataModel {
 	public void setAvailableEPList(List<OMElement> availableEPList) {
 		this.availableEPList = availableEPList;
 	}
+
+	
 
 	public List<OMElement> getAvailableEPList() {
 		return availableEPList;
@@ -255,6 +287,7 @@ public class EndpointModel extends ProjectDataModel {
 	}
 
 	public static IContainer getContainer(File absolutionPath, String projectNature) {
+		
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		int length = 0;
 		IProject currentSelection = null;

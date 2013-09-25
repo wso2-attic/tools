@@ -29,6 +29,7 @@
 			<!-- Template EP -->			
 			<data group="group1" modelProperty="templ.template.ep.uri" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController">URI</data>
 			<data group="group1" modelProperty="templ.target.template" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController">Target Template</data>
+			<data group="group1" modelProperty="templ.target.availabletemplates" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController" controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.endpoint.validators.AvailableTemplateList" >Available Template</data>
 			
 			<!-- Http EP -->			
 			<data group="group1" modelProperty="templ.http.ep.uritemplate" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndpointProjectFieldController">URI Template</data>

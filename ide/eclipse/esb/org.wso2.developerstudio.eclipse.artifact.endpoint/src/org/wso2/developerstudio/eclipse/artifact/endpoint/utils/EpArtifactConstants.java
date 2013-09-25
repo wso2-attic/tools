@@ -46,6 +46,7 @@ public final class EpArtifactConstants extends NLS{
 	public static String WIZARD_OPTION_TEMPLATE_WSDL_EP_SERVICE_PORT;
 	public static String WIZARD_OPTION_TEMPLATE_TEMP_EP_URL;
 	public static String WIZARD_OPTION_TEMPLATE_TEMP_TARGET;
+	public static String WIZARD_OPTION_TEMPLATE_AVAILABLE;
 	public static String WIZARD_OPTION_AVAILABLE_EPS;
 	public static String WIZARD_OPTION_HTTP_EP_URITEMPLATE;
 	public static String WIZARD_OPTION_HTTP_EP_METHOD;

@@ -199,6 +199,8 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				template = createEPTemplate(templateContent, "");
 				
 			}
+			
+			
 
 			endpointFile = location.getFile(new Path(epModel.getEpName()
 					+ ".xml"));
@@ -463,10 +465,6 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	}
 	
 	public String createEPTemplate(String templateContent, String type) throws IOException{
-//		String defaultNS = ESBPreferenceData.getDefaultNamesapce();
-//		if(defaultNS.equals("") || defaultNS == null){
-//			defaultNS = SynapseConstants.NS_1_4;
-//		}
 		templateContent = templateContent.replaceAll("\\{", "<");
 		templateContent = templateContent.replaceAll("\\}", ">");
 		String newContent = StringUtils.replace(templateContent,"<ep.name>", epModel.getEpName());

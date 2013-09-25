@@ -17,24 +17,33 @@
 package org.wso2.developerstudio.eclipse.artifact.endpoint.validators;
 
 import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMNode;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.model.EndpointModel;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
+import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
+
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.stream.FactoryConfigurationError;
+
 public class EndpointProjectFieldController extends AbstractFieldController {
 
+	IProject project =null;
 	
 	public void validate(String modelProperty, Object value, ProjectDataModel model)
 	        throws FieldValidationException {
@@ -77,9 +86,12 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 			CommonFieldValidator.validateImportFile(value);
 		}  else if (modelProperty.equals("save.file")) {
 			IResource resource = (IResource)value;
-			if(resource==null || !resource.exists())	
+			if(resource==null || !resource.exists())	 
 				throw new FieldValidationException("Specified project or path doesn't exist");
-		} else if (modelProperty.equals("templ.address.ep.uri") && isAddressEP) {	
+		}else if (modelProperty.equals("ep.type")) {
+			EndpointModel endpointModel = (EndpointModel) model;
+			project = endpointModel.getEndpointSaveLocation().getProject();
+		}else if (modelProperty.equals("templ.address.ep.uri") && isAddressEP) {	
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("Address url cannot be empty");
 			} else{
@@ -115,6 +127,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 	}
 
 	
+	
 	public boolean isEnableField(String modelProperty, ProjectDataModel model) {
 		boolean enableField = super.isEnableField(modelProperty, model);
 		if (modelProperty.equals("reg.path")) {
@@ -132,7 +145,8 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 	
 	public List<String> getUpdateFields(String modelProperty, ProjectDataModel model) {
 		List<String> updateFields = super.getUpdateFields(modelProperty, model);
-		if (modelProperty.equals("dynamic.ep")) {
+		
+			if (modelProperty.equals("dynamic.ep")) {
 			updateFields.add("reg.path");
 			updateFields.add("registry.browser");
 			updateFields.add("save.file");
@@ -147,7 +161,12 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 			}
 		} else if (modelProperty.equals("reg.path")) {
 			updateFields.add("registry.browser");
-		} 
+		} else if (modelProperty.equals("save.file")){
+			updateFields.add("templ.target.availabletemplates");
+			
+		}else if (modelProperty.equals("templ.target.availabletemplates")){
+			updateFields.add("templ.target.template");
+		}		
 		return updateFields;
 	}
 
@@ -189,7 +208,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep3", Arrays.asList(new String[] {}));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep4", Arrays.asList(new String[] {}));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep7", Arrays
-		        .asList(new String[] { "templ.template.ep.uri", "templ.target.template" }));
+		        .asList(new String[] { "templ.template.ep.uri", "templ.target.template","templ.target.availabletemplates"}));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep8", Arrays
 		        .asList(new String[] { "templ.http.ep.uritemplate", "templ.http.ep.method"}));
 		return map;
@@ -205,4 +224,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		} 
 	    return readOnlyField;
 	}
-}
+	
+	
+	}
+

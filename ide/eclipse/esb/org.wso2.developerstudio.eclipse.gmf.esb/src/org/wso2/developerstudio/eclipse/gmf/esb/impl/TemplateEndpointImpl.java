@@ -99,8 +99,8 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TARGET_TEMPLATE_EDEFAULT = null;
-
+	protected static final String TARGET_TEMPLATE_EDEFAULT = "Select a target Template";
+ 
 	/**
 	 * The cached value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
 	 * <!-- begin-user-doc -->
