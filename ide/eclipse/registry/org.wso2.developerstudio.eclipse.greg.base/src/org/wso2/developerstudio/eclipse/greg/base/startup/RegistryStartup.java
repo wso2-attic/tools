@@ -10,7 +10,7 @@ public class RegistryStartup implements IStartup{
 	public void earlyStartup() {
 		RegistryBrowserUIControl control = new RegistryBrowserUIControl();
 		RegisterUIControl uiControl = new RegisterUIControl();
-		uiControl.registerUIControls(control);
+		uiControl.registerUIControls("RegistryBrowserUIControl", control);
 	}
 
 }
