@@ -326,6 +326,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 				case REGISTRY_TEXT:
 					createRegistryBrowseTextField(container, noOfColumns+1, finalOptionData);
 					break;
+				case RESOURCE_TEXT:
+					createResourceBrowseTextField(container, noOfColumns+1, finalOptionData);
+					break;
 				case OPTION:
 					createTypeOptionField(container, noOfColumns, finalOptionData);
 					break;
@@ -466,7 +469,29 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 				optionData.getHorizontalIndent(), false, getControl().getParent().getShell(),
 				optionData.getCaption(), "Browse...", optionData.getRegistyResourceSelectionType(),
 				getModel(), optionData.getRegistyPathBindingProperty());
+		
+		if (txtReg != null) {
+			createBrowserTextfeild(txtReg, container, noOfColumns, optionData);
+		}
+	}
+	
+	private void createResourceBrowseTextField(Composite container, int noOfColumns,
+			final ProjectOptionData optionData) {
+		
+		final IFieldControlData txtReg = WSO2UIToolkit.createResourceBrowserControl(
+				"resource.browser", container, noOfColumns, optionData.getVerticalIndent(),
+				optionData.getHorizontalIndent(), false, getControl().getParent().getShell(),
+				optionData.getCaption(), "Browse...", optionData.getRegistyResourceSelectionType(),
+				getModel(), optionData.getRegistyPathBindingProperty());
+		
+		if (txtReg != null) {
+			createBrowserTextfeild(txtReg, container, noOfColumns, optionData);
+		}
+	}
 
+	private void createBrowserTextfeild(final IFieldControlData txtReg, Composite container, int noOfColumns,
+			final ProjectOptionData optionData) {
+		
 		FieldExecutor fieldExecutor = new CommonFieldExecutor(optionData, getModel(),
 				txtReg.getControl()) {
 
@@ -519,6 +544,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		}
 
 	}
+	
 	
 	private void createTypeWorkspaceFileField(Composite container, int noOfColumns,
 	        final ProjectOptionData optionData) {

@@ -66,6 +66,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class WSO2UIToolkit {
 
@@ -322,12 +323,36 @@ public class WSO2UIToolkit {
 																 ProjectDataModel model,
 																 String pathBindingProperty) {
 		IFieldControlData fieldControl = null;
-		List<UIControl> uiControlList = RegisterUIControl.getUiControlList();
-		for (UIControl uiControl : uiControlList) {
-//			If check is unnecessary since the List is type sensitive. Hence removing the if check is ok
-//			if(uiControl instanceof UIControl){
-				fieldControl = uiControl.createUIField(id, container, columns, verticalIndent, horizontalIndent, isTextReadonly, shell, label, fileButtonCaption, selectedOption,model,pathBindingProperty);
-//			}
+		Map<String, UIControl> uiControlList = RegisterUIControl.getUiControlList();
+		for (Entry<String, UIControl> entry1 : uiControlList.entrySet()) {
+			
+			UIControl uiControl = entry1.getValue();
+			String uiID = entry1.getKey();
+			if (id.equals("registry.browser") && uiID.equals("RegistryBrowserUIControl")){
+				fieldControl = uiControl.createUIField(id, container, columns, verticalIndent, horizontalIndent, isTextReadonly, 
+						shell, label, fileButtonCaption, selectedOption,model,pathBindingProperty);
+				break;
+			}
+		}
+		return fieldControl;
+	}
+	
+	public static IFieldControlData createResourceBrowserControl(String id, Composite container,
+			int columns, Integer verticalIndent, Integer horizontalIndent, boolean isTextReadonly,
+			final Shell shell, final String label, String fileButtonCaption, int selectedOption,
+			ProjectDataModel model, String pathBindingProperty) {
+		IFieldControlData fieldControl = null;
+		Map<String, UIControl> uiControlList = RegisterUIControl.getUiControlList();
+		for (Entry<String, UIControl> entry1 : uiControlList.entrySet()) {
+
+			UIControl uiControl = entry1.getValue();
+			String uiID = entry1.getKey();
+			if (id.equals("resource.browser") && uiID.equals("ResourceBrowserUIStrip")) {
+				fieldControl = uiControl.createUIField(id, container, columns, verticalIndent,
+						horizontalIndent, isTextReadonly, shell, label, fileButtonCaption,
+						selectedOption, model, pathBindingProperty);
+				break;
+			}
 		}
 		return fieldControl;
 	}

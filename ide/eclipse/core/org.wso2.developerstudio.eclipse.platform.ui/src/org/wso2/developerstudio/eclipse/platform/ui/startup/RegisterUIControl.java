@@ -17,29 +17,31 @@
 package org.wso2.developerstudio.eclipse.platform.ui.startup;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.wso2.developerstudio.eclipse.platform.ui.interfaces.UIControl;
 
 public class RegisterUIControl {
 	
-	private static List<UIControl> uiControlList;
+	private static Map<String, UIControl> uiControlList;
 	
-	public void registerUIControls(UIControl control){
+	public void registerUIControls(String controlID, UIControl control){
 		if(getUiControlList() == null){
-			setUiControlList(new ArrayList<UIControl>()); 
+			setUiControlList(new HashMap<String, UIControl>()); 
 		}
-		if(!getUiControlList().contains(control)){
-			getUiControlList().add(control);
+		if(!getUiControlList().containsValue(control)){
+			getUiControlList().put(controlID, control);
 		}
 		
 	}
 
-	public static void setUiControlList(List<UIControl> uiControlList) {
+	public static void setUiControlList(Map<String, UIControl> uiControlList) {
 		RegisterUIControl.uiControlList = uiControlList;
 	}
 
-	public static List<UIControl> getUiControlList() {
+	public static Map<String, UIControl> getUiControlList() {
 		return uiControlList;
 	}
 }
