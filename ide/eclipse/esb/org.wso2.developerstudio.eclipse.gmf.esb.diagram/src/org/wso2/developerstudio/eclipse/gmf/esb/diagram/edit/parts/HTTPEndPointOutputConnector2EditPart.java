@@ -29,7 +29,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.HTTPEndPoi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
- * @generated
+ * @generated NOT
  */
 public class HTTPEndPointOutputConnector2EditPart extends AbstractEndpointOutputConnectorEditPart {
 
@@ -381,6 +381,9 @@ public class HTTPEndPointOutputConnector2EditPart extends AbstractEndpointOutput
 		if (targetEditPart instanceof CloudConnectorOperationInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof LoopBackMediatorInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof ProxyInSequenceInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -493,6 +496,7 @@ public class HTTPEndPointOutputConnector2EditPart extends AbstractEndpointOutput
 			types.add(EsbElementTypes.TemplateEndpointInputConnector_3717);
 			types.add(EsbElementTypes.CloudConnectorInputConnector_3720);
 			types.add(EsbElementTypes.CloudConnectorOperationInputConnector_3723);
+			types.add(EsbElementTypes.LoopBackMediatorInputConnector_3737);
 			types.add(EsbElementTypes.ProxyInSequenceInputConnector_3731);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);

@@ -27,8 +27,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
@@ -110,6 +112,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.HeaderMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.IterateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.LoadBalanceEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.LogMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.LoopBackMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.MessageMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.NamedEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.OAuthMediatorTransformer;
@@ -118,6 +121,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.PropertyMed
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ProxyServiceTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RMSequenceMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RecipientListEndPointTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RespondMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RouterMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RuleMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ScriptMediatorTransformer;
@@ -218,6 +222,8 @@ public class EsbTransformerRegistry {
 		addTransformer(HTTPEndpoint.class, new HTTPEndPointTransformer());
 		addTransformer(TemplateEndpoint.class, new TemplateEndPointTransformer());
 		addTransformer(CloudConnectorOperation.class, new CloudConnectorOperationTransformer());
+		addTransformer(LoopBackMediator.class, new LoopBackMediatorTransformer());
+		addTransformer(RespondMediator.class, new RespondMediatorTransformer());
 	}
 	
 	/**

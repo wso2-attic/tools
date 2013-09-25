@@ -280,6 +280,12 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR: return createCallTemplateMediator();
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR_INPUT_CONNECTOR: return createCallTemplateMediatorInputConnector();
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR_OUTPUT_CONNECTOR: return createCallTemplateMediatorOutputConnector();
+			case EsbPackage.LOOP_BACK_MEDIATOR: return createLoopBackMediator();
+			case EsbPackage.LOOP_BACK_MEDIATOR_INPUT_CONNECTOR: return createLoopBackMediatorInputConnector();
+			case EsbPackage.LOOP_BACK_MEDIATOR_OUTPUT_CONNECTOR: return createLoopBackMediatorOutputConnector();
+			case EsbPackage.RESPOND_MEDIATOR: return createRespondMediator();
+			case EsbPackage.RESPOND_MEDIATOR_INPUT_CONNECTOR: return createRespondMediatorInputConnector();
+			case EsbPackage.RESPOND_MEDIATOR_OUTPUT_CONNECTOR: return createRespondMediatorOutputConnector();
 			case EsbPackage.SMOOKS_MEDIATOR: return createSmooksMediator();
 			case EsbPackage.SMOOKS_MEDIATOR_INPUT_CONNECTOR: return createSmooksMediatorInputConnector();
 			case EsbPackage.SMOOKS_MEDIATOR_OUTPUT_CONNECTOR: return createSmooksMediatorOutputConnector();
@@ -3602,6 +3608,70 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public CallTemplateMediatorOutputConnector createCallTemplateMediatorOutputConnector() {
 		CallTemplateMediatorOutputConnectorImpl callTemplateMediatorOutputConnector = new CallTemplateMediatorOutputConnectorImpl();
 		return callTemplateMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public LoopBackMediator createLoopBackMediator() {
+		LoopBackMediatorImpl loopBackMediator = new LoopBackMediatorImpl();
+		loopBackMediator.setInputConnector(createLoopBackMediatorInputConnector());
+		loopBackMediator.setOutputConnector(createLoopBackMediatorOutputConnector());
+		return loopBackMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LoopBackMediatorInputConnector createLoopBackMediatorInputConnector() {
+		LoopBackMediatorInputConnectorImpl loopBackMediatorInputConnector = new LoopBackMediatorInputConnectorImpl();
+		return loopBackMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LoopBackMediatorOutputConnector createLoopBackMediatorOutputConnector() {
+		LoopBackMediatorOutputConnectorImpl loopBackMediatorOutputConnector = new LoopBackMediatorOutputConnectorImpl();
+		return loopBackMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public RespondMediator createRespondMediator() {
+		RespondMediatorImpl respondMediator = new RespondMediatorImpl();
+		respondMediator.setInputConnector(createRespondMediatorInputConnector());
+		respondMediator.setOutputConnector(createRespondMediatorOutputConnector());
+		return respondMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RespondMediatorInputConnector createRespondMediatorInputConnector() {
+		RespondMediatorInputConnectorImpl respondMediatorInputConnector = new RespondMediatorInputConnectorImpl();
+		return respondMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RespondMediatorOutputConnector createRespondMediatorOutputConnector() {
+		RespondMediatorOutputConnectorImpl respondMediatorOutputConnector = new RespondMediatorOutputConnectorImpl();
+		return respondMediatorOutputConnector;
 	}
 
 	/**

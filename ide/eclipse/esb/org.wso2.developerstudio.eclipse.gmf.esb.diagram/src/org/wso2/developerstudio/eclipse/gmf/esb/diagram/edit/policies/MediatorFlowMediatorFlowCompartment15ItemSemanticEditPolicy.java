@@ -35,12 +35,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.HeaderMedi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.IterateMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LoadBalanceEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LogMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LoopBackMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.NamedEndpointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.OAuthMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PayloadFactoryMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PropertyMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RMSequenceMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RecipientListEndPointCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RespondMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RouterMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RuleMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ScriptMediatorCreateCommand;
@@ -244,6 +246,12 @@ public class MediatorFlowMediatorFlowCompartment15ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.CloudConnectorOperation_3722 == req.getElementType()) {
 			return getGEFWrapper(new CloudConnectorOperationCreateCommand(req));
+		}
+		if (EsbElementTypes.LoopBackMediator_3736 == req.getElementType()) {
+			return getGEFWrapper(new LoopBackMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.RespondMediator_3739 == req.getElementType()) {
+			return getGEFWrapper(new RespondMediatorCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

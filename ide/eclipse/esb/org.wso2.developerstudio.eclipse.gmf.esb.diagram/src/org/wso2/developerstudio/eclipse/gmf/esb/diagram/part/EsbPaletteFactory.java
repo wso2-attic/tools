@@ -155,7 +155,9 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createCallTemplateMediator33CreationTool());
 		paletteContainer.add(createDropMediator1CreationTool());
 		paletteContainer.add(createLogMediator3CreationTool());
+		paletteContainer.add(createLoopBackMediator43CreationTool());
 		paletteContainer.add(createPropertyMediator4CreationTool());
+		paletteContainer.add(createRespondMediator44CreationTool());
 		paletteContainer.add(createSendMediator19CreationTool());
 		paletteContainer.add(createSequence4CreationTool());
 		paletteContainer.add(createStoreMediator31CreationTool());
@@ -908,6 +910,33 @@ public class EsbPaletteFactory {
 	/**
 	 * @generated
 	 */
+	private ToolEntry createLoopBackMediator43CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(Messages.LoopBackMediator43CreationTool_title,
+				Messages.LoopBackMediator43CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.LoopBackMediator_3736));
+		entry.setId("createLoopBackMediator43CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.LoopBackMediator_3736));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createRespondMediator44CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(Messages.RespondMediator44CreationTool_title,
+				Messages.RespondMediator44CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.RespondMediator_3739));
+		entry.setId("createRespondMediator44CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.RespondMediator_3739));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
 	private ToolEntry createDefaultEndPoint1CreationTool() {
 		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 		types.add(EsbElementTypes.DefaultEndPoint_3609);
@@ -1234,8 +1263,8 @@ public class EsbPaletteFactory {
 			IProject activeProject = file.getProject();
 			connectorPath = activeProject.getLocation().toOSString() + File.separator
 					+ "cloudConnectors" + File.separator + cloudConnectorName + "-connector";
-			cloudConnectorOperations = CloudConnectorDirectoryTraverser
-					.getInstance(connectorPath).getOperationsMap().keySet();
+			cloudConnectorOperations = CloudConnectorDirectoryTraverser.getInstance(connectorPath)
+					.getOperationsMap().keySet();
 		} catch (Exception e) {
 			log.error("Error occured while scanning the Cloud Connector package", e);
 		}
@@ -1274,7 +1303,8 @@ public class EsbPaletteFactory {
 		Object[] keys = cloudConnectorOperations.toArray();
 		for (int k = 0; k < keys.length; ++k) {
 			container.add(createCloudConnectorOperationCreationTool((String) keys[k],
-					"cloudConnectorOperation-" + cloudConnectorName + "-" + name,connectorPath+File.separator+"icon"+File.separator+"icon-small.gif"));
+					"cloudConnectorOperation-" + cloudConnectorName + "-" + name, connectorPath
+							+ File.separator + "icon" + File.separator + "icon-small.gif"));
 		}
 
 	}
@@ -1561,16 +1591,17 @@ public class EsbPaletteFactory {
 		return paletteContainer;
 	}
 
-	private ToolEntry createCloudConnectorOperationCreationTool(String name, String ID,String imagePath) {
+	private ToolEntry createCloudConnectorOperationCreationTool(String name, String ID,
+			String imagePath) {
 		NodeToolEntry entry = new NodeToolEntry(name,
 				Messages.CloudConnectorOperation6CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.CloudConnectorOperation_3722));
 		entry.setId(ID); //$NON-NLS-1$
-		Image i=new Image(null,imagePath);
-		ImageDescriptor imgDesc=ImageDescriptor.createFromImage(i);
+		Image i = new Image(null, imagePath);
+		ImageDescriptor imgDesc = ImageDescriptor.createFromImage(i);
 		entry.setSmallIcon(imgDesc);
-/*		entry.setSmallIcon(EsbElementTypes
-				.getImageDescriptor(EsbElementTypes.CloudConnectorOperation_3722));*/
+		/*		entry.setSmallIcon(EsbElementTypes
+		 .getImageDescriptor(EsbElementTypes.CloudConnectorOperation_3722));*/
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -378,6 +378,12 @@ public class CloudConnectorOutputConnectorEditPart extends AbstractBorderItemEdi
 		if (targetEditPart instanceof CloudConnectorOperationInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof LoopBackMediatorInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof RespondMediatorInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof ProxyInSequenceInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -490,6 +496,8 @@ public class CloudConnectorOutputConnectorEditPart extends AbstractBorderItemEdi
 			types.add(EsbElementTypes.TemplateEndpointInputConnector_3717);
 			types.add(EsbElementTypes.CloudConnectorInputConnector_3720);
 			types.add(EsbElementTypes.CloudConnectorOperationInputConnector_3723);
+			types.add(EsbElementTypes.LoopBackMediatorInputConnector_3737);
+			types.add(EsbElementTypes.RespondMediatorInputConnector_3740);
 			types.add(EsbElementTypes.ProxyInSequenceInputConnector_3731);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);

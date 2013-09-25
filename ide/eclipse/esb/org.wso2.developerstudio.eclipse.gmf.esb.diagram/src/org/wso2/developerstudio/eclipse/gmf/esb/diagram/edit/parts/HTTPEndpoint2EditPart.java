@@ -132,11 +132,11 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-//		if (childEditPart instanceof HTTPEndPointName2EditPart) {
-//			((AddressEndPointEndPointName2EditPart) childEditPart).setLabel(getPrimaryShape()
-//					.getFigureAddressEndPointNamePropertyLabel());
-//			return true;
-//		}
+		//		if (childEditPart instanceof HTTPEndPointName2EditPart) {
+		//			((AddressEndPointEndPointName2EditPart) childEditPart).setLabel(getPrimaryShape()
+		//					.getFigureAddressEndPointNamePropertyLabel());
+		//			return true;
+		//		}
 		if (childEditPart instanceof HTTPEndPointInputConnector2EditPart) {
 			double position;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
@@ -172,9 +172,9 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 	 * @generated
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
-//		if (childEditPart instanceof HTTPEndPointEndPointName2EditPart) {
-//			return true;
-//		}
+		//		if (childEditPart instanceof HTTPEndPointEndPointName2EditPart) {
+		//			return true;
+		//		}
 		if (childEditPart instanceof HTTPEndPointInputConnector2EditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((HTTPEndPointInputConnector2EditPart) childEditPart).getFigure());
@@ -207,7 +207,7 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 		}
 		super.removeChildVisual(childEditPart);
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -303,27 +303,27 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
-	
+
 	/**
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return null;
-//		return getChildBySemanticHint(EsbVisualIDRegistry
-//				.getType(HTTPEndPointEndPointName2EditPart.VISUAL_ID));
+		//		return getChildBySemanticHint(EsbVisualIDRegistry
+		//				.getType(HTTPEndPointEndPointName2EditPart.VISUAL_ID));
 	}
 
 	protected void refreshVisuals() {
 		super.refreshVisuals();
-		
+
 		HTTPEndpoint addEp = (HTTPEndpoint) resolveSemanticElement();
-		
-//		if (addEp != null) {
-//			if (addEp.getURI() != null) {
-//				getPrimaryShape().setToolTip(new Label(addEp.getURI()));
-//			}
-//
-//		}
+
+		//		if (addEp != null) {
+		//			if (addEp.getURI() != null) {
+		//				getPrimaryShape().setToolTip(new Label(addEp.getURI()));
+		//			}
+		//
+		//		}
 	}
 
 	protected void handleNotificationEvent(Notification notification) {
@@ -362,7 +362,6 @@ public class HTTPEndpoint2EditPart extends AbstractEndpoint2 {
 			this.getPropertyValueRectangle1().add(fFigureHTTPEndPointNamePropertyLabel);
 		}
 
-		
 		public String getIconPath() {
 			return "icons/ico20/address-endpoint.gif";
 		}

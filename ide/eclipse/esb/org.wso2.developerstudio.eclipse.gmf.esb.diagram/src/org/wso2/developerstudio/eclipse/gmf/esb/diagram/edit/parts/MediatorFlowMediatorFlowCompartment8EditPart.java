@@ -40,7 +40,7 @@ public class MediatorFlowMediatorFlowCompartment8EditPart extends
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitle("Else");
- 		result.setTitleVisibility(true);
+		result.setTitleVisibility(true);
 		/*
 		 * Override default border.
 		 * Fixing TOOLS-1864.

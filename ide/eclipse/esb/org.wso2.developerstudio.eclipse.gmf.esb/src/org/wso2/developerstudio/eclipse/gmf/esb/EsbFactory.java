@@ -2346,6 +2346,60 @@ public interface EsbFactory extends EFactory {
 	CallTemplateMediatorOutputConnector createCallTemplateMediatorOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Loop Back Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Loop Back Mediator</em>'.
+	 * @generated
+	 */
+	LoopBackMediator createLoopBackMediator();
+
+	/**
+	 * Returns a new object of class '<em>Loop Back Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Loop Back Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	LoopBackMediatorInputConnector createLoopBackMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Loop Back Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Loop Back Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	LoopBackMediatorOutputConnector createLoopBackMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Respond Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Respond Mediator</em>'.
+	 * @generated
+	 */
+	RespondMediator createRespondMediator();
+
+	/**
+	 * Returns a new object of class '<em>Respond Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Respond Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	RespondMediatorInputConnector createRespondMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Respond Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Respond Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	RespondMediatorOutputConnector createRespondMediatorOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Smooks Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

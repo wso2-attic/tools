@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
@@ -217,7 +218,7 @@ public class SwitchCaseParentContainerEditPart extends ShapeNodeEditPart {
 	public class SwitchCaseParentContainerFigure extends RoundedRectangle {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public SwitchCaseParentContainerFigure() {
 
@@ -236,7 +237,7 @@ public class SwitchCaseParentContainerEditPart extends ShapeNodeEditPart {
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		return false;
 	}

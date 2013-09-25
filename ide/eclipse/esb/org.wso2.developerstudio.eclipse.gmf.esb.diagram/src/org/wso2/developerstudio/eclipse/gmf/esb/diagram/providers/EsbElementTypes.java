@@ -916,6 +916,36 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType LoopBackMediator_3736 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoopBackMediator_3736"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LoopBackMediatorInputConnector_3737 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoopBackMediatorInputConnector_3737"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LoopBackMediatorOutputConnector_3738 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoopBackMediatorOutputConnector_3738"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RespondMediator_3739 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RespondMediator_3739"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RespondMediatorInputConnector_3740 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RespondMediatorInputConnector_3740"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RespondMediatorOutputConnector_3741 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RespondMediatorOutputConnector_3741"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType SwitchDefaultParentContainer_3734 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultParentContainer_3734"); //$NON-NLS-1$
 
 	/**
@@ -2154,6 +2184,22 @@ public class EsbElementTypes {
 			elements.put(CloudConnectorOperationOutputConnector_3724,
 					EsbPackage.eINSTANCE.getCloudConnectorOperationOutputConnector());
 
+			elements.put(LoopBackMediator_3736, EsbPackage.eINSTANCE.getLoopBackMediator());
+
+			elements.put(LoopBackMediatorInputConnector_3737,
+					EsbPackage.eINSTANCE.getLoopBackMediatorInputConnector());
+
+			elements.put(LoopBackMediatorOutputConnector_3738,
+					EsbPackage.eINSTANCE.getLoopBackMediatorOutputConnector());
+
+			elements.put(RespondMediator_3739, EsbPackage.eINSTANCE.getRespondMediator());
+
+			elements.put(RespondMediatorInputConnector_3740,
+					EsbPackage.eINSTANCE.getRespondMediatorInputConnector());
+
+			elements.put(RespondMediatorOutputConnector_3741,
+					EsbPackage.eINSTANCE.getRespondMediatorOutputConnector());
+
 			elements.put(SwitchDefaultParentContainer_3734,
 					EsbPackage.eINSTANCE.getSwitchDefaultParentContainer());
 
@@ -2560,6 +2606,12 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperation_3722);
 			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperationInputConnector_3723);
 			KNOWN_ELEMENT_TYPES.add(CloudConnectorOperationOutputConnector_3724);
+			KNOWN_ELEMENT_TYPES.add(LoopBackMediator_3736);
+			KNOWN_ELEMENT_TYPES.add(LoopBackMediatorInputConnector_3737);
+			KNOWN_ELEMENT_TYPES.add(LoopBackMediatorOutputConnector_3738);
+			KNOWN_ELEMENT_TYPES.add(RespondMediator_3739);
+			KNOWN_ELEMENT_TYPES.add(RespondMediatorInputConnector_3740);
+			KNOWN_ELEMENT_TYPES.add(RespondMediatorOutputConnector_3741);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultParentContainer_3734);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3735);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
@@ -3072,6 +3124,18 @@ public class EsbElementTypes {
 			return CloudConnectorOperationInputConnector_3723;
 		case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 			return CloudConnectorOperationOutputConnector_3724;
+		case LoopBackMediatorEditPart.VISUAL_ID:
+			return LoopBackMediator_3736;
+		case LoopBackMediatorInputConnectorEditPart.VISUAL_ID:
+			return LoopBackMediatorInputConnector_3737;
+		case LoopBackMediatorOutputConnectorEditPart.VISUAL_ID:
+			return LoopBackMediatorOutputConnector_3738;
+		case RespondMediatorEditPart.VISUAL_ID:
+			return RespondMediator_3739;
+		case RespondMediatorInputConnectorEditPart.VISUAL_ID:
+			return RespondMediatorInputConnector_3740;
+		case RespondMediatorOutputConnectorEditPart.VISUAL_ID:
+			return RespondMediatorOutputConnector_3741;
 		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 			return SwitchDefaultParentContainer_3734;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:

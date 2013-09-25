@@ -896,6 +896,30 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case CloudConnectorOperationOutputConnectorEditPart.VISUAL_ID:
 				return new CloudConnectorOperationOutputConnectorEditPart(view);
 
+			case LoopBackMediatorEditPart.VISUAL_ID:
+				return new LoopBackMediatorEditPart(view);
+
+			case LoopBackMediatorDescriptionEditPart.VISUAL_ID:
+				return new LoopBackMediatorDescriptionEditPart(view);
+
+			case LoopBackMediatorInputConnectorEditPart.VISUAL_ID:
+				return new LoopBackMediatorInputConnectorEditPart(view);
+
+			case LoopBackMediatorOutputConnectorEditPart.VISUAL_ID:
+				return new LoopBackMediatorOutputConnectorEditPart(view);
+
+			case RespondMediatorEditPart.VISUAL_ID:
+				return new RespondMediatorEditPart(view);
+
+			case RespondMediatorDescriptionEditPart.VISUAL_ID:
+				return new RespondMediatorDescriptionEditPart(view);
+
+			case RespondMediatorInputConnectorEditPart.VISUAL_ID:
+				return new RespondMediatorInputConnectorEditPart(view);
+
+			case RespondMediatorOutputConnectorEditPart.VISUAL_ID:
+				return new RespondMediatorOutputConnectorEditPart(view);
+
 			case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultParentContainerEditPart(view);
 

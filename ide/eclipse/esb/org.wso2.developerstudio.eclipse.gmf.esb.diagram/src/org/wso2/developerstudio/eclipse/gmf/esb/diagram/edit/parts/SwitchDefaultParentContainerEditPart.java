@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
@@ -218,7 +219,7 @@ public class SwitchDefaultParentContainerEditPart extends ShapeNodeEditPart {
 	public class SwitchDefaultParentContainerFigure extends RoundedRectangle {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public SwitchDefaultParentContainerFigure() {
 
@@ -227,7 +228,7 @@ public class SwitchDefaultParentContainerEditPart extends ShapeNodeEditPart {
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
-			
+
 			this.setLayoutManager(layoutThis);
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 			this.setFill(false);
@@ -238,7 +239,7 @@ public class SwitchDefaultParentContainerEditPart extends ShapeNodeEditPart {
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		return false;
 	}

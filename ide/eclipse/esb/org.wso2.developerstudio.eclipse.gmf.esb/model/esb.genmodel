@@ -1461,6 +1461,18 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CallTemplateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CallTemplateMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//LoopBackMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//LoopBackMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//LoopBackMediator/outputConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//LoopBackMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//LoopBackMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//RespondMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RespondMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RespondMediator/outputConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//RespondMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//RespondMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SmooksMediator">
       <genFeatures children="true" createChild="true" propertyCategory="Key" propertyDescription="Key"
           ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/configurationKey"/>

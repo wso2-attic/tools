@@ -1816,6 +1816,56 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.LOOP_BACK_MEDIATOR: {
+				LoopBackMediator loopBackMediator = (LoopBackMediator)theEObject;
+				T result = caseLoopBackMediator(loopBackMediator);
+				if (result == null) result = caseMediator(loopBackMediator);
+				if (result == null) result = caseEsbElement(loopBackMediator);
+				if (result == null) result = caseEsbNode(loopBackMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.LOOP_BACK_MEDIATOR_INPUT_CONNECTOR: {
+				LoopBackMediatorInputConnector loopBackMediatorInputConnector = (LoopBackMediatorInputConnector)theEObject;
+				T result = caseLoopBackMediatorInputConnector(loopBackMediatorInputConnector);
+				if (result == null) result = caseInputConnector(loopBackMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(loopBackMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.LOOP_BACK_MEDIATOR_OUTPUT_CONNECTOR: {
+				LoopBackMediatorOutputConnector loopBackMediatorOutputConnector = (LoopBackMediatorOutputConnector)theEObject;
+				T result = caseLoopBackMediatorOutputConnector(loopBackMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(loopBackMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(loopBackMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.RESPOND_MEDIATOR: {
+				RespondMediator respondMediator = (RespondMediator)theEObject;
+				T result = caseRespondMediator(respondMediator);
+				if (result == null) result = caseMediator(respondMediator);
+				if (result == null) result = caseEsbElement(respondMediator);
+				if (result == null) result = caseEsbNode(respondMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.RESPOND_MEDIATOR_INPUT_CONNECTOR: {
+				RespondMediatorInputConnector respondMediatorInputConnector = (RespondMediatorInputConnector)theEObject;
+				T result = caseRespondMediatorInputConnector(respondMediatorInputConnector);
+				if (result == null) result = caseInputConnector(respondMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(respondMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.RESPOND_MEDIATOR_OUTPUT_CONNECTOR: {
+				RespondMediatorOutputConnector respondMediatorOutputConnector = (RespondMediatorOutputConnector)theEObject;
+				T result = caseRespondMediatorOutputConnector(respondMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(respondMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(respondMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.SMOOKS_MEDIATOR: {
 				SmooksMediator smooksMediator = (SmooksMediator)theEObject;
 				T result = caseSmooksMediator(smooksMediator);
@@ -6620,6 +6670,96 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCallTemplateMediatorOutputConnector(CallTemplateMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Loop Back Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Loop Back Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLoopBackMediator(LoopBackMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Loop Back Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Loop Back Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLoopBackMediatorInputConnector(LoopBackMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Loop Back Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Loop Back Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLoopBackMediatorOutputConnector(LoopBackMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Respond Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Respond Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRespondMediator(RespondMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Respond Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Respond Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRespondMediatorInputConnector(RespondMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Respond Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Respond Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRespondMediatorOutputConnector(RespondMediatorOutputConnector object) {
 		return null;
 	}
 

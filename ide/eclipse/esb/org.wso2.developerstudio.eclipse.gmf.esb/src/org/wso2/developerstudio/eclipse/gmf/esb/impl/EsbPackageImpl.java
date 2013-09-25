@@ -226,6 +226,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediaType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
@@ -298,6 +301,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnec
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer;
@@ -2362,6 +2368,48 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass callTemplateMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass loopBackMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass loopBackMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass loopBackMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass respondMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass respondMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass respondMediatorOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -12160,6 +12208,96 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLoopBackMediator() {
+		return loopBackMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLoopBackMediator_InputConnector() {
+		return (EReference)loopBackMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLoopBackMediator_OutputConnector() {
+		return (EReference)loopBackMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLoopBackMediatorInputConnector() {
+		return loopBackMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLoopBackMediatorOutputConnector() {
+		return loopBackMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRespondMediator() {
+		return respondMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRespondMediator_InputConnector() {
+		return (EReference)respondMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRespondMediator_OutputConnector() {
+		return (EReference)respondMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRespondMediatorInputConnector() {
+		return respondMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRespondMediatorOutputConnector() {
+		return respondMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSmooksMediator() {
 		return smooksMediatorEClass;
 	}
@@ -15439,6 +15577,22 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		callTemplateMediatorOutputConnectorEClass = createEClass(CALL_TEMPLATE_MEDIATOR_OUTPUT_CONNECTOR);
 
+		loopBackMediatorEClass = createEClass(LOOP_BACK_MEDIATOR);
+		createEReference(loopBackMediatorEClass, LOOP_BACK_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(loopBackMediatorEClass, LOOP_BACK_MEDIATOR__OUTPUT_CONNECTOR);
+
+		loopBackMediatorInputConnectorEClass = createEClass(LOOP_BACK_MEDIATOR_INPUT_CONNECTOR);
+
+		loopBackMediatorOutputConnectorEClass = createEClass(LOOP_BACK_MEDIATOR_OUTPUT_CONNECTOR);
+
+		respondMediatorEClass = createEClass(RESPOND_MEDIATOR);
+		createEReference(respondMediatorEClass, RESPOND_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(respondMediatorEClass, RESPOND_MEDIATOR__OUTPUT_CONNECTOR);
+
+		respondMediatorInputConnectorEClass = createEClass(RESPOND_MEDIATOR_INPUT_CONNECTOR);
+
+		respondMediatorOutputConnectorEClass = createEClass(RESPOND_MEDIATOR_OUTPUT_CONNECTOR);
+
 		smooksMediatorEClass = createEClass(SMOOKS_MEDIATOR);
 		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__CONFIGURATION_KEY);
 		createEAttribute(smooksMediatorEClass, SMOOKS_MEDIATOR__INPUT_TYPE);
@@ -16185,6 +16339,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		callTemplateMediatorEClass.getESuperTypes().add(this.getMediator());
 		callTemplateMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		callTemplateMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		loopBackMediatorEClass.getESuperTypes().add(this.getMediator());
+		loopBackMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		loopBackMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		respondMediatorEClass.getESuperTypes().add(this.getMediator());
+		respondMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		respondMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		smooksMediatorEClass.getESuperTypes().add(this.getMediator());
 		smooksMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		smooksMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -17320,6 +17480,22 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(callTemplateMediatorInputConnectorEClass, CallTemplateMediatorInputConnector.class, "CallTemplateMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(callTemplateMediatorOutputConnectorEClass, CallTemplateMediatorOutputConnector.class, "CallTemplateMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(loopBackMediatorEClass, LoopBackMediator.class, "LoopBackMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLoopBackMediator_InputConnector(), this.getLoopBackMediatorInputConnector(), null, "inputConnector", null, 0, 1, LoopBackMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLoopBackMediator_OutputConnector(), this.getLoopBackMediatorOutputConnector(), null, "outputConnector", null, 0, 1, LoopBackMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(loopBackMediatorInputConnectorEClass, LoopBackMediatorInputConnector.class, "LoopBackMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(loopBackMediatorOutputConnectorEClass, LoopBackMediatorOutputConnector.class, "LoopBackMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(respondMediatorEClass, RespondMediator.class, "RespondMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRespondMediator_InputConnector(), this.getRespondMediatorInputConnector(), null, "inputConnector", null, 0, 1, RespondMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRespondMediator_OutputConnector(), this.getRespondMediatorOutputConnector(), null, "outputConnector", null, 0, 1, RespondMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(respondMediatorInputConnectorEClass, RespondMediatorInputConnector.class, "RespondMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(respondMediatorOutputConnectorEClass, RespondMediatorOutputConnector.class, "RespondMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(smooksMediatorEClass, SmooksMediator.class, "SmooksMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSmooksMediator_ConfigurationKey(), this.getRegistryKeyProperty(), null, "configurationKey", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

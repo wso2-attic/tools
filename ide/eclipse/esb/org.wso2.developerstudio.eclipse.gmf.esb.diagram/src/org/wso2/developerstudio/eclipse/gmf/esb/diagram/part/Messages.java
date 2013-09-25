@@ -753,6 +753,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String LoopBackMediator43CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String LoopBackMediator43CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String RespondMediator44CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RespondMediator44CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DefaultEndPoint1CreationTool_title;
 
 	/**
@@ -1203,6 +1223,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_RespondMediatorOutputConnector_3741_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_AddressingEndpointOutputConnector_3691_outgoinglinks;
 
 	/**
@@ -1224,6 +1249,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_TransactionMediatorOutputConnector_3119_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LoopBackMediatorOutputConnector_3738_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1329,6 +1359,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_RouterMediatorInputConnector_3629_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LoopBackMediatorInputConnector_3737_incominglinks;
 
 	/**
 	 * @generated
@@ -1784,6 +1819,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ClassMediatorOutputConnector_3059_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RespondMediatorInputConnector_3740_incominglinks;
 
 	/**
 	 * @generated

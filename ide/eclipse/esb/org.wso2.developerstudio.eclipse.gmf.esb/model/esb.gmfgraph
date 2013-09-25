@@ -2127,6 +2127,58 @@
           accessor="getFigureCloudConnectorOperationDescriptionFigure"
           figure="//@figures.0/@descriptors.102/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="LoopBackMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="LoopBackMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="LoopBackMediatorPropertyValueLabel"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="LoopBackMediatorDescriptionFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureLoopBackMediatorDescriptionFigure"
+          figure="//@figures.0/@descriptors.103/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="RespondMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="RespondMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RespondMediatorPropertyValueLabel"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RespondMediatorDescriptionFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureRespondMediatorDescriptionFigure"
+          figure="//@figures.0/@descriptors.104/@actualFigure/@children.1"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -3026,6 +3078,28 @@
       name="ProxyInSequenceInputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="LoopBackMediator"
+      figure="LoopBackMediatorFigure"/>
+  <nodes
+      name="LoopBackMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="LoopBackMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="RespondMediator"
+      figure="RespondMediatorFigure"/>
+  <nodes
+      name="RespondMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="RespondMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
@@ -3461,4 +3535,14 @@
       figure="RecipientListEndPointFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.96/@accessors.0"/>
+  <labels
+      name="LoopBackMediatorDescription"
+      figure="LoopBackMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.103/@accessors.0"/>
+  <labels
+      name="RespondMediatorDescription"
+      figure="RespondMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.104/@accessors.0"/>
 </gmfgraph:Canvas>

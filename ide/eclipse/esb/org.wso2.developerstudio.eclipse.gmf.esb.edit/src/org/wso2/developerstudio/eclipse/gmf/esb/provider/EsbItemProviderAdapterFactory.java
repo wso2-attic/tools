@@ -6063,6 +6063,144 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LoopBackMediatorItemProvider loopBackMediatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLoopBackMediatorAdapter() {
+		if (loopBackMediatorItemProvider == null) {
+			loopBackMediatorItemProvider = new LoopBackMediatorItemProvider(this);
+		}
+
+		return loopBackMediatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LoopBackMediatorInputConnectorItemProvider loopBackMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLoopBackMediatorInputConnectorAdapter() {
+		if (loopBackMediatorInputConnectorItemProvider == null) {
+			loopBackMediatorInputConnectorItemProvider = new LoopBackMediatorInputConnectorItemProvider(this);
+		}
+
+		return loopBackMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LoopBackMediatorOutputConnectorItemProvider loopBackMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLoopBackMediatorOutputConnectorAdapter() {
+		if (loopBackMediatorOutputConnectorItemProvider == null) {
+			loopBackMediatorOutputConnectorItemProvider = new LoopBackMediatorOutputConnectorItemProvider(this);
+		}
+
+		return loopBackMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RespondMediatorItemProvider respondMediatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRespondMediatorAdapter() {
+		if (respondMediatorItemProvider == null) {
+			respondMediatorItemProvider = new RespondMediatorItemProvider(this);
+		}
+
+		return respondMediatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RespondMediatorInputConnectorItemProvider respondMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRespondMediatorInputConnectorAdapter() {
+		if (respondMediatorInputConnectorItemProvider == null) {
+			respondMediatorInputConnectorItemProvider = new RespondMediatorInputConnectorItemProvider(this);
+		}
+
+		return respondMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RespondMediatorOutputConnectorItemProvider respondMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRespondMediatorOutputConnectorAdapter() {
+		if (respondMediatorOutputConnectorItemProvider == null) {
+			respondMediatorOutputConnectorItemProvider = new RespondMediatorOutputConnectorItemProvider(this);
+		}
+
+		return respondMediatorOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7532,6 +7670,12 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (callTemplateMediatorItemProvider != null) callTemplateMediatorItemProvider.dispose();
 		if (callTemplateMediatorInputConnectorItemProvider != null) callTemplateMediatorInputConnectorItemProvider.dispose();
 		if (callTemplateMediatorOutputConnectorItemProvider != null) callTemplateMediatorOutputConnectorItemProvider.dispose();
+		if (loopBackMediatorItemProvider != null) loopBackMediatorItemProvider.dispose();
+		if (loopBackMediatorInputConnectorItemProvider != null) loopBackMediatorInputConnectorItemProvider.dispose();
+		if (loopBackMediatorOutputConnectorItemProvider != null) loopBackMediatorOutputConnectorItemProvider.dispose();
+		if (respondMediatorItemProvider != null) respondMediatorItemProvider.dispose();
+		if (respondMediatorInputConnectorItemProvider != null) respondMediatorInputConnectorItemProvider.dispose();
+		if (respondMediatorOutputConnectorItemProvider != null) respondMediatorOutputConnectorItemProvider.dispose();
 		if (smooksMediatorItemProvider != null) smooksMediatorItemProvider.dispose();
 		if (smooksMediatorInputConnectorItemProvider != null) smooksMediatorInputConnectorItemProvider.dispose();
 		if (smooksMediatorOutputConnectorItemProvider != null) smooksMediatorOutputConnectorItemProvider.dispose();

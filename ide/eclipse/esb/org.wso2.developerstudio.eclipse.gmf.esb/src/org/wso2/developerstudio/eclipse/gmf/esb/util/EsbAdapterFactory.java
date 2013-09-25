@@ -965,6 +965,30 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createCallTemplateMediatorOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseLoopBackMediator(LoopBackMediator object) {
+				return createLoopBackMediatorAdapter();
+			}
+			@Override
+			public Adapter caseLoopBackMediatorInputConnector(LoopBackMediatorInputConnector object) {
+				return createLoopBackMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseLoopBackMediatorOutputConnector(LoopBackMediatorOutputConnector object) {
+				return createLoopBackMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseRespondMediator(RespondMediator object) {
+				return createRespondMediatorAdapter();
+			}
+			@Override
+			public Adapter caseRespondMediatorInputConnector(RespondMediatorInputConnector object) {
+				return createRespondMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseRespondMediatorOutputConnector(RespondMediatorOutputConnector object) {
+				return createRespondMediatorOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseSmooksMediator(SmooksMediator object) {
 				return createSmooksMediatorAdapter();
 			}
@@ -5132,6 +5156,90 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCallTemplateMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediator <em>Loop Back Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediator
+	 * @generated
+	 */
+	public Adapter createLoopBackMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorInputConnector <em>Loop Back Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createLoopBackMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorOutputConnector <em>Loop Back Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createLoopBackMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator <em>Respond Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator
+	 * @generated
+	 */
+	public Adapter createRespondMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorInputConnector <em>Respond Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createRespondMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorOutputConnector <em>Respond Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createRespondMediatorOutputConnectorAdapter() {
 		return null;
 	}
 

@@ -81,7 +81,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 3722;
-	
+
 	private String iconPath;
 
 	/**
@@ -141,44 +141,46 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 				getEditingDomain().getCommandStack().execute(getResultCommand());
 			}
 			CustomPaletteToolTransferDropTargetListener.definedName = null;
-			fillConnectorOperationParameters();			
+			fillConnectorOperationParameters();
 			activatedOnce = true;
 		}
 	}
-	
-	private void setIcon(){
+
+	private void setIcon() {
 		/*
 		 * This method should be rewrite to set the icon path properly.
 		 */
-		IProject project=EditorUtils.getActiveProject();
-		if(project ==null){
-	        IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-	        try {
-				project=getProject(((SelectionService)window.getSelectionService()).getSelection());
+		IProject project = EditorUtils.getActiveProject();
+		if (project == null) {
+			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			try {
+				project = getProject(((SelectionService) window.getSelectionService())
+						.getSelection());
 			} catch (Exception e) {
 				log.error("Error while getting the project", e);
 			}
 		}
-		String connectorName=CustomPaletteToolTransferDropTargetListener.addedConnector;
-		if(connectorName==null){
-			connectorName=((CloudConnectorOperation)((Node)getModel()).getElement()).getConnectorName();
+		String connectorName = CustomPaletteToolTransferDropTargetListener.addedConnector;
+		if (connectorName == null) {
+			connectorName = ((CloudConnectorOperation) ((Node) getModel()).getElement())
+					.getConnectorName();
 		}
-		iconPath = project.getLocation().toOSString() + File.separator
-				+ "cloudConnectors" + File.separator
-				+ connectorName + "-connector"+  File.separator + "icon"+ File.separator +"icon-large.gif";
+		iconPath = project.getLocation().toOSString() + File.separator + "cloudConnectors"
+				+ File.separator + connectorName + "-connector" + File.separator + "icon"
+				+ File.separator + "icon-large.gif";
 	}
-	
+
 	public static IProject getProject(Object obj) throws Exception {
-        if (obj == null) {
-            return null;
-        }
-        if (obj instanceof IResource) {
-            return ((IResource) obj).getProject();
-        } else if (obj instanceof IStructuredSelection) {
-            return getProject(((IStructuredSelection) obj).getFirstElement());
-        }
-        return null;
-    }
+		if (obj == null) {
+			return null;
+		}
+		if (obj instanceof IResource) {
+			return ((IResource) obj).getProject();
+		} else if (obj instanceof IStructuredSelection) {
+			return getProject(((IStructuredSelection) obj).getFirstElement());
+		}
+		return null;
+	}
 
 	private CompoundCommand getResultCommand() {
 		if (null == resultCommand) {
@@ -186,52 +188,54 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		}
 		return resultCommand;
 	}
-	
-/*	private IProject getActiveProject(){
-		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-				.getActivePage().getActiveEditor();
-		if (editorpart == null)
-			return null;
-		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
 
-		IFile file = input.getFile();
-		return file.getProject();
-	}*/
+	/*	private IProject getActiveProject(){
+	 IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+	 .getActivePage().getActiveEditor();
+	 if (editorpart == null)
+	 return null;
+	 IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
+
+	 IFile file = input.getFile();
+	 return file.getProject();
+	 }*/
 
 	protected void fillConnectorOperationParameters() {
 		TransactionalEditingDomain editingDomain = null;
-/*		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-				.getActivePage().getActiveEditor();
-		if (editorpart == null)
-			return;
-		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
+		/*		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+		 .getActivePage().getActiveEditor();
+		 if (editorpart == null)
+		 return;
+		 IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
 
-		IFile file = input.getFile();
-		IProject activeProject = file.getProject();*/
+		 IFile file = input.getFile();
+		 IProject activeProject = file.getProject();*/
 		IProject activeProject = EditorUtils.getActiveProject();
-		if(activeProject!=null){
+		if (activeProject != null) {
 			String connectorPath = activeProject.getLocation().toOSString() + File.separator
 					+ "cloudConnectors" + File.separator
 					+ CustomPaletteToolTransferDropTargetListener.addedConnector + "-connector";
-	
+
 			CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
 					.getInstance(connectorPath);
 			String directory = null;
-			String operationFileName=null;
+			String operationFileName = null;
 			try {
-				operationFileName=cloudConnectorDirectoryTraverser.getOperationsMap().get(CustomPaletteToolTransferDropTargetListener.addedOperation);
-				directory = cloudConnectorDirectoryTraverser.getOperationFileNamesMap().get(operationFileName);			
+				operationFileName = cloudConnectorDirectoryTraverser.getOperationsMap().get(
+						CustomPaletteToolTransferDropTargetListener.addedOperation);
+				directory = cloudConnectorDirectoryTraverser.getOperationFileNamesMap().get(
+						operationFileName);
 			} catch (Exception e1) {
 				log.error("Error while retrieving data for cloud connector", e1);
 			}
 			String path = connectorPath + File.separator + directory + File.separator
 					+ operationFileName + ".xml";
 			CustomPaletteToolTransferDropTargetListener.addedOperation = null;
-	
+
 			try {
 				String source = FileUtils.getContentAsString(new File(path));
 				OMElement element = AXIOMUtil.stringToOM(source);
-	
+
 				if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
 					TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
 					TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
