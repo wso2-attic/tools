@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.maven.model.Plugin;
@@ -272,7 +273,6 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	public String createTemplate(String templateContent, String type) throws IOException{
 		templateContent = templateContent.replaceAll("\\{", "<");
 		templateContent = templateContent.replaceAll("\\}", ">");
-		
 		String endPointDef = "<endpoint\n";
 		endPointDef +="\t\tname=\"endpoint_urn_uuid_";
 		endPointDef +=UUID.randomUUID().toString();
@@ -291,7 +291,10 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 		} else if(type.equals(RegistryArtifactConstants.ADDRESS_EP_TEMPL_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
 			newContent = newContent.replaceAll("<address.uri>", "https://localhost");
-	    } else if(type.equals(RegistryArtifactConstants.WSDL_EP_TEMPL_ID)){
+		} else if(type.equals(RegistryArtifactConstants.ADDRESS_EP_TEMPLATE_ID)){
+			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
+			newContent = newContent.replaceAll("<address.uri>", Matcher.quoteReplacement("$uri"));
+		} else if(type.equals(RegistryArtifactConstants.WSDL_EP_TEMPL_ID)){
 	    	newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName()); 
 	    	newContent = newContent.replaceAll("<wsdl.uri>", "http://localhost:9000/services/SimpleStockQuoteService?wsdl");
 			newContent = newContent.replaceAll("<service.name>", "SimpleStockQuoteService");
@@ -302,9 +305,11 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());		
 		} else if(type.equals(RegistryArtifactConstants.TEMPLATE_ENDPOINT_TEMPL_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
-			newContent = newContent.replaceAll("<ep.uri>", "https://localhost");
+			newContent = newContent.replaceAll("<ep.uri>", "https://localhost"); 
 			newContent = newContent.replaceAll("<ep.template>", "");
-		} else if(type.equals(RegistryArtifactConstants.SMOOKS_TEMPL_ID)){
+		} 
+		
+		else if(type.equals(RegistryArtifactConstants.SMOOKS_TEMPL_ID)){
 			newContent=templateContent;		
 		} else if(type.equals(RegistryArtifactConstants.TRANSFORMER_PROXY_TEMPL_ID)){
 			newContent= newContent.replaceAll("<proxy.name>", regModel.getResourceName());
@@ -369,6 +374,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	         IWorkbenchPage page = window.getActivePage();
 	         List<IEditorReference> openEditors = new ArrayList<IEditorReference>();
 	         IEditorReference[] editorReferences = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+	         
 	         for (IEditorReference iEditorReference : editorReferences) {
 				if(REGISTRY_EDITOR_ID.equals(iEditorReference.getId())){
 					openEditors.add(iEditorReference);
