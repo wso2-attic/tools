@@ -21,6 +21,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
@@ -92,7 +93,11 @@ public class AbstractMediatorFlowCompartmentEditPart extends ShapeCompartmentEdi
 		
 		if (child instanceof SendMediatorEditPart) {
 			if(((SendMediator)((Node)((SendMediatorEditPart)child).getModel()).getElement()).getOutputConnector().getOutgoingLink()==null){
-				addInSequenceInputConnector((SendMediatorEditPart)child);	
+				if(this instanceof MediatorFlowMediatorFlowCompartmentEditPart){
+					addInSequenceInputConnector((SendMediatorEditPart)child);	
+				}else if(EditorUtils.getMediator(this)!=null && !EditorUtils.getMediator(this).reversed){
+					addInSequenceInputConnector((SendMediatorEditPart)child);	
+				}
 			}
 		}
 		

@@ -302,10 +302,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 										.getParent().getParent().getParent()).reversed))
 					                	|(shouldReverse()))) {
 
-			reverseConnectors(editorPart);
-			if(this instanceof SendMediatorEditPart){
-				((AbstractMediatorFlowCompartmentEditPart)this.getParent()).removeInSequenceInputConnector((SendMediatorEditPart) this);
-			}			
+			reverseConnectors(editorPart);		
 		}		
 	}
 	
@@ -414,6 +411,11 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		if (checkComplexity()) {
 			MediatorFigureReverser.reverse(editorPart, false);
 		}
+		
+
+		if(this instanceof SendMediatorEditPart){
+			((AbstractMediatorFlowCompartmentEditPart)this.getParent()).removeInSequenceInputConnector((SendMediatorEditPart) this);
+		}	
 	}	
 
 	protected void connectToMostSuitableElement() {
@@ -752,6 +754,12 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 	
 	
 	private void deleteNewlyAddedMediator(String reason) {
+		if(this instanceof SendMediatorEditPart){
+			if(this.getParent() !=null){
+				((AbstractMediatorFlowCompartmentEditPart)this.getParent()).removeInSequenceInputConnector((SendMediatorEditPart)this);
+			}
+		}
+		
 		RemoveCommand removeCmd = new RemoveCommand(this.getEditingDomain(), 
 													((Node)this.getModel()).getElement().eContainer(),
 													EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, 
