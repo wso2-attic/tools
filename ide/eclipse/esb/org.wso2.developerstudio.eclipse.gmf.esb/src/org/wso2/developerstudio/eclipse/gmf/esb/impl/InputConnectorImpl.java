@@ -16,11 +16,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorEndpointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediatorOutputConnector;
 
@@ -95,7 +97,13 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 		/*
 		 * Avoid connecting an endpoint to an element other than Send mediator.  
 		 */
-		if(!(sourceEnd instanceof SendMediatorEndpointOutputConnector) && this.eContainer instanceof EndPoint){
+		if (!(sourceEnd instanceof SendMediatorEndpointOutputConnector)
+				&& !(sourceEnd instanceof ComplexEndpointsOutputConnector)
+				&& this.eContainer instanceof EndPoint) {
+			return false;
+		}
+		
+		if(!(sourceEnd instanceof SendMediatorOutputConnector) && this instanceof ProxyInSequenceInputConnector){
 			return false;
 		}
 		

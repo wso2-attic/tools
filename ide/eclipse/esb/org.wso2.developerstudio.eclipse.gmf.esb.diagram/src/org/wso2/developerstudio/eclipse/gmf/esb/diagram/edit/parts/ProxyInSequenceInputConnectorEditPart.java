@@ -3,27 +3,47 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInSequenceInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyInSequenceInputConnectorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -48,18 +68,73 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 	protected IFigure primaryShape;
 
 	public NodeFigure figure_;
+	
+	private ProxyInSequenceInputConnectorEditPart instance;
 
 	public NodeFigure getNodeFigureInput() {
 
 		return figure_;
 	}
+	
+	public void notifyChanged(Notification notification) {
+		super.notifyChanged(notification);
+		if(((ENotificationImpl)notification).getOldValue() !=null){			
+			/*
+			 * Removing ProxyInSequenceInputConnector when the link which connected to the inputConnector get deleted.
+			 */
+			if((((ENotificationImpl)notification).getOldValue() instanceof org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbLinkImpl) && (((ENotificationImpl)notification).getNewValue()==null)){
+				RemoveCommand removeCmd = new RemoveCommand(getEditingDomain(), ((Node) EditorUtils
+						.getAbstractBaseFigureEditPart(this).getModel()).getElement(),
+						EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS,((Node)this.getModel()).getElement());
+				if (removeCmd.canExecute()) {
+					getEditingDomain().getCommandStack().execute(removeCmd);
+				}
+			}
+		}
+	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public ProxyInSequenceInputConnectorEditPart(View view) {
 		super(view);
+		instance=this;
 	}
+	
+	private void connectToSendMediator(SendMediatorEditPart sendMediatorEditPart) {
+		if (sendMediatorEditPart != null) {
+			ConnectionUtils.createConnection((AbstractConnectorEditPart) this,EditorUtils.getMediatorOutputConnector(sendMediatorEditPart));
+		}
+	}
+	
+/*	public void reallocateInputConnectors(SendMediatorEditPart sendMediatorEditPart){		
+		int proxyOutSequenceOutputConnectorLocation = EditorUtils.getProxyOutSequenceOutputConnector(EditorUtils.getProxy(sendMediatorEditPart)).getFigure().getBounds().getLocation().y;
+		int proxyLocation=EditorUtils.getProxy(sendMediatorEditPart).getFigure().getBounds().getLocation().y;		
+		int relativeProxyOutSequenceOutputConnectorLocation=proxyOutSequenceOutputConnectorLocation-proxyLocation;
+		
+		int totalHeight=(int) (((float)relativeProxyOutSequenceOutputConnectorLocation)/0.75);
+		
+		int relativeSendMediatorOutputConnectorLocation=EditorUtils.getOutputConnector(sendMediatorEditPart, SendMediatorOutputConnectorEditPart.class).getFigure().getBounds().getLocation().y;
+
+	    GraphicalEditPart parent=(GraphicalEditPart) sendMediatorEditPart.getParent();
+	    relativeSendMediatorOutputConnectorLocation=relativeSendMediatorOutputConnectorLocation+5;
+		while(!(parent instanceof AbstractBaseFigureEditPart)){			
+			if((parent instanceof AbstractMediatorFlowCompartmentEditPart)){
+				relativeSendMediatorOutputConnectorLocation=relativeSendMediatorOutputConnectorLocation+((GraphicalEditPart)parent.getParent()).getFigure().getBounds().getLocation().y;
+			}
+			parent=(GraphicalEditPart) parent.getParent();			
+		}
+
+		float ratio = (float)(relativeSendMediatorOutputConnectorLocation-100)/totalHeight;
+		ratio=(float) 0.25;
+		
+		AbstractBaseFigureEditPart baseFigureEditPart = (AbstractBaseFigureEditPart) EditorUtils.getAbstractBaseFigureEditPart(this);		
+		GraphicalEditPart ob=(GraphicalEditPart) ((EditPart)((EditPart)this.getParent().getChildren().get(5)).getChildren().get(0)).getChildren().get(0); 		
+		BorderItemLocator inputLocator = new FixedBorderItemLocator(ob.getFigure(),
+				baseFigureEditPart.inSequenceInputConnectorFigure, PositionConstants.EAST, ratio);
+		baseFigureEditPart.getBorderedFigure().getBorderItemContainer()
+				.add(baseFigureEditPart.inSequenceInputConnectorFigure, inputLocator);
+	}*/
 
 	/**
 	 * @generated NOT
@@ -100,10 +175,22 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new EastPointerFigure();
+		return primaryShape = new EastPointerFigure() {
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);
+				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
+					if(EditorUtils.getAbstractBaseFigureEditPart(instance) !=null){
+					Map<ProxyInSequenceInputConnector, SendMediatorEditPart> map = EditorUtils.getAbstractBaseFigureEditPart(instance).getSendMediatorAndInSequenceInputConnectorMap();
+					SendMediatorEditPart sendMediatorEditPart = (SendMediatorEditPart) (map.get(((Node) instance.getModel())
+							.getElement()));
+					connectToSendMediator(sendMediatorEditPart);
+					}
+				}
+			};
+		};
 	}
 
 	/**

@@ -86,6 +86,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInSequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
@@ -302,9 +303,10 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 					                	|(shouldReverse()))) {
 
 			reverseConnectors(editorPart);
-			
-		}
-		
+			if(this instanceof SendMediatorEditPart){
+				((AbstractMediatorFlowCompartmentEditPart)this.getParent()).removeInSequenceInputConnector((SendMediatorEditPart) this);
+			}			
+		}		
 	}
 	
 	/**
@@ -790,7 +792,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		
 		boolean restricted = false;
 		AbstractMediator nextMmediator = EditorUtils.getMediator(nearestEsbLinkInputConnector);
-		if (nearestInputConnector != null || nextMmediator != null) {
+		if (/*nearestInputConnector != null || */nextMmediator != null) {
 			restricted = true;
 		}
 		return restricted;
