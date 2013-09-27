@@ -6,16 +6,21 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutSequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutputConnector;
@@ -35,6 +40,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getOutSequenceOutputConnector <em>Out Sequence Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getInSequenceInputConnectors <em>In Sequence Input Connectors</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getFaultInputConnector <em>Fault Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getUrlStyle <em>Url Style</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getUriTemplate <em>Uri Template</em>}</li>
@@ -89,6 +95,16 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 	 * @ordered
 	 */
 	protected APIResourceOutSequenceOutputConnector outSequenceOutputConnector;
+
+	/**
+	 * The cached value of the '{@link #getInSequenceInputConnectors() <em>In Sequence Input Connectors</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInSequenceInputConnectors()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<APIResourceInSequenceInputConnector> inSequenceInputConnectors;
 
 	/**
 	 * The cached value of the '{@link #getFaultInputConnector() <em>Fault Input Connector</em>}' containment reference.
@@ -584,6 +600,18 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR, newOutSequenceOutputConnector, newOutSequenceOutputConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<APIResourceInSequenceInputConnector> getInSequenceInputConnectors() {
+		if (inSequenceInputConnectors == null) {
+			inSequenceInputConnectors = new EObjectContainmentEList<APIResourceInSequenceInputConnector>(APIResourceInSequenceInputConnector.class, this, EsbPackage.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS);
+		}
+		return inSequenceInputConnectors;
 	}
 
 	/**
@@ -1109,6 +1137,8 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 				return basicSetOutputConnector(null, msgs);
 			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				return basicSetOutSequenceOutputConnector(null, msgs);
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS:
+				return ((InternalEList<?>)getInSequenceInputConnectors()).basicRemove(otherEnd, msgs);
 			case EsbPackage.API_RESOURCE__FAULT_INPUT_CONNECTOR:
 				return basicSetFaultInputConnector(null, msgs);
 			case EsbPackage.API_RESOURCE__CONTAINER:
@@ -1137,6 +1167,8 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 				return getOutputConnector();
 			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				return getOutSequenceOutputConnector();
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS:
+				return getInSequenceInputConnectors();
 			case EsbPackage.API_RESOURCE__FAULT_INPUT_CONNECTOR:
 				return getFaultInputConnector();
 			case EsbPackage.API_RESOURCE__URL_STYLE:
@@ -1184,6 +1216,7 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -1195,6 +1228,10 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 				return;
 			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				setOutSequenceOutputConnector((APIResourceOutSequenceOutputConnector)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS:
+				getInSequenceInputConnectors().clear();
+				getInSequenceInputConnectors().addAll((Collection<? extends APIResourceInSequenceInputConnector>)newValue);
 				return;
 			case EsbPackage.API_RESOURCE__FAULT_INPUT_CONNECTOR:
 				setFaultInputConnector((APIResourceFaultInputConnector)newValue);
@@ -1274,6 +1311,9 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				setOutSequenceOutputConnector((APIResourceOutSequenceOutputConnector)null);
 				return;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS:
+				getInSequenceInputConnectors().clear();
+				return;
 			case EsbPackage.API_RESOURCE__FAULT_INPUT_CONNECTOR:
 				setFaultInputConnector((APIResourceFaultInputConnector)null);
 				return;
@@ -1349,6 +1389,8 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 				return outputConnector != null;
 			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
 				return outSequenceOutputConnector != null;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS:
+				return inSequenceInputConnectors != null && !inSequenceInputConnectors.isEmpty();
 			case EsbPackage.API_RESOURCE__FAULT_INPUT_CONNECTOR:
 				return faultInputConnector != null;
 			case EsbPackage.API_RESOURCE__URL_STYLE:

@@ -1275,6 +1275,15 @@ public interface EsbFactory extends EFactory {
 	APIResourceOutSequenceOutputConnector createAPIResourceOutSequenceOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>API Resource In Sequence Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource In Sequence Input Connector</em>'.
+	 * @generated
+	 */
+	APIResourceInSequenceInputConnector createAPIResourceInSequenceInputConnector();
+
+	/**
 	 * Returns a new object of class '<em>API Resource Fault Input Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

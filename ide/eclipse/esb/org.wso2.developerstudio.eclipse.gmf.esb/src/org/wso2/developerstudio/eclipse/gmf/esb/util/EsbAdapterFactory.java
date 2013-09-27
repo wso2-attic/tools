@@ -1289,6 +1289,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAPIResourceOutSequenceOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseAPIResourceInSequenceInputConnector(APIResourceInSequenceInputConnector object) {
+				return createAPIResourceInSequenceInputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseAPIResourceFaultInputConnector(APIResourceFaultInputConnector object) {
 				return createAPIResourceFaultInputConnectorAdapter();
 			}
@@ -3492,6 +3496,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAPIResourceOutSequenceOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector <em>API Resource In Sequence Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector
+	 * @generated
+	 */
+	public Adapter createAPIResourceInSequenceInputConnectorAdapter() {
 		return null;
 	}
 

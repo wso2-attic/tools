@@ -7,6 +7,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 
@@ -22,7 +23,7 @@ public class AbstractBaseFigureEditPart extends AbstractBorderedShapeEditPart{
 	
 	public IFigure inSequenceInputConnectorFigure;
 	
-	public Map<ProxyInSequenceInputConnector, SendMediatorEditPart> sendMediatorAndInSequenceInputConnectorMap=new HashMap<ProxyInSequenceInputConnector, SendMediatorEditPart>();
+	public Map<InputConnector, SendMediatorEditPart> sendMediatorAndInSequenceInputConnectorMap=new HashMap<InputConnector, SendMediatorEditPart>();
 
 	protected int y=0;
 	protected int x=0;
@@ -59,12 +60,12 @@ public class AbstractBaseFigureEditPart extends AbstractBorderedShapeEditPart{
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}	
 	
-	public Map<ProxyInSequenceInputConnector, SendMediatorEditPart> getSendMediatorAndInSequenceInputConnectorMap() {
+	public Map<InputConnector, SendMediatorEditPart> getSendMediatorAndInSequenceInputConnectorMap() {
 		return sendMediatorAndInSequenceInputConnectorMap;
 	}
 
 	public void setSendMediatorAndInSequenceInputConnectorMap(
-			Map<ProxyInSequenceInputConnector, SendMediatorEditPart> sendMediatorAndInSequenceInputConnectorMap) {
+			Map<InputConnector, SendMediatorEditPart> sendMediatorAndInSequenceInputConnectorMap) {
 		this.sendMediatorAndInSequenceInputConnectorMap = sendMediatorAndInSequenceInputConnectorMap;
 	}
 }

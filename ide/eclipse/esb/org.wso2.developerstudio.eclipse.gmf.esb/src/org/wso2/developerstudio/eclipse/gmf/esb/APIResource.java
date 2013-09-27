@@ -6,6 +6,8 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +20,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceOutputConnector <em>Out Sequence Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceInputConnectors <em>In Sequence Input Connectors</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultInputConnector <em>Fault Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getUrlStyle <em>Url Style</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getUriTemplate <em>Uri Template</em>}</li>
@@ -122,6 +125,22 @@ public interface APIResource extends EsbNode {
 	 * @generated
 	 */
 	void setOutSequenceOutputConnector(APIResourceOutSequenceOutputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>In Sequence Input Connectors</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Sequence Input Connectors</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Sequence Input Connectors</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_InSequenceInputConnectors()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<APIResourceInSequenceInputConnector> getInSequenceInputConnectors();
 
 	/**
 	 * Returns the value of the '<em><b>Fault Input Connector</b></em>' containment reference.

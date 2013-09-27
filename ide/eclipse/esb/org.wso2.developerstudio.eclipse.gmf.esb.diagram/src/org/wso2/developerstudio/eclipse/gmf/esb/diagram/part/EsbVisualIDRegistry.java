@@ -1130,6 +1130,10 @@ public class EsbVisualIDRegistry {
 					domainElement.eClass())) {
 				return ProxyServiceContainer2EditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getAPIResourceInSequenceInputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return APIResourceInSequenceInputConnectorEditPart.VISUAL_ID;
+			}
 			break;
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getProxyServiceSequenceAndEndpointContainer().isSuperTypeOf(
@@ -6136,6 +6140,9 @@ public class EsbVisualIDRegistry {
 			if (ProxyServiceContainer2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (APIResourceInSequenceInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
 			if (ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID == nodeVisualID) {
@@ -10094,6 +10101,7 @@ public class EsbVisualIDRegistry {
 		case CallMediatorInputConnectorEditPart.VISUAL_ID:
 		case CallMediatorOutputConnectorEditPart.VISUAL_ID:
 		case CallMediatorEndpointOutputConnectorEditPart.VISUAL_ID:
+		case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

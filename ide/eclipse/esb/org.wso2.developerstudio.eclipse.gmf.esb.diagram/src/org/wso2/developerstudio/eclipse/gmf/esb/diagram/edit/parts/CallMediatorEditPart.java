@@ -134,7 +134,6 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 	public CallMediatorFigure getPrimaryShape() {
 		return (CallMediatorFigure) primaryShape;
 	}
-	
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
@@ -164,7 +163,6 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 
 		return false;
 	}
-
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
@@ -311,7 +309,7 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 		public WrappingLabel getFigureCallMediatorDescriptionFigure() {
 			return fFigureCallMediatorDescriptionFigure;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/call-mediator.gif";
 		}
@@ -321,7 +319,8 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 		}
 
 		public IFigure getToolTip() {
-			return new Label("Send messages out of the ESB to an endpoint and invokes the service in a synchronous manner");
+			return new Label(
+					"Send messages out of the ESB to an endpoint and invokes the service in a synchronous manner");
 		}
 
 	}

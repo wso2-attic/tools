@@ -1760,6 +1760,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/outSequenceOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/inSequenceInputConnectors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/faultInputConnector"/>
       <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/urlStyle"/>
       <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/uriTemplate"/>
@@ -1783,6 +1784,7 @@
     <genClasses ecoreClass="esb.ecore#//APIResourceInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//APIResourceOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//APIResourceOutSequenceOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//APIResourceInSequenceInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//APIResourceFaultInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//APIResourceEndpoint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResourceEndpoint/inputConnector"/>

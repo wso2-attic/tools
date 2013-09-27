@@ -30,7 +30,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class MediatorFlowMediatorFlowCompartment20EditPart extends EndpoinMediatorFlowCompartmentEditPart {
+public class MediatorFlowMediatorFlowCompartment20EditPart extends
+		EndpoinMediatorFlowCompartmentEditPart {
 	//call mediator compartment
 	/**
 	 * @generated
@@ -58,7 +59,6 @@ public class MediatorFlowMediatorFlowCompartment20EditPart extends EndpoinMediat
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment20CanonicalEditPolicy());
 	}
-	
 
 	public void connectNormally(EditPart child) {
 		AbstractBorderItemEditPart inputConnector = null;

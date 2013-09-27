@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.gef.EditPart;
@@ -16,12 +17,15 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
@@ -41,37 +45,57 @@ public class AbstractMediatorFlowCompartmentEditPart extends ShapeCompartmentEdi
 	}
 	
 	public void addInSequenceInputConnector(SendMediatorEditPart sendMediatorEditPart) {
-		ProxyInSequenceInputConnector inSequenceInputConnector = EsbFactory.eINSTANCE
-				.createProxyInSequenceInputConnector();
-		AddCommand addCommand = new AddCommand(getEditingDomain(), ((Node) EditorUtils.getAbstractBaseFigureEditPart(
-				this).getModel()).getElement(),
-				EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS,
-				inSequenceInputConnector);
-		if (addCommand.canExecute()) {
-			getEditingDomain().getCommandStack().execute(addCommand);
+		InputConnector inputConnector=null;
+			
+		AbstractBaseFigureEditPart abstractBaseFigureEditPart = EditorUtils.getAbstractBaseFigureEditPart(this);
+		if(abstractBaseFigureEditPart !=null){
+			EStructuralFeature eStructuralFeature=null;
+			if(abstractBaseFigureEditPart instanceof ProxyServiceEditPart){
+				inputConnector = EsbFactory.eINSTANCE.createProxyInSequenceInputConnector();	
+				eStructuralFeature=EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS;	
+			}else if(abstractBaseFigureEditPart instanceof APIResourceEditPart){
+				inputConnector = EsbFactory.eINSTANCE.createAPIResourceInSequenceInputConnector();
+				eStructuralFeature=EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS;
+			}
+			
+			AddCommand addCommand = new AddCommand(getEditingDomain(), ((Node) abstractBaseFigureEditPart.getModel()).getElement(),
+					eStructuralFeature,inputConnector);
+			if (addCommand.canExecute()) {
+				getEditingDomain().getCommandStack().execute(addCommand);
+			}
+			abstractBaseFigureEditPart.getSendMediatorAndInSequenceInputConnectorMap()
+					.put(inputConnector, sendMediatorEditPart);
 		}
-		EditorUtils.getAbstractBaseFigureEditPart(this).getSendMediatorAndInSequenceInputConnectorMap()
-				.put(inSequenceInputConnector, sendMediatorEditPart);
 	}
 	
 	public void removeInSequenceInputConnector(SendMediatorEditPart sendMediatorEditPart) {
-		Object proxyInSequenceInputConnector = null;
-		Map<ProxyInSequenceInputConnector, SendMediatorEditPart> map = EditorUtils
-				.getAbstractBaseFigureEditPart(this)
-				.getSendMediatorAndInSequenceInputConnectorMap();
-		Iterator<ProxyInSequenceInputConnector> inputconnectors = map.keySet().iterator();
-		while (inputconnectors.hasNext()) {
-			Object next = inputconnectors.next();
-			if (sendMediatorEditPart.equals(map.get(next))) {
-				proxyInSequenceInputConnector = next;
+		Object baseFigureInSequenceInputConnector = null;
+		AbstractBaseFigureEditPart abstractBaseFigureEditPart = EditorUtils.getAbstractBaseFigureEditPart(this);
+		if(abstractBaseFigureEditPart !=null){
+			Map<InputConnector, SendMediatorEditPart> map = EditorUtils
+					.getAbstractBaseFigureEditPart(this)
+					.getSendMediatorAndInSequenceInputConnectorMap();
+			Iterator<InputConnector> inputconnectors = map.keySet().iterator();
+			while (inputconnectors.hasNext()) {
+				Object next = inputconnectors.next();
+				if (sendMediatorEditPart.equals(map.get(next))) {
+					baseFigureInSequenceInputConnector = next;
+				}
+			}	
+		
+			EStructuralFeature eStructuralFeature=null;
+			if(abstractBaseFigureEditPart instanceof ProxyServiceEditPart){
+				eStructuralFeature=EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS;	
+			}else if(abstractBaseFigureEditPart instanceof APIResourceEditPart){
+				eStructuralFeature=EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS;
+			}	
+			
+			RemoveCommand removeCmd = new RemoveCommand(getEditingDomain(), ((Node) abstractBaseFigureEditPart.getModel()).getElement(),
+					eStructuralFeature,
+					baseFigureInSequenceInputConnector);
+			if (removeCmd.canExecute()) {
+				getEditingDomain().getCommandStack().execute(removeCmd);
 			}
-		}
-		RemoveCommand removeCmd = new RemoveCommand(getEditingDomain(), ((Node) EditorUtils
-				.getAbstractBaseFigureEditPart(this).getModel()).getElement(),
-				EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS,
-				proxyInSequenceInputConnector);
-		if (removeCmd.canExecute()) {
-			getEditingDomain().getCommandStack().execute(removeCmd);
 		}
 	}
 	

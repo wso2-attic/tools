@@ -406,6 +406,11 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType APIResourceInSequenceInputConnector_3747 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceInSequenceInputConnector_3747"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ComplexEndpoints_3677 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ComplexEndpoints_3677"); //$NON-NLS-1$
 
 	/**
@@ -2397,6 +2402,9 @@ public class EsbElementTypes {
 			elements.put(ProxyServiceContainer_3673,
 					EsbPackage.eINSTANCE.getProxyServiceContainer());
 
+			elements.put(APIResourceInSequenceInputConnector_3747,
+					EsbPackage.eINSTANCE.getAPIResourceInSequenceInputConnector());
+
 			elements.put(ComplexEndpoints_3677, EsbPackage.eINSTANCE.getComplexEndpoints());
 
 			elements.put(MediatorFlow_3678, EsbPackage.eINSTANCE.getMediatorFlow());
@@ -2716,6 +2724,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(APIResourceOutSequenceOutputConnector_3730);
 			KNOWN_ELEMENT_TYPES.add(APIResourceFaultInputConnector_3672);
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceContainer_3673);
+			KNOWN_ELEMENT_TYPES.add(APIResourceInSequenceInputConnector_3747);
 			KNOWN_ELEMENT_TYPES.add(ComplexEndpoints_3677);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3678);
 			KNOWN_ELEMENT_TYPES.add(ComplexEndpointsOutputConnector_3679);
@@ -3311,6 +3320,8 @@ public class EsbElementTypes {
 			return APIResourceFaultInputConnector_3672;
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
 			return ProxyServiceContainer_3673;
+		case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
+			return APIResourceInSequenceInputConnector_3747;
 		case ComplexEndpointsEditPart.VISUAL_ID:
 			return ComplexEndpoints_3677;
 		case MediatorFlow18EditPart.VISUAL_ID:

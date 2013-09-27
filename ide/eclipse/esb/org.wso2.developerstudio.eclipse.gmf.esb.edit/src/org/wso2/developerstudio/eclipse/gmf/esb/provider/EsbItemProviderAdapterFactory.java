@@ -3275,6 +3275,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceInSequenceInputConnectorItemProvider apiResourceInSequenceInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceInSequenceInputConnectorAdapter() {
+		if (apiResourceInSequenceInputConnectorItemProvider == null) {
+			apiResourceInSequenceInputConnectorItemProvider = new APIResourceInSequenceInputConnectorItemProvider(this);
+		}
+
+		return apiResourceInSequenceInputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7843,6 +7866,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (apiResourceInputConnectorItemProvider != null) apiResourceInputConnectorItemProvider.dispose();
 		if (apiResourceOutputConnectorItemProvider != null) apiResourceOutputConnectorItemProvider.dispose();
 		if (apiResourceOutSequenceOutputConnectorItemProvider != null) apiResourceOutSequenceOutputConnectorItemProvider.dispose();
+		if (apiResourceInSequenceInputConnectorItemProvider != null) apiResourceInSequenceInputConnectorItemProvider.dispose();
 		if (apiResourceFaultInputConnectorItemProvider != null) apiResourceFaultInputConnectorItemProvider.dispose();
 		if (apiResourceEndpointItemProvider != null) apiResourceEndpointItemProvider.dispose();
 		if (apiResourceEndpointInputConnectorItemProvider != null) apiResourceEndpointInputConnectorItemProvider.dispose();

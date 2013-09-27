@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -15,17 +14,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -34,29 +29,23 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInSequenceInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorCompartmentEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyInSequenceInputConnectorItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.APIResourceInSequenceInputConnectorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
- * @generated NOT
+ * @generated
  */
-public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInputConnectorEditPart {
+public class APIResourceInSequenceInputConnectorEditPart extends AbstractBaseFigureInputConnectorEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3731;
+	public static final int VISUAL_ID = 3747;
 
 	/**
 	 * @generated
@@ -67,27 +56,27 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-
+	
 	public NodeFigure figure_;
-
-	private ProxyInSequenceInputConnectorEditPart instance;
+	
+	private APIResourceInSequenceInputConnectorEditPart instance;
 
 	public NodeFigure getNodeFigureInput() {
 
 		return figure_;
 	}
-
+	
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
 		if (((ENotificationImpl) notification).getOldValue() != null) {
 			/*
-			 * Removing ProxyInSequenceInputConnector when the link which connected to the inputConnector get deleted.
+			 * Removing APIResourceInSequenceInputConnector when the link which connected to the inputConnector get deleted.
 			 */
 			if ((((ENotificationImpl) notification).getOldValue() instanceof org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbLinkImpl)
 					&& (((ENotificationImpl) notification).getNewValue() == null)) {
 				RemoveCommand removeCmd = new RemoveCommand(getEditingDomain(), ((Node) EditorUtils
 						.getAbstractBaseFigureEditPart(this).getModel()).getElement(),
-						EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_INPUT_CONNECTORS,
+						EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS,
 						((Node) this.getModel()).getElement());
 				if (removeCmd.canExecute()) {
 					getEditingDomain().getCommandStack().execute(removeCmd);
@@ -99,46 +88,17 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 	/**
 	 * @generated NOT
 	 */
-	public ProxyInSequenceInputConnectorEditPart(View view) {
+	public APIResourceInSequenceInputConnectorEditPart(View view) {
 		super(view);
 		instance = this;
 	}
-
+	
 	private void connectToSendMediator(SendMediatorEditPart sendMediatorEditPart) {
 		if (sendMediatorEditPart != null) {
 			ConnectionUtils.createConnection((AbstractConnectorEditPart) this,
 					EditorUtils.getMediatorOutputConnector(sendMediatorEditPart));
 		}
 	}
-
-	/*	public void reallocateInputConnectors(SendMediatorEditPart sendMediatorEditPart){		
-	 int proxyOutSequenceOutputConnectorLocation = EditorUtils.getProxyOutSequenceOutputConnector(EditorUtils.getProxy(sendMediatorEditPart)).getFigure().getBounds().getLocation().y;
-	 int proxyLocation=EditorUtils.getProxy(sendMediatorEditPart).getFigure().getBounds().getLocation().y;		
-	 int relativeProxyOutSequenceOutputConnectorLocation=proxyOutSequenceOutputConnectorLocation-proxyLocation;
-	
-	 int totalHeight=(int) (((float)relativeProxyOutSequenceOutputConnectorLocation)/0.75);
-	
-	 int relativeSendMediatorOutputConnectorLocation=EditorUtils.getOutputConnector(sendMediatorEditPart, SendMediatorOutputConnectorEditPart.class).getFigure().getBounds().getLocation().y;
-
-	 GraphicalEditPart parent=(GraphicalEditPart) sendMediatorEditPart.getParent();
-	 relativeSendMediatorOutputConnectorLocation=relativeSendMediatorOutputConnectorLocation+5;
-	 while(!(parent instanceof AbstractBaseFigureEditPart)){			
-	 if((parent instanceof AbstractMediatorFlowCompartmentEditPart)){
-	 relativeSendMediatorOutputConnectorLocation=relativeSendMediatorOutputConnectorLocation+((GraphicalEditPart)parent.getParent()).getFigure().getBounds().getLocation().y;
-	 }
-	 parent=(GraphicalEditPart) parent.getParent();			
-	 }
-
-	 float ratio = (float)(relativeSendMediatorOutputConnectorLocation-100)/totalHeight;
-	 ratio=(float) 0.25;
-	
-	 AbstractBaseFigureEditPart baseFigureEditPart = (AbstractBaseFigureEditPart) EditorUtils.getAbstractBaseFigureEditPart(this);		
-	 GraphicalEditPart ob=(GraphicalEditPart) ((EditPart)((EditPart)this.getParent().getChildren().get(5)).getChildren().get(0)).getChildren().get(0); 		
-	 BorderItemLocator inputLocator = new FixedBorderItemLocator(ob.getFigure(),
-	 baseFigureEditPart.inSequenceInputConnectorFigure, PositionConstants.EAST, ratio);
-	 baseFigureEditPart.getBorderedFigure().getBorderItemContainer()
-	 .add(baseFigureEditPart.inSequenceInputConnectorFigure, inputLocator);
-	 }*/
 
 	/**
 	 * @generated NOT
@@ -147,7 +107,7 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ProxyInSequenceInputConnectorItemSemanticEditPolicy());
+				new APIResourceInSequenceInputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -232,7 +192,6 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
 		figure_ = figure;
-
 		return figure;
 	}
 
@@ -319,8 +278,8 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 			types.add(EsbElementTypes.LogMediatorOutputConnector_3019);
 			types.add(EsbElementTypes.EnrichMediatorOutputConnector_3037);
 			types.add(EsbElementTypes.XSLTMediatorOutputConnector_3040);
-			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchMediatorOutputConnector_3499);
+			types.add(EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
 			types.add(EsbElementTypes.SwitchDefaultBranchOutputConnector_3044);
 			types.add(EsbElementTypes.SequenceOutputConnector_3050);
 			types.add(EsbElementTypes.EventMediatorOutputConnector_3053);
@@ -382,6 +341,10 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 			types.add(EsbElementTypes.TemplateEndpointOutputConnector_3718);
 			types.add(EsbElementTypes.CloudConnectorOutputConnector_3721);
 			types.add(EsbElementTypes.CloudConnectorOperationOutputConnector_3724);
+			types.add(EsbElementTypes.LoopBackMediatorOutputConnector_3738);
+			types.add(EsbElementTypes.RespondMediatorOutputConnector_3741);
+			types.add(EsbElementTypes.CallMediatorOutputConnector_3744);
+			types.add(EsbElementTypes.CallMediatorEndpointOutputConnector_3745);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 			types.add(EsbElementTypes.SequencesOutputConnector_3617);
@@ -416,10 +379,6 @@ public class ProxyInSequenceInputConnectorEditPart extends AbstractBaseFigureInp
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
 		}
 
-	}
-
-	public boolean isSelectable() {
-		return false;
 	}
 
 	/**

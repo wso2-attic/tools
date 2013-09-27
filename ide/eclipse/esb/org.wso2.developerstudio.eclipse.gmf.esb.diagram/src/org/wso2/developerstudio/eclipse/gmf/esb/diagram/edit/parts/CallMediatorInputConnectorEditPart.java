@@ -118,7 +118,6 @@ public class CallMediatorInputConnectorEditPart extends AbstractMediatorInputCon
 		return result;
 	}
 
-		
 	/**
 	 * Creates figure for this edit part.
 	 * 
@@ -138,7 +137,6 @@ public class CallMediatorInputConnectorEditPart extends AbstractMediatorInputCon
 		createNodeShapeReverse();
 		return figure;
 	}
-
 
 	/**
 	 * Default implementation treats passed figure as content pane.

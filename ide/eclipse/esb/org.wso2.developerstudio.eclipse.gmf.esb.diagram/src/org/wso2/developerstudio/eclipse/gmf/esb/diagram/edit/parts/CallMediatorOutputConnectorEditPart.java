@@ -25,11 +25,12 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SingleCompartmentComplexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CallMediatorOutputConnectorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
- * @generated
+ * @generated NOT
  */
 public class CallMediatorOutputConnectorEditPart extends AbstractMediatorOutputConnectorEditPart {
 
@@ -436,6 +437,9 @@ public class CallMediatorOutputConnectorEditPart extends AbstractMediatorOutputC
 		if (targetEditPart instanceof APIResourceFaultInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof APIResourceInSequenceInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		return types;
 	}
 
@@ -521,6 +525,7 @@ public class CallMediatorOutputConnectorEditPart extends AbstractMediatorOutputC
 			types.add(EsbElementTypes.TemplateEndpointInputConnector_3726);
 			types.add(EsbElementTypes.APIResourceInputConnector_3670);
 			types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
+			types.add(EsbElementTypes.APIResourceInSequenceInputConnector_3747);
 		}
 		return types;
 	}

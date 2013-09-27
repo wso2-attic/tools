@@ -370,6 +370,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case APIResourceOutputConnectorEditPart.VISUAL_ID:
 				case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
 				case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
+				case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
 				case ComplexEndpointsEditPart.VISUAL_ID:
 				case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
 				case MessageStoreEditPart.VISUAL_ID:
@@ -722,6 +723,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID == visualID
 				|| APIResourceFaultInputConnectorEditPart.VISUAL_ID == visualID
 				|| ProxyServiceContainer2EditPart.VISUAL_ID == visualID
+				|| APIResourceInSequenceInputConnectorEditPart.VISUAL_ID == visualID
 				|| ComplexEndpointsEditPart.VISUAL_ID == visualID
 				|| MediatorFlow18EditPart.VISUAL_ID == visualID
 				|| ComplexEndpointsOutputConnectorEditPart.VISUAL_ID == visualID
@@ -1644,6 +1646,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
 			return createProxyServiceContainer_3673(domainElement, containerView, index, persisted,
 					preferencesHint);
+		case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
+			return createAPIResourceInSequenceInputConnector_3747(domainElement, containerView,
+					index, persisted, preferencesHint);
 		case ComplexEndpointsEditPart.VISUAL_ID:
 			return createComplexEndpoints_3677(domainElement, containerView, index, persisted,
 					preferencesHint);
@@ -4283,6 +4288,43 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(EsbVisualIDRegistry.getType(ProxyServiceContainer2EditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResourceInSequenceInputConnector_3747(EObject domainElement,
+			View containerView, int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(APIResourceInSequenceInputConnectorEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 

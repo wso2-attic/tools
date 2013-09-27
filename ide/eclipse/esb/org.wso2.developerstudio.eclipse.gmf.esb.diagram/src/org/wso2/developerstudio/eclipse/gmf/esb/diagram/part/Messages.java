@@ -1403,6 +1403,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_APIResourceInSequenceInputConnector_3747_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_HeaderMediatorInputConnector_3100_incominglinks;
 
 	/**

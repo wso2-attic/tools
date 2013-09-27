@@ -2464,6 +2464,14 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.API_RESOURCE_IN_SEQUENCE_INPUT_CONNECTOR: {
+				APIResourceInSequenceInputConnector apiResourceInSequenceInputConnector = (APIResourceInSequenceInputConnector)theEObject;
+				T result = caseAPIResourceInSequenceInputConnector(apiResourceInSequenceInputConnector);
+				if (result == null) result = caseInputConnector(apiResourceInSequenceInputConnector);
+				if (result == null) result = caseEsbConnector(apiResourceInSequenceInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.API_RESOURCE_FAULT_INPUT_CONNECTOR: {
 				APIResourceFaultInputConnector apiResourceFaultInputConnector = (APIResourceFaultInputConnector)theEObject;
 				T result = caseAPIResourceFaultInputConnector(apiResourceFaultInputConnector);
@@ -4903,6 +4911,21 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAPIResourceOutSequenceOutputConnector(APIResourceOutSequenceOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource In Sequence Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource In Sequence Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResourceInSequenceInputConnector(APIResourceInSequenceInputConnector object) {
 		return null;
 	}
 

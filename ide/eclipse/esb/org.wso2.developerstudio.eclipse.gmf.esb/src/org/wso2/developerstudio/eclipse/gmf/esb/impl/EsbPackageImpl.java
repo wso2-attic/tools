@@ -26,6 +26,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutSequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutputConnector;
@@ -1513,6 +1514,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass apiResourceOutSequenceOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceInSequenceInputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -7792,7 +7800,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAPIResource_FaultInputConnector() {
+	public EReference getAPIResource_InSequenceInputConnectors() {
 		return (EReference)apiResourceEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -7801,8 +7809,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAPIResource_UrlStyle() {
-		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(4);
+	public EReference getAPIResource_FaultInputConnector() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -7810,7 +7818,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAPIResource_UriTemplate() {
+	public EAttribute getAPIResource_UrlStyle() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -7819,7 +7827,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAPIResource_UrlMapping() {
+	public EAttribute getAPIResource_UriTemplate() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -7828,7 +7836,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAPIResource_AllowGet() {
+	public EAttribute getAPIResource_UrlMapping() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -7837,7 +7845,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAPIResource_AllowPost() {
+	public EAttribute getAPIResource_AllowGet() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -7846,7 +7854,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAPIResource_AllowPut() {
+	public EAttribute getAPIResource_AllowPost() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -7855,7 +7863,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAPIResource_AllowDelete() {
+	public EAttribute getAPIResource_AllowPut() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -7864,7 +7872,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAPIResource_AllowOptions() {
+	public EAttribute getAPIResource_AllowDelete() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -7873,8 +7881,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAPIResource_AllowOptions() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAPIResource_Container() {
-		return (EReference)apiResourceEClass.getEStructuralFeatures().get(12);
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -7883,7 +7900,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getAPIResource_InSequenceType() {
-		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(13);
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -7892,7 +7909,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getAPIResource_InSequenceKey() {
-		return (EReference)apiResourceEClass.getEStructuralFeatures().get(14);
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -7901,15 +7918,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getAPIResource_InSequenceName() {
-		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAPIResource_OutSequenceType() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -7918,8 +7926,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAPIResource_OutSequenceType() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAPIResource_OutSequenceKey() {
-		return (EReference)apiResourceEClass.getEStructuralFeatures().get(17);
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -7928,15 +7945,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getAPIResource_OutSequenceName() {
-		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(18);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAPIResource_FaultSequenceType() {
 		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -7945,8 +7953,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAPIResource_FaultSequenceType() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getAPIResource_FaultSequenceKey() {
-		return (EReference)apiResourceEClass.getEStructuralFeatures().get(20);
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -7955,7 +7972,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getAPIResource_FaultSequenceName() {
-		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(21);
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(22);
 	}
 
 	/**
@@ -7983,6 +8000,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getAPIResourceOutSequenceOutputConnector() {
 		return apiResourceOutSequenceOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIResourceInSequenceInputConnector() {
+		return apiResourceInSequenceInputConnectorEClass;
 	}
 
 	/**
@@ -16114,6 +16140,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(apiResourceEClass, API_RESOURCE__INPUT_CONNECTOR);
 		createEReference(apiResourceEClass, API_RESOURCE__OUTPUT_CONNECTOR);
 		createEReference(apiResourceEClass, API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR);
+		createEReference(apiResourceEClass, API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS);
 		createEReference(apiResourceEClass, API_RESOURCE__FAULT_INPUT_CONNECTOR);
 		createEAttribute(apiResourceEClass, API_RESOURCE__URL_STYLE);
 		createEAttribute(apiResourceEClass, API_RESOURCE__URI_TEMPLATE);
@@ -16139,6 +16166,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		apiResourceOutputConnectorEClass = createEClass(API_RESOURCE_OUTPUT_CONNECTOR);
 
 		apiResourceOutSequenceOutputConnectorEClass = createEClass(API_RESOURCE_OUT_SEQUENCE_OUTPUT_CONNECTOR);
+
+		apiResourceInSequenceInputConnectorEClass = createEClass(API_RESOURCE_IN_SEQUENCE_INPUT_CONNECTOR);
 
 		apiResourceFaultInputConnectorEClass = createEClass(API_RESOURCE_FAULT_INPUT_CONNECTOR);
 
@@ -16657,6 +16686,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		apiResourceInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		apiResourceOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		apiResourceOutSequenceOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		apiResourceInSequenceInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		apiResourceFaultInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		apiResourceEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
 		apiResourceEndpointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
@@ -18045,6 +18075,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getAPIResource_InputConnector(), this.getAPIResourceInputConnector(), null, "inputConnector", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPIResource_OutputConnector(), this.getAPIResourceOutputConnector(), null, "outputConnector", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPIResource_OutSequenceOutputConnector(), this.getAPIResourceOutSequenceOutputConnector(), null, "outSequenceOutputConnector", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIResource_InSequenceInputConnectors(), this.getAPIResourceInSequenceInputConnector(), null, "inSequenceInputConnectors", null, 0, -1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPIResource_FaultInputConnector(), this.getAPIResourceFaultInputConnector(), null, "faultInputConnector", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAPIResource_UrlStyle(), this.getApiResourceUrlStyle(), "urlStyle", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAPIResource_UriTemplate(), ecorePackage.getEString(), "uriTemplate", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -18070,6 +18101,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(apiResourceOutputConnectorEClass, APIResourceOutputConnector.class, "APIResourceOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(apiResourceOutSequenceOutputConnectorEClass, APIResourceOutSequenceOutputConnector.class, "APIResourceOutSequenceOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(apiResourceInSequenceInputConnectorEClass, APIResourceInSequenceInputConnector.class, "APIResourceInSequenceInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(apiResourceFaultInputConnectorEClass, APIResourceFaultInputConnector.class, "APIResourceFaultInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

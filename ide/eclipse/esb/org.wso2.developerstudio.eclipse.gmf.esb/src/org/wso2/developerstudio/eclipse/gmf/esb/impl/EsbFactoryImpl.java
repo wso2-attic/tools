@@ -352,6 +352,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.API_RESOURCE_INPUT_CONNECTOR: return createAPIResourceInputConnector();
 			case EsbPackage.API_RESOURCE_OUTPUT_CONNECTOR: return createAPIResourceOutputConnector();
 			case EsbPackage.API_RESOURCE_OUT_SEQUENCE_OUTPUT_CONNECTOR: return createAPIResourceOutSequenceOutputConnector();
+			case EsbPackage.API_RESOURCE_IN_SEQUENCE_INPUT_CONNECTOR: return createAPIResourceInSequenceInputConnector();
 			case EsbPackage.API_RESOURCE_FAULT_INPUT_CONNECTOR: return createAPIResourceFaultInputConnector();
 			case EsbPackage.API_RESOURCE_ENDPOINT: return createAPIResourceEndpoint();
 			case EsbPackage.API_RESOURCE_ENDPOINT_INPUT_CONNECTOR: return createAPIResourceEndpointInputConnector();
@@ -2282,6 +2283,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public APIResourceOutSequenceOutputConnector createAPIResourceOutSequenceOutputConnector() {
 		APIResourceOutSequenceOutputConnectorImpl apiResourceOutSequenceOutputConnector = new APIResourceOutSequenceOutputConnectorImpl();
 		return apiResourceOutSequenceOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIResourceInSequenceInputConnector createAPIResourceInSequenceInputConnector() {
+		APIResourceInSequenceInputConnectorImpl apiResourceInSequenceInputConnector = new APIResourceInSequenceInputConnectorImpl();
+		return apiResourceInSequenceInputConnector;
 	}
 
 	/**

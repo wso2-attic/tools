@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceInSequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutputConnectorEditPart;
@@ -66,6 +67,8 @@ public class APIResourceCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getAPIResource_OutSequenceOutputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getAPIResource_FaultInputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE.getAPIResource_Container());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getAPIResource_InSequenceInputConnectors());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -103,6 +106,7 @@ public class APIResourceCanonicalEditPolicy extends CanonicalEditPolicy {
 		case APIResourceOutSequenceOutputConnectorEditPart.VISUAL_ID:
 		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
+		case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

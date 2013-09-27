@@ -614,12 +614,13 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof APIResourceEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
 			types.add(EsbElementTypes.APIResourceInputConnector_3670);
 			types.add(EsbElementTypes.APIResourceOutputConnector_3671);
 			types.add(EsbElementTypes.APIResourceOutSequenceOutputConnector_3730);
 			types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
 			types.add(EsbElementTypes.ProxyServiceContainer_3673);
+			types.add(EsbElementTypes.APIResourceInSequenceInputConnector_3747);
 			return types;
 		}
 		if (editPart instanceof ProxyServiceContainer2EditPart) {
@@ -2564,6 +2565,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((APIResourceFaultInputConnectorEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
+		if (targetEditPart instanceof APIResourceInSequenceInputConnectorEditPart) {
+			return ((APIResourceInSequenceInputConnectorEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -3270,6 +3275,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof APIResourceFaultInputConnectorEditPart) {
 			return ((APIResourceFaultInputConnectorEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof APIResourceInSequenceInputConnectorEditPart) {
+			return ((APIResourceInSequenceInputConnectorEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

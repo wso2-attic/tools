@@ -3136,6 +3136,10 @@
   <nodes
       name="CallMediatorEndpointOutputConnector"
       figure="EastPointerFigure"/>
+  <nodes
+      name="APIResourceInSequenceInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

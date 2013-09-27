@@ -1133,6 +1133,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case ProxyServiceContainer2EditPart.VISUAL_ID:
 				return new ProxyServiceContainer2EditPart(view);
 
+			case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
+				return new APIResourceInSequenceInputConnectorEditPart(view);
+
 			case ComplexEndpointsEditPart.VISUAL_ID:
 				return new ComplexEndpointsEditPart(view);
 

@@ -508,6 +508,7 @@ public class APIResourceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS);
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__FAULT_INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__CONTAINER);
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_KEY);
@@ -586,6 +587,7 @@ public class APIResourceItemProvider
 			case EsbPackage.API_RESOURCE__INPUT_CONNECTOR:
 			case EsbPackage.API_RESOURCE__OUTPUT_CONNECTOR:
 			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR:
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS:
 			case EsbPackage.API_RESOURCE__FAULT_INPUT_CONNECTOR:
 			case EsbPackage.API_RESOURCE__CONTAINER:
 			case EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY:
@@ -622,6 +624,11 @@ public class APIResourceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.API_RESOURCE__OUT_SEQUENCE_OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createAPIResourceOutSequenceOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_INPUT_CONNECTORS,
+				 EsbFactory.eINSTANCE.createAPIResourceInSequenceInputConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter

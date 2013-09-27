@@ -134,7 +134,6 @@ public class CallMediatorEndpointOutputConnectorEditPart extends AdditionalOutpu
 		return figure;
 	}
 
-
 	/**
 	 * Default implementation treats passed figure as content pane.
 	 * Respects layout one may have set for generated figure.

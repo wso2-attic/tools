@@ -3676,6 +3676,16 @@
                 <containmentFeature
                     href="esb.ecore#//APIResource/container"/>
               </children>
+              <children>
+                <containmentFeature
+                    href="esb.ecore#//APIResource/inSequenceInputConnectors"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="esb.ecore#//APIResourceInSequenceInputConnector"/>
+                  <diagramNode
+                      href="esb.gmfgraph#APIResourceInSequenceInputConnector"/>
+                </ownedChild>
+              </children>
             </ownedChild>
           </children>
           <compartments

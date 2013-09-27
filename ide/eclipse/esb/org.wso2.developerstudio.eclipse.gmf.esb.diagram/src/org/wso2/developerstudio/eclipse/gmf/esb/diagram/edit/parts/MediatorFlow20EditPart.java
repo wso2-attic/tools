@@ -63,7 +63,7 @@ public class MediatorFlow20EditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MediatorFlow20ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -112,7 +112,7 @@ public class MediatorFlow20EditPart extends ShapeNodeEditPart {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
-	
+
 	public void refreshOutputConnector(EditPart childEditPart) {
 		if (childEditPart instanceof CallMediatorEditPart) {
 			CallMediatorEditPart callMediatorEditPart = (CallMediatorEditPart) childEditPart;
@@ -172,7 +172,7 @@ public class MediatorFlow20EditPart extends ShapeNodeEditPart {
 		}
 		return super.getContentPane();
 	}
-	
+
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof ResizableCompartmentEditPart) {
 			// Compartment should be added to the primary shape.
@@ -234,7 +234,7 @@ public class MediatorFlow20EditPart extends ShapeNodeEditPart {
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

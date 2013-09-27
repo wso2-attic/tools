@@ -2922,6 +2922,15 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
+		for (Iterator<?> it = modelElement.getInSequenceInputConnectors().iterator(); it.hasNext();) {
+			APIResourceInSequenceInputConnector childElement = (APIResourceInSequenceInputConnector) it
+					.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == APIResourceInSequenceInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
 		return result;
 	}
 
@@ -8926,6 +8935,8 @@ public class EsbDiagramUpdater {
 			return getAPIResourceFaultInputConnector_3672ContainedLinks(view);
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
 			return getProxyServiceContainer_3673ContainedLinks(view);
+		case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
+			return getAPIResourceInSequenceInputConnector_3747ContainedLinks(view);
 		case ComplexEndpointsEditPart.VISUAL_ID:
 			return getComplexEndpoints_3677ContainedLinks(view);
 		case MediatorFlow18EditPart.VISUAL_ID:
@@ -9525,6 +9536,8 @@ public class EsbDiagramUpdater {
 			return getAPIResourceFaultInputConnector_3672IncomingLinks(view);
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
 			return getProxyServiceContainer_3673IncomingLinks(view);
+		case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
+			return getAPIResourceInSequenceInputConnector_3747IncomingLinks(view);
 		case ComplexEndpointsEditPart.VISUAL_ID:
 			return getComplexEndpoints_3677IncomingLinks(view);
 		case MediatorFlow18EditPart.VISUAL_ID:
@@ -10124,6 +10137,8 @@ public class EsbDiagramUpdater {
 			return getAPIResourceFaultInputConnector_3672OutgoingLinks(view);
 		case ProxyServiceContainer2EditPart.VISUAL_ID:
 			return getProxyServiceContainer_3673OutgoingLinks(view);
+		case APIResourceInSequenceInputConnectorEditPart.VISUAL_ID:
+			return getAPIResourceInSequenceInputConnector_3747OutgoingLinks(view);
 		case ComplexEndpointsEditPart.VISUAL_ID:
 			return getComplexEndpoints_3677OutgoingLinks(view);
 		case MediatorFlow18EditPart.VISUAL_ID:
@@ -10741,6 +10756,14 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getProxyServiceContainer_3673ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAPIResourceInSequenceInputConnector_3747ContainedLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 
@@ -13355,6 +13378,20 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getAPIResourceInSequenceInputConnector_3747IncomingLinks(
+			View view) {
+		APIResourceInSequenceInputConnector modelElement = (APIResourceInSequenceInputConnector) view
+				.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getComplexEndpoints_3677IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -15939,6 +15976,14 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getProxyServiceContainer_3673OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAPIResourceInSequenceInputConnector_3747OutgoingLinks(
+			View view) {
 		return Collections.emptyList();
 	}
 

@@ -432,6 +432,9 @@ public class CloudConnectorOutputConnectorEditPart extends AbstractBorderItemEdi
 		if (targetEditPart instanceof APIResourceFaultInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof APIResourceInSequenceInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		return types;
 	}
 
@@ -517,6 +520,7 @@ public class CloudConnectorOutputConnectorEditPart extends AbstractBorderItemEdi
 			types.add(EsbElementTypes.TemplateEndpointInputConnector_3726);
 			types.add(EsbElementTypes.APIResourceInputConnector_3670);
 			types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
+			types.add(EsbElementTypes.APIResourceInSequenceInputConnector_3747);
 		}
 		return types;
 	}
