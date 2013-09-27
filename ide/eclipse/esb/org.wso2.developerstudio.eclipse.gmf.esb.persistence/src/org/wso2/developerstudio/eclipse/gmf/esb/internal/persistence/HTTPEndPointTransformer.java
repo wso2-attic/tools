@@ -41,17 +41,9 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof HTTPEndpoint, "Invalid subject");
 		HTTPEndpoint visualEndPoint = (HTTPEndpoint) subject;
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendCallOrProxy(information, visualEndPoint, synapseEP);
 		
-		SendMediator sendMediator = getSendMediator(information);
-
-		if(visualEndPoint.isInLine()){
-			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
-		}else{
-			if(sendMediator !=null){
-				sendMediator.setEndpoint(create(visualEndPoint,null));
-			}
-		}
-
 		if (!information.isEndPointFound) {
 			information.isEndPointFound = true;
 			information.firstEndPoint = visualEndPoint;
@@ -132,10 +124,8 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 
 		Assert.isTrue(subject instanceof HTTPEndpoint, "Invalid subject");
 		HTTPEndpoint visualEndPoint = (HTTPEndpoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(sequence);
-		
-		sendMediator.setEndpoint(create(visualEndPoint,null));
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 
 }

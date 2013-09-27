@@ -25,16 +25,8 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		
 		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
 		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(information);
-
-		if(visualEndPoint.isInLine()){
-			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
-		}else{
-			if(sendMediator !=null){
-				sendMediator.setEndpoint(create(visualEndPoint,null));
-			}
-		}
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendCallOrProxy(information, visualEndPoint, synapseEP);
 		
 		if(visualEndPoint.getOutputConnector()!=null){
 			if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
@@ -146,11 +138,8 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		
 		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
 		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(sequence);
-		
-		sendMediator.setEndpoint(create(visualEndPoint,null));
-		
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 
 }

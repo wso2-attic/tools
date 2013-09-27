@@ -45,16 +45,8 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		//try{
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject.");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(info);
-		
-		if(visualEndPoint.isInLine()){
-			info.getCurrentProxy().setTargetInLineEndpoint(create(info,visualEndPoint,null,null));
-		}else{
-			if(sendMediator !=null){
-				sendMediator.setEndpoint(create(info,visualEndPoint,null,null));
-			}
-		}
+		FailoverEndpoint synapseEP = create(info,visualEndPoint,null,null);
+		setEndpointToSendCallOrProxy(info, visualEndPoint, synapseEP);
 		
 		if(!info.isEndPointFound){
 			info.isEndPointFound=true;
@@ -112,6 +104,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		
 	}
 
+	
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
 		
@@ -154,9 +147,8 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(sequence);
-		sendMediator.setEndpoint(create(information,visualEndPoint,null,null));
+		Endpoint synapseEP = create(information,visualEndPoint,null,null);
+		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 	
 	public FailoverEndpoint create(TransformationInfo info, FailoverEndPoint visualEndPoint,

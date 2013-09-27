@@ -52,10 +52,10 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 			throws Exception {
 		//try{
 		Assert.isTrue(subject instanceof LoadBalanceEndPoint, "Invalid subject.");
-		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;
+		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;		
+		Endpoint synapseEP = create(information, visualEndPoint, null, null);
+		setEndpointToSendCallOrProxy(information, visualEndPoint, synapseEP);
 		
-		
-		SendMediator sendMediator = getSendMediator(information);
 		
 /*		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
@@ -72,14 +72,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		synapseLoadEP.setDefinition(synapseEPDef);*/
 		
 		//sendMediator.setEndpoint(create(information, visualEndPoint, null, null));
-		
-		if(visualEndPoint.isInLine()){
-			information.getCurrentProxy().setTargetInLineEndpoint(create(information, visualEndPoint, null, null));
-		}else{
-			if(sendMediator !=null){
-				sendMediator.setEndpoint(create(information, visualEndPoint, null, null));
-			}
-		}
+
 		
 		if(!information.isEndPointFound){
 			information.isEndPointFound=true;
@@ -183,10 +176,8 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof LoadBalanceEndPoint, "Invalid subject");
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(sequence);
-		sendMediator.setEndpoint(create(information, visualEndPoint, null, null));
-		
+		Endpoint synapseEP = create(information, visualEndPoint, null, null);
+		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 	
 	public LoadbalanceEndpoint create(TransformationInfo info, LoadBalanceEndPoint visualEndPoint,

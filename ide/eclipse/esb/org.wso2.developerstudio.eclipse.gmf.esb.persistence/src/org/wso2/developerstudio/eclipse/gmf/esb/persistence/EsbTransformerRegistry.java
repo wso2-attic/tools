@@ -23,6 +23,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
@@ -88,6 +89,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.BAMMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.BeanMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.BuilderMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CacheMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CallMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CallTemplateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CalloutMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ClassMediatorTransformer;
@@ -224,6 +226,7 @@ public class EsbTransformerRegistry {
 		addTransformer(CloudConnectorOperation.class, new CloudConnectorOperationTransformer());
 		addTransformer(LoopBackMediator.class, new LoopBackMediatorTransformer());
 		addTransformer(RespondMediator.class, new RespondMediatorTransformer());
+		addTransformer(CallMediator.class, new CallMediatorTransformer());
 	}
 	
 	/**

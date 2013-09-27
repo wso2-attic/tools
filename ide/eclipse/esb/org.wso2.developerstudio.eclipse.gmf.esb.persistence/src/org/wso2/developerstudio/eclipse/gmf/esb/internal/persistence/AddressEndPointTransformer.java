@@ -20,6 +20,7 @@ import java.util.List;
 import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.mediators.builtin.CallMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -46,16 +47,8 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
 		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(info);
-		
-		if(visualEndPoint.isInLine()){
-			info.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
-		}else{
-			if(sendMediator !=null){
-				sendMediator.setEndpoint(create(visualEndPoint,null));
-			}
-		}
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendCallOrProxy(info, visualEndPoint, synapseEP);
 
 		if (!info.isEndPointFound) {
 			info.isEndPointFound = true;
@@ -88,6 +81,7 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		// Transform endpoint output data flow.
 		doTransform(info, visualEndPoint.getOutputConnector());
 	}
+	
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
@@ -208,10 +202,8 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		
 		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
 		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(sequence);
-		sendMediator.setEndpoint(create(visualEndPoint,null));
-
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 
 }

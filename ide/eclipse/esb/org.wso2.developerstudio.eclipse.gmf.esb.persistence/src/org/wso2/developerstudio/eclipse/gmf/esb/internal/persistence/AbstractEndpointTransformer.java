@@ -22,13 +22,17 @@ import java.util.List;
 
 import org.apache.synapse.Mediator;
 import org.apache.synapse.endpoints.AbstractEndpoint;
+import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
+import org.apache.synapse.endpoints.FailoverEndpoint;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.mediators.builtin.CallMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.jaxen.JaxenException;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
@@ -40,6 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointWestOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ParentEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -262,4 +267,66 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 		return sendMediator;
 	}
 	
+	protected CallMediator getCallMediator(TransformationInfo info) {
+		CallMediator callMediator = null;
+		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.CallMediator) {			
+			int size = info.getParentSequence().getList().size();
+			if (size > 0) {
+				Mediator lastObj = info.getParentSequence().getList().get(size - 1);
+				if (lastObj instanceof CallMediator) {
+					callMediator = (CallMediator) lastObj;
+				}
+			}
+		}else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){			
+			callMediator=null;
+		} else{
+		//sendMediator = new SendMediator();
+			//info.getParentSequence().addChild(sendMediator);
+		}
+		return callMediator;
+	}
+	
+	protected CallMediator getCallMediator(SequenceMediator sequence) {
+		CallMediator callMediator = null;
+		int size = sequence.getList().size();
+		if (size > 0 && sequence.getList().get(size-1) instanceof CallMediator) {			
+			callMediator = (CallMediator)sequence.getList().get(size-1);
+		} else {
+			callMediator = new CallMediator();
+			sequence.addChild(callMediator);
+		}
+		return callMediator;
+	}
+	
+	protected void setEndpointToSendOrCallMediator(SequenceMediator sequence, Endpoint synapseEP){
+		int size = sequence.getList().size();
+		Object mediator = null;
+		if (size > 0) {
+			mediator = sequence.getList().get(size-1);
+		}
+		if (mediator instanceof SendMediator){
+			SendMediator sendMediator = getSendMediator(sequence);
+			sendMediator.setEndpoint(synapseEP);
+		} else if (mediator instanceof CallMediator) {
+			CallMediator callMediator = getCallMediator(sequence);
+			callMediator.setEndpoint(synapseEP);
+		}
+	}
+	
+	protected void setEndpointToSendCallOrProxy(TransformationInfo info,
+			EndPoint visualEndPoint, Endpoint synapseEP) {
+		SendMediator sendMediator = getSendMediator(info);
+		CallMediator callMediator = getCallMediator(info);
+		
+		if(visualEndPoint.isInLine()){
+			info.getCurrentProxy().setTargetInLineEndpoint(synapseEP);
+		}else{
+			if(sendMediator !=null){
+				sendMediator.setEndpoint(synapseEP);
+			} else if(callMediator !=null){
+				callMediator.setEndpoint(synapseEP);
+			}
+		}
+	}
+
 }

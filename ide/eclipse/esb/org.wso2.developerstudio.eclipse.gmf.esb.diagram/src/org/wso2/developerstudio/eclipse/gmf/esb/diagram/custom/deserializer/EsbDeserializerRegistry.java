@@ -37,6 +37,7 @@ import org.apache.synapse.endpoints.WSDLEndpoint;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.bsf.ScriptMediator;
+import org.apache.synapse.mediators.builtin.CallMediator;
 import org.apache.synapse.mediators.builtin.CalloutMediator;
 import org.apache.synapse.mediators.builtin.DropMediator;
 import org.apache.synapse.mediators.builtin.EnqueueMediator;
@@ -186,6 +187,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(TemplateEndpoint.class, new TemplateEndpointDeserializer());
 		addDeserializer(LoopBackMediator.class, new LoopBackMediatorDeserializer());
 		addDeserializer(RespondMediator.class, new RespondMediatorDeserializer());
+		addDeserializer(CallMediator.class, new CallMediatorDeserializer());
 	}
 	
 	/**

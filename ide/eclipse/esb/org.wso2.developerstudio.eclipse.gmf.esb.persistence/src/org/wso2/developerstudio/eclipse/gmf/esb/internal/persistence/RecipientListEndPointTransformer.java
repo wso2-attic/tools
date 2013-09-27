@@ -59,17 +59,8 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 	public void transform(TransformationInfo info, EsbNode subject) throws Exception {
 		Assert.isTrue(subject instanceof RecipientListEndPoint, "Invalid subject.");
 		RecipientListEndPoint endPointModel = (RecipientListEndPoint) subject;
-
-		SendMediator sendMediator = getSendMediator(info);
-
-		if (endPointModel.isInLine()) {
-			info.getCurrentProxy().setTargetInLineEndpoint(
-					createRecipientListConf(info, endPointModel, null, null));
-		} else {
-			if (sendMediator != null) {
-				sendMediator.setEndpoint(createRecipientListConf(info, endPointModel, null, null));
-			}
-		}
+		Endpoint synapseEP = create(info, endPointModel, null, null);
+		setEndpointToSendCallOrProxy(info, endPointModel, synapseEP);
 
 		if (!info.isEndPointFound) {
 			info.isEndPointFound = true;
@@ -112,7 +103,7 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 			List<Endpoint> endPoints) {
 		Assert.isTrue(subject instanceof RecipientListEndPoint, "Invalid subject.");
 		RecipientListEndPoint model = (RecipientListEndPoint) subject;
-		createRecipientListConf(info, model, null,endPoints);
+		create(info, model, null,endPoints);
 
 	}
 
@@ -120,14 +111,11 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 			SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof RecipientListEndPoint, "Invalid subject");
 		RecipientListEndPoint endPointModel = (RecipientListEndPoint) subject;
-
-		SendMediator sendMediator = getSendMediator(sequence);
-		
-		sendMediator.setEndpoint(createRecipientListConf(information, endPointModel, null, null));
-
+		Endpoint synapseEP = create(information, endPointModel, null, null);
+		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 
-	public RecipientListEndpoint createRecipientListConf(TransformationInfo info,
+	public RecipientListEndpoint create(TransformationInfo info,
 			RecipientListEndPoint model, String name, List<Endpoint> endPoints) {
 		RecipientListEndpoint recipientList = new RecipientListEndpoint();
 		if (name != null) {

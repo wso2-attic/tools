@@ -36,23 +36,16 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
-public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
+public class NamedEndPointTransformer extends AbstractEndpointTransformer{
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
 		// Check subject.
 		Assert.isTrue(subject instanceof NamedEndpoint, "Invalid subject.");
 		NamedEndpoint visualEndPoint = (NamedEndpoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(information);
-		
-		if(visualEndPoint.isInLine()){
-			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
-		}else{
-			if(sendMediator !=null){
-				sendMediator.setEndpoint(create(visualEndPoint,null));	
-			}
-		}
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendCallOrProxy(information, visualEndPoint, synapseEP);
+
 		
 		if(visualEndPoint.getOutputConnector()!=null){
 			if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
@@ -97,14 +90,11 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 		
 		Assert.isTrue(subject instanceof NamedEndpoint, "Invalid subject");
 		NamedEndpoint visualEndPoint = (NamedEndpoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(sequence);
-		
-		sendMediator.setEndpoint(create(visualEndPoint,null));
-		
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 	
-	public Endpoint create(NamedEndpoint visualEndPoint,String name) throws Exception {
+	public static Endpoint create(NamedEndpoint visualEndPoint,String name) throws Exception {
 		if(visualEndPoint.getReferringEndpointType()==KeyType.DYNAMIC){			
 			SynapseXPath synapseXPath= new SynapseXPath(visualEndPoint.getDynamicReferenceKey().getPropertyValue());
 			for (int i = 0; i < visualEndPoint.getDynamicReferenceKey().getNamespaces().keySet().size(); ++i) {
@@ -121,37 +111,6 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 			return indirectEndpoint;
 		}
 		
-	}
-	
-	private SendMediator getSendMediator(TransformationInfo info) {
-		SendMediator sendMediator = null;
-		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {			
-			int size = info.getParentSequence().getList().size();
-			if (size > 0) {
-				Mediator lastObj = info.getParentSequence().getList().get(size - 1);
-				if (lastObj instanceof SendMediator) {
-					sendMediator = (SendMediator) lastObj;
-				}
-			}
-		}else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){			
-			sendMediator=null;
-		} else{
-		//sendMediator = new SendMediator();
-			//info.getParentSequence().addChild(sendMediator);
-		}
-		return sendMediator;
-	}
-	
-	private SendMediator getSendMediator(SequenceMediator sequence) {
-		SendMediator sendMediator = null;
-		int size = sequence.getList().size();
-		if (size > 0 && sequence.getList().get(size-1) instanceof SendMediator) {			
-			sendMediator = (SendMediator)sequence.getList().get(size-1);
-		} else {
-			sendMediator = new SendMediator();
-			sequence.addChild(sendMediator);
-		}
-		return sendMediator;
 	}
 
 }

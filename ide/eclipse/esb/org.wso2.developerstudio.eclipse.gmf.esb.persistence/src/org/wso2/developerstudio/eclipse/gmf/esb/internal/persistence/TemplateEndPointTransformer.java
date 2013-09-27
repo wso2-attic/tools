@@ -39,16 +39,8 @@ public class TemplateEndPointTransformer extends AbstractEndpointTransformer{
             // Check subject.
             Assert.isTrue(subject instanceof TemplateEndpoint, "Invalid subject");
             TemplateEndpoint visualEndPoint = (TemplateEndpoint) subject;
- 
-            SendMediator sendMediator = getSendMediator(info);
-            
-            if(visualEndPoint.isInLine()){
-                    info.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
-            }else{
-                    if(sendMediator !=null){
-                            sendMediator.setEndpoint(create(visualEndPoint,null));
-                    }
-            }
+            Endpoint synapseEP = create(visualEndPoint,null);
+        	setEndpointToSendCallOrProxy(info, visualEndPoint, synapseEP);
  
             if (!info.isEndPointFound) {
                         info.isEndPointFound = true;
@@ -127,16 +119,9 @@ public class TemplateEndPointTransformer extends AbstractEndpointTransformer{
                         EsbNode subject, SequenceMediator sequence) throws Exception {
  
                 Assert.isTrue(subject instanceof TemplateEndpoint, "Invalid subject");
-                TemplateEndpoint visualEndPoint = (TemplateEndpoint) subject;
- 
-                SendMediator sendMediator = null;
-                if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {
-                        sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
-                } else {
-                        sendMediator = new SendMediator();
-                        sequence.addChild(sendMediator);
-                }
-                sendMediator.setEndpoint(create(visualEndPoint,null));
+                TemplateEndpoint visualEndPoint = (TemplateEndpoint) subject;                
+                Endpoint synapseEP = create(visualEndPoint,null);
+            	setEndpointToSendOrCallMediator(sequence, synapseEP);
  
         }
  

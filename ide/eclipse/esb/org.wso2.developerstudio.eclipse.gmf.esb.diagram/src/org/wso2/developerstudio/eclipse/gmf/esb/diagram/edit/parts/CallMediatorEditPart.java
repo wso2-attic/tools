@@ -10,8 +10,10 @@ import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
@@ -80,11 +82,11 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 
-		FlowLayoutEditPolicy lep = new FlowLayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
 				View childView = (View) child.getModel();
@@ -93,14 +95,14 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 				case CallMediatorOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				return super.createChildEditPolicy(child);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
+				}
+				return result;
 			}
 
-			protected Command createAddCommand(EditPart child, EditPart after) {
-				return null;
-			}
-
-			protected Command createMoveChildCommand(EditPart child, EditPart after) {
+			protected Command getMoveChildrenCommand(Request request) {
 				return null;
 			}
 
@@ -108,6 +110,7 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 				return null;
 			}
 		};
+		
 		return lep;
 	}
 
@@ -137,7 +140,7 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
-		if (childEditPart instanceof SendMediatorInputConnectorEditPart) {
+		if (childEditPart instanceof CallMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((CallMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();

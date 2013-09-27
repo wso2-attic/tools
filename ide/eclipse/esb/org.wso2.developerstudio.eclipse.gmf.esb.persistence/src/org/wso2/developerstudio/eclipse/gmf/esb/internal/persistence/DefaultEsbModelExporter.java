@@ -221,7 +221,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			return transformer.create(new TransformationInfo(),(LoadBalanceEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName(),null);
 		} else if (((EndpointDiagram) visualEndpoint).getChild() instanceof RecipientListEndPoint) {
 			RecipientListEndPointTransformer transformer = new RecipientListEndPointTransformer();
-			return transformer.createRecipientListConf(new TransformationInfo(),
+			return transformer.create(new TransformationInfo(),
 					(RecipientListEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),
 					visualEndpoint.getName(), null);
 		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof TemplateEndpoint){

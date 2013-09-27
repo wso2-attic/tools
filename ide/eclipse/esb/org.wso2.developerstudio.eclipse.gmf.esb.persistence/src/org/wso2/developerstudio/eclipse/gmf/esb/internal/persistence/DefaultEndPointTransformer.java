@@ -46,17 +46,9 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof EndPoint, "Invalid subject");
 		DefaultEndPoint visualEP = (DefaultEndPoint) subject;
-
-		// Send the message.
-		SendMediator sendMediator = getSendMediator(info);
+		DefaultEndpoint synapseEP = create(visualEP,null);
+		setEndpointToSendCallOrProxy(info, visualEP, synapseEP);
 		
-		if(visualEP.isInLine()){
-			info.getCurrentProxy().setTargetInLineEndpoint(create(visualEP,null));
-		}else{
-			if(sendMediator !=null){
-				sendMediator.setEndpoint(create(visualEP,null));
-			}
-		}
 		
 		if(!info.isEndPointFound){
 			info.isEndPointFound=true;
@@ -159,10 +151,8 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof DefaultEndPoint, "Invalid subject");
 		DefaultEndPoint visualEndPoint = (DefaultEndPoint) subject;
-		
-		SendMediator sendMediator = getSendMediator(sequence);		
-		sendMediator.setEndpoint(create(visualEndPoint,null));
-		
+		Endpoint synapseEP = create(visualEndPoint,null);
+		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 
 }
