@@ -105,9 +105,9 @@ public abstract class AbstractInputConnectorEditPart extends AbstractConnectorEd
 						}
 					}
 				} else if (target instanceof EditPart){
-					if (EditorUtils.hasCycle(source, target)) {
+/*					if (EditorUtils.hasCycle(source, target)) {
 						return UnexecutableCommand.INSTANCE;
-					}
+					}*/
 					/* please improve EditorUtils.isConnectableTarget */
 					if(!EditorUtils.isConnectableTarget(source, target)){
 						return UnexecutableCommand.INSTANCE;
