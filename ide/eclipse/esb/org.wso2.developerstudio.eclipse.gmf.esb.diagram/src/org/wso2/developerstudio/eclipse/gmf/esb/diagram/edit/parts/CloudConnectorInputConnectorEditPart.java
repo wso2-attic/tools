@@ -281,6 +281,8 @@ public class CloudConnectorInputConnectorEditPart extends AbstractBorderItemEdit
 			types.add(EsbElementTypes.CloudConnectorOperationOutputConnector_3724);
 			types.add(EsbElementTypes.LoopBackMediatorOutputConnector_3738);
 			types.add(EsbElementTypes.RespondMediatorOutputConnector_3741);
+			types.add(EsbElementTypes.CallMediatorOutputConnector_3744);
+			types.add(EsbElementTypes.CallMediatorEndpointOutputConnector_3745);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 			types.add(EsbElementTypes.SequencesOutputConnector_3617);

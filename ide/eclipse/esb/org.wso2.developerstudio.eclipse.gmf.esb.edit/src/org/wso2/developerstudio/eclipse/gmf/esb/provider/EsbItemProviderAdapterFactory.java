@@ -146,6 +146,98 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CallMediatorItemProvider callMediatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCallMediatorAdapter() {
+		if (callMediatorItemProvider == null) {
+			callMediatorItemProvider = new CallMediatorItemProvider(this);
+		}
+
+		return callMediatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CallMediatorInputConnectorItemProvider callMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCallMediatorInputConnectorAdapter() {
+		if (callMediatorInputConnectorItemProvider == null) {
+			callMediatorInputConnectorItemProvider = new CallMediatorInputConnectorItemProvider(this);
+		}
+
+		return callMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CallMediatorOutputConnectorItemProvider callMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCallMediatorOutputConnectorAdapter() {
+		if (callMediatorOutputConnectorItemProvider == null) {
+			callMediatorOutputConnectorItemProvider = new CallMediatorOutputConnectorItemProvider(this);
+		}
+
+		return callMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorEndpointOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CallMediatorEndpointOutputConnectorItemProvider callMediatorEndpointOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorEndpointOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCallMediatorEndpointOutputConnectorAdapter() {
+		if (callMediatorEndpointOutputConnectorItemProvider == null) {
+			callMediatorEndpointOutputConnectorItemProvider = new CallMediatorEndpointOutputConnectorItemProvider(this);
+		}
+
+		return callMediatorEndpointOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7464,6 +7556,10 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (esbDiagramItemProvider != null) esbDiagramItemProvider.dispose();
 		if (esbServerItemProvider != null) esbServerItemProvider.dispose();
 		if (esbLinkItemProvider != null) esbLinkItemProvider.dispose();
+		if (callMediatorItemProvider != null) callMediatorItemProvider.dispose();
+		if (callMediatorInputConnectorItemProvider != null) callMediatorInputConnectorItemProvider.dispose();
+		if (callMediatorOutputConnectorItemProvider != null) callMediatorOutputConnectorItemProvider.dispose();
+		if (callMediatorEndpointOutputConnectorItemProvider != null) callMediatorEndpointOutputConnectorItemProvider.dispose();
 		if (endPointPropertyItemProvider != null) endPointPropertyItemProvider.dispose();
 		if (proxyServiceItemProvider != null) proxyServiceItemProvider.dispose();
 		if (proxyOutputConnectorItemProvider != null) proxyOutputConnectorItemProvider.dispose();

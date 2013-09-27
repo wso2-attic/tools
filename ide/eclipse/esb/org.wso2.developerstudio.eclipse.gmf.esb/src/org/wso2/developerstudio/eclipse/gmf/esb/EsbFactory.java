@@ -53,6 +53,42 @@ public interface EsbFactory extends EFactory {
 	EsbLink createEsbLink();
 
 	/**
+	 * Returns a new object of class '<em>Call Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Mediator</em>'.
+	 * @generated
+	 */
+	CallMediator createCallMediator();
+
+	/**
+	 * Returns a new object of class '<em>Call Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	CallMediatorInputConnector createCallMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Call Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	CallMediatorOutputConnector createCallMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Call Mediator Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Call Mediator Endpoint Output Connector</em>'.
+	 * @generated
+	 */
+	CallMediatorEndpointOutputConnector createCallMediatorEndpointOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>End Point Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

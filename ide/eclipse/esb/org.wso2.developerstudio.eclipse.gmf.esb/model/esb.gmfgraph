@@ -2179,6 +2179,28 @@
           accessor="getFigureRespondMediatorDescriptionFigure"
           figure="//@figures.0/@descriptors.104/@actualFigure/@children.1"/>
     </descriptors>
+    <descriptors
+        name="CallMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="CallMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CallMediatorDescriptionFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureCallMediatorDescriptionFigure"
+          figure="//@figures.0/@descriptors.105/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -3100,6 +3122,20 @@
       name="RespondMediatorOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="CallMediator"
+      figure="CallMediatorFigure"/>
+  <nodes
+      name="CallMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="CallMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="CallMediatorEndpointOutputConnector"
+      figure="EastPointerFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
@@ -3545,4 +3581,9 @@
       figure="RespondMediatorFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.104/@accessors.0"/>
+  <labels
+      name="CallMediatorDescription"
+      figure="CallMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.105/@accessors.0"/>
 </gmfgraph:Canvas>

@@ -350,6 +350,11 @@ public class SequenceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.SEQUENCE__INCLUDED_MEDIATORS,
+				 EsbFactory.eINSTANCE.createCallMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SEQUENCE__INCLUDED_MEDIATORS,
 				 EsbFactory.eINSTANCE.createDropMediator()));
 
 		newChildDescriptors.add

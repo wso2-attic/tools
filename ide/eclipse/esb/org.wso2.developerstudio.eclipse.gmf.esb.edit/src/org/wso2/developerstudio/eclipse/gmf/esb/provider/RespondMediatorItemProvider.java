@@ -68,13 +68,10 @@ public class RespondMediatorItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors != null) {
-			itemPropertyDescriptors.clear();
+		if (itemPropertyDescriptors == null) {
+			super.getPropertyDescriptors(object);
+
 		}
-		super.getPropertyDescriptors(object);
-		
-		addDescriptionPropertyDescriptor(object);
-		
 		return itemPropertyDescriptors;
 	}
 

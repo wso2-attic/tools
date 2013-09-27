@@ -152,6 +152,7 @@ public class EsbPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Mediators2Group_title);
 		paletteContainer.setId("createMediators2Group"); //$NON-NLS-1$	
 
+		paletteContainer.add(createCallMediator45CreationTool());
 		paletteContainer.add(createCallTemplateMediator33CreationTool());
 		paletteContainer.add(createDropMediator1CreationTool());
 		paletteContainer.add(createLogMediator3CreationTool());
@@ -930,6 +931,19 @@ public class EsbPaletteFactory {
 				Collections.singletonList(EsbElementTypes.RespondMediator_3739));
 		entry.setId("createRespondMediator44CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.RespondMediator_3739));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createCallMediator45CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(Messages.CallMediator45CreationTool_title,
+				Messages.CallMediator45CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.CallMediator_3742));
+		entry.setId("createCallMediator45CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.CallMediator_3742));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -946,6 +946,31 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType CallMediator_3742 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CallMediator_3742"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CallMediatorInputConnector_3743 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CallMediatorInputConnector_3743"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CallMediatorOutputConnector_3744 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CallMediatorOutputConnector_3744"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CallMediatorEndpointOutputConnector_3745 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.CallMediatorEndpointOutputConnector_3745"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MediatorFlow_3746 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3746"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType SwitchDefaultParentContainer_3734 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultParentContainer_3734"); //$NON-NLS-1$
 
 	/**
@@ -2200,6 +2225,19 @@ public class EsbElementTypes {
 			elements.put(RespondMediatorOutputConnector_3741,
 					EsbPackage.eINSTANCE.getRespondMediatorOutputConnector());
 
+			elements.put(CallMediator_3742, EsbPackage.eINSTANCE.getCallMediator());
+
+			elements.put(CallMediatorInputConnector_3743,
+					EsbPackage.eINSTANCE.getCallMediatorInputConnector());
+
+			elements.put(CallMediatorOutputConnector_3744,
+					EsbPackage.eINSTANCE.getCallMediatorOutputConnector());
+
+			elements.put(CallMediatorEndpointOutputConnector_3745,
+					EsbPackage.eINSTANCE.getCallMediatorEndpointOutputConnector());
+
+			elements.put(MediatorFlow_3746, EsbPackage.eINSTANCE.getMediatorFlow());
+
 			elements.put(SwitchDefaultParentContainer_3734,
 					EsbPackage.eINSTANCE.getSwitchDefaultParentContainer());
 
@@ -2612,6 +2650,11 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(RespondMediator_3739);
 			KNOWN_ELEMENT_TYPES.add(RespondMediatorInputConnector_3740);
 			KNOWN_ELEMENT_TYPES.add(RespondMediatorOutputConnector_3741);
+			KNOWN_ELEMENT_TYPES.add(CallMediator_3742);
+			KNOWN_ELEMENT_TYPES.add(CallMediatorInputConnector_3743);
+			KNOWN_ELEMENT_TYPES.add(CallMediatorOutputConnector_3744);
+			KNOWN_ELEMENT_TYPES.add(CallMediatorEndpointOutputConnector_3745);
+			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3746);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultParentContainer_3734);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3735);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
@@ -3136,6 +3179,16 @@ public class EsbElementTypes {
 			return RespondMediatorInputConnector_3740;
 		case RespondMediatorOutputConnectorEditPart.VISUAL_ID:
 			return RespondMediatorOutputConnector_3741;
+		case CallMediatorEditPart.VISUAL_ID:
+			return CallMediator_3742;
+		case CallMediatorInputConnectorEditPart.VISUAL_ID:
+			return CallMediatorInputConnector_3743;
+		case CallMediatorOutputConnectorEditPart.VISUAL_ID:
+			return CallMediatorOutputConnector_3744;
+		case CallMediatorEndpointOutputConnectorEditPart.VISUAL_ID:
+			return CallMediatorEndpointOutputConnector_3745;
+		case MediatorFlow20EditPart.VISUAL_ID:
+			return MediatorFlow_3746;
 		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 			return SwitchDefaultParentContainer_3734;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:

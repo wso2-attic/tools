@@ -21,6 +21,12 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MESSAGE_STORE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MESSAGE_PROCESSOR"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CallMediatorEndpointType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/INLINE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/REGISRTYKEY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/XPATH"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EndPointPropertyScope">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointPropertyScope/SYNAPSE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointPropertyScope/TRANSPORT"/>
@@ -565,6 +571,20 @@
           ecoreFeature="ecore:EReference esb.ecore#//EndPoint/properties"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/reversed"/>
     </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CallMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallMediator/outputConnector"/>
+      <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//CallMediator/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallMediator/endpointOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallMediator/mediatorFlow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CallMediator/endpointType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallMediator/endpointRegistrykey"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallMediator/endpointXpath"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CallMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//CallMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//CallMediatorEndpointOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//EndPointProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPointProperty/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPointProperty/value"/>

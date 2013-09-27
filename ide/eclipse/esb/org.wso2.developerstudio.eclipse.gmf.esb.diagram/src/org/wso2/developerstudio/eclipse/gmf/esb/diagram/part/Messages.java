@@ -773,6 +773,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String CallMediator45CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CallMediator45CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DefaultEndPoint1CreationTool_title;
 
 	/**
@@ -973,6 +983,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String MediatorFlowMediatorFlowCompartment20EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String MediatorFlowMediatorFlowCompartment4EditPart_title;
 
 	/**
@@ -1038,6 +1053,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_CallMediatorEndpointOutputConnector_3745_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_FailoverEndPointInputConnector_3088_incominglinks;
 
 	/**
@@ -1054,6 +1074,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_IterateMediatorTargetOutputConnector_3606_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CallMediatorInputConnector_3743_incominglinks;
 
 	/**
 	 * @generated
@@ -1654,6 +1679,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_StoreMediatorInputConnector_3589_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CallMediatorOutputConnector_3744_outgoinglinks;
 
 	/**
 	 * @generated

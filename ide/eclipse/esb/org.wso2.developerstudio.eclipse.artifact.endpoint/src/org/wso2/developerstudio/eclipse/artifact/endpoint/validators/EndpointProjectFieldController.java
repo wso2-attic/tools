@@ -100,9 +100,11 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		} else if (modelProperty.equals("templ.http.ep.uritemplate") && isHttpEP) {	
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("URI Template cannot be empty");
-			} else{
-				CommonFieldValidator.isValidUrl(value.toString().trim(), "URI Template");
-			}
+			} 
+			//Identified as irrelevant
+			//else{
+			//	CommonFieldValidator.isValidUrl(value.toString().trim(), "URI Template");
+			//}
 		} else if (modelProperty.equals("templ.wsdl.ep.uri") && isWSDlEP) {	
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("WSDL url cannot be empty");

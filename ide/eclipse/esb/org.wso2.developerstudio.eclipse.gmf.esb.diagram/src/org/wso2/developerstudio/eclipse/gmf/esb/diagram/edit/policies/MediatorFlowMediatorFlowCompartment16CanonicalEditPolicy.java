@@ -29,6 +29,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BAMMediatorEd
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BeanMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BuilderMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CallMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CallTemplateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorEditPart;
@@ -193,6 +194,7 @@ public class MediatorFlowMediatorFlowCompartment16CanonicalEditPolicy extends Ca
 		case CloudConnectorOperationEditPart.VISUAL_ID:
 		case LoopBackMediatorEditPart.VISUAL_ID:
 		case RespondMediatorEditPart.VISUAL_ID:
+		case CallMediatorEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

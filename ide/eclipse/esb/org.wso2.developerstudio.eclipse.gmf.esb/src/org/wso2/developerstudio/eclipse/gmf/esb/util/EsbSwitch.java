@@ -147,6 +147,39 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.CALL_MEDIATOR: {
+				CallMediator callMediator = (CallMediator)theEObject;
+				T result = caseCallMediator(callMediator);
+				if (result == null) result = caseMediator(callMediator);
+				if (result == null) result = caseEsbElement(callMediator);
+				if (result == null) result = caseEsbNode(callMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CALL_MEDIATOR_INPUT_CONNECTOR: {
+				CallMediatorInputConnector callMediatorInputConnector = (CallMediatorInputConnector)theEObject;
+				T result = caseCallMediatorInputConnector(callMediatorInputConnector);
+				if (result == null) result = caseInputConnector(callMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(callMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CALL_MEDIATOR_OUTPUT_CONNECTOR: {
+				CallMediatorOutputConnector callMediatorOutputConnector = (CallMediatorOutputConnector)theEObject;
+				T result = caseCallMediatorOutputConnector(callMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(callMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(callMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CALL_MEDIATOR_ENDPOINT_OUTPUT_CONNECTOR: {
+				CallMediatorEndpointOutputConnector callMediatorEndpointOutputConnector = (CallMediatorEndpointOutputConnector)theEObject;
+				T result = caseCallMediatorEndpointOutputConnector(callMediatorEndpointOutputConnector);
+				if (result == null) result = caseOutputConnector(callMediatorEndpointOutputConnector);
+				if (result == null) result = caseEsbConnector(callMediatorEndpointOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.END_POINT_PROPERTY: {
 				EndPointProperty endPointProperty = (EndPointProperty)theEObject;
 				T result = caseEndPointProperty(endPointProperty);
@@ -2800,6 +2833,66 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEndPoint(EndPoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallMediator(CallMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallMediatorInputConnector(CallMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallMediatorOutputConnector(CallMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Call Mediator Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Call Mediator Endpoint Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCallMediatorEndpointOutputConnector(CallMediatorEndpointOutputConnector object) {
 		return null;
 	}
 

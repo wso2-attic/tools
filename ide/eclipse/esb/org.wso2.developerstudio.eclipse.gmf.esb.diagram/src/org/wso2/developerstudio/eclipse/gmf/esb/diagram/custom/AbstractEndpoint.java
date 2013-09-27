@@ -38,6 +38,7 @@ import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HighlightOnSelectionEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment19EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment20EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 
@@ -212,6 +213,8 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart implem
 			((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).connectNormally(this);
 		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment19EditPart){
 			((MediatorFlowMediatorFlowCompartment19EditPart)this.getParent()).connectNormally(this);
+		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment20EditPart){
+			((MediatorFlowMediatorFlowCompartment20EditPart)this.getParent()).connectNormally(this);
 		}
 	}
 

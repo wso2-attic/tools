@@ -77,6 +77,33 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="reversed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//CallMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//CallMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpoint" upperBound="-1"
+        eType="#//EndPoint"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointOutputConnector"
+        eType="#//CallMediatorEndpointOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpointType" eType="#//CallMediatorEndpointType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointRegistrykey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointXpath" eType="#//NamespacedProperty"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CallMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CallMediatorEndpointOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="CallMediatorEndpointType">
+    <eLiterals name="NONE"/>
+    <eLiterals name="INLINE" value="1"/>
+    <eLiterals name="REGISRTYKEY" value="2"/>
+    <eLiterals name="XPATH" value="3"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EndPointPropertyScope">
     <eLiterals name="SYNAPSE" literal="default"/>
     <eLiterals name="TRANSPORT" value="1" literal="transport"/>

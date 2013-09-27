@@ -117,6 +117,22 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createEndPointAdapter();
 			}
 			@Override
+			public Adapter caseCallMediator(CallMediator object) {
+				return createCallMediatorAdapter();
+			}
+			@Override
+			public Adapter caseCallMediatorInputConnector(CallMediatorInputConnector object) {
+				return createCallMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseCallMediatorOutputConnector(CallMediatorOutputConnector object) {
+				return createCallMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseCallMediatorEndpointOutputConnector(CallMediatorEndpointOutputConnector object) {
+				return createCallMediatorEndpointOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseEndPointProperty(EndPointProperty object) {
 				return createEndPointPropertyAdapter();
 			}
@@ -1544,6 +1560,62 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEndPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediator <em>Call Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallMediator
+	 * @generated
+	 */
+	public Adapter createCallMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorInputConnector <em>Call Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createCallMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorOutputConnector <em>Call Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createCallMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorEndpointOutputConnector <em>Call Mediator Endpoint Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorEndpointOutputConnector
+	 * @generated
+	 */
+	public Adapter createCallMediatorEndpointOutputConnectorAdapter() {
 		return null;
 	}
 

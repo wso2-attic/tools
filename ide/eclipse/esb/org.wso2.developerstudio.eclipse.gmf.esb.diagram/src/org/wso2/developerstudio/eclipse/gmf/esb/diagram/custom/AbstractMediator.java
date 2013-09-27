@@ -60,6 +60,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOu
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CallMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
@@ -661,6 +662,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		if ((this instanceof AggregateMediatorEditPart) || (this instanceof SwitchMediatorEditPart)
 				|| (this instanceof FilterMediatorEditPart)
 				|| (this instanceof SendMediatorEditPart)
+				|| (this instanceof CallMediatorEditPart)
 				|| (this instanceof ThrottleMediatorEditPart)
 				|| (this instanceof CacheMediatorEditPart)
 				|| (this instanceof CloneMediatorEditPart)

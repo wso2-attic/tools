@@ -6,23 +6,14 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.wso2.developerstudio.eclipse.gmf.esb.*;
 
 /**
@@ -74,6 +65,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.ESB_DIAGRAM: return createEsbDiagram();
 			case EsbPackage.ESB_SERVER: return createEsbServer();
 			case EsbPackage.ESB_LINK: return createEsbLink();
+			case EsbPackage.CALL_MEDIATOR: return createCallMediator();
+			case EsbPackage.CALL_MEDIATOR_INPUT_CONNECTOR: return createCallMediatorInputConnector();
+			case EsbPackage.CALL_MEDIATOR_OUTPUT_CONNECTOR: return createCallMediatorOutputConnector();
+			case EsbPackage.CALL_MEDIATOR_ENDPOINT_OUTPUT_CONNECTOR: return createCallMediatorEndpointOutputConnector();
 			case EsbPackage.END_POINT_PROPERTY: return createEndPointProperty();
 			case EsbPackage.PROXY_SERVICE: return createProxyService();
 			case EsbPackage.PROXY_OUTPUT_CONNECTOR: return createProxyOutputConnector();
@@ -398,6 +393,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.ARTIFACT_TYPE:
 				return createArtifactTypeFromString(eDataType, initialValue);
+			case EsbPackage.CALL_MEDIATOR_ENDPOINT_TYPE:
+				return createCallMediatorEndpointTypeFromString(eDataType, initialValue);
 			case EsbPackage.END_POINT_PROPERTY_SCOPE:
 				return createEndPointPropertyScopeFromString(eDataType, initialValue);
 			case EsbPackage.SEQUENCE_TYPE:
@@ -604,6 +601,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.ARTIFACT_TYPE:
 				return convertArtifactTypeToString(eDataType, instanceValue);
+			case EsbPackage.CALL_MEDIATOR_ENDPOINT_TYPE:
+				return convertCallMediatorEndpointTypeToString(eDataType, instanceValue);
 			case EsbPackage.END_POINT_PROPERTY_SCOPE:
 				return convertEndPointPropertyScopeToString(eDataType, instanceValue);
 			case EsbPackage.SEQUENCE_TYPE:
@@ -829,6 +828,50 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public EsbLink createEsbLink() {
 		EsbLinkImpl esbLink = new EsbLinkImpl();
 		return esbLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public CallMediator createCallMediator() {
+		CallMediatorImpl callMediator = new CallMediatorImpl();
+		callMediator.setInputConnector(createCallMediatorInputConnector());
+		callMediator.setOutputConnector(createCallMediatorOutputConnector());
+		callMediator.setEndpointOutputConnector(createCallMediatorEndpointOutputConnector());
+		callMediator.setMediatorFlow(createMediatorFlow());
+		return callMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallMediatorInputConnector createCallMediatorInputConnector() {
+		CallMediatorInputConnectorImpl callMediatorInputConnector = new CallMediatorInputConnectorImpl();
+		return callMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallMediatorOutputConnector createCallMediatorOutputConnector() {
+		CallMediatorOutputConnectorImpl callMediatorOutputConnector = new CallMediatorOutputConnectorImpl();
+		return callMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallMediatorEndpointOutputConnector createCallMediatorEndpointOutputConnector() {
+		CallMediatorEndpointOutputConnectorImpl callMediatorEndpointOutputConnector = new CallMediatorEndpointOutputConnectorImpl();
+		return callMediatorEndpointOutputConnector;
 	}
 
 	/**
@@ -2509,6 +2552,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallMediatorEndpointType createCallMediatorEndpointTypeFromString(EDataType eDataType, String initialValue) {
+		CallMediatorEndpointType result = CallMediatorEndpointType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCallMediatorEndpointTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

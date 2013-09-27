@@ -36,6 +36,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EndpoinMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment19EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
@@ -170,9 +171,10 @@ public class FeedbackIndicateDragDropEditPolicy extends DragDropEditPolicy {
 				while(types.hasNext()){
 					Object object = types.next();					
 
-					if (!(getHost() instanceof MediatorFlowMediatorFlowCompartment19EditPart)) {	
+					//MediatorFlowMediatorFlowCompartment19EditPart
+					if (!(getHost() instanceof EndpoinMediatorFlowCompartmentEditPart  )) { 
 						/*
-						 * Allowing endpoints only in Send mediator compartment.
+						 * Allowing endpoints only in Send/Call mediator compartment.
 						 */
 						if(endPointTypes.contains(object)){
 							return UnexecutableCommand.INSTANCE;

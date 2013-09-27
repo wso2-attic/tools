@@ -920,6 +920,21 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case RespondMediatorOutputConnectorEditPart.VISUAL_ID:
 				return new RespondMediatorOutputConnectorEditPart(view);
 
+			case CallMediatorEditPart.VISUAL_ID:
+				return new CallMediatorEditPart(view);
+
+			case CallMediatorInputConnectorEditPart.VISUAL_ID:
+				return new CallMediatorInputConnectorEditPart(view);
+
+			case CallMediatorOutputConnectorEditPart.VISUAL_ID:
+				return new CallMediatorOutputConnectorEditPart(view);
+
+			case CallMediatorEndpointOutputConnectorEditPart.VISUAL_ID:
+				return new CallMediatorEndpointOutputConnectorEditPart(view);
+
+			case MediatorFlow20EditPart.VISUAL_ID:
+				return new MediatorFlow20EditPart(view);
+
 			case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultParentContainerEditPart(view);
 
@@ -1174,6 +1189,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case MediatorFlowMediatorFlowCompartment16EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment16EditPart(view);
+
+			case MediatorFlowMediatorFlowCompartment20EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment20EditPart(view);
 
 			case MediatorFlowMediatorFlowCompartment4EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment4EditPart(view);

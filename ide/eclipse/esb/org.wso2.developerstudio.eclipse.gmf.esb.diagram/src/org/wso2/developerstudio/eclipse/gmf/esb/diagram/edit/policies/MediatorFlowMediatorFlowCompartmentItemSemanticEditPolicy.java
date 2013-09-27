@@ -10,6 +10,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BAMMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BeanMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BuilderMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CacheMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CallMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CallTemplateMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CalloutMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ClassMediatorCreateCommand;
@@ -252,6 +253,9 @@ public class MediatorFlowMediatorFlowCompartmentItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.RespondMediator_3739 == req.getElementType()) {
 			return getGEFWrapper(new RespondMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.CallMediator_3742 == req.getElementType()) {
+			return getGEFWrapper(new CallMediatorCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

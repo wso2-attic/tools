@@ -71,6 +71,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorEndpointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorEndpointType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorOutputConnector;
@@ -541,6 +546,34 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass endPointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass callMediatorEndpointOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1661,6 +1694,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum artifactTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum callMediatorEndpointTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3732,6 +3772,114 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getEndPoint_Reversed() {
 		return (EAttribute)endPointEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCallMediator() {
+		return callMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallMediator_InputConnector() {
+		return (EReference)callMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallMediator_OutputConnector() {
+		return (EReference)callMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallMediator_Endpoint() {
+		return (EReference)callMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallMediator_EndpointOutputConnector() {
+		return (EReference)callMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallMediator_MediatorFlow() {
+		return (EReference)callMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallMediator_EndpointType() {
+		return (EAttribute)callMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallMediator_EndpointRegistrykey() {
+		return (EReference)callMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCallMediator_EndpointXpath() {
+		return (EReference)callMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCallMediatorInputConnector() {
+		return callMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCallMediatorOutputConnector() {
+		return callMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCallMediatorEndpointOutputConnector() {
+		return callMediatorEndpointOutputConnectorEClass;
 	}
 
 	/**
@@ -8556,6 +8704,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCallMediatorEndpointType() {
+		return callMediatorEndpointTypeEEnum;
 	}
 
 	/**
@@ -14593,6 +14750,22 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(endPointEClass, END_POINT__PROPERTIES);
 		createEAttribute(endPointEClass, END_POINT__REVERSED);
 
+		callMediatorEClass = createEClass(CALL_MEDIATOR);
+		createEReference(callMediatorEClass, CALL_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(callMediatorEClass, CALL_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(callMediatorEClass, CALL_MEDIATOR__ENDPOINT);
+		createEReference(callMediatorEClass, CALL_MEDIATOR__ENDPOINT_OUTPUT_CONNECTOR);
+		createEReference(callMediatorEClass, CALL_MEDIATOR__MEDIATOR_FLOW);
+		createEAttribute(callMediatorEClass, CALL_MEDIATOR__ENDPOINT_TYPE);
+		createEReference(callMediatorEClass, CALL_MEDIATOR__ENDPOINT_REGISTRYKEY);
+		createEReference(callMediatorEClass, CALL_MEDIATOR__ENDPOINT_XPATH);
+
+		callMediatorInputConnectorEClass = createEClass(CALL_MEDIATOR_INPUT_CONNECTOR);
+
+		callMediatorOutputConnectorEClass = createEClass(CALL_MEDIATOR_OUTPUT_CONNECTOR);
+
+		callMediatorEndpointOutputConnectorEClass = createEClass(CALL_MEDIATOR_ENDPOINT_OUTPUT_CONNECTOR);
+
 		endPointPropertyEClass = createEClass(END_POINT_PROPERTY);
 		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__NAME);
 		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__VALUE);
@@ -16012,6 +16185,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
+		callMediatorEndpointTypeEEnum = createEEnum(CALL_MEDIATOR_ENDPOINT_TYPE);
 		endPointPropertyScopeEEnum = createEEnum(END_POINT_PROPERTY_SCOPE);
 		sequenceTypeEEnum = createEEnum(SEQUENCE_TYPE);
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
@@ -16148,6 +16322,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		outputConnectorEClass.getESuperTypes().add(this.getEsbConnector());
 		additionalOutputConnectorEClass.getESuperTypes().add(this.getEsbConnector());
 		endPointEClass.getESuperTypes().add(this.getEsbElement());
+		callMediatorEClass.getESuperTypes().add(this.getMediator());
+		callMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		callMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		callMediatorEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		proxyServiceEClass.getESuperTypes().add(this.getEsbElement());
 		proxyOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		proxyInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
@@ -16486,6 +16664,22 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEndPoint_Duplicate(), ecorePackage.getEBoolean(), "duplicate", null, 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEndPoint_Properties(), this.getEndPointProperty(), null, "properties", null, 0, -1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPoint_Reversed(), ecorePackage.getEBoolean(), "reversed", "false", 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(callMediatorEClass, CallMediator.class, "CallMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCallMediator_InputConnector(), this.getCallMediatorInputConnector(), null, "inputConnector", null, 0, 1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallMediator_OutputConnector(), this.getCallMediatorOutputConnector(), null, "outputConnector", null, 0, 1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallMediator_Endpoint(), this.getEndPoint(), null, "endpoint", null, 0, -1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallMediator_EndpointOutputConnector(), this.getCallMediatorEndpointOutputConnector(), null, "endpointOutputConnector", null, 0, 1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallMediator_EndpointType(), this.getCallMediatorEndpointType(), "endpointType", null, 0, 1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallMediator_EndpointRegistrykey(), this.getRegistryKeyProperty(), null, "endpointRegistrykey", null, 0, 1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallMediator_EndpointXpath(), this.getNamespacedProperty(), null, "endpointXpath", null, 0, 1, CallMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(callMediatorInputConnectorEClass, CallMediatorInputConnector.class, "CallMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(callMediatorOutputConnectorEClass, CallMediatorOutputConnector.class, "CallMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(callMediatorEndpointOutputConnectorEClass, CallMediatorEndpointOutputConnector.class, "CallMediatorEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(endPointPropertyEClass, EndPointProperty.class, "EndPointProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEndPointProperty_Name(), ecorePackage.getEString(), "name", null, 1, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -17928,6 +18122,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.COMPLEX_ENDPOINT);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.MESSAGE_STORE);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.MESSAGE_PROCESSOR);
+
+		initEEnum(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.class, "CallMediatorEndpointType");
+		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.NONE);
+		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.INLINE);
+		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.REGISRTYKEY);
+		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.XPATH);
 
 		initEEnum(endPointPropertyScopeEEnum, EndPointPropertyScope.class, "EndPointPropertyScope");
 		addEEnumLiteral(endPointPropertyScopeEEnum, EndPointPropertyScope.SYNAPSE);
