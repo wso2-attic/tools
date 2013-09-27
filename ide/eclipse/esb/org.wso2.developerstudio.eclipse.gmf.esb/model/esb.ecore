@@ -2421,6 +2421,10 @@
     <eLiterals name="MSG_SAMPLING" value="1" literal="MSG_SAMPLING"/>
     <eLiterals name="CUSTOM" value="2" literal="CUSTOM"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ProcessorState">
+    <eLiterals name="ACTIVATE" literal="Activate"/>
+    <eLiterals name="DEACTIVATE" value="1" literal="Deactivate"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageProcessorParameter" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -2431,9 +2435,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageProcessorProvider"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="messageStore" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="processorState" eType="#//ProcessorState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointName" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequence" eType="#//RegistryKeyProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="forwardingInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="1000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplingInterval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="1000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="samplingConcurrency" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxDeliveryAttempts" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis2ClientRepository"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

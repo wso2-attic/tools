@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessorParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessorType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
@@ -53,8 +54,13 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getProcessorType <em>Processor Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getMessageProcessorProvider <em>Message Processor Provider</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getMessageStore <em>Message Store</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getProcessorState <em>Processor State</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getEndpointName <em>Endpoint Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getSequence <em>Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getRetryInterval <em>Retry Interval</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getForwardingInterval <em>Forwarding Interval</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getSamplingInterval <em>Sampling Interval</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getSamplingConcurrency <em>Sampling Concurrency</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getMaxDeliveryAttempts <em>Max Delivery Attempts</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getAxis2ClientRepository <em>Axis2 Client Repository</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getAxis2Configuration <em>Axis2 Configuration</em>}</li>
@@ -151,6 +157,36 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 	protected String messageStore = MESSAGE_STORE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getProcessorState() <em>Processor State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessorState()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ProcessorState PROCESSOR_STATE_EDEFAULT = ProcessorState.ACTIVATE;
+
+	/**
+	 * The cached value of the '{@link #getProcessorState() <em>Processor State</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessorState()
+	 * @generated
+	 * @ordered
+	 */
+	protected ProcessorState processorState = PROCESSOR_STATE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointName()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty endpointName;
+
+	/**
 	 * The cached value of the '{@link #getSequence() <em>Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -179,6 +215,66 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 	 * @ordered
 	 */
 	protected long retryInterval = RETRY_INTERVAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getForwardingInterval() <em>Forwarding Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getForwardingInterval()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long FORWARDING_INTERVAL_EDEFAULT = 1000L;
+
+	/**
+	 * The cached value of the '{@link #getForwardingInterval() <em>Forwarding Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getForwardingInterval()
+	 * @generated
+	 * @ordered
+	 */
+	protected long forwardingInterval = FORWARDING_INTERVAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSamplingInterval() <em>Sampling Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSamplingInterval()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long SAMPLING_INTERVAL_EDEFAULT = 1000L;
+
+	/**
+	 * The cached value of the '{@link #getSamplingInterval() <em>Sampling Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSamplingInterval()
+	 * @generated
+	 * @ordered
+	 */
+	protected long samplingInterval = SAMPLING_INTERVAL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSamplingConcurrency() <em>Sampling Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSamplingConcurrency()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int SAMPLING_CONCURRENCY_EDEFAULT = 1;
+
+	/**
+	 * The cached value of the '{@link #getSamplingConcurrency() <em>Sampling Concurrency</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSamplingConcurrency()
+	 * @generated
+	 * @ordered
+	 */
+	protected int samplingConcurrency = SAMPLING_CONCURRENCY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMaxDeliveryAttempts() <em>Max Delivery Attempts</em>}' attribute.
@@ -363,6 +459,14 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 		faultSequence.setKeyName("key");
 		faultSequence.setKeyValue("");
 		setFaultSequenceName(faultSequence);
+		
+		RegistryKeyProperty endpointName = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>) sequence.getFilters(),
+				CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		endpointName.setPrettyName("Endpoint Name");
+		endpointName.setKeyName("key");
+		endpointName.setKeyValue("");
+		setEndpointName(endpointName);
 	}
 
 	/**
@@ -464,6 +568,70 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ProcessorState getProcessorState() {
+		return processorState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setProcessorState(ProcessorState newProcessorState) {
+		ProcessorState oldProcessorState = processorState;
+		processorState = newProcessorState == null ? PROCESSOR_STATE_EDEFAULT : newProcessorState;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_PROCESSOR__PROCESSOR_STATE, oldProcessorState, processorState));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getEndpointName() {
+		return endpointName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEndpointName(RegistryKeyProperty newEndpointName, NotificationChain msgs) {
+		RegistryKeyProperty oldEndpointName = endpointName;
+		endpointName = newEndpointName;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME, oldEndpointName, newEndpointName);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointName(RegistryKeyProperty newEndpointName) {
+		if (newEndpointName != endpointName) {
+			NotificationChain msgs = null;
+			if (endpointName != null)
+				msgs = ((InternalEObject)endpointName).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME, null, msgs);
+			if (newEndpointName != null)
+				msgs = ((InternalEObject)newEndpointName).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME, null, msgs);
+			msgs = basicSetEndpointName(newEndpointName, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME, newEndpointName, newEndpointName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RegistryKeyProperty getSequence() {
 		return sequence;
 	}
@@ -521,6 +689,69 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 		retryInterval = newRetryInterval;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_PROCESSOR__RETRY_INTERVAL, oldRetryInterval, retryInterval));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public long getForwardingInterval() {
+		return forwardingInterval;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setForwardingInterval(long newForwardingInterval) {
+		long oldForwardingInterval = forwardingInterval;
+		forwardingInterval = newForwardingInterval;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_PROCESSOR__FORWARDING_INTERVAL, oldForwardingInterval, forwardingInterval));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public long getSamplingInterval() {
+		return samplingInterval;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSamplingInterval(long newSamplingInterval) {
+		long oldSamplingInterval = samplingInterval;
+		samplingInterval = newSamplingInterval;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_PROCESSOR__SAMPLING_INTERVAL, oldSamplingInterval, samplingInterval));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getSamplingConcurrency() {
+		return samplingConcurrency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSamplingConcurrency(int newSamplingConcurrency) {
+		int oldSamplingConcurrency = samplingConcurrency;
+		samplingConcurrency = newSamplingConcurrency;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY, oldSamplingConcurrency, samplingConcurrency));
 	}
 
 	/**
@@ -755,6 +986,8 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME:
+				return basicSetEndpointName(null, msgs);
 			case EsbPackage.MESSAGE_PROCESSOR__SEQUENCE:
 				return basicSetSequence(null, msgs);
 			case EsbPackage.MESSAGE_PROCESSOR__REPLY_SEQUENCE_NAME:
@@ -783,10 +1016,20 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 				return getMessageProcessorProvider();
 			case EsbPackage.MESSAGE_PROCESSOR__MESSAGE_STORE:
 				return getMessageStore();
+			case EsbPackage.MESSAGE_PROCESSOR__PROCESSOR_STATE:
+				return getProcessorState();
+			case EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME:
+				return getEndpointName();
 			case EsbPackage.MESSAGE_PROCESSOR__SEQUENCE:
 				return getSequence();
 			case EsbPackage.MESSAGE_PROCESSOR__RETRY_INTERVAL:
 				return getRetryInterval();
+			case EsbPackage.MESSAGE_PROCESSOR__FORWARDING_INTERVAL:
+				return getForwardingInterval();
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_INTERVAL:
+				return getSamplingInterval();
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY:
+				return getSamplingConcurrency();
 			case EsbPackage.MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS:
 				return getMaxDeliveryAttempts();
 			case EsbPackage.MESSAGE_PROCESSOR__AXIS2_CLIENT_REPOSITORY:
@@ -830,11 +1073,26 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 			case EsbPackage.MESSAGE_PROCESSOR__MESSAGE_STORE:
 				setMessageStore((String)newValue);
 				return;
+			case EsbPackage.MESSAGE_PROCESSOR__PROCESSOR_STATE:
+				setProcessorState((ProcessorState)newValue);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME:
+				setEndpointName((RegistryKeyProperty)newValue);
+				return;
 			case EsbPackage.MESSAGE_PROCESSOR__SEQUENCE:
 				setSequence((RegistryKeyProperty)newValue);
 				return;
 			case EsbPackage.MESSAGE_PROCESSOR__RETRY_INTERVAL:
 				setRetryInterval((Long)newValue);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__FORWARDING_INTERVAL:
+				setForwardingInterval((Long)newValue);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_INTERVAL:
+				setSamplingInterval((Long)newValue);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY:
+				setSamplingConcurrency((Integer)newValue);
 				return;
 			case EsbPackage.MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS:
 				setMaxDeliveryAttempts((Integer)newValue);
@@ -888,11 +1146,26 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 			case EsbPackage.MESSAGE_PROCESSOR__MESSAGE_STORE:
 				setMessageStore(MESSAGE_STORE_EDEFAULT);
 				return;
+			case EsbPackage.MESSAGE_PROCESSOR__PROCESSOR_STATE:
+				setProcessorState(PROCESSOR_STATE_EDEFAULT);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME:
+				setEndpointName((RegistryKeyProperty)null);
+				return;
 			case EsbPackage.MESSAGE_PROCESSOR__SEQUENCE:
 				setSequence((RegistryKeyProperty)null);
 				return;
 			case EsbPackage.MESSAGE_PROCESSOR__RETRY_INTERVAL:
 				setRetryInterval(RETRY_INTERVAL_EDEFAULT);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__FORWARDING_INTERVAL:
+				setForwardingInterval(FORWARDING_INTERVAL_EDEFAULT);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_INTERVAL:
+				setSamplingInterval(SAMPLING_INTERVAL_EDEFAULT);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY:
+				setSamplingConcurrency(SAMPLING_CONCURRENCY_EDEFAULT);
 				return;
 			case EsbPackage.MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS:
 				setMaxDeliveryAttempts(MAX_DELIVERY_ATTEMPTS_EDEFAULT);
@@ -941,10 +1214,20 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 				return MESSAGE_PROCESSOR_PROVIDER_EDEFAULT == null ? messageProcessorProvider != null : !MESSAGE_PROCESSOR_PROVIDER_EDEFAULT.equals(messageProcessorProvider);
 			case EsbPackage.MESSAGE_PROCESSOR__MESSAGE_STORE:
 				return MESSAGE_STORE_EDEFAULT == null ? messageStore != null : !MESSAGE_STORE_EDEFAULT.equals(messageStore);
+			case EsbPackage.MESSAGE_PROCESSOR__PROCESSOR_STATE:
+				return processorState != PROCESSOR_STATE_EDEFAULT;
+			case EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME:
+				return endpointName != null;
 			case EsbPackage.MESSAGE_PROCESSOR__SEQUENCE:
 				return sequence != null;
 			case EsbPackage.MESSAGE_PROCESSOR__RETRY_INTERVAL:
 				return retryInterval != RETRY_INTERVAL_EDEFAULT;
+			case EsbPackage.MESSAGE_PROCESSOR__FORWARDING_INTERVAL:
+				return forwardingInterval != FORWARDING_INTERVAL_EDEFAULT;
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_INTERVAL:
+				return samplingInterval != SAMPLING_INTERVAL_EDEFAULT;
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY:
+				return samplingConcurrency != SAMPLING_CONCURRENCY_EDEFAULT;
 			case EsbPackage.MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS:
 				return maxDeliveryAttempts != MAX_DELIVERY_ATTEMPTS_EDEFAULT;
 			case EsbPackage.MESSAGE_PROCESSOR__AXIS2_CLIENT_REPOSITORY:
@@ -985,8 +1268,16 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 		result.append(messageProcessorProvider);
 		result.append(", messageStore: ");
 		result.append(messageStore);
+		result.append(", processorState: ");
+		result.append(processorState);
 		result.append(", retryInterval: ");
 		result.append(retryInterval);
+		result.append(", forwardingInterval: ");
+		result.append(forwardingInterval);
+		result.append(", samplingInterval: ");
+		result.append(samplingInterval);
+		result.append(", samplingConcurrency: ");
+		result.append(samplingConcurrency);
 		result.append(", maxDeliveryAttempts: ");
 		result.append(maxDeliveryAttempts);
 		result.append(", axis2ClientRepository: ");

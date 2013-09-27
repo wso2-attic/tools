@@ -18707,13 +18707,31 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int MESSAGE_PROCESSOR__MESSAGE_STORE = ESB_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Processor State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_PROCESSOR__PROCESSOR_STATE = ESB_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_PROCESSOR__ENDPOINT_NAME = ESB_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__SEQUENCE = ESB_ELEMENT_FEATURE_COUNT + 4;
+	int MESSAGE_PROCESSOR__SEQUENCE = ESB_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Retry Interval</b></em>' attribute.
@@ -18722,7 +18740,34 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__RETRY_INTERVAL = ESB_ELEMENT_FEATURE_COUNT + 5;
+	int MESSAGE_PROCESSOR__RETRY_INTERVAL = ESB_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Forwarding Interval</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_PROCESSOR__FORWARDING_INTERVAL = ESB_ELEMENT_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Sampling Interval</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_PROCESSOR__SAMPLING_INTERVAL = ESB_ELEMENT_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Sampling Concurrency</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY = ESB_ELEMENT_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Max Delivery Attempts</b></em>' attribute.
@@ -18731,7 +18776,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS = ESB_ELEMENT_FEATURE_COUNT + 6;
+	int MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS = ESB_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Axis2 Client Repository</b></em>' attribute.
@@ -18740,7 +18785,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__AXIS2_CLIENT_REPOSITORY = ESB_ELEMENT_FEATURE_COUNT + 7;
+	int MESSAGE_PROCESSOR__AXIS2_CLIENT_REPOSITORY = ESB_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Axis2 Configuration</b></em>' attribute.
@@ -18749,7 +18794,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__AXIS2_CONFIGURATION = ESB_ELEMENT_FEATURE_COUNT + 8;
+	int MESSAGE_PROCESSOR__AXIS2_CONFIGURATION = ESB_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Reply Sequence Name</b></em>' containment reference.
@@ -18758,7 +18803,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__REPLY_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 9;
+	int MESSAGE_PROCESSOR__REPLY_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Fault Sequence Name</b></em>' containment reference.
@@ -18767,7 +18812,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__FAULT_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 10;
+	int MESSAGE_PROCESSOR__FAULT_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Quartz Config File Path</b></em>' attribute.
@@ -18776,7 +18821,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__QUARTZ_CONFIG_FILE_PATH = ESB_ELEMENT_FEATURE_COUNT + 11;
+	int MESSAGE_PROCESSOR__QUARTZ_CONFIG_FILE_PATH = ESB_ELEMENT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Cron Expression</b></em>' attribute.
@@ -18785,7 +18830,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__CRON_EXPRESSION = ESB_ELEMENT_FEATURE_COUNT + 12;
+	int MESSAGE_PROCESSOR__CRON_EXPRESSION = ESB_ELEMENT_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Pinned Servers</b></em>' attribute.
@@ -18794,7 +18839,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__PINNED_SERVERS = ESB_ELEMENT_FEATURE_COUNT + 13;
+	int MESSAGE_PROCESSOR__PINNED_SERVERS = ESB_ELEMENT_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -18803,7 +18848,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR__PARAMETERS = ESB_ELEMENT_FEATURE_COUNT + 14;
+	int MESSAGE_PROCESSOR__PARAMETERS = ESB_ELEMENT_FEATURE_COUNT + 19;
 
 	/**
 	 * The number of structural features of the '<em>Message Processor</em>' class.
@@ -18812,7 +18857,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int MESSAGE_PROCESSOR_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 15;
+	int MESSAGE_PROCESSOR_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 20;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIHandlerImpl <em>API Handler</em>}' class.
@@ -20108,6 +20153,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int MESSAGE_PROCESSOR_TYPE = 424;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState <em>Processor State</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProcessorState()
+	 * @generated
+	 */
+	int PROCESSOR_STATE = 425;
+
+	/**
 	 * The meta object id for the '<em>Map</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20115,7 +20170,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 425;
+	int MAP = 426;
 
 
 	/**
@@ -25937,6 +25992,28 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getMessageProcessor_MessageStore();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getProcessorState <em>Processor State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Processor State</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getProcessorState()
+	 * @see #getMessageProcessor()
+	 * @generated
+	 */
+	EAttribute getMessageProcessor_ProcessorState();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getEndpointName <em>Endpoint Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Endpoint Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getEndpointName()
+	 * @see #getMessageProcessor()
+	 * @generated
+	 */
+	EReference getMessageProcessor_EndpointName();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getSequence <em>Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25957,6 +26034,39 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getMessageProcessor_RetryInterval();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getForwardingInterval <em>Forwarding Interval</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Forwarding Interval</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getForwardingInterval()
+	 * @see #getMessageProcessor()
+	 * @generated
+	 */
+	EAttribute getMessageProcessor_ForwardingInterval();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getSamplingInterval <em>Sampling Interval</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sampling Interval</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getSamplingInterval()
+	 * @see #getMessageProcessor()
+	 * @generated
+	 */
+	EAttribute getMessageProcessor_SamplingInterval();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getSamplingConcurrency <em>Sampling Concurrency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sampling Concurrency</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getSamplingConcurrency()
+	 * @see #getMessageProcessor()
+	 * @generated
+	 */
+	EAttribute getMessageProcessor_SamplingConcurrency();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getMaxDeliveryAttempts <em>Max Delivery Attempts</em>}'.
@@ -33334,6 +33444,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EEnum getMessageProcessorType();
 
 	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState <em>Processor State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Processor State</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState
+	 * @generated
+	 */
+	EEnum getProcessorState();
+
+	/**
 	 * Returns the meta object for data type '{@link java.util.Map <em>Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38051,6 +38171,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute MESSAGE_PROCESSOR__MESSAGE_STORE = eINSTANCE.getMessageProcessor_MessageStore();
 
 		/**
+		 * The meta object literal for the '<em><b>Processor State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_PROCESSOR__PROCESSOR_STATE = eINSTANCE.getMessageProcessor_ProcessorState();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MESSAGE_PROCESSOR__ENDPOINT_NAME = eINSTANCE.getMessageProcessor_EndpointName();
+
+		/**
 		 * The meta object literal for the '<em><b>Sequence</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -38065,6 +38201,30 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute MESSAGE_PROCESSOR__RETRY_INTERVAL = eINSTANCE.getMessageProcessor_RetryInterval();
+
+		/**
+		 * The meta object literal for the '<em><b>Forwarding Interval</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_PROCESSOR__FORWARDING_INTERVAL = eINSTANCE.getMessageProcessor_ForwardingInterval();
+
+		/**
+		 * The meta object literal for the '<em><b>Sampling Interval</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_PROCESSOR__SAMPLING_INTERVAL = eINSTANCE.getMessageProcessor_SamplingInterval();
+
+		/**
+		 * The meta object literal for the '<em><b>Sampling Concurrency</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY = eINSTANCE.getMessageProcessor_SamplingConcurrency();
 
 		/**
 		 * The meta object literal for the '<em><b>Max Delivery Attempts</b></em>' attribute feature.
@@ -44135,6 +44295,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EEnum MESSAGE_PROCESSOR_TYPE = eINSTANCE.getMessageProcessorType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState <em>Processor State</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProcessorState()
+		 * @generated
+		 */
+		EEnum PROCESSOR_STATE = eINSTANCE.getProcessorState();
 
 		/**
 		 * The meta object literal for the '<em>Map</em>' data type.

@@ -22,6 +22,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -32,6 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor;
 
@@ -75,12 +77,15 @@ public class MessageProcessorItemProvider
 		
 		super.getPropertyDescriptors(object);
 
-		addProcessorNamePropertyDescriptor(object);
 		addProcessorTypePropertyDescriptor(object);
+		addProcessorNamePropertyDescriptor(object);
 		addMessageStorePropertyDescriptor(object);
 		
 		switch (messageProcessor.getProcessorType()) {
 		case SCHEDULED_MSG_FORWARDING: {
+			addEndpointNamePropertyDescriptor(object);
+			addProcessorStatePropertyDescriptor(object);
+			addForwardingIntervalPropertyDescriptor(object);
 			addRetryIntervalPropertyDescriptor(object);
 			addMaxDeliveryAttemptsPropertyDescriptor(object);
 			addAxis2ClientRepositoryPropertyDescriptor(object);
@@ -93,8 +98,10 @@ public class MessageProcessorItemProvider
 			break;
 		}
 		case MSG_SAMPLING: {
+			addProcessorStatePropertyDescriptor(object);
 			addSequencePropertyDescriptor(object);
-			addRetryIntervalPropertyDescriptor(object);
+			addSamplingIntervalPropertyDescriptor(object);
+			addSamplingConcurrencyPropertyDescriptor(object);
 			addQuartzConfigFilePathPropertyDescriptor(object);
 			addCronExpressionPropertyDescriptor(object);
 			addPinnedServersPropertyDescriptor(object);
@@ -130,7 +137,7 @@ public class MessageProcessorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_basicPropertyCategory"),
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -152,7 +159,7 @@ public class MessageProcessorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_basicPropertyCategory"),
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -174,7 +181,7 @@ public class MessageProcessorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_basicPropertyCategory"),
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -196,7 +203,51 @@ public class MessageProcessorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 getString("_UI_basicPropertyCategory"),
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Processor State feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProcessorStatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageProcessor_processorState_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageProcessor_processorState_feature", "_UI_MessageProcessor_type"),
+				 EsbPackage.Literals.MESSAGE_PROCESSOR__PROCESSOR_STATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_AdditionalParametersPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Endpoint Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEndpointNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageProcessor_endpointName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageProcessor_endpointName_feature", "_UI_MessageProcessor_type"),
+				 EsbPackage.Literals.MESSAGE_PROCESSOR__ENDPOINT_NAME,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -218,7 +269,7 @@ public class MessageProcessorItemProvider
 				 false,
 				 true,
 				 null,
-				 getString("_UI_basicPropertyCategory"),
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -236,6 +287,72 @@ public class MessageProcessorItemProvider
 				 getString("_UI_MessageProcessor_retryInterval_feature"),
 				 getString("_UI_MessageProcessor_retryInterval_description"),
 				 EsbPackage.Literals.MESSAGE_PROCESSOR__RETRY_INTERVAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI_AdditionalParametersPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Forwarding Interval feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addForwardingIntervalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageProcessor_forwardingInterval_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageProcessor_forwardingInterval_feature", "_UI_MessageProcessor_type"),
+				 EsbPackage.Literals.MESSAGE_PROCESSOR__FORWARDING_INTERVAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI_AdditionalParametersPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Sampling Interval feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSamplingIntervalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageProcessor_samplingInterval_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageProcessor_samplingInterval_feature", "_UI_MessageProcessor_type"),
+				 EsbPackage.Literals.MESSAGE_PROCESSOR__SAMPLING_INTERVAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 getString("_UI_AdditionalParametersPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Sampling Concurrency feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSamplingConcurrencyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageProcessor_samplingConcurrency_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageProcessor_samplingConcurrency_feature", "_UI_MessageProcessor_type"),
+				 EsbPackage.Literals.MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY,
 				 true,
 				 false,
 				 false,
@@ -443,6 +560,36 @@ public class MessageProcessorItemProvider
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(EsbPackage.Literals.MESSAGE_PROCESSOR__ENDPOINT_NAME);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns MessageProcessor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -483,7 +630,11 @@ public class MessageProcessorItemProvider
 			case EsbPackage.MESSAGE_PROCESSOR__PROCESSOR_TYPE:
 			case EsbPackage.MESSAGE_PROCESSOR__MESSAGE_PROCESSOR_PROVIDER:
 			case EsbPackage.MESSAGE_PROCESSOR__MESSAGE_STORE:
+			case EsbPackage.MESSAGE_PROCESSOR__PROCESSOR_STATE:
 			case EsbPackage.MESSAGE_PROCESSOR__RETRY_INTERVAL:
+			case EsbPackage.MESSAGE_PROCESSOR__FORWARDING_INTERVAL:
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_INTERVAL:
+			case EsbPackage.MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY:
 			case EsbPackage.MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS:
 			case EsbPackage.MESSAGE_PROCESSOR__AXIS2_CLIENT_REPOSITORY:
 			case EsbPackage.MESSAGE_PROCESSOR__AXIS2_CONFIGURATION:
@@ -491,6 +642,9 @@ public class MessageProcessorItemProvider
 			case EsbPackage.MESSAGE_PROCESSOR__CRON_EXPRESSION:
 			case EsbPackage.MESSAGE_PROCESSOR__PINNED_SERVERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -506,6 +660,11 @@ public class MessageProcessorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.MESSAGE_PROCESSOR__ENDPOINT_NAME,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 	}
 
 }

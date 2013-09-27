@@ -48,22 +48,40 @@ public class MessageProcessorFieldController extends AbstractFieldController{
 			IResource resource = (IResource) value;
 			if (resource == null || !resource.exists())
 				throw new FieldValidationException("Specified project or path doesn't exist.");
-		}else if(modelProperty.equals("FS_processor.retry_interval")){
-			if(isScheduledMessage || isSamplingProcessor){
-				if(!StringUtils.isNumeric((String)value)){
-					throw new FieldValidationException("Message retry interval is not valid");		
-				}
-			}
-		}else if(modelProperty.equals("Forwarding_processor.delivery_attempts")){
+		}else if(modelProperty.equals("Forwarding_processor.retry_interval")){
 			if(isScheduledMessage){
 				if(!StringUtils.isNumeric((String)value)){
-					throw new FieldValidationException("Maximum delivery attempts is not valid");		
+					throw new FieldValidationException("Retry interval is not valid");		
+				}
+			}
+		}else if(modelProperty.equals("Forwarding_processor.forwarding_interval")){
+			if(isScheduledMessage){
+				if(!StringUtils.isNumeric((String)value)){
+					throw new FieldValidationException("Forwarding interval is not valid");		
+				}
+			}
+		}else if(modelProperty.equals("sampling_processor.sampling_interval")){
+			if(isSamplingProcessor){
+				if(!StringUtils.isNumeric((String)value)){
+					throw new FieldValidationException("Sampling interval is not valid");		
+				}
+			}
+		}else if(modelProperty.equals("sampling_processor.sampling_concurrency")){
+			if(isSamplingProcessor){
+				if(!StringUtils.isNumeric((String)value)){
+					throw new FieldValidationException("Sampling concurrency is not valid");		
 				}
 			}
 		}else if(modelProperty.equals("sampling_processor.sequence")){
 			if(isSamplingProcessor){
 				if(value == null || value.toString().trim().isEmpty()){
 					throw new FieldValidationException("Sequence cannot be empty");
+				}
+			}
+		}else if(modelProperty.equals("Forwarding_processor.endpoint_name")){
+			if(isScheduledMessage && !processModel.getMessageProcessorName().equals("")){
+				if(value == null || value.toString().trim().isEmpty()){
+					throw new FieldValidationException("Endpoint name cannot be empty");
 				}
 			}
 		}else if(modelProperty.equals("custom_processor.class_FQN")){
@@ -113,19 +131,24 @@ public class MessageProcessorFieldController extends AbstractFieldController{
 		List<String> updatedList = super.getUpdateFields(modelProperty, model);
 		
 		if (modelProperty.equals("processor.type")) {
-			updatedList.add("FS_processor.retry_interval");
 			updatedList.add("FS_processor.configuration_file_path");
 			updatedList.add("FS_processor.cron_expression");
 			updatedList.add("FS_processor.pinned_servers");
+			updatedList.add("FS_processor.processor_state");
 			updatedList.add("Forwarding_processor.delivery_attempts");
 			updatedList.add("Forwarding_processor.client_repository");
 			updatedList.add("Forwarding_processor.axis2_configuration");
+			updatedList.add("Forwarding_processor.endpoint_name");
 			updatedList.add("Forwarding_processor.Reply_sequence_name");
 			updatedList.add("Forwarding_processor.Fault_sequence_name");
+			updatedList.add("Forwarding_processor.forwarding_interval");
+			updatedList.add("Forwarding_processor.retry_interval");
+			updatedList.add("Forwarding_processor.Fault_reg");
 			updatedList.add("sampling_processor.sequence");
+			updatedList.add("sampling_processor.sampling_interval");
+			updatedList.add("sampling_processor.sampling_concurrency");
 			updatedList.add("custom_processor.class_FQN");
 			updatedList.add("custom_processor.parameters");
-			updatedList.add("Forwarding_processor.Fault_reg");
 		}else if(modelProperty.equals("create.esb.prj")){
 			updatedList.add("save.location");
 		}else if(modelProperty.equals("import.file")){

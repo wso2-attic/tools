@@ -60,6 +60,11 @@ public class MessageProcessorModel extends ProjectDataModel {
 	private String FaultSequenceName;
 	private String sequence;
 	private String classFQN;
+	private String endpointName;
+	private String processorState;
+	private int forwardingInterval;
+	private int samplingInterval;
+	private int samplingConcurrency;
 	private IContainer saveLocation;
 	private HashMap<String, String> customProcessorParameters = new HashMap<String, String>();
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
@@ -72,6 +77,9 @@ public class MessageProcessorModel extends ProjectDataModel {
 		messageProcessorType = "Scheduled Message Forwarding Processor";
 		retryInterval = "1000";
 		deliveryAttempts = "-1";
+		forwardingInterval = 1000;
+		samplingInterval = 1000;
+		samplingConcurrency = 1;
 	}
 
 	public String getMessageProcessorName() {
@@ -206,6 +214,50 @@ public class MessageProcessorModel extends ProjectDataModel {
 		this.availableProcessorlist = availableProcessorlist;
 	}
 
+	public String getEndpointName() {
+		return endpointName;
+	}
+
+	public void setEndpointName(String endpointName) {
+		this.endpointName = endpointName;
+	}
+
+	public String getProcessorState() {
+		return processorState;
+	}
+
+	public void setProcessorState(String processorState) {
+		this.processorState = processorState;
+	}
+
+	public int getForwardingInterval() {
+		return forwardingInterval;
+	}
+
+	public void setForwardingInterval(int forwardingInterval) {
+		this.forwardingInterval = forwardingInterval;
+	}
+
+	public int getSamplingInterval() {
+		return samplingInterval;
+	}
+
+	public void setSamplingInterval(int samplingInterval) {
+		this.samplingInterval = samplingInterval;
+	}
+
+	public int getSamplingConcurrency() {
+		return samplingConcurrency;
+	}
+
+	public void setSamplingConcurrency(int samplingConcurrency) {
+		this.samplingConcurrency = samplingConcurrency;
+	}
+
+	public void setCustomProcessorParameters(HashMap<String, String> customProcessorParameters) {
+		this.customProcessorParameters = customProcessorParameters;
+	}
+
 	public List<OMElement> getSelectedProcessorList() {
 		return selectedProcessorList;
 	}
@@ -225,7 +277,7 @@ public class MessageProcessorModel extends ProjectDataModel {
 				modelPropertyValue = getMessageProcessorType();
 			} else if (key.equals("processor.stroe")) {
 				modelPropertyValue = getMessageStore();
-			} else if (key.equals("FS_processor.retry_interval")) {
+			} else if (key.equals("Forwarding_processor.retry_interval")) {
 				modelPropertyValue = getRetryInterval();
 			} else if (key.equals("FS_processor.configuration_file_path")) {
 				modelPropertyValue = getConfigurationFilePath();
@@ -253,6 +305,16 @@ public class MessageProcessorModel extends ProjectDataModel {
 				if (selectedProcessorList != null) {
 					modelPropertyValue = selectedProcessorList.toArray();
 				}
+			} else if (key.equals("Forwarding_processor.endpoint_name")) {
+				modelPropertyValue = getEndpointName();
+			} else if (key.equals("Forwarding_processor.forwarding_interval")) {
+				modelPropertyValue = getForwardingInterval();
+			} else if (key.equals("FS_processor.processor_state")) {
+				modelPropertyValue = getProcessorState();
+			} else if (key.equals("sampling_processor.sampling_interval")) {
+				modelPropertyValue = getSamplingInterval();
+			} else if (key.equals("sampling_processor.sampling_concurrency")) {
+				modelPropertyValue = getSamplingConcurrency();
 			}
 		}
 
@@ -260,8 +322,7 @@ public class MessageProcessorModel extends ProjectDataModel {
 	}
 
 	@Override
-	public boolean setModelPropertyValue(String key, Object data)
-			throws ObserverFailedException {
+	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
 		boolean returnValue = super.setModelPropertyValue(key, data);
 
 		if (key.equals("processor.name")) {
@@ -270,7 +331,7 @@ public class MessageProcessorModel extends ProjectDataModel {
 			setMessageProcessorType(data.toString());
 		} else if (key.equals("processor.stroe")) {
 			setMessageStore(data.toString());
-		} else if (key.equals("FS_processor.retry_interval")) {
+		} else if (key.equals("Forwarding_processor.retry_interval")) {
 			setRetryInterval(data.toString());
 		} else if (key.equals("FS_processor.configuration_file_path")) {
 			setConfigurationFilePath(data.toString());
@@ -293,8 +354,7 @@ public class MessageProcessorModel extends ProjectDataModel {
 		} else if (key.equals("custom_processor.class_FQN")) {
 			setClassFQN(data.toString());
 		} else if (key.equals("create.esb.prj")) {
-			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-					.getShell();
+			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 			IProject esbProject = ESBProjectUtils.createESBProject(shell);
 			if (esbProject != null) {
 				setSaveLocation(esbProject);
@@ -302,16 +362,13 @@ public class MessageProcessorModel extends ProjectDataModel {
 		} else if (key.equals("save.location")) {
 			setSaveLocation((IContainer) data);
 		} else if (key.equals("import.file")) {
-			if (getImportFile() != null
-					&& !getImportFile().toString().equals("")) {
+			if (getImportFile() != null && !getImportFile().toString().equals("")) {
 				try {
 					List<OMElement> availableProcessors = new ArrayList<OMElement>();
 					if (SynapseFileUtils.isSynapseConfGiven(getImportFile(),
 							SynapseEntryType.MESSAGE_PROCESSOR)) {
-						availableProcessors = SynapseFileUtils
-								.synapseFileProcessing(getImportFile()
-										.getPath(),
-										SynapseEntryType.MESSAGE_PROCESSOR);
+						availableProcessors = SynapseFileUtils.synapseFileProcessing(
+								getImportFile().getPath(), SynapseEntryType.MESSAGE_PROCESSOR);
 						setAvailableProcessorlist(availableProcessors);
 					} else {
 						setAvailableProcessorlist(new ArrayList<OMElement>());
@@ -332,10 +389,32 @@ public class MessageProcessorModel extends ProjectDataModel {
 			selectedProcessorList.clear();
 			for (Object object : selectedStores) {
 				if (object instanceof OMElement) {
-					if (!selectedProcessorList.contains((OMElement) object)) {
+					if (!selectedProcessorList.contains(object)) {
 						selectedProcessorList.add((OMElement) object);
 					}
 				}
+			}
+		} else if (key.equals("Forwarding_processor.endpoint_name")) {
+			setEndpointName(data.toString());
+		} else if (key.equals("Forwarding_processor.forwarding_interval")) {
+			try {
+				setForwardingInterval(Integer.parseInt(data.toString()));
+			} catch (NumberFormatException ex) {
+				// ignore
+			}
+		} else if (key.equals("FS_processor.processor_state")) {
+			setProcessorState(data.toString());
+		} else if (key.equals("sampling_processor.sampling_interval")) {
+			try {
+				setSamplingInterval(Integer.parseInt(data.toString()));
+			} catch (NumberFormatException ex) {
+				// ignore
+			}
+		} else if (key.equals("sampling_processor.sampling_concurrency")) {
+			try {
+				setSamplingConcurrency(Integer.parseInt(data.toString()));
+			} catch (NumberFormatException ex) {
+				// ignore
 			}
 		}
 
@@ -347,29 +426,23 @@ public class MessageProcessorModel extends ProjectDataModel {
 		super.setLocation(location);
 		File absolutionPath = getLocation();
 		if (getSaveLocation() == null && absolutionPath != null) {
-			IContainer newSaveLocation = getContainer(absolutionPath,
-					ESB_PROJECT_NATURE);
+			IContainer newSaveLocation = getContainer(absolutionPath, ESB_PROJECT_NATURE);
 			setSaveLocation(newSaveLocation);
 		}
 	}
 
-	public static IContainer getContainer(File absolutionPath,
-			String projectNature) {
-		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot()
-				.getProjects();
+	public static IContainer getContainer(File absolutionPath, String projectNature) {
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		int length = 0;
 		IProject currentSelection = null;
 		for (IProject project : projects) {
 			try {
 				if (project.isOpen() && project.hasNature(projectNature)) {
 					File projectLocation = project.getLocation().toFile();
-					int projectLocationLength = projectLocation.toString()
-							.length();
+					int projectLocationLength = projectLocation.toString().length();
 					if (projectLocationLength > length
-							&& projectLocationLength <= absolutionPath
-									.toString().length()) {
-						if (absolutionPath.toString().startsWith(
-								projectLocation.toString())) {
+							&& projectLocationLength <= absolutionPath.toString().length()) {
+						if (absolutionPath.toString().startsWith(projectLocation.toString())) {
 							length = projectLocationLength;
 							currentSelection = project;
 						}
@@ -381,10 +454,8 @@ public class MessageProcessorModel extends ProjectDataModel {
 		}
 		IContainer newSaveLocation = null;
 		if (currentSelection != null) {
-			String path = absolutionPath.toString()
-					.substring(
-							currentSelection.getLocation().toFile().toString()
-									.length());
+			String path = absolutionPath.toString().substring(
+					currentSelection.getLocation().toFile().toString().length());
 
 			if (path.equals("")) {
 				newSaveLocation = currentSelection;

@@ -519,6 +519,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MessageProcessorType/MSG_SAMPLING"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MessageProcessorType/CUSTOM"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ProcessorState">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProcessorState/ACTIVATE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProcessorState/DEACTIVATE"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
@@ -1844,15 +1848,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessorParameter/parameterValue"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//MessageProcessor">
-      <genFeatures createChild="false" propertyCategory="basic" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/processorName"/>
-      <genFeatures createChild="false" propertyCategory="basic" propertyDescription="Message Processor Type"
+      <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/processorName"/>
+      <genFeatures createChild="false" propertyCategory="Basic" propertyDescription="Message Processor Type"
           ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/processorType"/>
-      <genFeatures createChild="false" propertyCategory="basic" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/messageProcessorProvider"/>
-      <genFeatures createChild="false" propertyCategory="basic" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/messageStore"/>
-      <genFeatures notify="false" createChild="false" propertyCategory="basic" propertySortChoices="true"
+      <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/messageProcessorProvider"/>
+      <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/messageStore"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/processorState"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Basic" ecoreFeature="ecore:EReference esb.ecore#//MessageProcessor/endpointName"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="Basic" propertySortChoices="true"
           ecoreFeature="ecore:EReference esb.ecore#//MessageProcessor/sequence"/>
       <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="Message Retry Interval"
           ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/retryInterval"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/forwardingInterval"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/samplingInterval"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/samplingConcurrency"/>
       <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="Maximum Re Delivery Attempts"
           ecoreFeature="ecore:EAttribute esb.ecore#//MessageProcessor/maxDeliveryAttempts"/>
       <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="Axis2 Client Repository Path"

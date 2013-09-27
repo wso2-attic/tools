@@ -111,8 +111,8 @@ public class ResourceBrowserUIStrip implements UIControl {
 	private void selectRegistryResource(final Shell shell, Text textBox, String mediaType) {
 		RegistryKeyProperty registryKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 		
-		DeveloperStudioProviderUtils.addFilter(
-				(Map<String, List<String>>) registryKeyProperty.getFilters(), FILTER_MEDIA_TYPE, mediaType);
+		//DeveloperStudioProviderUtils.addFilter(
+		//		(Map<String, List<String>>) registryKeyProperty.getFilters(), FILTER_MEDIA_TYPE, mediaType);
 		//registryKeyProperty.setKeyValue(textBox.getText());
 		RegistryKeyPropertyEditorDialog dialog = new RegistryKeyPropertyEditorDialog(shell, SWT.NULL,
 				registryKeyProperty, null); //new ArrayList<NamedEntityDescriptor>()

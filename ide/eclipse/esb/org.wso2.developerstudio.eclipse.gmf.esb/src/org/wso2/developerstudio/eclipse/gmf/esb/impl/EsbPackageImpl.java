@@ -271,6 +271,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyDataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
@@ -3444,6 +3445,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum messageProcessorTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum processorStateEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -8414,8 +8422,26 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMessageProcessor_ProcessorState() {
+		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMessageProcessor_EndpointName() {
+		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getMessageProcessor_Sequence() {
-		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(4);
+		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -8424,24 +8450,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getMessageProcessor_RetryInterval() {
-		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMessageProcessor_MaxDeliveryAttempts() {
-		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMessageProcessor_Axis2ClientRepository() {
 		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -8450,7 +8458,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMessageProcessor_Axis2Configuration() {
+	public EAttribute getMessageProcessor_ForwardingInterval() {
 		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -8459,8 +8467,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMessageProcessor_ReplySequenceName() {
-		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(9);
+	public EAttribute getMessageProcessor_SamplingInterval() {
+		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -8468,8 +8476,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMessageProcessor_FaultSequenceName() {
-		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(10);
+	public EAttribute getMessageProcessor_SamplingConcurrency() {
+		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -8477,7 +8485,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMessageProcessor_QuartzConfigFilePath() {
+	public EAttribute getMessageProcessor_MaxDeliveryAttempts() {
 		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -8486,7 +8494,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMessageProcessor_CronExpression() {
+	public EAttribute getMessageProcessor_Axis2ClientRepository() {
 		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -8495,7 +8503,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMessageProcessor_PinnedServers() {
+	public EAttribute getMessageProcessor_Axis2Configuration() {
 		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -8504,8 +8512,53 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMessageProcessor_Parameters() {
+	public EReference getMessageProcessor_ReplySequenceName() {
 		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMessageProcessor_FaultSequenceName() {
+		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageProcessor_QuartzConfigFilePath() {
+		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageProcessor_CronExpression() {
+		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageProcessor_PinnedServers() {
+		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMessageProcessor_Parameters() {
+		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -14678,6 +14731,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getProcessorState() {
+		return processorStateEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMap() {
 		return mapEDataType;
 	}
@@ -16142,8 +16204,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__PROCESSOR_TYPE);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__MESSAGE_PROCESSOR_PROVIDER);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__MESSAGE_STORE);
+		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__PROCESSOR_STATE);
+		createEReference(messageProcessorEClass, MESSAGE_PROCESSOR__ENDPOINT_NAME);
 		createEReference(messageProcessorEClass, MESSAGE_PROCESSOR__SEQUENCE);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__RETRY_INTERVAL);
+		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__FORWARDING_INTERVAL);
+		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__SAMPLING_INTERVAL);
+		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__AXIS2_CLIENT_REPOSITORY);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__AXIS2_CONFIGURATION);
@@ -16280,6 +16347,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		messageStoreTypeEEnum = createEEnum(MESSAGE_STORE_TYPE);
 		jmsSpecVersionEEnum = createEEnum(JMS_SPEC_VERSION);
 		messageProcessorTypeEEnum = createEEnum(MESSAGE_PROCESSOR_TYPE);
+		processorStateEEnum = createEEnum(PROCESSOR_STATE);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -18067,8 +18135,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getMessageProcessor_ProcessorType(), this.getMessageProcessorType(), "processorType", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_MessageProcessorProvider(), ecorePackage.getEString(), "messageProcessorProvider", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_MessageStore(), ecorePackage.getEString(), "messageStore", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageProcessor_ProcessorState(), this.getProcessorState(), "processorState", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMessageProcessor_EndpointName(), this.getRegistryKeyProperty(), null, "endpointName", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMessageProcessor_Sequence(), this.getRegistryKeyProperty(), null, "sequence", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_RetryInterval(), ecorePackage.getELong(), "retryInterval", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageProcessor_ForwardingInterval(), ecorePackage.getELong(), "forwardingInterval", "1000", 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageProcessor_SamplingInterval(), ecorePackage.getELong(), "samplingInterval", "1000", 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageProcessor_SamplingConcurrency(), ecorePackage.getEInt(), "samplingConcurrency", "1", 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_MaxDeliveryAttempts(), ecorePackage.getEInt(), "maxDeliveryAttempts", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_Axis2ClientRepository(), ecorePackage.getEString(), "axis2ClientRepository", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_Axis2Configuration(), ecorePackage.getEString(), "axis2Configuration", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -18620,6 +18693,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(messageProcessorTypeEEnum, MessageProcessorType.SCHEDULED_MSG_FORWARDING);
 		addEEnumLiteral(messageProcessorTypeEEnum, MessageProcessorType.MSG_SAMPLING);
 		addEEnumLiteral(messageProcessorTypeEEnum, MessageProcessorType.CUSTOM);
+
+		initEEnum(processorStateEEnum, ProcessorState.class, "ProcessorState");
+		addEEnumLiteral(processorStateEEnum, ProcessorState.ACTIVATE);
+		addEEnumLiteral(processorStateEEnum, ProcessorState.DEACTIVATE);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

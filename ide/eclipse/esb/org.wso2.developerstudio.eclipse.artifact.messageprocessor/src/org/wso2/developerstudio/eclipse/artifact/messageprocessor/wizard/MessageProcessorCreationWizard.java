@@ -110,7 +110,7 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 						esbProject.getLocation().toFile(),
 						new File(location.getLocation().toFile(), messageProcessorModel
 								.getMessageProcessorName() + ".xml")).replaceAll(
-						Pattern.quote(File.separator), "/");
+										Pattern.quote(File.separator), "/");
 				esbProjectArtifact.addESBArtifact(createArtifact(
 						messageProcessorModel.getMessageProcessorName(), groupId, "1.0.0",
 						relativePath));
@@ -142,10 +142,12 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 		return true;
 	}
 
+	@Override
 	protected boolean isRequireProjectLocationSection() {
 		return false;
 	}
 
+	@Override
 	protected boolean isRequiredWorkingSet() {
 		return false;
 	}
@@ -213,16 +215,19 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 		String className = "";
 		OMElement messageProcessorElement;
 		MessageProcessor messageProcessor = new ScheduledMessageForwardingProcessor();
-		String lineSeparator = System.getProperty("line.separator","\n");
+		String lineSeparator = System.getProperty("line.separator", "\n");
 
 		if (messageProcessorModel.getMessageProcessorType().equals(
 				"Scheduled Message Forwarding Processor")) {
 			messageProcessorPrameeters = new HashMap<String, Object>();
 			className = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
 
+			messageProcessorPrameeters.put("interval",
+					((Integer) messageProcessorModel.getForwardingInterval()).toString());
+
 			if (StringUtils.isNotBlank(messageProcessorModel.getRetryInterval())) {
-				messageProcessorPrameeters
-						.put("interval", messageProcessorModel.getRetryInterval());
+				messageProcessorPrameeters.put("client.retry.interval",
+						messageProcessorModel.getRetryInterval());
 			}
 			if (StringUtils.isNotBlank(messageProcessorModel.getDeliveryAttempts())) {
 				messageProcessorPrameeters.put("max.delivery.attempts",
@@ -256,9 +261,19 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 				messageProcessorPrameeters.put("pinnedServers",
 						messageProcessorModel.getPinnedServers());
 			}
+			if (StringUtils.isNotBlank(messageProcessorModel.getProcessorState())) {
+				if (messageProcessorModel.getProcessorState().equals("Activate")) {
+					Boolean isActive = true;
+					messageProcessorPrameeters.put("is.active", isActive.toString());
+				} else {
+					Boolean isActive = false;
+					messageProcessorPrameeters.put("is.active", isActive.toString());
+				}
+			}
+
 			messageProcessor = new ScheduledMessageForwardingProcessor();
 
-
+			messageProcessor.setTargetEndpoint(messageProcessorModel.getEndpointName());
 			messageProcessor.setName(messageProcessorModel.getMessageProcessorName());
 			messageProcessor.setMessageStoreName(messageProcessorModel.getMessageStore());
 			messageProcessor.setParameters(messageProcessorPrameeters);
@@ -268,10 +283,11 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			messageProcessorPrameeters = new HashMap<String, Object>();
 			className = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
 
-			if (StringUtils.isNotBlank(messageProcessorModel.getRetryInterval())) {
-				messageProcessorPrameeters
-						.put("interval", messageProcessorModel.getRetryInterval());
-			}
+			messageProcessorPrameeters.put("interval",
+					((Integer) messageProcessorModel.getSamplingInterval()).toString());
+			messageProcessorPrameeters.put("concurrency",
+					((Integer) messageProcessorModel.getSamplingConcurrency()).toString());
+
 			if (StringUtils.isNotBlank(messageProcessorModel.getConfigurationFilePath())) {
 				messageProcessorPrameeters.put("quartz.conf",
 						messageProcessorModel.getConfigurationFilePath());
@@ -285,8 +301,16 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 						messageProcessorModel.getPinnedServers());
 			}
 			if (StringUtils.isNotBlank(messageProcessorModel.getSequence())) {
-				messageProcessorPrameeters.put("sequence",
-						messageProcessorModel.getSequence());
+				messageProcessorPrameeters.put("sequence", messageProcessorModel.getSequence());
+			}
+			if (StringUtils.isNotBlank(messageProcessorModel.getProcessorState())) {
+				if (messageProcessorModel.getProcessorState().equals("Activate")) {
+					Boolean isActive = true;
+					messageProcessorPrameeters.put("is.active", isActive.toString());
+				} else {
+					Boolean isActive = false;
+					messageProcessorPrameeters.put("is.active", isActive.toString());
+				}
 			}
 
 			messageProcessor = new SamplingProcessor();
@@ -294,17 +318,16 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			messageProcessor.setName(messageProcessorModel.getMessageProcessorName());
 			messageProcessor.setMessageStoreName(messageProcessorModel.getMessageStore());
 			messageProcessor.setParameters(messageProcessorPrameeters);
-		
+
 		} else if (messageProcessorModel.getMessageProcessorType().equals(
 				"Custom Message Processor")) {
 			messageProcessorPrameeters = new HashMap<String, Object>();
 			messageProcessor = new SamplingProcessor();
 			className = messageProcessorModel.getClassFQN();
 
-			messageProcessor.setName(messageProcessorModel.getMessageProcessorName());		
+			messageProcessor.setName(messageProcessorModel.getMessageProcessorName());
 			messageProcessor.setMessageStoreName(messageProcessorModel.getMessageStore());
 			messageProcessor.setParameters(messageProcessorPrameeters);
-
 
 			HashMap<String, String> parameters = messageProcessorModel
 					.getCustomProcessorParameters();
@@ -313,7 +336,7 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 				Set<Entry<String, String>> parameterEntrySet = parameters.entrySet();
 				Iterator<Entry<String, String>> it = parameterEntrySet.iterator();
 				while (it.hasNext()) {
-					Map.Entry<String, String> entry = (Map.Entry<String, String>) it.next();
+					Map.Entry<String, String> entry = it.next();
 					if (StringUtils.isNotBlank(entry.getKey())) {
 						messageProcessorPrameeters.put(entry.getKey(), entry.getValue());
 					}
@@ -325,7 +348,7 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 				messageProcessor);
 		OMAttribute classAttr = messageProcessorElement.getAttribute(new QName("class"));
 
-		if ((messageProcessorModel.getMessageProcessorType().equals("Custom Message Processor"))
+		if (messageProcessorModel.getMessageProcessorType().equals("Custom Message Processor")
 				&& classAttr != null) {
 			classAttr.setAttributeValue(className);
 		} else {
@@ -349,7 +372,7 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 				if (isNewAritfact) {
 					String relativePath = FileUtils.getRelativePath(importLocation.getProject()
 							.getLocation().toFile(), new File(
-							importLocation.getLocation().toFile(), name + ".xml"));
+									importLocation.getLocation().toFile(), name + ".xml"));
 					esbProjectArtifact.addESBArtifact(createArtifact(name, groupId, "1.0.0",
 							relativePath));
 				}
@@ -363,7 +386,7 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			if (isNewAritfact) {
 				String relativePath = FileUtils.getRelativePath(importLocation.getProject()
 						.getLocation().toFile(), new File(importLocation.getLocation().toFile(),
-						name + ".xml"));
+								name + ".xml"));
 				esbProjectArtifact.addESBArtifact(createArtifact(name, groupId, "1.0.0",
 						relativePath));
 			}
@@ -384,7 +407,8 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 			String path = resource.getParent().getFullPath() + "/";
 			String source = FileUtils.getContentAsString(file);
 			Openable openable = ESBGraphicalEditor.getOpenable();
-			openable.editorOpen(file.getName(), "messageProcessor", path + "messageProcessor_", source);
+			openable.editorOpen(file.getName(), "messageProcessor", path + "messageProcessor_",
+					source);
 		} catch (Exception e) {
 			log.error("Cannot open the editor", e);
 		}

@@ -583,6 +583,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createJMSSpecVersionFromString(eDataType, initialValue);
 			case EsbPackage.MESSAGE_PROCESSOR_TYPE:
 				return createMessageProcessorTypeFromString(eDataType, initialValue);
+			case EsbPackage.PROCESSOR_STATE:
+				return createProcessorStateFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -791,6 +793,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertJMSSpecVersionToString(eDataType, instanceValue);
 			case EsbPackage.MESSAGE_PROCESSOR_TYPE:
 				return convertMessageProcessorTypeToString(eDataType, instanceValue);
+			case EsbPackage.PROCESSOR_STATE:
+				return convertProcessorStateToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -6106,6 +6110,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertMessageProcessorTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProcessorState createProcessorStateFromString(EDataType eDataType, String initialValue) {
+		ProcessorState result = ProcessorState.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertProcessorStateToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

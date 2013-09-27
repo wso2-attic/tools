@@ -48,9 +48,23 @@ public class MessageProcessorTransformer {
 		messageProcessor.setMessageStoreName(model.getMessageStore());
 
 		if (model.getProcessorType() == MessageProcessorType.SCHEDULED_MSG_FORWARDING) {
-			parameters.put("interval", ((Long) model.getRetryInterval()).toString());
-			parameters.put("max.delivery.attempts",
-					((Integer) model.getMaxDeliveryAttempts()).toString());
+			if(model.getEndpointName() != null && StringUtils.isNotBlank(model.getEndpointName().getKeyValue())) {
+				messageProcessor.setTargetEndpoint(model.getEndpointName().getKeyValue());
+			}
+
+			if (StringUtils.isNotBlank(model.getProcessorState().getLiteral())) {
+				if (model.getProcessorState().getLiteral().equals("Activate")) {
+					Boolean isActive = true;
+					parameters.put("is.active", isActive.toString());
+				} else {
+					Boolean isActive = false;
+					parameters.put("is.active", isActive.toString());
+				}
+			}
+
+			parameters.put("interval", ((Long) model.getForwardingInterval()).toString());
+			parameters.put("client.retry.interval", ((Long) model.getRetryInterval()).toString());
+			parameters.put("max.delivery.attempts", ((Integer) model.getMaxDeliveryAttempts()).toString());
 
 			if (StringUtils.isNotBlank(model.getAxis2ClientRepository())) {
 				parameters.put("axis2.repo", model.getAxis2ClientRepository());
@@ -80,8 +94,20 @@ public class MessageProcessorTransformer {
 
 		} else if (model.getProcessorType() == MessageProcessorType.MSG_SAMPLING) {
 			className = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
+
+			if (StringUtils.isNotBlank(model.getProcessorState().getLiteral())) {
+				if (model.getProcessorState().getLiteral().equals("Activate")) {
+					Boolean isActive = true;
+					parameters.put("is.active", isActive.toString());
+				} else {
+					Boolean isActive = false;
+					parameters.put("is.active", isActive.toString());
+				}
+			}
+
 			parameters.put("sequence", model.getSequence().getKeyValue());
-			parameters.put("interval", ((Long) model.getRetryInterval()).toString());
+			parameters.put("interval", ((Long) model.getSamplingInterval()).toString());
+			parameters.put("concurrency", ((Integer) model.getSamplingConcurrency()).toString());
 
 			if (StringUtils.isNotBlank(model.getQuartzConfigFilePath())) {
 				parameters.put("quartz.conf", model.getQuartzConfigFilePath());
