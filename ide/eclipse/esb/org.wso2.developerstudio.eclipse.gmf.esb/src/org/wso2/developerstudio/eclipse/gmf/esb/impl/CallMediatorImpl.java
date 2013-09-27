@@ -154,11 +154,22 @@ public class CallMediatorImpl extends MediatorImpl implements CallMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected CallMediatorImpl() {
-		super();
-	}
+    protected CallMediatorImpl() {
+        super();
+        NamespacedProperty xpath = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+        xpath.setPrettyName("Endpoint XPath");
+        xpath.setPropertyName("expression");
+        xpath.setPropertyValue("/default/expression");
+        setEndpointXpath(xpath);
+        
+        RegistryKeyProperty sequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+        sequenceKey.setKeyName("Endpoint Key");
+        sequenceKey.setPrettyName("Endpoint Key");
+        sequenceKey.setKeyValue("/default/key");
+        setEndpointRegistrykey(sequenceKey);
+}
 
 	/**
 	 * <!-- begin-user-doc -->
