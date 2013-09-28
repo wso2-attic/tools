@@ -20,6 +20,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputCon
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 
@@ -116,6 +117,14 @@ public class ConnectionCalculator {
 					currentConnector = EditorUtils
 							.getOutputConnector(childEditPart);
 				}
+			}
+			
+			/*
+			 * Drop mediator doesn't have an Output connector. 
+			 */
+			if(childEditPart instanceof DropMediatorEditPart){
+				currentConnector = EditorUtils
+						.getInputConnector(childEditPart);
 			}
 
 			for (int i = 0; i < connectors.size(); ++i) {

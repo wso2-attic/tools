@@ -470,7 +470,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 
 			CompoundCommand cc = new CompoundCommand("Create Link");
 
-			if (inputConnector != null && outputConnector != null) {
+			if (inputConnector != null) {
 
 				ShapeNodeEditPart sourceEditPart1 = (AbstractBorderedShapeEditPart) this
 						.getParent().getParent();
@@ -488,17 +488,19 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 
 				cc.add(new ICommandProxy(createSubTopicsCmd));
 
-				ICommand createSubTopicsCmd2 = new DeferredCreateConnectionViewAndElementCommand(
-						new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
-								((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(),
-								((ShapeNodeEditPart) outputConnector.getParent())
-										.getDiagramPreferencesHint()), new EObjectAdapter(
-								(EObject) outputConnector.getModel()), new EObjectAdapter(
-								(EObject) (inputConnectorEditPart_).getModel()),
-						((ShapeNodeEditPart) outputConnector.getParent()).getViewer());
-
-				cc.add(new ICommandProxy(createSubTopicsCmd));
-				cc.add(new ICommandProxy(createSubTopicsCmd2));
+				if(outputConnector != null){
+					ICommand createSubTopicsCmd2 = new DeferredCreateConnectionViewAndElementCommand(
+							new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
+									((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(),
+									((ShapeNodeEditPart) outputConnector.getParent())
+											.getDiagramPreferencesHint()), new EObjectAdapter(
+									(EObject) outputConnector.getModel()), new EObjectAdapter(
+									(EObject) (inputConnectorEditPart_).getModel()),
+							((ShapeNodeEditPart) outputConnector.getParent()).getViewer());
+	
+					//cc.add(new ICommandProxy(createSubTopicsCmd));
+					cc.add(new ICommandProxy(createSubTopicsCmd2));
+				}
 
 				getDiagramEditDomain().getDiagramCommandStack().execute(cc);
 			}
