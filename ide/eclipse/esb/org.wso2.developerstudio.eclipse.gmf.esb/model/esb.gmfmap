@@ -746,7 +746,7 @@
                             <diagramLabel
                                 href="esb.gmfgraph#EntitlementMediatorServerName"/>
                             <features
-                                href="esb.ecore#//EntitlementMediator/serverURL"/>
+                                href="esb.ecore#//EntitlementMediator/entitlementServerURL"/>
                           </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
@@ -778,6 +778,116 @@
                                   href="esb.ecore#//EntitlementMediatorOutputConnector"/>
                               <diagramNode
                                   href="esb.gmfgraph#EntitlementMediatorOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//EntitlementMediator/onRejectOutputConnector"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//EntitlementMediatorOnRejectOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#EntitlementMediatorOnRejectOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//EntitlementMediator/onAcceptOutputConnector"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//EntitlementMediatorOnAcceptOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#EntitlementMediatorOnAcceptOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//EntitlementMediator/adviceOutputConnector"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//EntitlementMediatorAdviceOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#EntitlementMediatorAdviceOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//EntitlementMediator/obligationsOutputConnector"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//EntitlementMediatorObligationsOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#EntitlementMediatorObligationsOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//EntitlementMediator/entitlementContainer"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//EntitlementContainer"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#EntitlementContainer"/>
+                              <children>
+                                <containmentFeature
+                                    href="esb.ecore#//EntitlementContainer/onRejectContainer"/>
+                                <ownedChild>
+                                  <domainMetaElement
+                                      href="esb.ecore#//EntitlementOnRejectContainer"/>
+                                  <diagramNode
+                                      href="esb.gmfgraph#EntitlementOnRejectContainer"/>
+                                  <children
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                    <containmentFeature
+                                        href="esb.ecore#//EntitlementOnRejectContainer/mediatorFlow"/>
+                                  </children>
+                                </ownedChild>
+                              </children>
+                              <children>
+                                <containmentFeature
+                                    href="esb.ecore#//EntitlementContainer/onAcceptContainer"/>
+                                <ownedChild>
+                                  <domainMetaElement
+                                      href="esb.ecore#//EntitlementOnAcceptContainer"/>
+                                  <diagramNode
+                                      href="esb.gmfgraph#EntitlementOnAcceptContainer"/>
+                                  <children
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                    <containmentFeature
+                                        href="esb.ecore#//EntitlementOnAcceptContainer/mediatorFlow"/>
+                                  </children>
+                                </ownedChild>
+                              </children>
+                              <children>
+                                <containmentFeature
+                                    href="esb.ecore#//EntitlementContainer/adviceContainer"/>
+                                <ownedChild>
+                                  <domainMetaElement
+                                      href="esb.ecore#//EntitlementAdviceContainer"/>
+                                  <diagramNode
+                                      href="esb.gmfgraph#EntitlementAdviceContainer"/>
+                                  <children
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                    <containmentFeature
+                                        href="esb.ecore#//EntitlementAdviceContainer/mediatorFlow"/>
+                                  </children>
+                                </ownedChild>
+                              </children>
+                              <children>
+                                <containmentFeature
+                                    href="esb.ecore#//EntitlementContainer/obligationsContainer"/>
+                                <ownedChild>
+                                  <domainMetaElement
+                                      href="esb.ecore#//EntitlementObligationsContainer"/>
+                                  <diagramNode
+                                      href="esb.gmfgraph#EntitlementObligationsContainer"/>
+                                  <children
+                                      referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                                    <containmentFeature
+                                        href="esb.ecore#//EntitlementObligationsContainer/mediatorFlow"/>
+                                  </children>
+                                </ownedChild>
+                              </children>
                             </ownedChild>
                           </children>
                         </ownedChild>

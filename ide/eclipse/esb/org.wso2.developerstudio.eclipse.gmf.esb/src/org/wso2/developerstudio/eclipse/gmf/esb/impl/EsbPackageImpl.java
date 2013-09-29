@@ -154,9 +154,18 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceInlineType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetType;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementAdviceContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorAdviceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorObligationsOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnAcceptOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnRejectOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementObligationsContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnAcceptContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnRejectContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
@@ -1297,6 +1306,69 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass entitlementMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementMediatorOnRejectOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementMediatorOnAcceptOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementMediatorAdviceOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementMediatorObligationsOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementOnRejectContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementOnAcceptContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementAdviceContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass entitlementObligationsContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6954,7 +7026,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEntitlementMediator_ServerURL() {
+	public EAttribute getEntitlementMediator_EntitlementServerURL() {
 		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -6981,8 +7053,53 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEntitlementMediator_CallbackClassName() {
+		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEntitlementMediator_ThriftHost() {
+		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEntitlementMediator_ThriftPort() {
+		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEntitlementMediator_EntitlementClientType() {
+		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_EntitlementContainer() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getEntitlementMediator_InputConnector() {
-		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(3);
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -6991,7 +7108,43 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getEntitlementMediator_OutputConnector() {
-		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(4);
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_OnRejectOutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_OnAcceptOutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_AdviceOutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_ObligationsOutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -7010,6 +7163,159 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getEntitlementMediatorOutputConnector() {
 		return entitlementMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementMediatorOnRejectOutputConnector() {
+		return entitlementMediatorOnRejectOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementMediatorOnAcceptOutputConnector() {
+		return entitlementMediatorOnAcceptOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementMediatorAdviceOutputConnector() {
+		return entitlementMediatorAdviceOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementMediatorObligationsOutputConnector() {
+		return entitlementMediatorObligationsOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementContainer() {
+		return entitlementContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementContainer_OnRejectContainer() {
+		return (EReference)entitlementContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementContainer_OnAcceptContainer() {
+		return (EReference)entitlementContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementContainer_AdviceContainer() {
+		return (EReference)entitlementContainerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementContainer_ObligationsContainer() {
+		return (EReference)entitlementContainerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementOnRejectContainer() {
+		return entitlementOnRejectContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementOnRejectContainer_MediatorFlow() {
+		return (EReference)entitlementOnRejectContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementOnAcceptContainer() {
+		return entitlementOnAcceptContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementOnAcceptContainer_MediatorFlow() {
+		return (EReference)entitlementOnAcceptContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementAdviceContainer() {
+		return entitlementAdviceContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementAdviceContainer_MediatorFlow() {
+		return (EReference)entitlementAdviceContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEntitlementObligationsContainer() {
+		return entitlementObligationsContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementObligationsContainer_MediatorFlow() {
+		return (EReference)entitlementObligationsContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -15293,15 +15599,50 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(abstractNameValuePropertyEClass, ABSTRACT_NAME_VALUE_PROPERTY__PROPERTY_VALUE);
 
 		entitlementMediatorEClass = createEClass(ENTITLEMENT_MEDIATOR);
-		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__SERVER_URL);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ENTITLEMENT_SERVER_URL);
 		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__USERNAME);
 		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__PASSWORD);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__CALLBACK_CLASS_NAME);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__THRIFT_HOST);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__THRIFT_PORT);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER);
 		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ADVICE_OUTPUT_CONNECTOR);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__OBLIGATIONS_OUTPUT_CONNECTOR);
 
 		entitlementMediatorInputConnectorEClass = createEClass(ENTITLEMENT_MEDIATOR_INPUT_CONNECTOR);
 
 		entitlementMediatorOutputConnectorEClass = createEClass(ENTITLEMENT_MEDIATOR_OUTPUT_CONNECTOR);
+
+		entitlementMediatorOnRejectOutputConnectorEClass = createEClass(ENTITLEMENT_MEDIATOR_ON_REJECT_OUTPUT_CONNECTOR);
+
+		entitlementMediatorOnAcceptOutputConnectorEClass = createEClass(ENTITLEMENT_MEDIATOR_ON_ACCEPT_OUTPUT_CONNECTOR);
+
+		entitlementMediatorAdviceOutputConnectorEClass = createEClass(ENTITLEMENT_MEDIATOR_ADVICE_OUTPUT_CONNECTOR);
+
+		entitlementMediatorObligationsOutputConnectorEClass = createEClass(ENTITLEMENT_MEDIATOR_OBLIGATIONS_OUTPUT_CONNECTOR);
+
+		entitlementContainerEClass = createEClass(ENTITLEMENT_CONTAINER);
+		createEReference(entitlementContainerEClass, ENTITLEMENT_CONTAINER__ON_REJECT_CONTAINER);
+		createEReference(entitlementContainerEClass, ENTITLEMENT_CONTAINER__ON_ACCEPT_CONTAINER);
+		createEReference(entitlementContainerEClass, ENTITLEMENT_CONTAINER__ADVICE_CONTAINER);
+		createEReference(entitlementContainerEClass, ENTITLEMENT_CONTAINER__OBLIGATIONS_CONTAINER);
+
+		entitlementOnRejectContainerEClass = createEClass(ENTITLEMENT_ON_REJECT_CONTAINER);
+		createEReference(entitlementOnRejectContainerEClass, ENTITLEMENT_ON_REJECT_CONTAINER__MEDIATOR_FLOW);
+
+		entitlementOnAcceptContainerEClass = createEClass(ENTITLEMENT_ON_ACCEPT_CONTAINER);
+		createEReference(entitlementOnAcceptContainerEClass, ENTITLEMENT_ON_ACCEPT_CONTAINER__MEDIATOR_FLOW);
+
+		entitlementAdviceContainerEClass = createEClass(ENTITLEMENT_ADVICE_CONTAINER);
+		createEReference(entitlementAdviceContainerEClass, ENTITLEMENT_ADVICE_CONTAINER__MEDIATOR_FLOW);
+
+		entitlementObligationsContainerEClass = createEClass(ENTITLEMENT_OBLIGATIONS_CONTAINER);
+		createEReference(entitlementObligationsContainerEClass, ENTITLEMENT_OBLIGATIONS_CONTAINER__MEDIATOR_FLOW);
 
 		enqueueMediatorEClass = createEClass(ENQUEUE_MEDIATOR);
 		createEAttribute(enqueueMediatorEClass, ENQUEUE_MEDIATOR__EXECUTOR);
@@ -16520,6 +16861,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		entitlementMediatorEClass.getESuperTypes().add(this.getMediator());
 		entitlementMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		entitlementMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		entitlementMediatorOnRejectOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		entitlementMediatorOnAcceptOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		entitlementMediatorAdviceOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		entitlementMediatorObligationsOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		entitlementContainerEClass.getESuperTypes().add(this.getEsbNode());
+		entitlementOnRejectContainerEClass.getESuperTypes().add(this.getEsbNode());
+		entitlementOnAcceptContainerEClass.getESuperTypes().add(this.getEsbNode());
+		entitlementAdviceContainerEClass.getESuperTypes().add(this.getEsbNode());
+		entitlementObligationsContainerEClass.getESuperTypes().add(this.getEsbNode());
 		enqueueMediatorEClass.getESuperTypes().add(this.getMediator());
 		enqueueMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		enqueueMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -17228,15 +17578,50 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getAbstractNameValueProperty_PropertyValue(), ecorePackage.getEString(), "propertyValue", "property_value", 0, 1, AbstractNameValueProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entitlementMediatorEClass, EntitlementMediator.class, "EntitlementMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEntitlementMediator_ServerURL(), ecorePackage.getEString(), "serverURL", "server_url", 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_EntitlementServerURL(), ecorePackage.getEString(), "entitlementServerURL", "server_url", 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntitlementMediator_Username(), ecorePackage.getEString(), "username", "username", 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntitlementMediator_Password(), ecorePackage.getEString(), "password", "password", 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_CallbackClassName(), ecorePackage.getEString(), "callbackClassName", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_ThriftHost(), ecorePackage.getEString(), "thriftHost", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_ThriftPort(), ecorePackage.getEString(), "thriftPort", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_EntitlementClientType(), ecorePackage.getEString(), "entitlementClientType", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_EntitlementContainer(), this.getEntitlementContainer(), null, "entitlementContainer", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntitlementMediator_InputConnector(), this.getEntitlementMediatorInputConnector(), null, "inputConnector", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntitlementMediator_OutputConnector(), this.getEntitlementMediatorOutputConnector(), null, "outputConnector", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_OnRejectOutputConnector(), this.getEntitlementMediatorOnRejectOutputConnector(), null, "onRejectOutputConnector", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_OnAcceptOutputConnector(), this.getEntitlementMediatorOnAcceptOutputConnector(), null, "onAcceptOutputConnector", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_AdviceOutputConnector(), this.getEntitlementMediatorAdviceOutputConnector(), null, "adviceOutputConnector", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_ObligationsOutputConnector(), this.getEntitlementMediatorObligationsOutputConnector(), null, "obligationsOutputConnector", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entitlementMediatorInputConnectorEClass, EntitlementMediatorInputConnector.class, "EntitlementMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(entitlementMediatorOutputConnectorEClass, EntitlementMediatorOutputConnector.class, "EntitlementMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(entitlementMediatorOnRejectOutputConnectorEClass, EntitlementMediatorOnRejectOutputConnector.class, "EntitlementMediatorOnRejectOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(entitlementMediatorOnAcceptOutputConnectorEClass, EntitlementMediatorOnAcceptOutputConnector.class, "EntitlementMediatorOnAcceptOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(entitlementMediatorAdviceOutputConnectorEClass, EntitlementMediatorAdviceOutputConnector.class, "EntitlementMediatorAdviceOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(entitlementMediatorObligationsOutputConnectorEClass, EntitlementMediatorObligationsOutputConnector.class, "EntitlementMediatorObligationsOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(entitlementContainerEClass, EntitlementContainer.class, "EntitlementContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntitlementContainer_OnRejectContainer(), this.getEntitlementOnRejectContainer(), null, "onRejectContainer", null, 0, 1, EntitlementContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementContainer_OnAcceptContainer(), this.getEntitlementOnAcceptContainer(), null, "onAcceptContainer", null, 0, 1, EntitlementContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementContainer_AdviceContainer(), this.getEntitlementAdviceContainer(), null, "adviceContainer", null, 0, 1, EntitlementContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementContainer_ObligationsContainer(), this.getEntitlementObligationsContainer(), null, "obligationsContainer", null, 0, 1, EntitlementContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(entitlementOnRejectContainerEClass, EntitlementOnRejectContainer.class, "EntitlementOnRejectContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntitlementOnRejectContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, EntitlementOnRejectContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(entitlementOnAcceptContainerEClass, EntitlementOnAcceptContainer.class, "EntitlementOnAcceptContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntitlementOnAcceptContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, EntitlementOnAcceptContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(entitlementAdviceContainerEClass, EntitlementAdviceContainer.class, "EntitlementAdviceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntitlementAdviceContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, EntitlementAdviceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(entitlementObligationsContainerEClass, EntitlementObligationsContainer.class, "EntitlementObligationsContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEntitlementObligationsContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, EntitlementObligationsContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enqueueMediatorEClass, EnqueueMediator.class, "EnqueueMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnqueueMediator_Executor(), ecorePackage.getEString(), "executor", "executor_name", 0, 1, EnqueueMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

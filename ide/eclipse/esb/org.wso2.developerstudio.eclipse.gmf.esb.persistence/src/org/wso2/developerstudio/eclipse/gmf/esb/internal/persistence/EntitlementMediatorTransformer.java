@@ -42,7 +42,7 @@ public class EntitlementMediatorTransformer extends AbstractEsbNodeTransformer{
 		EntitlementMediator visualEntitlement = (EntitlementMediator) subject;
 		org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator entitlementMediator=new org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator();
 		{			
-			entitlementMediator.setRemoteServiceUrl(visualEntitlement.getServerURL());
+			entitlementMediator.setRemoteServiceUrl(visualEntitlement.getEntitlementServerURL());
 			entitlementMediator.setRemoteServiceUserName(visualEntitlement.getUsername());
 			entitlementMediator.setRemoteServicePassword(visualEntitlement.getPassword());
 		}

@@ -227,7 +227,7 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 
 			return false;
 		}
-		
+
 		if (childEditPart instanceof APIResourceInSequenceInputConnectorEditPart) {
 			inSequenceInputConnectorFigure = ((APIResourceInSequenceInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -245,7 +245,7 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof APIResourceOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(

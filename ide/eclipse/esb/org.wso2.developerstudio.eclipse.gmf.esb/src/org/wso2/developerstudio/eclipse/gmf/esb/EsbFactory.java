@@ -996,6 +996,87 @@ public interface EsbFactory extends EFactory {
 	EntitlementMediatorOutputConnector createEntitlementMediatorOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Entitlement Mediator On Reject Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Mediator On Reject Output Connector</em>'.
+	 * @generated
+	 */
+	EntitlementMediatorOnRejectOutputConnector createEntitlementMediatorOnRejectOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Mediator On Accept Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Mediator On Accept Output Connector</em>'.
+	 * @generated
+	 */
+	EntitlementMediatorOnAcceptOutputConnector createEntitlementMediatorOnAcceptOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Mediator Advice Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Mediator Advice Output Connector</em>'.
+	 * @generated
+	 */
+	EntitlementMediatorAdviceOutputConnector createEntitlementMediatorAdviceOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Mediator Obligations Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Mediator Obligations Output Connector</em>'.
+	 * @generated
+	 */
+	EntitlementMediatorObligationsOutputConnector createEntitlementMediatorObligationsOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Container</em>'.
+	 * @generated
+	 */
+	EntitlementContainer createEntitlementContainer();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement On Reject Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement On Reject Container</em>'.
+	 * @generated
+	 */
+	EntitlementOnRejectContainer createEntitlementOnRejectContainer();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement On Accept Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement On Accept Container</em>'.
+	 * @generated
+	 */
+	EntitlementOnAcceptContainer createEntitlementOnAcceptContainer();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Advice Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Advice Container</em>'.
+	 * @generated
+	 */
+	EntitlementAdviceContainer createEntitlementAdviceContainer();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Obligations Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Obligations Container</em>'.
+	 * @generated
+	 */
+	EntitlementObligationsContainer createEntitlementObligationsContainer();
+
+	/**
 	 * Returns a new object of class '<em>Enqueue Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

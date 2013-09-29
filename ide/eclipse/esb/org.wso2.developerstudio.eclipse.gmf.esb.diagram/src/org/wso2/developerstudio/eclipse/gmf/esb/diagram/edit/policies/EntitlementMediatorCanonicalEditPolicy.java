@@ -23,7 +23,12 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorAdviceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorObligationsOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorOnAcceptOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorOnRejectOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
@@ -61,6 +66,16 @@ public class EntitlementMediatorCanonicalEditPolicy extends CanonicalEditPolicy 
 					.getEntitlementMediator_InputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
 					.getEntitlementMediator_OutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getEntitlementMediator_OnRejectOutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getEntitlementMediator_OnAcceptOutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getEntitlementMediator_AdviceOutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getEntitlementMediator_ObligationsOutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getEntitlementMediator_EntitlementContainer());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -92,8 +107,17 @@ public class EntitlementMediatorCanonicalEditPolicy extends CanonicalEditPolicy 
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == EntitlementMediatorInputConnectorEditPart.VISUAL_ID
-				|| visualID == EntitlementMediatorOutputConnectorEditPart.VISUAL_ID;
+		switch (visualID) {
+		case EntitlementMediatorInputConnectorEditPart.VISUAL_ID:
+		case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID:
+		case EntitlementMediatorOnRejectOutputConnectorEditPart.VISUAL_ID:
+		case EntitlementMediatorOnAcceptOutputConnectorEditPart.VISUAL_ID:
+		case EntitlementMediatorAdviceOutputConnectorEditPart.VISUAL_ID:
+		case EntitlementMediatorObligationsOutputConnectorEditPart.VISUAL_ID:
+		case EntitlementContainerEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**

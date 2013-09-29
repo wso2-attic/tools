@@ -350,19 +350,19 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	/**
 	 * @generated
 	 */
-	private IParser entitlementMediatorServerURL_5134Parser;
+	private IParser entitlementMediatorEntitlementServerURL_5134Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getEntitlementMediatorServerURL_5134Parser() {
-		if (entitlementMediatorServerURL_5134Parser == null) {
+	private IParser getEntitlementMediatorEntitlementServerURL_5134Parser() {
+		if (entitlementMediatorEntitlementServerURL_5134Parser == null) {
 			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEntitlementMediator_ServerURL() };
+					.getEntitlementMediator_EntitlementServerURL() };
 			MessageFormatParser parser = new MessageFormatParser(features);
-			entitlementMediatorServerURL_5134Parser = parser;
+			entitlementMediatorEntitlementServerURL_5134Parser = parser;
 		}
-		return entitlementMediatorServerURL_5134Parser;
+		return entitlementMediatorEntitlementServerURL_5134Parser;
 	}
 
 	/**
@@ -1535,7 +1535,7 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 		case EventMediatorDescriptionEditPart.VISUAL_ID:
 			return getEventMediatorDescription_5171Parser();
 		case EntitlementMediatorServerURLEditPart.VISUAL_ID:
-			return getEntitlementMediatorServerURL_5134Parser();
+			return getEntitlementMediatorEntitlementServerURL_5134Parser();
 		case EntitlementMediatorDescriptionEditPart.VISUAL_ID:
 			return getEntitlementMediatorDescription_5172Parser();
 		case ClassMediatorClassNameEditPart.VISUAL_ID:

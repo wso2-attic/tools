@@ -38,7 +38,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.APIResourc
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
- * @generated
+ * @generated NOT
  */
 public class APIResourceInSequenceInputConnectorEditPart extends AbstractBaseFigureInputConnectorEditPart {
 
@@ -56,16 +56,16 @@ public class APIResourceInSequenceInputConnectorEditPart extends AbstractBaseFig
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	public NodeFigure figure_;
-	
+
 	private APIResourceInSequenceInputConnectorEditPart instance;
 
 	public NodeFigure getNodeFigureInput() {
 
 		return figure_;
 	}
-	
+
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
 		if (((ENotificationImpl) notification).getOldValue() != null) {
@@ -92,7 +92,7 @@ public class APIResourceInSequenceInputConnectorEditPart extends AbstractBaseFig
 		super(view);
 		instance = this;
 	}
-	
+
 	private void connectToSendMediator(SendMediatorEditPart sendMediatorEditPart) {
 		if (sendMediatorEditPart != null) {
 			ConnectionUtils.createConnection((AbstractConnectorEditPart) this,
@@ -284,6 +284,10 @@ public class APIResourceInSequenceInputConnectorEditPart extends AbstractBaseFig
 			types.add(EsbElementTypes.SequenceOutputConnector_3050);
 			types.add(EsbElementTypes.EventMediatorOutputConnector_3053);
 			types.add(EsbElementTypes.EntitlementMediatorOutputConnector_3056);
+			types.add(EsbElementTypes.EntitlementMediatorOnRejectOutputConnector_3748);
+			types.add(EsbElementTypes.EntitlementMediatorOnAcceptOutputConnector_3749);
+			types.add(EsbElementTypes.EntitlementMediatorAdviceOutputConnector_3750);
+			types.add(EsbElementTypes.EntitlementMediatorObligationsOutputConnector_3751);
 			types.add(EsbElementTypes.ClassMediatorOutputConnector_3059);
 			types.add(EsbElementTypes.SpringMediatorOutputConnector_3062);
 			types.add(EsbElementTypes.ScriptMediatorOutputConnector_3065);

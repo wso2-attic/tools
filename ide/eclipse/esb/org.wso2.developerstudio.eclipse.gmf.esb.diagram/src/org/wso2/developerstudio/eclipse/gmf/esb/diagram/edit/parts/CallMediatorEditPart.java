@@ -110,7 +110,7 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 				return null;
 			}
 		};
-		
+
 		return lep;
 	}
 

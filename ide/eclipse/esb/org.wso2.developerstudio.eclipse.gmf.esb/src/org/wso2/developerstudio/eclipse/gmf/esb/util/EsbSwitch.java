@@ -994,6 +994,73 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.ENTITLEMENT_MEDIATOR_ON_REJECT_OUTPUT_CONNECTOR: {
+				EntitlementMediatorOnRejectOutputConnector entitlementMediatorOnRejectOutputConnector = (EntitlementMediatorOnRejectOutputConnector)theEObject;
+				T result = caseEntitlementMediatorOnRejectOutputConnector(entitlementMediatorOnRejectOutputConnector);
+				if (result == null) result = caseOutputConnector(entitlementMediatorOnRejectOutputConnector);
+				if (result == null) result = caseEsbConnector(entitlementMediatorOnRejectOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENTITLEMENT_MEDIATOR_ON_ACCEPT_OUTPUT_CONNECTOR: {
+				EntitlementMediatorOnAcceptOutputConnector entitlementMediatorOnAcceptOutputConnector = (EntitlementMediatorOnAcceptOutputConnector)theEObject;
+				T result = caseEntitlementMediatorOnAcceptOutputConnector(entitlementMediatorOnAcceptOutputConnector);
+				if (result == null) result = caseOutputConnector(entitlementMediatorOnAcceptOutputConnector);
+				if (result == null) result = caseEsbConnector(entitlementMediatorOnAcceptOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENTITLEMENT_MEDIATOR_ADVICE_OUTPUT_CONNECTOR: {
+				EntitlementMediatorAdviceOutputConnector entitlementMediatorAdviceOutputConnector = (EntitlementMediatorAdviceOutputConnector)theEObject;
+				T result = caseEntitlementMediatorAdviceOutputConnector(entitlementMediatorAdviceOutputConnector);
+				if (result == null) result = caseOutputConnector(entitlementMediatorAdviceOutputConnector);
+				if (result == null) result = caseEsbConnector(entitlementMediatorAdviceOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENTITLEMENT_MEDIATOR_OBLIGATIONS_OUTPUT_CONNECTOR: {
+				EntitlementMediatorObligationsOutputConnector entitlementMediatorObligationsOutputConnector = (EntitlementMediatorObligationsOutputConnector)theEObject;
+				T result = caseEntitlementMediatorObligationsOutputConnector(entitlementMediatorObligationsOutputConnector);
+				if (result == null) result = caseOutputConnector(entitlementMediatorObligationsOutputConnector);
+				if (result == null) result = caseEsbConnector(entitlementMediatorObligationsOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENTITLEMENT_CONTAINER: {
+				EntitlementContainer entitlementContainer = (EntitlementContainer)theEObject;
+				T result = caseEntitlementContainer(entitlementContainer);
+				if (result == null) result = caseEsbNode(entitlementContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENTITLEMENT_ON_REJECT_CONTAINER: {
+				EntitlementOnRejectContainer entitlementOnRejectContainer = (EntitlementOnRejectContainer)theEObject;
+				T result = caseEntitlementOnRejectContainer(entitlementOnRejectContainer);
+				if (result == null) result = caseEsbNode(entitlementOnRejectContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENTITLEMENT_ON_ACCEPT_CONTAINER: {
+				EntitlementOnAcceptContainer entitlementOnAcceptContainer = (EntitlementOnAcceptContainer)theEObject;
+				T result = caseEntitlementOnAcceptContainer(entitlementOnAcceptContainer);
+				if (result == null) result = caseEsbNode(entitlementOnAcceptContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENTITLEMENT_ADVICE_CONTAINER: {
+				EntitlementAdviceContainer entitlementAdviceContainer = (EntitlementAdviceContainer)theEObject;
+				T result = caseEntitlementAdviceContainer(entitlementAdviceContainer);
+				if (result == null) result = caseEsbNode(entitlementAdviceContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ENTITLEMENT_OBLIGATIONS_CONTAINER: {
+				EntitlementObligationsContainer entitlementObligationsContainer = (EntitlementObligationsContainer)theEObject;
+				T result = caseEntitlementObligationsContainer(entitlementObligationsContainer);
+				if (result == null) result = caseEsbNode(entitlementObligationsContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.ENQUEUE_MEDIATOR: {
 				EnqueueMediator enqueueMediator = (EnqueueMediator)theEObject;
 				T result = caseEnqueueMediator(enqueueMediator);
@@ -4446,6 +4513,141 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEntitlementMediatorOutputConnector(EntitlementMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Mediator On Reject Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Mediator On Reject Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementMediatorOnRejectOutputConnector(EntitlementMediatorOnRejectOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Mediator On Accept Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Mediator On Accept Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementMediatorOnAcceptOutputConnector(EntitlementMediatorOnAcceptOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Mediator Advice Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Mediator Advice Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementMediatorAdviceOutputConnector(EntitlementMediatorAdviceOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Mediator Obligations Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Mediator Obligations Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementMediatorObligationsOutputConnector(EntitlementMediatorObligationsOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementContainer(EntitlementContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement On Reject Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement On Reject Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementOnRejectContainer(EntitlementOnRejectContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement On Accept Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement On Accept Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementOnAcceptContainer(EntitlementOnAcceptContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Advice Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Advice Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementAdviceContainer(EntitlementAdviceContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Obligations Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Obligations Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementObligationsContainer(EntitlementObligationsContainer object) {
 		return null;
 	}
 

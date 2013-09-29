@@ -167,6 +167,15 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.ENTITLEMENT_MEDIATOR: return createEntitlementMediator();
 			case EsbPackage.ENTITLEMENT_MEDIATOR_INPUT_CONNECTOR: return createEntitlementMediatorInputConnector();
 			case EsbPackage.ENTITLEMENT_MEDIATOR_OUTPUT_CONNECTOR: return createEntitlementMediatorOutputConnector();
+			case EsbPackage.ENTITLEMENT_MEDIATOR_ON_REJECT_OUTPUT_CONNECTOR: return createEntitlementMediatorOnRejectOutputConnector();
+			case EsbPackage.ENTITLEMENT_MEDIATOR_ON_ACCEPT_OUTPUT_CONNECTOR: return createEntitlementMediatorOnAcceptOutputConnector();
+			case EsbPackage.ENTITLEMENT_MEDIATOR_ADVICE_OUTPUT_CONNECTOR: return createEntitlementMediatorAdviceOutputConnector();
+			case EsbPackage.ENTITLEMENT_MEDIATOR_OBLIGATIONS_OUTPUT_CONNECTOR: return createEntitlementMediatorObligationsOutputConnector();
+			case EsbPackage.ENTITLEMENT_CONTAINER: return createEntitlementContainer();
+			case EsbPackage.ENTITLEMENT_ON_REJECT_CONTAINER: return createEntitlementOnRejectContainer();
+			case EsbPackage.ENTITLEMENT_ON_ACCEPT_CONTAINER: return createEntitlementOnAcceptContainer();
+			case EsbPackage.ENTITLEMENT_ADVICE_CONTAINER: return createEntitlementAdviceContainer();
+			case EsbPackage.ENTITLEMENT_OBLIGATIONS_CONTAINER: return createEntitlementObligationsContainer();
 			case EsbPackage.ENQUEUE_MEDIATOR: return createEnqueueMediator();
 			case EsbPackage.ENQUEUE_MEDIATOR_INPUT_CONNECTOR: return createEnqueueMediatorInputConnector();
 			case EsbPackage.ENQUEUE_MEDIATOR_OUTPUT_CONNECTOR: return createEnqueueMediatorOutputConnector();
@@ -1957,6 +1966,96 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public EntitlementMediatorOutputConnector createEntitlementMediatorOutputConnector() {
 		EntitlementMediatorOutputConnectorImpl entitlementMediatorOutputConnector = new EntitlementMediatorOutputConnectorImpl();
 		return entitlementMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementMediatorOnRejectOutputConnector createEntitlementMediatorOnRejectOutputConnector() {
+		EntitlementMediatorOnRejectOutputConnectorImpl entitlementMediatorOnRejectOutputConnector = new EntitlementMediatorOnRejectOutputConnectorImpl();
+		return entitlementMediatorOnRejectOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementMediatorOnAcceptOutputConnector createEntitlementMediatorOnAcceptOutputConnector() {
+		EntitlementMediatorOnAcceptOutputConnectorImpl entitlementMediatorOnAcceptOutputConnector = new EntitlementMediatorOnAcceptOutputConnectorImpl();
+		return entitlementMediatorOnAcceptOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementMediatorAdviceOutputConnector createEntitlementMediatorAdviceOutputConnector() {
+		EntitlementMediatorAdviceOutputConnectorImpl entitlementMediatorAdviceOutputConnector = new EntitlementMediatorAdviceOutputConnectorImpl();
+		return entitlementMediatorAdviceOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementMediatorObligationsOutputConnector createEntitlementMediatorObligationsOutputConnector() {
+		EntitlementMediatorObligationsOutputConnectorImpl entitlementMediatorObligationsOutputConnector = new EntitlementMediatorObligationsOutputConnectorImpl();
+		return entitlementMediatorObligationsOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementContainer createEntitlementContainer() {
+		EntitlementContainerImpl entitlementContainer = new EntitlementContainerImpl();
+		return entitlementContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementOnRejectContainer createEntitlementOnRejectContainer() {
+		EntitlementOnRejectContainerImpl entitlementOnRejectContainer = new EntitlementOnRejectContainerImpl();
+		return entitlementOnRejectContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementOnAcceptContainer createEntitlementOnAcceptContainer() {
+		EntitlementOnAcceptContainerImpl entitlementOnAcceptContainer = new EntitlementOnAcceptContainerImpl();
+		return entitlementOnAcceptContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementAdviceContainer createEntitlementAdviceContainer() {
+		EntitlementAdviceContainerImpl entitlementAdviceContainer = new EntitlementAdviceContainerImpl();
+		return entitlementAdviceContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementObligationsContainer createEntitlementObligationsContainer() {
+		EntitlementObligationsContainerImpl entitlementObligationsContainer = new EntitlementObligationsContainerImpl();
+		return entitlementObligationsContainer;
 	}
 
 	/**

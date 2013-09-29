@@ -807,20 +807,69 @@
         defaultValueLiteral="property_value"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediator" eSuperTypes="#//Mediator">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entitlementServerURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="server_url"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="username"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="password"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callbackClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thriftHost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thriftPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entitlementClientType"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entitlementContainer" eType="#//EntitlementContainer"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//EntitlementMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//EntitlementMediatorOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onRejectOutputConnector"
+        eType="#//EntitlementMediatorOnRejectOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onAcceptOutputConnector"
+        eType="#//EntitlementMediatorOnAcceptOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adviceOutputConnector"
+        eType="#//EntitlementMediatorAdviceOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obligationsOutputConnector"
+        eType="#//EntitlementMediatorObligationsOutputConnector" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediatorOutputConnector"
       eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediatorOnRejectOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediatorOnAcceptOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediatorAdviceOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediatorObligationsOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onRejectContainer" eType="#//EntitlementOnRejectContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onAcceptContainer" eType="#//EntitlementOnAcceptContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adviceContainer" eType="#//EntitlementAdviceContainer"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obligationsContainer" eType="#//EntitlementObligationsContainer"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementOnRejectContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementOnAcceptContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementAdviceContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementObligationsContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnqueueMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="executor_name"/>

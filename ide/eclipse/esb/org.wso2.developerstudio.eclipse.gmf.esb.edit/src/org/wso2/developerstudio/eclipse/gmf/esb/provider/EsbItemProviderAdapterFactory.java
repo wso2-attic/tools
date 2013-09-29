@@ -2551,6 +2551,213 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnRejectOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementMediatorOnRejectOutputConnectorItemProvider entitlementMediatorOnRejectOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnRejectOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementMediatorOnRejectOutputConnectorAdapter() {
+		if (entitlementMediatorOnRejectOutputConnectorItemProvider == null) {
+			entitlementMediatorOnRejectOutputConnectorItemProvider = new EntitlementMediatorOnRejectOutputConnectorItemProvider(this);
+		}
+
+		return entitlementMediatorOnRejectOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnAcceptOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementMediatorOnAcceptOutputConnectorItemProvider entitlementMediatorOnAcceptOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnAcceptOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementMediatorOnAcceptOutputConnectorAdapter() {
+		if (entitlementMediatorOnAcceptOutputConnectorItemProvider == null) {
+			entitlementMediatorOnAcceptOutputConnectorItemProvider = new EntitlementMediatorOnAcceptOutputConnectorItemProvider(this);
+		}
+
+		return entitlementMediatorOnAcceptOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorAdviceOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementMediatorAdviceOutputConnectorItemProvider entitlementMediatorAdviceOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorAdviceOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementMediatorAdviceOutputConnectorAdapter() {
+		if (entitlementMediatorAdviceOutputConnectorItemProvider == null) {
+			entitlementMediatorAdviceOutputConnectorItemProvider = new EntitlementMediatorAdviceOutputConnectorItemProvider(this);
+		}
+
+		return entitlementMediatorAdviceOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorObligationsOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementMediatorObligationsOutputConnectorItemProvider entitlementMediatorObligationsOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorObligationsOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementMediatorObligationsOutputConnectorAdapter() {
+		if (entitlementMediatorObligationsOutputConnectorItemProvider == null) {
+			entitlementMediatorObligationsOutputConnectorItemProvider = new EntitlementMediatorObligationsOutputConnectorItemProvider(this);
+		}
+
+		return entitlementMediatorObligationsOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementContainerItemProvider entitlementContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementContainerAdapter() {
+		if (entitlementContainerItemProvider == null) {
+			entitlementContainerItemProvider = new EntitlementContainerItemProvider(this);
+		}
+
+		return entitlementContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnRejectContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementOnRejectContainerItemProvider entitlementOnRejectContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnRejectContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementOnRejectContainerAdapter() {
+		if (entitlementOnRejectContainerItemProvider == null) {
+			entitlementOnRejectContainerItemProvider = new EntitlementOnRejectContainerItemProvider(this);
+		}
+
+		return entitlementOnRejectContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnAcceptContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementOnAcceptContainerItemProvider entitlementOnAcceptContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnAcceptContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementOnAcceptContainerAdapter() {
+		if (entitlementOnAcceptContainerItemProvider == null) {
+			entitlementOnAcceptContainerItemProvider = new EntitlementOnAcceptContainerItemProvider(this);
+		}
+
+		return entitlementOnAcceptContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementAdviceContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementAdviceContainerItemProvider entitlementAdviceContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementAdviceContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementAdviceContainerAdapter() {
+		if (entitlementAdviceContainerItemProvider == null) {
+			entitlementAdviceContainerItemProvider = new EntitlementAdviceContainerItemProvider(this);
+		}
+
+		return entitlementAdviceContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementObligationsContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementObligationsContainerItemProvider entitlementObligationsContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementObligationsContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementObligationsContainerAdapter() {
+		if (entitlementObligationsContainerItemProvider == null) {
+			entitlementObligationsContainerItemProvider = new EntitlementObligationsContainerItemProvider(this);
+		}
+
+		return entitlementObligationsContainerItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7681,6 +7888,15 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (entitlementMediatorItemProvider != null) entitlementMediatorItemProvider.dispose();
 		if (entitlementMediatorInputConnectorItemProvider != null) entitlementMediatorInputConnectorItemProvider.dispose();
 		if (entitlementMediatorOutputConnectorItemProvider != null) entitlementMediatorOutputConnectorItemProvider.dispose();
+		if (entitlementMediatorOnRejectOutputConnectorItemProvider != null) entitlementMediatorOnRejectOutputConnectorItemProvider.dispose();
+		if (entitlementMediatorOnAcceptOutputConnectorItemProvider != null) entitlementMediatorOnAcceptOutputConnectorItemProvider.dispose();
+		if (entitlementMediatorAdviceOutputConnectorItemProvider != null) entitlementMediatorAdviceOutputConnectorItemProvider.dispose();
+		if (entitlementMediatorObligationsOutputConnectorItemProvider != null) entitlementMediatorObligationsOutputConnectorItemProvider.dispose();
+		if (entitlementContainerItemProvider != null) entitlementContainerItemProvider.dispose();
+		if (entitlementOnRejectContainerItemProvider != null) entitlementOnRejectContainerItemProvider.dispose();
+		if (entitlementOnAcceptContainerItemProvider != null) entitlementOnAcceptContainerItemProvider.dispose();
+		if (entitlementAdviceContainerItemProvider != null) entitlementAdviceContainerItemProvider.dispose();
+		if (entitlementObligationsContainerItemProvider != null) entitlementObligationsContainerItemProvider.dispose();
 		if (enqueueMediatorItemProvider != null) enqueueMediatorItemProvider.dispose();
 		if (enqueueMediatorInputConnectorItemProvider != null) enqueueMediatorInputConnectorItemProvider.dispose();
 		if (enqueueMediatorOutputConnectorItemProvider != null) enqueueMediatorOutputConnectorItemProvider.dispose();

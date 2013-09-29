@@ -67,7 +67,7 @@ public class EntitlementMediatorItemProvider
 		}
 			super.getPropertyDescriptors(object);
 
-			addServerURLPropertyDescriptor(object);
+			addEntitlementServerURLPropertyDescriptor(object);
 			addUsernamePropertyDescriptor(object);
 			addPasswordPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
@@ -76,19 +76,19 @@ public class EntitlementMediatorItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Server URL feature.
+	 * This adds a property descriptor for the Entitlement Server URL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addServerURLPropertyDescriptor(Object object) {
+	protected void addEntitlementServerURLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EntitlementMediator_serverURL_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_serverURL_feature", "_UI_EntitlementMediator_type"),
-				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__SERVER_URL,
+				 getString("_UI_EntitlementMediator_entitlementServerURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_entitlementServerURL_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ENTITLEMENT_SERVER_URL,
 				 true,
 				 false,
 				 false,
@@ -142,6 +142,94 @@ public class EntitlementMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Callback Class Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCallbackClassNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_callbackClassName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_callbackClassName_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__CALLBACK_CLASS_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Thrift Host feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addThriftHostPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_thriftHost_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_thriftHost_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__THRIFT_HOST,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Thrift Port feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addThriftPortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_thriftPort_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_thriftPort_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__THRIFT_PORT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Entitlement Client Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEntitlementClientTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_entitlementClientType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_entitlementClientType_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -154,8 +242,13 @@ public class EntitlementMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER);
 			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS_OUTPUT_CONNECTOR);
 		}
 		return childrenFeatures;
 	}
@@ -214,13 +307,22 @@ public class EntitlementMediatorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EntitlementMediator.class)) {
-			case EsbPackage.ENTITLEMENT_MEDIATOR__SERVER_URL:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_SERVER_URL:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__USERNAME:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__PASSWORD:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__CALLBACK_CLASS_NAME:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__THRIFT_HOST:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__THRIFT_PORT:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_OUTPUT_CONNECTOR:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_OUTPUT_CONNECTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -241,6 +343,11 @@ public class EntitlementMediatorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER,
+				 EsbFactory.eINSTANCE.createEntitlementContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createEntitlementMediatorInputConnector()));
 
@@ -248,6 +355,26 @@ public class EntitlementMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createEntitlementMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createEntitlementMediatorOnRejectOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createEntitlementMediatorOnAcceptOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE_OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createEntitlementMediatorAdviceOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS_OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createEntitlementMediatorObligationsOutputConnector()));
 	}
 
 }

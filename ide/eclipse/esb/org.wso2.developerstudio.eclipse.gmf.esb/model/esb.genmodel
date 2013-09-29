@@ -981,14 +981,45 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractNameValueProperty/propertyValue"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//EntitlementMediator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/serverURL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/entitlementServerURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/username"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/password"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/callbackClassName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/thriftHost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/thriftPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/entitlementClientType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/entitlementContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/onRejectOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/onAcceptOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/adviceOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/obligationsOutputConnector"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//EntitlementMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//EntitlementMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EntitlementMediatorOnRejectOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EntitlementMediatorOnAcceptOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EntitlementMediatorAdviceOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EntitlementMediatorObligationsOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EntitlementContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementContainer/onRejectContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementContainer/onAcceptContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementContainer/adviceContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementContainer/obligationsContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//EntitlementOnRejectContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementOnRejectContainer/mediatorFlow"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//EntitlementOnAcceptContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementOnAcceptContainer/mediatorFlow"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//EntitlementAdviceContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementAdviceContainer/mediatorFlow"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//EntitlementObligationsContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementObligationsContainer/mediatorFlow"/>
+    </genClasses>
     <genClasses ecoreClass="esb.ecore#//EnqueueMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EnqueueMediator/executor"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EnqueueMediator/priority"/>

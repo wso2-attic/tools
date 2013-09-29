@@ -72,6 +72,10 @@ public class EsbDiagramUpdater {
 			return getEventMediator_3504SemanticChildren(view);
 		case EntitlementMediatorEditPart.VISUAL_ID:
 			return getEntitlementMediator_3505SemanticChildren(view);
+		case EntitlementContainerEditPart.VISUAL_ID:
+			return getEntitlementContainer_3752SemanticChildren(view);
+		case EntitlementOnRejectContainerEditPart.VISUAL_ID:
+			return getEntitlementOnRejectContainer_3753SemanticChildren(view);
 		case ClassMediatorEditPart.VISUAL_ID:
 			return getClassMediator_3506SemanticChildren(view);
 		case SpringMediatorEditPart.VISUAL_ID:
@@ -176,6 +180,12 @@ public class EsbDiagramUpdater {
 			return getRespondMediator_3739SemanticChildren(view);
 		case CallMediatorEditPart.VISUAL_ID:
 			return getCallMediator_3742SemanticChildren(view);
+		case EntitlementOnAcceptContainerEditPart.VISUAL_ID:
+			return getEntitlementOnAcceptContainer_3755SemanticChildren(view);
+		case EntitlementAdviceContainerEditPart.VISUAL_ID:
+			return getEntitlementAdviceContainer_3757SemanticChildren(view);
+		case EntitlementObligationsContainerEditPart.VISUAL_ID:
+			return getEntitlementObligationsContainer_3759SemanticChildren(view);
 		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultParentContainer_3734SemanticChildren(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
@@ -226,6 +236,8 @@ public class EsbDiagramUpdater {
 			return getMediatorFlowMediatorFlowCompartment_7022SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment2EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7015SemanticChildren(view);
+		case MediatorFlowMediatorFlowCompartment21EditPart.VISUAL_ID:
+			return getMediatorFlowMediatorFlowCompartment_7048SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment19EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7046SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment11EditPart.VISUAL_ID:
@@ -246,6 +258,12 @@ public class EsbDiagramUpdater {
 			return getMediatorFlowMediatorFlowCompartment_7039SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment20EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7047SemanticChildren(view);
+		case MediatorFlowMediatorFlowCompartment22EditPart.VISUAL_ID:
+			return getMediatorFlowMediatorFlowCompartment_7049SemanticChildren(view);
+		case MediatorFlowMediatorFlowCompartment23EditPart.VISUAL_ID:
+			return getMediatorFlowMediatorFlowCompartment_7050SemanticChildren(view);
+		case MediatorFlowMediatorFlowCompartment24EditPart.VISUAL_ID:
+			return getMediatorFlowMediatorFlowCompartment_7051SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment4EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7017SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment8EditPart.VISUAL_ID:
@@ -900,6 +918,106 @@ public class EsbDiagramUpdater {
 			EntitlementMediatorOutputConnector childElement = modelElement.getOutputConnector();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == EntitlementMediatorOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			EntitlementMediatorOnRejectOutputConnector childElement = modelElement
+					.getOnRejectOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementMediatorOnRejectOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			EntitlementMediatorOnAcceptOutputConnector childElement = modelElement
+					.getOnAcceptOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementMediatorOnAcceptOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			EntitlementMediatorAdviceOutputConnector childElement = modelElement
+					.getAdviceOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementMediatorAdviceOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			EntitlementMediatorObligationsOutputConnector childElement = modelElement
+					.getObligationsOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementMediatorObligationsOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			EntitlementContainer childElement = modelElement.getEntitlementContainer();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementContainerEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getEntitlementContainer_3752SemanticChildren(View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		EntitlementContainer modelElement = (EntitlementContainer) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			EntitlementOnRejectContainer childElement = modelElement.getOnRejectContainer();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementOnRejectContainerEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			EntitlementOnAcceptContainer childElement = modelElement.getOnAcceptContainer();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementOnAcceptContainerEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			EntitlementAdviceContainer childElement = modelElement.getAdviceContainer();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementAdviceContainerEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			EntitlementObligationsContainer childElement = modelElement.getObligationsContainer();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == EntitlementObligationsContainerEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getEntitlementOnRejectContainer_3753SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		EntitlementOnRejectContainer modelElement = (EntitlementOnRejectContainer) view
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			MediatorFlow childElement = modelElement.getMediatorFlow();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MediatorFlow21EditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -2418,6 +2536,68 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbNodeDescriptor> getEntitlementOnAcceptContainer_3755SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		EntitlementOnAcceptContainer modelElement = (EntitlementOnAcceptContainer) view
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			MediatorFlow childElement = modelElement.getMediatorFlow();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MediatorFlow22EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getEntitlementAdviceContainer_3757SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		EntitlementAdviceContainer modelElement = (EntitlementAdviceContainer) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			MediatorFlow childElement = modelElement.getMediatorFlow();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MediatorFlow23EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getEntitlementObligationsContainer_3759SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		EntitlementObligationsContainer modelElement = (EntitlementObligationsContainer) view
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			MediatorFlow childElement = modelElement.getMediatorFlow();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == MediatorFlow24EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbNodeDescriptor> getSwitchDefaultParentContainer_3734SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
@@ -3825,6 +4005,263 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7015SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MediatorFlow modelElement = (MediatorFlow) containerView.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
+			EsbElement childElement = (EsbElement) it.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == DropMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PropertyMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ThrottleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FilterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LogMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XSLTMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SwitchMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SequenceEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EventMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EntitlementMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ClassMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SpringMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ScriptMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FaultMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XQueryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CommandMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBLookupMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBReportMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SmooksMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SendMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HeaderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloneMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CacheMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == IterateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CalloutMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TransactionMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RMSequenceMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RuleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == OAuthMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AggregateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == StoreMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BuilderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallTemplateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PayloadFactoryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == URLRewriteMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ValidateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BAMMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BeanMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EJBMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RecipientListEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == NamedEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HTTPEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TemplateEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloudConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloudConnectorOperationEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoopBackMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RespondMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7048SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -6651,6 +7088,777 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7049SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MediatorFlow modelElement = (MediatorFlow) containerView.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
+			EsbElement childElement = (EsbElement) it.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == DropMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PropertyMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ThrottleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FilterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LogMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XSLTMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SwitchMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SequenceEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EventMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EntitlementMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ClassMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SpringMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ScriptMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FaultMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XQueryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CommandMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBLookupMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBReportMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SmooksMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SendMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HeaderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloneMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CacheMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == IterateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CalloutMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TransactionMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RMSequenceMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RuleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == OAuthMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AggregateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == StoreMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BuilderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallTemplateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PayloadFactoryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == URLRewriteMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ValidateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BAMMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BeanMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EJBMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RecipientListEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == NamedEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HTTPEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TemplateEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloudConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloudConnectorOperationEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoopBackMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RespondMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7050SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MediatorFlow modelElement = (MediatorFlow) containerView.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
+			EsbElement childElement = (EsbElement) it.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == DropMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PropertyMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ThrottleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FilterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LogMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XSLTMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SwitchMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SequenceEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EventMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EntitlementMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ClassMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SpringMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ScriptMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FaultMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XQueryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CommandMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBLookupMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBReportMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SmooksMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SendMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HeaderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloneMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CacheMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == IterateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CalloutMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TransactionMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RMSequenceMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RuleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == OAuthMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AggregateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == StoreMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BuilderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallTemplateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PayloadFactoryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == URLRewriteMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ValidateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BAMMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BeanMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EJBMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RecipientListEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == NamedEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HTTPEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TemplateEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloudConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloudConnectorOperationEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoopBackMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RespondMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7051SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MediatorFlow modelElement = (MediatorFlow) containerView.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it.hasNext();) {
+			EsbElement childElement = (EsbElement) it.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == DropMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PropertyMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ThrottleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FilterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LogMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XSLTMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SwitchMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SequenceEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EventMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EntitlementMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ClassMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SpringMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ScriptMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FaultMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XQueryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CommandMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBLookupMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBReportMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SmooksMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SendMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HeaderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloneMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CacheMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == IterateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CalloutMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TransactionMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RMSequenceMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RuleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == OAuthMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AggregateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == StoreMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BuilderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallTemplateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PayloadFactoryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == URLRewriteMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ValidateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BAMMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BeanMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EJBMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RecipientListEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == NamedEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HTTPEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TemplateEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloudConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloudConnectorOperationEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoopBackMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RespondMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7017SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -8471,6 +9679,20 @@ public class EsbDiagramUpdater {
 			return getEntitlementMediatorInputConnector_3055ContainedLinks(view);
 		case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getEntitlementMediatorOutputConnector_3056ContainedLinks(view);
+		case EntitlementMediatorOnRejectOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorOnRejectOutputConnector_3748ContainedLinks(view);
+		case EntitlementMediatorOnAcceptOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorOnAcceptOutputConnector_3749ContainedLinks(view);
+		case EntitlementMediatorAdviceOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorAdviceOutputConnector_3750ContainedLinks(view);
+		case EntitlementMediatorObligationsOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorObligationsOutputConnector_3751ContainedLinks(view);
+		case EntitlementContainerEditPart.VISUAL_ID:
+			return getEntitlementContainer_3752ContainedLinks(view);
+		case EntitlementOnRejectContainerEditPart.VISUAL_ID:
+			return getEntitlementOnRejectContainer_3753ContainedLinks(view);
+		case MediatorFlow21EditPart.VISUAL_ID:
+			return getMediatorFlow_3754ContainedLinks(view);
 		case ClassMediatorEditPart.VISUAL_ID:
 			return getClassMediator_3506ContainedLinks(view);
 		case ClassMediatorInputConnectorEditPart.VISUAL_ID:
@@ -8813,6 +10035,18 @@ public class EsbDiagramUpdater {
 			return getCallMediatorEndpointOutputConnector_3745ContainedLinks(view);
 		case MediatorFlow20EditPart.VISUAL_ID:
 			return getMediatorFlow_3746ContainedLinks(view);
+		case EntitlementOnAcceptContainerEditPart.VISUAL_ID:
+			return getEntitlementOnAcceptContainer_3755ContainedLinks(view);
+		case MediatorFlow22EditPart.VISUAL_ID:
+			return getMediatorFlow_3756ContainedLinks(view);
+		case EntitlementAdviceContainerEditPart.VISUAL_ID:
+			return getEntitlementAdviceContainer_3757ContainedLinks(view);
+		case MediatorFlow23EditPart.VISUAL_ID:
+			return getMediatorFlow_3758ContainedLinks(view);
+		case EntitlementObligationsContainerEditPart.VISUAL_ID:
+			return getEntitlementObligationsContainer_3759ContainedLinks(view);
+		case MediatorFlow24EditPart.VISUAL_ID:
+			return getMediatorFlow_3760ContainedLinks(view);
 		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultParentContainer_3734ContainedLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
@@ -9072,6 +10306,20 @@ public class EsbDiagramUpdater {
 			return getEntitlementMediatorInputConnector_3055IncomingLinks(view);
 		case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getEntitlementMediatorOutputConnector_3056IncomingLinks(view);
+		case EntitlementMediatorOnRejectOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorOnRejectOutputConnector_3748IncomingLinks(view);
+		case EntitlementMediatorOnAcceptOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorOnAcceptOutputConnector_3749IncomingLinks(view);
+		case EntitlementMediatorAdviceOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorAdviceOutputConnector_3750IncomingLinks(view);
+		case EntitlementMediatorObligationsOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorObligationsOutputConnector_3751IncomingLinks(view);
+		case EntitlementContainerEditPart.VISUAL_ID:
+			return getEntitlementContainer_3752IncomingLinks(view);
+		case EntitlementOnRejectContainerEditPart.VISUAL_ID:
+			return getEntitlementOnRejectContainer_3753IncomingLinks(view);
+		case MediatorFlow21EditPart.VISUAL_ID:
+			return getMediatorFlow_3754IncomingLinks(view);
 		case ClassMediatorEditPart.VISUAL_ID:
 			return getClassMediator_3506IncomingLinks(view);
 		case ClassMediatorInputConnectorEditPart.VISUAL_ID:
@@ -9414,6 +10662,18 @@ public class EsbDiagramUpdater {
 			return getCallMediatorEndpointOutputConnector_3745IncomingLinks(view);
 		case MediatorFlow20EditPart.VISUAL_ID:
 			return getMediatorFlow_3746IncomingLinks(view);
+		case EntitlementOnAcceptContainerEditPart.VISUAL_ID:
+			return getEntitlementOnAcceptContainer_3755IncomingLinks(view);
+		case MediatorFlow22EditPart.VISUAL_ID:
+			return getMediatorFlow_3756IncomingLinks(view);
+		case EntitlementAdviceContainerEditPart.VISUAL_ID:
+			return getEntitlementAdviceContainer_3757IncomingLinks(view);
+		case MediatorFlow23EditPart.VISUAL_ID:
+			return getMediatorFlow_3758IncomingLinks(view);
+		case EntitlementObligationsContainerEditPart.VISUAL_ID:
+			return getEntitlementObligationsContainer_3759IncomingLinks(view);
+		case MediatorFlow24EditPart.VISUAL_ID:
+			return getMediatorFlow_3760IncomingLinks(view);
 		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultParentContainer_3734IncomingLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
@@ -9673,6 +10933,20 @@ public class EsbDiagramUpdater {
 			return getEntitlementMediatorInputConnector_3055OutgoingLinks(view);
 		case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getEntitlementMediatorOutputConnector_3056OutgoingLinks(view);
+		case EntitlementMediatorOnRejectOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorOnRejectOutputConnector_3748OutgoingLinks(view);
+		case EntitlementMediatorOnAcceptOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorOnAcceptOutputConnector_3749OutgoingLinks(view);
+		case EntitlementMediatorAdviceOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorAdviceOutputConnector_3750OutgoingLinks(view);
+		case EntitlementMediatorObligationsOutputConnectorEditPart.VISUAL_ID:
+			return getEntitlementMediatorObligationsOutputConnector_3751OutgoingLinks(view);
+		case EntitlementContainerEditPart.VISUAL_ID:
+			return getEntitlementContainer_3752OutgoingLinks(view);
+		case EntitlementOnRejectContainerEditPart.VISUAL_ID:
+			return getEntitlementOnRejectContainer_3753OutgoingLinks(view);
+		case MediatorFlow21EditPart.VISUAL_ID:
+			return getMediatorFlow_3754OutgoingLinks(view);
 		case ClassMediatorEditPart.VISUAL_ID:
 			return getClassMediator_3506OutgoingLinks(view);
 		case ClassMediatorInputConnectorEditPart.VISUAL_ID:
@@ -10015,6 +11289,18 @@ public class EsbDiagramUpdater {
 			return getCallMediatorEndpointOutputConnector_3745OutgoingLinks(view);
 		case MediatorFlow20EditPart.VISUAL_ID:
 			return getMediatorFlow_3746OutgoingLinks(view);
+		case EntitlementOnAcceptContainerEditPart.VISUAL_ID:
+			return getEntitlementOnAcceptContainer_3755OutgoingLinks(view);
+		case MediatorFlow22EditPart.VISUAL_ID:
+			return getMediatorFlow_3756OutgoingLinks(view);
+		case EntitlementAdviceContainerEditPart.VISUAL_ID:
+			return getEntitlementAdviceContainer_3757OutgoingLinks(view);
+		case MediatorFlow23EditPart.VISUAL_ID:
+			return getMediatorFlow_3758OutgoingLinks(view);
+		case EntitlementObligationsContainerEditPart.VISUAL_ID:
+			return getEntitlementObligationsContainer_3759OutgoingLinks(view);
+		case MediatorFlow24EditPart.VISUAL_ID:
+			return getMediatorFlow_3760OutgoingLinks(view);
 		case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultParentContainer_3734OutgoingLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
@@ -11063,6 +12349,76 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorOnRejectOutputConnector_3748ContainedLinks(
+			View view) {
+		EntitlementMediatorOnRejectOutputConnector modelElement = (EntitlementMediatorOnRejectOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorOnAcceptOutputConnector_3749ContainedLinks(
+			View view) {
+		EntitlementMediatorOnAcceptOutputConnector modelElement = (EntitlementMediatorOnAcceptOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorAdviceOutputConnector_3750ContainedLinks(
+			View view) {
+		EntitlementMediatorAdviceOutputConnector modelElement = (EntitlementMediatorAdviceOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorObligationsOutputConnector_3751ContainedLinks(
+			View view) {
+		EntitlementMediatorObligationsOutputConnector modelElement = (EntitlementMediatorObligationsOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementContainer_3752ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementOnRejectContainer_3753ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3754ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getClassMediator_3506ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -11771,6 +13127,50 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3746ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementOnAcceptContainer_3755ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3756ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementAdviceContainer_3757ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3758ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementObligationsContainer_3759ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3760ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -13686,6 +15086,60 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorOnRejectOutputConnector_3748IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorOnAcceptOutputConnector_3749IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorAdviceOutputConnector_3750IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorObligationsOutputConnector_3751IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementContainer_3752IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementOnRejectContainer_3753IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3754IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getClassMediator_3506IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -14412,6 +15866,50 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3746IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementOnAcceptContainer_3755IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3756IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementAdviceContainer_3757IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3758IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementObligationsContainer_3759IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3760IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -16281,6 +17779,76 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorOnRejectOutputConnector_3748OutgoingLinks(
+			View view) {
+		EntitlementMediatorOnRejectOutputConnector modelElement = (EntitlementMediatorOnRejectOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorOnAcceptOutputConnector_3749OutgoingLinks(
+			View view) {
+		EntitlementMediatorOnAcceptOutputConnector modelElement = (EntitlementMediatorOnAcceptOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorAdviceOutputConnector_3750OutgoingLinks(
+			View view) {
+		EntitlementMediatorAdviceOutputConnector modelElement = (EntitlementMediatorAdviceOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementMediatorObligationsOutputConnector_3751OutgoingLinks(
+			View view) {
+		EntitlementMediatorObligationsOutputConnector modelElement = (EntitlementMediatorObligationsOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementContainer_3752OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementOnRejectContainer_3753OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3754OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getClassMediator_3506OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -16982,6 +18550,50 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3746OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementOnAcceptContainer_3755OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3756OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementAdviceContainer_3757OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3758OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEntitlementObligationsContainer_3759OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3760OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

@@ -488,7 +488,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 
 				cc.add(new ICommandProxy(createSubTopicsCmd));
 
-				if(outputConnector != null){
+				if (outputConnector != null) {
 					ICommand createSubTopicsCmd2 = new DeferredCreateConnectionViewAndElementCommand(
 							new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
 									((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(),
@@ -497,7 +497,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 									(EObject) outputConnector.getModel()), new EObjectAdapter(
 									(EObject) (inputConnectorEditPart_).getModel()),
 							((ShapeNodeEditPart) outputConnector.getParent()).getViewer());
-	
+
 					//cc.add(new ICommandProxy(createSubTopicsCmd));
 					cc.add(new ICommandProxy(createSubTopicsCmd2));
 				}

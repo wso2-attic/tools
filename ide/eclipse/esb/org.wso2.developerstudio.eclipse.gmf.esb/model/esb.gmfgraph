@@ -2201,6 +2201,81 @@
           accessor="getFigureCallMediatorDescriptionFigure"
           figure="//@figures.0/@descriptors.105/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="EntitlementContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EntitlementMediatorContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="EntitlementOnRejectContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EntitlementOnRejectContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="EntitlementOnAcceptContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EntitlementOnAcceptContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="EntitlementAdviceContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EntitlementAdviceContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="EntitlementObligationsContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="EntitlementObligationsContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2410,6 +2485,37 @@
       name="EntitlementMediatorOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="EntitlementMediatorOnRejectOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="EntitlementMediatorOnAcceptOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="EntitlementMediatorAdviceOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="EntitlementMediatorObligationsOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="EntitlementContainer"
+      figure="EntitlementContainerFigure"/>
+  <nodes
+      name="EntitlementOnRejectContainer"
+      figure="EntitlementOnRejectContainerFigure"/>
+  <nodes
+      name="EntitlementOnAcceptContainer"
+      figure="EntitlementOnAcceptContainerFigure"/>
+  <nodes
+      name="EntitlementAdviceContainer"
+      figure="EntitlementAdviceContainerFigure"/>
+  <nodes
+      name="EntitlementObligationsContainer"
+      figure="EntitlementObligationsContainerFigure"/>
   <nodes
       name="ClassMediator"
       figure="ClassMediatorFigure"/>

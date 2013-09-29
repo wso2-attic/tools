@@ -251,6 +251,27 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID:
 				return new EntitlementMediatorOutputConnectorEditPart(view);
 
+			case EntitlementMediatorOnRejectOutputConnectorEditPart.VISUAL_ID:
+				return new EntitlementMediatorOnRejectOutputConnectorEditPart(view);
+
+			case EntitlementMediatorOnAcceptOutputConnectorEditPart.VISUAL_ID:
+				return new EntitlementMediatorOnAcceptOutputConnectorEditPart(view);
+
+			case EntitlementMediatorAdviceOutputConnectorEditPart.VISUAL_ID:
+				return new EntitlementMediatorAdviceOutputConnectorEditPart(view);
+
+			case EntitlementMediatorObligationsOutputConnectorEditPart.VISUAL_ID:
+				return new EntitlementMediatorObligationsOutputConnectorEditPart(view);
+
+			case EntitlementContainerEditPart.VISUAL_ID:
+				return new EntitlementContainerEditPart(view);
+
+			case EntitlementOnRejectContainerEditPart.VISUAL_ID:
+				return new EntitlementOnRejectContainerEditPart(view);
+
+			case MediatorFlow21EditPart.VISUAL_ID:
+				return new MediatorFlow21EditPart(view);
+
 			case ClassMediatorEditPart.VISUAL_ID:
 				return new ClassMediatorEditPart(view);
 
@@ -935,6 +956,24 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case MediatorFlow20EditPart.VISUAL_ID:
 				return new MediatorFlow20EditPart(view);
 
+			case EntitlementOnAcceptContainerEditPart.VISUAL_ID:
+				return new EntitlementOnAcceptContainerEditPart(view);
+
+			case MediatorFlow22EditPart.VISUAL_ID:
+				return new MediatorFlow22EditPart(view);
+
+			case EntitlementAdviceContainerEditPart.VISUAL_ID:
+				return new EntitlementAdviceContainerEditPart(view);
+
+			case MediatorFlow23EditPart.VISUAL_ID:
+				return new MediatorFlow23EditPart(view);
+
+			case EntitlementObligationsContainerEditPart.VISUAL_ID:
+				return new EntitlementObligationsContainerEditPart(view);
+
+			case MediatorFlow24EditPart.VISUAL_ID:
+				return new MediatorFlow24EditPart(view);
+
 			case SwitchDefaultParentContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultParentContainerEditPart(view);
 
@@ -1166,6 +1205,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case MediatorFlowMediatorFlowCompartment2EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment2EditPart(view);
 
+			case MediatorFlowMediatorFlowCompartment21EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment21EditPart(view);
+
 			case MediatorFlowMediatorFlowCompartment19EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment19EditPart(view);
 
@@ -1195,6 +1237,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case MediatorFlowMediatorFlowCompartment20EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment20EditPart(view);
+
+			case MediatorFlowMediatorFlowCompartment22EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment22EditPart(view);
+
+			case MediatorFlowMediatorFlowCompartment23EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment23EditPart(view);
+
+			case MediatorFlowMediatorFlowCompartment24EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment24EditPart(view);
 
 			case MediatorFlowMediatorFlowCompartment4EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment4EditPart(view);

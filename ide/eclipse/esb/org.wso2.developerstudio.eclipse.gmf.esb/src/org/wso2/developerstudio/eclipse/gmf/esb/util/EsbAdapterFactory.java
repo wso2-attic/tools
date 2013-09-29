@@ -545,6 +545,42 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createEntitlementMediatorOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseEntitlementMediatorOnRejectOutputConnector(EntitlementMediatorOnRejectOutputConnector object) {
+				return createEntitlementMediatorOnRejectOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementMediatorOnAcceptOutputConnector(EntitlementMediatorOnAcceptOutputConnector object) {
+				return createEntitlementMediatorOnAcceptOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementMediatorAdviceOutputConnector(EntitlementMediatorAdviceOutputConnector object) {
+				return createEntitlementMediatorAdviceOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementMediatorObligationsOutputConnector(EntitlementMediatorObligationsOutputConnector object) {
+				return createEntitlementMediatorObligationsOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementContainer(EntitlementContainer object) {
+				return createEntitlementContainerAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementOnRejectContainer(EntitlementOnRejectContainer object) {
+				return createEntitlementOnRejectContainerAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementOnAcceptContainer(EntitlementOnAcceptContainer object) {
+				return createEntitlementOnAcceptContainerAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementAdviceContainer(EntitlementAdviceContainer object) {
+				return createEntitlementAdviceContainerAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementObligationsContainer(EntitlementObligationsContainer object) {
+				return createEntitlementObligationsContainerAdapter();
+			}
+			@Override
 			public Adapter caseEnqueueMediator(EnqueueMediator object) {
 				return createEnqueueMediatorAdapter();
 			}
@@ -3062,6 +3098,132 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntitlementMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnRejectOutputConnector <em>Entitlement Mediator On Reject Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnRejectOutputConnector
+	 * @generated
+	 */
+	public Adapter createEntitlementMediatorOnRejectOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnAcceptOutputConnector <em>Entitlement Mediator On Accept Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnAcceptOutputConnector
+	 * @generated
+	 */
+	public Adapter createEntitlementMediatorOnAcceptOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorAdviceOutputConnector <em>Entitlement Mediator Advice Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorAdviceOutputConnector
+	 * @generated
+	 */
+	public Adapter createEntitlementMediatorAdviceOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorObligationsOutputConnector <em>Entitlement Mediator Obligations Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorObligationsOutputConnector
+	 * @generated
+	 */
+	public Adapter createEntitlementMediatorObligationsOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementContainer <em>Entitlement Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementContainer
+	 * @generated
+	 */
+	public Adapter createEntitlementContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnRejectContainer <em>Entitlement On Reject Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnRejectContainer
+	 * @generated
+	 */
+	public Adapter createEntitlementOnRejectContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnAcceptContainer <em>Entitlement On Accept Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnAcceptContainer
+	 * @generated
+	 */
+	public Adapter createEntitlementOnAcceptContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementAdviceContainer <em>Entitlement Advice Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementAdviceContainer
+	 * @generated
+	 */
+	public Adapter createEntitlementAdviceContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementObligationsContainer <em>Entitlement Obligations Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementObligationsContainer
+	 * @generated
+	 */
+	public Adapter createEntitlementObligationsContainerAdapter() {
 		return null;
 	}
 

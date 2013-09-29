@@ -17,7 +17,7 @@ public class EntitlementMediatorDeserializer extends AbstractEsbNodeDeserializer
 		EntitlementMediator visualEntitlementMediator = (EntitlementMediator) DeserializerUtils.createNode(part, EsbElementTypes.EntitlementMediator_3505);
 		setElementToEdit(visualEntitlementMediator);
 		
-		executeSetValueCommand(ENTITLEMENT_MEDIATOR__SERVER_URL, entitlementMediator.getRemoteServiceUrl());
+		executeSetValueCommand(ENTITLEMENT_MEDIATOR__ENTITLEMENT_SERVER_URL, entitlementMediator.getRemoteServiceUrl());
 		executeSetValueCommand(ENTITLEMENT_MEDIATOR__USERNAME, entitlementMediator.getRemoteServiceUserName());
 		executeSetValueCommand(ENTITLEMENT_MEDIATOR__PASSWORD, entitlementMediator.getRemoteServicePassword());
 		

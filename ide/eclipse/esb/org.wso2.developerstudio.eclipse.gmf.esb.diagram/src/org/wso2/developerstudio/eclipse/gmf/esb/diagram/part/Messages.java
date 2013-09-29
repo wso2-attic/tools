@@ -938,6 +938,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String MediatorFlowMediatorFlowCompartment21EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String MediatorFlowMediatorFlowCompartment19EditPart_title;
 
 	/**
@@ -984,6 +989,21 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String MediatorFlowMediatorFlowCompartment20EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MediatorFlowMediatorFlowCompartment22EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MediatorFlowMediatorFlowCompartment23EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MediatorFlowMediatorFlowCompartment24EditPart_title;
 
 	/**
 	 * @generated
@@ -1428,6 +1448,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_EntitlementMediatorObligationsOutputConnector_3751_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_APIResourceOutSequenceOutputConnector_3730_outgoinglinks;
 
 	/**
@@ -1459,6 +1484,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_SpringMediatorInputConnector_3061_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_EntitlementMediatorOnAcceptOutputConnector_3749_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1783,6 +1813,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_EntitlementMediatorOnRejectOutputConnector_3748_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_WSDLEndPointInputConnector_3092_incominglinks;
 
 	/**
@@ -1849,6 +1884,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_RecipientListEndPointOutputConnector_3694_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_EntitlementMediatorAdviceOutputConnector_3750_outgoinglinks;
 
 	/**
 	 * @generated

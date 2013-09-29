@@ -222,6 +222,10 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 			types.add(EsbElementTypes.SequenceOutputConnector_3050);
 			types.add(EsbElementTypes.EventMediatorOutputConnector_3053);
 			types.add(EsbElementTypes.EntitlementMediatorOutputConnector_3056);
+			types.add(EsbElementTypes.EntitlementMediatorOnRejectOutputConnector_3748);
+			types.add(EsbElementTypes.EntitlementMediatorOnAcceptOutputConnector_3749);
+			types.add(EsbElementTypes.EntitlementMediatorAdviceOutputConnector_3750);
+			types.add(EsbElementTypes.EntitlementMediatorObligationsOutputConnector_3751);
 			types.add(EsbElementTypes.ClassMediatorOutputConnector_3059);
 			types.add(EsbElementTypes.SpringMediatorOutputConnector_3062);
 			types.add(EsbElementTypes.ScriptMediatorOutputConnector_3065);
