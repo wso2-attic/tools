@@ -305,7 +305,7 @@ public class MavenUtils {
 	}
 
 	private static void updateSourceFolder(IProject project, MavenProject mavenProject, File mavenProjectSaveLocation) throws JavaModelException{
-		Plugin sourcePluginEntry = createPluginEntry(mavenProject, "org.codehaus.mojo", "build-helper-maven-plugin", "1.7", false);
+		Plugin sourcePluginEntry = createPluginEntry(mavenProject, "org.codehaus.mojo", "build-helper-maven-plugin", "1.8", false);
 		PluginExecution pluginExecution=new PluginExecution();
 		IPackageFragmentRoot[] sourceFoldersForProject =
 		                                                 JavaUtils.getSourceFoldersForProject(project);
@@ -416,7 +416,7 @@ public class MavenUtils {
 	public static void addMavenJarPlugin(MavenProject mavenProject){
 		Plugin plugin;
 		PluginExecution pluginExecution;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-jar-plugin", "2.2", false);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-jar-plugin", "2.4", false);
 		pluginExecution=new PluginExecution();
 		pluginExecution.addGoal("jar");
 		pluginExecution.setPhase("package");
@@ -460,7 +460,7 @@ public class MavenUtils {
 			properties.load(fileInputStream);
 		
 		
-			Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.felix", "maven-bundle-plugin", "2.3.4", true);
+			Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.felix", "maven-bundle-plugin", "2.3.7", true);
 			Xpp3Dom config=(Xpp3Dom)plugin.getConfiguration();
 			Xpp3Dom instructionNode = MavenUtils.createXpp3Node(config, "instructions");
 			Xpp3Dom symbolicNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-SymbolicName");
@@ -491,7 +491,7 @@ public class MavenUtils {
 		Plugin plugin;
 		
 		PluginExecution pluginExecution;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-war-plugin", "2.2", false);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-war-plugin", "2.4", false);
 		pluginExecution=new PluginExecution();
 		pluginExecution.addGoal("war");
 		pluginExecution.setPhase("package");
@@ -510,7 +510,7 @@ public class MavenUtils {
 		Plugin plugin;
 		
 		PluginExecution pluginExecution;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-bpel-plugin", "2.0.4", true);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-bpel-plugin", "2.0.5", true);
 		// FIXME : remove hard-coded version value (cannot use
 		// org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants
 		// due to cyclic reference)
@@ -525,7 +525,7 @@ public class MavenUtils {
 	
 	public static void addMavenCompilerPlugin(MavenProject mavenProject){
 		Plugin plugin;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-compiler-plugin", "2.3.2" , false);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-compiler-plugin", "3.1" , false);
 		Xpp3Dom configurationNode = createMainConfigurationNode();
 		Xpp3Dom sourceNode = createXpp3Node(configurationNode, "source");
 		sourceNode.setValue("1.5");
