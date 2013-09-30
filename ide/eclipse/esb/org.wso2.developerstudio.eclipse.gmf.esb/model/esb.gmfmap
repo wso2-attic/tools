@@ -748,13 +748,6 @@
                             <features
                                 href="esb.ecore#//EntitlementMediator/entitlementServerURL"/>
                           </labelMappings>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping">
-                            <diagramLabel
-                                href="esb.gmfgraph#EntitlementMediatorDescription"/>
-                            <features
-                                href="esb.ecore#//EsbElement/description"/>
-                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.8"/>

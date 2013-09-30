@@ -51,6 +51,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterContainerEditPart;
@@ -661,6 +663,13 @@ public class EditorUtils {
 			for(int i=0;i<mediator.getChildren().size();++i){					
 				if(mediator.getChildren().get(i) instanceof CloneMediatorContainerEditPart){
 					return (CloneMediatorContainerEditPart) mediator.getChildren().get(i);
+				}
+			}
+		}else if (mediator instanceof EntitlementMediatorEditPart) {
+			
+			for(int i=0;i<mediator.getChildren().size();++i){					
+				if(mediator.getChildren().get(i) instanceof EntitlementContainerEditPart){
+					return (EntitlementContainerEditPart) mediator.getChildren().get(i);
 				}
 			}
 		}

@@ -22,6 +22,14 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getThriftHost <em>Thrift Host</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getThriftPort <em>Thrift Port</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getEntitlementClientType <em>Entitlement Client Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOnRejectSequenceType <em>On Reject Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOnAcceptSequenceType <em>On Accept Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getAdviceSequenceType <em>Advice Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getObligationsSequenceType <em>Obligations Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOnRejectSequenceKey <em>On Reject Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOnAcceptSequenceKey <em>On Accept Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getAdviceSequenceKey <em>Advice Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getObligationsSequenceKey <em>Obligations Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getEntitlementContainer <em>Entitlement Container</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOutputConnector <em>Output Connector</em>}</li>
@@ -221,6 +229,226 @@ public interface EntitlementMediator extends Mediator {
 	 * @generated
 	 */
 	void setEntitlementClientType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>On Reject Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Reject Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Reject Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType
+	 * @see #setOnRejectSequenceType(EntitlementSequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEntitlementMediator_OnRejectSequenceType()
+	 * @model
+	 * @generated
+	 */
+	EntitlementSequenceType getOnRejectSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOnRejectSequenceType <em>On Reject Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Reject Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType
+	 * @see #getOnRejectSequenceType()
+	 * @generated
+	 */
+	void setOnRejectSequenceType(EntitlementSequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>On Accept Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Accept Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Accept Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType
+	 * @see #setOnAcceptSequenceType(EntitlementSequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEntitlementMediator_OnAcceptSequenceType()
+	 * @model
+	 * @generated
+	 */
+	EntitlementSequenceType getOnAcceptSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOnAcceptSequenceType <em>On Accept Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Accept Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType
+	 * @see #getOnAcceptSequenceType()
+	 * @generated
+	 */
+	void setOnAcceptSequenceType(EntitlementSequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Advice Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Advice Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Advice Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType
+	 * @see #setAdviceSequenceType(EntitlementSequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEntitlementMediator_AdviceSequenceType()
+	 * @model
+	 * @generated
+	 */
+	EntitlementSequenceType getAdviceSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getAdviceSequenceType <em>Advice Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Advice Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType
+	 * @see #getAdviceSequenceType()
+	 * @generated
+	 */
+	void setAdviceSequenceType(EntitlementSequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Obligations Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Obligations Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Obligations Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType
+	 * @see #setObligationsSequenceType(EntitlementSequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEntitlementMediator_ObligationsSequenceType()
+	 * @model
+	 * @generated
+	 */
+	EntitlementSequenceType getObligationsSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getObligationsSequenceType <em>Obligations Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Obligations Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType
+	 * @see #getObligationsSequenceType()
+	 * @generated
+	 */
+	void setObligationsSequenceType(EntitlementSequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>On Reject Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Reject Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Reject Sequence Key</em>' containment reference.
+	 * @see #setOnRejectSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEntitlementMediator_OnRejectSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getOnRejectSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOnRejectSequenceKey <em>On Reject Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Reject Sequence Key</em>' containment reference.
+	 * @see #getOnRejectSequenceKey()
+	 * @generated
+	 */
+	void setOnRejectSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>On Accept Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Accept Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Accept Sequence Key</em>' containment reference.
+	 * @see #setOnAcceptSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEntitlementMediator_OnAcceptSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getOnAcceptSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getOnAcceptSequenceKey <em>On Accept Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Accept Sequence Key</em>' containment reference.
+	 * @see #getOnAcceptSequenceKey()
+	 * @generated
+	 */
+	void setOnAcceptSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Advice Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Advice Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Advice Sequence Key</em>' containment reference.
+	 * @see #setAdviceSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEntitlementMediator_AdviceSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getAdviceSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getAdviceSequenceKey <em>Advice Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Advice Sequence Key</em>' containment reference.
+	 * @see #getAdviceSequenceKey()
+	 * @generated
+	 */
+	void setAdviceSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Obligations Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Obligations Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Obligations Sequence Key</em>' containment reference.
+	 * @see #setObligationsSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEntitlementMediator_ObligationsSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getObligationsSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator#getObligationsSequenceKey <em>Obligations Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Obligations Sequence Key</em>' containment reference.
+	 * @see #getObligationsSequenceKey()
+	 * @generated
+	 */
+	void setObligationsSequenceKey(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Entitlement Container</b></em>' containment reference.

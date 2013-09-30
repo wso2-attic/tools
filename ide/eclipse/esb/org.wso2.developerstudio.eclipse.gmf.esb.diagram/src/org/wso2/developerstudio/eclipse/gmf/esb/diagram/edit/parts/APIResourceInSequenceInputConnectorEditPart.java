@@ -40,7 +40,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class APIResourceInSequenceInputConnectorEditPart extends AbstractBaseFigureInputConnectorEditPart {
+public class APIResourceInSequenceInputConnectorEditPart extends
+		AbstractBaseFigureInputConnectorEditPart {
 
 	/**
 	 * @generated

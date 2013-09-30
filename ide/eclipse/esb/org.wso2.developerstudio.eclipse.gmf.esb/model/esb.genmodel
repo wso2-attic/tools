@@ -147,6 +147,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EventTopicType/STATIC"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EventTopicType/DYNAMIC"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EntitlementSequenceType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EntitlementSequenceType/ANONYMOUS"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EntitlementSequenceType/REGISTRY_REFERENCE"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//scriptKeyTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//scriptKeyTypeEnum/STATIC_KEY"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//scriptKeyTypeEnum/DYNAMIC_kEY"/>
@@ -988,6 +992,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/thriftHost"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/thriftPort"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/entitlementClientType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/onRejectSequenceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/onAcceptSequenceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/adviceSequenceType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EntitlementMediator/obligationsSequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/onRejectSequenceKey"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/onAcceptSequenceKey"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/adviceSequenceKey"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/obligationsSequenceKey"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/entitlementContainer"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EntitlementMediator/outputConnector"/>

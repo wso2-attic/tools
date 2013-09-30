@@ -65,6 +65,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
@@ -77,6 +78,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment15EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment16EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment17EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment21EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment22EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment23EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment24EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
@@ -107,6 +112,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment21CanonicalEditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.StatusDialog;
@@ -670,6 +676,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 				|| (this instanceof ValidateMediatorEditPart)
 				|| (this instanceof RouterMediatorEditPart)
 				|| (this instanceof ConditionalRouterMediatorEditPart)
+				|| (this instanceof EntitlementMediatorEditPart)
 				|| (this instanceof RuleMediatorEditPart)) {
 			return true;
 		} else {
@@ -815,7 +822,11 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 				|| compartment instanceof MediatorFlowMediatorFlowCompartment10EditPart	// throttle onreject
 				|| compartment instanceof MediatorFlowMediatorFlowCompartment2EditPart		// switch case
 				|| compartment instanceof MediatorFlowMediatorFlowCompartment4EditPart		// switch default
-				|| compartment instanceof MediatorFlowMediatorFlowCompartment11EditPart) { // clone target
+				|| compartment instanceof MediatorFlowMediatorFlowCompartment11EditPart // clone target
+				|| compartment instanceof MediatorFlowMediatorFlowCompartment21EditPart // entitlement onReject
+				|| compartment instanceof MediatorFlowMediatorFlowCompartment22EditPart // entitlement onAccept
+				|| compartment instanceof MediatorFlowMediatorFlowCompartment23EditPart // entitlement advice
+				|| compartment instanceof MediatorFlowMediatorFlowCompartment24EditPart) { // entitlement obligations				
 			return true;
 		}
 		return false;

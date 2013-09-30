@@ -6015,9 +6015,6 @@ public class EsbVisualIDRegistry {
 			if (EntitlementMediatorServerURLEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
-			if (EntitlementMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (EntitlementMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

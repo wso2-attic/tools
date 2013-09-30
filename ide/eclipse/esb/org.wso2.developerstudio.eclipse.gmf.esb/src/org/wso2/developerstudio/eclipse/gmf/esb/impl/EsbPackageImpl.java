@@ -166,6 +166,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOutputConnect
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementObligationsContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnAcceptContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementOnRejectContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
@@ -3014,6 +3015,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum eventTopicTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum entitlementSequenceTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -7089,8 +7097,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntitlementMediator_EntitlementContainer() {
-		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(7);
+	public EAttribute getEntitlementMediator_OnRejectSequenceType() {
+		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -7098,8 +7106,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntitlementMediator_InputConnector() {
-		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(8);
+	public EAttribute getEntitlementMediator_OnAcceptSequenceType() {
+		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -7107,8 +7115,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntitlementMediator_OutputConnector() {
-		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(9);
+	public EAttribute getEntitlementMediator_AdviceSequenceType() {
+		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -7116,8 +7124,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntitlementMediator_OnRejectOutputConnector() {
-		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(10);
+	public EAttribute getEntitlementMediator_ObligationsSequenceType() {
+		return (EAttribute)entitlementMediatorEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -7125,7 +7133,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntitlementMediator_OnAcceptOutputConnector() {
+	public EReference getEntitlementMediator_OnRejectSequenceKey() {
 		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -7134,7 +7142,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntitlementMediator_AdviceOutputConnector() {
+	public EReference getEntitlementMediator_OnAcceptSequenceKey() {
 		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -7143,8 +7151,80 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntitlementMediator_ObligationsOutputConnector() {
+	public EReference getEntitlementMediator_AdviceSequenceKey() {
 		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_ObligationsSequenceKey() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_EntitlementContainer() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_InputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_OutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_OnRejectOutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_OnAcceptOutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_AdviceOutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEntitlementMediator_ObligationsOutputConnector() {
+		return (EReference)entitlementMediatorEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -14406,6 +14486,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getEntitlementSequenceType() {
+		return entitlementSequenceTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getscriptKeyTypeEnum() {
 		return scriptKeyTypeEnumEEnum;
 	}
@@ -15606,6 +15695,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__THRIFT_HOST);
 		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__THRIFT_PORT);
 		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_TYPE);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_TYPE);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_TYPE);
+		createEAttribute(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_TYPE);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY);
+		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY);
 		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER);
 		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(entitlementMediatorEClass, ENTITLEMENT_MEDIATOR__OUTPUT_CONNECTOR);
@@ -16644,6 +16741,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		enrichTargetActionEEnum = createEEnum(ENRICH_TARGET_ACTION);
 		enrichTargetTypeEEnum = createEEnum(ENRICH_TARGET_TYPE);
 		eventTopicTypeEEnum = createEEnum(EVENT_TOPIC_TYPE);
+		entitlementSequenceTypeEEnum = createEEnum(ENTITLEMENT_SEQUENCE_TYPE);
 		scriptKeyTypeEnumEEnum = createEEnum(SCRIPT_KEY_TYPE_ENUM);
 		scriptTypeEEnum = createEEnum(SCRIPT_TYPE);
 		scriptLanguageEEnum = createEEnum(SCRIPT_LANGUAGE);
@@ -17585,6 +17683,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEntitlementMediator_ThriftHost(), ecorePackage.getEString(), "thriftHost", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntitlementMediator_ThriftPort(), ecorePackage.getEString(), "thriftPort", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEntitlementMediator_EntitlementClientType(), ecorePackage.getEString(), "entitlementClientType", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_OnRejectSequenceType(), this.getEntitlementSequenceType(), "onRejectSequenceType", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_OnAcceptSequenceType(), this.getEntitlementSequenceType(), "onAcceptSequenceType", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_AdviceSequenceType(), this.getEntitlementSequenceType(), "adviceSequenceType", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEntitlementMediator_ObligationsSequenceType(), this.getEntitlementSequenceType(), "obligationsSequenceType", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_OnRejectSequenceKey(), this.getRegistryKeyProperty(), null, "onRejectSequenceKey", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_OnAcceptSequenceKey(), this.getRegistryKeyProperty(), null, "onAcceptSequenceKey", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_AdviceSequenceKey(), this.getRegistryKeyProperty(), null, "adviceSequenceKey", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEntitlementMediator_ObligationsSequenceKey(), this.getRegistryKeyProperty(), null, "obligationsSequenceKey", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntitlementMediator_EntitlementContainer(), this.getEntitlementContainer(), null, "entitlementContainer", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntitlementMediator_InputConnector(), this.getEntitlementMediatorInputConnector(), null, "inputConnector", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntitlementMediator_OutputConnector(), this.getEntitlementMediatorOutputConnector(), null, "outputConnector", null, 0, 1, EntitlementMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -18739,6 +18845,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(eventTopicTypeEEnum, EventTopicType.class, "EventTopicType");
 		addEEnumLiteral(eventTopicTypeEEnum, EventTopicType.STATIC);
 		addEEnumLiteral(eventTopicTypeEEnum, EventTopicType.DYNAMIC);
+
+		initEEnum(entitlementSequenceTypeEEnum, EntitlementSequenceType.class, "EntitlementSequenceType");
+		addEEnumLiteral(entitlementSequenceTypeEEnum, EntitlementSequenceType.ANONYMOUS);
+		addEEnumLiteral(entitlementSequenceTypeEEnum, EntitlementSequenceType.REGISTRY_REFERENCE);
 
 		initEEnum(scriptKeyTypeEnumEEnum, scriptKeyTypeEnum.class, "scriptKeyTypeEnum");
 		addEEnumLiteral(scriptKeyTypeEnumEEnum, scriptKeyTypeEnum.STATIC_KEY);

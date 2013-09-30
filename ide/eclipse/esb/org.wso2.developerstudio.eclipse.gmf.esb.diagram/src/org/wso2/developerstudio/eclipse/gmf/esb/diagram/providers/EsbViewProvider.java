@@ -5589,8 +5589,6 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5134 = createLabel(node,
 				EsbVisualIDRegistry.getType(EntitlementMediatorServerURLEditPart.VISUAL_ID));
-		Node label5172 = createLabel(node,
-				EsbVisualIDRegistry.getType(EntitlementMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 

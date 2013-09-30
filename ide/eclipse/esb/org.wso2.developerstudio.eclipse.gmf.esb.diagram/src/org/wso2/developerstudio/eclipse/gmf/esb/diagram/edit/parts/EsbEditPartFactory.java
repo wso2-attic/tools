@@ -242,9 +242,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case EntitlementMediatorServerURLEditPart.VISUAL_ID:
 				return new EntitlementMediatorServerURLEditPart(view);
 
-			case EntitlementMediatorDescriptionEditPart.VISUAL_ID:
-				return new EntitlementMediatorDescriptionEditPart(view);
-
 			case EntitlementMediatorInputConnectorEditPart.VISUAL_ID:
 				return new EntitlementMediatorInputConnectorEditPart(view);
 

@@ -818,6 +818,19 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="thriftPort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="entitlementClientType"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onRejectSequenceType" eType="#//EntitlementSequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onAcceptSequenceType" eType="#//EntitlementSequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adviceSequenceType" eType="#//EntitlementSequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="obligationsSequenceType"
+        eType="#//EntitlementSequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onRejectSequenceKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onAcceptSequenceKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="adviceSequenceKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="obligationsSequenceKey"
+        eType="#//RegistryKeyProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entitlementContainer" eType="#//EntitlementContainer"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//EntitlementMediatorInputConnector"
@@ -869,6 +882,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="EntitlementObligationsContainer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EntitlementSequenceType">
+    <eLiterals name="ANONYMOUS"/>
+    <eLiterals name="REGISTRY_REFERENCE" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnqueueMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

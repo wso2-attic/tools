@@ -6,6 +6,9 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,6 +17,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.wso2.developerstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorAdviceOutputConnector;
@@ -22,7 +26,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorObligationsOu
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnAcceptOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOnRejectOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
+import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,6 +46,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getThriftHost <em>Thrift Host</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getThriftPort <em>Thrift Port</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getEntitlementClientType <em>Entitlement Client Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getOnRejectSequenceType <em>On Reject Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getOnAcceptSequenceType <em>On Accept Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getAdviceSequenceType <em>Advice Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getObligationsSequenceType <em>Obligations Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getOnRejectSequenceKey <em>On Reject Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getOnAcceptSequenceKey <em>On Accept Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getAdviceSequenceKey <em>Advice Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getObligationsSequenceKey <em>Obligations Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getEntitlementContainer <em>Entitlement Container</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EntitlementMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
@@ -192,6 +208,126 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	protected String entitlementClientType = ENTITLEMENT_CLIENT_TYPE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getOnRejectSequenceType() <em>On Reject Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnRejectSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EntitlementSequenceType ON_REJECT_SEQUENCE_TYPE_EDEFAULT = EntitlementSequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getOnRejectSequenceType() <em>On Reject Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnRejectSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EntitlementSequenceType onRejectSequenceType = ON_REJECT_SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOnAcceptSequenceType() <em>On Accept Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAcceptSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EntitlementSequenceType ON_ACCEPT_SEQUENCE_TYPE_EDEFAULT = EntitlementSequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getOnAcceptSequenceType() <em>On Accept Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAcceptSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EntitlementSequenceType onAcceptSequenceType = ON_ACCEPT_SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAdviceSequenceType() <em>Advice Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAdviceSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EntitlementSequenceType ADVICE_SEQUENCE_TYPE_EDEFAULT = EntitlementSequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getAdviceSequenceType() <em>Advice Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAdviceSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EntitlementSequenceType adviceSequenceType = ADVICE_SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getObligationsSequenceType() <em>Obligations Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObligationsSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EntitlementSequenceType OBLIGATIONS_SEQUENCE_TYPE_EDEFAULT = EntitlementSequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getObligationsSequenceType() <em>Obligations Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObligationsSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EntitlementSequenceType obligationsSequenceType = OBLIGATIONS_SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOnRejectSequenceKey() <em>On Reject Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnRejectSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty onRejectSequenceKey;
+
+	/**
+	 * The cached value of the '{@link #getOnAcceptSequenceKey() <em>On Accept Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAcceptSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty onAcceptSequenceKey;
+
+	/**
+	 * The cached value of the '{@link #getAdviceSequenceKey() <em>Advice Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAdviceSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty adviceSequenceKey;
+
+	/**
+	 * The cached value of the '{@link #getObligationsSequenceKey() <em>Obligations Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObligationsSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty obligationsSequenceKey;
+
+	/**
 	 * The cached value of the '{@link #getEntitlementContainer() <em>Entitlement Container</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -264,10 +400,38 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EntitlementMediatorImpl() {
 		super();
+	
+		RegistryKeyProperty onRejectSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>)onRejectSequenceKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		onRejectSequenceKey.setPrettyName("Entitlement OnReject Sequence");
+		onRejectSequenceKey.setKeyName("sequence");
+		onRejectSequenceKey.setKeyValue(DEFAULT_SEQUENCE_REFERENCE_REGISTRY_KEY);
+		setOnRejectSequenceKey(onRejectSequenceKey);
+		
+		RegistryKeyProperty onAcceptSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>)onAcceptSequenceKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		onAcceptSequenceKey.setPrettyName("Entitlement OnAccept Sequence");
+		onAcceptSequenceKey.setKeyName("sequence");
+		onAcceptSequenceKey.setKeyValue(DEFAULT_SEQUENCE_REFERENCE_REGISTRY_KEY);
+		setOnAcceptSequenceKey(onAcceptSequenceKey);
+		
+		RegistryKeyProperty adviceSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>)adviceSequenceKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		adviceSequenceKey.setPrettyName("Entitlement Advice Sequence");
+		adviceSequenceKey.setKeyName("sequence");
+		adviceSequenceKey.setKeyValue(DEFAULT_SEQUENCE_REFERENCE_REGISTRY_KEY);
+		setAdviceSequenceKey(adviceSequenceKey);
+		
+		RegistryKeyProperty obligationsSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>)obligationsSequenceKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		obligationsSequenceKey.setPrettyName("Entitlement Obligations Sequence");
+		obligationsSequenceKey.setKeyName("sequence");
+		obligationsSequenceKey.setKeyValue(DEFAULT_SEQUENCE_REFERENCE_REGISTRY_KEY);
+		setObligationsSequenceKey(obligationsSequenceKey);
 	}
 
 	/**
@@ -426,6 +590,262 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 		entitlementClientType = newEntitlementClientType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE, oldEntitlementClientType, entitlementClientType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementSequenceType getOnRejectSequenceType() {
+		return onRejectSequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnRejectSequenceType(EntitlementSequenceType newOnRejectSequenceType) {
+		EntitlementSequenceType oldOnRejectSequenceType = onRejectSequenceType;
+		onRejectSequenceType = newOnRejectSequenceType == null ? ON_REJECT_SEQUENCE_TYPE_EDEFAULT : newOnRejectSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_TYPE, oldOnRejectSequenceType, onRejectSequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementSequenceType getOnAcceptSequenceType() {
+		return onAcceptSequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnAcceptSequenceType(EntitlementSequenceType newOnAcceptSequenceType) {
+		EntitlementSequenceType oldOnAcceptSequenceType = onAcceptSequenceType;
+		onAcceptSequenceType = newOnAcceptSequenceType == null ? ON_ACCEPT_SEQUENCE_TYPE_EDEFAULT : newOnAcceptSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_TYPE, oldOnAcceptSequenceType, onAcceptSequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementSequenceType getAdviceSequenceType() {
+		return adviceSequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAdviceSequenceType(EntitlementSequenceType newAdviceSequenceType) {
+		EntitlementSequenceType oldAdviceSequenceType = adviceSequenceType;
+		adviceSequenceType = newAdviceSequenceType == null ? ADVICE_SEQUENCE_TYPE_EDEFAULT : newAdviceSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_TYPE, oldAdviceSequenceType, adviceSequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementSequenceType getObligationsSequenceType() {
+		return obligationsSequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObligationsSequenceType(EntitlementSequenceType newObligationsSequenceType) {
+		EntitlementSequenceType oldObligationsSequenceType = obligationsSequenceType;
+		obligationsSequenceType = newObligationsSequenceType == null ? OBLIGATIONS_SEQUENCE_TYPE_EDEFAULT : newObligationsSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_TYPE, oldObligationsSequenceType, obligationsSequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getOnRejectSequenceKey() {
+		return onRejectSequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnRejectSequenceKey(RegistryKeyProperty newOnRejectSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldOnRejectSequenceKey = onRejectSequenceKey;
+		onRejectSequenceKey = newOnRejectSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY, oldOnRejectSequenceKey, newOnRejectSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnRejectSequenceKey(RegistryKeyProperty newOnRejectSequenceKey) {
+		if (newOnRejectSequenceKey != onRejectSequenceKey) {
+			NotificationChain msgs = null;
+			if (onRejectSequenceKey != null)
+				msgs = ((InternalEObject)onRejectSequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY, null, msgs);
+			if (newOnRejectSequenceKey != null)
+				msgs = ((InternalEObject)newOnRejectSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY, null, msgs);
+			msgs = basicSetOnRejectSequenceKey(newOnRejectSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY, newOnRejectSequenceKey, newOnRejectSequenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getOnAcceptSequenceKey() {
+		return onAcceptSequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnAcceptSequenceKey(RegistryKeyProperty newOnAcceptSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldOnAcceptSequenceKey = onAcceptSequenceKey;
+		onAcceptSequenceKey = newOnAcceptSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY, oldOnAcceptSequenceKey, newOnAcceptSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnAcceptSequenceKey(RegistryKeyProperty newOnAcceptSequenceKey) {
+		if (newOnAcceptSequenceKey != onAcceptSequenceKey) {
+			NotificationChain msgs = null;
+			if (onAcceptSequenceKey != null)
+				msgs = ((InternalEObject)onAcceptSequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY, null, msgs);
+			if (newOnAcceptSequenceKey != null)
+				msgs = ((InternalEObject)newOnAcceptSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY, null, msgs);
+			msgs = basicSetOnAcceptSequenceKey(newOnAcceptSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY, newOnAcceptSequenceKey, newOnAcceptSequenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getAdviceSequenceKey() {
+		return adviceSequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAdviceSequenceKey(RegistryKeyProperty newAdviceSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldAdviceSequenceKey = adviceSequenceKey;
+		adviceSequenceKey = newAdviceSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY, oldAdviceSequenceKey, newAdviceSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAdviceSequenceKey(RegistryKeyProperty newAdviceSequenceKey) {
+		if (newAdviceSequenceKey != adviceSequenceKey) {
+			NotificationChain msgs = null;
+			if (adviceSequenceKey != null)
+				msgs = ((InternalEObject)adviceSequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY, null, msgs);
+			if (newAdviceSequenceKey != null)
+				msgs = ((InternalEObject)newAdviceSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY, null, msgs);
+			msgs = basicSetAdviceSequenceKey(newAdviceSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY, newAdviceSequenceKey, newAdviceSequenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getObligationsSequenceKey() {
+		return obligationsSequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetObligationsSequenceKey(RegistryKeyProperty newObligationsSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldObligationsSequenceKey = obligationsSequenceKey;
+		obligationsSequenceKey = newObligationsSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY, oldObligationsSequenceKey, newObligationsSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setObligationsSequenceKey(RegistryKeyProperty newObligationsSequenceKey) {
+		if (newObligationsSequenceKey != obligationsSequenceKey) {
+			NotificationChain msgs = null;
+			if (obligationsSequenceKey != null)
+				msgs = ((InternalEObject)obligationsSequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY, null, msgs);
+			if (newObligationsSequenceKey != null)
+				msgs = ((InternalEObject)newObligationsSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY, null, msgs);
+			msgs = basicSetObligationsSequenceKey(newObligationsSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY, newObligationsSequenceKey, newObligationsSequenceKey));
 	}
 
 	/**
@@ -738,6 +1158,14 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY:
+				return basicSetOnRejectSequenceKey(null, msgs);
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY:
+				return basicSetOnAcceptSequenceKey(null, msgs);
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY:
+				return basicSetAdviceSequenceKey(null, msgs);
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY:
+				return basicSetObligationsSequenceKey(null, msgs);
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER:
 				return basicSetEntitlementContainer(null, msgs);
 			case EsbPackage.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR:
@@ -779,6 +1207,22 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 				return getThriftPort();
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE:
 				return getEntitlementClientType();
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_TYPE:
+				return getOnRejectSequenceType();
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_TYPE:
+				return getOnAcceptSequenceType();
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_TYPE:
+				return getAdviceSequenceType();
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_TYPE:
+				return getObligationsSequenceType();
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY:
+				return getOnRejectSequenceKey();
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY:
+				return getOnAcceptSequenceKey();
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY:
+				return getAdviceSequenceKey();
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY:
+				return getObligationsSequenceKey();
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER:
 				return getEntitlementContainer();
 			case EsbPackage.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR:
@@ -826,6 +1270,30 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 				return;
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE:
 				setEntitlementClientType((String)newValue);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_TYPE:
+				setOnRejectSequenceType((EntitlementSequenceType)newValue);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_TYPE:
+				setOnAcceptSequenceType((EntitlementSequenceType)newValue);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_TYPE:
+				setAdviceSequenceType((EntitlementSequenceType)newValue);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_TYPE:
+				setObligationsSequenceType((EntitlementSequenceType)newValue);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY:
+				setOnRejectSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY:
+				setOnAcceptSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY:
+				setAdviceSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY:
+				setObligationsSequenceKey((RegistryKeyProperty)newValue);
 				return;
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER:
 				setEntitlementContainer((EntitlementContainer)newValue);
@@ -882,6 +1350,30 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE:
 				setEntitlementClientType(ENTITLEMENT_CLIENT_TYPE_EDEFAULT);
 				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_TYPE:
+				setOnRejectSequenceType(ON_REJECT_SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_TYPE:
+				setOnAcceptSequenceType(ON_ACCEPT_SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_TYPE:
+				setAdviceSequenceType(ADVICE_SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_TYPE:
+				setObligationsSequenceType(OBLIGATIONS_SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY:
+				setOnRejectSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY:
+				setOnAcceptSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY:
+				setAdviceSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY:
+				setObligationsSequenceKey((RegistryKeyProperty)null);
+				return;
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER:
 				setEntitlementContainer((EntitlementContainer)null);
 				return;
@@ -930,6 +1422,22 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 				return THRIFT_PORT_EDEFAULT == null ? thriftPort != null : !THRIFT_PORT_EDEFAULT.equals(thriftPort);
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE:
 				return ENTITLEMENT_CLIENT_TYPE_EDEFAULT == null ? entitlementClientType != null : !ENTITLEMENT_CLIENT_TYPE_EDEFAULT.equals(entitlementClientType);
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_TYPE:
+				return onRejectSequenceType != ON_REJECT_SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_TYPE:
+				return onAcceptSequenceType != ON_ACCEPT_SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_TYPE:
+				return adviceSequenceType != ADVICE_SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_TYPE:
+				return obligationsSequenceType != OBLIGATIONS_SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY:
+				return onRejectSequenceKey != null;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY:
+				return onAcceptSequenceKey != null;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY:
+				return adviceSequenceKey != null;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY:
+				return obligationsSequenceKey != null;
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER:
 				return entitlementContainer != null;
 			case EsbPackage.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR:
@@ -973,6 +1481,14 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 		result.append(thriftPort);
 		result.append(", entitlementClientType: ");
 		result.append(entitlementClientType);
+		result.append(", onRejectSequenceType: ");
+		result.append(onRejectSequenceType);
+		result.append(", onAcceptSequenceType: ");
+		result.append(onAcceptSequenceType);
+		result.append(", adviceSequenceType: ");
+		result.append(adviceSequenceType);
+		result.append(", obligationsSequenceType: ");
+		result.append(obligationsSequenceType);
 		result.append(')');
 		return result.toString();
 	}

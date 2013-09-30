@@ -1,10 +1,14 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -21,14 +25,17 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EntitlementMediatorGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.MultipleCompartmentComplexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EntitlementMediatorCanonicalEditPolicy;
@@ -38,7 +45,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
+public class EntitlementMediatorEditPart extends MultipleCompartmentComplexFiguredAbstractMediator {
+
+	public IFigure onRejectOutputConnector;
+	public IFigure onAcceptOutputConnector;
+	public IFigure adviceOutputConnector;
+	public IFigure obligationsOutputConnector;
 
 	/**
 	 * @generated
@@ -114,9 +126,11 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 		return primaryShape = new EntitlementMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
-				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
+				if ((!connected)
+						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
 					connectToMostSuitableElement();
 					reAllocate(rect);
+					connected = true;
 				}
 			};
 		};
@@ -138,11 +152,11 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureEntitlementMediatorPropertyValue());
 			return true;
 		}
-		if (childEditPart instanceof EntitlementMediatorDescriptionEditPart) {
-			((EntitlementMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getEntitlementMediatorDescriptionLabel());
-			return true;
-		}
+		/*		if (childEditPart instanceof EntitlementMediatorDescriptionEditPart) {
+		 ((EntitlementMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+		 .getEntitlementMediatorDescriptionLabel());
+		 return true;
+		 }*/
 		if (childEditPart instanceof EntitlementMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((EntitlementMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -158,6 +172,22 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 					borderItemFigure, PositionConstants.EAST, 0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
+		}
+		if (childEditPart instanceof EntitlementMediatorOnRejectOutputConnectorEditPart) {
+			onRejectOutputConnector = ((EntitlementMediatorOnRejectOutputConnectorEditPart) childEditPart)
+					.getFigure();
+		}
+		if (childEditPart instanceof EntitlementMediatorOnAcceptOutputConnectorEditPart) {
+			onAcceptOutputConnector = ((EntitlementMediatorOnAcceptOutputConnectorEditPart) childEditPart)
+					.getFigure();
+		}
+		if (childEditPart instanceof EntitlementMediatorAdviceOutputConnectorEditPart) {
+			adviceOutputConnector = ((EntitlementMediatorAdviceOutputConnectorEditPart) childEditPart)
+					.getFigure();
+		}
+		if (childEditPart instanceof EntitlementMediatorObligationsOutputConnectorEditPart) {
+			obligationsOutputConnector = ((EntitlementMediatorObligationsOutputConnectorEditPart) childEditPart)
+					.getFigure();
 		}
 		return false;
 	}
@@ -215,13 +245,18 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 		return getContentPane();
 	}
 
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
+	}
+
 	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
@@ -229,6 +264,7 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		addLayoutListner(figure);
 		return figure;
 	}
 
@@ -302,9 +338,9 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class EntitlementMediatorFigure extends EsbGraphicalShapeWithLabel {
+	public class EntitlementMediatorFigure extends EntitlementMediatorGraphicalShape {
 
 		/**
 		 * @generated
@@ -314,12 +350,42 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 		private WrappingLabel entitlementMediatorDescriptionLabel;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public EntitlementMediatorFigure() {
 
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(false);
+			this.setLayoutManager(layoutThis);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(170), getMapMode().DPtoLP(200)));
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
+		}
+
+		public void add(IFigure figure, Object constraint, int index) {
+			if (figure instanceof DefaultSizeNodeFigure) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			} else if (figure instanceof RoundedRectangle) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			}
+
+			else {
+				super.add(figure, constraint, index);
+			}
 		}
 
 		/**
@@ -332,7 +398,7 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureEntitlementMediatorPropertyValue.setAlignment(SWT.CENTER);
 			//this.getPropertyValueRectangle1().add(fFigureEntitlementMediatorPropertyValue);
 
-			entitlementMediatorDescriptionLabel = getPropertyNameLabel();
+			//entitlementMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**

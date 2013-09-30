@@ -25,7 +25,9 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EntitlementSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
@@ -62,6 +64,7 @@ public class EntitlementMediatorItemProvider
 	
 	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		EntitlementMediator mediator= (EntitlementMediator)object;
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
@@ -70,6 +73,26 @@ public class EntitlementMediatorItemProvider
 			addEntitlementServerURLPropertyDescriptor(object);
 			addUsernamePropertyDescriptor(object);
 			addPasswordPropertyDescriptor(object);
+			addCallbackClassNamePropertyDescriptor(object);
+			addThriftHostPropertyDescriptor(object);
+			addThriftPortPropertyDescriptor(object);
+			addEntitlementClientTypePropertyDescriptor(object);
+			addOnRejectSequenceTypePropertyDescriptor(object);
+			if(mediator.getOnRejectSequenceType().equals(EntitlementSequenceType.REGISTRY_REFERENCE)){
+				addOnRejectSequenceKeyPropertyDescriptor(object);
+			}
+			addOnAcceptSequenceTypePropertyDescriptor(object);
+			if(mediator.getOnAcceptSequenceType().equals(EntitlementSequenceType.REGISTRY_REFERENCE)){
+				addOnAcceptSequenceKeyPropertyDescriptor(object);
+			}
+			addAdviceSequenceTypePropertyDescriptor(object);
+			if(mediator.getAdviceSequenceType().equals(EntitlementSequenceType.REGISTRY_REFERENCE)){
+				addAdviceSequenceKeyPropertyDescriptor(object);
+			}
+			addObligationsSequenceTypePropertyDescriptor(object);
+			if(mediator.getObligationsSequenceType().equals(EntitlementSequenceType.REGISTRY_REFERENCE)){
+				addObligationsSequenceKeyPropertyDescriptor(object);
+			}
 			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
@@ -230,6 +253,182 @@ public class EntitlementMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the On Reject Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOnRejectSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_onRejectSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_onRejectSequenceType_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the On Accept Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOnAcceptSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_onAcceptSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_onAcceptSequenceType_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Advice Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAdviceSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_adviceSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_adviceSequenceType_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Obligations Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addObligationsSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_obligationsSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_obligationsSequenceType_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the On Reject Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOnRejectSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_onRejectSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_onRejectSequenceKey_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the On Accept Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOnAcceptSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_onAcceptSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_onAcceptSequenceKey_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Advice Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAdviceSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_adviceSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_adviceSequenceKey_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Obligations Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addObligationsSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_obligationsSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_obligationsSequenceKey_feature", "_UI_EntitlementMediator_type"),
+				 EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -242,6 +441,10 @@ public class EntitlementMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY);
 			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER);
 			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OUTPUT_CONNECTOR);
@@ -314,8 +517,16 @@ public class EntitlementMediatorItemProvider
 			case EsbPackage.ENTITLEMENT_MEDIATOR__THRIFT_HOST:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__THRIFT_PORT:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CLIENT_TYPE:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_TYPE:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_TYPE:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_TYPE:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY:
+			case EsbPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__ENTITLEMENT_CONTAINER:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.ENTITLEMENT_MEDIATOR__OUTPUT_CONNECTOR:
@@ -340,6 +551,26 @@ public class EntitlementMediatorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -375,6 +606,31 @@ public class EntitlementMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS_OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createEntitlementMediatorObligationsOutputConnector()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS_SEQUENCE_KEY;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

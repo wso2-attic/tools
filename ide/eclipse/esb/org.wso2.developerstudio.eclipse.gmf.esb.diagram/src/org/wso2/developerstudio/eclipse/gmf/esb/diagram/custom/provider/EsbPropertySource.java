@@ -322,7 +322,16 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getCallMediator_EndpointXpath().equals(feature)){			
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getEntitlementMediator_OnRejectSequenceKey().equals(feature)){			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getEntitlementMediator_OnAcceptSequenceKey().equals(feature)){			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getEntitlementMediator_AdviceSequenceKey().equals(feature)){			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getEntitlementMediator_ObligationsSequenceKey().equals(feature)){			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
+		
 			
 		// Else, default EMF behavior
 		else {

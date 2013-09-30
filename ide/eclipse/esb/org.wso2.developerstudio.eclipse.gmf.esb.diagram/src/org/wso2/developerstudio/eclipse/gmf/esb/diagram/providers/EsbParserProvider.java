@@ -368,24 +368,6 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	/**
 	 * @generated
 	 */
-	private IParser entitlementMediatorDescription_5172Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getEntitlementMediatorDescription_5172Parser() {
-		if (entitlementMediatorDescription_5172Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEsbElement_Description() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			entitlementMediatorDescription_5172Parser = parser;
-		}
-		return entitlementMediatorDescription_5172Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser classMediatorClassName_5135Parser;
 
 	/**
@@ -1536,8 +1518,6 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 			return getEventMediatorDescription_5171Parser();
 		case EntitlementMediatorServerURLEditPart.VISUAL_ID:
 			return getEntitlementMediatorEntitlementServerURL_5134Parser();
-		case EntitlementMediatorDescriptionEditPart.VISUAL_ID:
-			return getEntitlementMediatorDescription_5172Parser();
 		case ClassMediatorClassNameEditPart.VISUAL_ID:
 			return getClassMediatorClassName_5135Parser();
 		case ClassMediatorDescriptionEditPart.VISUAL_ID:

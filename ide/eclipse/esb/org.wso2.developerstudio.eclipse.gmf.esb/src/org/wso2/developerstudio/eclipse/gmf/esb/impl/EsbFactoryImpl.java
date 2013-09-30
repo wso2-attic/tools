@@ -447,6 +447,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createEnrichTargetTypeFromString(eDataType, initialValue);
 			case EsbPackage.EVENT_TOPIC_TYPE:
 				return createEventTopicTypeFromString(eDataType, initialValue);
+			case EsbPackage.ENTITLEMENT_SEQUENCE_TYPE:
+				return createEntitlementSequenceTypeFromString(eDataType, initialValue);
 			case EsbPackage.SCRIPT_KEY_TYPE_ENUM:
 				return createscriptKeyTypeEnumFromString(eDataType, initialValue);
 			case EsbPackage.SCRIPT_TYPE:
@@ -657,6 +659,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertEnrichTargetTypeToString(eDataType, instanceValue);
 			case EsbPackage.EVENT_TOPIC_TYPE:
 				return convertEventTopicTypeToString(eDataType, instanceValue);
+			case EsbPackage.ENTITLEMENT_SEQUENCE_TYPE:
+				return convertEntitlementSequenceTypeToString(eDataType, instanceValue);
 			case EsbPackage.SCRIPT_KEY_TYPE_ENUM:
 				return convertscriptKeyTypeEnumToString(eDataType, instanceValue);
 			case EsbPackage.SCRIPT_TYPE:
@@ -1945,6 +1949,11 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		EntitlementMediatorImpl entitlementMediator = new EntitlementMediatorImpl();
 		entitlementMediator.setInputConnector(createEntitlementMediatorInputConnector());
 		entitlementMediator.setOutputConnector(createEntitlementMediatorOutputConnector());
+		entitlementMediator.setOnRejectOutputConnector(createEntitlementMediatorOnRejectOutputConnector());
+		entitlementMediator.setOnAcceptOutputConnector(createEntitlementMediatorOnAcceptOutputConnector());
+		entitlementMediator.setAdviceOutputConnector(createEntitlementMediatorAdviceOutputConnector());
+		entitlementMediator.setObligationsOutputConnector(createEntitlementMediatorObligationsOutputConnector());
+		entitlementMediator.setEntitlementContainer(createEntitlementContainer());
 		return entitlementMediator;
 	}
 
@@ -2011,50 +2020,58 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EntitlementContainer createEntitlementContainer() {
 		EntitlementContainerImpl entitlementContainer = new EntitlementContainerImpl();
+		entitlementContainer.setOnRejectContainer(createEntitlementOnRejectContainer());
+		entitlementContainer.setOnAcceptContainer(createEntitlementOnAcceptContainer());
+		entitlementContainer.setAdviceContainer(createEntitlementAdviceContainer());
+		entitlementContainer.setObligationsContainer(createEntitlementObligationsContainer());
 		return entitlementContainer;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EntitlementOnRejectContainer createEntitlementOnRejectContainer() {
 		EntitlementOnRejectContainerImpl entitlementOnRejectContainer = new EntitlementOnRejectContainerImpl();
+		entitlementOnRejectContainer.setMediatorFlow(createMediatorFlow());
 		return entitlementOnRejectContainer;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EntitlementOnAcceptContainer createEntitlementOnAcceptContainer() {
 		EntitlementOnAcceptContainerImpl entitlementOnAcceptContainer = new EntitlementOnAcceptContainerImpl();
+		entitlementOnAcceptContainer.setMediatorFlow(createMediatorFlow());
 		return entitlementOnAcceptContainer;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EntitlementAdviceContainer createEntitlementAdviceContainer() {
 		EntitlementAdviceContainerImpl entitlementAdviceContainer = new EntitlementAdviceContainerImpl();
+		entitlementAdviceContainer.setMediatorFlow(createMediatorFlow());
 		return entitlementAdviceContainer;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public EntitlementObligationsContainer createEntitlementObligationsContainer() {
 		EntitlementObligationsContainerImpl entitlementObligationsContainer = new EntitlementObligationsContainerImpl();
+		entitlementObligationsContainer.setMediatorFlow(createMediatorFlow());
 		return entitlementObligationsContainer;
 	}
 
@@ -4760,6 +4777,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertEventTopicTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementSequenceType createEntitlementSequenceTypeFromString(EDataType eDataType, String initialValue) {
+		EntitlementSequenceType result = EntitlementSequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEntitlementSequenceTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

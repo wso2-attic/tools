@@ -6,6 +6,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -202,20 +203,32 @@ public class EntitlementOnRejectContainerEditPart extends ShapeNodeEditPart {
 	public class EntitlementOnRejectContainerFigure extends RoundedRectangle {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public EntitlementOnRejectContainerFigure() {
 
-			GridLayout layoutThis = new GridLayout();
+			/*GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
+			layoutThis.makeColumnsEqualWidth = true;*/
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
 			this.setLayoutManager(layoutThis);
+			this.setAlpha(0); //to make this transparent
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			/*			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(700),
+			 getMapMode().DPtoLP(300)));*/
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
 		}
+	}
 
+	public boolean isSelectable() {
+		// TODO This or using ResizableEditpolicy?
+		return false;
 	}
 
 	/**

@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -16,11 +17,13 @@ import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlow21ItemSemanticEditPolicy;
 
 /**
@@ -51,14 +54,14 @@ public class MediatorFlow21EditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MediatorFlow21ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -106,6 +109,26 @@ public class MediatorFlow21EditPart extends ShapeNodeEditPart {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
+	}
+
+	public void refreshOutputConnector(EditPart childEditPart) {
+		if (childEditPart instanceof EntitlementMediatorEditPart) {
+			EntitlementMediatorEditPart entitlementMediatorEditPart = (EntitlementMediatorEditPart) childEditPart;
+			BorderItemLocator locator = new FixedBorderItemLocator(this.getFigure(),
+					entitlementMediatorEditPart.onRejectOutputConnector, PositionConstants.WEST,
+					0.5);
+			entitlementMediatorEditPart.getBorderedFigure().getBorderItemContainer()
+					.add(entitlementMediatorEditPart.onRejectOutputConnector, locator);
+		} else {
+			//Should handle properly.
+			throw new ClassCastException();
+		}
+	}
+
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		refreshOutputConnector(((EntitlementMediatorEditPart) childEditPart.getParent().getParent()
+				.getParent().getParent()));
+		super.addChildVisual(childEditPart, -1);
 	}
 
 	/**
@@ -187,25 +210,24 @@ public class MediatorFlow21EditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class MediatorFlowFigure extends RoundedRectangle {
+	public class MediatorFlowFigure extends EsbMediatorFlowFigure {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public MediatorFlowFigure() {
 
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
-			this.setLayoutManager(layoutThis);
-
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20000), getMapMode().DPtoLP(
+					4000)));
 		}
 
+	}
+
+	public boolean isSelectable() {
+		return false;
 	}
 
 	/**

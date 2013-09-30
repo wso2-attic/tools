@@ -40,6 +40,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbs
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementAdviceContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementObligationsContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementOnAcceptContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementOnRejectContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterFailContainerEditPart;
@@ -49,6 +54,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow6
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment21EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment22EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment23EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment24EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
@@ -367,7 +376,11 @@ public class XYRepossition {
 				|| parent instanceof MediatorFlowMediatorFlowCompartment8EditPart
 				|| parent instanceof MediatorFlowMediatorFlowCompartment9EditPart
 				|| parent instanceof MediatorFlowMediatorFlowCompartment10EditPart
-				|| parent instanceof MediatorFlowMediatorFlowCompartment11EditPart) {
+				|| parent instanceof MediatorFlowMediatorFlowCompartment11EditPart
+				|| parent instanceof MediatorFlowMediatorFlowCompartment21EditPart
+				|| parent instanceof MediatorFlowMediatorFlowCompartment22EditPart
+				|| parent instanceof MediatorFlowMediatorFlowCompartment23EditPart
+				|| parent instanceof MediatorFlowMediatorFlowCompartment24EditPart) {
 
 			maxCompartmentWidth = getMaxCompartmentWidth((GraphicalEditPart) parent.getParent()
 					.getParent().getParent());
@@ -402,7 +415,8 @@ public class XYRepossition {
 		if (mediator instanceof complexFiguredAbstractMediator) {
 			if (mediator instanceof FilterMediatorEditPart
 					|| mediator instanceof ThrottleMediatorEditPart
-					|| mediator instanceof CloneMediatorEditPart) {
+					|| mediator instanceof CloneMediatorEditPart
+					|| mediator instanceof EntitlementMediatorEditPart) {
 
 				boundsHeight = getMultipleCompartmentComplexMediatorHeight((GraphicalEditPart) parent
 						.getParent().getParent().getParent())
@@ -596,7 +610,11 @@ public class XYRepossition {
 										|| editPart instanceof MediatorFlowMediatorFlowCompartment8EditPart
 										|| editPart instanceof MediatorFlowMediatorFlowCompartment9EditPart
 										|| editPart instanceof MediatorFlowMediatorFlowCompartment10EditPart
-										|| editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart) {
+										|| editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart
+										|| editPart instanceof MediatorFlowMediatorFlowCompartment21EditPart
+										|| editPart instanceof MediatorFlowMediatorFlowCompartment22EditPart
+										|| editPart instanceof MediatorFlowMediatorFlowCompartment23EditPart
+										|| editPart instanceof MediatorFlowMediatorFlowCompartment24EditPart) {
 									x = ((IGraphicalEditPart) editPart.getParent().getParent()
 											.getParent().getParent()).getFigure().getBounds().width
 											- complexMediatorLeftRectWidth
@@ -704,7 +722,11 @@ public class XYRepossition {
 				|| first instanceof ThrottleOnRejectContainerEditPart
 				|| first instanceof SwitchCaseContainerEditPart
 				|| first instanceof SwitchDefaultContainerEditPart
-				|| first instanceof CloneTargetContainerEditPart) {
+				|| first instanceof CloneTargetContainerEditPart				
+				|| first instanceof EntitlementOnRejectContainerEditPart
+				|| first instanceof EntitlementOnAcceptContainerEditPart
+				|| first instanceof EntitlementAdviceContainerEditPart
+				|| first instanceof EntitlementObligationsContainerEditPart) {
 
 			int editPartIndex = getEditPartIndexFromParent(first);
 			ShapeNodeEditPart mediatorEditPart = null;
