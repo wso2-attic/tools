@@ -37,8 +37,14 @@ import org.apache.maven.model.Repository;
 public abstract class AbstractPOMGenMojo extends AbstractMojo {
 	private static final String SYNAPSE_TYPE="synapse/configuration";
 
+	/**
+	 * @parameter default-value="${project}"
+	 */
 	public MavenProject project;
 
+	/**
+	 * @component
+	 */
 	public MavenProjectHelper projectHelper;
 
 	public File outputLocation;
@@ -307,4 +313,9 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 	public File getProjectLocation() {
 		return projectLocation;
 	}	
+	
+	protected File processTokenReplacement(Artifact artifact){
+		return null;
+		//Do nothing. Implementations should be done by impplementations
+	}
 }

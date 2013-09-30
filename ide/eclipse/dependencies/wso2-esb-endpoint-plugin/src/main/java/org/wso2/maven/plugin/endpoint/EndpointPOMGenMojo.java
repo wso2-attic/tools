@@ -17,9 +17,14 @@
 package org.wso2.maven.plugin.endpoint;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.StreamTokenizer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+import java.util.StringTokenizer;
 
 import org.apache.maven.model.Plugin;
 import org.apache.maven.plugin.AbstractMojo;
@@ -29,11 +34,13 @@ import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
 import org.codehaus.plexus.util.FileUtils;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.maven.capp.model.Artifact;
 import org.wso2.maven.capp.mojo.AbstractPOMGenMojo;
 import org.wso2.maven.capp.utils.CAppMavenUtils;
 import org.wso2.maven.capp.utils.CAppUtils;
 import org.wso2.maven.capp.utils.WSO2MavenPluginConstantants;
+import org.wso2.maven.core.utils.MavenUtils;
 import org.wso2.maven.esb.ESBArtifact;
 import org.wso2.maven.esb.utils.ESBMavenUtils;
 
@@ -80,6 +87,13 @@ public class EndpointPOMGenMojo extends AbstractPOMGenMojo {
 	private File moduleProject;
 	
 	/**
+	 * POM location for the module project
+	 * 
+	 * @parameter default-value="${basedir}/pom.xml"
+	 */
+	private File pomLocation;
+	
+	/**
 	 * Group id to use for the generated pom
 	 * 
 	 * @parameter
@@ -117,9 +131,50 @@ public class EndpointPOMGenMojo extends AbstractPOMGenMojo {
 	}
 	
 	protected void copyResources(MavenProject project, File projectLocation, Artifact artifact)throws IOException {
-		File sequenceArtifact = artifact.getFile();
-		FileUtils.copyFile(sequenceArtifact, new File(projectLocation, sequenceArtifact.getName()));
+		ITemporaryFileTag newTag = org.wso2.developerstudio.eclipse.utils.file.FileUtils.createNewTempTag();
+		File sequenceArtifact = processTokenReplacement(artifact);
+		if (sequenceArtifact == null) {
+			sequenceArtifact = artifact.getFile();
+		}
+		FileUtils.copyFile(sequenceArtifact, new File(projectLocation, artifact.getFile().getName()));
+		newTag.clearAndEnd();
 	}
+	
+	@Override
+	protected File processTokenReplacement(Artifact artifact) {
+		File file = artifact.getFile();
+		if(file.exists()){
+			String fileContent;
+			StringBuffer sb=new StringBuffer();
+			try {
+				fileContent = org.wso2.developerstudio.eclipse.utils.file.FileUtils.getContentAsString(file);
+				StringTokenizer st=new StringTokenizer(fileContent, CAppMavenUtils.REPLACER_DEFAULT_DELIMETER);
+				
+				Properties mavenProperties = getProject().getModel().getProperties();
+				//Check whether the content actually has tokens and Properties section should define them. Otherwise skip. 
+				//By default there are 2 such properties. So size check is 2.
+				if (st.countTokens()>1 && mavenProperties.size()>1) {
+					while (st.hasMoreTokens()) {
+						String nextToken = st.nextToken();
+						if (mavenProperties.containsKey(nextToken)) {
+							nextToken = (String) mavenProperties.get(nextToken);
+						}
+						sb.append(nextToken);
+					} 
+				}else{
+					sb.append(fileContent);
+				}
+				File tempFile = org.wso2.developerstudio.eclipse.utils.file.FileUtils.createTempFile();
+				org.wso2.developerstudio.eclipse.utils.file.FileUtils.writeContent(tempFile, sb.toString());
+				return tempFile;
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return file;
+	}
+		
 	
 	protected void addPlugins(MavenProject artifactMavenProject, Artifact artifact) {
 		Plugin plugin = CAppMavenUtils.createPluginEntry(artifactMavenProject,"org.wso2.maven","maven-endpoint-plugin",WSO2MavenPluginConstantants.MAVEN_ENDPOINT_PLUGIN_VERSION,true);

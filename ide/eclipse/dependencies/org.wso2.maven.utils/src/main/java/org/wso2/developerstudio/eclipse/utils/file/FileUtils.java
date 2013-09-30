@@ -497,7 +497,9 @@ public class FileUtils{
 	
 	public static String getContentAsString(URL url) throws IOException {
 		InputStream openStream = url.openStream();
-	    return getContentAsString(openStream);
+	    String contentAsString = getContentAsString(openStream);
+	    openStream.close();
+		return contentAsString;
     }
 
 	public static String getContentAsString(InputStream dataStream)
@@ -509,7 +511,9 @@ public class FileUtils{
 			stream.write(b,0,read);
 			read = dataStream.read(b);
 		}
-		return stream.toString();
+		String string = stream.toString();
+		stream.close();
+		return string;
 	}
 	
 	public static String getContentAsString(File file) throws IOException {
