@@ -39,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow12EditPart;
@@ -367,6 +368,41 @@ public class MediatorFigureReverser {
 			}
 		}
 		
+		if (editorPart instanceof EntitlementMediatorEditPart) {
+			arrangeType3Compartment(editorPart,childFigures,((EntitlementMediatorEditPart) editorPart).onRejectOutputConnector,
+					((EntitlementMediatorEditPart) editorPart).onAcceptOutputConnector,
+					((EntitlementMediatorEditPart) editorPart).adviceOutputConnector,
+					((EntitlementMediatorEditPart) editorPart).obligationsOutputConnector);
+			/*
+			 * Reverse the mediators inside the Entitlement mediator.
+			 */
+			List containerList = ((EditPart) editorPart.getChildren().get(7)).getChildren();
+			if (containerList.size() > 1) {
+				List mediatorFlow0 = ((EditPart) containerList.get(0)).getChildren();
+				if(mediatorFlow0.size()>0){	
+					children = ((EditPart) ((EditPart) mediatorFlow0.get(0)).getChildren().get(0)).getChildren();
+				}
+				List mediatorFlow1 = ((EditPart) containerList.get(1)).getChildren();
+				if(mediatorFlow1.size()>0){
+					List onAcceptChildren = ((EditPart) ((EditPart) mediatorFlow1.get(0)).getChildren().get(0)).getChildren();
+					children.addAll(onAcceptChildren);
+				}
+				List mediatorFlow2 = ((EditPart) containerList.get(2)).getChildren();
+				if(mediatorFlow2.size()>0){
+					List adviceChildren = ((EditPart) ((EditPart) mediatorFlow2.get(0)).getChildren().get(0)).getChildren();
+					children.addAll(adviceChildren);
+				}
+				List mediatorFlow3 = ((EditPart) containerList.get(3)).getChildren();
+				if(mediatorFlow3.size()>0){
+					List obligationsChildren = ((EditPart) ((EditPart) mediatorFlow3.get(0)).getChildren().get(0)).getChildren();
+					children.addAll(obligationsChildren);
+				}
+			} else {
+				children = new ArrayList();
+			}
+			
+		}
+		
 		
 		
 
@@ -411,6 +447,21 @@ public class MediatorFigureReverser {
 					0.5);
 			((AbstractMediator) editpart).getBorderedFigure().getBorderItemContainer()
 					.add(outputConnector2, locator2);
+		}		
+	}
+	
+	private static void arrangeType3Compartment(EditPart editpart,List childFigures, IFigure... outputConnector) {
+		List children = ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
+						.get(0)).getChildren();
+		if(children.size()>1){
+			
+			for(int i=0;i<children.size();++i){
+				BorderItemLocator locator = new FixedBorderItemLocator(
+						(IFigure) children.get(i), outputConnector[i], PositionConstants.EAST,
+						0.5);
+				((AbstractMediator) editpart).getBorderedFigure().getBorderItemContainer()
+						.add(outputConnector[i], locator);
+			}
 		}		
 	}
 

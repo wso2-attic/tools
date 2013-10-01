@@ -86,6 +86,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.Buil
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.ClassMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyMessageProcessor;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EJBMediatorExt;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EntitlementMediatorExt;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.POJOCommandMediatorExt;
@@ -144,7 +145,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(CalloutMediator.class, new CalloutMediatorDeserializer());
 		addDeserializer(DBLookupMediator.class, new DBLookupMediatorDeserializer());
 		addDeserializer(DBReportMediator.class, new DBReportMediatorDeserializer());
-		addDeserializer(EntitlementMediator.class, new EntitlementMediatorDeserializer());
+		addDeserializer(EntitlementMediatorExt.class, new EntitlementMediatorDeserializer());
 		addDeserializer(TransactionMediator.class, new TransactionMediatorDeserializer());
 		addDeserializer(RMSequenceMediator.class, new RMSequenceMediatorDeserializer());
 		addDeserializer(OAuthMediator.class, new OAuthMediatorDeserializer());

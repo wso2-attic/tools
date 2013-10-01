@@ -302,7 +302,14 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 										
 					    | ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment17EditPart)
 					    		&& (editorPart.getParent().getParent().getParent() instanceof RuleMediatorEditPart) && (((AbstractMediator) editorPart
-										.getParent().getParent().getParent()).reversed))	
+										.getParent().getParent().getParent()).reversed))
+										
+						| (((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment21EditPart) | (editorPart
+								.getParent() instanceof MediatorFlowMediatorFlowCompartment22EditPart) | (editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment23EditPart)
+								| (editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment24EditPart))
+								&& (editorPart.getParent().getParent().getParent().getParent()
+										.getParent() instanceof EntitlementMediatorEditPart) && (((AbstractMediator) editorPart
+								.getParent().getParent().getParent().getParent().getParent()).reversed))										
 										
 					    | ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment14EditPart)
 					    		&& (editorPart.getParent().getParent().getParent() instanceof ValidateMediatorEditPart) && (((AbstractMediator) editorPart
