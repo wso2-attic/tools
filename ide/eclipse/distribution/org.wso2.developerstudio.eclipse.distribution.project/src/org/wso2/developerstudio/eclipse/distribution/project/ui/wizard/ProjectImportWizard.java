@@ -16,6 +16,16 @@
 
 package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.List;
+
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.wizards.datatransfer.ExternalProjectImportWizard;
@@ -30,7 +40,12 @@ public class ProjectImportWizard extends ExternalProjectImportWizard {
 
 	@Override
 	public boolean performFinish() {
-		return importMainPage.createProjects();
+		boolean created = importMainPage.createProjects();
+		List<IProject> createdProjects = importMainPage.getCreatedProjects();
+		for (IProject resource : createdProjects) {
+			searchAndCleanupGraphicalSynapseCongifFiles(resource);
+		}
+		return created;
 	}
 
 	@Override
@@ -43,5 +58,34 @@ public class ProjectImportWizard extends ExternalProjectImportWizard {
 		importMainPage.performCancel();
 		return true;
 	}
+	
+	private void searchAndCleanupGraphicalSynapseCongifFiles(IProject project) {
+		
+		try {
+			if (project.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
+				deleteEsbAndEsbDiagramFiles(project);
+			} 
+		} catch (CoreException e) {
+		}
+	}	
 
+	private void deleteEsbAndEsbDiagramFiles(IProject project) throws CoreException {
+		IFolder grapicalSynapseConfigFolder = project.getFolder("src" + File.separator + "main" + File.separator + "graphical-synapse-config");
+		if (grapicalSynapseConfigFolder != null) {
+			IResource[] folders = grapicalSynapseConfigFolder.members();
+			for (IResource folder : folders){
+				if (folder instanceof IFolder)
+				{
+					IResource[] grapicalFiles = ((IFolder)folder).members();
+					for (IResource graphicalFile : grapicalFiles){
+						if (graphicalFile instanceof IFile)
+						{
+							graphicalFile.delete(true, new NullProgressMonitor());
+						}
+					}
+				}
+			}
+		}
+	}
+	
 }

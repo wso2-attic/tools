@@ -127,6 +127,10 @@ public class ProjectsImportPage  extends WizardPage implements IOverwriteQuery  
 		}
 	}
 	
+	public List<IProject> getCreatedProjects() {
+		return createdProjects;
+	}
+	
 	/**
 	 * Class declared public only for test suite.
 	 * 
@@ -1514,5 +1518,7 @@ public class ProjectsImportPage  extends WizardPage implements IOverwriteQuery  
 	public Button getCopyCheckbox() {
 		return copyCheckbox;
 	}
+	
+	
 	
 }
