@@ -31,10 +31,12 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndpointType;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,6 +48,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputC
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointImpl#getWestOutputConnector <em>West Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointImpl#getEndpointType <em>Endpoint Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointImpl#getEndpointsValue <em>Endpoints Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointImpl#getEndpointsExpression <em>Endpoints Expression</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointImpl#getMaxCache <em>Max Cache</em>}</li>
  * </ul>
  * </p>
  *
@@ -83,12 +89,87 @@ public class RecipientListEndPointImpl extends ParentEndPointImpl implements Rec
 	protected RecipientListEndPointWestOutputConnector westOutputConnector;
 
 	/**
+	 * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getEndpointType()
 	 * @generated
+	 * @ordered
+	 */
+	protected static final RecipientListEndpointType ENDPOINT_TYPE_EDEFAULT = RecipientListEndpointType.INLINE;
+
+	/**
+	 * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
+	protected RecipientListEndpointType endpointType = ENDPOINT_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getEndpointsValue() <em>Endpoints Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointsValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ENDPOINTS_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEndpointsValue() <em>Endpoints Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointsValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String endpointsValue = ENDPOINTS_VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEndpointsExpression() <em>Endpoints Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointsExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty endpointsExpression;
+
+	/**
+	 * The default value of the '{@link #getMaxCache() <em>Max Cache</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxCache()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_CACHE_EDEFAULT = 20;
+
+	/**
+	 * The cached value of the '{@link #getMaxCache() <em>Max Cache</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxCache()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxCache = MAX_CACHE_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	protected RecipientListEndPointImpl() {
 		super();
+		NamespacedProperty endpointsExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		endpointsExpression.setPrettyName("Endpoints Expression");
+		endpointsExpression.setPropertyName("expression");
+		endpointsExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);		
+		setEndpointsExpression(endpointsExpression);
 	}
 
 	/**
@@ -204,6 +285,112 @@ public class RecipientListEndPointImpl extends ParentEndPointImpl implements Rec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RecipientListEndpointType getEndpointType() {
+		return endpointType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointType(RecipientListEndpointType newEndpointType) {
+		RecipientListEndpointType oldEndpointType = endpointType;
+		endpointType = newEndpointType == null ? ENDPOINT_TYPE_EDEFAULT : newEndpointType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE, oldEndpointType, endpointType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEndpointsValue() {
+		return endpointsValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointsValue(String newEndpointsValue) {
+		String oldEndpointsValue = endpointsValue;
+		endpointsValue = newEndpointsValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE, oldEndpointsValue, endpointsValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamespacedProperty getEndpointsExpression() {
+		return endpointsExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEndpointsExpression(NamespacedProperty newEndpointsExpression, NotificationChain msgs) {
+		NamespacedProperty oldEndpointsExpression = endpointsExpression;
+		endpointsExpression = newEndpointsExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION, oldEndpointsExpression, newEndpointsExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointsExpression(NamespacedProperty newEndpointsExpression) {
+		if (newEndpointsExpression != endpointsExpression) {
+			NotificationChain msgs = null;
+			if (endpointsExpression != null)
+				msgs = ((InternalEObject)endpointsExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION, null, msgs);
+			if (newEndpointsExpression != null)
+				msgs = ((InternalEObject)newEndpointsExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION, null, msgs);
+			msgs = basicSetEndpointsExpression(newEndpointsExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION, newEndpointsExpression, newEndpointsExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMaxCache() {
+		return maxCache;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxCache(int newMaxCache) {
+		int oldMaxCache = maxCache;
+		maxCache = newMaxCache;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RECIPIENT_LIST_END_POINT__MAX_CACHE, oldMaxCache, maxCache));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -213,6 +400,8 @@ public class RecipientListEndPointImpl extends ParentEndPointImpl implements Rec
 				return ((InternalEList<?>)getOutputConnector()).basicRemove(otherEnd, msgs);
 			case EsbPackage.RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR:
 				return basicSetWestOutputConnector(null, msgs);
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION:
+				return basicSetEndpointsExpression(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -231,6 +420,14 @@ public class RecipientListEndPointImpl extends ParentEndPointImpl implements Rec
 				return getOutputConnector();
 			case EsbPackage.RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR:
 				return getWestOutputConnector();
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE:
+				return getEndpointType();
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE:
+				return getEndpointsValue();
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION:
+				return getEndpointsExpression();
+			case EsbPackage.RECIPIENT_LIST_END_POINT__MAX_CACHE:
+				return getMaxCache();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,6 +451,18 @@ public class RecipientListEndPointImpl extends ParentEndPointImpl implements Rec
 			case EsbPackage.RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR:
 				setWestOutputConnector((RecipientListEndPointWestOutputConnector)newValue);
 				return;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE:
+				setEndpointType((RecipientListEndpointType)newValue);
+				return;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE:
+				setEndpointsValue((String)newValue);
+				return;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION:
+				setEndpointsExpression((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__MAX_CACHE:
+				setMaxCache((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -275,6 +484,18 @@ public class RecipientListEndPointImpl extends ParentEndPointImpl implements Rec
 			case EsbPackage.RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR:
 				setWestOutputConnector((RecipientListEndPointWestOutputConnector)null);
 				return;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE:
+				setEndpointType(ENDPOINT_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE:
+				setEndpointsValue(ENDPOINTS_VALUE_EDEFAULT);
+				return;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION:
+				setEndpointsExpression((NamespacedProperty)null);
+				return;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__MAX_CACHE:
+				setMaxCache(MAX_CACHE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -293,8 +514,36 @@ public class RecipientListEndPointImpl extends ParentEndPointImpl implements Rec
 				return outputConnector != null && !outputConnector.isEmpty();
 			case EsbPackage.RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR:
 				return westOutputConnector != null;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE:
+				return endpointType != ENDPOINT_TYPE_EDEFAULT;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE:
+				return ENDPOINTS_VALUE_EDEFAULT == null ? endpointsValue != null : !ENDPOINTS_VALUE_EDEFAULT.equals(endpointsValue);
+			case EsbPackage.RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION:
+				return endpointsExpression != null;
+			case EsbPackage.RECIPIENT_LIST_END_POINT__MAX_CACHE:
+				return maxCache != MAX_CACHE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (endpointType: ");
+		result.append(endpointType);
+		result.append(", endpointsValue: ");
+		result.append(endpointsValue);
+		result.append(", maxCache: ");
+		result.append(maxCache);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RecipientListEndPointImpl

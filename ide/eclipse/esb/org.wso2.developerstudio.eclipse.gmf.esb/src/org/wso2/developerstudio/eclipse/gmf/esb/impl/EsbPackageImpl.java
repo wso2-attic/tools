@@ -317,6 +317,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RespondMediatorInputConnector;
@@ -3512,6 +3513,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum apiResourceUrlStyleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum recipientListEndpointTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -8575,6 +8583,42 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getRecipientListEndPoint_WestOutputConnector() {
 		return (EReference)recipientListEndPointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecipientListEndPoint_EndpointType() {
+		return (EAttribute)recipientListEndPointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecipientListEndPoint_EndpointsValue() {
+		return (EAttribute)recipientListEndPointEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRecipientListEndPoint_EndpointsExpression() {
+		return (EReference)recipientListEndPointEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRecipientListEndPoint_MaxCache() {
+		return (EAttribute)recipientListEndPointEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -15125,6 +15169,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRecipientListEndpointType() {
+		return recipientListEndpointTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMessageStoreType() {
 		return messageStoreTypeEEnum;
 	}
@@ -16636,6 +16689,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__INPUT_CONNECTOR);
 		createEReference(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__OUTPUT_CONNECTOR);
 		createEReference(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR);
+		createEAttribute(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE);
+		createEAttribute(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE);
+		createEReference(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION);
+		createEAttribute(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__MAX_CACHE);
 
 		recipientListEndPointInputConnectorEClass = createEClass(RECIPIENT_LIST_END_POINT_INPUT_CONNECTOR);
 
@@ -16812,6 +16869,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		taskPropertyTypeEEnum = createEEnum(TASK_PROPERTY_TYPE);
 		taskTriggerTypeEEnum = createEEnum(TASK_TRIGGER_TYPE);
 		apiResourceUrlStyleEEnum = createEEnum(API_RESOURCE_URL_STYLE);
+		recipientListEndpointTypeEEnum = createEEnum(RECIPIENT_LIST_ENDPOINT_TYPE);
 		messageStoreTypeEEnum = createEEnum(MESSAGE_STORE_TYPE);
 		jmsSpecVersionEEnum = createEEnum(JMS_SPEC_VERSION);
 		messageProcessorTypeEEnum = createEEnum(MESSAGE_PROCESSOR_TYPE);
@@ -18624,6 +18682,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getRecipientListEndPoint_InputConnector(), this.getRecipientListEndPointInputConnector(), null, "inputConnector", null, 0, 1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRecipientListEndPoint_OutputConnector(), this.getRecipientListEndPointOutputConnector(), null, "outputConnector", null, 0, -1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRecipientListEndPoint_WestOutputConnector(), this.getRecipientListEndPointWestOutputConnector(), null, "westOutputConnector", null, 0, 1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecipientListEndPoint_EndpointType(), this.getRecipientListEndpointType(), "endpointType", null, 0, 1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecipientListEndPoint_EndpointsValue(), ecorePackage.getEString(), "endpointsValue", null, 0, 1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecipientListEndPoint_EndpointsExpression(), this.getNamespacedProperty(), null, "endpointsExpression", null, 0, 1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRecipientListEndPoint_MaxCache(), ecorePackage.getEInt(), "maxCache", "20", 0, 1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(recipientListEndPointInputConnectorEClass, RecipientListEndPointInputConnector.class, "RecipientListEndPointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -19207,6 +19269,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.NONE);
 		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.URI_TEMPLATE);
 		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.URL_MAPPING);
+
+		initEEnum(recipientListEndpointTypeEEnum, RecipientListEndpointType.class, "RecipientListEndpointType");
+		addEEnumLiteral(recipientListEndpointTypeEEnum, RecipientListEndpointType.INLINE);
+		addEEnumLiteral(recipientListEndpointTypeEEnum, RecipientListEndpointType.VALUE);
+		addEEnumLiteral(recipientListEndpointTypeEEnum, RecipientListEndpointType.XPATH);
 
 		initEEnum(messageStoreTypeEEnum, MessageStoreType.class, "MessageStoreType");
 		addEEnumLiteral(messageStoreTypeEEnum, MessageStoreType.IN_MEMORY);

@@ -589,6 +589,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createTaskTriggerTypeFromString(eDataType, initialValue);
 			case EsbPackage.API_RESOURCE_URL_STYLE:
 				return createApiResourceUrlStyleFromString(eDataType, initialValue);
+			case EsbPackage.RECIPIENT_LIST_ENDPOINT_TYPE:
+				return createRecipientListEndpointTypeFromString(eDataType, initialValue);
 			case EsbPackage.MESSAGE_STORE_TYPE:
 				return createMessageStoreTypeFromString(eDataType, initialValue);
 			case EsbPackage.JMS_SPEC_VERSION:
@@ -801,6 +803,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertTaskTriggerTypeToString(eDataType, instanceValue);
 			case EsbPackage.API_RESOURCE_URL_STYLE:
 				return convertApiResourceUrlStyleToString(eDataType, instanceValue);
+			case EsbPackage.RECIPIENT_LIST_ENDPOINT_TYPE:
+				return convertRecipientListEndpointTypeToString(eDataType, instanceValue);
 			case EsbPackage.MESSAGE_STORE_TYPE:
 				return convertMessageStoreTypeToString(eDataType, instanceValue);
 			case EsbPackage.JMS_SPEC_VERSION:
@@ -6197,6 +6201,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertApiResourceUrlStyleToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RecipientListEndpointType createRecipientListEndpointTypeFromString(EDataType eDataType, String initialValue) {
+		RecipientListEndpointType result = RecipientListEndpointType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRecipientListEndpointTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

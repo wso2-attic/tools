@@ -49,6 +49,6 @@ public interface EsbNodeTransformer {
 	 *             if an error occurs during the transformation.
 	 */
 	void transform(TransformationInfo information, EsbNode subject) throws Exception;
-	void createSynapseObject(TransformationInfo info,EObject subject,List<Endpoint> endPoints);
+	void createSynapseObject(TransformationInfo info,EObject subject,List<Endpoint> endPoints) throws Exception;
 	void transformWithinSequence(TransformationInfo information, EsbNode subject,SequenceMediator sequence) throws Exception;
 }

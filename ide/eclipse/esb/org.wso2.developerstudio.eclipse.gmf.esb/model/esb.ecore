@@ -2449,6 +2449,12 @@
         eType="#//RecipientListEndPointOutputConnector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="westOutputConnector" eType="#//RecipientListEndPointWestOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpointType" eType="#//RecipientListEndpointType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpointsValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointsExpression" eType="#//NamespacedProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxCache" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="20"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RecipientListEndPointInputConnector"
       eSuperTypes="#//InputConnector"/>
@@ -2456,6 +2462,11 @@
       eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="RecipientListEndPointWestOutputConnector"
       eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="RecipientListEndpointType">
+    <eLiterals name="INLINE" literal="Inline"/>
+    <eLiterals name="VALUE" value="1" literal="Value"/>
+    <eLiterals name="XPATH" value="2" literal="XPath"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MessageStoreType">
     <eLiterals name="IN_MEMORY"/>
     <eLiterals name="JMS" value="1"/>

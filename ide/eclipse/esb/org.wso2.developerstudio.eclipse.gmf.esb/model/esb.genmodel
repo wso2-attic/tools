@@ -509,6 +509,11 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/URI_TEMPLATE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/URL_MAPPING"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RecipientListEndpointType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RecipientListEndpointType/INLINE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RecipientListEndpointType/VALUE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RecipientListEndpointType/XPATH"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//MessageStoreType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MessageStoreType/IN_MEMORY"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MessageStoreType/JMS"/>
@@ -1851,6 +1856,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RecipientListEndPoint/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RecipientListEndPoint/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RecipientListEndPoint/westOutputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RecipientListEndPoint/endpointType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RecipientListEndPoint/endpointsValue"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RecipientListEndPoint/endpointsExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RecipientListEndPoint/maxCache"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RecipientListEndPointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RecipientListEndPointOutputConnector"/>

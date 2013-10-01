@@ -18809,13 +18809,49 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR = PARENT_END_POINT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Endpoint Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE = PARENT_END_POINT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Endpoints Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE = PARENT_END_POINT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Endpoints Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION = PARENT_END_POINT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Max Cache</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECIPIENT_LIST_END_POINT__MAX_CACHE = PARENT_END_POINT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Recipient List End Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RECIPIENT_LIST_END_POINT_FEATURE_COUNT = PARENT_END_POINT_FEATURE_COUNT + 3;
+	int RECIPIENT_LIST_END_POINT_FEATURE_COUNT = PARENT_END_POINT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointInputConnectorImpl <em>Recipient List End Point Input Connector</em>}' class.
@@ -20602,6 +20638,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int API_RESOURCE_URL_STYLE = 432;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndpointType <em>Recipient List Endpoint Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndpointType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRecipientListEndpointType()
+	 * @generated
+	 */
+	int RECIPIENT_LIST_ENDPOINT_TYPE = 433;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType <em>Message Store Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20609,7 +20655,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMessageStoreType()
 	 * @generated
 	 */
-	int MESSAGE_STORE_TYPE = 433;
+	int MESSAGE_STORE_TYPE = 434;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.JMSSpecVersion <em>JMS Spec Version</em>}' enum.
@@ -20619,7 +20665,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getJMSSpecVersion()
 	 * @generated
 	 */
-	int JMS_SPEC_VERSION = 434;
+	int JMS_SPEC_VERSION = 435;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessorType <em>Message Processor Type</em>}' enum.
@@ -20629,7 +20675,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMessageProcessorType()
 	 * @generated
 	 */
-	int MESSAGE_PROCESSOR_TYPE = 435;
+	int MESSAGE_PROCESSOR_TYPE = 436;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProcessorState <em>Processor State</em>}' enum.
@@ -20639,7 +20685,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProcessorState()
 	 * @generated
 	 */
-	int PROCESSOR_STATE = 436;
+	int PROCESSOR_STATE = 437;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -20649,7 +20695,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 437;
+	int MAP = 438;
 
 
 	/**
@@ -26554,6 +26600,50 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EReference getRecipientListEndPoint_WestOutputConnector();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint#getEndpointType <em>Endpoint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Endpoint Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint#getEndpointType()
+	 * @see #getRecipientListEndPoint()
+	 * @generated
+	 */
+	EAttribute getRecipientListEndPoint_EndpointType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint#getEndpointsValue <em>Endpoints Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Endpoints Value</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint#getEndpointsValue()
+	 * @see #getRecipientListEndPoint()
+	 * @generated
+	 */
+	EAttribute getRecipientListEndPoint_EndpointsValue();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint#getEndpointsExpression <em>Endpoints Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Endpoints Expression</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint#getEndpointsExpression()
+	 * @see #getRecipientListEndPoint()
+	 * @generated
+	 */
+	EReference getRecipientListEndPoint_EndpointsExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint#getMaxCache <em>Max Cache</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Cache</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint#getMaxCache()
+	 * @see #getRecipientListEndPoint()
+	 * @generated
+	 */
+	EAttribute getRecipientListEndPoint_MaxCache();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnector <em>Recipient List End Point Input Connector</em>}'.
@@ -34289,6 +34379,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EEnum getApiResourceUrlStyle();
 
 	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndpointType <em>Recipient List Endpoint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Recipient List Endpoint Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndpointType
+	 * @generated
+	 */
+	EEnum getRecipientListEndpointType();
+
+	/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType <em>Message Store Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39114,6 +39214,38 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR = eINSTANCE.getRecipientListEndPoint_WestOutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECIPIENT_LIST_END_POINT__ENDPOINT_TYPE = eINSTANCE.getRecipientListEndPoint_EndpointType();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoints Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECIPIENT_LIST_END_POINT__ENDPOINTS_VALUE = eINSTANCE.getRecipientListEndPoint_EndpointsValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoints Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RECIPIENT_LIST_END_POINT__ENDPOINTS_EXPRESSION = eINSTANCE.getRecipientListEndPoint_EndpointsExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Cache</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECIPIENT_LIST_END_POINT__MAX_CACHE = eINSTANCE.getRecipientListEndPoint_MaxCache();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RecipientListEndPointInputConnectorImpl <em>Recipient List End Point Input Connector</em>}' class.
@@ -45458,6 +45590,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EEnum API_RESOURCE_URL_STYLE = eINSTANCE.getApiResourceUrlStyle();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndpointType <em>Recipient List Endpoint Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndpointType
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRecipientListEndpointType()
+		 * @generated
+		 */
+		EEnum RECIPIENT_LIST_ENDPOINT_TYPE = eINSTANCE.getRecipientListEndpointType();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType <em>Message Store Type</em>}' enum.
