@@ -67,11 +67,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnector
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesOutputConnectorEditPart;
 //import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 //import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -251,25 +254,47 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	
 	private static void pairMediatorFlows() {
 		for (Map.Entry<EsbConnector, EsbConnector> pair : pairMediatorFlowMap.entrySet()) {
-			LinkedList<EsbNode> outSeq = connectionFlowMap.get(pair.getValue());
-			if (outSeq == null || outSeq.size()==0) {
-				continue;
-			}
-		AbstractConnectorEditPart sourceConnector = EditorUtils.getProxyOutSequenceOutputConnector((ShapeNodeEditPart) EditorUtils.getAbstractBaseFigureEditPart((EditPart) getEditpart(outSeq.getLast())));
-		AbstractConnectorEditPart targetConnector = null;
-		if(outSeq.size() > 0 && outSeq.getLast() != null){
-			targetConnector = EditorUtils
-			.getInputConnector((ShapeNodeEditPart) getEditpart(outSeq.getLast()));
-		} else{
-			if(pair.getValue() instanceof AbstractConnectorEditPart){
-				targetConnector = (AbstractConnectorEditPart) pair.getValue();
-			} else continue;
-			
-		}
 		
-		if (sourceConnector != null && targetConnector != null) {
-			ConnectionUtils.createConnection(targetConnector,sourceConnector);
-		}
+			EditPart firstPart = (EditPart) getEditpart(pair.getKey());
+			EditPart secondPart = (EditPart) getEditpart(pair.getValue());
+			AbstractConnectorEditPart sourceConnector = null;
+			AbstractConnectorEditPart targetConnector = null;
+			
+			if (firstPart instanceof SequencesOutputConnectorEditPart && secondPart instanceof SequencesInputConnectorEditPart) {
+				
+				AbstractSequencesEditPart sequence = EditorUtils.getSequence((SequencesOutputConnectorEditPart)firstPart);
+				IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)sequence.getChildren().get(0); //assuming mediatorflow is the first child
+				IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart)mediatorFlow.getChildren().get(0);
+				int numOfChildren = mediatorFlowCompartment.getChildren().size();
+				if (numOfChildren >= 1) {
+					//get last child and connect its output connector to secuenceinputconnector (right hand side)
+					//Assuming getChildren().get(numOfChildren - 1) gives the last element in the flow
+					ShapeNodeEditPart lastChild = (ShapeNodeEditPart) mediatorFlowCompartment.getChildren().get(numOfChildren - 1);
+					AbstractOutputConnectorEditPart lastOutputConnector = EditorUtils.getMediatorOutputConnector(lastChild);
+					sourceConnector =  lastOutputConnector;
+					targetConnector = (AbstractConnectorEditPart) secondPart;
+				}
+			} else {		
+				LinkedList<EsbNode> outSeq = connectionFlowMap.get(pair.getValue());
+				if (outSeq == null || outSeq.size()==0) {
+					continue;
+				}
+				
+				sourceConnector = EditorUtils.getProxyOutSequenceOutputConnector((ShapeNodeEditPart) EditorUtils.getAbstractBaseFigureEditPart((EditPart) getEditpart(outSeq.getLast())));
+				if(outSeq.size() > 0 && outSeq.getLast() != null){
+					targetConnector = EditorUtils
+					.getInputConnector((ShapeNodeEditPart) getEditpart(outSeq.getLast()));
+				} else{
+					if(pair.getValue() instanceof AbstractConnectorEditPart){
+						targetConnector = (AbstractConnectorEditPart) pair.getValue();
+					} else continue;
+					
+				}
+			}
+			
+			if (sourceConnector != null && targetConnector != null) {
+				ConnectionUtils.createConnection(targetConnector,sourceConnector);
+			}
 		}
 		
 /*		for (Map.Entry<EsbConnector, EsbConnector> pair : pairMediatorFlowMap.entrySet()) {
