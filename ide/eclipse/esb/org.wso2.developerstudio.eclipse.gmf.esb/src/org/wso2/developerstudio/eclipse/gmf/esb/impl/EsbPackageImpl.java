@@ -4972,6 +4972,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTemplateEndpoint_AvailableTemplates() {
+		return (EAttribute)templateEndpointEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getTemplateEndpointInputConnector() {
 		return templateEndpointInputConnectorEClass;
 	}
@@ -15436,6 +15445,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(templateEndpointEClass, TEMPLATE_ENDPOINT__ADDRESS);
 		createEAttribute(templateEndpointEClass, TEMPLATE_ENDPOINT__TARGET_TEMPLATE);
 		createEReference(templateEndpointEClass, TEMPLATE_ENDPOINT__PARAMETERS);
+		createEAttribute(templateEndpointEClass, TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES);
 
 		templateEndpointInputConnectorEClass = createEClass(TEMPLATE_ENDPOINT_INPUT_CONNECTOR);
 
@@ -17419,6 +17429,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getTemplateEndpoint_Address(), ecorePackage.getEString(), "address", null, 0, 1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTemplateEndpoint_TargetTemplate(), ecorePackage.getEString(), "targetTemplate", null, 0, 1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTemplateEndpoint_Parameters(), this.getTemplateEndpointParameter(), null, "parameters", null, 0, -1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTemplateEndpoint_AvailableTemplates(), ecorePackage.getEString(), "availableTemplates", "", 0, 1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(templateEndpointInputConnectorEClass, TemplateEndpointInputConnector.class, "TemplateEndpointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

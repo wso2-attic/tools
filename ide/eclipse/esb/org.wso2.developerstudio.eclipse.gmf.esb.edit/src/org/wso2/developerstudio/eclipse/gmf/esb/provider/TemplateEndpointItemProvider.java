@@ -76,6 +76,7 @@ public class TemplateEndpointItemProvider
 		}
 
 		//addAddressPropertyDescriptor(object);
+		addAvailableTemplatesPropertyDescriptor(object);
 		addTargetTemplatePropertyDescriptor(object);
 		addParametersPropertyDescriptor(object);
 		addDescriptionPropertyDescriptor(object);
@@ -118,7 +119,7 @@ public class TemplateEndpointItemProvider
 				 getString("_UI_TemplateEndpoint_targetTemplate_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TemplateEndpoint_targetTemplate_feature", "_UI_TemplateEndpoint_type"),
 				 EsbPackage.Literals.TEMPLATE_ENDPOINT__TARGET_TEMPLATE,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
@@ -144,6 +145,28 @@ public class TemplateEndpointItemProvider
 				 false,
 				 false,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Available Templates feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAvailableTemplatesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TemplateEndpoint_availableTemplates_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TemplateEndpoint_availableTemplates_feature", "_UI_TemplateEndpoint_type"),
+				 EsbPackage.Literals.TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -219,6 +242,7 @@ public class TemplateEndpointItemProvider
 		switch (notification.getFeatureID(TemplateEndpoint.class)) {
 			case EsbPackage.TEMPLATE_ENDPOINT__ADDRESS:
 			case EsbPackage.TEMPLATE_ENDPOINT__TARGET_TEMPLATE:
+			case EsbPackage.TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.TEMPLATE_ENDPOINT__INPUT_CONNECTOR:

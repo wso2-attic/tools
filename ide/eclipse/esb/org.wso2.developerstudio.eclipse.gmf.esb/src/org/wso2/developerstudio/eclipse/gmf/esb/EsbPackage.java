@@ -3183,13 +3183,22 @@ public interface EsbPackage extends EPackage {
 	int TEMPLATE_ENDPOINT__PARAMETERS = ABSTRACT_END_POINT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Available Templates</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES = ABSTRACT_END_POINT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Template Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_ENDPOINT_FEATURE_COUNT = ABSTRACT_END_POINT_FEATURE_COUNT + 5;
+	int TEMPLATE_ENDPOINT_FEATURE_COUNT = ABSTRACT_END_POINT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointInputConnectorImpl <em>Template Endpoint Input Connector</em>}' class.
@@ -22308,6 +22317,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getTemplateEndpoint_Parameters();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint#getAvailableTemplates <em>Available Templates</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Available Templates</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint#getAvailableTemplates()
+	 * @see #getTemplateEndpoint()
+	 * @generated
+	 */
+	EAttribute getTemplateEndpoint_AvailableTemplates();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointInputConnector <em>Template Endpoint Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35742,6 +35762,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference TEMPLATE_ENDPOINT__PARAMETERS = eINSTANCE.getTemplateEndpoint_Parameters();
+
+		/**
+		 * The meta object literal for the '<em><b>Available Templates</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES = eINSTANCE.getTemplateEndpoint_AvailableTemplates();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointInputConnectorImpl <em>Template Endpoint Input Connector</em>}' class.

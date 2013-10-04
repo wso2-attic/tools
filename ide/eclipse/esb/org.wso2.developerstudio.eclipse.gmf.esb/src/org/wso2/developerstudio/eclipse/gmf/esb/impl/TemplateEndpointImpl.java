@@ -45,6 +45,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointImpl#getTargetTemplate <em>Target Template</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointImpl#getParameters <em>Parameters</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointImpl#getAvailableTemplates <em>Available Templates</em>}</li>
  * </ul>
  * </p>
  *
@@ -120,6 +121,26 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 	 * @ordered
 	 */
 	protected EList<TemplateEndpointParameter> parameters;
+
+	/**
+	 * The default value of the '{@link #getAvailableTemplates() <em>Available Templates</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailableTemplates()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String AVAILABLE_TEMPLATES_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getAvailableTemplates() <em>Available Templates</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailableTemplates()
+	 * @generated
+	 * @ordered
+	 */
+	protected String availableTemplates = AVAILABLE_TEMPLATES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -285,6 +306,27 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAvailableTemplates() {
+		return availableTemplates;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAvailableTemplates(String newAvailableTemplates) {
+		String oldAvailableTemplates = availableTemplates;
+		availableTemplates = newAvailableTemplates;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES, oldAvailableTemplates, availableTemplates));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -316,6 +358,8 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 				return getTargetTemplate();
 			case EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS:
 				return getParameters();
+			case EsbPackage.TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES:
+				return getAvailableTemplates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -345,6 +389,9 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 				getParameters().clear();
 				getParameters().addAll((Collection<? extends TemplateEndpointParameter>)newValue);
 				return;
+			case EsbPackage.TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES:
+				setAvailableTemplates((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -372,6 +419,9 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 			case EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS:
 				getParameters().clear();
 				return;
+			case EsbPackage.TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES:
+				setAvailableTemplates(AVAILABLE_TEMPLATES_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -394,6 +444,8 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 				return TARGET_TEMPLATE_EDEFAULT == null ? targetTemplate != null : !TARGET_TEMPLATE_EDEFAULT.equals(targetTemplate);
 			case EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
+			case EsbPackage.TEMPLATE_ENDPOINT__AVAILABLE_TEMPLATES:
+				return AVAILABLE_TEMPLATES_EDEFAULT == null ? availableTemplates != null : !AVAILABLE_TEMPLATES_EDEFAULT.equals(availableTemplates);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -412,6 +464,8 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 		result.append(address);
 		result.append(", targetTemplate: ");
 		result.append(targetTemplate);
+		result.append(", availableTemplates: ");
+		result.append(availableTemplates);
 		result.append(')');
 		return result.toString();
 	}

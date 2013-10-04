@@ -723,8 +723,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TemplateEndpoint/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TemplateEndpoint/outputConnector"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpoint/address"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpoint/targetTemplate"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpoint/targetTemplate"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TemplateEndpoint/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpoint/availableTemplates"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//TemplateEndpointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//TemplateEndpointOutputConnector"/>

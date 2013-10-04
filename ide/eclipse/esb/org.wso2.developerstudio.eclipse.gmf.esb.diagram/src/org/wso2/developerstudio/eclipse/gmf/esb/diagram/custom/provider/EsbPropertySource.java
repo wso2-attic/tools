@@ -41,6 +41,7 @@ public class EsbPropertySource extends PropertySource {
 			IItemPropertyDescriptor itemPropertyDescriptor) {
 		EsbPackage pkg = EsbPackage.eINSTANCE;
 		Object feature = itemPropertyDescriptor.getFeature(object);
+		
 		if (pkg.getLogMediator_Properties().equals(feature)) {
 			return new LogConfigurationPropertyDescriptor(object,
 					itemPropertyDescriptor);
@@ -291,7 +292,9 @@ public class EsbPropertySource extends PropertySource {
 		} else if(pkg.getMessageProcessor_Parameters().equals(feature)){
             return new MessageProcessorParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getCallTemplateMediator_AvailableTemplates().equals(feature)){
-            return new CallTemplateTargetTemplateCustomPropertyDescriptor(object, itemPropertyDescriptor);
+            return new CallTemplateTargetTemplateCustomPropertyDescriptor(object, itemPropertyDescriptor);     
+		} else if(pkg.getTemplateEndpoint_AvailableTemplates().equals(feature)){
+            return new TemplateEndpointTargetTemplateCustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSequences_TemplateParameters().equals(feature)){
 			return new TemplateParametersPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getAbstractEndPoint_TemplateParameters().equals(feature)){
