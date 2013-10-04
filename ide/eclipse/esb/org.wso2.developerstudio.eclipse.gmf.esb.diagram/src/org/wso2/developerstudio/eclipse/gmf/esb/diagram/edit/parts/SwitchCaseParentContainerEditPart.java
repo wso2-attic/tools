@@ -230,6 +230,7 @@ public class SwitchCaseParentContainerEditPart extends ShapeNodeEditPart {
 
 			this.setLayoutManager(layoutThis);
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20000), getMapMode().DPtoLP(25000)));
 			this.setFill(false);
 			this.setOutline(false);
 			this.setLineWidth(0);
