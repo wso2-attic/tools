@@ -44,18 +44,18 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PlatformUI;
-import org.wso2.developerstudio.eclipse.artifact.sequence.model.SequenceModel;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.factory.SequenceFileCreator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.factory.LocalEntryFileCreator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryModel;
 
 public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	
@@ -319,24 +319,24 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	
 	@Override
 	protected void okPressed() {
-		
-		SequenceModel sequenceModel=new SequenceModel();
         IContainer location = EditorUtils.getActiveProject().getFolder("src" + File.separator + "main"
 				+ File.separator + "synapse-config" + File.separator
-				+ "sequences");
-		sequenceModel.setSequenceSaveLocation(location);
-		sequenceModel.setSequenceName(configName);
+				+ "local-entries");		
+		
+		LocalEntryModel localEntryModel = new LocalEntryModel();
+		localEntryModel.setLocalEntrySaveLocation(location);
+		localEntryModel.setLocalENtryName(configName);
+			
 		try {
-			sequenceModel.setSelectedOption("");
-			SequenceFileCreator sequenceFileCreator=new SequenceFileCreator(sequenceModel);
-			String content="<?xml version=\"1.0\" encoding=\"UTF-8\"?><sequence xmlns=\"http://ws.apache.org/ns/synapse\" name=\""+configName+"\"/>";
+			localEntryModel.setSelectedOption("");
+			LocalEntryFileCreator localEntryFileCreator=new LocalEntryFileCreator(localEntryModel);
+			String content="<?xml version=\"1.0\" encoding=\"UTF-8\"?><localEntry xmlns=\"http://ws.apache.org/ns/synapse\" key=\""+configName+"\"/>";
 			
 			OMElement payload = AXIOMUtil.stringToOM(content); 
-			serializeParams(payload);
-			
-			sequenceFileCreator.createSequenceFile(payload.toString());
+			serializeParams(payload);			
+			localEntryFileCreator.createLocalEntryFile(payload.toString());
 		} catch (Exception e) {
-			log.error("Error occured while creating the sequence file", e);
+			log.error("Error occured while creating the Local entry file", e);
 		}
 		
 		
@@ -353,11 +353,11 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 			
 		Properties prop = new Properties();
 		prop.load(new FileInputStream(pathName+File.separator+"cloudConnector.properties"));
-		String sequenceConfigs=prop.getProperty("SEQUENCE_CONFIGS");
-		if(sequenceConfigs==null || "".equals(sequenceConfigs)){
-			prop.setProperty("SEQUENCE_CONFIGS", configName+"-"+getDroppedCloudConnector());
+		String localEntryConfigs=prop.getProperty("LOCAL_ENTRY_CONFIGS");
+		if(localEntryConfigs==null || "".equals(localEntryConfigs)){
+			prop.setProperty("LOCAL_ENTRY_CONFIGS", configName+"-"+getDroppedCloudConnector());
 		}else{
-			prop.setProperty("SEQUENCE_CONFIGS", sequenceConfigs+","+configName+"-"+getDroppedCloudConnector());
+			prop.setProperty("LOCAL_ENTRY_CONFIGS", localEntryConfigs+","+configName+"-"+getDroppedCloudConnector());
 		}		
 		prop.setProperty("INLINE_CONFIGS", "");
 			prop.store(new FileOutputStream(cloudConnectorConfig.getAbsolutePath()), null);

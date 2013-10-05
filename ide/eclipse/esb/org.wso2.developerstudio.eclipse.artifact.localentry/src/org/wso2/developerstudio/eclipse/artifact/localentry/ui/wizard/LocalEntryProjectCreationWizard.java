@@ -83,59 +83,69 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 	protected boolean isRequireProjectLocationSection() {
 		return false;
 	}
+	
+	public boolean createLocalEntryArtifact(LocalEntryModel localEntryModel) throws Exception {
+		leModel=localEntryModel;
+		boolean isNewArtifact =true;
+		IContainer location = esbProject.getFolder("src" + File.separator + "main" + File.separator
+				+ "synapse-config" + File.separator + "local-entries");
+
+		updatePom();
+		esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		File pomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+		String groupId = getMavenGroupId(pomLocation);
+		groupId += ".local-entry";
+
+		// Adding the metadata about the localentry to the metadata store.
+		esbProjectArtifact = new ESBProjectArtifact();
+		esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
+
+		if (getModel().getSelectedOption().equals(
+				LocalEntryArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
+			localEntryFile = location.getFile(new Path(getModel().getImportFile().getName()));
+			if (localEntryFile.exists()) {
+				if (!MessageDialog.openQuestion(getShell(), "WARNING",
+						"Do you like to override exsiting project in the workspace")) {
+					return false;
+				}
+				isNewArtifact = false;
+			}
+			copyImportFile(location, isNewArtifact, groupId);
+
+		} else {
+			File localEntryFile = new File(location.getLocation().toFile(),
+					localEntryModel.getLocalENtryName() + ".xml");
+			writeTemplete(localEntryFile);
+
+			ESBArtifact artifact = new ESBArtifact();
+			artifact.setName(localEntryModel.getLocalENtryName());
+			artifact.setVersion("1.0.0");
+			artifact.setType("synapse/local-entry");
+			artifact.setServerRole("EnterpriseServiceBus");
+			artifact.setGroupId(groupId);
+			artifact.setFile(FileUtils.getRelativePath(
+					esbProject.getLocation().toFile(),
+					new File(location.getLocation().toFile(), localEntryModel.getLocalENtryName()
+							+ ".xml")).replaceAll(Pattern.quote(File.separator), "/"));
+			esbProjectArtifact.addESBArtifact(artifact);
+		}
+		File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();
+		getModel().getMavenInfo().setPackageName("synapse/local-entry");
+		if (!pomfile.exists()) {
+			createPOM(pomfile);
+		}
+
+		esbProjectArtifact.toFile();
+		esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		return true;
+	}
 
 	public boolean performFinish() {
 		try {
 			boolean isNewArtifact = true;
 			leModel = (LocalEntryModel)getModel();
 			esbProject =  leModel.getLocalEntrySaveLocation().getProject();
-			IContainer location = esbProject.getFolder("src" + File.separator + "main" +
-			                                           File.separator +
-			                                           "synapse-config" +
-			                                           File.separator +
-			                                           "local-entries");
-			
-			updatePom();
-			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			File pomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
-			String groupId = getMavenGroupId(pomLocation);
-			groupId += ".local-entry";
-			
-			//Adding the metadata about the localentry to the metadata store.
-			esbProjectArtifact=new ESBProjectArtifact();
-			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
-			
-			if (getModel().getSelectedOption().equals(LocalEntryArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
-				localEntryFile = location.getFile(new Path(getModel().getImportFile().getName()));
-				if(localEntryFile.exists()){
-					if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
-						return false;	
-					}
-					isNewArtifact = false;
-				} 	
-				copyImportFile(location,isNewArtifact,groupId);
-				
-			} else {
-				File localEntryFile = new File(location.getLocation().toFile(),leModel.getLocalENtryName() + ".xml");
-				writeTemplete(localEntryFile);
-				
-				ESBArtifact artifact=new ESBArtifact();
-				artifact.setName(localEntryModel.getLocalENtryName());
-				artifact.setVersion("1.0.0");
-				artifact.setType("synapse/local-entry");
-				artifact.setServerRole("EnterpriseServiceBus");
-				artifact.setGroupId(groupId);
-				artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(), new File(location.getLocation().toFile(),localEntryModel.getLocalENtryName()+".xml")).replaceAll(Pattern.quote(File.separator), "/"));
-				esbProjectArtifact.addESBArtifact(artifact);
-			}
-			File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();
-			getModel().getMavenInfo().setPackageName("synapse/local-entry");
-			if(!pomfile.exists()){
-				createPOM(pomfile);
-			}
-
-			esbProjectArtifact.toFile();
-			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			createLocalEntryArtifact(leModel);
 			
 			if(fileLst.size()>0){
 				openEditor(fileLst.get(0));
@@ -292,5 +302,9 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 		}catch(Exception e){
 			log.error("Cannot open the editor", e);
 		}
+	}
+	
+	public void setProject(IProject project) {
+		this.esbProject = project;
 	}
 }

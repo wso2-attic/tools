@@ -81,14 +81,14 @@ public class CloudConnectorDirectoryTraverser {
 	
 	public Map<String, String> getOperationFileNamesMap() throws Exception{		
 		Map<String, String> operationFileNamesMap=new HashMap<String,String>();
-		File artifactsFile = new File(rootDirectory+"/connector.xml");
+		File artifactsFile = new File(rootDirectory+File.separator+"connector.xml");
 		String artifactsContent = FileUtils.getContentAsString(artifactsFile);
 		Connector connector = new Connector();
 		connector.deserialize(artifactsContent);
 
 		for (Dependency dependency : connector.getComponentDependencies()) {
-			String pathname = rootDirectory +"/"+ dependency.getComponent();
-			File artifactFile = new File(pathname + "/component.xml");
+			String pathname = rootDirectory +File.separator+ dependency.getComponent();
+			File artifactFile = new File(pathname + File.separator+"component.xml");
 			String artifactContent = FileUtils.getContentAsString(artifactFile);
 			Component subComponent = new Component();
 			subComponent.deserialize(artifactContent);
@@ -110,14 +110,14 @@ public class CloudConnectorDirectoryTraverser {
 	
 	public Map<String, String> getOperationsMap() throws Exception{
 		Map<String, String> operationNamesAndFileNamesMap=new HashMap<String,String>();
-		File connectorFile = new File(rootDirectory+"/connector.xml");
+		File connectorFile = new File(rootDirectory+File.separator+"connector.xml");
 		String connectorFileContent = FileUtils.getContentAsString(connectorFile);
 		Connector connector = new Connector();
 		connector.deserialize(connectorFileContent);
 
 		for (Dependency dependency : connector.getComponentDependencies()) {
-			String pathname = rootDirectory +"/"+ dependency.getComponent();
-			File artifactFile = new File(pathname + "/component.xml");
+			String pathname = rootDirectory +File.separator+ dependency.getComponent();
+			File artifactFile = new File(pathname + File.separator+"component.xml");
 			String artifactContent = FileUtils.getContentAsString(artifactFile);
 			Component subComponent = new Component();
 			subComponent.deserialize(artifactContent);
@@ -130,6 +130,6 @@ public class CloudConnectorDirectoryTraverser {
 	}
 	
 	public String getConfigurationFileLocation(Map<String, String> artifactsMap) throws Exception{
-		return rootDirectory+"/"+artifactsMap.get("config")+"/config.xml";
+		return rootDirectory+File.separator+artifactsMap.get("config")+File.separator+"config.xml";
 	}
 }

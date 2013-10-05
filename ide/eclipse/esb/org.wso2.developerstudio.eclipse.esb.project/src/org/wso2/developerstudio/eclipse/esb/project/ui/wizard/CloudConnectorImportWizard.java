@@ -37,15 +37,13 @@ public class CloudConnectorImportWizard extends Wizard{
 		super.addPages();
 	}
 	
-	public boolean performFinish() {
-		
-	    String source = detailWizardPage.getCloudConnectorPath();	    
-	    String destination = detailWizardPage.getSelectedProject().getLocation().toOSString()+File.separator+"cloudConnectors";
-
+	public boolean performFinish() {		
+	    String source = detailWizardPage.getCloudConnectorPath();	
 	        try {
 	            ZipFile zipFile = new ZipFile(source);
 	            String[] segments=source.split(File.separator);
 	            String zipFileName=segments[segments.length-1].split(".zip")[0];
+	    	    String destination = detailWizardPage.getSelectedProject().getLocation().toOSString()+File.separator+"cloudConnectors"+File.separator+zipFileName;
 	            zipFile.getFile(); zipFile.extractAll(destination); 
 	        } catch (ZipException e) {
 	            e.printStackTrace();
