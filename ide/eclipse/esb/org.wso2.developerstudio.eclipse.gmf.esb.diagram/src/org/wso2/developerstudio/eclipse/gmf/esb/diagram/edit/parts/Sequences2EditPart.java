@@ -38,6 +38,7 @@ import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.CustomNonResizableEditPolicyEx;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.Sequences2CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.Sequences2ItemSemanticEditPolicy;
@@ -86,6 +87,7 @@ public class Sequences2EditPart extends AbstractSequencesEditPart {
 		proxyServiceTool.setVisible(false);
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new CustomNonResizableEditPolicyEx()); //remove 8 corners
 	}
 
 	/**
@@ -133,6 +135,7 @@ public class Sequences2EditPart extends AbstractSequencesEditPart {
 	}
 
 	private void alignLeft(int y, int width, int height) {
+		y = 100;
 		Rectangle constraints = new Rectangle(0, y, width, height);
 		((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
 	}
@@ -301,10 +304,9 @@ public class Sequences2EditPart extends AbstractSequencesEditPart {
 			 layoutThis.makeColumnsEqualWidth = true;
 			 this.setLayoutManager(layoutThis);
 			 */
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(200)));
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			this.setBorder(border0);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(195), getMapMode().DPtoLP(125)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 		}
 
