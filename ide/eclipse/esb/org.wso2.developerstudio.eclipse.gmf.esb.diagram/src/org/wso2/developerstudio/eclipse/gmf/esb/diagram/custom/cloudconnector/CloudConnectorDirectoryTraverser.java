@@ -140,6 +140,33 @@ public class CloudConnectorDirectoryTraverser {
 		return operationNamesAndFileNamesMap;
 	}
 	
+	
+	/**
+	 * Returning Operations map in the Cloud Connector zip. This map contains
+	 * the name of the operation and the name of the cloud connector component.
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	
+	public Map<String, String> getOperationsConnectorComponentNameMap() throws Exception{
+		Map<String, String> operationNamesAndConnectorComponentNameMap=new HashMap<String,String>();
+		deserializeConnectorXML();
+		for (Dependency dependency : connector.getComponentDependencies()) {
+			String pathname = rootDirectory +File.separator+ dependency.getComponent();
+			File artifactFile = new File(pathname + File.separator+"component.xml");
+			String artifactContent = FileUtils.getContentAsString(artifactFile);
+			Component subComponent = new Component();
+			subComponent.deserialize(artifactContent);
+			for (SubComponents subComponents : subComponent.getSubComponents()) {
+				operationNamesAndConnectorComponentNameMap.put(subComponents.getName(),connector.getConnectorName());
+			}
+
+		}
+		return operationNamesAndConnectorComponentNameMap;
+	}
+	
+	
 	public String getCloudConnectorName(){
 		deserializeConnectorXML();
 		return connector.getConnectorName();

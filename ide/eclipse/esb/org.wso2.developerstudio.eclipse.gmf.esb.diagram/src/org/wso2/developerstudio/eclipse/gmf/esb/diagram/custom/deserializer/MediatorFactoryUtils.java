@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.namespace.QName;
@@ -42,7 +43,8 @@ public class MediatorFactoryUtils {
 		BeanMediatorExtFactory.class,
 		BamMediatorExtFactory.class,
 		CalloutMediatorExtFactory.class,
-		EntitlementMediatorExtFactory.class
+		EntitlementMediatorExtFactory.class,
+		CloudConnectorOperationExtFactory.class
 	};
 	
 	public static synchronized void registerFactories() {
@@ -51,8 +53,15 @@ public class MediatorFactoryUtils {
 		for (@SuppressWarnings("rawtypes") Class c : mediatorFactories) {
 			try {
 				MediatorFactory factory = (MediatorFactory) c.newInstance();
-				QName tagQName = factory.getTagQName();
-				factoryMap.put(tagQName, c);
+				if(factory instanceof CloudConnectorOperationExtFactory){
+					List<QName> tagQNameList=((CloudConnectorOperationExtFactory) factory).getTagQNameList();
+					for(int i=0;i<tagQNameList.size();++i){
+						factoryMap.put(tagQNameList.get(i), c);
+					}
+				}else{
+					QName tagQName = factory.getTagQName();
+					factoryMap.put(tagQName, c);
+				}
 			} catch (Exception e) {
 				throw new SynapseException("Error instantiating " + c.getName(), e);
 			}

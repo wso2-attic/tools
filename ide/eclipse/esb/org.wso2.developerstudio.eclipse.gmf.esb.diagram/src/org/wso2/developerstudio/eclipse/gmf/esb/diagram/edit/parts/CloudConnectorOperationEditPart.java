@@ -119,29 +119,31 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 				SetCommand setCommand = new SetCommand(getEditingDomain(), owner,
 						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,
 						CustomPaletteToolTransferDropTargetListener.definedName);
-				getResultCommand().append(setCommand);
+				getResultCommand().append(setCommand);				
 			}
 			if (CustomPaletteToolTransferDropTargetListener.addedConnector != null
 					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedConnector)) {
 				SetCommand setConnectorName = new SetCommand(getEditingDomain(), owner,
 						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME,
 						CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName);
-				getResultCommand().append(setConnectorName);
+				getResultCommand().append(setConnectorName);				
 			}
 			if (CustomPaletteToolTransferDropTargetListener.addedOperation != null
 					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedOperation)) {
 				SetCommand setOperationName = new SetCommand(getEditingDomain(), owner,
 						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME,
 						CustomPaletteToolTransferDropTargetListener.addedOperation);
-				getResultCommand().append(setOperationName);
+				getResultCommand().append(setOperationName);				
 			}
 
 			// Apply changes.
 			if (getResultCommand().canExecute()) {
 				getEditingDomain().getCommandStack().execute(getResultCommand());
-			}
-			CustomPaletteToolTransferDropTargetListener.definedName = null;
+			}			
 			fillConnectorOperationParameters();
+			CustomPaletteToolTransferDropTargetListener.definedName = null;
+			CustomPaletteToolTransferDropTargetListener.addedOperation=null;
+			CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName=null;
 			activatedOnce = true;
 		}
 	}
@@ -212,63 +214,66 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		 IProject activeProject = file.getProject();*/
 		IProject activeProject = EditorUtils.getActiveProject();
 		if (activeProject != null) {
-			String connectorPath = activeProject.getLocation().toOSString() + File.separator
-					+ "cloudConnectors" + File.separator
-					+ CustomPaletteToolTransferDropTargetListener.addedConnector + "-connector";
-
-			CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
-					.getInstance(connectorPath);
-			String directory = null;
-			String operationFileName = null;
-			try {
-				operationFileName = cloudConnectorDirectoryTraverser.getOperationsMap().get(
-						CustomPaletteToolTransferDropTargetListener.addedOperation);
-				directory = cloudConnectorDirectoryTraverser.getOperationFileNamesMap().get(
-						operationFileName);
-			} catch (Exception e1) {
-				log.error("Error while retrieving data for cloud connector", e1);
-			}
-			String path = connectorPath + File.separator + directory + File.separator
-					+ operationFileName + ".xml";
-			CustomPaletteToolTransferDropTargetListener.addedOperation = null;
-
-			try {
-				String source = FileUtils.getContentAsString(new File(path));
-				OMElement element = AXIOMUtil.stringToOM(source);
-
-				if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
-					TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
-					TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
-							.createMediator(element, properties);
-					editingDomain = getEditingDomain();
-					DeleteCommand modelDeleteCommand = new DeleteCommand(editingDomain,
-							((CloudConnectorOperation) ((Node) getModel()).getElement())
-									.getConnectorParameters());
-					if (modelDeleteCommand.canExecute()) {
-						editingDomain.getCommandStack().execute(modelDeleteCommand);
-					}
-					for (String parameter : templateMediator.getParameters()) {
-						final CallTemplateParameter callTemplateParameter = EsbFactory.eINSTANCE
-								.createCallTemplateParameter();
-						callTemplateParameter.setParameterName(parameter);
-						RecordingCommand command = new RecordingCommand(editingDomain) {
-							protected void doExecute() {
+			if(CustomPaletteToolTransferDropTargetListener.addedConnector !=null && CustomPaletteToolTransferDropTargetListener.addedOperation!=null){
+					
+				String connectorPath = activeProject.getLocation().toOSString() + File.separator
+						+ "cloudConnectors" + File.separator
+						+ CustomPaletteToolTransferDropTargetListener.addedConnector + "-connector";
+	
+				CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
+						.getInstance(connectorPath);
+				String directory = null;
+				String operationFileName = null;
+				try {
+					operationFileName = cloudConnectorDirectoryTraverser.getOperationsMap().get(
+							CustomPaletteToolTransferDropTargetListener.addedOperation);
+					directory = cloudConnectorDirectoryTraverser.getOperationFileNamesMap().get(
+							operationFileName);
+				} catch (Exception e1) {
+					log.error("Error while retrieving data for cloud connector", e1);
+				}
+				String path = connectorPath + File.separator + directory + File.separator
+						+ operationFileName + ".xml";
+				CustomPaletteToolTransferDropTargetListener.addedOperation = null;
+	
+				try {
+					String source = FileUtils.getContentAsString(new File(path));
+					OMElement element = AXIOMUtil.stringToOM(source);
+	
+					if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+						TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
+						TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
+								.createMediator(element, properties);
+						editingDomain = getEditingDomain();
+						DeleteCommand modelDeleteCommand = new DeleteCommand(editingDomain,
 								((CloudConnectorOperation) ((Node) getModel()).getElement())
-										.getConnectorParameters().add(callTemplateParameter);
+										.getConnectorParameters());
+						if (modelDeleteCommand.canExecute()) {
+							editingDomain.getCommandStack().execute(modelDeleteCommand);
+						}
+						for (String parameter : templateMediator.getParameters()) {
+							final CallTemplateParameter callTemplateParameter = EsbFactory.eINSTANCE
+									.createCallTemplateParameter();
+							callTemplateParameter.setParameterName(parameter);
+							RecordingCommand command = new RecordingCommand(editingDomain) {
+								protected void doExecute() {
+									((CloudConnectorOperation) ((Node) getModel()).getElement())
+											.getConnectorParameters().add(callTemplateParameter);
+								}
+							};
+							if (command.canExecute()) {
+								editingDomain.getCommandStack().execute(command);
 							}
-						};
-						if (command.canExecute()) {
-							editingDomain.getCommandStack().execute(command);
 						}
 					}
-				}
-			} catch (XMLStreamException e) {
-				log.error("Error occured while parsing selected template file", e);
-				//ErrorDialog.openError(shell,"Error occured while parsing selected template file", e.getMessage(), null);
-			} catch (IOException e) {
-				log.error("Error occured while reading selected template file", e);
-				//ErrorDialog.openError(shell,"Error occured while reading selected template file", e.getMessage(), null);
-			}
+				} catch (XMLStreamException e) {
+					log.error("Error occured while parsing selected template file", e);
+					//ErrorDialog.openError(shell,"Error occured while parsing selected template file", e.getMessage(), null);
+				} catch (IOException e) {
+					log.error("Error occured while reading selected template file", e);
+					//ErrorDialog.openError(shell,"Error occured while reading selected template file", e.getMessage(), null);
+				}			
+			}			
 		}
 	}
 

@@ -84,6 +84,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.BeanMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.BuilderMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.ClassMediatorExt;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CloudConnectorOperationExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyMessageProcessor;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EJBMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EntitlementMediatorExt;
@@ -189,6 +190,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(LoopBackMediator.class, new LoopBackMediatorDeserializer());
 		addDeserializer(RespondMediator.class, new RespondMediatorDeserializer());
 		addDeserializer(CallMediator.class, new CallMediatorDeserializer());
+		addDeserializer(CloudConnectorOperationExt.class, new CloudConnectorOperationDeserializer());
 	}
 	
 	/**
