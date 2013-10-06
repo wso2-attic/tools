@@ -27,7 +27,16 @@ import org.wso2.developerstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
 public class Connector extends AbstractXMLDoc{
 
 	private List<Dependency> componentDependencies=new ArrayList<Dependency>();
+	private String connectorName = null;
 	
+	public String getConnectorName() {
+		return connectorName;
+	}
+
+	public void setConnectorName(String connectorName) {
+		this.connectorName = connectorName;
+	}
+
 	public List<Dependency> getComponentDependencies() {
 		return componentDependencies;
 	}
@@ -39,6 +48,7 @@ public class Connector extends AbstractXMLDoc{
 	@Override
 	protected void deserialize(OMElement documentElement) throws Exception {		
 		List<OMElement> component = getChildElements(documentElement, "component");
+		setConnectorName(component.get(0).getAttributeValue(new QName("name")));
 		for (OMElement omElement : component) {
 			List<OMElement> artifactElements = getChildElements(omElement, "dependency");			
 			for (OMElement omElement2 : artifactElements) {				

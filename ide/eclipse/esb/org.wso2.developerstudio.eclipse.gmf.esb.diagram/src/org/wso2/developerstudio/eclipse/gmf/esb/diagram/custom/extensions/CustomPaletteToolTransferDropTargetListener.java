@@ -21,11 +21,23 @@ public class CustomPaletteToolTransferDropTargetListener extends
 
 	public static String definedName;
 	public static String addedConnector;
+	public static String addedConnectorComponentName;
 	public static String addedOperation;
 	
 	public CustomPaletteToolTransferDropTargetListener(EditPartViewer viewer) {
 		super(viewer);
 		// TODO Auto-generated constructor stub
+	}
+	
+	private CloudConnectorDirectoryTraverser getCloudConnectorDirectoryTraverser(String droppedCloudConnector){
+		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage().getActiveEditor();
+		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
+		IFile file = input.getFile();
+		IProject activeProject = file.getProject();
+		String connectorPath = activeProject.getLocation().toOSString() + File.separator
+				+ "cloudConnectors" + File.separator + droppedCloudConnector+"-connector";
+		return CloudConnectorDirectoryTraverser.getInstance(connectorPath);
 	}
 	
 	@Override
@@ -39,17 +51,8 @@ public class CustomPaletteToolTransferDropTargetListener extends
 			if("cloudConnector".equals(groupName)){
 				Collection<String> cloudConnectorConfigurationParameters = null;
 				String droppedCloudConnector = splittedString[0];
-				try {
-					
-					IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-							.getActivePage().getActiveEditor();
-					IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
-					IFile file = input.getFile();
-					IProject activeProject = file.getProject();
-					String connectorPath = activeProject.getLocation().toOSString() + File.separator
-							+ "cloudConnectors" + File.separator + droppedCloudConnector+"-connector";
-					
-					cloudConnectorConfigurationParameters = CloudConnectorDirectoryTraverser.getInstance(connectorPath).getCloudConnectorConfigurationParameters();
+				try {				
+					cloudConnectorConfigurationParameters = getCloudConnectorDirectoryTraverser(droppedCloudConnector).getCloudConnectorConfigurationParameters();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -64,6 +67,7 @@ public class CustomPaletteToolTransferDropTargetListener extends
 			}else if((((NodeToolEntry)event.data).getId()).contains("cloudConnectorOperation")){
 				definedName=splittedString[2];
 				addedConnector=groupName.toLowerCase();
+				addedConnectorComponentName=getCloudConnectorDirectoryTraverser(addedConnector).getCloudConnectorName();
 				addedOperation=((NodeToolEntry)event.data).getLabel();
 			}
 		}

@@ -18,11 +18,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -33,10 +30,10 @@ import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.mediators.template.TemplateMediator;
 import org.eclipse.emf.ecore.xml.type.internal.QName;
-import org.wso2.developerstudio.eclipse.capp.core.manifest.ArtifactDependency;
-import org.wso2.developerstudio.eclipse.esb.project.artifact.Artifact;
-import org.wso2.developerstudio.eclipse.esb.project.artifact.Artifacts;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.MediatorFactoryUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class CloudConnectorDirectoryTraverser {
@@ -45,10 +42,13 @@ public class CloudConnectorDirectoryTraverser {
 	private Properties properties = new Properties();
 	private static String rootDirectory=null;
 	private static CloudConnectorDirectoryTraverser instance=null;
+	private Connector connector=null;
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
 	/*
 	 * Private Constructor
 	 */
-	private CloudConnectorDirectoryTraverser(){		
+	private CloudConnectorDirectoryTraverser(){	
 	}
 	/*
 	 * static method for creating an instance of this class 
@@ -59,6 +59,17 @@ public class CloudConnectorDirectoryTraverser {
 			instance=new CloudConnectorDirectoryTraverser();
 		}
 		return instance;
+	}
+	
+	private void deserializeConnectorXML(){
+		try{
+			File artifactsFile = new File(rootDirectory+File.separator+"connector.xml");
+			String artifactsContent = FileUtils.getContentAsString(artifactsFile);
+			connector = new Connector();
+			connector.deserialize(artifactsContent);
+		}catch(Exception e){
+			log.error("Error while deserializing connector xml", e);
+		}
 	}
 		
 	private TemplateMediator readTemplateConfiguration(String fileLocation) throws IOException, XMLStreamException{
@@ -79,13 +90,17 @@ public class CloudConnectorDirectoryTraverser {
 		return readTemplateConfiguration(getConfigurationFileLocation(getOperationFileNamesMap())).getParameters();
 	}
 	
+	/**
+	 * Returning Operations map in the Cloud Connector zip. This map contains
+	 * the name of the component name and the file name of the operation.
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	
 	public Map<String, String> getOperationFileNamesMap() throws Exception{		
 		Map<String, String> operationFileNamesMap=new HashMap<String,String>();
-		File artifactsFile = new File(rootDirectory+File.separator+"connector.xml");
-		String artifactsContent = FileUtils.getContentAsString(artifactsFile);
-		Connector connector = new Connector();
-		connector.deserialize(artifactsContent);
-
+		deserializeConnectorXML();
 		for (Dependency dependency : connector.getComponentDependencies()) {
 			String pathname = rootDirectory +File.separator+ dependency.getComponent();
 			File artifactFile = new File(pathname + File.separator+"component.xml");
@@ -110,11 +125,7 @@ public class CloudConnectorDirectoryTraverser {
 	
 	public Map<String, String> getOperationsMap() throws Exception{
 		Map<String, String> operationNamesAndFileNamesMap=new HashMap<String,String>();
-		File connectorFile = new File(rootDirectory+File.separator+"connector.xml");
-		String connectorFileContent = FileUtils.getContentAsString(connectorFile);
-		Connector connector = new Connector();
-		connector.deserialize(connectorFileContent);
-
+		deserializeConnectorXML();
 		for (Dependency dependency : connector.getComponentDependencies()) {
 			String pathname = rootDirectory +File.separator+ dependency.getComponent();
 			File artifactFile = new File(pathname + File.separator+"component.xml");
@@ -127,6 +138,11 @@ public class CloudConnectorDirectoryTraverser {
 
 		}
 		return operationNamesAndFileNamesMap;
+	}
+	
+	public String getCloudConnectorName(){
+		deserializeConnectorXML();
+		return connector.getConnectorName();
 	}
 	
 	public String getConfigurationFileLocation(Map<String, String> artifactsMap) throws Exception{
