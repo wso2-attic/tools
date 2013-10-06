@@ -16,6 +16,7 @@ import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.KeyHandler;
 import org.eclipse.gef.KeyStroke;
 import org.eclipse.gef.palette.PaletteRoot;
+import org.eclipse.gef.ui.palette.PaletteViewer;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
@@ -306,6 +307,11 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 
 		viewerKeyHandler.setParent(getKeyHandler());
 		viewer.setKeyHandler(new DirectEditKeyHandler(viewer).setParent(viewerKeyHandler));
+		
+		// Define key handler for palette viewer.
+		PaletteViewer paletteViewer = getPaletteViewerProvider().getEditDomain().getPaletteViewer();
+		KeyHandler paletteViewerKeyHandler = new CustomPaletteViewerKeyHandler(paletteViewer);
+		paletteViewer.setKeyHandler(paletteViewerKeyHandler);
 
 		//This enables the property view to be informed of selection changes in our graphical view, 
 		//when our view is the active workbench part.

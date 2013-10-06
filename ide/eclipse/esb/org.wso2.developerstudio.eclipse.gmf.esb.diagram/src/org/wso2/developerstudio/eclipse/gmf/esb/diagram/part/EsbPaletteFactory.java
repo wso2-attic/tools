@@ -1581,6 +1581,11 @@ public class EsbPaletteFactory {
 					break;
 				}
 			}
+			
+			// Initialize palette viewer key handler. 
+			if(paletteViewer.getKeyHandler() instanceof CustomPaletteViewerKeyHandler) {
+				((CustomPaletteViewerKeyHandler)paletteViewer.getKeyHandler()).initializeKeyHandler();	
+			}
 		}
 	}
 
