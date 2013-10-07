@@ -74,16 +74,18 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 		ArrayList<QName> tagQNameList = new ArrayList<QName>();
 		IContainer cloudConnectorsRoot = EditorUtils.getActiveProject()
 				.getFolder("cloudConnectors");
-		IResource[] directories = cloudConnectorsRoot.members();
-		for (int i = 0; i < directories.length; ++i) {
-			CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
-					.getInstance(directories[i].getLocation().toOSString());
-			Map<String, String> map = directoryTraverser.getOperationsConnectorComponentNameMap();
-			Iterator<String> iterator = map.keySet().iterator();
-			while (iterator.hasNext()) {
-				String key = iterator.next();
-				tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key) + "."
-						+ key));
+		if(cloudConnectorsRoot.exists()){
+			IResource[] directories = cloudConnectorsRoot.members();
+			for (int i = 0; i < directories.length; ++i) {
+				CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
+						.getInstance(directories[i].getLocation().toOSString());
+				Map<String, String> map = directoryTraverser.getOperationsConnectorComponentNameMap();
+				Iterator<String> iterator = map.keySet().iterator();
+				while (iterator.hasNext()) {
+					String key = iterator.next();
+					tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key) + "."
+							+ key));
+				}
 			}
 		}
 		return tagQNameList;
