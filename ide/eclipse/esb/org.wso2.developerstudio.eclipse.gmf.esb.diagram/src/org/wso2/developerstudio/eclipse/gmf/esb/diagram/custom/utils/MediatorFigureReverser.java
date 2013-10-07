@@ -108,7 +108,8 @@ public class MediatorFigureReverser {
 			}
 		}
 
-		List children = null;
+		//List children = null;
+		List children = new ArrayList();
 		List childrenCaseContainer = new ArrayList();
 		List childrenDefaultContainer = null;
 		if (editorPart instanceof AggregateMediatorEditPart) {
@@ -211,11 +212,19 @@ public class MediatorFigureReverser {
 			List containerList = ((EditPart) editorPart.getChildren()
 					.get(5)).getChildren();
 				if (containerList.size() > 1) {
-					children = ((EditPart) ((EditPart) ((EditPart) containerList.get(0))
+					// Fixing TOOLS-2018.
+					List passChildren = ((EditPart) ((EditPart) ((EditPart) containerList.get(0))
 							.getChildren().get(0)).getChildren().get(0)).getChildren();
-					List failChildren = ((EditPart) ((EditPart) ((EditPart) containerList.get(1))
-							.getChildren().get(0)).getChildren().get(0)).getChildren();
-					children.addAll(failChildren);
+					if (passChildren != null && passChildren.size() > 0) {
+						children.addAll(passChildren);
+					}
+					if (((EditPart) containerList.get(1)).getChildren() != null
+							&& ((EditPart) containerList.get(1)).getChildren().size() > 0) {
+						List failChildren = ((EditPart) ((EditPart) ((EditPart) containerList
+								.get(1)).getChildren().get(0)).getChildren().get(0)).getChildren();
+						children.addAll(failChildren);
+					}
+					
 				} else {
 					children = new ArrayList();
 				}
@@ -233,11 +242,19 @@ public class MediatorFigureReverser {
 			List containerList = ((EditPart) editorPart.getChildren()
 					.get(5)).getChildren();
 			if (containerList.size() > 1) {
-				children = ((EditPart) ((EditPart) ((EditPart) containerList.get(0)).getChildren()
+				// Fixing TOOLS-2018.
+				List onAcceptChildren = ((EditPart) ((EditPart) ((EditPart) containerList.get(0)).getChildren()
 						.get(0)).getChildren().get(0)).getChildren();
-				List onRejectChildren = ((EditPart) ((EditPart) ((EditPart) containerList.get(1))
-						.getChildren().get(0)).getChildren().get(0)).getChildren();
-				children.addAll(onRejectChildren);
+				if (onAcceptChildren != null && onAcceptChildren.size() > 0) {
+					children.addAll(onAcceptChildren);
+				}			
+				if (((EditPart) containerList.get(1)).getChildren() != null
+						&& ((EditPart) containerList.get(1)).getChildren().size() > 0) {
+					List onRejectChildren = ((EditPart) ((EditPart) ((EditPart) containerList
+							.get(1)).getChildren().get(0)).getChildren().get(0)).getChildren();
+					children.addAll(onRejectChildren);
+				}
+				
 			} else {
 				children = new ArrayList();
 			}
@@ -247,15 +264,19 @@ public class MediatorFigureReverser {
 		if (editorPart instanceof SwitchMediatorEditPart) {
 			if (((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren().get(0))
 					.getChildren().size() != 0) {
-				BorderItemLocator locator = new FixedBorderItemLocator(
-						(IFigure) ((IFigure) ((DefaultSizeNodeFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures
-								.get(0)).getChildren().get(0)).getChildren().get(1)).getChildren()
-								.get(0)).getChildren().get(0),
-						((SwitchMediatorEditPart) editorPart).defaultOutputConnector,
-						PositionConstants.EAST, 0.5);
-				((SwitchMediatorEditPart) editorPart).getBorderedFigure().getBorderItemContainer()
-						.add(((SwitchMediatorEditPart) editorPart).defaultOutputConnector, locator);
-
+				// Fixing TOOLS-2018.
+				List defaultChildren = ((IFigure) ((DefaultSizeNodeFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures
+						.get(0)).getChildren().get(0)).getChildren().get(1)).getChildren()
+						.get(0)).getChildren();
+				if (defaultChildren != null && defaultChildren.size() > 0) {
+					BorderItemLocator locator = new FixedBorderItemLocator(
+							(IFigure) defaultChildren.get(0),
+							((SwitchMediatorEditPart) editorPart).defaultOutputConnector,
+							PositionConstants.EAST, 0.5);
+					((SwitchMediatorEditPart) editorPart).getBorderedFigure().getBorderItemContainer()
+							.add(((SwitchMediatorEditPart) editorPart).defaultOutputConnector, locator);
+				}
+				
 				for (int i = 0; ((i < ((SwitchMediatorEditPart) editorPart).caseOutputConnectors
 						.size()) && (i < (((IFigure) ((DefaultSizeNodeFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures
 						.get(0)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0))
@@ -280,17 +301,24 @@ public class MediatorFigureReverser {
 						List<SwitchCaseContainerEditPart> switchCaseContainerEditPartList = ((SwitchCaseParentContainerEditPart) ((SwitchMediatorContainerEditPart) editorPart
 								.getChildren().get(j)).getChildren().get(0)).getChildren();
 						for (int p = 0; p < switchCaseContainerEditPartList.size(); ++p) {
-							childrenCaseContainer
-									.addAll(((EditPart) ((EditPart) ((EditPart) switchCaseContainerEditPartList
-											.get(p)).getChildren().get(0)).getChildren().get(0))
-											.getChildren());
+							// Fixing TOOLS-2018.
+							List caseEditparts =  ((EditPart) switchCaseContainerEditPartList.get(p)).getChildren();
+							if (caseEditparts != null && caseEditparts.size() > 0) {
+								List caseChildren = ((EditPart) ((EditPart) caseEditparts.get(0)).getChildren().get(0)).getChildren();
+								if (caseChildren != null && caseChildren.size() > 0) {
+									childrenCaseContainer.addAll(caseChildren);
+								}
+							}
 						}
 
-						SwitchDefaultContainerEditPart switchDefaultContainerEditPart = (SwitchDefaultContainerEditPart) ((SwitchDefaultParentContainerEditPart) ((SwitchMediatorContainerEditPart) editorPart
-								.getChildren().get(j)).getChildren().get(1)).getChildren().get(0);
-						childrenDefaultContainer = ((MediatorFlowMediatorFlowCompartment4EditPart) ((MediatorFlow4EditPart) switchDefaultContainerEditPart
-								.getChildren().get(0)).getChildren().get(0)).getChildren();
-
+						List defaultParentChildren = ((SwitchDefaultParentContainerEditPart) ((SwitchMediatorContainerEditPart) editorPart
+								.getChildren().get(j)).getChildren().get(1)).getChildren();
+						if (defaultParentChildren != null && defaultParentChildren.size() > 0) {
+							SwitchDefaultContainerEditPart switchDefaultContainerEditPart = (SwitchDefaultContainerEditPart)defaultParentChildren.get(0);
+							childrenDefaultContainer = ((MediatorFlowMediatorFlowCompartment4EditPart) ((MediatorFlow4EditPart) switchDefaultContainerEditPart
+									.getChildren().get(0)).getChildren().get(0)).getChildren();
+						}
+						
 						children = childrenCaseContainer;
 						break;
 					}
@@ -320,10 +348,15 @@ public class MediatorFigureReverser {
 					List<CloneTargetContainerEditPart> cloneTargetContainerEditPartList = ((CloneMediatorContainerEditPart) editorPart
 							.getChildren().get(j)).getChildren();
 					for (int p = 0; p < cloneTargetContainerEditPartList.size(); ++p) {
-						childrenCaseContainer
-								.addAll(((EditPart) ((EditPart) ((EditPart) cloneTargetContainerEditPartList
-										.get(p)).getChildren().get(0)).getChildren().get(0))
-										.getChildren());
+						// Fixing TOOLS-2018.
+						List targetEditparts = ((EditPart) cloneTargetContainerEditPartList
+								.get(p)).getChildren();
+						if (targetEditparts != null && targetEditparts.size() > 0) {
+							List targetChildren = ((EditPart) ((EditPart) targetEditparts.get(0)).getChildren().get(0)).getChildren();
+							if (targetChildren != null && targetChildren.size() > 0) {
+								childrenCaseContainer.addAll(targetChildren);
+							}
+						}
 					}
 
 					children = childrenCaseContainer;

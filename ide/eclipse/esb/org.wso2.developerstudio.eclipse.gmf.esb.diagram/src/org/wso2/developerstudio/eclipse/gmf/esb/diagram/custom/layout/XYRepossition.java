@@ -26,6 +26,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
@@ -38,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.DroppableElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceInSequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementAdviceContainerEditPart;
@@ -420,7 +422,7 @@ public class XYRepossition {
 
 				boundsHeight = getMultipleCompartmentComplexMediatorHeight((GraphicalEditPart) parent
 						.getParent().getParent().getParent())
-						+ 2 * complexMediatorCompartmentGap;
+						+ (2 * complexMediatorCompartmentGap);
 				((GraphicalEditPart) parent.getParent().getParent()).getFigure().setMinimumSize(
 						new Dimension(x, y));
 				resizeCompartments((GraphicalEditPart) parent.getParent().getParent().getParent(),
@@ -428,7 +430,7 @@ public class XYRepossition {
 			} else if (mediator instanceof SwitchMediatorEditPart) {
 				boundsHeight = getMultipleCompartmentComplexMediatorHeight((GraphicalEditPart) parent
 						.getParent().getParent().getParent().getParent())
-						+ 2 * complexMediatorCompartmentGap;
+						+ (2 * complexMediatorCompartmentGap);
 				((GraphicalEditPart) parent.getParent().getParent()).getFigure().setMinimumSize(
 						new Dimension(x, y));
 				resizeCompartments((GraphicalEditPart) parent.getParent().getParent().getParent()
@@ -677,7 +679,8 @@ public class XYRepossition {
 
 						if (sourceConnections != null) {
 							if (sourceConnections.size() != 0
-									&& !(((EsbLinkEditPart) sourceConnections.get(0)).getTarget() instanceof ProxyInSequenceInputConnectorEditPart)) {
+									&& !((((EsbLinkEditPart) sourceConnections.get(0)).getTarget() instanceof ProxyInSequenceInputConnectorEditPart) || (((EsbLinkEditPart) sourceConnections
+											.get(0)).getTarget() instanceof APIResourceInSequenceInputConnectorEditPart))) {
 								EsbLinkEditPart linkPart = (EsbLinkEditPart) sourceConnections
 										.get(0);
 								node = (ShapeNodeEditPart) linkPart.getTarget().getParent();
