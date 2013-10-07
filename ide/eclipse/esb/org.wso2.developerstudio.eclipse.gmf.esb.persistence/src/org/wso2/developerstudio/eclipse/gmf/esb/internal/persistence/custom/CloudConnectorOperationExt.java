@@ -20,28 +20,33 @@ import org.apache.synapse.mediators.template.InvokeMediator;
 
 public class CloudConnectorOperationExt extends InvokeMediator{
 
-	private String connector;
+	private String connectorComponentName;
 	private String operation;
 	private String configRef;	
+	private String cloudConnectorName;
 	
+	public String getConnectorComponentName() {
+		return connectorComponentName;
+	}
+	public void setConnectorComponentName(String connectorComponentName) {
+		this.connectorComponentName = connectorComponentName;
+	}	
+	public String getCloudConnectorName() {
+		return cloudConnectorName;
+	}
+	public void setCloudConnectorName(String cloudConnectorName) {
+		this.cloudConnectorName = cloudConnectorName;
+	}
 	public String getConfigRef() {
 		return configRef;
 	}
 	public void setConfigRef(String configRef) {
 		this.configRef = configRef;
-	}
-	public String getConnector() {
-		return connector;
-	}
-	public void setConnector(String connector) {
-		this.connector = connector;
 	}	
 	public String getOperation() {
 		return operation;
 	}
 	public void setOperation(String operation) {
 		this.operation = operation;
-	}
-	
-	
+	}	
 }

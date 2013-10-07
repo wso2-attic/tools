@@ -87,6 +87,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ExceptionMessageMapper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.MediatorFactoryUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
@@ -141,6 +142,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	/*source editor dirty state*/
 	private boolean sourceDirty;
 	
+	public static EsbMultiPageEditor currentEditor;
+	
     /**
      * Creates a multi-page editor
      */
@@ -165,6 +168,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
      */
     void createPage0() {
         try {
+        	currentEditor=this;
             graphicalEditor = new EsbDiagramEditor(this);
             addPage(DESIGN_VIEW_PAGE_INDEX, graphicalEditor, getEditorInput());
             setPageText(DESIGN_VIEW_PAGE_INDEX, "Design"); //$NON-NLS-1$

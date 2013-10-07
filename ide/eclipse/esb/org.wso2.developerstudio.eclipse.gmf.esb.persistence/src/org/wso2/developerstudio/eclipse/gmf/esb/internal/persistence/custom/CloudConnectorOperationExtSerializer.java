@@ -30,7 +30,7 @@ public class CloudConnectorOperationExtSerializer extends InvokeMediatorSerializ
 	@Override
 	protected OMElement serializeSpecificMediator(Mediator m) {
 		CloudConnectorOperationExt cloudConnectorOperation=(CloudConnectorOperationExt)m;
-		OMElement mediatorElem = fac.createOMElement(cloudConnectorOperation.getConnector()+"."+cloudConnectorOperation.getOperation(), synNS);
+		OMElement mediatorElem = fac.createOMElement(cloudConnectorOperation.getConnectorComponentName()+"."+cloudConnectorOperation.getOperation(), synNS);
 		saveTracingState(mediatorElem, cloudConnectorOperation);
 		mediatorElem.addAttribute(fac.createOMAttribute("config-ref", nullNS, cloudConnectorOperation.getConfigRef()));
 		serializeParams(mediatorElem, cloudConnectorOperation);

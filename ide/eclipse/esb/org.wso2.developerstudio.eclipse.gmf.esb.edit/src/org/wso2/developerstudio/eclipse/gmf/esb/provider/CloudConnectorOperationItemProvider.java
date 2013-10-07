@@ -172,6 +172,28 @@ public class CloudConnectorOperationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Cloud Connector Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCloudConnectorNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CloudConnectorOperation_cloudConnectorName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_cloudConnectorName_feature", "_UI_CloudConnectorOperation_type"),
+				 EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -243,6 +265,7 @@ public class CloudConnectorOperationItemProvider
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONFIG_REF:
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME:
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR:

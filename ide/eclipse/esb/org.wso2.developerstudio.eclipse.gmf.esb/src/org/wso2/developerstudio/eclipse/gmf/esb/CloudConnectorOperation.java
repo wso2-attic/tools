@@ -31,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConfigRef <em>Config Ref</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConnectorName <em>Connector Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getOperationName <em>Operation Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getCloudConnectorName <em>Cloud Connector Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -184,5 +185,31 @@ public interface CloudConnectorOperation extends Mediator {
 	 * @generated
 	 */
 	void setOperationName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Cloud Connector Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cloud Connector Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cloud Connector Name</em>' attribute.
+	 * @see #setCloudConnectorName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloudConnectorOperation_CloudConnectorName()
+	 * @model
+	 * @generated
+	 */
+	String getCloudConnectorName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getCloudConnectorName <em>Cloud Connector Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cloud Connector Name</em>' attribute.
+	 * @see #getCloudConnectorName()
+	 * @generated
+	 */
+	void setCloudConnectorName(String value);
 
 } // CloudConnectorOperation

@@ -30,8 +30,10 @@ import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.Value;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.ui.IFileEditorInput;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CloudConnectorOperationExt;
 
 public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
@@ -55,8 +57,10 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 			}
 		}
 		String operationName=splittedRootElement[splittedRootElement.length-1];		
-		cloudConnectorOperationExt.setConnector(cloudConnectorName);
+		cloudConnectorOperationExt.setConnectorComponentName(cloudConnectorName);
 		cloudConnectorOperationExt.setOperation(operationName);
+		
+		cloudConnectorOperationExt.setCloudConnectorName(elem.getQName().getLocalPart().split("_")[0]);
 		
 		//TODO expression values for params yet to handle.
 		Iterator<OMElement> parameters=elem.getChildElements();
@@ -72,7 +76,9 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 	
 	public List<QName> getTagQNameList() throws Exception {
 		ArrayList<QName> tagQNameList = new ArrayList<QName>();
-		IContainer cloudConnectorsRoot = EditorUtils.getActiveProject()
+/*		IContainer cloudConnectorsRoot = EditorUtils.getActiveProject()
+				.getFolder("cloudConnectors");*/
+		IContainer cloudConnectorsRoot = ((IFileEditorInput)EsbMultiPageEditor.currentEditor.getEditorInput()).getFile().getProject()
 				.getFolder("cloudConnectors");
 		if(cloudConnectorsRoot.exists()){
 			IResource[] directories = cloudConnectorsRoot.members();

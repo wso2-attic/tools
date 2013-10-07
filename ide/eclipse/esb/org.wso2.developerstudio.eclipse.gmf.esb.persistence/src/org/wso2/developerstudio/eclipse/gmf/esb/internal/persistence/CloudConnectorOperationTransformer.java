@@ -65,7 +65,7 @@ public class CloudConnectorOperationTransformer extends AbstractEsbNodeTransform
 		
 		CloudConnectorOperationExt cloudConnectorOperation=new CloudConnectorOperationExt();
 		
-		cloudConnectorOperation.setConnector(visuaCloudConnectorOperation.getConnectorName());
+		cloudConnectorOperation.setConnectorComponentName(visuaCloudConnectorOperation.getConnectorName());
 		cloudConnectorOperation.setOperation(visuaCloudConnectorOperation.getOperationName());
 		cloudConnectorOperation.setConfigRef(visuaCloudConnectorOperation.getConfigRef());
 		

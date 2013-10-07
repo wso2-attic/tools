@@ -63,10 +63,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLo
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.CloudConnectorOperationDeserializer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.MediatorFactoryUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.extensions.CustomPaletteToolTransferDropTargetListener;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CloudConnectorOperationCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CloudConnectorOperationItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -128,6 +131,13 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 						CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName);
 				getResultCommand().append(setConnectorName);				
 			}
+			if (CustomPaletteToolTransferDropTargetListener.addedConnector != null
+					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedConnector)) {
+				SetCommand setCloudConnectorName = new SetCommand(getEditingDomain(), owner,
+						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME,
+						CustomPaletteToolTransferDropTargetListener.addedConnector);
+				getResultCommand().append(setCloudConnectorName);				
+			}
 			if (CustomPaletteToolTransferDropTargetListener.addedOperation != null
 					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedOperation)) {
 				SetCommand setOperationName = new SetCommand(getEditingDomain(), owner,
@@ -144,6 +154,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 			CustomPaletteToolTransferDropTargetListener.definedName = null;
 			CustomPaletteToolTransferDropTargetListener.addedOperation=null;
 			CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName=null;
+			CustomPaletteToolTransferDropTargetListener.addedConnector=null;
 			activatedOnce = true;
 		}
 	}
@@ -165,7 +176,21 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		String connectorName = CustomPaletteToolTransferDropTargetListener.addedConnector;
 		if (connectorName == null) {
 			connectorName = ((CloudConnectorOperation) ((Node) getModel()).getElement())
-					.getConnectorName();
+					.getCloudConnectorName();
+			if(connectorName == null){
+				connectorName=CloudConnectorOperationDeserializer.cloudConnectorName;
+			}
+		}
+		
+		if(project==null){
+			try {
+				project = ((IFileEditorInput)EsbMultiPageEditor.currentEditor.getEditorInput()).getFile().getProject();
+				//project = getProject(EsbMultiPageEditor.currentEditor.getSite().getPage().getSelection());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		iconPath = project.getLocation().toOSString() + File.separator + "cloudConnectors"
 				+ File.separator + connectorName + "-connector" + File.separator + "icon"
@@ -241,6 +266,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 					OMElement element = AXIOMUtil.stringToOM(source);
 	
 					if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+						MediatorFactoryUtils.registerFactories();
 						TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
 						TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
 								.createMediator(element, properties);

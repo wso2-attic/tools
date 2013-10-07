@@ -32,16 +32,20 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.Clou
 
 public class CloudConnectorOperationDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, CloudConnectorOperation>{
 
+	public static String cloudConnectorName;
+	
 	@Override
 	public CloudConnectorOperation createNode(IGraphicalEditPart part, AbstractMediator object) {
 		Assert.isTrue(object instanceof CloudConnectorOperationExt,"Unsupported mediator passed in for deserialization");
 		CloudConnectorOperationExt operation = (CloudConnectorOperationExt) object;
+		cloudConnectorName=operation.getCloudConnectorName();
 		
 		final CloudConnectorOperation operationModel = (CloudConnectorOperation) DeserializerUtils.createNode(part, EsbElementTypes.CloudConnectorOperation_3722);
 		setElementToEdit(operationModel);
 		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__CONFIG_REF, operation.getConfigRef());
 		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__OPERATION_NAME, operation.getOperation());
-		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME, operation.getConnector());		
+		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME, operation.getConnectorComponentName());	
+		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME, operation.getCloudConnectorName());
 		
 		Map<String, Value> parameters = operation.getpName2ExpressionMap();
 		for(Map.Entry<String, Value> entry : parameters.entrySet()){

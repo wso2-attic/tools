@@ -49,6 +49,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getConfigRef <em>Config Ref</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getConnectorName <em>Connector Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getOperationName <em>Operation Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getCloudConnectorName <em>Cloud Connector Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,6 +145,26 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * @ordered
 	 */
 	protected String operationName = OPERATION_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCloudConnectorName() <em>Cloud Connector Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCloudConnectorName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CLOUD_CONNECTOR_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCloudConnectorName() <em>Cloud Connector Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCloudConnectorName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String cloudConnectorName = CLOUD_CONNECTOR_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -330,6 +351,27 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCloudConnectorName() {
+		return cloudConnectorName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCloudConnectorName(String newCloudConnectorName) {
+		String oldCloudConnectorName = cloudConnectorName;
+		cloudConnectorName = newCloudConnectorName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME, oldCloudConnectorName, cloudConnectorName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -363,6 +405,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return getConnectorName();
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
 				return getOperationName();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
+				return getCloudConnectorName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -395,6 +439,9 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
 				setOperationName((String)newValue);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
+				setCloudConnectorName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -425,6 +472,9 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
 				setOperationName(OPERATION_NAME_EDEFAULT);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
+				setCloudConnectorName(CLOUD_CONNECTOR_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -449,6 +499,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return CONNECTOR_NAME_EDEFAULT == null ? connectorName != null : !CONNECTOR_NAME_EDEFAULT.equals(connectorName);
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
 				return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
+				return CLOUD_CONNECTOR_NAME_EDEFAULT == null ? cloudConnectorName != null : !CLOUD_CONNECTOR_NAME_EDEFAULT.equals(cloudConnectorName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -469,6 +521,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 		result.append(connectorName);
 		result.append(", operationName: ");
 		result.append(operationName);
+		result.append(", cloudConnectorName: ");
+		result.append(cloudConnectorName);
 		result.append(')');
 		return result.toString();
 	}
