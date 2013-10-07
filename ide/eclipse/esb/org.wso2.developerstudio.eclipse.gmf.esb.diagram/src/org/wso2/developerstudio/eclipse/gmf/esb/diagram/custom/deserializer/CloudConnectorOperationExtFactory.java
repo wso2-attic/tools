@@ -38,12 +38,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.Clou
 
 public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 
-	protected static final QName CONFIG_REF  = new QName("config-ref");
+	protected static final QName CONFIG_KEY  = new QName("configKey");
 	
 	@Override
 	protected Mediator createSpecificMediator(OMElement elem, Properties properties) {		
 		CloudConnectorOperationExt cloudConnectorOperationExt = new CloudConnectorOperationExt();			
-		OMAttribute configRef = elem.getAttribute(CONFIG_REF);
+		OMAttribute configRef = elem.getAttribute(CONFIG_KEY);
 		if (configRef != null) {
 			cloudConnectorOperationExt.setConfigRef(configRef.getAttributeValue());
 		}
