@@ -213,9 +213,9 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String sequenceConfigs=prop.getProperty("SEQUENCE_CONFIGS");
-		if(sequenceConfigs!=null){
-			String[] configs=sequenceConfigs.split(",");
+		String localEntryConfigs=prop.getProperty("LOCAL_ENTRY_CONFIGS");
+		if(localEntryConfigs!=null){
+			String[] configs=localEntryConfigs.split(",");
 	        
 	        for(int i=0;i<configs.length;++i){
 	        	if(!"".equals(configs[i])){

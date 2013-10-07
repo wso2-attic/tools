@@ -1141,11 +1141,14 @@ public class EsbPaletteFactory {
 	/**
 	 * @generated NOT
 	 */
-	private ToolEntry createCloudConnector1CreationTool(String name, String ID) {
+	private ToolEntry createCloudConnector1CreationTool(String name, String ID, String imagePath) {
 		NodeToolEntry entry = new NodeToolEntry(name, Messages.CloudConnector1CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.CloudConnector_3719));
 		entry.setId(ID); //$NON-NLS-1$
-		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.CloudConnector_3719));
+		Image i = new Image(null, imagePath);
+		ImageDescriptor imgDesc = ImageDescriptor.createFromImage(i);
+		entry.setSmallIcon(imgDesc);
+		//entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.CloudConnector_3719));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -1254,13 +1257,14 @@ public class EsbPaletteFactory {
 		IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
 		IFile file = input.getFile();
 		IProject activeProject = file.getProject();
-		String connectorPath = activeProject.getLocation().toOSString() + "/cloudConnectors";
+		String connectorPath = activeProject.getLocation().toOSString() + File.separator +"cloudConnectors";
 		File directory = new File(connectorPath);
 		String[] names = directory.list();
 		if (names != null) {
 			for (int i = 0; i < names.length; ++i) {
 				container.add(createCloudConnector1CreationTool(names[i].split("-")[0],
-						names[i].split("-")[0] + "-cloudConnector"));
+						names[i].split("-")[0] + "-cloudConnector",connectorPath
+						+ File.separator+ names[i] + File.separator + "icon" + File.separator + "icon-small.gif"));
 			}
 		}
 	}

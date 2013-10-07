@@ -121,8 +121,8 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 						CustomPaletteToolTransferDropTargetListener.definedName);
 				getResultCommand().append(setCommand);				
 			}
-			if (CustomPaletteToolTransferDropTargetListener.addedConnector != null
-					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedConnector)) {
+			if (CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName != null
+					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName)) {
 				SetCommand setConnectorName = new SetCommand(getEditingDomain(), owner,
 						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME,
 						CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName);
