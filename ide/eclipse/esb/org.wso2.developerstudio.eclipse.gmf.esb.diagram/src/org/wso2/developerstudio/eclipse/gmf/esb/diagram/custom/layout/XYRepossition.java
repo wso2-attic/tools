@@ -42,6 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEd
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceInSequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DropMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementAdviceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementObligationsContainerEditPart;
@@ -697,6 +698,19 @@ public class XYRepossition {
 									break;
 								}
 							}
+						}
+					} else if (nodeOPconector == null && node instanceof DropMediatorEditPart) {
+						// Last mediator of in sequence is Drop mediator,
+						if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart
+								&& !reversed) {
+							// Started to traverse out sequence.
+							node = getRightMostNodeOfOutSequence(editPart);
+							x = ((IGraphicalEditPart) editPart.getParent().getParent())
+									.getFigure().getBounds().width
+									- arrowAndtwoConnectorsLength * 2;
+							reversed = true;
+						} else {
+							break;
 						}
 					} else {
 						break;
