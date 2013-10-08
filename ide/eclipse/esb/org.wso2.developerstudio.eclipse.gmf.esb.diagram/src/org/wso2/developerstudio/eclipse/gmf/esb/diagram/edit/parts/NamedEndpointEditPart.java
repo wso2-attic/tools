@@ -103,6 +103,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.OpenSeparatelyEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.OpenEditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.NamedEndpointCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.NamedEndpointItemSemanticEditPolicy;
@@ -615,31 +616,48 @@ public class NamedEndpointEditPart extends ComplexFiguredAbstractEndpoint {
 	}
 
 	public boolean createFiles(String name, String fileURI1, String fileURI2,
-			IProject currentProject) {
+	                           IProject currentProject) {
 		Resource diagram;
 
-		String basePath = "platform:/resource/" + currentProject.getName() + "/"
-				+ ENDPOINT_RESOURCE_DIR + "/";
+		String basePath =
+		                  "platform:/resource/" + currentProject.getName() + "/" +
+		                          ENDPOINT_RESOURCE_DIR + "/";
 		IFile file = currentProject.getFile(ENDPOINT_RESOURCE_DIR + "/" + fileURI1);
 
 		if (!file.exists()) {
-			diagram = EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
-					URI.createURI(basePath + fileURI2), new NullProgressMonitor(), "endpoint",
-					name, selection);
+			IFile fileTobeOpened =
+			                       currentProject.getFile(SYNAPSE_CONFIG_DIR + "/endpoints/" +
+			                                              name + ".xml");
 			try {
+				diagram =
+				          EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
+				                                             URI.createURI(basePath + fileURI2),
+				                                             new NullProgressMonitor(), "endpoint",
+				                                             name, selection);
+
+				if (fileTobeOpened.exists()) {
+					String diagramPath = diagram.getURI().toPlatformString(true);
+					OpenEditorUtils oeUtils = new OpenEditorUtils();
+					oeUtils.openSeparateEditor(fileTobeOpened, diagramPath);
+				} else {
+					EsbDiagramEditorUtil.openDiagram(diagram);
+				}
 				EsbDiagramEditorUtil.openDiagram(diagram);
 
-			} catch (PartInitException e) {
-				log.error("Cannot init editor", e);
+			} catch (Exception e) {
+				log.error("Cannot open file " + fileTobeOpened, e);
+				return false;
 			}
 			return diagram != null;
 		}
 
 		else {
-			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-					.getActivePage();
-			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry()
-					.getDefaultEditor(file.getName());
+			IWorkbenchPage page =
+			                      PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+			                                .getActivePage();
+			IEditorDescriptor desc =
+			                         PlatformUI.getWorkbench().getEditorRegistry()
+			                                   .getDefaultEditor(file.getName());
 			try {
 				page.openEditor(new FileEditorInput(file), desc.getId());
 			} catch (PartInitException e) {

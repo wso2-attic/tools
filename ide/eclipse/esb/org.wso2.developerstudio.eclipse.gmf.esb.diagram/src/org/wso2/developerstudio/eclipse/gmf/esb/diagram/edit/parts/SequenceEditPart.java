@@ -1,13 +1,17 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -78,6 +82,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
@@ -99,9 +104,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstrac
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.OpenSeparatelyEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SequenceStorage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.EsbDeserializerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.OpenEditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SequenceCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SequenceItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
@@ -111,6 +121,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
+import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -126,6 +139,8 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 	private static IDeveloperStudioLog log = Logger
 			.getLog("org.wso2.developerstudio.eclipse.gmf.esb.diagram");
+	
+	private EsbDiagramEditor mainDiagramEditorRef;
 
 	/**
 	 * @generated
@@ -557,38 +572,53 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	}
 
 	public boolean createFiles(String name, String fileURI1, String fileURI2,
-			IProject currentProject) {
+	                           IProject currentProject) {
 		Resource diagram;
 
-		String basePath = "platform:/resource/" + currentProject.getName() + "/"
-				+ SEQUENCE_RESOURCE_DIR + "/";
+		String basePath =
+		                  "platform:/resource/" + currentProject.getName() + "/" +
+		                          SEQUENCE_RESOURCE_DIR + "/";
 		IFile file = currentProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + fileURI1);
 
 		if (((Sequence) ((Node) sequenceEditPart.getModel()).getElement()).isReceiveSequence()) {
 			info.setRecieveSequence(true);
-			info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(
-					sequenceEditPart.getParent()).getModel()).getElement()).getName());
+			info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(sequenceEditPart.getParent())
+			                                                           .getModel()).getElement()).getName());
 		}
 
 		if (!file.exists()) {
-			diagram = EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
-					URI.createURI(basePath + fileURI2), new NullProgressMonitor(), "sequence",
-					name, info);
+			IFile fileTobeOpened =
+			                       currentProject.getFile(SYNAPSE_CONFIG_DIR + "/sequences/" +
+			                                              name + ".xml");
 			try {
-				addSequenceToArtifactXML(name);
-				EsbDiagramEditorUtil.openDiagram(diagram);
+				diagram =
+				          EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
+				                                             URI.createURI(basePath + fileURI2),
+				                                             new NullProgressMonitor(), "sequence",
+				                                             name, info);
 
-			} catch (PartInitException e) {
-				log.error("Cannot init editor", e);
+				if (fileTobeOpened.exists()) {
+					String diagramPath = diagram.getURI().toPlatformString(true);
+					OpenEditorUtils oeUtils = new OpenEditorUtils();
+					oeUtils.openSeparateEditor(fileTobeOpened, diagramPath);
+				} else {
+					addSequenceToArtifactXML(name);
+					EsbDiagramEditorUtil.openDiagram(diagram);
+				}
+			} catch (Exception e) {
+				log.error("Cannot open file " + fileTobeOpened, e);
+				return false;
 			}
-			return diagram != null;
+			return true;
 		}
 
 		else {
-			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-					.getActivePage();
-			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry()
-					.getDefaultEditor(file.getName());
+			IWorkbenchPage page =
+			                      PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+			                                .getActivePage();
+			IEditorDescriptor desc =
+			                         PlatformUI.getWorkbench().getEditorRegistry()
+			                                   .getDefaultEditor(file.getName());
 			try {
 				page.openEditor(new FileEditorInput(file), desc.getId());
 			} catch (PartInitException e) {
