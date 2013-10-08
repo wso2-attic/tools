@@ -111,7 +111,7 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 				operationText = "Connecting to the AppFactory Url";
 				monitor.subTask(operationText);
 				monitor.worked(50);
-				operationText = "Lording Applications.... ";
+				operationText = "Loading Applications.... ";
 				monitor.subTask(operationText);
 				addViews(appfacLayout);
 				monitor.worked(80);
@@ -136,7 +136,7 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 				monitor.worked(100);
 			} catch (Exception e) {
 				operationText = e.getMessage();
-				monitor.subTask("Application Lording Failed !"+operationText);
+				monitor.subTask("Application Loading Failed !"+operationText);
 				monitor.worked(0);
 				monitor.setCanceled(true);
 				log.error("updateprocess error", e);

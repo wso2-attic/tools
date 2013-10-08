@@ -38,7 +38,7 @@ public class AppListLabelProvider extends StyledCellLabelProvider {
 	      cell.setImage(imageDescriptorFromPlugin.createImage());
 	      
 	      if(app.getLableState()==1){
-	    	  text.append(" (Lording)", StyledString.DECORATIONS_STYLER);
+	    	  text.append(" (Loading)", StyledString.DECORATIONS_STYLER);
 	      }else if(app.getLableState()==2){
 	    	  text.append(" (Opened)", StyledString.COUNTER_STYLER);
 	      }else{

@@ -374,8 +374,8 @@ public class AppfactoryApplicationListView extends ViewPart {
 			 }
 		 }
 		}catch(Exception e){
-			printErrorLog("CANNOT PROCEEDS \n Applications lording failed ! \n "+e.getMessage());  
-	    	log.error("Application Lording :", e);
+			printErrorLog("CANNOT PROCEEDS \n Applications loading failed ! \n "+e.getMessage());  
+	    	log.error("Application Loading :", e);
 		}
 	}*/
 	
@@ -495,7 +495,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 							   List<ApplicationInfo> applist = getApplist();
 							   monitor.worked(40);
 							   if(applist!=null){
-								monitor.subTask("Lording applications into appList view");
+								monitor.subTask("Loading applications into appList view");
 								monitor.worked(60);	   
 							   broker.send("Appupdate", applist);
 							   monitor.worked(90);	
@@ -558,7 +558,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask("Lording version information");
+							monitor.subTask("Loading version information");
 							monitor.worked(40);	 
 							broker.send("Appversionupdate", model);
 							monitor.worked(50);
@@ -581,7 +581,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask("Lording team information");
+							monitor.subTask("Loading team information");
 							monitor.worked(60);	 
 							broker.send("Appversionupdate", model);
 							monitor.worked(90);
@@ -603,7 +603,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask("Lording database information");
+							monitor.subTask("Loading database information");
 							monitor.worked(60);	 
 							broker.send("Appversionupdate", model);
 							monitor.worked(90);
