@@ -60,7 +60,8 @@ import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryMode
 public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	
 	private String droppedCloudConnector;
-	
+	private String droppedCloudConnectorComponentName;	
+
 	/**
      * Value type constant.
      */
@@ -77,7 +78,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	protected static final OMFactory fac = OMAbstractFactory.getOMFactory();
 	protected static final OMNamespace synNS = SynapseConstants.SYNAPSE_OMNAMESPACE;
 
-	private static String operationName = "configure";
+	private static String operationName = "config";
 	
 	private TableEditor paramTypeEditor;
 	private TableEditor paramNameEditor;
@@ -100,6 +101,14 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		this.parameters=parameters;
 		parent.setText("Cloud connector Configuration.");
 	}	
+	
+	public String getDroppedCloudConnectorComponentName() {
+		return droppedCloudConnectorComponentName;
+	}
+
+	public void setDroppedCloudConnectorComponentName(String droppedCloudConnectorComponentName) {
+		this.droppedCloudConnectorComponentName = droppedCloudConnectorComponentName;
+	}
 	
     private String getDroppedCloudConnector() {
 		return droppedCloudConnector;
@@ -301,7 +310,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	}
 	
     private void serializeParams(OMElement invokeElem) {
-    	OMElement connectorEl = fac.createOMElement(getDroppedCloudConnector()+"."+operationName,synNS);
+    	OMElement connectorEl = fac.createOMElement(getDroppedCloudConnectorComponentName()+"."+operationName,synNS);
     	for(int i=0;i<paramTable.getItems().length;++i){
     		TableItem tableItem=paramTable.getItems()[i];
     		CallTemplateParameter callTemplateParameter=(CallTemplateParameter) tableItem.getData();    		

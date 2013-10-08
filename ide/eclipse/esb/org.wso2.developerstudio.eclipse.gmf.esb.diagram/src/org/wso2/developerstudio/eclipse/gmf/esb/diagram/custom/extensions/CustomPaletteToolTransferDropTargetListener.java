@@ -60,6 +60,7 @@ public class CustomPaletteToolTransferDropTargetListener extends
 				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
 				
 				cloudConnectorConfigureDialog.setDroppedCloudConnector(droppedCloudConnector);
+				cloudConnectorConfigureDialog.setDroppedCloudConnectorComponentName(getCloudConnectorDirectoryTraverser(droppedCloudConnector).getCloudConnectorName());
 				cloudConnectorConfigureDialog.setBlockOnOpen(true);
 				cloudConnectorConfigureDialog.open();
 			
