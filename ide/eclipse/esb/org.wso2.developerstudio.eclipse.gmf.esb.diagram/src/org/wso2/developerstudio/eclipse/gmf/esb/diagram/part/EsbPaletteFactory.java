@@ -1487,9 +1487,11 @@ public class EsbPaletteFactory {
 					.get(3);
 			PaletteContainer linksPalette = (PaletteContainer) paletteContainer.getChildren()
 					.get(4);
-			PaletteContainer seqPalette = (PaletteContainer) paletteContainer.getChildren().get(5);
+			PaletteContainer cloudConnectors = (PaletteContainer) paletteContainer.getChildren()
+					.get(5);
+			PaletteContainer seqPalette = (PaletteContainer) paletteContainer.getChildren().get(6);
 			PaletteContainer defineEpPalette = (PaletteContainer) paletteContainer.getChildren()
-					.get(6);
+					.get(7);
 			ToolEntry proxyServiceTool = (ToolEntry) (nodePalette.getChildren().get(0));
 			ToolEntry apiResourceTool = (ToolEntry) (nodePalette.getChildren().get(1));
 			if (server != null) {
@@ -1503,6 +1505,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
+					cloudConnectors.setVisible(true);
 					break;
 				case ENDPOINT:
 					mediatorPalette.setVisible(false);
@@ -1512,6 +1515,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
+					cloudConnectors.setVisible(false);
 					break;
 				case LOCAL_ENTRY:
 				case TASK:
@@ -1522,6 +1526,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(false);
 					linksPalette.setVisible(false);
 					apiResourceTool.setVisible(false);
+					cloudConnectors.setVisible(false);
 					break;
 				case API:
 					proxyServiceTool.setVisible(false);
@@ -1533,6 +1538,8 @@ public class EsbPaletteFactory {
 					//fixing TOOLS-1820
 					apiResourceTool.getParent().setLabel("API");
 					apiResourceTool.setVisible(true);
+					cloudConnectors.setVisible(true);
+					proxyServiceTool.setVisible(false);
 					break;
 				case TEMPLATE:
 					proxyServiceTool.setVisible(false);
@@ -1542,6 +1549,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
+					cloudConnectors.setVisible(false);
 					break;
 				case COMPLEX_ENDPOINT:
 					proxyServiceTool.setVisible(false);
@@ -1552,6 +1560,7 @@ public class EsbPaletteFactory {
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
 					seqPalette.setVisible(false);
+					cloudConnectors.setVisible(false);
 					break;
 				case MAIN_SEQUENCE:
 					proxyServiceTool.setVisible(false);
@@ -1561,6 +1570,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
+					cloudConnectors.setVisible(true);
 					break;
 				case MESSAGE_STORE:
 				case MESSAGE_PROCESSOR:
@@ -1572,6 +1582,7 @@ public class EsbPaletteFactory {
 					seqPalette.setVisible(false);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
+					cloudConnectors.setVisible(false);
 					break;
 				case SYNAPSE_CONFIG:
 				default:
@@ -1582,6 +1593,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(true);
+					cloudConnectors.setVisible(true);
 					break;
 				}
 			}

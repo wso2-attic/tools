@@ -131,8 +131,8 @@ public class CustomPaletteViewerKeyHandler extends PaletteViewerKeyHandler {
 			return;
 		}
 
-		// Links palette drawer has only one element.
-		if (modelLabel.equals("Links")) {
+		// Links and API palette drawer has only one element.
+		if (modelLabel.equals("Links") || modelLabel.equals("API")) {
 			return;
 		}
 
@@ -169,7 +169,7 @@ public class CustomPaletteViewerKeyHandler extends PaletteViewerKeyHandler {
 		String modelLabel = "";
 		if (getFocusEditPart() instanceof DrawerEditPart) {
 			modelLabel = ((PaletteDrawer) getFocusEditPart().getModel()).getLabel();
-			if (modelLabel.equals("Links")) {
+			if (modelLabel.equals("Links") || modelLabel.equals("API")) {
 				return;
 			}
 			List<PaletteToolEntry> paletteEntryList = paletteEntries.get(modelLabel);
