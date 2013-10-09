@@ -99,8 +99,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="CallMediatorEndpointOutputConnector"
       eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="CallMediatorEndpointType">
-    <eLiterals name="NONE"/>
     <eLiterals name="INLINE" value="1"/>
+    <eLiterals name="NONE"/>
     <eLiterals name="REGISRTYKEY" value="2"/>
     <eLiterals name="XPATH" value="3"/>
   </eClassifiers>

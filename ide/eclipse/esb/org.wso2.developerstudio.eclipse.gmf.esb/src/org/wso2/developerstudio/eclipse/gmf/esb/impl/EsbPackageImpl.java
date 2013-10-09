@@ -18805,8 +18805,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.MESSAGE_PROCESSOR);
 
 		initEEnum(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.class, "CallMediatorEndpointType");
-		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.NONE);
 		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.INLINE);
+		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.NONE);
 		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.REGISRTYKEY);
 		addEEnumLiteral(callMediatorEndpointTypeEEnum, CallMediatorEndpointType.XPATH);
 

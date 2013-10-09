@@ -32,6 +32,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum CallMediatorEndpointType implements Enumerator {
 	/**
+	 * The '<em><b>INLINE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INLINE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INLINE(1, "INLINE", "INLINE"), /**
 	 * The '<em><b>NONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,16 +48,6 @@ public enum CallMediatorEndpointType implements Enumerator {
 	 * @ordered
 	 */
 	NONE(0, "NONE", "NONE"),
-
-	/**
-	 * The '<em><b>INLINE</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INLINE_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	INLINE(1, "INLINE", "INLINE"),
 
 	/**
 	 * The '<em><b>REGISRTYKEY</b></em>' literal object.
@@ -72,21 +70,6 @@ public enum CallMediatorEndpointType implements Enumerator {
 	XPATH(3, "XPATH", "XPATH");
 
 	/**
-	 * The '<em><b>NONE</b></em>' literal value.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @see #NONE
-	 * @model
-	 * @generated
-	 * @ordered
-	 */
-	public static final int NONE_VALUE = 0;
-
-	/**
 	 * The '<em><b>INLINE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -100,6 +83,21 @@ public enum CallMediatorEndpointType implements Enumerator {
 	 * @ordered
 	 */
 	public static final int INLINE_VALUE = 1;
+
+	/**
+	 * The '<em><b>NONE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NONE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NONE_VALUE = 0;
 
 	/**
 	 * The '<em><b>REGISRTYKEY</b></em>' literal value.
@@ -139,8 +137,8 @@ public enum CallMediatorEndpointType implements Enumerator {
 	 */
 	private static final CallMediatorEndpointType[] VALUES_ARRAY =
 		new CallMediatorEndpointType[] {
-			NONE,
 			INLINE,
+			NONE,
 			REGISRTYKEY,
 			XPATH,
 		};
@@ -193,8 +191,8 @@ public enum CallMediatorEndpointType implements Enumerator {
 	 */
 	public static CallMediatorEndpointType get(int value) {
 		switch (value) {
-			case NONE_VALUE: return NONE;
 			case INLINE_VALUE: return INLINE;
+			case NONE_VALUE: return NONE;
 			case REGISRTYKEY_VALUE: return REGISRTYKEY;
 			case XPATH_VALUE: return XPATH;
 		}

@@ -22,8 +22,8 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MESSAGE_PROCESSOR"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CallMediatorEndpointType">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/INLINE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/REGISRTYKEY"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CallMediatorEndpointType/XPATH"/>
     </genEnums>

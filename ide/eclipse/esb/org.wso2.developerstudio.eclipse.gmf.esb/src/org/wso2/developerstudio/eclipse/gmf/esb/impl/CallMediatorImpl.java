@@ -119,7 +119,7 @@ public class CallMediatorImpl extends MediatorImpl implements CallMediator {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CallMediatorEndpointType ENDPOINT_TYPE_EDEFAULT = CallMediatorEndpointType.NONE;
+	protected static final CallMediatorEndpointType ENDPOINT_TYPE_EDEFAULT = CallMediatorEndpointType.INLINE;
 
 	/**
 	 * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
