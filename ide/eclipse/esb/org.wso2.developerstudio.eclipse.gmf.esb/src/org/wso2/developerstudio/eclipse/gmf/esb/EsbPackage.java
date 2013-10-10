@@ -19650,13 +19650,31 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>New Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD_CONNECTOR_OPERATION__NEW_CONFIG = MEDIATOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Available Configs</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS = MEDIATOR_FEATURE_COUNT + 8;
+
+	/**
 	 * The number of structural features of the '<em>Cloud Connector Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLOUD_CONNECTOR_OPERATION_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
+	int CLOUD_CONNECTOR_OPERATION_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationInputConnectorImpl <em>Cloud Connector Operation Input Connector</em>}' class.
@@ -27364,6 +27382,28 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getCloudConnectorOperation_CloudConnectorName();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getNewConfig <em>New Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>New Config</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getNewConfig()
+	 * @see #getCloudConnectorOperation()
+	 * @generated
+	 */
+	EReference getCloudConnectorOperation_NewConfig();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getAvailableConfigs <em>Available Configs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Available Configs</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getAvailableConfigs()
+	 * @see #getCloudConnectorOperation()
+	 * @generated
+	 */
+	EAttribute getCloudConnectorOperation_AvailableConfigs();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector <em>Cloud Connector Operation Input Connector</em>}'.
@@ -39832,6 +39872,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME = eINSTANCE.getCloudConnectorOperation_CloudConnectorName();
+
+		/**
+		 * The meta object literal for the '<em><b>New Config</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLOUD_CONNECTOR_OPERATION__NEW_CONFIG = eINSTANCE.getCloudConnectorOperation_NewConfig();
+
+		/**
+		 * The meta object literal for the '<em><b>Available Configs</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS = eINSTANCE.getCloudConnectorOperation_AvailableConfigs();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationInputConnectorImpl <em>Cloud Connector Operation Input Connector</em>}' class.

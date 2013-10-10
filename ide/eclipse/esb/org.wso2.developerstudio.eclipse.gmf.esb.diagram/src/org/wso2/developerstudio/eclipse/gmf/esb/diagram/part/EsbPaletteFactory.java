@@ -31,6 +31,7 @@ import javax.xml.stream.XMLStreamException;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.commons.lang.WordUtils;
 import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.mediators.template.TemplateMediator;
 import org.eclipse.core.resources.IFile;
@@ -126,7 +127,7 @@ public class EsbPaletteFactory {
 		paletteRoot.add(createEndPoints3Group());
 		paletteRoot.add(createLinks4Group());
 		//paletteRoot.add(createHelpers5Group());
-		paletteRoot.add(createCloudConnectors6Group());
+		//paletteRoot.add(createCloudConnectors6Group());
 	}
 
 	/**
@@ -1269,8 +1270,7 @@ public class EsbPaletteFactory {
 		}
 	}
 
-	public void addCloudConnectorOperations(IEditorPart editor, String name,
-			String cloudConnectorName) {
+	public void addCloudConnectorOperations(IEditorPart editor,String cloudConnectorName) {
 		Set<String> cloudConnectorOperations = Collections.emptySet();
 		String connectorPath = null;
 		try {
@@ -1294,7 +1294,7 @@ public class EsbPaletteFactory {
 				.getPaletteViewer().getPaletteRoot().getChildren();
 		for (int i = 0; i < list.size(); ++i) {
 			if (list.get(i) instanceof PaletteDrawer) {
-				if (("CloudConnector-" + cloudConnectorName + "-" + name)
+				if (("CloudConnector-" + cloudConnectorName)
 						.equals(((PaletteDrawer) list.get(i)).getId())) {
 					definedEndpointsAdded = true;
 					indexOfDefinedEndpoints = i;
@@ -1307,8 +1307,8 @@ public class EsbPaletteFactory {
 			((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
 					.getPaletteViewer()
 					.getPaletteRoot()
-					.add(createCloudConnectorGroup(cloudConnectorName + " operations - " + name,
-							"CloudConnector-" + cloudConnectorName + "-" + name));
+					.add(createCloudConnectorGroup(WordUtils.capitalize(cloudConnectorName) + " Connector",
+							"CloudConnector-" + cloudConnectorName));
 			indexOfDefinedEndpoints = list.size() - 1;
 		}/*
 			if (indexOfDefinedEndpoints == 0) {
@@ -1321,7 +1321,7 @@ public class EsbPaletteFactory {
 		Object[] keys = cloudConnectorOperations.toArray();
 		for (int k = 0; k < keys.length; ++k) {
 			container.add(createCloudConnectorOperationCreationTool((String) keys[k],
-					"cloudConnectorOperation-" + cloudConnectorName + "-" + name, connectorPath
+					"cloudConnectorOperation-" + cloudConnectorName, connectorPath
 							+ File.separator + "icon" + File.separator + "icon-small.gif"));
 		}
 
@@ -1487,11 +1487,11 @@ public class EsbPaletteFactory {
 					.get(3);
 			PaletteContainer linksPalette = (PaletteContainer) paletteContainer.getChildren()
 					.get(4);
-			PaletteContainer cloudConnectors = (PaletteContainer) paletteContainer.getChildren()
-					.get(5);
-			PaletteContainer seqPalette = (PaletteContainer) paletteContainer.getChildren().get(6);
+/*			PaletteContainer cloudConnectors = (PaletteContainer) paletteContainer.getChildren()
+					.get(5);*/
+			PaletteContainer seqPalette = (PaletteContainer) paletteContainer.getChildren().get(5);
 			PaletteContainer defineEpPalette = (PaletteContainer) paletteContainer.getChildren()
-					.get(7);
+					.get(6);
 			ToolEntry proxyServiceTool = (ToolEntry) (nodePalette.getChildren().get(0));
 			ToolEntry apiResourceTool = (ToolEntry) (nodePalette.getChildren().get(1));
 			if (server != null) {
@@ -1505,7 +1505,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					cloudConnectors.setVisible(true);
+					//cloudConnectors.setVisible(true);
 					break;
 				case ENDPOINT:
 					mediatorPalette.setVisible(false);
@@ -1515,7 +1515,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					cloudConnectors.setVisible(false);
+					//cloudConnectors.setVisible(false);
 					break;
 				case LOCAL_ENTRY:
 				case TASK:
@@ -1526,7 +1526,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(false);
 					linksPalette.setVisible(false);
 					apiResourceTool.setVisible(false);
-					cloudConnectors.setVisible(false);
+					//cloudConnectors.setVisible(false);
 					break;
 				case API:
 					proxyServiceTool.setVisible(false);
@@ -1538,7 +1538,7 @@ public class EsbPaletteFactory {
 					//fixing TOOLS-1820
 					apiResourceTool.getParent().setLabel("API");
 					apiResourceTool.setVisible(true);
-					cloudConnectors.setVisible(true);
+					//cloudConnectors.setVisible(true);
 					proxyServiceTool.setVisible(false);
 					break;
 				case TEMPLATE:
@@ -1549,7 +1549,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					cloudConnectors.setVisible(false);
+					//cloudConnectors.setVisible(false);
 					break;
 				case COMPLEX_ENDPOINT:
 					proxyServiceTool.setVisible(false);
@@ -1560,7 +1560,7 @@ public class EsbPaletteFactory {
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
 					seqPalette.setVisible(false);
-					cloudConnectors.setVisible(false);
+					//cloudConnectors.setVisible(false);
 					break;
 				case MAIN_SEQUENCE:
 					proxyServiceTool.setVisible(false);
@@ -1570,7 +1570,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					cloudConnectors.setVisible(true);
+					//cloudConnectors.setVisible(true);
 					break;
 				case MESSAGE_STORE:
 				case MESSAGE_PROCESSOR:
@@ -1582,7 +1582,7 @@ public class EsbPaletteFactory {
 					seqPalette.setVisible(false);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					cloudConnectors.setVisible(false);
+					//cloudConnectors.setVisible(false);
 					break;
 				case SYNAPSE_CONFIG:
 				default:
@@ -1593,7 +1593,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(true);
-					cloudConnectors.setVisible(true);
+					//cloudConnectors.setVisible(true);
 					break;
 				}
 			}

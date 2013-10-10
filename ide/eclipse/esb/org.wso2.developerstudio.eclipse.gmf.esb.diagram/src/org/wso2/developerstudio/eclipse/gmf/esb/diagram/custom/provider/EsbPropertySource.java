@@ -22,6 +22,7 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.wso2.developerstudio.eclipse.esb.core.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -335,11 +336,18 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if (pkg.getRecipientListEndPoint_EndpointsExpression().equals(feature)) {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if (pkg.getCloudConnectorOperation_NewConfig().equals(feature)) {
+			return new CloudConnectorNewConfigPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getCloudConnectorOperation_AvailableConfigs().equals(feature)){
+            return new CloudConnectorAvailableConfigPropertyDescriptor(object, itemPropertyDescriptor);     
 		}
  		
 			
 		// Else, default EMF behavior
 		else {
+/*			if(object instanceof CloudConnectorOperation){
+				return new CloudConnectorDynamicParameterPropertyDescriptor(object, itemPropertyDescriptor);
+			}*/
 			return super.createPropertyDescriptor(itemPropertyDescriptor);
 		}
 	}

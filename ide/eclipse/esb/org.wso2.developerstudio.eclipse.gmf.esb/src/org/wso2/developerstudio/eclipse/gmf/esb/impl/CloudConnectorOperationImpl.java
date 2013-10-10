@@ -35,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
 /**
  * <!-- begin-user-doc -->
@@ -50,6 +51,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getConnectorName <em>Connector Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getOperationName <em>Operation Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getCloudConnectorName <em>Cloud Connector Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getNewConfig <em>New Config</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getAvailableConfigs <em>Available Configs</em>}</li>
  * </ul>
  * </p>
  *
@@ -167,12 +170,47 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	protected String cloudConnectorName = CLOUD_CONNECTOR_NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getNewConfig() <em>New Config</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getNewConfig()
 	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty newConfig;
+
+	/**
+	 * The default value of the '{@link #getAvailableConfigs() <em>Available Configs</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailableConfigs()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String AVAILABLE_CONFIGS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAvailableConfigs() <em>Available Configs</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailableConfigs()
+	 * @generated
+	 * @ordered
+	 */
+	protected String availableConfigs = AVAILABLE_CONFIGS_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	protected CloudConnectorOperationImpl() {
 		super();
+		RegistryKeyProperty newNewConfig = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		newNewConfig.setKeyName("Sequence Key");
+		newNewConfig.setPrettyName("Sequence Key");
+		newNewConfig.setKeyValue("Create New Configuration");
+		setNewConfig(newNewConfig);
 	}
 
 	/**
@@ -372,6 +410,70 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RegistryKeyProperty getNewConfig() {
+		return newConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetNewConfig(RegistryKeyProperty newNewConfig, NotificationChain msgs) {
+		RegistryKeyProperty oldNewConfig = newConfig;
+		newConfig = newNewConfig;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG, oldNewConfig, newNewConfig);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNewConfig(RegistryKeyProperty newNewConfig) {
+		if (newNewConfig != newConfig) {
+			NotificationChain msgs = null;
+			if (newConfig != null)
+				msgs = ((InternalEObject)newConfig).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG, null, msgs);
+			if (newNewConfig != null)
+				msgs = ((InternalEObject)newNewConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG, null, msgs);
+			msgs = basicSetNewConfig(newNewConfig, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG, newNewConfig, newNewConfig));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAvailableConfigs() {
+		return availableConfigs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAvailableConfigs(String newAvailableConfigs) {
+		String oldAvailableConfigs = availableConfigs;
+		availableConfigs = newAvailableConfigs;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS, oldAvailableConfigs, availableConfigs));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -381,6 +483,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return basicSetOutputConnector(null, msgs);
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS:
 				return ((InternalEList<?>)getConnectorParameters()).basicRemove(otherEnd, msgs);
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG:
+				return basicSetNewConfig(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -407,6 +511,10 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return getOperationName();
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
 				return getCloudConnectorName();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG:
+				return getNewConfig();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
+				return getAvailableConfigs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -442,6 +550,12 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
 				setCloudConnectorName((String)newValue);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG:
+				setNewConfig((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
+				setAvailableConfigs((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -475,6 +589,12 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
 				setCloudConnectorName(CLOUD_CONNECTOR_NAME_EDEFAULT);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG:
+				setNewConfig((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
+				setAvailableConfigs(AVAILABLE_CONFIGS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -501,6 +621,10 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return OPERATION_NAME_EDEFAULT == null ? operationName != null : !OPERATION_NAME_EDEFAULT.equals(operationName);
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
 				return CLOUD_CONNECTOR_NAME_EDEFAULT == null ? cloudConnectorName != null : !CLOUD_CONNECTOR_NAME_EDEFAULT.equals(cloudConnectorName);
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG:
+				return newConfig != null;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
+				return AVAILABLE_CONFIGS_EDEFAULT == null ? availableConfigs != null : !AVAILABLE_CONFIGS_EDEFAULT.equals(availableConfigs);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -523,6 +647,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 		result.append(operationName);
 		result.append(", cloudConnectorName: ");
 		result.append(cloudConnectorName);
+		result.append(", availableConfigs: ");
+		result.append(availableConfigs);
 		result.append(')');
 		return result.toString();
 	}

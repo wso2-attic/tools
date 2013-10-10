@@ -21,6 +21,8 @@ import org.apache.synapse.SynapseConstants;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.template.InvokeMediator;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
@@ -45,11 +47,15 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogLevel;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.extensions.CustomPaletteToolTransferDropTargetListener;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.factory.LocalEntryFileCreator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
@@ -80,6 +86,8 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 
 	private static String operationName = "config";
 	
+	private CloudConnectorOperation operation;
+	
 	private TableEditor paramTypeEditor;
 	private TableEditor paramNameEditor;
 	private TableEditor paramValueEditor;
@@ -92,13 +100,14 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	private Label configurationNameLabel;
 	private String configName;
 	private Collection<String> parameters;
-	private Label saveOptionLabel;
+	//private Label saveOptionLabel;
 	private Combo saveOptionCombo;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
-	public CloudConnectorInitialConfigurationDialog(Shell parent,Collection<String> parameters) {
+	public CloudConnectorInitialConfigurationDialog(Shell parent,CloudConnectorOperation operation,Collection<String> parameters) {
 		super(parent);
 		this.parameters=parameters;
+		this.operation=operation;
 		parent.setText("Cloud connector Configuration.");
 	}	
 	
@@ -127,6 +136,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		container.setLayout(mainLayout);
 
 		
+
 		configurationNameLabel = new Label(container, SWT.NONE);
 		{
 			configurationNameLabel.setText("Name: ");
@@ -137,7 +147,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		}
 		
 		
-		// Button for add new parameter.
+		// Text box for add new parameter.
 		nameText = new Text(container, SWT.NONE);
 		{
 			FormData logCategoryLabelLayoutData = new FormData(160,SWT.DEFAULT);
@@ -150,11 +160,12 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		nameText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				configName=nameText.getText();
+				//CustomPaletteToolTransferDropTargetListener.definedName=nameText.getText();
 			}
 		});
 		
 		
-		saveOptionLabel = new Label(container, SWT.NONE);
+/*		saveOptionLabel = new Label(container, SWT.NONE);
 		{
 			saveOptionLabel.setText("Save as : ");
 			FormData logCategoryLabelLayoutData1 = new FormData(80,SWT.DEFAULT);
@@ -174,7 +185,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 			logCategoryComboLayoutData.left = new FormAttachment(
 					saveOptionLabel, 5);
 			saveOptionCombo.setLayoutData(logCategoryComboLayoutData);
-		}
+		}*/
 
 		// Table for show the parameters.
 		paramTable = new Table(container, SWT.BORDER | SWT.FULL_SELECTION
@@ -218,7 +229,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		//setupTableEditor(paramTable);
 
 		FormData logPropertiesTableLayoutData = new FormData(SWT.DEFAULT, 150);
-		logPropertiesTableLayoutData.top = new FormAttachment(saveOptionLabel, 20);
+		logPropertiesTableLayoutData.top = new FormAttachment(configurationNameLabel, 20);
 		logPropertiesTableLayoutData.left = new FormAttachment(0);
 		logPropertiesTableLayoutData.bottom = new FormAttachment(100);
 		paramTable.setLayoutData(logPropertiesTableLayoutData);
@@ -378,7 +389,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 			e.printStackTrace();
 		}
 		
-		Display.getCurrent().asyncExec(new Runnable() {			
+/*		Display.getCurrent().asyncExec(new Runnable() {			
 			public void run() {
 				IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 						.getActivePage().getEditorReferences();
@@ -387,21 +398,32 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 				for (int i = 0; i < editorReferences.length; i++) {
 					IEditorPart editor = editorReferences[i].getEditor(false);
 					if ((editor instanceof EsbMultiPageEditor)) {
-				        /*
+				        
 				         * This must be altered. 'addDefinedSequences' and 'addDefinedEndpoints' methods should not exist inside EsbPaletteFactory class. 
 				         * Creating new instance of 'EsbPaletteFactory' must be avoided.
-				         */
+				         
 						EsbPaletteFactory esbPaletteFactory=new EsbPaletteFactory();
 						if(!editor.equals(activeEditor)){					        
 					        //esbPaletteFactory.addDefinedSequences(((EsbMultiPageEditor) editor).getGraphicalEditor());
 					        //esbPaletteFactory.addDefinedEndpoints(((EsbMultiPageEditor) editor).getGraphicalEditor());					        
 						}else{
-							esbPaletteFactory.addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor(),configName,getDroppedCloudConnector());
+							//esbPaletteFactory.addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor(),configName,getDroppedCloudConnector());
 						}
 					}
 				}
 			}
-		});
+		});*/
+		
+		
+		
+		
+		SetCommand setCmd = new SetCommand(TransactionUtil.getEditingDomain(operation), operation,
+				EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,
+				configName);
+		if(setCmd.canExecute()){
+			TransactionUtil.getEditingDomain(operation).getCommandStack().execute(setCmd);
+		}
+		
 		super.okPressed();
 	}
 	

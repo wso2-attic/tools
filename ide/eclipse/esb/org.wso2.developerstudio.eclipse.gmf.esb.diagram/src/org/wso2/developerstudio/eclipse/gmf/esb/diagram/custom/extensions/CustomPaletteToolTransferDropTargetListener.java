@@ -57,19 +57,45 @@ public class CustomPaletteToolTransferDropTargetListener extends
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}				
-				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
+/*				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
 				
 				cloudConnectorConfigureDialog.setDroppedCloudConnector(droppedCloudConnector);
 				cloudConnectorConfigureDialog.setDroppedCloudConnectorComponentName(getCloudConnectorDirectoryTraverser(droppedCloudConnector).getCloudConnectorName());
 				cloudConnectorConfigureDialog.setBlockOnOpen(true);
-				cloudConnectorConfigureDialog.open();
+				cloudConnectorConfigureDialog.open();*/
 			
 				return;
-			}else if((((NodeToolEntry)event.data).getId()).contains("cloudConnectorOperation")){
-				definedName=splittedString[2];
+			}else if((((NodeToolEntry)event.data).getId()).contains("cloudConnectorOperation")){			
+				
+				//definedName=splittedString[2];
 				addedConnector=groupName.toLowerCase();
 				addedConnectorComponentName=getCloudConnectorDirectoryTraverser(addedConnector).getCloudConnectorName();
 				addedOperation=((NodeToolEntry)event.data).getLabel();
+				
+				
+				
+				Collection<String> cloudConnectorConfigurationParameters = null;
+				//String droppedCloudConnector = splittedString[0];
+				try {				
+					cloudConnectorConfigurationParameters = getCloudConnectorDirectoryTraverser(addedConnector).getCloudConnectorConfigurationParameters();
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
+				
+				
+/*				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
+				
+				cloudConnectorConfigureDialog.setDroppedCloudConnector(addedConnector);
+				cloudConnectorConfigureDialog.setDroppedCloudConnectorComponentName(getCloudConnectorDirectoryTraverser(addedConnector).getCloudConnectorName());
+				cloudConnectorConfigureDialog.setBlockOnOpen(true);
+				cloudConnectorConfigureDialog.open();*/
+				
+				
+				
+				
+				
+				
 			}
 		}
 		

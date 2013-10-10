@@ -143,7 +143,12 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 				SetCommand setOperationName = new SetCommand(getEditingDomain(), owner,
 						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME,
 						CustomPaletteToolTransferDropTargetListener.addedOperation);
-				getResultCommand().append(setOperationName);				
+				getResultCommand().append(setOperationName);	
+				
+				SetCommand setDescriptionName = new SetCommand(getEditingDomain(), owner,
+						EsbPackage.Literals.ESB_ELEMENT__DESCRIPTION,
+						CustomPaletteToolTransferDropTargetListener.addedOperation);
+				getResultCommand().append(setDescriptionName);
 			}
 
 			// Apply changes.

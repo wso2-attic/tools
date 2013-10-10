@@ -30,6 +30,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -193,13 +194,25 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
         esbPaletteFactory.addDefinedSequences(getEditor(0));
         esbPaletteFactory.addDefinedEndpoints(getEditor(0));
         
-        esbPaletteFactory.addCloudConnectors(getEditor(0));
-        
+        //esbPaletteFactory.addCloudConnectors(getEditor(0));
         
         
 		IFileEditorInput input = (IFileEditorInput) getEditor(0).getEditorInput();
 		IFile file = input.getFile();
 		IProject activeProject = file.getProject();
+		
+		String connectorDirectory=activeProject.getLocation().toOSString()+File.separator+"cloudConnectors";
+		File directory=new File(connectorDirectory);
+		if(directory.isDirectory()){
+			String[] children=directory.list();
+	        for(int i=0;i<children.length;++i){
+	        	esbPaletteFactory.addCloudConnectorOperations(getEditor(0),children[i].split("-")[0]);
+	        }
+		}
+
+        
+        
+
         
 		String pathName=activeProject.getLocation().toOSString()+File.separator+"resources";
 /*		File resources=new File(pathName);
@@ -223,7 +236,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	        
 	        for(int i=0;i<configs.length;++i){
 	        	if(!"".equals(configs[i])){
-	        		esbPaletteFactory.addCloudConnectorOperations(getEditor(0), configs[i].split("-")[0],configs[i].split("-")[1]);
+	        		//esbPaletteFactory.addCloudConnectorOperations(getEditor(0), configs[i].split("-")[0],configs[i].split("-")[1]);
 	        	}
 	        }
 		}

@@ -1959,6 +1959,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloudConnectorOperation/connectorName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloudConnectorOperation/operationName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloudConnectorOperation/cloudConnectorName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference esb.ecore#//CloudConnectorOperation/newConfig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloudConnectorOperation/availableConfigs"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CloudConnectorOperationInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CloudConnectorOperationOutputConnector"/>

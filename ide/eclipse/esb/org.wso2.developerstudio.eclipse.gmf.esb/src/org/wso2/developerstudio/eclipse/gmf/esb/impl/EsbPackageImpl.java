@@ -9211,6 +9211,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCloudConnectorOperation_NewConfig() {
+		return (EReference)cloudConnectorOperationEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCloudConnectorOperation_AvailableConfigs() {
+		return (EAttribute)cloudConnectorOperationEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCloudConnectorOperationInputConnector() {
 		return cloudConnectorOperationInputConnectorEClass;
 	}
@@ -16789,6 +16807,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME);
 		createEAttribute(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__OPERATION_NAME);
 		createEAttribute(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME);
+		createEReference(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__NEW_CONFIG);
+		createEAttribute(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS);
 
 		cloudConnectorOperationInputConnectorEClass = createEClass(CLOUD_CONNECTOR_OPERATION_INPUT_CONNECTOR);
 
@@ -18784,6 +18804,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getCloudConnectorOperation_ConnectorName(), ecorePackage.getEString(), "connectorName", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCloudConnectorOperation_OperationName(), ecorePackage.getEString(), "operationName", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCloudConnectorOperation_CloudConnectorName(), ecorePackage.getEString(), "cloudConnectorName", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCloudConnectorOperation_NewConfig(), this.getRegistryKeyProperty(), null, "newConfig", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCloudConnectorOperation_AvailableConfigs(), ecorePackage.getEString(), "availableConfigs", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cloudConnectorOperationInputConnectorEClass, CloudConnectorOperationInputConnector.class, "CloudConnectorOperationInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

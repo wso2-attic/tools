@@ -62,6 +62,30 @@ public class CloudConnectorOperationItemProvider
 	public CloudConnectorOperationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
+	
+	
+	
+	
+	protected void addCustomConnectorParametersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 "spreadsheetName",//getString("_UI_CloudConnectorOperation_connectorParameters_feature"),
+				 "Test_1",//getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_connectorParameters_feature", "_UI_CloudConnectorOperation_type"),
+				 null,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+		
+	}
+	
+	
+	
+	
 
 	/**
 	 * This returns the property descriptors for the adapted class.
@@ -77,6 +101,9 @@ public class CloudConnectorOperationItemProvider
 		}
 		addConnectorParametersPropertyDescriptor(object);
 		addConfigRefPropertyDescriptor(object);
+		addAvailableConfigsPropertyDescriptor(object);
+		addNewConfigPropertyDescriptor(object);
+		//addCustomConnectorParametersPropertyDescriptor(object);
 		//addConnectorNamePropertyDescriptor(object);
 	    //addOperationNamePropertyDescriptor(object);
 		
@@ -194,6 +221,50 @@ public class CloudConnectorOperationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the New Config feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNewConfigPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CloudConnectorOperation_newConfig_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_newConfig_feature", "_UI_CloudConnectorOperation_type"),
+				 EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Available Configs feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAvailableConfigsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CloudConnectorOperation_availableConfigs_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_availableConfigs_feature", "_UI_CloudConnectorOperation_type"),
+				 EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -266,6 +337,8 @@ public class CloudConnectorOperationItemProvider
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME:
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME:
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG:
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR:

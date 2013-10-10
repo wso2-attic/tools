@@ -32,6 +32,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getConnectorName <em>Connector Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getOperationName <em>Operation Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getCloudConnectorName <em>Cloud Connector Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getNewConfig <em>New Config</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getAvailableConfigs <em>Available Configs</em>}</li>
  * </ul>
  * </p>
  *
@@ -211,5 +213,57 @@ public interface CloudConnectorOperation extends Mediator {
 	 * @generated
 	 */
 	void setCloudConnectorName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>New Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>New Config</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>New Config</em>' containment reference.
+	 * @see #setNewConfig(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloudConnectorOperation_NewConfig()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getNewConfig();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getNewConfig <em>New Config</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>New Config</em>' containment reference.
+	 * @see #getNewConfig()
+	 * @generated
+	 */
+	void setNewConfig(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Available Configs</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Available Configs</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Available Configs</em>' attribute.
+	 * @see #setAvailableConfigs(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloudConnectorOperation_AvailableConfigs()
+	 * @model
+	 * @generated
+	 */
+	String getAvailableConfigs();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getAvailableConfigs <em>Available Configs</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Available Configs</em>' attribute.
+	 * @see #getAvailableConfigs()
+	 * @generated
+	 */
+	void setAvailableConfigs(String value);
 
 } // CloudConnectorOperation
