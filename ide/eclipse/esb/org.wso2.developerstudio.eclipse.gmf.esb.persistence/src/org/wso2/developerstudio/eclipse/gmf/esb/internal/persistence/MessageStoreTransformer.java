@@ -35,7 +35,11 @@ public class MessageStoreTransformer {
 
 	public static OMElement createMessageStore(MessageStore model) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		String className = "org.apache.synapse.message.store.InMemoryMessageStore";
+		
+		// Fixing TOOLS-2026.
+		//String className = "org.apache.synapse.message.store.InMemoryMessageStore";
+		String className = "org.apache.synapse.message.store.impl.memory.InMemoryStore";
+
 		org.apache.synapse.message.store.MessageStore messageStore = new InMemoryStore();
 		messageStore.setName(model.getStoreName());
 
@@ -49,7 +53,9 @@ public class MessageStoreTransformer {
 				}
 			}
 		} else if (model.getStoreType() == MessageStoreType.JMS) {
-			className = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";
+			// Fixing TOOLS-2026.
+			//className = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";
+			className = "org.apache.synapse.message.store.impl.jms.JmsStore";
 			if (!StringUtils.isBlank(model.getInitialContextFactory())) {
 				parameters.put("java.naming.factory.initial",
 						model.getInitialContextFactory());

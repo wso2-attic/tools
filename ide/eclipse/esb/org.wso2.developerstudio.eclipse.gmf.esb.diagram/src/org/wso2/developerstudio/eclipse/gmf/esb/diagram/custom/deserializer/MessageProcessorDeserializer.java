@@ -58,9 +58,12 @@ public class MessageProcessorDeserializer
 extends
 AbstractEsbNodeDeserializer<MessageProcessor, org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor> {
 
-	private static final String scheduledMessageForwardingProcessor = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
-	private static final String messageSamplingProcessor = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
-
+	// Fixing TOOLS-2026.
+	//private static final String scheduledMessageForwardingProcessor = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+	//private static final String messageSamplingProcessor = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
+	private static final String scheduledMessageForwardingProcessor = "org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor";
+	private static final String messageSamplingProcessor = "org.apache.synapse.message.processor.impl.sampler.SamplingProcessor";
+	
 	@Override
 	public org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor createNode(
 			IGraphicalEditPart part, MessageProcessor processor) {

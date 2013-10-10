@@ -38,8 +38,11 @@ public class MessageStoreDeserializer
 		extends
 		AbstractEsbNodeDeserializer<MessageStore, org.wso2.developerstudio.eclipse.gmf.esb.MessageStore> {
 	
-	private static final String jmsMessageStoreFQN = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";
-	private static final String inMemoryMessageStoreFQN = "org.apache.synapse.message.store.InMemoryMessageStore";
+	// Fixing TOOLS-2026.
+	//private static final String jmsMessageStoreFQN = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";	
+	//private static final String inMemoryMessageStoreFQN = "org.apache.synapse.message.store.InMemoryMessageStore";
+	private static final String jmsMessageStoreFQN = "org.apache.synapse.message.store.impl.jms.JmsStore";	
+	private static final String inMemoryMessageStoreFQN = "org.apache.synapse.message.store.impl.memory.InMemoryStore";
 
 	@Override
 	public org.wso2.developerstudio.eclipse.gmf.esb.MessageStore createNode(

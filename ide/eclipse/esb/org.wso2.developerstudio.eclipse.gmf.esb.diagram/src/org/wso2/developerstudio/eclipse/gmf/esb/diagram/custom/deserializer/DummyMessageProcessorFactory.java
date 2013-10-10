@@ -50,7 +50,11 @@ public class DummyMessageProcessorFactory {
 			"messageStore");
 	private static final QName DESCRIPTION_Q = new QName(SynapseConstants.SYNAPSE_NAMESPACE,
 			"description");
-	public static final String FORWARDING_PROCESSOR = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+	
+	// Fixing TOOLS-2026.
+	//public static final String FORWARDING_PROCESSOR = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+	public static final String FORWARDING_PROCESSOR = "org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor";
+	
 	public static final QName TARGET_ENDPOINT_Q = new QName(XMLConfigConstants.NULL_NAMESPACE,
 			"targetEndpoint");
 

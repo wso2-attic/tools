@@ -163,7 +163,9 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 	
 	private String getTemplateContent(){
 		Map<String,Object> parameters = new HashMap<String,Object>();
-		String className = "org.apache.synapse.message.store.InMemoryMessageStore";
+		// Fixing TOOLS-2026.
+		//String className = "org.apache.synapse.message.store.InMemoryMessageStore";
+		String className = "org.apache.synapse.message.store.impl.memory.InMemoryStore";
 		MessageStore store = new InMemoryStore();
 		store.setName(messageStoreModel.getStoreName());
 		String lineSeparator = System.getProperty("line.separator","\n");
@@ -177,7 +179,9 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 				}
 			}
 		} else if(messageStoreModel.getMessageStoreType()==MessageStoreType.JMS){
-			className = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";
+			// Fixing TOOLS-2026.
+			//className = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";
+			className = "org.apache.synapse.message.store.impl.jms.JmsStore";
 			if(!StringUtils.isBlank(messageStoreModel.getJmsContextFactory())){
 				parameters.put("java.naming.factory.initial", messageStoreModel.getJmsContextFactory());
 			}

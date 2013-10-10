@@ -220,7 +220,10 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 		if (messageProcessorModel.getMessageProcessorType().equals(
 				"Scheduled Message Forwarding Processor")) {
 			messageProcessorPrameeters = new HashMap<String, Object>();
-			className = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+			
+			// Fixing TOOLS-2026.
+			//className = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+			className = "org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor";
 
 			messageProcessorPrameeters.put("interval",
 					((Integer) messageProcessorModel.getForwardingInterval()).toString());
@@ -281,7 +284,10 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 		} else if (messageProcessorModel.getMessageProcessorType().equals(
 				"Message Sampling Processor")) {
 			messageProcessorPrameeters = new HashMap<String, Object>();
-			className = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
+			
+			// Fixing TOOLS-2026.
+			//className = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
+			className = "org.apache.synapse.message.processor.impl.sampler.SamplingProcessor";
 
 			messageProcessorPrameeters.put("interval",
 					((Integer) messageProcessorModel.getSamplingInterval()).toString());

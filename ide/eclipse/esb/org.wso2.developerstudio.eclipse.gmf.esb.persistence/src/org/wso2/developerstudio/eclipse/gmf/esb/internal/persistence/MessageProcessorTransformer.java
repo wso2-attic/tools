@@ -41,7 +41,11 @@ public class MessageProcessorTransformer {
 
 	public static OMElement createMessageProcessor(MessageProcessor model) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		String className = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+		
+		// Fixing TOOLS-2026.
+		//String className = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+		String className = "org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor";
+		
 		org.apache.synapse.message.processor.MessageProcessor messageProcessor = new ScheduledMessageForwardingProcessor();
 
 		messageProcessor.setName(model.getProcessorName());
@@ -92,8 +96,10 @@ public class MessageProcessorTransformer {
 				parameters.put("pinnedServers", model.getPinnedServers());
 			}
 
-		} else if (model.getProcessorType() == MessageProcessorType.MSG_SAMPLING) {
-			className = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
+		} else if (model.getProcessorType() == MessageProcessorType.MSG_SAMPLING) {			
+			// Fixing TOOLS-2026.
+			//className = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
+			className = "org.apache.synapse.message.processor.impl.sampler.SamplingProcessor";
 
 			if (StringUtils.isNotBlank(model.getProcessorState().getLiteral())) {
 				if (model.getProcessorState().getLiteral().equals("Activate")) {
