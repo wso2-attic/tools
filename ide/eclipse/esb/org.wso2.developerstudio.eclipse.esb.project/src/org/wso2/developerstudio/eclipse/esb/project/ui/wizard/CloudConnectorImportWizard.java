@@ -23,6 +23,8 @@ import net.lingala.zip4j.exception.ZipException;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.wso2.developerstudio.eclipse.esb.project.control.graphicalproject.GMFPluginDetails;
+import org.wso2.developerstudio.eclipse.esb.project.control.graphicalproject.IUpdateGMFPlugin;
 
 public class CloudConnectorImportWizard extends Wizard{
 	
@@ -44,7 +46,9 @@ public class CloudConnectorImportWizard extends Wizard{
 	            String[] segments=source.split(File.separator);
 	            String zipFileName=segments[segments.length-1].split(".zip")[0];
 	    	    String destination = detailWizardPage.getSelectedProject().getLocation().toOSString()+File.separator+"cloudConnectors"+File.separator+zipFileName;
-	            zipFile.getFile(); zipFile.extractAll(destination); 
+	            zipFile.getFile(); zipFile.extractAll(destination);
+	            IUpdateGMFPlugin updateGMFPlugin = GMFPluginDetails.getiUpdateGMFPlugin();
+	            updateGMFPlugin.updateOpenedEditors();
 	        } catch (ZipException e) {
 	            e.printStackTrace();
 	        }

@@ -76,6 +76,7 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
+import org.wso2.developerstudio.eclipse.esb.project.control.graphicalproject.GMFPluginDetails;
 import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
@@ -89,6 +90,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ExceptionMessageM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.MediatorFactoryUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.UpdateGMFPlugin;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
@@ -169,6 +171,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
      */
     void createPage0() {
         try {
+        	GMFPluginDetails.setiUpdateGMFPlugin(new UpdateGMFPlugin());
         	currentEditor=this;
             graphicalEditor = new EsbDiagramEditor(this);
             addPage(DESIGN_VIEW_PAGE_INDEX, graphicalEditor, getEditorInput());

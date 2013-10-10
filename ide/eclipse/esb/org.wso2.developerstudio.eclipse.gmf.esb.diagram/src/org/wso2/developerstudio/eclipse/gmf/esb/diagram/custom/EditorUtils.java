@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -492,10 +493,28 @@ public class EditorUtils {
 						}else{
 							//esbPaletteFactory.addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor());
 						}
+						addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor(), esbPaletteFactory);
 					}
 				}
 			}
 		});
+	}
+	
+	
+	private static void addCloudConnectorOperations(EsbDiagramEditor editorPart,EsbPaletteFactory esbPaletteFactory){
+		IFileEditorInput input = (IFileEditorInput) editorPart.getEditorInput();
+		IFile file = input.getFile();
+		IProject activeProject = file.getProject();
+		
+		String connectorDirectory=activeProject.getLocation().toOSString()+File.separator+"cloudConnectors";
+		File directory=new File(connectorDirectory);
+		if(directory.isDirectory()){
+			String[] children=directory.list();
+	        for(int i=0;i<children.length;++i){
+	        	esbPaletteFactory.addCloudConnectorOperations(editorPart,children[i].split("-")[0]);
+	        }
+		}
+
 	}
 	
 	/**
