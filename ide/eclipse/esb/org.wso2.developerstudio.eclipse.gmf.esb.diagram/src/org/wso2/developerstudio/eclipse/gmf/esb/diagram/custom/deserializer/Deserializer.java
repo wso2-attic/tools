@@ -285,7 +285,9 @@ public class Deserializer {
 			artifacts.put(entry.getKey(), entry);
 			break;
 		case TASK:
-			TaskDescription task = TaskDescriptionFactory.createTaskDescription(element, OMAbstractFactory.getOMFactory()
+			//TaskDescription task = TaskDescriptionFactory.createTaskDescription(element, OMAbstractFactory.getOMFactory()
+			//		.createOMNamespace(synapseNS, ""));
+			TaskDescription task = DummyTaskDescriptionFactory.createTaskDescription(element, OMAbstractFactory.getOMFactory()
 					.createOMNamespace(synapseNS, ""));
 			artifacts.put(task.getName(), task);
 			break;
