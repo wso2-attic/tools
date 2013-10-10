@@ -204,8 +204,10 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		artifactElt.addAttribute("name", parentPrj.getModel().getArtifactId(), null);
 		artifactElt.addAttribute("version", parentPrj.getModel().getVersion(), null);
 		artifactElt.addAttribute("type", "carbon/application", null);
+		
+		List<ArtifactData> sortedartifactList = sortArtifactList(artifactList);
 
-		for (ArtifactData artifact : artifactList) {
+		for (ArtifactData artifact : sortedartifactList) {
 			File artifactDir = new File(carResources, getArtifactDir(artifact.getDependencyData()));
 			if (artifact.getResource() instanceof IFolder) {
 				FileUtils.copyDirectory(artifact.getResource().getLocation().toFile(), artifactDir);
@@ -232,6 +234,18 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		TempFileUtils.cleanUp();
 
 		return exportResources;
+	}
+
+	private List<ArtifactData> sortArtifactList(List<ArtifactData> artifactList) {
+		List<ArtifactData> sortedartifactList = new ArrayList<ArtifactData>();
+		for (ArtifactData artifact : artifactList) {
+			if (artifact.getDependencyData().getCApptype().endsWith("message-store")) {
+				sortedartifactList.add(0, artifact);
+			} else {
+				sortedartifactList.add(artifact);
+			}
+		}
+		return sortedartifactList;
 	}
 	
 	private String getFileName(DependencyData dependencyData) {
