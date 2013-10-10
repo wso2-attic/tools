@@ -26,6 +26,8 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
+import org.eclipse.jface.text.rules.EndOfLineRule;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
@@ -57,6 +59,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow6
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment18EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment21EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment22EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment23EditPart;
@@ -122,6 +125,39 @@ public class XYRepossition {
 				// Resize Complex mediator.
 				resizeComplexMediator(parent);
 			}
+		} else if (parent instanceof MediatorFlowMediatorFlowCompartment18EditPart) {
+			resizeComplexEndpointEditPart(parent);
+		}
+	}
+	
+	/**
+	 * Resize complex endpoint editpart. 
+	 * @param parent
+	 */
+	private static void resizeComplexEndpointEditPart(IGraphicalEditPart parent) {
+		List<IGraphicalEditPart> endpointEditparts = ((MediatorFlowMediatorFlowCompartment18EditPart) parent).getChildren();
+		Rectangle bounds = new Rectangle(0, 0, 500, 300);
+		int endpointGap = 50;
+		int newCompartmentHeight = 0;
+
+		for (IGraphicalEditPart endpointEditpart : endpointEditparts) {
+			newCompartmentHeight += endpointEditpart.getFigure().getBounds().height + endpointGap;
+		}
+
+		if (newCompartmentHeight > bounds.height) {
+			bounds.setHeight(newCompartmentHeight);
+
+			// Resize MediatorFlow18EditPart
+			((GraphicalEditPart) parent.getParent().getParent()).getFigure().setBounds(
+					bounds);
+			((GraphicalEditPart) parent.getParent().getParent()).setLayoutConstraint(
+					parent.getParent(), ((GraphicalEditPart) parent.getParent()).getFigure(), bounds);
+
+			// Resize ComplexEndpointsEditPart
+			((GraphicalEditPart) parent.getParent().getParent().getParent())
+					.setLayoutConstraint(parent.getParent().getParent(),
+							((GraphicalEditPart) parent.getParent().getParent())
+									.getFigure(), bounds);
 		}
 	}
 
@@ -717,7 +753,7 @@ public class XYRepossition {
 					}
 				}
 			}
-		}
+		} 
 	}
 
 	private static ShapeNodeEditPart getLeftMostNodeFromEditPart(IGraphicalEditPart parent) {

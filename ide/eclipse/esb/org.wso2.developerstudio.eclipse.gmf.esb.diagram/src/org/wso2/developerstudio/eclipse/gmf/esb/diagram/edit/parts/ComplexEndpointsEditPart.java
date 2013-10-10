@@ -289,8 +289,8 @@ public class ComplexEndpointsEditPart extends AbstractBorderedShapeEditPart {
 			 layoutThis.makeColumnsEqualWidth = true;
 			 this.setLayoutManager(layoutThis);
 			 */
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(500), getMapMode().DPtoLP(200)));
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(500), getMapMode().DPtoLP(300)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
 			this.setBorder(border0);
 			this.setBackgroundColor(THIS_BACK);
