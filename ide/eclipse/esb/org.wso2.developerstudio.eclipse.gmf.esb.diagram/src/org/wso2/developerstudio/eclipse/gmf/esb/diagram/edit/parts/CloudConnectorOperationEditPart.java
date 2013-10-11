@@ -13,11 +13,15 @@ import org.apache.synapse.mediators.template.TemplateMediator;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.xml.type.internal.QName;
 import org.eclipse.emf.edit.command.DeleteCommand;
@@ -57,6 +61,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditPartDrawingHelper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
@@ -86,6 +91,8 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	public static final int VISUAL_ID = 3722;
 
 	private String iconPath;
+	
+	public IFigure tempPrimaryShape;
 
 	/**
 	 * @generated
@@ -101,7 +108,6 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	private static final String synapseNS = "http://ws.apache.org/ns/synapse";
 	private Properties properties = new Properties();
 
-	private boolean activatedOnce = false;
 
 	/**
 	 * @generated
@@ -110,61 +116,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		super(view);
 	}
 
-	@Override
-	public void activate() {
-		// TODO Auto-generated method stub
-		super.activate();
-		if (!activatedOnce) {
-			CloudConnectorOperation owner = (CloudConnectorOperation) ((Node) getModel())
-					.getElement();
-			if (CustomPaletteToolTransferDropTargetListener.definedName != null
-					&& !"".equals(CustomPaletteToolTransferDropTargetListener.definedName)) {
-				SetCommand setCommand = new SetCommand(getEditingDomain(), owner,
-						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF,
-						CustomPaletteToolTransferDropTargetListener.definedName);
-				getResultCommand().append(setCommand);				
-			}
-			if (CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName != null
-					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName)) {
-				SetCommand setConnectorName = new SetCommand(getEditingDomain(), owner,
-						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME,
-						CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName);
-				getResultCommand().append(setConnectorName);				
-			}
-			if (CustomPaletteToolTransferDropTargetListener.addedConnector != null
-					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedConnector)) {
-				SetCommand setCloudConnectorName = new SetCommand(getEditingDomain(), owner,
-						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME,
-						CustomPaletteToolTransferDropTargetListener.addedConnector);
-				getResultCommand().append(setCloudConnectorName);				
-			}
-			if (CustomPaletteToolTransferDropTargetListener.addedOperation != null
-					&& !"".equals(CustomPaletteToolTransferDropTargetListener.addedOperation)) {
-				SetCommand setOperationName = new SetCommand(getEditingDomain(), owner,
-						EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__OPERATION_NAME,
-						CustomPaletteToolTransferDropTargetListener.addedOperation);
-				getResultCommand().append(setOperationName);	
-				
-				SetCommand setDescriptionName = new SetCommand(getEditingDomain(), owner,
-						EsbPackage.Literals.ESB_ELEMENT__DESCRIPTION,
-						CustomPaletteToolTransferDropTargetListener.addedOperation);
-				getResultCommand().append(setDescriptionName);
-			}
-
-			// Apply changes.
-			if (getResultCommand().canExecute()) {
-				getEditingDomain().getCommandStack().execute(getResultCommand());
-			}			
-			fillConnectorOperationParameters();
-			CustomPaletteToolTransferDropTargetListener.definedName = null;
-			CustomPaletteToolTransferDropTargetListener.addedOperation=null;
-			CustomPaletteToolTransferDropTargetListener.addedConnectorComponentName=null;
-			CustomPaletteToolTransferDropTargetListener.addedConnector=null;
-			activatedOnce = true;
-		}
-	}
-
-	private void setIcon() {
+	public void setIconPath() {
 		/*
 		 * This method should be rewrite to set the icon path properly.
 		 */
@@ -178,15 +130,13 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 				log.error("Error while getting the project", e);
 			}
 		}
-		String connectorName = CustomPaletteToolTransferDropTargetListener.addedConnector;
-		if (connectorName == null) {
-			connectorName = ((CloudConnectorOperation) ((Node) getModel()).getElement())
-					.getCloudConnectorName();
-			if(connectorName == null){
-				connectorName=CloudConnectorOperationDeserializer.cloudConnectorName;
-			}
-		}
 		
+		String connectorName = ((CloudConnectorOperation) ((Node) getModel()).getElement())
+				.getCloudConnectorName();		
+		if(connectorName == null){
+			connectorName=CloudConnectorOperationDeserializer.cloudConnectorName;
+		}
+	
 		if(project==null){
 			try {
 				project = ((IFileEditorInput)EsbMultiPageEditor.currentEditor.getEditorInput()).getFile().getProject();
@@ -200,6 +150,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		iconPath = project.getLocation().toOSString() + File.separator + "cloudConnectors"
 				+ File.separator + connectorName + "-connector" + File.separator + "icon"
 				+ File.separator + "icon-large.gif";
+		
 	}
 
 	public static IProject getProject(Object obj) throws Exception {
@@ -232,7 +183,11 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	 return file.getProject();
 	 }*/
 
-	protected void fillConnectorOperationParameters() {
+	public void fillConnectorOperationParameters() {		
+		String addedConnector = ((CloudConnectorOperation) ((Node) getModel()).getElement())
+				.getCloudConnectorName();
+		String addedOperation = ((CloudConnectorOperation) ((Node) getModel()).getElement())
+				.getOperationName();
 		TransactionalEditingDomain editingDomain = null;
 		/*		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 		 .getActivePage().getActiveEditor();
@@ -244,11 +199,11 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		 IProject activeProject = file.getProject();*/
 		IProject activeProject = EditorUtils.getActiveProject();
 		if (activeProject != null) {
-			if(CustomPaletteToolTransferDropTargetListener.addedConnector !=null && CustomPaletteToolTransferDropTargetListener.addedOperation!=null){
+			if(addedConnector !=null && addedOperation!=null){
 					
 				String connectorPath = activeProject.getLocation().toOSString() + File.separator
 						+ "cloudConnectors" + File.separator
-						+ CustomPaletteToolTransferDropTargetListener.addedConnector + "-connector";
+						+ addedConnector + "-connector";
 	
 				CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
 						.getInstance(connectorPath);
@@ -256,7 +211,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 				String operationFileName = null;
 				try {
 					operationFileName = cloudConnectorDirectoryTraverser.getOperationsMap().get(
-							CustomPaletteToolTransferDropTargetListener.addedOperation);
+							addedOperation);
 					directory = cloudConnectorDirectoryTraverser.getOperationFileNamesMap().get(
 							operationFileName);
 				} catch (Exception e1) {
@@ -264,14 +219,13 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 				}
 				String path = connectorPath + File.separator + directory + File.separator
 						+ operationFileName + ".xml";
-				CustomPaletteToolTransferDropTargetListener.addedOperation = null;
+				addedOperation = null;
 	
 				try {
 					String source = FileUtils.getContentAsString(new File(path));
 					OMElement element = AXIOMUtil.stringToOM(source);
 	
 					if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
-						MediatorFactoryUtils.registerFactories();
 						TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
 						TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
 								.createMediator(element, properties);
@@ -363,7 +317,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new CloudConnectorOperationFigure() {
+		primaryShape = new CloudConnectorOperationFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
@@ -371,7 +325,9 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 					reAllocate(rect);
 				}
 			};
-		};
+		};		
+		tempPrimaryShape=primaryShape;		
+		return primaryShape;
 	}
 
 	/**
@@ -558,6 +514,13 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	 */
 	public class CloudConnectorOperationFigure extends EsbGraphicalShapeWithLabel {
 
+		int Figure_PreferredWidth = FixedSizedAbstractMediator.FigureWidth;
+		int Figure_PreferredHeight = FixedSizedAbstractMediator.FigureHeight + 20; //Additional 20 to show the editable label
+		int Image_PreferredWidth = 75;
+		int Image_PreferredHeight = 52;
+		int marginWidth = (Figure_PreferredWidth - Image_PreferredWidth) / 2; //equals to 10
+		int marginHeight = 10;		
+		
 		/**
 		 * @generated
 		 */
@@ -592,6 +555,26 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 			fFigureCloudConnectorOperationDescriptionFigure = getPropertyNameLabel();
 
 		}
+		
+		public void setCloudConnectorImage(){
+			GridData constraintMainImageRectangle = new GridData();
+			constraintMainImageRectangle.verticalAlignment = GridData.BEGINNING;
+			constraintMainImageRectangle.horizontalAlignment = GridData.CENTER;
+			constraintMainImageRectangle.verticalSpan = 1;
+			
+			ImageFigure iconImageFigure = EditPartDrawingHelper.getIconImageFigure(iconPath,
+					Image_PreferredWidth, Image_PreferredHeight);
+
+			RoundedRectangle mainImageRectangle = new RoundedRectangle();
+			mainImageRectangle.setCornerDimensions(new Dimension(8, 8));
+			mainImageRectangle.setOutline(false);
+			mainImageRectangle.setPreferredSize(new Dimension(Image_PreferredWidth,
+					Image_PreferredHeight));
+			mainImageRectangle.add(iconImageFigure);
+			this.removeAll();
+			this.add(mainImageRectangle, constraintMainImageRectangle);
+			this.add(tempPropertyValueRectangle1,tempConstraintPropertyValueRectangle);
+		}
 
 		/**
 		 * @generated
@@ -601,8 +584,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		}
 
 		public String getIconPath() {
-			setIcon();
-			return iconPath;
+			return "icons/ico20/log-mediator.gif";
 		}
 
 		public String getNodeName() {

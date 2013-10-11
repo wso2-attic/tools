@@ -1,24 +1,16 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.extensions;
 
-import java.io.File;
-import java.util.Collection;
-
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gmf.runtime.diagram.ui.internal.parts.PaletteToolTransferDropTargetListener;
-import org.eclipse.swt.dnd.DropTargetEvent;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.CloudConnectorInitialConfigurationDialog;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
 
 
 public class CustomPaletteToolTransferDropTargetListener extends
 		PaletteToolTransferDropTargetListener {
-
+	
+	public CustomPaletteToolTransferDropTargetListener(EditPartViewer viewer) {
+		super(viewer);
+	}
+/*
 	public static String definedName;
 	public static String addedConnector;
 	public static String addedConnectorComponentName;
@@ -57,12 +49,12 @@ public class CustomPaletteToolTransferDropTargetListener extends
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}				
-/*				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
+				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
 				
 				cloudConnectorConfigureDialog.setDroppedCloudConnector(droppedCloudConnector);
 				cloudConnectorConfigureDialog.setDroppedCloudConnectorComponentName(getCloudConnectorDirectoryTraverser(droppedCloudConnector).getCloudConnectorName());
 				cloudConnectorConfigureDialog.setBlockOnOpen(true);
-				cloudConnectorConfigureDialog.open();*/
+				cloudConnectorConfigureDialog.open();
 			
 				return;
 			}else if((((NodeToolEntry)event.data).getId()).contains("cloudConnectorOperation")){			
@@ -84,12 +76,12 @@ public class CustomPaletteToolTransferDropTargetListener extends
 				}	
 				
 				
-/*				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
+				CloudConnectorInitialConfigurationDialog cloudConnectorConfigureDialog = new CloudConnectorInitialConfigurationDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),cloudConnectorConfigurationParameters);
 				
 				cloudConnectorConfigureDialog.setDroppedCloudConnector(addedConnector);
 				cloudConnectorConfigureDialog.setDroppedCloudConnectorComponentName(getCloudConnectorDirectoryTraverser(addedConnector).getCloudConnectorName());
 				cloudConnectorConfigureDialog.setBlockOnOpen(true);
-				cloudConnectorConfigureDialog.open();*/
+				cloudConnectorConfigureDialog.open();
 				
 				
 				
@@ -100,6 +92,6 @@ public class CustomPaletteToolTransferDropTargetListener extends
 		}
 		
 		super.drop(event);
-	}
+	}*/
 
 }

@@ -1,8 +1,11 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -15,6 +18,10 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
@@ -22,12 +29,17 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.extensions.CustomPaletteToolTransferDropTargetListener;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorOperationEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorOperationEditPart.CloudConnectorOperationFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -171,7 +183,66 @@ public class AbstractMediatorFlowCompartmentEditPart extends ShapeCompartmentEdi
 					}
 				}
 		}
+		
+		if(child instanceof CloudConnectorOperationEditPart){
+			CloudConnectorOperationEditPart cloudConnectorOperationEditPart = (CloudConnectorOperationEditPart) child;
+			EditPart editpart = (EditPart) ((StructuredSelection) cloudConnectorOperationEditPart
+					.getViewer().getEditDomain().getPaletteViewer()
+					.getSelection()).getFirstElement();
+			
+			IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+					.getActivePage().getActiveEditor();
+			if(editorpart!=null && !EditorUtils.isLockmode(((EsbMultiPageEditor)editorpart).getGraphicalEditor())){			
+				if (editpart instanceof ToolEntryEditPart) {
+					if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
+						String id = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
+								.getModel()).getId();
+						try{
+							String[] splittedString = id.split("-");
+							String groupName="";
+							if(splittedString.length>1){
+								groupName = splittedString[1];
+							}						
+							((CloudConnectorOperation) ((View) cloudConnectorOperationEditPart.getModel())
+								.getElement()).setConnectorName(getCloudConnectorDirectoryTraverser(groupName.toLowerCase()).getCloudConnectorName());	
+							
+							((CloudConnectorOperation) ((View) cloudConnectorOperationEditPart.getModel())
+									.getElement()).setCloudConnectorName(groupName.toLowerCase());	
+							
+							((CloudConnectorOperation) ((View) cloudConnectorOperationEditPart.getModel())
+									.getElement()).setOperationName(((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel()).getLabel());	
+			
+							((CloudConnectorOperation) ((View) cloudConnectorOperationEditPart.getModel())
+									.getElement()).setDescription(((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel()).getLabel());	
+							
+							cloudConnectorOperationEditPart.fillConnectorOperationParameters();						
+							
+						}catch(java.lang.IllegalStateException e){
+							log.error("This is occured while undo operation..", e);
+						}
+					}
+				}
+			}
+			cloudConnectorOperationEditPart.setIconPath();
+			CloudConnectorOperationFigure localPrimaryShape = (CloudConnectorOperationFigure)cloudConnectorOperationEditPart.tempPrimaryShape;
+			if(localPrimaryShape !=null){				
+				localPrimaryShape.setCloudConnectorImage();
+			}
+		}
 	}
+	
+	
+	private CloudConnectorDirectoryTraverser getCloudConnectorDirectoryTraverser(String droppedCloudConnector){
+		IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage().getActiveEditor();
+		IFileEditorInput input = (IFileEditorInput) editorpart.getEditorInput();
+		IFile file = input.getFile();
+		IProject activeProject = file.getProject();
+		String connectorPath = activeProject.getLocation().toOSString() + File.separator
+				+ "cloudConnectors" + File.separator + droppedCloudConnector+"-connector";
+		return CloudConnectorDirectoryTraverser.getInstance(connectorPath);
+	}
+	
 	
 	private void connectRemainingElements(EditPart child){	
 		if(child instanceof AbstractMediator){

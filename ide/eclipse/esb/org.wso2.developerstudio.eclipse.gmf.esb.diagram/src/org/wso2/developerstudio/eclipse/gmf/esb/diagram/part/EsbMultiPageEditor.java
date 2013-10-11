@@ -54,6 +54,7 @@ import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocumentListener;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -441,6 +442,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		case DESIGN_VIEW_PAGE_INDEX: {
 			handleDesignViewActivatedEvent(); 
 			final EsbMultiPageEditor currentEditor = this;
+			MediatorFactoryUtils.registerFactories();			
 			Display.getCurrent().asyncExec(new Runnable() {
 				
 				@Override

@@ -34,6 +34,8 @@ import org.eclipse.swt.graphics.FontData;
  */
 public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 
+	public GridData tempConstraintPropertyValueRectangle;
+	public RoundedRectangle tempPropertyValueRectangle1;
 	private WrappingLabel propertyNameLabel;
 	static int Figure_PreferredWidth = FixedSizedAbstractMediator.FigureWidth;
 	static int Figure_PreferredHeight = FixedSizedAbstractMediator.FigureHeight + 20; //Additional 20 to show the editable label
@@ -108,6 +110,8 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 
 		propertyValueRectangle1.add(propertyNameLabel);
 		this.add(propertyValueRectangle1, constraintPropertyValueRectangle);
+		tempPropertyValueRectangle1=propertyValueRectangle1;
+		tempConstraintPropertyValueRectangle=constraintPropertyValueRectangle;
 	}
 
 	protected WrappingLabel getPropertyNameLabel() {

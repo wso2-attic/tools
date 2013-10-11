@@ -46,6 +46,7 @@ public class CloudConnectorOperationDeserializer extends AbstractEsbNodeDeserial
 		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__OPERATION_NAME, operation.getOperation());
 		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__CONNECTOR_NAME, operation.getConnectorComponentName());	
 		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME, operation.getCloudConnectorName());
+		executeSetValueCommand(ESB_ELEMENT__DESCRIPTION, operation.getOperation());
 		
 		Map<String, Value> parameters = operation.getpName2ExpressionMap();
 		for(Map.Entry<String, Value> entry : parameters.entrySet()){
