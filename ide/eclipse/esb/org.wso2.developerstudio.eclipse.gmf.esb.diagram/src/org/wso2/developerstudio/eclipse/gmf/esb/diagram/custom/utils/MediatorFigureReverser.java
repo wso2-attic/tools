@@ -145,16 +145,16 @@ public class MediatorFigureReverser {
 					.getChildren().get(4)).getChildren().get(0)).getChildren();
 		}
 		
-		if(editorPart instanceof ConditionalRouterMediatorEditPart){
+		/*if(editorPart instanceof ConditionalRouterMediatorEditPart){
 			arrangeType1Compartment(editorPart,
 					((ConditionalRouterMediatorEditPart) editorPart).additionalOutputConnector,
 					childFigures);
-			/*
+			
 			 * Reverse the mediators inside the Conditional Router mediator.
-			 */
+			 
 			children = ((MediatorFlowMediatorFlowCompartment16EditPart) ((MediatorFlow16EditPart) editorPart
 					.getChildren().get(3)).getChildren().get(0)).getChildren();
-		}
+		}*/
 		
 		if(editorPart instanceof RuleMediatorEditPart){
 			arrangeType1Compartment(editorPart,

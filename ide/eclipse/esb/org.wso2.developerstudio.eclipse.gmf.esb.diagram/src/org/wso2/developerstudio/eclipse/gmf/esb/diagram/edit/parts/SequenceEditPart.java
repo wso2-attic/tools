@@ -139,7 +139,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 	private static IDeveloperStudioLog log = Logger
 			.getLog("org.wso2.developerstudio.eclipse.gmf.esb.diagram");
-	
+
 	private EsbDiagramEditor mainDiagramEditorRef;
 
 	/**
@@ -572,30 +572,26 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	}
 
 	public boolean createFiles(String name, String fileURI1, String fileURI2,
-	                           IProject currentProject) {
+			IProject currentProject) {
 		Resource diagram;
 
-		String basePath =
-		                  "platform:/resource/" + currentProject.getName() + "/" +
-		                          SEQUENCE_RESOURCE_DIR + "/";
+		String basePath = "platform:/resource/" + currentProject.getName() + "/"
+				+ SEQUENCE_RESOURCE_DIR + "/";
 		IFile file = currentProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + fileURI1);
 
 		if (((Sequence) ((Node) sequenceEditPart.getModel()).getElement()).isReceiveSequence()) {
 			info.setRecieveSequence(true);
-			info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(sequenceEditPart.getParent())
-			                                                           .getModel()).getElement()).getName());
+			info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(
+					sequenceEditPart.getParent()).getModel()).getElement()).getName());
 		}
 
 		if (!file.exists()) {
-			IFile fileTobeOpened =
-			                       currentProject.getFile(SYNAPSE_CONFIG_DIR + "/sequences/" +
-			                                              name + ".xml");
+			IFile fileTobeOpened = currentProject.getFile(SYNAPSE_CONFIG_DIR + "/sequences/" + name
+					+ ".xml");
 			try {
-				diagram =
-				          EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
-				                                             URI.createURI(basePath + fileURI2),
-				                                             new NullProgressMonitor(), "sequence",
-				                                             name, info);
+				diagram = EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
+						URI.createURI(basePath + fileURI2), new NullProgressMonitor(), "sequence",
+						name, info);
 
 				if (fileTobeOpened.exists()) {
 					String diagramPath = diagram.getURI().toPlatformString(true);
@@ -613,12 +609,10 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		}
 
 		else {
-			IWorkbenchPage page =
-			                      PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-			                                .getActivePage();
-			IEditorDescriptor desc =
-			                         PlatformUI.getWorkbench().getEditorRegistry()
-			                                   .getDefaultEditor(file.getName());
+			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+					.getActivePage();
+			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry()
+					.getDefaultEditor(file.getName());
 			try {
 				page.openEditor(new FileEditorInput(file), desc.getId());
 			} catch (PartInitException e) {

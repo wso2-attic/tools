@@ -71,7 +71,6 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 	 */
 	public MediatorFlowMediatorFlowCompartment18EditPart(View view) {
 		super(view);
-		instance = this;
 	}
 
 	/**
@@ -155,11 +154,11 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 		if (removeCmd.canExecute()) {
 			editingDomain.getCommandStack().execute(removeCmd);
 		}
-		
-		Display.getCurrent().asyncExec(new Runnable() {			
+
+		Display.getCurrent().asyncExec(new Runnable() {
 			@Override
-			public void run() {		
-				XYRepossition.resizeContainers((IGraphicalEditPart) instance);		
+			public void run() {
+				XYRepossition.resizeContainers((IGraphicalEditPart) instance);
 			}
 		});
 	}

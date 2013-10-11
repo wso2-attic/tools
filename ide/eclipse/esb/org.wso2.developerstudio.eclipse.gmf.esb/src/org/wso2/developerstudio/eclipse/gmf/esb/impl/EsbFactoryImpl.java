@@ -4047,8 +4047,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		ConditionalRouterMediatorImpl conditionalRouterMediator = new ConditionalRouterMediatorImpl();
 		conditionalRouterMediator.setInputConnector(createConditionalRouterMediatorInputConnector());
 		conditionalRouterMediator.setOutputConnector(createConditionalRouterMediatorOutputConnector());
-		conditionalRouterMediator.setAdditionalOutputConnector(createConditionalRouterMediatorAdditionalOutputConnector());
-		conditionalRouterMediator.setMediatorFlow(createMediatorFlow());
+		//conditionalRouterMediator.setAdditionalOutputConnector(createConditionalRouterMediatorAdditionalOutputConnector());
+		//conditionalRouterMediator.setMediatorFlow(createMediatorFlow());
 		return conditionalRouterMediator;
 	}
 

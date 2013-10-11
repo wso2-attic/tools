@@ -1739,10 +1739,16 @@
             xsi:type="gmfgraph:Label"
             name="ConditionalRouterPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ConditionalRouterMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureConditionalRouterPropertyValue"
           figure="//@figures.0/@descriptors.82/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.82/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EndpointDiagramFigure">
@@ -3696,4 +3702,9 @@
       figure="CallMediatorFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.105/@accessors.0"/>
+  <labels
+      name="ConditionalRouterMediatorDescription"
+      figure="ConditionalRouterMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.82/@accessors.1"/>
 </gmfgraph:Canvas>

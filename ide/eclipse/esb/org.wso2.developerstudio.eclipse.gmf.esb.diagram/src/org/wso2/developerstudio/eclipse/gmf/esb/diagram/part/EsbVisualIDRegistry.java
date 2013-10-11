@@ -6499,6 +6499,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case ConditionalRouterMediatorEditPart.VISUAL_ID:
+			if (ConditionalRouterMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

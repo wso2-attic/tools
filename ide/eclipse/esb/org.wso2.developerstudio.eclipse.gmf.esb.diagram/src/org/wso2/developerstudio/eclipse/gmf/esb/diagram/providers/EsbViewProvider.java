@@ -11305,6 +11305,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5210 = createLabel(node,
+				EsbVisualIDRegistry.getType(ConditionalRouterMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 

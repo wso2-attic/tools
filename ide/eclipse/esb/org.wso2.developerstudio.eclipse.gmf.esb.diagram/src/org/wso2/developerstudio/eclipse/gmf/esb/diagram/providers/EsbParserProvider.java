@@ -33,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnecto
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloudConnectorOperationDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorDescriptionEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorDescriptionEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURLEditPart;
@@ -995,6 +996,24 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	/**
 	 * @generated
 	 */
+	private IParser conditionalRouterMediatorDescription_5210Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getConditionalRouterMediatorDescription_5210Parser() {
+		if (conditionalRouterMediatorDescription_5210Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEsbElement_Description() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			conditionalRouterMediatorDescription_5210Parser = parser;
+		}
+		return conditionalRouterMediatorDescription_5210Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser bAMMediatorDescription_5194Parser;
 
 	/**
@@ -1591,6 +1610,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 			return getEnqueueMediatorDescription_5192Parser();
 		case URLRewriteMediatorDescriptionEditPart.VISUAL_ID:
 			return getURLRewriteMediatorDescription_5193Parser();
+		case ConditionalRouterMediatorDescriptionEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorDescription_5210Parser();
 		case BAMMediatorDescriptionEditPart.VISUAL_ID:
 			return getBAMMediatorDescription_5194Parser();
 		case BeanMediatorDescriptionEditPart.VISUAL_ID:

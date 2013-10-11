@@ -307,7 +307,7 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 
 		viewerKeyHandler.setParent(getKeyHandler());
 		viewer.setKeyHandler(new DirectEditKeyHandler(viewer).setParent(viewerKeyHandler));
-		
+
 		// Define key handler for palette viewer.
 		PaletteViewer paletteViewer = getPaletteViewerProvider().getEditDomain().getPaletteViewer();
 		KeyHandler paletteViewerKeyHandler = new CustomPaletteViewerKeyHandler(paletteViewer);

@@ -22,7 +22,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 /**
  * @generated NOT
  */
-public class MediatorFlowMediatorFlowCompartment21EditPart extends AbstractMediatorCompartmentEditPart {
+public class MediatorFlowMediatorFlowCompartment21EditPart extends
+		AbstractMediatorCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -44,7 +45,7 @@ public class MediatorFlowMediatorFlowCompartment21EditPart extends AbstractMedia
 		//return Messages.MediatorFlowMediatorFlowCompartment21EditPart_title;
 		return null;
 	}
-	
+
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitle("OnReject");
@@ -76,7 +77,7 @@ public class MediatorFlowMediatorFlowCompartment21EditPart extends AbstractMedia
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment21CanonicalEditPolicy());
 	}
-	
+
 	public boolean isSelectable() {
 		return false;
 	}

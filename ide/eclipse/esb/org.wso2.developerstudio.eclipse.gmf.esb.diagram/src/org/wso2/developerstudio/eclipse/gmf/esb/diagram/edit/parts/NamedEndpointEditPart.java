@@ -616,24 +616,20 @@ public class NamedEndpointEditPart extends ComplexFiguredAbstractEndpoint {
 	}
 
 	public boolean createFiles(String name, String fileURI1, String fileURI2,
-	                           IProject currentProject) {
+			IProject currentProject) {
 		Resource diagram;
 
-		String basePath =
-		                  "platform:/resource/" + currentProject.getName() + "/" +
-		                          ENDPOINT_RESOURCE_DIR + "/";
+		String basePath = "platform:/resource/" + currentProject.getName() + "/"
+				+ ENDPOINT_RESOURCE_DIR + "/";
 		IFile file = currentProject.getFile(ENDPOINT_RESOURCE_DIR + "/" + fileURI1);
 
 		if (!file.exists()) {
-			IFile fileTobeOpened =
-			                       currentProject.getFile(SYNAPSE_CONFIG_DIR + "/endpoints/" +
-			                                              name + ".xml");
+			IFile fileTobeOpened = currentProject.getFile(SYNAPSE_CONFIG_DIR + "/endpoints/" + name
+					+ ".xml");
 			try {
-				diagram =
-				          EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
-				                                             URI.createURI(basePath + fileURI2),
-				                                             new NullProgressMonitor(), "endpoint",
-				                                             name, selection);
+				diagram = EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
+						URI.createURI(basePath + fileURI2), new NullProgressMonitor(), "endpoint",
+						name, selection);
 
 				if (fileTobeOpened.exists()) {
 					String diagramPath = diagram.getURI().toPlatformString(true);
@@ -652,12 +648,10 @@ public class NamedEndpointEditPart extends ComplexFiguredAbstractEndpoint {
 		}
 
 		else {
-			IWorkbenchPage page =
-			                      PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-			                                .getActivePage();
-			IEditorDescriptor desc =
-			                         PlatformUI.getWorkbench().getEditorRegistry()
-			                                   .getDefaultEditor(file.getName());
+			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+					.getActivePage();
+			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry()
+					.getDefaultEditor(file.getName());
 			try {
 				page.openEditor(new FileEditorInput(file), desc.getId());
 			} catch (PartInitException e) {

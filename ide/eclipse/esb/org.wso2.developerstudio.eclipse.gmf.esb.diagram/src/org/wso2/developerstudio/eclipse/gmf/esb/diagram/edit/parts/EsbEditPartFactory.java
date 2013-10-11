@@ -689,6 +689,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case ConditionalRouterMediatorEditPart.VISUAL_ID:
 				return new ConditionalRouterMediatorEditPart(view);
 
+			case ConditionalRouterMediatorDescriptionEditPart.VISUAL_ID:
+				return new ConditionalRouterMediatorDescriptionEditPart(view);
+
 			case ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID:
 				return new ConditionalRouterMediatorInputConnectorEditPart(view);
 

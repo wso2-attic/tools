@@ -69,6 +69,7 @@ public class ConditionalRouterMediatorItemProvider
 
 		addContinueRoutePropertyDescriptor(object);
 		addConditionalRouteBranchesPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}

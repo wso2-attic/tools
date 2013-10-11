@@ -257,8 +257,8 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 				} catch (IOException e) {
 					log.error("Error occured while reading selected template file", e);
 					//ErrorDialog.openError(shell,"Error occured while reading selected template file", e.getMessage(), null);
-				}			
-			}			
+				}
+			}
 		}
 	}
 

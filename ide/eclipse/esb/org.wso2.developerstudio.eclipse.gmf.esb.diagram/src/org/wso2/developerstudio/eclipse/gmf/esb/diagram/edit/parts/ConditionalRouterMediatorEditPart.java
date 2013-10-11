@@ -29,8 +29,10 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SingleCompartmentComplexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
@@ -42,8 +44,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class ConditionalRouterMediatorEditPart extends
-		SingleCompartmentComplexFiguredAbstractMediator {
+// public class ConditionalRouterMediatorEditPart extends SingleCompartmentComplexFiguredAbstractMediator {
+public class ConditionalRouterMediatorEditPart extends FixedSizedAbstractMediator {
 
 	public IFigure additionalOutputConnector;
 
@@ -94,8 +96,8 @@ public class ConditionalRouterMediatorEditPart extends
 				switch (EsbVisualIDRegistry.getVisualID(childView)) {
 				case ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID:
 				case ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID:
-				case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID:
-					return new BorderItemSelectionEditPolicy();
+					//case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID:
+					//	return new BorderItemSelectionEditPolicy();
 				}
 				if (child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE) == null) {
 					if (child instanceof ITextAwareEditPart) {
@@ -115,11 +117,9 @@ public class ConditionalRouterMediatorEditPart extends
 		return primaryShape = new ConditionalRouterMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
-				if ((!connected)
-						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
+				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
 					connectToMostSuitableElement();
 					reAllocate(rect);
-					connected = true;
 				}
 			};
 		};
@@ -133,6 +133,11 @@ public class ConditionalRouterMediatorEditPart extends
 	}
 
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof ConditionalRouterMediatorDescriptionEditPart) {
+			((ConditionalRouterMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getConditionalRouterDescriptionLabel());
+			return true;
+		}		
 		if (childEditPart instanceof ConditionalRouterMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((ConditionalRouterMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -149,18 +154,42 @@ public class ConditionalRouterMediatorEditPart extends
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
-		if (childEditPart instanceof ConditionalRouterMediatorAdditionalOutputConnectorEditPart) {
+		/*if (childEditPart instanceof ConditionalRouterMediatorAdditionalOutputConnectorEditPart) {
 			additionalOutputConnector = ((ConditionalRouterMediatorAdditionalOutputConnectorEditPart) childEditPart)
 					.getFigure();
-		}
+		}*/
 		return false;
 	}
 
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof ConditionalRouterMediatorDescriptionEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ConditionalRouterMediatorInputConnectorEditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((ConditionalRouterMediatorInputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		if (childEditPart instanceof ConditionalRouterMediatorOutputConnectorEditPart) {
+			getBorderedFigure().getBorderItemContainer().remove(
+					((ConditionalRouterMediatorOutputConnectorEditPart) childEditPart).getFigure());
+			return true;
+		}
+		return false;
+	}
+	
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
@@ -192,7 +221,7 @@ public class ConditionalRouterMediatorEditPart extends
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
-		addLayoutListner(figure);
+		//addLayoutListner(figure);
 		return figure;
 	}
 
@@ -258,21 +287,24 @@ public class ConditionalRouterMediatorEditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class ConditionalRouterMediatorFigure extends EsbGroupingShape {
+	//public class ConditionalRouterMediatorFigure extends EsbGroupingShape {
+	public class ConditionalRouterMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureConditionalRouterPropertyValue;
 
+		private WrappingLabel fFigureConditionalRouterDescriptionLabel;
+
 		/**
 		 * @generated NOT
 		 */
 		public ConditionalRouterMediatorFigure() {
 
-			ToolbarLayout layoutThis = new ToolbarLayout();
+			/*ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 
@@ -281,12 +313,12 @@ public class ConditionalRouterMediatorEditPart extends
 
 			this.setLayoutManager(layoutThis);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(170), getMapMode().DPtoLP(100)));
-			this.setOutline(false);
+			this.setOutline(false);*/
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
-		public void add(IFigure figure, Object constraint, int index) {
+		/*public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof DefaultSizeNodeFigure) {
 				GridData layoutData = new GridData();
 				layoutData.grabExcessHorizontalSpace = true;
@@ -306,7 +338,7 @@ public class ConditionalRouterMediatorEditPart extends
 			else {
 				super.add(figure, constraint, index);
 			}
-		}
+		}*/
 
 		/**
 		 * @generated NOT
@@ -317,6 +349,8 @@ public class ConditionalRouterMediatorEditPart extends
 			fFigureConditionalRouterPropertyValue.setText("<...>");
 			fFigureConditionalRouterPropertyValue.setAlignment(SWT.CENTER);
 
+			fFigureConditionalRouterDescriptionLabel = getPropertyNameLabel();
+
 		}
 
 		/**
@@ -326,12 +360,16 @@ public class ConditionalRouterMediatorEditPart extends
 			return fFigureConditionalRouterPropertyValue;
 		}
 
+		public WrappingLabel getConditionalRouterDescriptionLabel() {
+			return fFigureConditionalRouterDescriptionLabel;
+		}
+
 		public String getIconPath() {
 			return "icons/ico20/conditionalRouter-mediator.gif";
 		}
 
 		public String getNodeName() {
-			return "Condit...";
+			return "ConditionalRouter";
 		}
 
 		public IFigure getToolTip() {

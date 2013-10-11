@@ -2262,6 +2262,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//ConditionalRouterMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#ConditionalRouterMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.38"/>
