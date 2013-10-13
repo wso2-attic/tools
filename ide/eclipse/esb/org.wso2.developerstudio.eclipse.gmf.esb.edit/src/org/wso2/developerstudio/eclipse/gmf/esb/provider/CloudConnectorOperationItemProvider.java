@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.provider;
 
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -34,6 +35,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -61,32 +63,8 @@ public class CloudConnectorOperationItemProvider
 	 */
 	public CloudConnectorOperationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-	}
+	}	
 	
-	
-	
-	
-	protected void addCustomConnectorParametersPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 "spreadsheetName",//getString("_UI_CloudConnectorOperation_connectorParameters_feature"),
-				 "Test_1",//getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_connectorParameters_feature", "_UI_CloudConnectorOperation_type"),
-				 null,
-				 true,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-		
-	}
-	
-	
-	
-	
-
 	/**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
@@ -99,15 +77,34 @@ public class CloudConnectorOperationItemProvider
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
-		addConnectorParametersPropertyDescriptor(object);
+		//addConnectorParametersPropertyDescriptor(object);
 		addConfigRefPropertyDescriptor(object);
 		addAvailableConfigsPropertyDescriptor(object);
 		addNewConfigPropertyDescriptor(object);
-		//addCustomConnectorParametersPropertyDescriptor(object);
-		//addConnectorNamePropertyDescriptor(object);
-	    //addOperationNamePropertyDescriptor(object);
+		
+		Iterator<CallTemplateParameter> iterator=((CloudConnectorOperation)object).getConnectorParameters().iterator();
+		while(iterator.hasNext()){
+			CallTemplateParameter callTemplateParameter=iterator.next();
+			addCustomConnectorParametersPropertyDescriptor(object,callTemplateParameter);
+		}	
 		
 		return itemPropertyDescriptors;
+	}
+	
+	protected void addCustomConnectorParametersPropertyDescriptor(Object object,CallTemplateParameter callTemplateParameter) {		
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 callTemplateParameter.getParameterName(),
+				 "Cloud connector operation parameter",
+				 null,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));		
 	}
 
 	/**

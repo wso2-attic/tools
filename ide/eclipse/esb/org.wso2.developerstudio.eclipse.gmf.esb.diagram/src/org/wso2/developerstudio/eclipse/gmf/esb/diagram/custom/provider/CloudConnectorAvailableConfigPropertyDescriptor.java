@@ -191,7 +191,7 @@ public class CloudConnectorAvailableConfigPropertyDescriptor extends PropertyDes
 					}	*/				
 					
 				
-					if(!getValue().toString().equals(DEFAULT_VALUE)){					
+					if(getValue()!=null && !DEFAULT_VALUE.equals(getValue().toString())){					
 						SetCommand setCmd = new SetCommand(TransactionUtil.getEditingDomain(object_), (EObject) object_,
 								EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__CONFIG_REF, getValue().toString());
 						if (setCmd.canExecute()) {

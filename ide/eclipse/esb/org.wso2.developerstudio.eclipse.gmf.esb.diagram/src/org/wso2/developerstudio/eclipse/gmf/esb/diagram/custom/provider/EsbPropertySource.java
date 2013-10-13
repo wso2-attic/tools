@@ -345,9 +345,9 @@ public class EsbPropertySource extends PropertySource {
 			
 		// Else, default EMF behavior
 		else {
-/*			if(object instanceof CloudConnectorOperation){
+			if(object instanceof CloudConnectorOperation){
 				return new CloudConnectorDynamicParameterPropertyDescriptor(object, itemPropertyDescriptor);
-			}*/
+			}
 			return super.createPropertyDescriptor(itemPropertyDescriptor);
 		}
 	}
