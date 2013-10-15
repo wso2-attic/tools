@@ -157,7 +157,9 @@ public class EndpointPOMGenMojo extends AbstractPOMGenMojo {
 					while (st.hasMoreTokens()) {
 						String nextToken = st.nextToken();
 						if (mavenProperties.containsKey(nextToken)) {
+							String originalToken = nextToken;
 							nextToken = (String) mavenProperties.get(nextToken);
+							getLog().info("Replacing the token: "+originalToken+" with value: "+nextToken);
 						}
 						sb.append(nextToken);
 					} 
