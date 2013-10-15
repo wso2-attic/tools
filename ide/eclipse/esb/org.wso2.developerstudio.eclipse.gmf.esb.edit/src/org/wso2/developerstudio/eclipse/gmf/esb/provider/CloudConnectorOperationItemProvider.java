@@ -89,11 +89,11 @@ public class CloudConnectorOperationItemProvider
 		}	
 		
 		return itemPropertyDescriptors;
-	}
+	}	
 	
 	protected void addCustomConnectorParametersPropertyDescriptor(Object object,CallTemplateParameter callTemplateParameter) {		
 		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
+			(new ItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 callTemplateParameter.getParameterName(),
@@ -102,9 +102,21 @@ public class CloudConnectorOperationItemProvider
 				 true,
 				 false,
 				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
-				 null,
-				 null));		
+				 null){
+				@Override
+				public Object getPropertyValue(Object object) {					
+					Iterator<CallTemplateParameter> iterator=((CloudConnectorOperation)object).getConnectorParameters().iterator();
+					while(iterator.hasNext()){
+						CallTemplateParameter callTemplateParameter=iterator.next();
+						if(displayName.equals(callTemplateParameter.getParameterName())){
+							return createPropertyValueWrapper(object, callTemplateParameter.getParameterValue());
+						}
+					}					
+					return null;					
+				}
+			});		
 	}
 
 	/**

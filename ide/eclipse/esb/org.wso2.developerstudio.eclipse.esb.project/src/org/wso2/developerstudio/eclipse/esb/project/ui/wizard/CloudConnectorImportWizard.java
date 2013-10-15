@@ -48,7 +48,9 @@ public class CloudConnectorImportWizard extends Wizard{
 	    	    String destination = detailWizardPage.getSelectedProject().getLocation().toOSString()+File.separator+"cloudConnectors"+File.separator+zipFileName;
 	            zipFile.getFile(); zipFile.extractAll(destination);
 	            IUpdateGMFPlugin updateGMFPlugin = GMFPluginDetails.getiUpdateGMFPlugin();
-	            updateGMFPlugin.updateOpenedEditors();
+	            if(updateGMFPlugin!=null){
+	            	updateGMFPlugin.updateOpenedEditors();
+	            }
 	        } catch (ZipException e) {
 	            e.printStackTrace();
 	        }
