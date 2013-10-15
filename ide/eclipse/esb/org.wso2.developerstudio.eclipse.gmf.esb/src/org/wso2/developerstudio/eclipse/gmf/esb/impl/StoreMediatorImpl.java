@@ -37,6 +37,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.StoreMediatorImpl#getOnStoreSequence <em>On Store Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.StoreMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.StoreMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.StoreMediatorImpl#getAvailableMessageStores <em>Available Message Stores</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +93,26 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	 * @ordered
 	 */
 	protected StoreMediatorOutputConnector outputConnector;
+
+	/**
+	 * The default value of the '{@link #getAvailableMessageStores() <em>Available Message Stores</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailableMessageStores()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String AVAILABLE_MESSAGE_STORES_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getAvailableMessageStores() <em>Available Message Stores</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailableMessageStores()
+	 * @generated
+	 * @ordered
+	 */
+	protected String availableMessageStores = AVAILABLE_MESSAGE_STORES_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -274,6 +295,27 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAvailableMessageStores() {
+		return availableMessageStores;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAvailableMessageStores(String newAvailableMessageStores) {
+		String oldAvailableMessageStores = availableMessageStores;
+		availableMessageStores = newAvailableMessageStores;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES, oldAvailableMessageStores, availableMessageStores));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -304,6 +346,8 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 				return getInputConnector();
 			case EsbPackage.STORE_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES:
+				return getAvailableMessageStores();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -328,6 +372,9 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 				return;
 			case EsbPackage.STORE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((StoreMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES:
+				setAvailableMessageStores((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -354,6 +401,9 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 			case EsbPackage.STORE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((StoreMediatorOutputConnector)null);
 				return;
+			case EsbPackage.STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES:
+				setAvailableMessageStores(AVAILABLE_MESSAGE_STORES_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -375,6 +425,8 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 				return inputConnector != null;
 			case EsbPackage.STORE_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES:
+				return AVAILABLE_MESSAGE_STORES_EDEFAULT == null ? availableMessageStores != null : !AVAILABLE_MESSAGE_STORES_EDEFAULT.equals(availableMessageStores);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -392,6 +444,8 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (messageStore: ");
 		result.append(messageStore);
+		result.append(", availableMessageStores: ");
+		result.append(availableMessageStores);
 		result.append(')');
 		return result.toString();
 	}

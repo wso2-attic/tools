@@ -78,6 +78,7 @@ public class StoreMediatorItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			
 			addMessageStorePropertyDescriptor(object);
 			addOnStoreSequencePropertyDescriptor(object);
 		}

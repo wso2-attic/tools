@@ -13162,6 +13162,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getStoreMediator_AvailableMessageStores() {
+		return (EAttribute)storeMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getStoreMediatorInputConnector() {
 		return storeMediatorInputConnectorEClass;
 	}
@@ -16403,6 +16412,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(storeMediatorEClass, STORE_MEDIATOR__ON_STORE_SEQUENCE);
 		createEReference(storeMediatorEClass, STORE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(storeMediatorEClass, STORE_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(storeMediatorEClass, STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES);
 
 		storeMediatorInputConnectorEClass = createEClass(STORE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -18400,6 +18410,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getStoreMediator_OnStoreSequence(), this.getRegistryKeyProperty(), null, "onStoreSequence", null, 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStoreMediator_InputConnector(), this.getStoreMediatorInputConnector(), null, "inputConnector", null, 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStoreMediator_OutputConnector(), this.getStoreMediatorOutputConnector(), null, "outputConnector", null, 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStoreMediator_AvailableMessageStores(), ecorePackage.getEString(), "availableMessageStores", "", 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(storeMediatorInputConnectorEClass, StoreMediatorInputConnector.class, "StoreMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -66,6 +66,7 @@ public class StoreMediatorItemProvider
 		}
 		super.getPropertyDescriptors(object);
 
+		addAvailableMessageStoresPropertyDescriptor(object);
 		addMessageStorePropertyDescriptor(object);
 		addOnStoreSequencePropertyDescriptor(object);
 		addDescriptionPropertyDescriptor(object);
@@ -112,6 +113,28 @@ public class StoreMediatorItemProvider
 				 false,
 				 true,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Available Message Stores feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAvailableMessageStoresPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_StoreMediator_availableMessageStores_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_StoreMediator_availableMessageStores_feature", "_UI_StoreMediator_type"),
+				 EsbPackage.Literals.STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -188,6 +211,7 @@ public class StoreMediatorItemProvider
 
 		switch (notification.getFeatureID(StoreMediator.class)) {
 			case EsbPackage.STORE_MEDIATOR__MESSAGE_STORE:
+			case EsbPackage.STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.STORE_MEDIATOR__INPUT_CONNECTOR:

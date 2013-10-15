@@ -1573,6 +1573,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//StoreMediator/onStoreSequence"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//StoreMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//StoreMediator/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//StoreMediator/availableMessageStores"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//StoreMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//StoreMediatorOutputConnector"/>

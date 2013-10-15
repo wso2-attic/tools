@@ -14066,13 +14066,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int STORE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Available Message Stores</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES = MEDIATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Store Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 4;
+	int STORE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.StoreMediatorInputConnectorImpl <em>Store Mediator Input Connector</em>}' class.
@@ -32098,6 +32107,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getStoreMediator_OutputConnector();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getAvailableMessageStores <em>Available Message Stores</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Available Message Stores</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getAvailableMessageStores()
+	 * @see #getStoreMediator()
+	 * @generated
+	 */
+	EAttribute getStoreMediator_AvailableMessageStores();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorInputConnector <em>Store Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -43614,6 +43634,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference STORE_MEDIATOR__OUTPUT_CONNECTOR = eINSTANCE.getStoreMediator_OutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Available Message Stores</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STORE_MEDIATOR__AVAILABLE_MESSAGE_STORES = eINSTANCE.getStoreMediator_AvailableMessageStores();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.StoreMediatorInputConnectorImpl <em>Store Mediator Input Connector</em>}' class.
