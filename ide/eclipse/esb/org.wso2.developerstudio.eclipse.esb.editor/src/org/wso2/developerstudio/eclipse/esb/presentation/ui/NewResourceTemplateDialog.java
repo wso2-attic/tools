@@ -161,7 +161,7 @@ public class NewResourceTemplateDialog extends Dialog {
 				validate();
 			}
 		});
-		txtResourceName.setText("NewResrouce");
+		txtResourceName.setText("NewResource");
 		FormData fd_txtResourceName = new FormData();
 		fd_txtResourceName.top = new FormAttachment(lblArtifactName, 6);
 		fd_txtResourceName.right = new FormAttachment(cmbProject, 0, SWT.RIGHT);
@@ -181,7 +181,7 @@ public class NewResourceTemplateDialog extends Dialog {
 				validate();
 			}
 		});
-		txtRegistryPath.setText("/_system/config/myresrouces");
+		txtRegistryPath.setText("/_system/config/myresources");
 		FormData fd_txtRegistryPath = new FormData();
 		fd_txtRegistryPath.top = new FormAttachment(lblRegistryPath, 6);
 		fd_txtRegistryPath.left = new FormAttachment(lblProject, 22, SWT.LEFT);
