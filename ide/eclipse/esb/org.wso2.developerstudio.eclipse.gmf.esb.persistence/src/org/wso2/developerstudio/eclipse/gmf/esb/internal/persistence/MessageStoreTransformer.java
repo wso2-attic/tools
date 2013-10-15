@@ -38,7 +38,8 @@ public class MessageStoreTransformer {
 		
 		// Fixing TOOLS-2026.
 		//String className = "org.apache.synapse.message.store.InMemoryMessageStore";
-		String className = "org.apache.synapse.message.store.impl.memory.InMemoryStore";
+		//String className = "org.apache.synapse.message.store.impl.memory.InMemoryStore";
+		String className = null;
 
 		org.apache.synapse.message.store.MessageStore messageStore = new InMemoryStore();
 		messageStore.setName(model.getStoreName());
@@ -90,8 +91,14 @@ public class MessageStoreTransformer {
 		OMAttribute classAttr = messageStoreElement.getAttribute(new QName("class"));
 		if (classAttr != null) {
 			classAttr.setAttributeValue(className);
-		} else {
+		} else if (!StringUtils.isBlank(className)) {
 			messageStoreElement.addAttribute("class", className, null);
+		} else {
+			/*
+			 *  Class attribute is optional for In-Memory Store. If class attribute is 
+			 *  not defined it will be considered as an In-Memory Store. 
+			 */
+			//messageStoreElement.addAttribute("class", className, null);
 		}
 
 		return messageStoreElement;

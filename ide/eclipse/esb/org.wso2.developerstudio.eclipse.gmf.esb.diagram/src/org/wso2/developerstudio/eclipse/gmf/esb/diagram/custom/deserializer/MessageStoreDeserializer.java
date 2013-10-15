@@ -23,6 +23,7 @@ import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.message.store.MessageStore;
+import org.apache.synapse.message.store.impl.memory.InMemoryStore;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.JMSSpecVersion;
@@ -39,8 +40,8 @@ public class MessageStoreDeserializer
 		AbstractEsbNodeDeserializer<MessageStore, org.wso2.developerstudio.eclipse.gmf.esb.MessageStore> {
 	
 	// Fixing TOOLS-2026.
-	//private static final String jmsMessageStoreFQN = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";	
-	//private static final String inMemoryMessageStoreFQN = "org.apache.synapse.message.store.InMemoryMessageStore";
+	private static final String jmsMessageStoreFQNOld = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";	
+	private static final String inMemoryMessageStoreFQNOld = "org.apache.synapse.message.store.InMemoryMessageStore";
 	private static final String jmsMessageStoreFQN = "org.apache.synapse.message.store.impl.jms.JmsStore";	
 	private static final String inMemoryMessageStoreFQN = "org.apache.synapse.message.store.impl.memory.InMemoryStore";
 
@@ -54,7 +55,8 @@ public class MessageStoreDeserializer
 		if (store instanceof DummyMessageStore) {
 			DummyMessageStore dummyStore = (DummyMessageStore) store;
 			if (StringUtils.isNotBlank(dummyStore.getClassName())) {
-				if (dummyStore.getClassName().equals(jmsMessageStoreFQN)) {
+				if (dummyStore.getClassName().equals(jmsMessageStoreFQN)
+						|| dummyStore.getClassName().equals(jmsMessageStoreFQNOld)) {
 					executeSetValueCommand(MESSAGE_STORE__STORE_TYPE,MessageStoreType.JMS);
 					Map<String, Object> params = dummyStore.getParameters();
 					if (params.containsKey("java.naming.factory.initial")) {
@@ -119,8 +121,9 @@ public class MessageStoreDeserializer
 							}
 						}
 					}
-				} else if (dummyStore.getClassName().equals(inMemoryMessageStoreFQN)) {
-					//nothing to do
+				} else if (dummyStore.getClassName().equals(inMemoryMessageStoreFQN)
+						|| dummyStore.getClassName().equals(inMemoryMessageStoreFQNOld)) {
+					executeSetValueCommand(MESSAGE_STORE__STORE_TYPE, MessageStoreType.IN_MEMORY);
 				} else {
 					executeSetValueCommand(MESSAGE_STORE__STORE_TYPE,MessageStoreType.CUSTOM);
 					executeSetValueCommand(MESSAGE_STORE__PROVIDER_CLASS,dummyStore.getClassName());
@@ -134,6 +137,9 @@ public class MessageStoreDeserializer
 				}
 			}
 
+		} else if (store instanceof InMemoryStore) {
+			// Default is In-Memory Store. 
+			executeSetValueCommand(MESSAGE_STORE__STORE_TYPE,MessageStoreType.IN_MEMORY);
 		}
 		executeSetValueCommand(MESSAGE_STORE__STORE_NAME,store.getName());
 		

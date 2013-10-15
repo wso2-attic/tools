@@ -165,7 +165,8 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 		Map<String,Object> parameters = new HashMap<String,Object>();
 		// Fixing TOOLS-2026.
 		//String className = "org.apache.synapse.message.store.InMemoryMessageStore";
-		String className = "org.apache.synapse.message.store.impl.memory.InMemoryStore";
+		//String className = "org.apache.synapse.message.store.impl.memory.InMemoryStore";
+		String className = null;
 		MessageStore store = new InMemoryStore();
 		store.setName(messageStoreModel.getStoreName());
 		String lineSeparator = System.getProperty("line.separator","\n");
@@ -213,8 +214,15 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 		OMAttribute classAttr = messageStoreElement.getAttribute(new QName("class"));
 		if(classAttr!=null){
 			classAttr.setAttributeValue(className);
-		} else{
+		} else if (!StringUtils.isBlank(className)) {
 			messageStoreElement.addAttribute("class", className, null);
+		} else{
+			/**
+			 * Class attribute is optional for In-Memory Store.
+			 * If class name is not defined it will be considered as an 
+			 * In-Memory store by default.
+			 */
+			//messageStoreElement.addAttribute("class", className, null);
 		}
 		return messageStoreElement.toString().replace("><", ">" + lineSeparator + "<");
 	}

@@ -52,7 +52,7 @@ public class DummyMessageProcessorFactory {
 			"description");
 	
 	// Fixing TOOLS-2026.
-	//public static final String FORWARDING_PROCESSOR = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+	public static final String FORWARDING_PROCESSOR_OLD = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
 	public static final String FORWARDING_PROCESSOR = "org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor";
 	
 	public static final QName TARGET_ENDPOINT_Q = new QName(XMLConfigConstants.NULL_NAMESPACE,
@@ -79,7 +79,8 @@ public class DummyMessageProcessorFactory {
 			handleException("Message Processor name not specified");
 		}
 
-		if (FORWARDING_PROCESSOR.equals(clssAtt.getAttributeValue())) {
+		if (FORWARDING_PROCESSOR.equals(clssAtt.getAttributeValue())
+				|| FORWARDING_PROCESSOR_OLD.equals(clssAtt.getAttributeValue())) {
 			OMAttribute targetSequenceAtt = elem.getAttribute(TARGET_ENDPOINT_Q);
 
 			if (targetSequenceAtt != null) {

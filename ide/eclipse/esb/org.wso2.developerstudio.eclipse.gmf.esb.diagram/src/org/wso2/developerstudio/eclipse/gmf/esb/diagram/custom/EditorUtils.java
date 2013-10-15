@@ -497,13 +497,13 @@ public class EditorUtils {
 							//esbPaletteFactory.addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor());
 						}
 						addCloudConnectorOperations(((EsbMultiPageEditor) editor).getGraphicalEditor(), esbPaletteFactory);
-					}
-					
-					// Initialize palette viewer key handler. 
-					PaletteViewer paletteViewer = ((DiagramEditDomain) ((EsbMultiPageEditor) editor).getGraphicalEditor().getDiagramEditDomain())
-							.getPaletteViewer();
-					if(paletteViewer.getKeyHandler() instanceof CustomPaletteViewerKeyHandler) {
-						((CustomPaletteViewerKeyHandler)paletteViewer.getKeyHandler()).initializeKeyHandler();	
+						
+						// Initialize palette viewer key handler. 
+						PaletteViewer paletteViewer = ((DiagramEditDomain) ((EsbMultiPageEditor) editor).getGraphicalEditor().getDiagramEditDomain())
+								.getPaletteViewer();
+						if(paletteViewer.getKeyHandler() instanceof CustomPaletteViewerKeyHandler) {
+							((CustomPaletteViewerKeyHandler)paletteViewer.getKeyHandler()).initializeKeyHandler();	
+						}
 					}
 				}
 			}

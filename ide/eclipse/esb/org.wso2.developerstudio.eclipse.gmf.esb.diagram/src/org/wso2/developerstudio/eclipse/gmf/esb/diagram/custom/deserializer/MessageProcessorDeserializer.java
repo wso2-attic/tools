@@ -59,8 +59,8 @@ extends
 AbstractEsbNodeDeserializer<MessageProcessor, org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor> {
 
 	// Fixing TOOLS-2026.
-	//private static final String scheduledMessageForwardingProcessor = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
-	//private static final String messageSamplingProcessor = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
+	private static final String scheduledMessageForwardingProcessorOld = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+	private static final String messageSamplingProcessorOld = "org.apache.synapse.message.processors.sampler.SamplingProcessor";
 	private static final String scheduledMessageForwardingProcessor = "org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor";
 	private static final String messageSamplingProcessor = "org.apache.synapse.message.processor.impl.sampler.SamplingProcessor";
 	
@@ -75,7 +75,9 @@ AbstractEsbNodeDeserializer<MessageProcessor, org.wso2.developerstudio.eclipse.g
 			DummyMessageProcessor dummyMessageProcessor = (DummyMessageProcessor) processor;
 			if (StringUtils.isNotBlank(dummyMessageProcessor.getClassName())) {
 				if (dummyMessageProcessor.getClassName()
-						.equals(scheduledMessageForwardingProcessor)) {
+						.equals(scheduledMessageForwardingProcessor)
+						|| dummyMessageProcessor.getClassName().equals(
+								scheduledMessageForwardingProcessorOld)) {
 					// Scheduled Message Forwarding Processor
 					executeSetValueCommand(MESSAGE_PROCESSOR__PROCESSOR_TYPE,
 							MessageProcessorType.SCHEDULED_MSG_FORWARDING);
@@ -178,7 +180,8 @@ AbstractEsbNodeDeserializer<MessageProcessor, org.wso2.developerstudio.eclipse.g
 							}
 						}
 					}
-				} else if (dummyMessageProcessor.getClassName().equals(messageSamplingProcessor)) {
+				} else if (dummyMessageProcessor.getClassName().equals(messageSamplingProcessor)
+						|| dummyMessageProcessor.getClassName().equals(messageSamplingProcessorOld)) {
 					// Message Sampling Processor
 					executeSetValueCommand(MESSAGE_PROCESSOR__PROCESSOR_TYPE,
 							MessageProcessorType.MSG_SAMPLING);
