@@ -200,6 +200,34 @@ public class ESBProjectUtils {
 					fileList.put(destFile, "api");
 					createArtifactMetaDataEntry(qName, "synapse/api", baseDir,
 							groupId + ".api",project);
+				} else if (localName.equalsIgnoreCase("messageStore")) {
+					File baseDir = project.getFolder(commonESBPath + "message-stores")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils
+							.getMavenProject(pomfile);
+					addPluginEntry(mavenProject, "org.wso2.maven",
+							"wso2-esb-messagestore-plugin",
+							MavenConstants.WSO2_ESB_MESSAGE_STORE_PLUGIN_VERSION, "message-store");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile, localName);
+					createArtifactMetaDataEntry(qName, "synapse/message-store", baseDir,
+							groupId + ".message-store",project);
+				} else if (localName.equalsIgnoreCase("messageProcessor")) {
+					File baseDir = project.getFolder(commonESBPath + "message-processors")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils
+							.getMavenProject(pomfile);
+					addPluginEntry(mavenProject, "org.wso2.maven",
+							"wso2-esb-messageprocessor-plugin",
+							MavenConstants.WSO2_ESB_MESSAGE_PROCESSOR_PLUGIN_VERSION, "message-processor");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile, localName);
+					createArtifactMetaDataEntry(qName, "synapse/message-processors", baseDir,
+							groupId + ".message-processor",project);
 				}
 			}
 		}
