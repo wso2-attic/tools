@@ -28,7 +28,7 @@ import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifac
 import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
 
 public class ResourcesContentProvider implements ITreeContentProvider {
-	private static final String navigatorLabel = "Registry Resoures View";
+	private static final String navigatorLabel = "Registry Resources View";
 	private IProject project;
 	NavigatorNode root;
 	
