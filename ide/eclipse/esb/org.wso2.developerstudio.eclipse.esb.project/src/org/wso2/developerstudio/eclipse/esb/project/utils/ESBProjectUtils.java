@@ -122,7 +122,13 @@ public class ESBProjectUtils {
 							MavenConstants.WSO2_ESB_SEQUENCE_VERSION,
 							"sequence");
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
-					fileList.put(destFile, "sequence");
+					
+					// Fixing TOOLS-1981.
+					if (qName != null && qName.equalsIgnoreCase("main")) {
+						fileList.put(destFile, "main_sequence");
+					} else {
+						fileList.put(destFile, "sequence");
+					}
 					createArtifactMetaDataEntry(qName, "synapse/sequence",
 							baseDir, groupId + ".sequence",project);
 				} else if (localName.equalsIgnoreCase("endpoint")) {
