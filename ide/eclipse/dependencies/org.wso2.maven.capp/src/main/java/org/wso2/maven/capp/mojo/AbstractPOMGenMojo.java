@@ -18,6 +18,7 @@ package org.wso2.maven.capp.mojo;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -82,18 +83,33 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 	protected void processArtifacts(List<Artifact> artifacts)
 			throws MojoExecutionException {
 		if (artifacts.isEmpty()) {
+			if(getLog().isDebugEnabled()){
+				getLog().debug(System.currentTimeMillis()+" Artifacts list is empty. Nothing to process");
+			}
 			File projectLocation = new File(getOutputLocation() + "");
 
 			projectLocation.mkdirs();
 			setProjectLocation(projectLocation);
 			getMavenModuleProject();
 		} else {
+			if(getLog().isDebugEnabled()){
+				getLog().info(new Time(System.currentTimeMillis())+" Artifacts list is not empty. Start processing");
+			}
 			for (Artifact artifact : artifacts) {
 				if (artifact.getType().equalsIgnoreCase(getArtifactType())) {
-					getLog().info(
-							"Creating maven project for artifact "
+					
+					if(getLog().isDebugEnabled()){
+						getLog().debug(new Time(System.currentTimeMillis())+" Creating maven project for artifact ");
+					}
+					
+					getLog().info("Creating maven project for artifact "
 									+ artifact.getName() + ":"
 									+ artifact.getVersion() + "...");
+					
+					if(getLog().isDebugEnabled()){
+						getLog().debug(new Time(System.currentTimeMillis())+" Trying to generate the Maven Project...");
+					}
+					
 					getLog().info("\tgenerating maven project...");
 
 					File projectLocation = new File(getOutputLocation()
@@ -107,9 +123,21 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 					// workspace project.
 					MavenProject artifactMavenProject = createMavenProjectForCappArtifact(
 							artifact, artifacts, projectLocation);
+					
+					if(getLog().isDebugEnabled()){
+						getLog().debug(new Time(System.currentTimeMillis())+" Maven Project generation completed");
+					}
 
 					if (artifactMavenProject != null) {
+						if(getLog().isDebugEnabled()){
+							getLog().debug(new Time(System.currentTimeMillis())+" Generated Maven project is not null");
+						}
+						
 						try {
+							if(getLog().isDebugEnabled()){
+								getLog().debug(new Time(System.currentTimeMillis())+" copying resources...");
+							}
+							
 							getLog().info("\tcopying resources...");
 							String artifactAsMavenModule = CAppMavenUtils
 									.getMavenModuleRelativePath(
@@ -119,6 +147,10 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 							if (!existingModules.contains(artifactAsMavenModule)) {
 								existingModules.add(
 										artifactAsMavenModule);
+							}
+							
+							if(getLog().isDebugEnabled()){
+								getLog().debug(new Time(System.currentTimeMillis())+" Module list is updated with new module.");
 							}
 //							Repository repo = new Repository();
 //							repo.setUrl("http://dist.wso2.org/maven2");
@@ -132,12 +164,21 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 							artifactMavenProject.getModel().getRepositories().addAll(repositories);
 							artifactMavenProject.getModel().getPluginRepositories().addAll(repositories);
 							
+							if(getLog().isDebugEnabled()){
+								getLog().debug(new Time(System.currentTimeMillis())+" Maven project successfully updated with Repositories");
+							}
+							
 							CAppMavenUtils.saveMavenProject(
 									artifactMavenProject, new File(
 											projectLocation, "pom.xml"));
 							CAppMavenUtils
 									.saveMavenProject(getMavenModuleProject(),
 											getModuleProject());
+							
+							if(getLog().isDebugEnabled()){
+								getLog().debug(new Time(System.currentTimeMillis())+" Maven projects successfully saved");
+							}
+							
 							copyResources(artifactMavenProject,
 									projectLocation, artifact);
 						} catch (Exception e) {

@@ -34,6 +34,7 @@ import org.wso2.maven.registry.utils.GeneralProjectMavenUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -98,6 +99,9 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		//Retrieving all the existing ESB Artifacts for the given Maven project 
 		List<RegistryArtifact> artifacts = retrieveArtifacts();
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Artifacts list retrieval completed");
+		}
 		
 		//Artifact list
 		List<Artifact> mappedArtifacts=new ArrayList<Artifact>();
@@ -113,7 +117,16 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 	        artifact.setSource(new File(getArtifactLocation(),"artifact.xml"));
 	        mappedArtifacts.add(artifact);
         }
+		
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Artifact model mapping completed");
+		}
+		
 		//Calling the process artifacts method of super type to continue the sequence.
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Starting Artifact Processing");
+		}
+		
 		super.processArtifacts(mappedArtifacts);
 
 	}
@@ -123,11 +136,19 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 		//POM file and Registry-info.xml in the outside
 		
 		//Creating the registry info file outdide
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Starting to process the artifact copy process");
+		}
+		
 		File regInfoFile = new File(projectLocation, "registry-info.xml");
 		RegistryInfo regInfo=new RegistryInfo();
 		regInfo.setSource(regInfoFile);
 		
 		//Filling info sections
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Starting generation of Registry Resource Metadata");
+		}
+		
 		List<RegistryArtifact> artifacts = retrieveArtifacts();
 		for (Iterator iterator = artifacts.iterator(); iterator.hasNext();) {
 	        RegistryArtifact registryArtifact = (RegistryArtifact) iterator.next();
@@ -148,6 +169,14 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 	        regInfo.toFile();
         } catch (Exception e) {
         }
+		
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Registry Resource Metadata Generation completed");
+		}
+		
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Start copying the Registry Resource");
+		}
 		
 		List<RegistryElement> allESBArtifacts = regInfo.getAllESBArtifacts();
 		for (RegistryElement registryItem : allESBArtifacts) {
@@ -171,6 +200,10 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 			}
         }
 		
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Artifact copy process is completed");
+		}
+		
 		for (RegistryElement registryElement : allESBArtifacts) {
 			File file = null;
 			if (registryElement instanceof RegistryItem) {
@@ -190,6 +223,10 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Artifact Metadata successfully generated");
 		}
 		
 //		if(artifact.getFile().isDirectory()){
