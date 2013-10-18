@@ -36,8 +36,10 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * This is the Maven Mojo used for generating a pom for a sequence artifact 
@@ -92,19 +94,30 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 
 	private static final String ARTIFACT_TYPE="registry/resource";
 	
+	private List<RegistryArtifact> artifacts;
+	
+	private Map<Artifact, RegistryArtifact> artifactToRegArtifactMap;
+	
 	private List<RegistryArtifact> retrieveArtifacts() {
 		return GeneralProjectMavenUtils.retrieveArtifacts(getArtifactLocation());
 	}
 	
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		//Retrieving all the existing ESB Artifacts for the given Maven project 
-		List<RegistryArtifact> artifacts = retrieveArtifacts();
+		//Retrieving all the existing ESB Artifacts for the given Maven project
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Starting Artifacts list retrieval process.");
+		}
+		
+		artifacts = retrieveArtifacts();
+		
 		if(getLog().isDebugEnabled()){
 			getLog().debug(new Time(System.currentTimeMillis())+" Artifacts list retrieval completed");
 		}
 		
 		//Artifact list
 		List<Artifact> mappedArtifacts=new ArrayList<Artifact>();
+		//Initializing Artifacts to Registry Artifacts Map.
+		artifactToRegArtifactMap = new Hashtable<Artifact, RegistryArtifact>();
 		
 		//Mapping ESBArtifacts to C-App artifacts so that we can reuse the maven-sequence-plugin
 		for (RegistryArtifact registryArtifact : artifacts) {
@@ -116,6 +129,9 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 	        artifact.setFile("registry-info.xml");
 	        artifact.setSource(new File(getArtifactLocation(),"artifact.xml"));
 	        mappedArtifacts.add(artifact);
+	        
+	        //Add the mapping between C-App Artifact and Registry Artifact
+	        artifactToRegArtifactMap.put(artifact, registryArtifact);
         }
 		
 		if(getLog().isDebugEnabled()){
@@ -149,33 +165,60 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 			getLog().debug(new Time(System.currentTimeMillis())+" Starting generation of Registry Resource Metadata");
 		}
 		
-		List<RegistryArtifact> artifacts = retrieveArtifacts();
-		for (Iterator iterator = artifacts.iterator(); iterator.hasNext();) {
-	        RegistryArtifact registryArtifact = (RegistryArtifact) iterator.next();
-	        if(registryArtifact.getName().equalsIgnoreCase(artifact.getName()) && 
-	        		this.getProject().getVersion().equalsIgnoreCase(artifact.getVersion()) && 
-	        		registryArtifact.getType().equalsIgnoreCase(artifact.getType()) && 
-	        		registryArtifact.getServerRole().equalsIgnoreCase(artifact.getServerRole())){
-	        	//This is the correct registry artifact for this artifact:Yes this is reverse artifact to registry artifact mapping
-	        	List<RegistryElement> allRegistryItems = registryArtifact.getAllRegistryItems();
-	        	for (RegistryElement registryItem : allRegistryItems) {
-	                regInfo.addESBArtifact(registryItem);
-                }
-	        	break;
-	        }
-        }
+//		List<RegistryArtifact> artifacts = retrieveArtifacts();
 		
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Reusing the previously collected Artifacts details.");
+		}
+		
+		RegistryArtifact mappedRegistryArtifact = artifactToRegArtifactMap.get(artifact);
+		if(mappedRegistryArtifact != null){
+			if(getLog().isDebugEnabled()){
+				getLog().debug(new Time(System.currentTimeMillis())+" C-App artifact to Registry Artifact Mapping available.");
+			}
+	        //This is the correct registry artifact for this C-App artifact.
+			List<RegistryElement> allRegistryItems = mappedRegistryArtifact.getAllRegistryItems();
+			for (RegistryElement registryItem : allRegistryItems) {
+				regInfo.addESBArtifact(registryItem);
+			}
+		}else{		
+			if(getLog().isDebugEnabled()){
+				getLog().debug(new Time(System.currentTimeMillis())+" C-App artifact to Registry Artifact Mapping not available.");
+			}
+			
+			for (RegistryArtifact registryArtifact : artifacts) {
+		        if(registryArtifact.getName().equalsIgnoreCase(artifact.getName()) && 
+		        		this.getProject().getVersion().equalsIgnoreCase(artifact.getVersion()) && 
+		        		registryArtifact.getType().equalsIgnoreCase(artifact.getType()) && 
+		        		registryArtifact.getServerRole().equalsIgnoreCase(artifact.getServerRole())){
+		        	//This is the correct registry artifact for this artifact:Yes this is reverse artifact to registry artifact mapping
+		        	List<RegistryElement> allRegistryItems = registryArtifact.getAllRegistryItems();
+		        	for (RegistryElement registryItem : allRegistryItems) {
+		                regInfo.addESBArtifact(registryItem);
+	                }
+		        	break;
+		        }
+	        }
+		}
+		
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Registry Resource Metadata collection is complete.");
+		}
+		
+		if(getLog().isDebugEnabled()){
+			getLog().debug(new Time(System.currentTimeMillis())+" Starting serialization of Registry Resource Metadata");
+		}
 		try {
 	        regInfo.toFile();
         } catch (Exception e) {
         }
 		
 		if(getLog().isDebugEnabled()){
-			getLog().debug(new Time(System.currentTimeMillis())+" Registry Resource Metadata Generation completed");
+			getLog().debug(new Time(System.currentTimeMillis())+" Completed serialization of Registry Resource Metadata");
 		}
 		
 		if(getLog().isDebugEnabled()){
-			getLog().debug(new Time(System.currentTimeMillis())+" Start copying the Registry Resource");
+			getLog().debug(new Time(System.currentTimeMillis())+" Start copying the Registry Resource Process");
 		}
 		
 		List<RegistryElement> allESBArtifacts = regInfo.getAllESBArtifacts();
@@ -185,11 +228,18 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 				file =
 				       new File(artifact.getSource().getParentFile().getPath(),
 				                ((RegistryItem) registryItem).getFile());
+				((RegistryItem) registryItem).setFile(file.getName());
 			} else if (registryItem instanceof RegistryCollection) {
 				file =
 				       new File(artifact.getSource().getParentFile().getPath(),
 				                ((RegistryCollection) registryItem).getDirectory());
+				((RegistryCollection) registryItem).setDirectory(file.getName());
 			}
+			
+			if(getLog().isDebugEnabled()){
+				getLog().debug(new Time(System.currentTimeMillis())+"  Metadata processing complete. Copying artifacts.");
+			}
+			
 			if (file.isFile()) {
 				FileUtils.copy(file,
 				               new File(projectLocation, "resources" + File.separator + file.getName()));
@@ -198,36 +248,49 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 				                        new File(projectLocation, "resources" + File.separator +
 				                        		file.getName()));
 			}
+			
+			if(getLog().isDebugEnabled()){
+				getLog().debug(new Time(System.currentTimeMillis())+" Artifact Copying complete.");
+			}
+			
+			try {
+				regInfo.toFile();
+			} catch (Exception e) {
+			}
+			
+			if(getLog().isDebugEnabled()){
+				getLog().debug(new Time(System.currentTimeMillis())+" Metadata file serialization completed.");
+			}
         }
 		
 		if(getLog().isDebugEnabled()){
 			getLog().debug(new Time(System.currentTimeMillis())+" Artifact copy process is completed");
 		}
 		
-		for (RegistryElement registryElement : allESBArtifacts) {
-			File file = null;
-			if (registryElement instanceof RegistryItem) {
-				file =
-				       new File(artifact.getSource().getParentFile().getPath(),
-				                ((RegistryItem) registryElement).getFile());
-				((RegistryItem) registryElement).setFile(file.getName());
-			} else if (registryElement instanceof RegistryCollection) {
-				file =
-				       new File(artifact.getSource().getParentFile().getPath(),
-				                ((RegistryCollection) registryElement).getDirectory());
-				((RegistryCollection) registryElement).setDirectory(file.getName());
-			}
-			try {
-				regInfo.toFile();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		if(getLog().isDebugEnabled()){
-			getLog().debug(new Time(System.currentTimeMillis())+" Artifact Metadata successfully generated");
-		}
+//		for (RegistryElement registryElement : allESBArtifacts) {
+//			File file = null;
+//			if (registryElement instanceof RegistryItem) {
+//				file =
+//				       new File(artifact.getSource().getParentFile().getPath(),
+//				                ((RegistryItem) registryElement).getFile());
+//				((RegistryItem) registryElement).setFile(file.getName());
+//			} else if (registryElement instanceof RegistryCollection) {
+//				file =
+//				       new File(artifact.getSource().getParentFile().getPath(),
+//				                ((RegistryCollection) registryElement).getDirectory());
+//				((RegistryCollection) registryElement).setDirectory(file.getName());
+//			}
+//			try {
+//				regInfo.toFile();
+//			} catch (Exception e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//		if(getLog().isDebugEnabled()){
+//			getLog().debug(new Time(System.currentTimeMillis())+" Artifact Metadata successfully generated");
+//		}
 		
 //		if(artifact.getFile().isDirectory()){
 //			File file = new File(artifact.getFile().getParentFile(),"resources");

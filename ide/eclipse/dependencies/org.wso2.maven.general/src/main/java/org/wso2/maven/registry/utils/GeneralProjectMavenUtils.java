@@ -33,7 +33,7 @@ public class GeneralProjectMavenUtils {
 	
 
 	public static List<RegistryArtifact> retrieveArtifacts(File path){
-		return retrieveArtifacts(path, new ArrayList<RegistryArtifact>());
+		return retrieveArtifacts(new File(path,"artifact.xml"), new ArrayList<RegistryArtifact>());
 	}
 	
 	private static List<RegistryArtifact> retrieveArtifacts(File path, List<RegistryArtifact> artifacts){
