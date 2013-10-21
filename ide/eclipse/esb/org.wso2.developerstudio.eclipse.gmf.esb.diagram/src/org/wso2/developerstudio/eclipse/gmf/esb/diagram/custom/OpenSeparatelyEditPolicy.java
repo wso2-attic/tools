@@ -58,7 +58,7 @@ public class OpenSeparatelyEditPolicy extends OpenEditPolicy {
 					MessageDialog
 					.openError(
 							Display.getCurrent().getActiveShell(),
-							"Invalid sequence name ! ",
+							"Invalid Template name ! ",
 							"Cannot open the file with name \""+targetTemplate+"\". Try removing file separator from the name if exists.");
 				}
 			
