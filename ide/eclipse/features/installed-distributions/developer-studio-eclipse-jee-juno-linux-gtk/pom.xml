@@ -337,6 +337,8 @@
 						<arg value="-installIU" />
 						<arg value="org.wso2.developerstudio.eclipse.carbonserver.40.feature.feature.group" />
 						<arg value="-installIU" />
+                                                <arg value="org.wso2.developerstudio.eclipse.carbonserver.42.feature.feature.group" />
+						<arg value="-installIU" />
 						<arg value="org.wso2.developerstudio.eclipse.carbonserver.remote.feature.feature.group" />
 						<arg value="-installIU" />
 						<arg value="org.jboss.tools.smooks.feature.feature.group" />

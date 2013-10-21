@@ -239,6 +239,7 @@
         <carbonserver.31.version>3.3.0-SNAPSHOT</carbonserver.31.version>
 	<carbonserver.32.version>3.3.0-SNAPSHOT</carbonserver.32.version>
 	<carbonserver.40.version>3.3.0-SNAPSHOT</carbonserver.40.version>
+	<carbonserver.42.version>3.3.0-SNAPSHOT</carbonserver.42.version>
 	<carbonserver.remote.version>3.3.0-SNAPSHOT</carbonserver.remote.version>
         <core.tools.version>3.3.0-SNAPSHOT</core.tools.version>
         <greg.connector.version>3.3.0-SNAPSHOT</greg.connector.version>
@@ -279,6 +280,7 @@
         <carbonserver.31.feature.version>3.3.0-SNAPSHOT</carbonserver.31.feature.version>  
 	<carbonserver.32.feature.version>3.3.0-SNAPSHOT</carbonserver.32.feature.version>
 	<carbonserver.40.feature.version>3.3.0-SNAPSHOT</carbonserver.40.feature.version>
+	<carbonserver.42.feature.version>3.3.0-SNAPSHOT</carbonserver.42.feature.version>
 	<carbonserver.remote.feature.version>3.3.0-SNAPSHOT</carbonserver.remote.feature.version>
 	    
         <osde.feature.version>3.3.0-SNAPSHOT</osde.feature.version>

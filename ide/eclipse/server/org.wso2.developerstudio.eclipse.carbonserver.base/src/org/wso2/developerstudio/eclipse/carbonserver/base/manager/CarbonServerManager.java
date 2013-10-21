@@ -814,6 +814,24 @@ public final class CarbonServerManager implements IServerManager {
 		}
 		return result;
 	}
+
+	public static String getServerCarbonVersion(IServer server) {
+		String result=null;
+		if (server!=null){
+			IServerManager wsasServerManager = ServerController.getInstance().getServerManager();
+			HashMap<String,Object> operationParameters=new HashMap<String,Object>();
+			operationParameters.put(ICarbonOperationManager.PARAMETER_TYPE, ICarbonOperationManager.OPERATION_SERVER_VERSION);
+			Object r = null;
+			try {
+				r = wsasServerManager.executeOperationOnServer(server, operationParameters);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}//getWSDLConversionResultUrl(resourceFile);
+				result=(String)r;
+		}
+		return result;
+	}
 	
 
 }

@@ -798,4 +798,12 @@ public class CarbonServer40Utils {
 	    out.close();
 	    stream.close();
 	}
+
+
+	/**
+	 * @return the serverVersion
+	 */
+	public static String getServerVersion() {
+		return CarbonServerConstants.CARBON_VERSION;
+	}
 }

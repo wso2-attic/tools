@@ -103,6 +103,7 @@
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.40.feature:${carbonserver.40.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.42.feature:${carbonserver.42.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.remote.feature:${carbonserver.remote.feature.version}</featureArtifactDef>
 						                                
 						<featureArtifactDef>org.jboss.tools:org.jboss.tools.smooks.feature:${smooks.feature.version}</featureArtifactDef> 
@@ -219,6 +220,7 @@
 						        <featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.31.feature:${carbonserver.31.feature.version}</featureArtifactDef>
 						    	<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.32.feature:${carbonserver.32.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.40.feature:${carbonserver.40.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.42.feature:${carbonserver.42.feature.version}</featureArtifactDef>
 						    	<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbonserver.remote.feature:${carbonserver.remote.feature.version}</featureArtifactDef>
 									    					
 							<featureArtifactDef>org.jboss.tools:org.jboss.tools.smooks.feature:${smooks.feature.version}</featureArtifactDef>
@@ -282,6 +284,6 @@
 		</plugins>
 	</build>
 	<properties>
-		<carbon.version>3.2.0</carbon.version>
+		<carbon.version>4.2.0</carbon.version>
 	</properties>
 </project>

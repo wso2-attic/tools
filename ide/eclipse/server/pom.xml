@@ -20,6 +20,7 @@
         <module>org.wso2.developerstudio.eclipse.carbonserver31</module>
     	<module>org.wso2.developerstudio.eclipse.carbonserver32</module>
 	<module>org.wso2.developerstudio.eclipse.carbonserver40</module>
+	<module>org.wso2.developerstudio.eclipse.carbonserver42</module>
     	<module>org.wso2.developerstudio.eclipse.carbonserver.remote</module>
     </modules>
     <!--distributionManagement>

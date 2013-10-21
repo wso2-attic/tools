@@ -79,5 +79,7 @@ public class CarbonServerConstants {
 	
 	public static final String ESB_USERNAME="esb.username";
 	public static final String ESB_PASSWORD="esb.password";
+	
+	public static final String CARBON_VERSION="4.0.0";
 
 }
