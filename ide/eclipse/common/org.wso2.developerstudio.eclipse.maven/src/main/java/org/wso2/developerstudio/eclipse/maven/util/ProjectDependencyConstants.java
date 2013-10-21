@@ -30,7 +30,7 @@ public class ProjectDependencyConstants {
         DEPENDENCY_MAP.put("rampart-policy", "1.6.1.wso2v5");
         DEPENDENCY_MAP.put("mvel2", "2.0.17");
         DEPENDENCY_MAP.put("axiom", "1.2.11.wso2v3");
-        DEPENDENCY_MAP.put("synapse-core", "2.1.0-wso2v7");
+        DEPENDENCY_MAP.put("synapse-core", "2.1.2.wso2v1");
         DEPENDENCY_MAP.put("jettison", "1.1.0.wso2v1");
         DEPENDENCY_MAP.put("woden", "1.0.0.M8-wso2v1");
         DEPENDENCY_MAP.put("commons-io", "2.0.0.wso2v2");
