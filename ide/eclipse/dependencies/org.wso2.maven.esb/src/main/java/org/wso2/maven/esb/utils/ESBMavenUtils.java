@@ -33,7 +33,7 @@ public class ESBMavenUtils {
 	
 
 	public static List<ESBArtifact> retrieveArtifacts(File path){
-		return retrieveArtifacts(path, new ArrayList<ESBArtifact>());
+		return retrieveArtifacts(new File(path, "artifact.xml"), new ArrayList<ESBArtifact>());
 	}
 	
 	private static List<ESBArtifact> retrieveArtifacts(File path, List<ESBArtifact> artifacts){
