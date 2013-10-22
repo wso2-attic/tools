@@ -88,9 +88,6 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 			IResource resource = (IResource)value;
 			if(resource==null || !resource.exists())	 
 				throw new FieldValidationException("Specified project or path doesn't exist");
-		}else if (modelProperty.equals("ep.type")) {
-			EndpointModel endpointModel = (EndpointModel) model;
-			project = endpointModel.getEndpointSaveLocation().getProject();
 		}else if (modelProperty.equals("templ.address.ep.uri") && isAddressEP) {	
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("Address url cannot be empty");
