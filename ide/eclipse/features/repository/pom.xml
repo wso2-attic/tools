@@ -284,6 +284,6 @@
 		</plugins>
 	</build>
 	<properties>
-		<carbon.version>4.2.0</carbon.version>
+		<carbon.version>3.2.0</carbon.version>
 	</properties>
 </project>
