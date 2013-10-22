@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.esb.project.ui.wizard;
 
 import java.io.File;
+import java.util.regex.Pattern;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -43,7 +44,7 @@ public class CloudConnectorImportWizard extends Wizard{
 	    String source = detailWizardPage.getCloudConnectorPath();	
 	        try {
 	            ZipFile zipFile = new ZipFile(source);
-	            String[] segments=source.split(File.separator);
+	            String[] segments=source.split(Pattern.quote(File.separator));
 	            String zipFileName=segments[segments.length-1].split(".zip")[0];
 	    	    String destination = detailWizardPage.getSelectedProject().getLocation().toOSString()+File.separator+"cloudConnectors"+File.separator+zipFileName;
 	            zipFile.getFile(); zipFile.extractAll(destination);
