@@ -22,14 +22,20 @@ import java.util.regex.Pattern;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.wso2.developerstudio.eclipse.esb.project.Activator;
 import org.wso2.developerstudio.eclipse.esb.project.control.graphicalproject.GMFPluginDetails;
 import org.wso2.developerstudio.eclipse.esb.project.control.graphicalproject.IUpdateGMFPlugin;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class CloudConnectorImportWizard extends Wizard{
 	
 	private ImportCloudConnectorDetailsWizardPage detailWizardPage;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	public void init(IStructuredSelection selection) {
 		detailWizardPage = new ImportCloudConnectorDetailsWizardPage(selection);
@@ -52,8 +58,14 @@ public class CloudConnectorImportWizard extends Wizard{
 	            if(updateGMFPlugin!=null){
 	            	updateGMFPlugin.updateOpenedEditors();
 	            }
+	            /*
+	             * Refresh the project.
+	             */
+	            detailWizardPage.getSelectedProject().refreshLocal(IResource.DEPTH_INFINITE, null);
 	        } catch (ZipException e) {
-	            e.printStackTrace();
+	        	log.error("Error while extracting the Cloud connector zip", e);
+	        } catch (CoreException e) {
+	        	log.error("Cannot refresh the project", e);
 	        }
 		return true;
 	}

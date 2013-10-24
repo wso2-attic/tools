@@ -450,9 +450,9 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		// Invoke the appropriate handler method.
 		switch (pageIndex) {
 		case DESIGN_VIEW_PAGE_INDEX: {
+			MediatorFactoryUtils.registerFactories();
 			handleDesignViewActivatedEvent(); 
-			final EsbMultiPageEditor currentEditor = this;
-			MediatorFactoryUtils.registerFactories();			
+			final EsbMultiPageEditor currentEditor = this;						
 			Display.getCurrent().asyncExec(new Runnable() {
 				
 				@Override
