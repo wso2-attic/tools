@@ -73,7 +73,7 @@ public class XpathValidator {
 			return false;
 		}
 		
-		boolean result = true;
+/*		boolean result = true;
 		if (xpath.contains(":")) {
 			String[] splitedParts = xpath.split("/");
 			ArrayList<String> prefixList = new ArrayList<String>();
@@ -91,8 +91,8 @@ public class XpathValidator {
 					break; 
 				}
 			}
-		}
-		return result;
+		}*/
+		return true;
 	}
 	
 	public static boolean isValidXpathSyntax(String string) {
