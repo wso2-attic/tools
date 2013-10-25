@@ -502,8 +502,15 @@ public class DetailSectionUiUtil {
  
  	
     private void setStringAttribute(Object input,EAttribute attributeRef,String text){
+    	
+    	/* 
+    	 * Fixing TOOLS-2068
+    	 */    	
+    	if ("".equals(text)){
+    		text= null;
+    	}
     	Command setAttribCommand = SetCommand.create(editingDomain, input,
-    			attributeRef, text);
+    			attributeRef, text);    		
     	if (setAttribCommand.canExecute()) {
     		
     		OutlineBlock.isEditAction = true;

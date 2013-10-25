@@ -857,6 +857,7 @@ public class DetailSection {
 					
 					keyColText.setVisible(false);
 					keyColLabel.setVisible(false);
+					keyColText.setText("");				
 				}
 			}
 		});
