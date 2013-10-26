@@ -296,14 +296,15 @@ public class ConfigurePayloadFactoryMediatorDialog extends Dialog {
 				item.setText(1,argumentValue.getText());
 				Object property = argumentValue.getProperty();
 				if(property instanceof NamespacedProperty){
-					if (wrapper.getEvaluator() == MediaType.XML) {
+/*					if (wrapper.getEvaluator() == MediaType.XML) {
 						wrapper.setArgumentExpression((NamespacedProperty)property);
 					} else if (wrapper.getEvaluator() == MediaType.JSON){
 						String modifiedText = argumentValue.getText();
 						NamespacedProperty namespacedProperty = (NamespacedProperty)property;
 						namespacedProperty.setPropertyValue(modifiedText);
 						wrapper.setArgumentExpression(namespacedProperty);
-					}
+					}*/
+					wrapper.setArgumentExpression((NamespacedProperty)property);
 				} else{
 					wrapper.setArgumentValue(property.toString());
 				}
