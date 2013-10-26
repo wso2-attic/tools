@@ -325,21 +325,21 @@ public class ConfigurePayloadFactoryMediatorDialog extends Dialog {
 				item.setText(2, cmbArgumentEvaluator.getText());
 				if(cmbArgumentEvaluator.getSelectionIndex()==0){
 					wrapper.setEvaluator(MediaType.XML);
-					argumentValue.setForcefullInlineEditing(false);
+					//argumentValue.setForcefullInlineEditing(false);
 				} else{
 					wrapper.setEvaluator(MediaType.JSON);
-					argumentValue.setForcefullInlineEditing(true);
+					//argumentValue.setForcefullInlineEditing(true);
 				}
 			}
 		});
 		
-		if (wrapper.isExpression()) {
+/*		if (wrapper.isExpression()) {
 			if (wrapper.getEvaluator() == MediaType.XML){
 				argumentValue.setForcefullInlineEditing(false);
 			} else if (wrapper.getEvaluator() == MediaType.JSON){
 				argumentValue.setForcefullInlineEditing(true);
 			}
-		}
+		}*/
 	}
 	
 	/**
@@ -423,7 +423,7 @@ public class ConfigurePayloadFactoryMediatorDialog extends Dialog {
 				wrapper.getArgumentExpression().setPropertyValue("/default/expression");
 			}
 			
-			if (argument.getArgumentType() == PayloadFactoryArgumentType.EXPRESSION) {
+			if (wrapper.isExpression()) {
 				setCmd = new SetCommand(
 						editingDomain,
 						argument,
