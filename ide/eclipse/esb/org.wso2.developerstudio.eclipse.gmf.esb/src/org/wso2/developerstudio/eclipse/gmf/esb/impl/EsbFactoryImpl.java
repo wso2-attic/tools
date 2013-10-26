@@ -3770,7 +3770,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		namespacedProperty.setPropertyValue("/default/expression");
 		namespacedProperty.setSupportsDynamicXPaths(true);
 		callTemplateParameter.setParameterName("param_name");
-		callTemplateParameter.setParameterValue("param_value");
+		//callTemplateParameter.setParameterValue("param_value");
 		callTemplateParameter.setParameterExpression(namespacedProperty);
 		callTemplateParameter.setTemplateParameterType(RuleOptionType.VALUE);
 		return callTemplateParameter;
