@@ -27,8 +27,10 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CloudConnectorOperationExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -71,18 +73,29 @@ public class CloudConnectorOperationTransformer extends AbstractEsbNodeTransform
 		
 		for (CallTemplateParameter param : visuaCloudConnectorOperation.getConnectorParameters()) {
 			if (param.getParameterName() != null && !param.getParameterName().isEmpty()) {
-				if (param.getTemplateParameterType().equals(RuleOptionType.EXPRESSION)) {
-					
+				if (visuaCloudConnectorOperation.getParameterEditorType().equals(CloudConnectorOperationParamEditorType.NAMESPACED_PROPERTY_EDITOR)) {
 					NamespacedProperty namespacedExpression = param.getParameterExpression();
 					String xpathValue = namespacedExpression.getPropertyValue();
 
+					if (xpathValue.startsWith("{") && xpathValue.endsWith("}")) {
+						xpathValue = xpathValue.substring(1, xpathValue.length() - 1);
 						SynapseXPath paramExpression = new SynapseXPath(xpathValue);
 						for (Entry<String, String> entry : namespacedExpression.getNamespaces().entrySet()) {;
 							paramExpression.addNamespace(entry.getKey(), entry.getValue());
 						}
 						cloudConnectorOperation.getpName2ExpressionMap().put(param.getParameterName(), new Value(paramExpression));
+					} else {
+						cloudConnectorOperation.getpName2ExpressionMap().put(param.getParameterName(), new Value(xpathValue));
+					}
 				} else {
-					cloudConnectorOperation.getpName2ExpressionMap().put(param.getParameterName(), new Value(param.getParameterValue()));
+					String paramValue = param.getParameterValue();
+					if (paramValue != null && paramValue.startsWith("{") && paramValue.endsWith("}")) {
+						paramValue = paramValue.substring(1, paramValue.length() - 1);
+						SynapseXPath paramExpression = new SynapseXPath(paramValue);
+						cloudConnectorOperation.getpName2ExpressionMap().put(param.getParameterName(), new Value(paramExpression));
+					} else {
+						cloudConnectorOperation.getpName2ExpressionMap().put(param.getParameterName(), new Value(paramValue));
+					}
 				}
 			}
 		}

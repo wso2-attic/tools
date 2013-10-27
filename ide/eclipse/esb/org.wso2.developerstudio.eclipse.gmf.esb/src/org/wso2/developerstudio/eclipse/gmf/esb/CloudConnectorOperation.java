@@ -34,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getCloudConnectorName <em>Cloud Connector Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getNewConfig <em>New Config</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getAvailableConfigs <em>Available Configs</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getParameterEditorType <em>Parameter Editor Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -265,5 +266,34 @@ public interface CloudConnectorOperation extends Mediator {
 	 * @generated
 	 */
 	void setAvailableConfigs(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameter Editor Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameter Editor Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameter Editor Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType
+	 * @see #setParameterEditorType(CloudConnectorOperationParamEditorType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloudConnectorOperation_ParameterEditorType()
+	 * @model
+	 * @generated
+	 */
+	CloudConnectorOperationParamEditorType getParameterEditorType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getParameterEditorType <em>Parameter Editor Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parameter Editor Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType
+	 * @see #getParameterEditorType()
+	 * @generated
+	 */
+	void setParameterEditorType(CloudConnectorOperationParamEditorType value);
 
 } // CloudConnectorOperation

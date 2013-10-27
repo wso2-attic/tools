@@ -37,9 +37,12 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation} object.
@@ -81,6 +84,7 @@ public class CloudConnectorOperationItemProvider
 		addConfigRefPropertyDescriptor(object);
 		addAvailableConfigsPropertyDescriptor(object);
 		addNewConfigPropertyDescriptor(object);
+		addParameterEditorTypePropertyDescriptor(object);
 		
 		Iterator<CallTemplateParameter> iterator=((CloudConnectorOperation)object).getConnectorParameters().iterator();
 		while(iterator.hasNext()){
@@ -111,7 +115,11 @@ public class CloudConnectorOperationItemProvider
 					while(iterator.hasNext()){
 						CallTemplateParameter callTemplateParameter=iterator.next();
 						if(displayName.equals(callTemplateParameter.getParameterName())){
-							return createPropertyValueWrapper(object, callTemplateParameter.getParameterValue());
+							if(((CloudConnectorOperation)object).getParameterEditorType().equals(CloudConnectorOperationParamEditorType.INLINE)){
+								return createPropertyValueWrapper(object, callTemplateParameter.getParameterValue());
+							}else if(((CloudConnectorOperation)object).getParameterEditorType().equals(CloudConnectorOperationParamEditorType.NAMESPACED_PROPERTY_EDITOR)){
+								return createPropertyValueWrapper(object, callTemplateParameter.getParameterExpression().getPropertyValue());
+							}
 						}
 					}					
 					return null;					
@@ -274,6 +282,28 @@ public class CloudConnectorOperationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Parameter Editor Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParameterEditorTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CloudConnectorOperation_parameterEditorType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CloudConnectorOperation_parameterEditorType_feature", "_UI_CloudConnectorOperation_type"),
+				 EsbPackage.Literals.CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -348,6 +378,7 @@ public class CloudConnectorOperationItemProvider
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME:
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__NEW_CONFIG:
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR:

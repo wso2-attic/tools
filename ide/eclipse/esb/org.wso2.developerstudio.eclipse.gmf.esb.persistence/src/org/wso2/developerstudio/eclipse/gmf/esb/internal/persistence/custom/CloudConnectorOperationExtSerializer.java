@@ -22,6 +22,7 @@ import java.util.Map;
 import org.apache.axiom.om.OMElement;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.config.xml.InvokeMediatorSerializer;
+import org.apache.synapse.config.xml.ValueSerializer;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.template.InvokeMediator;
 
@@ -51,9 +52,8 @@ public class CloudConnectorOperationExtSerializer extends InvokeMediatorSerializ
                 
                 //serialize value attribute
                 Value value = paramsMap.get(paramName);
-                
-                
-                paramEl.setText(value.getKeyValue());
+                new ValueSerializer().serializeTextValue(value, "value", paramEl);                
+               // paramEl.setText(value.getKeyValue());
                // new ValueSerializer().serializeValue(value, "value", paramEl);
                 invokeElem.addChild(paramEl);
             }

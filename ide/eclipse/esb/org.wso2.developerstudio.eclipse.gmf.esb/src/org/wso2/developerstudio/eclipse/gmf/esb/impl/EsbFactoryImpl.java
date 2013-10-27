@@ -599,6 +599,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createMessageProcessorTypeFromString(eDataType, initialValue);
 			case EsbPackage.PROCESSOR_STATE:
 				return createProcessorStateFromString(eDataType, initialValue);
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION_PARAM_EDITOR_TYPE:
+				return createCloudConnectorOperationParamEditorTypeFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -813,6 +815,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertMessageProcessorTypeToString(eDataType, instanceValue);
 			case EsbPackage.PROCESSOR_STATE:
 				return convertProcessorStateToString(eDataType, instanceValue);
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION_PARAM_EDITOR_TYPE:
+				return convertCloudConnectorOperationParamEditorTypeToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -3767,10 +3771,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		NamespacedProperty namespacedProperty = createNamespacedProperty();
 		namespacedProperty.setPrettyName("parameter expression");
 		namespacedProperty.setPropertyName("expression");
-		namespacedProperty.setPropertyValue("/default/expression");
+		namespacedProperty.setPropertyValue("");
 		namespacedProperty.setSupportsDynamicXPaths(true);
 		callTemplateParameter.setParameterName("param_name");
-		//callTemplateParameter.setParameterValue("param_value");
+		callTemplateParameter.setParameterValue("");
 		callTemplateParameter.setParameterExpression(namespacedProperty);
 		callTemplateParameter.setTemplateParameterType(RuleOptionType.VALUE);
 		return callTemplateParameter;
@@ -6301,6 +6305,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertProcessorStateToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloudConnectorOperationParamEditorType createCloudConnectorOperationParamEditorTypeFromString(EDataType eDataType, String initialValue) {
+		CloudConnectorOperationParamEditorType result = CloudConnectorOperationParamEditorType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCloudConnectorOperationParamEditorTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

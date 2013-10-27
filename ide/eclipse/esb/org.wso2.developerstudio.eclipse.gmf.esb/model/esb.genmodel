@@ -532,6 +532,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProcessorState/ACTIVATE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProcessorState/DEACTIVATE"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CloudConnectorOperationParamEditorType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CloudConnectorOperationParamEditorType/Inline"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CloudConnectorOperationParamEditorType/NamespacedPropertyEditor"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
@@ -1962,6 +1966,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloudConnectorOperation/cloudConnectorName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EReference esb.ecore#//CloudConnectorOperation/newConfig"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloudConnectorOperation/availableConfigs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloudConnectorOperation/parameterEditorType"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CloudConnectorOperationInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CloudConnectorOperationOutputConnector"/>

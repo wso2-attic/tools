@@ -104,6 +104,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator;
@@ -3548,6 +3549,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum processorStateEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum cloudConnectorOperationParamEditorTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -9222,6 +9230,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getCloudConnectorOperation_AvailableConfigs() {
 		return (EAttribute)cloudConnectorOperationEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCloudConnectorOperation_ParameterEditorType() {
+		return (EAttribute)cloudConnectorOperationEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -15259,6 +15276,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getCloudConnectorOperationParamEditorType() {
+		return cloudConnectorOperationParamEditorTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMap() {
 		return mapEDataType;
 	}
@@ -16819,6 +16845,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME);
 		createEReference(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__NEW_CONFIG);
 		createEAttribute(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS);
+		createEAttribute(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE);
 
 		cloudConnectorOperationInputConnectorEClass = createEClass(CLOUD_CONNECTOR_OPERATION_INPUT_CONNECTOR);
 
@@ -16924,6 +16951,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		jmsSpecVersionEEnum = createEEnum(JMS_SPEC_VERSION);
 		messageProcessorTypeEEnum = createEEnum(MESSAGE_PROCESSOR_TYPE);
 		processorStateEEnum = createEEnum(PROCESSOR_STATE);
+		cloudConnectorOperationParamEditorTypeEEnum = createEEnum(CLOUD_CONNECTOR_OPERATION_PARAM_EDITOR_TYPE);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -18817,6 +18845,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getCloudConnectorOperation_CloudConnectorName(), ecorePackage.getEString(), "cloudConnectorName", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCloudConnectorOperation_NewConfig(), this.getRegistryKeyProperty(), null, "newConfig", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCloudConnectorOperation_AvailableConfigs(), ecorePackage.getEString(), "availableConfigs", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCloudConnectorOperation_ParameterEditorType(), this.getCloudConnectorOperationParamEditorType(), "parameterEditorType", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cloudConnectorOperationInputConnectorEClass, CloudConnectorOperationInputConnector.class, "CloudConnectorOperationInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -19347,6 +19376,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(processorStateEEnum, ProcessorState.class, "ProcessorState");
 		addEEnumLiteral(processorStateEEnum, ProcessorState.ACTIVATE);
 		addEEnumLiteral(processorStateEEnum, ProcessorState.DEACTIVATE);
+
+		initEEnum(cloudConnectorOperationParamEditorTypeEEnum, CloudConnectorOperationParamEditorType.class, "CloudConnectorOperationParamEditorType");
+		addEEnumLiteral(cloudConnectorOperationParamEditorTypeEEnum, CloudConnectorOperationParamEditorType.INLINE);
+		addEEnumLiteral(cloudConnectorOperationParamEditorTypeEEnum, CloudConnectorOperationParamEditorType.NAMESPACED_PROPERTY_EDITOR);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

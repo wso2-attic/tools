@@ -34,7 +34,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
 /**
@@ -53,6 +55,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getCloudConnectorName <em>Cloud Connector Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getNewConfig <em>New Config</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getAvailableConfigs <em>Available Configs</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationImpl#getParameterEditorType <em>Parameter Editor Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -198,6 +201,26 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * @ordered
 	 */
 	protected String availableConfigs = AVAILABLE_CONFIGS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getParameterEditorType() <em>Parameter Editor Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameterEditorType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CloudConnectorOperationParamEditorType PARAMETER_EDITOR_TYPE_EDEFAULT = CloudConnectorOperationParamEditorType.INLINE;
+
+	/**
+	 * The cached value of the '{@link #getParameterEditorType() <em>Parameter Editor Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameterEditorType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CloudConnectorOperationParamEditorType parameterEditorType = PARAMETER_EDITOR_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -474,6 +497,27 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CloudConnectorOperationParamEditorType getParameterEditorType() {
+		return parameterEditorType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParameterEditorType(CloudConnectorOperationParamEditorType newParameterEditorType) {
+		CloudConnectorOperationParamEditorType oldParameterEditorType = parameterEditorType;
+		parameterEditorType = newParameterEditorType == null ? PARAMETER_EDITOR_TYPE_EDEFAULT : newParameterEditorType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE, oldParameterEditorType, parameterEditorType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -515,6 +559,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return getNewConfig();
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
 				return getAvailableConfigs();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE:
+				return getParameterEditorType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -556,6 +602,9 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
 				setAvailableConfigs((String)newValue);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE:
+				setParameterEditorType((CloudConnectorOperationParamEditorType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -595,6 +644,9 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
 				setAvailableConfigs(AVAILABLE_CONFIGS_EDEFAULT);
 				return;
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE:
+				setParameterEditorType(PARAMETER_EDITOR_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -625,6 +677,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 				return newConfig != null;
 			case EsbPackage.CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS:
 				return AVAILABLE_CONFIGS_EDEFAULT == null ? availableConfigs != null : !AVAILABLE_CONFIGS_EDEFAULT.equals(availableConfigs);
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE:
+				return parameterEditorType != PARAMETER_EDITOR_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -649,6 +703,8 @@ public class CloudConnectorOperationImpl extends MediatorImpl implements CloudCo
 		result.append(cloudConnectorName);
 		result.append(", availableConfigs: ");
 		result.append(availableConfigs);
+		result.append(", parameterEditorType: ");
+		result.append(parameterEditorType);
 		result.append(')');
 		return result.toString();
 	}

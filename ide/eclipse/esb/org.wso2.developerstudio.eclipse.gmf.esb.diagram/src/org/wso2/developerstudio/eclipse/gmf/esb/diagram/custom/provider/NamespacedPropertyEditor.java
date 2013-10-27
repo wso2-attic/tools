@@ -68,5 +68,13 @@ public class NamespacedPropertyEditor extends CustomDialogCellEditor {
 			propertyDescriptor.setPropertyValue(propertyContainer, namespacedProperty);
 		}
 		return null;
+	}	
+
+	protected NamespacedProperty getNamespacedProperty() {
+		return namespacedProperty;
+	}
+
+	protected void setNamespacedProperty(NamespacedProperty namespacedProperty) {
+		this.namespacedProperty = namespacedProperty;
 	}
 }

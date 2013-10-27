@@ -19677,13 +19677,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS = MEDIATOR_FEATURE_COUNT + 8;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Editor Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE = MEDIATOR_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Cloud Connector Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLOUD_CONNECTOR_OPERATION_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
+	int CLOUD_CONNECTOR_OPERATION_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationInputConnectorImpl <em>Cloud Connector Operation Input Connector</em>}' class.
@@ -20733,6 +20742,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int PROCESSOR_STATE = 437;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType <em>Cloud Connector Operation Param Editor Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloudConnectorOperationParamEditorType()
+	 * @generated
+	 */
+	int CLOUD_CONNECTOR_OPERATION_PARAM_EDITOR_TYPE = 438;
+
+	/**
 	 * The meta object id for the '<em>Map</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20740,7 +20759,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 438;
+	int MAP = 439;
 
 
 	/**
@@ -27413,6 +27432,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getCloudConnectorOperation_AvailableConfigs();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getParameterEditorType <em>Parameter Editor Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parameter Editor Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation#getParameterEditorType()
+	 * @see #getCloudConnectorOperation()
+	 * @generated
+	 */
+	EAttribute getCloudConnectorOperation_ParameterEditorType();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector <em>Cloud Connector Operation Input Connector</em>}'.
@@ -34529,6 +34559,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EEnum getProcessorState();
 
 	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType <em>Cloud Connector Operation Param Editor Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Cloud Connector Operation Param Editor Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType
+	 * @generated
+	 */
+	EEnum getCloudConnectorOperationParamEditorType();
+
+	/**
 	 * Returns the meta object for data type '{@link java.util.Map <em>Map</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39908,6 +39948,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute CLOUD_CONNECTOR_OPERATION__AVAILABLE_CONFIGS = eINSTANCE.getCloudConnectorOperation_AvailableConfigs();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Editor Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE = eINSTANCE.getCloudConnectorOperation_ParameterEditorType();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloudConnectorOperationInputConnectorImpl <em>Cloud Connector Operation Input Connector</em>}' class.
@@ -45780,6 +45828,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EEnum PROCESSOR_STATE = eINSTANCE.getProcessorState();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType <em>Cloud Connector Operation Param Editor Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloudConnectorOperationParamEditorType()
+		 * @generated
+		 */
+		EEnum CLOUD_CONNECTOR_OPERATION_PARAM_EDITOR_TYPE = eINSTANCE.getCloudConnectorOperationParamEditorType();
 
 		/**
 		 * The meta object literal for the '<em>Map</em>' data type.

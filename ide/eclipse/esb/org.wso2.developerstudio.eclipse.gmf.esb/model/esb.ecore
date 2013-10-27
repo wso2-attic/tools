@@ -2579,9 +2579,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="newConfig" eType="#//RegistryKeyProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="availableConfigs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterEditorType" eType="#//CloudConnectorOperationParamEditorType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CloudConnectorOperationInputConnector"
       eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="CloudConnectorOperationOutputConnector"
       eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="CloudConnectorOperationParamEditorType">
+    <eLiterals name="Inline"/>
+    <eLiterals name="NamespacedPropertyEditor" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>
