@@ -26,19 +26,26 @@ import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.config.xml.AbstractMediatorFactory;
+import org.apache.synapse.config.xml.ValueFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.Value;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.ui.IFileEditorInput;
+import org.jaxen.JaxenException;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CloudConnectorOperationExt;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 
 	protected static final QName CONFIG_KEY  = new QName("configKey");
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	
 	@Override
 	protected Mediator createSpecificMediator(OMElement elem, Properties properties) {		
@@ -66,9 +73,20 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 		Iterator<OMElement> parameters=elem.getChildElements();
 		while(parameters.hasNext()) {
 			OMElement parameter=(OMElement)parameters.next();
-			String paramName=parameter.getQName().getLocalPart();
+			String paramName=parameter.getQName().getLocalPart();			
 			String paramValue=parameter.getText();
-			cloudConnectorOperationExt.getpName2ExpressionMap().put(paramName, new Value(paramValue));
+			if(paramValue.startsWith("{") && paramValue.endsWith("}")){
+				paramValue = paramValue.substring(1, paramValue.length() - 1);
+				SynapseXPath synapseXpath=null;
+				try {
+					synapseXpath=new SynapseXPath(parameter,paramValue);
+				} catch (JaxenException e) {
+					log.error("Error while deserializing cloud connector operation", e);
+				}					
+				cloudConnectorOperationExt.getpName2ExpressionMap().put(paramName, new Value(synapseXpath));
+			}else{
+				cloudConnectorOperationExt.getpName2ExpressionMap().put(paramName, new Value(paramValue));
+			}
 		}
 		
 		return cloudConnectorOperationExt;

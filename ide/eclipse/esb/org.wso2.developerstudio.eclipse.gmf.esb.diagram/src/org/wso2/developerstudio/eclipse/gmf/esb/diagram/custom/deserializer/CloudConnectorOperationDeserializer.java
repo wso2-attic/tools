@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEditorType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
@@ -49,23 +50,44 @@ public class CloudConnectorOperationDeserializer extends AbstractEsbNodeDeserial
 		executeSetValueCommand(ESB_ELEMENT__DESCRIPTION, operation.getOperation());
 		
 		Map<String, Value> parameters = operation.getpName2ExpressionMap();
+		boolean namespacesExist=false;
 		for(Map.Entry<String, Value> entry : parameters.entrySet()){
 			CallTemplateParameter parameter = EsbFactory.eINSTANCE.createCallTemplateParameter();
 			parameter.setParameterName(entry.getKey());
 			Value value = entry.getValue();
-			if(value.getExpression() != null){
-				boolean dynamic = value.hasExprTypeKey();
-				NamespacedProperty namespacedProperty = createNamespacedProperty(value.getExpression());
+			
+			boolean dynamic = value.hasExprTypeKey();
+			
+			if(value.getExpression()==null && value.getKeyValue()!=null){
+				NamespacedProperty namespacedProperty = createNamespacedProperty(value.getKeyValue(),null);
 				namespacedProperty.setDynamic(dynamic);
 				namespacedProperty.setSupportsDynamicXPaths(true);
 				parameter.setParameterExpression(namespacedProperty);
-				parameter.setTemplateParameterType(RuleOptionType.EXPRESSION);
-			} else{
 				parameter.setParameterValue(value.getKeyValue());
 				parameter.setTemplateParameterType(RuleOptionType.VALUE);
 			}
+			
+			if(value.getExpression()!=null){
+				NamespacedProperty namespacedProperty = createNamespacedProperty(value.getExpression());
+				namespacedProperty.setPropertyValue("{"+value.getExpression().toString()+"}");
+				namespacedProperty.setDynamic(dynamic);
+				namespacedProperty.setSupportsDynamicXPaths(true);
+				parameter.setParameterExpression(namespacedProperty);
+				parameter.setParameterValue("{"+value.getExpression().toString()+"}");
+				parameter.setTemplateParameterType(RuleOptionType.EXPRESSION);
+				if(namespacedProperty.getNamespaces().size()>0){
+					namespacesExist=true;
+				}	
+			}
 			executeAddValueCommand(operationModel.getConnectorParameters(), parameter);
-		}		
+		}
+		
+		if(namespacesExist){
+			executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE, CloudConnectorOperationParamEditorType.NAMESPACED_PROPERTY_EDITOR);
+		}else{
+			executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE, CloudConnectorOperationParamEditorType.INLINE);
+		}
+		
 		return operationModel;
 	}
 }
