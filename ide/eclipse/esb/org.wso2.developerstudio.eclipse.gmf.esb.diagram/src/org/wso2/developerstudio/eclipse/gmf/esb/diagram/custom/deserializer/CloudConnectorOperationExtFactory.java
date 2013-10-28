@@ -67,7 +67,7 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 		cloudConnectorOperationExt.setConnectorComponentName(cloudConnectorName);
 		cloudConnectorOperationExt.setOperation(operationName);
 		
-		cloudConnectorOperationExt.setCloudConnectorName(elem.getQName().getLocalPart().split("_")[0]);
+		cloudConnectorOperationExt.setCloudConnectorName(splittedRootElement[0]);
 		
 		//TODO expression values for params yet to handle.
 		Iterator<OMElement> parameters=elem.getChildElements();
