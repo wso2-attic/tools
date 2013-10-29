@@ -291,13 +291,14 @@ public class ScriptMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(ScriptMediatorScriptLanguageEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(ScriptMediatorScriptLanguageEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

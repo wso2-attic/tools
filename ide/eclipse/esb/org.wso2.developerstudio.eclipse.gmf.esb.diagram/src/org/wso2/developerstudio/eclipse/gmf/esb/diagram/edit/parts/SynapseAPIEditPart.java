@@ -89,8 +89,8 @@ public class SynapseAPIEditPart extends ShapeNodeEditPart {
 	 */
 	protected IFigure createNodeShape() {
 		primaryShape = new RectangleFigure();
-		primaryShape.setPreferredSize(new Dimension(getMapMode().DPtoLP(40000), getMapMode().DPtoLP(
-				45000)));
+		primaryShape.setPreferredSize(new Dimension(getMapMode().DPtoLP(40000), getMapMode()
+				.DPtoLP(45000)));
 		return primaryShape;
 	}
 

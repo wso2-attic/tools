@@ -235,7 +235,7 @@ public class LoadBalanceEndPointEndPointNameEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**

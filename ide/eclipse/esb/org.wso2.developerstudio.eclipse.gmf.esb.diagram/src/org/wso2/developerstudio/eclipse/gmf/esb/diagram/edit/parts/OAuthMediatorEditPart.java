@@ -291,13 +291,14 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(OAuthMediatorRemoteServiceUrlEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(OAuthMediatorRemoteServiceUrlEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

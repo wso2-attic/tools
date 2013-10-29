@@ -292,13 +292,14 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(CommandMediatorClassNameEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(CommandMediatorClassNameEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

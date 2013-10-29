@@ -134,10 +134,10 @@ public class ConditionalRouterMediatorEditPart extends FixedSizedAbstractMediato
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ConditionalRouterMediatorDescriptionEditPart) {
-			((ConditionalRouterMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
-					.getConditionalRouterDescriptionLabel());
+			((ConditionalRouterMediatorDescriptionEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getConditionalRouterDescriptionLabel());
 			return true;
-		}		
+		}
 		if (childEditPart instanceof ConditionalRouterMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((ConditionalRouterMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -177,14 +177,14 @@ public class ConditionalRouterMediatorEditPart extends FixedSizedAbstractMediato
 		}
 		return false;
 	}
-	
+
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;

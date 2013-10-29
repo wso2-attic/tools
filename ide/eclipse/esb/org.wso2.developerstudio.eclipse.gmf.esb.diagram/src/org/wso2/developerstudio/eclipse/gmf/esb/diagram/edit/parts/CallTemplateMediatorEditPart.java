@@ -90,9 +90,9 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 	 * @generated
 	 */
 	protected IFigure contentPane;
-	
-	private static IDeveloperStudioLog log = Logger.getLog("org.wso2.developerstudio.eclipse.gmf.esb.diagram");
 
+	private static IDeveloperStudioLog log = Logger
+			.getLog("org.wso2.developerstudio.eclipse.gmf.esb.diagram");
 
 	/**
 	 * @generated
@@ -315,7 +315,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
-	
+
 	private ESBArtifact createArtifact(String name, String groupId, String version, String path,
 			String type) {
 		ESBArtifact artifact = new ESBArtifact();
@@ -327,20 +327,20 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 		artifact.setFile(path);
 		return artifact;
 	}
-	
+
 	private String getMavenGroupID(IProject project) {
 		String groupID = "com.example";
 		try {
 			MavenProject mavenProject = MavenUtils.getMavenProject(project.getFile("pom.xml")
 					.getLocation().toFile());
-			groupID = mavenProject.getGroupId()+".template";
+			groupID = mavenProject.getGroupId() + ".template";
 		} catch (Exception e) {
 			//ignore. Then group id would be default. 
 		}
 
 		return groupID;
 	}
-	
+
 	private void addSequenceToArtifactXML(String templateName) {
 		IProject activeProject = getActiveProject();
 		ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
@@ -355,7 +355,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 			log.error("Error while updating Artifact.xml");
 		}
 	}
-	
+
 	public boolean createFiles(String name, String fileURI1, String fileURI2,
 			IProject currentProject) {
 		Resource diagram;
@@ -369,8 +369,8 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 					+ ".xml");
 			try {
 				diagram = EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
-						URI.createURI(basePath + fileURI2), new NullProgressMonitor(), "template.sequence",
-						name, null);
+						URI.createURI(basePath + fileURI2), new NullProgressMonitor(),
+						"template.sequence", name, null);
 
 				if (fileTobeOpened.exists()) {
 					String diagramPath = diagram.getURI().toPlatformString(true);
@@ -400,7 +400,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 			return true;
 		}
 	}
-	
+
 	public void openWithSeparateEditor() {
 		IProject activeProject = EditorUtils.getActiveProject();
 
@@ -415,7 +415,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 		//EditorUtils.updateToolpalette();
 
 	}
-	
+
 	public String calculateDefaultName() {
 		IProject activeProject = EditorUtils.getActiveProject();
 		String finalName = "Sequence_Template_1";
@@ -433,7 +433,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		return finalName;
 	}
-	
+
 	public void createDialogBox() {
 
 		final EObject callTemplate = (CallTemplateMediator) ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) getModel())
@@ -470,7 +470,8 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 						TransactionalEditingDomain editingDomain = getEditingDomain();
 
 						SetRequest setRequest = new SetRequest(editingDomain, callTemplate,
-								EsbPackage.eINSTANCE.getCallTemplateMediator_TargetTemplate(), targetTemplate);
+								EsbPackage.eINSTANCE.getCallTemplateMediator_TargetTemplate(),
+								targetTemplate);
 						SetValueCommand operation = new SetValueCommand(setRequest) {
 
 							public boolean canUndo() {

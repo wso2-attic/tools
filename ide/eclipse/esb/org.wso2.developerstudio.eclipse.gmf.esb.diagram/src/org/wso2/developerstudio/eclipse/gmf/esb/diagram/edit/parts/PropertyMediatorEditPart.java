@@ -695,13 +695,14 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(PropertyMediatorPropertyNameEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(PropertyMediatorPropertyNameEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

@@ -294,13 +294,14 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(LogMediatorLogCategoryEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(LogMediatorLogCategoryEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

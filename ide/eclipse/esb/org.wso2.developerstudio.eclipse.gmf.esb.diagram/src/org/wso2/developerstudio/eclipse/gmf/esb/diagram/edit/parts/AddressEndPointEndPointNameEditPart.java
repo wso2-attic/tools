@@ -235,7 +235,7 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart imp
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**

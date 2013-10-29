@@ -34,6 +34,7 @@ import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.directedit.ComboDirectEditManager;
+import org.eclipse.gmf.tooling.runtime.directedit.TextDirectEditManager2;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
 import org.eclipse.gmf.tooling.runtime.edit.policies.labels.IRefreshableFeedbackEditPolicy;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
@@ -235,7 +236,7 @@ public class LogMediatorLogCategoryEditPart extends CompartmentEditPart implemen
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -307,7 +308,7 @@ public class LogMediatorLogCategoryEditPart extends CompartmentEditPart implemen
 	 */
 	protected DirectEditManager getManager() {
 		if (manager == null) {
-			setManager(new ComboDirectEditManager(this, null,
+			setManager(new TextDirectEditManager2(this, null,
 					EsbEditPartFactory.getTextCellEditorLocator(this)));
 		}
 		return manager;
@@ -331,8 +332,23 @@ public class LogMediatorLogCategoryEditPart extends CompartmentEditPart implemen
 	 * @generated
 	 */
 	protected void performDirectEdit(Point eventLocation) {
-		if (getManager().getClass() == ComboDirectEditManager.class) {
-			((ComboDirectEditManager) getManager()).show(eventLocation.getSWTPoint());
+		if (getManager().getClass() == TextDirectEditManager2.class) {
+			((TextDirectEditManager2) getManager()).show(eventLocation.getSWTPoint());
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private void performDirectEdit(char initialCharacter) {
+		if (getManager() instanceof TextDirectEditManager) {
+			((TextDirectEditManager) getManager()).show(initialCharacter);
+		} else // 
+		if (getManager() instanceof TextDirectEditManager2) {
+			((TextDirectEditManager2) getManager()).show(initialCharacter);
+		} else //
+		{
+			performDirectEdit();
 		}
 	}
 
@@ -346,7 +362,12 @@ public class LogMediatorLogCategoryEditPart extends CompartmentEditPart implemen
 
 				public void run() {
 					if (isActive() && isEditable()) {
-						if ((theRequest instanceof DirectEditRequest)
+						if (theRequest.getExtendedData().get(
+								RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+							Character initialChar = (Character) theRequest.getExtendedData().get(
+									RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+							performDirectEdit(initialChar.charValue());
+						} else if ((theRequest instanceof DirectEditRequest)
 								&& (getEditText().equals(getLabelText()))) {
 							DirectEditRequest editRequest = (DirectEditRequest) theRequest;
 							performDirectEdit(editRequest.getLocation());

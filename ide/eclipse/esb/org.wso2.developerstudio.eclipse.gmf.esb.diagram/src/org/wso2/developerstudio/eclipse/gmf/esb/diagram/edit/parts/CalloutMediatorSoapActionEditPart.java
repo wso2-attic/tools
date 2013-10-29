@@ -235,7 +235,7 @@ public class CalloutMediatorSoapActionEditPart extends CompartmentEditPart imple
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**

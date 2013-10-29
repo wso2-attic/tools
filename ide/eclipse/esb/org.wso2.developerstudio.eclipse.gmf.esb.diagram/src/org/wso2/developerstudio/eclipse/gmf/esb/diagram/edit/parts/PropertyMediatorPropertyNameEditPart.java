@@ -815,7 +815,7 @@ public class PropertyMediatorPropertyNameEditPart extends CompartmentEditPart im
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**

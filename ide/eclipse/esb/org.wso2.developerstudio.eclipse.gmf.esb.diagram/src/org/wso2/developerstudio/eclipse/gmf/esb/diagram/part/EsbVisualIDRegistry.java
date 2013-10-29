@@ -5818,9 +5818,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case PropertyMediatorEditPart.VISUAL_ID:
-			if (PropertyMediatorPropertyNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (PropertyMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5908,9 +5905,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case LogMediatorEditPart.VISUAL_ID:
-			if (LogMediatorLogCategoryEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (LogMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5922,9 +5916,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case EnrichMediatorEditPart.VISUAL_ID:
-			if (EnrichMediatorSourceTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (EnrichMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -5998,9 +5989,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case EventMediatorEditPart.VISUAL_ID:
-			if (EventMediatorTopicTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (EventMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6062,9 +6050,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case ClassMediatorEditPart.VISUAL_ID:
-			if (ClassMediatorClassNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (ClassMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6076,9 +6061,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case SpringMediatorEditPart.VISUAL_ID:
-			if (SpringMediatorBeanNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (SpringMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6090,9 +6072,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case ScriptMediatorEditPart.VISUAL_ID:
-			if (ScriptMediatorScriptLanguageEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (ScriptMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6104,9 +6083,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case FaultMediatorEditPart.VISUAL_ID:
-			if (FaultMediatorFaultStringTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (FaultMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6118,9 +6094,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case XQueryMediatorEditPart.VISUAL_ID:
-			if (XQueryMediatorScriptKeyTypeEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (XQueryMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6132,9 +6105,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case CommandMediatorEditPart.VISUAL_ID:
-			if (CommandMediatorClassNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (CommandMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6146,9 +6116,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case DBLookupMediatorEditPart.VISUAL_ID:
-			if (DBLookupMediatorConnectionURLEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (DBLookupMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6160,9 +6127,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case DBReportMediatorEditPart.VISUAL_ID:
-			if (DBReportMediatorConnectionURLEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (DBReportMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6204,9 +6168,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case HeaderMediatorEditPart.VISUAL_ID:
-			if (HeaderMediatorValueLiteralEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (HeaderMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6294,9 +6255,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case CalloutMediatorEditPart.VISUAL_ID:
-			if (CalloutMediatorSoapActionEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (CalloutMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6349,9 +6307,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case OAuthMediatorEditPart.VISUAL_ID:
-			if (OAuthMediatorRemoteServiceUrlEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (OAuthMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6554,9 +6509,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case DefaultEndPointEditPart.VISUAL_ID:
-			if (DefaultEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (DefaultEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6568,9 +6520,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case AddressEndPointEditPart.VISUAL_ID:
-			if (AddressEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (AddressEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6582,9 +6531,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case FailoverEndPointEditPart.VISUAL_ID:
-			if (FailoverEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (FailoverEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6613,9 +6559,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case WSDLEndPointEditPart.VISUAL_ID:
-			if (WSDLEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (WSDLEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -6638,9 +6581,6 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case LoadBalanceEndPointEditPart.VISUAL_ID:
-			if (LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID == nodeVisualID) {
-				return true;
-			}
 			if (LoadBalanceEndPointDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

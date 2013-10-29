@@ -292,13 +292,14 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(CalloutMediatorSoapActionEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(CalloutMediatorSoapActionEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

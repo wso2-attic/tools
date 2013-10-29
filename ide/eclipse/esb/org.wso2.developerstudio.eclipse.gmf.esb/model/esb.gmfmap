@@ -140,15 +140,6 @@
                           <domainMetaElement
                               href="esb.ecore#//PropertyMediator"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#PropertyMediatorPropertyName"/>
-                            <features
-                                href="esb.ecore#//PropertyMediator/propertyName"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#PropertyMediatorDescription"/>
@@ -394,15 +385,6 @@
                           <domainMetaElement
                               href="esb.ecore#//LogMediator"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#LogMediatorLogCategory"/>
-                            <features
-                                href="esb.ecore#//LogMediator/logCategory"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#LogMediatorDescription"/>
@@ -443,15 +425,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//EnrichMediator"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#EnrichMediatorSourceType"/>
-                            <features
-                                href="esb.ecore#//EnrichMediator/sourceType"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
@@ -690,15 +663,6 @@
                           <domainMetaElement
                               href="esb.ecore#//EventMediator"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#EventMediatorTopicType"/>
-                            <features
-                                href="esb.ecore#//EventMediator/topicType"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#EventMediatorDescription"/>
@@ -893,15 +857,6 @@
                           <domainMetaElement
                               href="esb.ecore#//ClassMediator"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#ClassMediatorClassName"/>
-                            <features
-                                href="esb.ecore#//ClassMediator/className"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#ClassMediatorDescription"/>
@@ -942,15 +897,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//SpringMediator"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#SpringMediatorSpringBean"/>
-                            <features
-                                href="esb.ecore#//SpringMediator/beanName"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
@@ -993,15 +939,6 @@
                           <domainMetaElement
                               href="esb.ecore#//ScriptMediator"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#ScriptMediatorMediatorLanguage"/>
-                            <features
-                                href="esb.ecore#//ScriptMediator/scriptLanguage"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#ScriptMediatorDescription"/>
@@ -1042,15 +979,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//FaultMediator"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#FaultMediatorFaultCode"/>
-                            <features
-                                href="esb.ecore#//FaultMediator/faultStringType"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
@@ -1093,15 +1021,6 @@
                           <domainMetaElement
                               href="esb.ecore#//XQueryMediator"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#XQueryMediatorKey"/>
-                            <features
-                                href="esb.ecore#//XQueryMediator/scriptKeyType"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#XQueryMediatorDescription"/>
@@ -1142,15 +1061,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//CommandMediator"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#CommandMediatorClassName"/>
-                            <features
-                                href="esb.ecore#//CommandMediator/className"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
@@ -1193,15 +1103,6 @@
                           <domainMetaElement
                               href="esb.ecore#//DBLookupMediator"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#DBLookupMediatorUrl"/>
-                            <features
-                                href="esb.ecore#//AbstractSqlExecutorMediator/connectionURL"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#DBLookupMediatorDescription"/>
@@ -1242,15 +1143,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//DBReportMediator"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true"
-                              editPattern="">
-                            <diagramLabel
-                                href="esb.gmfgraph#DBReportMediatorUrl"/>
-                            <features
-                                href="esb.ecore#//AbstractSqlExecutorMediator/connectionURL"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
@@ -1382,14 +1274,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//HeaderMediator"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true">
-                            <diagramLabel
-                                href="esb.gmfgraph#HeaderMediatorHeaderName"/>
-                            <features
-                                href="esb.ecore#//HeaderMediator/valueLiteral"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
@@ -1623,14 +1507,6 @@
                           <domainMetaElement
                               href="esb.ecore#//CalloutMediator"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true">
-                            <diagramLabel
-                                href="esb.gmfgraph#CalloutMediatorSoapAction"/>
-                            <features
-                                href="esb.ecore#//CalloutMediator/soapAction"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#CalloutMediatorDescription"/>
@@ -1802,13 +1678,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//OAuthMediator"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping">
-                            <diagramLabel
-                                href="esb.gmfgraph#OAuthMediatorRemoteServiceURL"/>
-                            <features
-                                href="esb.ecore#//OAuthMediator/remoteServiceUrl"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
@@ -2442,14 +2311,6 @@
                           <domainMetaElement
                               href="esb.ecore#//DefaultEndPoint"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true">
-                            <diagramLabel
-                                href="esb.gmfgraph#DefaultEndPointName"/>
-                            <features
-                                href="esb.ecore#//EndPoint/endPointName"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#DefaultEndPointDescription"/>
@@ -2492,14 +2353,6 @@
                               href="esb.ecore#//AddressEndPoint"/>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true">
-                            <diagramLabel
-                                href="esb.gmfgraph#AddressEndPointName"/>
-                            <features
-                                href="esb.ecore#//EndPoint/endPointName"/>
-                          </labelMappings>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
                               editorPattern="">
                             <diagramLabel
                                 href="esb.gmfgraph#AddressEndPointDescription"/>
@@ -2540,14 +2393,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//FailoverEndPoint"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true">
-                            <diagramLabel
-                                href="esb.gmfgraph#FailoverEndPointName"/>
-                            <features
-                                href="esb.ecore#//EndPoint/endPointName"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
@@ -2651,14 +2496,6 @@
                           <domainMetaElement
                               href="esb.ecore#//WSDLEndPoint"/>
                           <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true">
-                            <diagramLabel
-                                href="esb.gmfgraph#WSDLEndPointName"/>
-                            <features
-                                href="esb.ecore#//EndPoint/endPointName"/>
-                          </labelMappings>
-                          <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel
                                 href="esb.gmfgraph#WSDLEndPointDescription"/>
@@ -2743,14 +2580,6 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//LoadBalanceEndPoint"/>
-                          <labelMappings
-                              xsi:type="gmfmap:FeatureLabelMapping"
-                              readOnly="true">
-                            <diagramLabel
-                                href="esb.gmfgraph#LoadBalanceEndPointName"/>
-                            <features
-                                href="esb.ecore#//EndPoint/endPointName"/>
-                          </labelMappings>
                           <labelMappings
                               xsi:type="gmfmap:FeatureLabelMapping">
                             <diagramLabel

@@ -291,13 +291,14 @@ public class SpringMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(SpringMediatorBeanNameEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(SpringMediatorBeanNameEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

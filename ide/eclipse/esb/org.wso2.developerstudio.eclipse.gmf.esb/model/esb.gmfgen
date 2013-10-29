@@ -438,26 +438,6 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5127"
-            editPartClassName="PropertyMediatorPropertyNameEditPart"
-            itemSemanticEditPolicyClassName="PropertyMediatorPropertyNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="PropertyMediatorPropertyNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigurePropertyMediatorPropertyValueLabel"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/PropertyMediator/propertyName"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5167"
             editPartClassName="PropertyMediatorDescriptionEditPart"
             itemSemanticEditPolicyClassName="PropertyMediatorDescriptionItemSemanticEditPolicy"
@@ -1167,26 +1147,6 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5130"
-            editPartClassName="LogMediatorLogCategoryEditPart"
-            itemSemanticEditPolicyClassName="LogMediatorLogCategoryItemSemanticEditPolicy"
-            notationViewFactoryClassName="LogMediatorLogCategoryViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureLogCatogeryLogPropertyLabel"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.1"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/LogMediator/logCategory"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5168"
             editPartClassName="LogMediatorDescriptionEditPart"
             itemSemanticEditPolicyClassName="LogMediatorDescriptionItemSemanticEditPolicy"
@@ -1311,26 +1271,6 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
-        <labels
-            visualID="5131"
-            editPartClassName="EnrichMediatorSourceTypeEditPart"
-            itemSemanticEditPolicyClassName="EnrichMediatorSourceTypeItemSemanticEditPolicy"
-            notationViewFactoryClassName="EnrichMediatorSourceTypeViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureEnrichMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.1"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/EnrichMediator/sourceType"/>
-          </modelFacet>
-        </labels>
         <labels
             visualID="5169"
             editPartClassName="EnrichMediatorDescriptionEditPart"
@@ -2012,26 +1952,6 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5133"
-            editPartClassName="EventMediatorTopicTypeEditPart"
-            itemSemanticEditPolicyClassName="EventMediatorTopicTypeItemSemanticEditPolicy"
-            notationViewFactoryClassName="EventMediatorTopicTypeViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureEventMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.1"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/EventMediator/topicType"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5171"
             editPartClassName="EventMediatorDescriptionEditPart"
             itemSemanticEditPolicyClassName="EventMediatorDescriptionItemSemanticEditPolicy"
@@ -2528,26 +2448,6 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5135"
-            editPartClassName="ClassMediatorClassNameEditPart"
-            itemSemanticEditPolicyClassName="ClassMediatorClassNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="ClassMediatorClassNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureClassMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/ClassMediator/className"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5173"
             editPartClassName="ClassMediatorDescriptionEditPart"
             itemSemanticEditPolicyClassName="ClassMediatorDescriptionItemSemanticEditPolicy"
@@ -2672,26 +2572,6 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
-        <labels
-            visualID="5136"
-            editPartClassName="SpringMediatorBeanNameEditPart"
-            itemSemanticEditPolicyClassName="SpringMediatorBeanNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="SpringMediatorBeanNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureSpringMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/SpringMediator/beanName"/>
-          </modelFacet>
-        </labels>
         <labels
             visualID="5174"
             editPartClassName="SpringMediatorDescriptionEditPart"
@@ -2818,26 +2698,6 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5137"
-            editPartClassName="ScriptMediatorScriptLanguageEditPart"
-            itemSemanticEditPolicyClassName="ScriptMediatorScriptLanguageItemSemanticEditPolicy"
-            notationViewFactoryClassName="ScriptMediatorScriptLanguageViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureScriptMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.1"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/ScriptMediator/scriptLanguage"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5175"
             editPartClassName="ScriptMediatorDescriptionEditPart"
             itemSemanticEditPolicyClassName="ScriptMediatorDescriptionItemSemanticEditPolicy"
@@ -2962,26 +2822,6 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
-        <labels
-            visualID="5138"
-            editPartClassName="FaultMediatorFaultStringTypeEditPart"
-            itemSemanticEditPolicyClassName="FaultMediatorFaultStringTypeItemSemanticEditPolicy"
-            notationViewFactoryClassName="FaultMediatorFaultStringTypeViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureFaultMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.1"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/FaultMediator/faultStringType"/>
-          </modelFacet>
-        </labels>
         <labels
             visualID="5176"
             editPartClassName="FaultMediatorDescriptionEditPart"
@@ -3108,26 +2948,6 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5139"
-            editPartClassName="XQueryMediatorScriptKeyTypeEditPart"
-            itemSemanticEditPolicyClassName="XQueryMediatorScriptKeyTypeItemSemanticEditPolicy"
-            notationViewFactoryClassName="XQueryMediatorScriptKeyTypeViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureXQueryMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.1"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/XQueryMediator/scriptKeyType"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5177"
             editPartClassName="XQueryMediatorDescriptionEditPart"
             itemSemanticEditPolicyClassName="XQueryMediatorDescriptionItemSemanticEditPolicy"
@@ -3252,26 +3072,6 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
-        <labels
-            visualID="5140"
-            editPartClassName="CommandMediatorClassNameEditPart"
-            itemSemanticEditPolicyClassName="CommandMediatorClassNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="CommandMediatorClassNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureCommandMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/CommandMediator/className"/>
-          </modelFacet>
-        </labels>
         <labels
             visualID="5178"
             editPartClassName="CommandMediatorDescriptionEditPart"
@@ -3398,26 +3198,6 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5141"
-            editPartClassName="DBLookupMediatorConnectionURLEditPart"
-            itemSemanticEditPolicyClassName="DBLookupMediatorConnectionURLItemSemanticEditPolicy"
-            notationViewFactoryClassName="DBLookupMediatorConnectionURLViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureDBLookupMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/AbstractSqlExecutorMediator/connectionURL"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5179"
             editPartClassName="DBLookupMediatorDescriptionEditPart"
             itemSemanticEditPolicyClassName="DBLookupMediatorDescriptionItemSemanticEditPolicy"
@@ -3542,26 +3322,6 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
-        <labels
-            visualID="5142"
-            editPartClassName="DBReportMediatorConnectionURLEditPart"
-            itemSemanticEditPolicyClassName="DBReportMediatorConnectionURLItemSemanticEditPolicy"
-            notationViewFactoryClassName="DBReportMediatorConnectionURLViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureDBReportMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0"
-              editPattern="">
-            <metaFeatures
-                href="esb.genmodel#//esb/AbstractSqlExecutorMediator/connectionURL"/>
-          </modelFacet>
-        </labels>
         <labels
             visualID="5180"
             editPartClassName="DBReportMediatorDescriptionEditPart"
@@ -3986,25 +3746,6 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
-        <labels
-            visualID="5143"
-            editPartClassName="HeaderMediatorValueLiteralEditPart"
-            itemSemanticEditPolicyClassName="HeaderMediatorValueLiteralItemSemanticEditPolicy"
-            notationViewFactoryClassName="HeaderMediatorValueLiteralViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureHeaderMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0">
-            <metaFeatures
-                href="esb.genmodel#//esb/HeaderMediator/valueLiteral"/>
-          </modelFacet>
-        </labels>
         <labels
             visualID="5183"
             editPartClassName="HeaderMediatorDescriptionEditPart"
@@ -4777,25 +4518,6 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5147"
-            editPartClassName="CalloutMediatorSoapActionEditPart"
-            itemSemanticEditPolicyClassName="CalloutMediatorSoapActionItemSemanticEditPolicy"
-            notationViewFactoryClassName="CalloutMediatorSoapActionViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureCalloutMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0">
-            <metaFeatures
-                href="esb.genmodel#//esb/CalloutMediator/soapAction"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5184"
             editPartClassName="CalloutMediatorDescriptionEditPart"
             itemSemanticEditPolicyClassName="CalloutMediatorDescriptionItemSemanticEditPolicy"
@@ -5345,24 +5067,6 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
-        <labels
-            visualID="5148"
-            editPartClassName="OAuthMediatorRemoteServiceUrlEditPart"
-            itemSemanticEditPolicyClassName="OAuthMediatorRemoteServiceUrlItemSemanticEditPolicy"
-            notationViewFactoryClassName="OAuthMediatorRemoteServiceUrlViewFactory">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureOAuthMediatorPropertyValue"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0">
-            <metaFeatures
-                href="esb.genmodel#//esb/OAuthMediator/remoteServiceUrl"/>
-          </modelFacet>
-        </labels>
         <labels
             visualID="5187"
             editPartClassName="OAuthMediatorDescriptionEditPart"
@@ -6851,7 +6555,8 @@
         <labels
             visualID="5210"
             editPartClassName="ConditionalRouterMediatorDescriptionEditPart"
-            itemSemanticEditPolicyClassName="ConditionalRouterMediatorDescriptionItemSemanticEditPolicy">
+            itemSemanticEditPolicyClassName="ConditionalRouterMediatorDescriptionItemSemanticEditPolicy"
+            notationViewFactoryClassName="ConditionalRouterMediatorDescriptionViewFactory">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
           <viewmap
@@ -7417,29 +7122,9 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5155"
-            editPartClassName="DefaultEndPointEndPointNameEditPart"
-            itemSemanticEditPolicyClassName="DefaultEndPointEndPointNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="DefaultEndPointEndPointNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureDefaultEndPointNamePropertyLabel"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0">
-            <metaFeatures
-                href="esb.genmodel#//esb/EndPoint/endPointName"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5201"
             editPartClassName="DefaultEndPointDescriptionEditPart"
-            itemSemanticEditPolicyClassName="DefaultEndPointDescriptionItemSemanticEditPolicy"
-            notationViewFactoryClassName="DefaultEndPointDescriptionViewFactory">
+            itemSemanticEditPolicyClassName="DefaultEndPointDescriptionItemSemanticEditPolicy">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
           <viewmap
@@ -7561,29 +7246,9 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5156"
-            editPartClassName="AddressEndPointEndPointNameEditPart"
-            itemSemanticEditPolicyClassName="AddressEndPointEndPointNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="AddressEndPointEndPointNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureAddressEndPointNamePropertyLabel"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0">
-            <metaFeatures
-                href="esb.genmodel#//esb/EndPoint/endPointName"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5199"
             editPartClassName="AddressEndPointDescriptionEditPart"
-            itemSemanticEditPolicyClassName="AddressEndPointDescriptionItemSemanticEditPolicy"
-            notationViewFactoryClassName="AddressEndPointDescriptionViewFactory">
+            itemSemanticEditPolicyClassName="AddressEndPointDescriptionItemSemanticEditPolicy">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
           <viewmap
@@ -7706,29 +7371,9 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5157"
-            editPartClassName="FailoverEndPointEndPointNameEditPart"
-            itemSemanticEditPolicyClassName="FailoverEndPointEndPointNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="FailoverEndPointEndPointNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureFailoverEndPointNamePropertyLabel"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0">
-            <metaFeatures
-                href="esb.genmodel#//esb/EndPoint/endPointName"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5202"
             editPartClassName="FailoverEndPointDescriptionEditPart"
-            itemSemanticEditPolicyClassName="FailoverEndPointDescriptionItemSemanticEditPolicy"
-            notationViewFactoryClassName="FailoverEndPointDescriptionViewFactory">
+            itemSemanticEditPolicyClassName="FailoverEndPointDescriptionItemSemanticEditPolicy">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
           <viewmap
@@ -8043,29 +7688,9 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5158"
-            editPartClassName="WSDLEndPointEndPointNameEditPart"
-            itemSemanticEditPolicyClassName="WSDLEndPointEndPointNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="WSDLEndPointEndPointNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureWSDLEndPointNamePropertyLabel"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0">
-            <metaFeatures
-                href="esb.genmodel#//esb/EndPoint/endPointName"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5204"
             editPartClassName="WSDLEndPointDescriptionEditPart"
-            itemSemanticEditPolicyClassName="WSDLEndPointDescriptionItemSemanticEditPolicy"
-            notationViewFactoryClassName="WSDLEndPointDescriptionViewFactory">
+            itemSemanticEditPolicyClassName="WSDLEndPointDescriptionItemSemanticEditPolicy">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
           <viewmap
@@ -8314,29 +7939,9 @@
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
         <labels
-            visualID="5159"
-            editPartClassName="LoadBalanceEndPointEndPointNameEditPart"
-            itemSemanticEditPolicyClassName="LoadBalanceEndPointEndPointNameItemSemanticEditPolicy"
-            notationViewFactoryClassName="LoadBalanceEndPointEndPointNameViewFactory"
-            readOnly="true">
-          <diagramRunTimeClass
-              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-          <viewmap
-              xsi:type="gmfgen:ParentAssignedViewmap"
-              getterName="getFigureLoadBalanceEndPointNamePropertyLabel"
-              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-          <modelFacet
-              xsi:type="gmfgen:FeatureLabelModelFacet"
-              parser="/0/@labelParsers/@implementations.0">
-            <metaFeatures
-                href="esb.genmodel#//esb/EndPoint/endPointName"/>
-          </modelFacet>
-        </labels>
-        <labels
             visualID="5205"
             editPartClassName="LoadBalanceEndPointDescriptionEditPart"
-            itemSemanticEditPolicyClassName="LoadBalanceEndPointDescriptionItemSemanticEditPolicy"
-            notationViewFactoryClassName="LoadBalanceEndPointDescriptionViewFactory">
+            itemSemanticEditPolicyClassName="LoadBalanceEndPointDescriptionItemSemanticEditPolicy">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
           <viewmap
@@ -20337,10 +19942,10 @@
         extensibleViaService="true">
       <implementations
           xsi:type="gmfgen:PredefinedParser"
-          uses="/0/@diagram/@childNodes.8/@labels.0/@modelFacet /0/@diagram/@childNodes.10/@labels.0/@modelFacet /0/@diagram/@childNodes.10/@labels.1/@modelFacet /0/@diagram/@childNodes.29/@labels.1/@modelFacet /0/@diagram/@childNodes.32/@labels.1/@modelFacet /0/@diagram/@childNodes.35/@labels.0/@modelFacet /0/@diagram/@childNodes.47/@labels.0/@modelFacet /0/@diagram/@childNodes.50/@labels.1/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.1/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.1/@modelFacet /0/@diagram/@childNodes.69/@labels.1/@modelFacet /0/@diagram/@childNodes.72/@labels.1/@modelFacet /0/@diagram/@childNodes.75/@labels.1/@modelFacet /0/@diagram/@childNodes.78/@labels.0/@modelFacet /0/@diagram/@childNodes.78/@labels.1/@modelFacet /0/@diagram/@childNodes.81/@labels.0/@modelFacet /0/@diagram/@childNodes.81/@labels.1/@modelFacet /0/@diagram/@childNodes.84/@labels.0/@modelFacet /0/@diagram/@childNodes.84/@labels.1/@modelFacet /0/@diagram/@childNodes.87/@labels.0/@modelFacet /0/@diagram/@childNodes.95/@labels.0/@modelFacet /0/@diagram/@childNodes.95/@labels.1/@modelFacet /0/@diagram/@childNodes.115/@labels.0/@modelFacet /0/@diagram/@childNodes.115/@labels.1/@modelFacet /0/@diagram/@childNodes.118/@labels.0/@modelFacet /0/@diagram/@childNodes.121/@labels.0/@modelFacet /0/@diagram/@childNodes.129/@labels.0/@modelFacet /0/@diagram/@childNodes.129/@labels.1/@modelFacet /0/@diagram/@childNodes.137/@labels.0/@modelFacet /0/@diagram/@childNodes.140/@labels.0/@modelFacet /0/@diagram/@childNodes.143/@labels.0/@modelFacet /0/@diagram/@childNodes.146/@labels.0/@modelFacet /0/@diagram/@childNodes.149/@labels.0/@modelFacet /0/@diagram/@childNodes.152/@labels.0/@modelFacet /0/@diagram/@childNodes.172/@labels.0/@modelFacet /0/@diagram/@childNodes.175/@labels.0/@modelFacet /0/@diagram/@childNodes.178/@labels.0/@modelFacet /0/@diagram/@childNodes.181/@labels.0/@modelFacet /0/@diagram/@childNodes.181/@labels.1/@modelFacet /0/@diagram/@childNodes.184/@labels.0/@modelFacet /0/@diagram/@childNodes.184/@labels.1/@modelFacet /0/@diagram/@childNodes.187/@labels.0/@modelFacet /0/@diagram/@childNodes.187/@labels.1/@modelFacet /0/@diagram/@childNodes.191/@labels.0/@modelFacet /0/@diagram/@childNodes.195/@labels.0/@modelFacet /0/@diagram/@childNodes.195/@labels.1/@modelFacet /0/@diagram/@childNodes.198/@labels.0/@modelFacet /0/@diagram/@childNodes.201/@labels.0/@modelFacet /0/@diagram/@childNodes.201/@labels.1/@modelFacet /0/@diagram/@childNodes.208/@labels.0/@modelFacet /0/@diagram/@childNodes.211/@labels.0/@modelFacet /0/@diagram/@childNodes.214/@labels.0/@modelFacet /0/@diagram/@childNodes.217/@labels.0/@modelFacet /0/@diagram/@childNodes.220/@labels.0/@modelFacet /0/@diagram/@childNodes.223/@labels.0/@modelFacet /0/@diagram/@childNodes.226/@labels.0/@modelFacet /0/@diagram/@childNodes.167/@labels.0/@modelFacet /0/@diagram/@childNodes.132/@labels.0/@modelFacet /0/@diagram/@childNodes.110/@labels.0/@modelFacet /0/@diagram/@childNodes.105/@labels.0/@modelFacet /0/@diagram/@childNodes.98/@labels.0/@modelFacet /0/@diagram/@childNodes.53/@labels.0/@modelFacet /0/@diagram/@childNodes.13/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.262/@labels.0/@modelFacet /0/@diagram/@childNodes.265/@labels.0/@modelFacet /0/@diagram/@childNodes.268/@labels.0/@modelFacet /0/@diagram/@childNodes.276/@labels.0/@modelFacet /0/@diagram/@childNodes.279/@labels.0/@modelFacet"/>
+          uses="/0/@diagram/@childNodes.8/@labels.0/@modelFacet /0/@diagram/@childNodes.10/@labels.0/@modelFacet /0/@diagram/@childNodes.29/@labels.0/@modelFacet /0/@diagram/@childNodes.32/@labels.0/@modelFacet /0/@diagram/@childNodes.35/@labels.0/@modelFacet /0/@diagram/@childNodes.47/@labels.0/@modelFacet /0/@diagram/@childNodes.50/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.78/@labels.0/@modelFacet /0/@diagram/@childNodes.81/@labels.0/@modelFacet /0/@diagram/@childNodes.84/@labels.0/@modelFacet /0/@diagram/@childNodes.87/@labels.0/@modelFacet /0/@diagram/@childNodes.95/@labels.0/@modelFacet /0/@diagram/@childNodes.115/@labels.0/@modelFacet /0/@diagram/@childNodes.118/@labels.0/@modelFacet /0/@diagram/@childNodes.121/@labels.0/@modelFacet /0/@diagram/@childNodes.129/@labels.0/@modelFacet /0/@diagram/@childNodes.137/@labels.0/@modelFacet /0/@diagram/@childNodes.140/@labels.0/@modelFacet /0/@diagram/@childNodes.143/@labels.0/@modelFacet /0/@diagram/@childNodes.146/@labels.0/@modelFacet /0/@diagram/@childNodes.149/@labels.0/@modelFacet /0/@diagram/@childNodes.152/@labels.0/@modelFacet /0/@diagram/@childNodes.172/@labels.0/@modelFacet /0/@diagram/@childNodes.175/@labels.0/@modelFacet /0/@diagram/@childNodes.178/@labels.0/@modelFacet /0/@diagram/@childNodes.181/@labels.0/@modelFacet /0/@diagram/@childNodes.184/@labels.0/@modelFacet /0/@diagram/@childNodes.187/@labels.0/@modelFacet /0/@diagram/@childNodes.191/@labels.0/@modelFacet /0/@diagram/@childNodes.195/@labels.0/@modelFacet /0/@diagram/@childNodes.198/@labels.0/@modelFacet /0/@diagram/@childNodes.201/@labels.0/@modelFacet /0/@diagram/@childNodes.208/@labels.0/@modelFacet /0/@diagram/@childNodes.211/@labels.0/@modelFacet /0/@diagram/@childNodes.214/@labels.0/@modelFacet /0/@diagram/@childNodes.217/@labels.0/@modelFacet /0/@diagram/@childNodes.220/@labels.0/@modelFacet /0/@diagram/@childNodes.223/@labels.0/@modelFacet /0/@diagram/@childNodes.226/@labels.0/@modelFacet /0/@diagram/@childNodes.167/@labels.0/@modelFacet /0/@diagram/@childNodes.132/@labels.0/@modelFacet /0/@diagram/@childNodes.110/@labels.0/@modelFacet /0/@diagram/@childNodes.105/@labels.0/@modelFacet /0/@diagram/@childNodes.98/@labels.0/@modelFacet /0/@diagram/@childNodes.53/@labels.0/@modelFacet /0/@diagram/@childNodes.13/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.262/@labels.0/@modelFacet /0/@diagram/@childNodes.265/@labels.0/@modelFacet /0/@diagram/@childNodes.268/@labels.0/@modelFacet /0/@diagram/@childNodes.276/@labels.0/@modelFacet /0/@diagram/@childNodes.279/@labels.0/@modelFacet"/>
       <implementations
           xsi:type="gmfgen:PredefinedEnumParser"
-          uses="/0/@diagram/@childNodes.29/@labels.0/@modelFacet /0/@diagram/@childNodes.32/@labels.0/@modelFacet /0/@diagram/@childNodes.50/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.21/@labels.0/@modelFacet"/>
+          uses="/0/@diagram/@childNodes.21/@labels.0/@modelFacet"/>
     </labelParsers>
     <contextMenus
         context="/0/@diagram">

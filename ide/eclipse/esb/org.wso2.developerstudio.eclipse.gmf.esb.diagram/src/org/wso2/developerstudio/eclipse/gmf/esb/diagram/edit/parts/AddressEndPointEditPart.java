@@ -349,13 +349,13 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 		}
 	}
 
-	/**
+/*	*//**
 	 * @generated
-	 */
+	 *//*
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(EsbVisualIDRegistry
 				.getType(AddressEndPointEndPointNameEditPart.VISUAL_ID));
-	}
+	}*/
 
 	protected void refreshVisuals() {
 		super.refreshVisuals();

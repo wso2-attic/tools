@@ -292,13 +292,14 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(DBReportMediatorConnectionURLEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(DBReportMediatorConnectionURLEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

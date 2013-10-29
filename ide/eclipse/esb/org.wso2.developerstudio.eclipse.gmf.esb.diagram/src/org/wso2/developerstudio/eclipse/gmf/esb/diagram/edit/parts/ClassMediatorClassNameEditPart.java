@@ -235,7 +235,7 @@ public class ClassMediatorClassNameEditPart extends CompartmentEditPart implemen
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**

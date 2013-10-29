@@ -291,13 +291,14 @@ public class EventMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(EventMediatorTopicTypeEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(EventMediatorTopicTypeEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

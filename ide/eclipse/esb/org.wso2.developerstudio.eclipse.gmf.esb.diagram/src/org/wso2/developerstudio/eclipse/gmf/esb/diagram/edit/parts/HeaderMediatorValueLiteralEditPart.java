@@ -235,7 +235,7 @@ public class HeaderMediatorValueLiteralEditPart extends CompartmentEditPart impl
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**

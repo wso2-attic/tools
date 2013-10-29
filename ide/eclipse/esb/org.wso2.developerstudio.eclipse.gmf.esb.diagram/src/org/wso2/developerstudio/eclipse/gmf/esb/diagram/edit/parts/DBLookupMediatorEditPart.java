@@ -293,13 +293,14 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(DBLookupMediatorConnectionURLEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(DBLookupMediatorConnectionURLEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

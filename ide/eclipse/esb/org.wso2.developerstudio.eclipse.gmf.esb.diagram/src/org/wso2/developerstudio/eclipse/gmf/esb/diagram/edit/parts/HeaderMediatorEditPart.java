@@ -291,13 +291,14 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(HeaderMediatorValueLiteralEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(HeaderMediatorValueLiteralEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated

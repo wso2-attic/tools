@@ -235,7 +235,7 @@ public class DBReportMediatorConnectionURLEditPart extends CompartmentEditPart i
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**

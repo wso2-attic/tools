@@ -74,9 +74,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case PropertyMediatorEditPart.VISUAL_ID:
 				return new PropertyMediatorEditPart(view);
 
-			case PropertyMediatorPropertyNameEditPart.VISUAL_ID:
-				return new PropertyMediatorPropertyNameEditPart(view);
-
 			case PropertyMediatorDescriptionEditPart.VISUAL_ID:
 				return new PropertyMediatorDescriptionEditPart(view);
 
@@ -143,9 +140,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case LogMediatorEditPart.VISUAL_ID:
 				return new LogMediatorEditPart(view);
 
-			case LogMediatorLogCategoryEditPart.VISUAL_ID:
-				return new LogMediatorLogCategoryEditPart(view);
-
 			case LogMediatorDescriptionEditPart.VISUAL_ID:
 				return new LogMediatorDescriptionEditPart(view);
 
@@ -157,9 +151,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case EnrichMediatorEditPart.VISUAL_ID:
 				return new EnrichMediatorEditPart(view);
-
-			case EnrichMediatorSourceTypeEditPart.VISUAL_ID:
-				return new EnrichMediatorSourceTypeEditPart(view);
 
 			case EnrichMediatorDescriptionEditPart.VISUAL_ID:
 				return new EnrichMediatorDescriptionEditPart(view);
@@ -224,9 +215,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case EventMediatorEditPart.VISUAL_ID:
 				return new EventMediatorEditPart(view);
 
-			case EventMediatorTopicTypeEditPart.VISUAL_ID:
-				return new EventMediatorTopicTypeEditPart(view);
-
 			case EventMediatorDescriptionEditPart.VISUAL_ID:
 				return new EventMediatorDescriptionEditPart(view);
 
@@ -272,9 +260,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case ClassMediatorEditPart.VISUAL_ID:
 				return new ClassMediatorEditPart(view);
 
-			case ClassMediatorClassNameEditPart.VISUAL_ID:
-				return new ClassMediatorClassNameEditPart(view);
-
 			case ClassMediatorDescriptionEditPart.VISUAL_ID:
 				return new ClassMediatorDescriptionEditPart(view);
 
@@ -286,9 +271,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case SpringMediatorEditPart.VISUAL_ID:
 				return new SpringMediatorEditPart(view);
-
-			case SpringMediatorBeanNameEditPart.VISUAL_ID:
-				return new SpringMediatorBeanNameEditPart(view);
 
 			case SpringMediatorDescriptionEditPart.VISUAL_ID:
 				return new SpringMediatorDescriptionEditPart(view);
@@ -302,9 +284,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case ScriptMediatorEditPart.VISUAL_ID:
 				return new ScriptMediatorEditPart(view);
 
-			case ScriptMediatorScriptLanguageEditPart.VISUAL_ID:
-				return new ScriptMediatorScriptLanguageEditPart(view);
-
 			case ScriptMediatorDescriptionEditPart.VISUAL_ID:
 				return new ScriptMediatorDescriptionEditPart(view);
 
@@ -316,9 +295,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case FaultMediatorEditPart.VISUAL_ID:
 				return new FaultMediatorEditPart(view);
-
-			case FaultMediatorFaultStringTypeEditPart.VISUAL_ID:
-				return new FaultMediatorFaultStringTypeEditPart(view);
 
 			case FaultMediatorDescriptionEditPart.VISUAL_ID:
 				return new FaultMediatorDescriptionEditPart(view);
@@ -332,9 +308,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case XQueryMediatorEditPart.VISUAL_ID:
 				return new XQueryMediatorEditPart(view);
 
-			case XQueryMediatorScriptKeyTypeEditPart.VISUAL_ID:
-				return new XQueryMediatorScriptKeyTypeEditPart(view);
-
 			case XQueryMediatorDescriptionEditPart.VISUAL_ID:
 				return new XQueryMediatorDescriptionEditPart(view);
 
@@ -346,9 +319,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case CommandMediatorEditPart.VISUAL_ID:
 				return new CommandMediatorEditPart(view);
-
-			case CommandMediatorClassNameEditPart.VISUAL_ID:
-				return new CommandMediatorClassNameEditPart(view);
 
 			case CommandMediatorDescriptionEditPart.VISUAL_ID:
 				return new CommandMediatorDescriptionEditPart(view);
@@ -362,9 +332,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case DBLookupMediatorEditPart.VISUAL_ID:
 				return new DBLookupMediatorEditPart(view);
 
-			case DBLookupMediatorConnectionURLEditPart.VISUAL_ID:
-				return new DBLookupMediatorConnectionURLEditPart(view);
-
 			case DBLookupMediatorDescriptionEditPart.VISUAL_ID:
 				return new DBLookupMediatorDescriptionEditPart(view);
 
@@ -376,9 +343,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case DBReportMediatorEditPart.VISUAL_ID:
 				return new DBReportMediatorEditPart(view);
-
-			case DBReportMediatorConnectionURLEditPart.VISUAL_ID:
-				return new DBReportMediatorConnectionURLEditPart(view);
 
 			case DBReportMediatorDescriptionEditPart.VISUAL_ID:
 				return new DBReportMediatorDescriptionEditPart(view);
@@ -418,9 +382,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case HeaderMediatorEditPart.VISUAL_ID:
 				return new HeaderMediatorEditPart(view);
-
-			case HeaderMediatorValueLiteralEditPart.VISUAL_ID:
-				return new HeaderMediatorValueLiteralEditPart(view);
 
 			case HeaderMediatorDescriptionEditPart.VISUAL_ID:
 				return new HeaderMediatorDescriptionEditPart(view);
@@ -494,9 +455,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case CalloutMediatorEditPart.VISUAL_ID:
 				return new CalloutMediatorEditPart(view);
 
-			case CalloutMediatorSoapActionEditPart.VISUAL_ID:
-				return new CalloutMediatorSoapActionEditPart(view);
-
 			case CalloutMediatorDescriptionEditPart.VISUAL_ID:
 				return new CalloutMediatorDescriptionEditPart(view);
 
@@ -547,9 +505,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case OAuthMediatorEditPart.VISUAL_ID:
 				return new OAuthMediatorEditPart(view);
-
-			case OAuthMediatorRemoteServiceUrlEditPart.VISUAL_ID:
-				return new OAuthMediatorRemoteServiceUrlEditPart(view);
 
 			case OAuthMediatorDescriptionEditPart.VISUAL_ID:
 				return new OAuthMediatorDescriptionEditPart(view);
@@ -743,9 +698,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case DefaultEndPointEditPart.VISUAL_ID:
 				return new DefaultEndPointEditPart(view);
 
-			case DefaultEndPointEndPointNameEditPart.VISUAL_ID:
-				return new DefaultEndPointEndPointNameEditPart(view);
-
 			case DefaultEndPointDescriptionEditPart.VISUAL_ID:
 				return new DefaultEndPointDescriptionEditPart(view);
 
@@ -758,9 +710,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case AddressEndPointEditPart.VISUAL_ID:
 				return new AddressEndPointEditPart(view);
 
-			case AddressEndPointEndPointNameEditPart.VISUAL_ID:
-				return new AddressEndPointEndPointNameEditPart(view);
-
 			case AddressEndPointDescriptionEditPart.VISUAL_ID:
 				return new AddressEndPointDescriptionEditPart(view);
 
@@ -772,9 +721,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case FailoverEndPointEditPart.VISUAL_ID:
 				return new FailoverEndPointEditPart(view);
-
-			case FailoverEndPointEndPointNameEditPart.VISUAL_ID:
-				return new FailoverEndPointEndPointNameEditPart(view);
 
 			case FailoverEndPointDescriptionEditPart.VISUAL_ID:
 				return new FailoverEndPointDescriptionEditPart(view);
@@ -806,9 +752,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case WSDLEndPointEditPart.VISUAL_ID:
 				return new WSDLEndPointEditPart(view);
 
-			case WSDLEndPointEndPointNameEditPart.VISUAL_ID:
-				return new WSDLEndPointEndPointNameEditPart(view);
-
 			case WSDLEndPointDescriptionEditPart.VISUAL_ID:
 				return new WSDLEndPointDescriptionEditPart(view);
 
@@ -832,9 +775,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case LoadBalanceEndPointEditPart.VISUAL_ID:
 				return new LoadBalanceEndPointEditPart(view);
-
-			case LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID:
-				return new LoadBalanceEndPointEndPointNameEditPart(view);
 
 			case LoadBalanceEndPointDescriptionEditPart.VISUAL_ID:
 				return new LoadBalanceEndPointDescriptionEditPart(view);

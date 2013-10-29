@@ -291,13 +291,14 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 	}
 
-	/**
-	 * @generated
-	 */
+	/*	*//**
+			 * @generated
+			 */
+	/*
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry
-				.getType(EnrichMediatorSourceTypeEditPart.VISUAL_ID));
-	}
+	return getChildBySemanticHint(EsbVisualIDRegistry
+			.getType(EnrichMediatorSourceTypeEditPart.VISUAL_ID));
+	}*/
 
 	/**
 	 * @generated
