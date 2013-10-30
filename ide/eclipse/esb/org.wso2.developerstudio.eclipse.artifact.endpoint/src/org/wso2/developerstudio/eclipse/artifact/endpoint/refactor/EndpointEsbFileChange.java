@@ -16,8 +16,12 @@
 
 package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.text.edits.MultiTextEdit;
 import org.eclipse.text.edits.ReplaceEdit;
@@ -27,10 +31,30 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Iterator;
+
+import javax.xml.namespace.QName;
 
 public class EndpointEsbFileChange extends TextFileChange {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
+	private final String ESB_GRAPHICAL_ESB_DIAGRAM="Diagram";
+	private final String ESB_GRAPHICAL_ESB="EsbDiagram";
+	
+	private final String ENTRY_NAME="entryName";
+	private final String STORE_NAME="storeName";
+	private final String PROCESSOR_NAME="processorName";
+	private final String TASK_NAME="taskName";
+	private final String API_NAME="apiName";
+	private final String GENERAL_NAME="name";
+	
+	private final String LOCAL_ENTRY_TYPE="LOCAL_ENTRY";
+	private final String MESSAGE_STORE_TYPE="MESSAGE_STORE";
+	private final String MESSAGE_PROCESSOR_TYPE="MESSAGE_PROCESSOR";
+	private final String TASK_TYPE="TASK";
+	private final String API_TYPE="API";
+	
 	private IFile esbFile;
 	private String match;
 	private String replace;
@@ -38,9 +62,57 @@ public class EndpointEsbFileChange extends TextFileChange {
 	public EndpointEsbFileChange(String name, IFile file, String originalName, String newName) {
 		super(name, file);
 		esbFile = file;
-		match = originalName;
-		replace = newName;
+		prepareMatchAndReplace(originalName,newName);
 		addTextEdits();
+	}
+	
+	private void prepareMatchAndReplace(String originalName, String newName) {
+		String root=null;	
+		OMElement documentElement = null;
+		InputStream in = null;
+		try {
+			in = esbFile.getContents(true);
+			OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
+			documentElement = builder.getDocumentElement();
+			root = documentElement.getLocalName();
+		} catch (CoreException e) {
+			log.error("Error while parsing the content", e);
+		}finally{
+			try {
+				if(in !=null){
+					in.close();
+				}
+			} catch (IOException e) {
+				log.error("Error while closing the input Stream", e);
+			}
+		}
+		if(ESB_GRAPHICAL_ESB_DIAGRAM.equals(root)){
+			match = originalName+".esb";
+			replace = newName+".esb";
+		}else if (ESB_GRAPHICAL_ESB.equals(root)){
+			OMElement server = null;
+			String name=null;
+			Iterator<OMElement> childrenWithLocalName = documentElement.getChildrenWithLocalName("server");
+			while(childrenWithLocalName.hasNext()){
+				server = childrenWithLocalName.next();
+			}
+			String serverType=server.getAttributeValue(new QName("type"));
+			if(LOCAL_ENTRY_TYPE.equals(serverType)){
+				name=ENTRY_NAME;
+			}else if(MESSAGE_STORE_TYPE.equals(serverType)){
+				name=STORE_NAME;
+			}else if(MESSAGE_PROCESSOR_TYPE.equals(serverType)){
+				name=PROCESSOR_NAME;
+			}else if(TASK_TYPE.equals(serverType)){
+				name=TASK_NAME;
+			}else if(API_TYPE.equals(serverType)){
+				name=API_NAME;
+			}else{
+				name=GENERAL_NAME;
+			}
+			match = name+"=\""+originalName+"\"";
+			replace = name+"=\""+newName+"\"";
+		}		
 	}
 
 	private void addTextEdits() {
