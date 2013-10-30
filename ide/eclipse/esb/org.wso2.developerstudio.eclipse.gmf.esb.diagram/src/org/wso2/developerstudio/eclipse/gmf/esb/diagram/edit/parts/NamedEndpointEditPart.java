@@ -636,6 +636,7 @@ public class NamedEndpointEditPart extends ComplexFiguredAbstractEndpoint {
 					OpenEditorUtils oeUtils = new OpenEditorUtils();
 					oeUtils.openSeparateEditor(fileTobeOpened, diagramPath);
 				} else {
+					addEndpointToArtifactXML(name);
 					EsbDiagramEditorUtil.openDiagram(diagram);
 				}
 				EsbDiagramEditorUtil.openDiagram(diagram);
@@ -675,6 +676,21 @@ public class NamedEndpointEditPart extends ComplexFiguredAbstractEndpoint {
 		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.NamedEndpoint_3660));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
+	}
+	
+	private void addEndpointToArtifactXML(String endpointName) {
+		IProject activeProject = getActiveProject();
+		ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+		try {
+			esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml").getLocation()
+					.toFile());
+			esbProjectArtifact.addESBArtifact(createArtifact(endpointName,
+					getMavenGroupID(activeProject), "1.0.0", "src/main/synapse-config/endpoints/"
+							+ endpointName + ".xml", "synapse/endpoint"));
+			esbProjectArtifact.toFile();
+		} catch (Exception e) {
+			log.error("Error while updating Artifact.xml");
+		}
 	}
 
 	/**

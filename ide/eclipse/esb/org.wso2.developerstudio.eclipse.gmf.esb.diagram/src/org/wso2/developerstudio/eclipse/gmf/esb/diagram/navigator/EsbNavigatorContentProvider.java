@@ -204,7 +204,7 @@ public class EsbNavigatorContentProvider implements ICommonContentProvider {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	private Object[] getViewChildren(View view, Object parentElement) {
 		switch (EsbVisualIDRegistry.getVisualID(view)) {
