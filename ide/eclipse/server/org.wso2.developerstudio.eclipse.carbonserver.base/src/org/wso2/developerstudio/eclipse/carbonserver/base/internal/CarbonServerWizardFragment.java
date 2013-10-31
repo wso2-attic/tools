@@ -22,6 +22,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.EList;
@@ -34,15 +35,24 @@ import org.eclipse.jst.server.generic.ui.internal.GenericServerCompositeDecorato
 import org.eclipse.jst.server.generic.ui.internal.GenericServerWizardFragment;
 import org.eclipse.jst.server.generic.ui.internal.ServerTypeDefinitionServerDecorator;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.wst.server.core.IRuntime;
 import org.eclipse.wst.server.core.IServerWorkingCopy;
 import org.eclipse.wst.server.core.TaskModel;
 import org.eclipse.wst.server.ui.wizard.IWizardHandle;
+import org.wso2.developerstudio.eclipse.carbonserver.base.Activator;
 import org.wso2.developerstudio.eclipse.carbonserver.base.manager.IProperties;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 @SuppressWarnings("restriction")
 public class CarbonServerWizardFragment extends GenericServerWizardFragment {
 	private GenericServerCompositeDecorator[] decorators;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public void createContent(Composite parent, IWizardHandle handle) {
 		IServerWorkingCopy server = getServer();
@@ -142,6 +152,28 @@ public class CarbonServerWizardFragment extends GenericServerWizardFragment {
 	            if( decorators[i].validate() )//failed do not continue
 	                return;
 	        }
+	    }
+	    
+	    public void performFinish(IProgressMonitor monitor) throws CoreException {
+	    	/*
+	    	 * Focus Server view after clicking the Finish button. 
+	    	 */
+	    	Display.getDefault().asyncExec(new Runnable() {
+	    	    public void run() {
+	    	    	try {
+	    	    		IWorkbenchWindow[] workbenchWindows = PlatformUI.getWorkbench().getWorkbenchWindows();
+	    	    		if(workbenchWindows.length>0){
+	    	    			IWorkbenchPage[] pages = workbenchWindows[0].getPages();
+	    	    			if(pages.length>0){
+	    	    				pages[0].showView("org.eclipse.wst.server.ui.ServersView");
+	    	    			}
+	    	    		}
+					} catch (PartInitException e) {
+						log.error("Error while opening Server view", e);
+					}
+	    	    }
+	    	});
+	    	super.performFinish(monitor);
 	    }
 
 }

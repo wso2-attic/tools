@@ -98,7 +98,10 @@ public class DashboardPage extends FormPage {
 				});
 		wizardCategoryMap.put("Maven", new String[]{
 				"org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard.MvnMultiModuleWizard",
-				});
+				});		
+		wizardCategoryMap.put("AddServer", new String[]{
+				"org.eclipse.wst.server.ui.new.server",
+				});		
 	}
 	/**
 	 * Create the form page.
@@ -205,10 +208,25 @@ public class DashboardPage extends FormPage {
 				.getImage(this.getClass(), "/intro/css/graphics/maven-24x24.png"),
 				32, 32));
 		createTitlelessCategory(managedForm,comMaven,"Maven",mavenImageDesc);
-		sctnMaven.setExpanded(true);
+		sctnMaven.setExpanded(true);		
+		
+		Section sctnAddServer = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnAddServer.setBounds(650, 170, 300, 75);
+		managedForm.getToolkit().paintBordersFor(sctnAddServer);
+		sctnAddServer.setText("Add Server");
+		
+		Composite comAddServer = managedForm.getToolkit().createComposite(sctnAddServer, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(comAddServer);
+		sctnAddServer.setClient(comAddServer);
+		comAddServer.setLayout(new GridLayout(1, false));
+		ImageDescriptor addServerImageDesc = ImageDescriptor.createFromImage(DashboardUtil.resizeImage(SWTResourceManager
+				.getImage(this.getClass(), "/intro/css/graphics/server.png"),
+				32, 32));
+		createTitlelessCategory(managedForm,comAddServer,"AddServer",addServerImageDesc);
+		sctnAddServer.setExpanded(true);	
 		
 		Section sctnSamples = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnSamples.setBounds(650, 170, 300, 800);
+		sctnSamples.setBounds(650, 250, 300, 800);
 		managedForm.getToolkit().paintBordersFor(sctnSamples);
 		sctnSamples.setText("Samples");
 		
@@ -226,7 +244,8 @@ public class DashboardPage extends FormPage {
 		List<String> categoryContributions = DashboardContributionsHandler
 				.getCategoryContributions();
 		categoryContributions.add("org.wso2.developerstudio.eclipse.capp.distribution");
-		categoryContributions.add("org.wso2.developerstudio.eclipse.maven.features");
+		categoryContributions.add("org.wso2.developerstudio.eclipse.maven.features");	
+		categoryContributions.add("org.eclipse.wst.server.ui");
 		/* Dashboard items for core features not handle by DashboardContributionsHandler */
 		List<IWizardDescriptor> descriptors = getWizardDescriptor(categoryContributions.toArray(new String[] {}));
 		
