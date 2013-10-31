@@ -19,6 +19,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.print.attribute.standard.MediaSize.Other;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
@@ -578,9 +580,11 @@ public class XYRepossition {
 			if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart && node == null
 					&& editPart.getChildren().size() > 0) {
 				// Started to traverse out sequence.
-				node = getRightMostNodeOfOutSequence(editPart);
+/*				node = getRightMostNodeOfOutSequence(editPart);
 				x = ((IGraphicalEditPart) editPart.getParent().getParent()).getFigure().getBounds().width
-						- arrowAndtwoConnectorsLength * 2;
+						- arrowAndtwoConnectorsLength * 2;*/
+				node = getLeftMostNodeOfOutSequence(editPart);
+				x = arrowAndtwoConnectorsLength - connectorLength;
 				reversed = true;
 			}
 
@@ -626,12 +630,12 @@ public class XYRepossition {
 							// In&out sequence mediator.
 							y = ((IGraphicalEditPart) editPart.getParent().getParent()).getFigure()
 									.getBounds().height * 3 / 4;
-							y = y - node.getFigure().getBounds().height / 2 - verticalSpacing;
-							x = x - arrowAndtwoConnectorsLength - nodeFigureWdith;
+							y = y - node.getFigure().getBounds().height / 2 - verticalSpacing;						
 
 							droppableElement.setX(x);
 							droppableElement.setY(y);
 							constraints = new Rectangle(x, y, nodeFigureWdith, nodeFigureHeight);
+							x = x + arrowAndtwoConnectorsLength + nodeFigureWdith;
 						} else if (editPart instanceof MediatorFlowMediatorFlowCompartment6EditPart) {
 							// Mediators in fault sequence.
 							droppableElement.setX(x);
@@ -708,7 +712,22 @@ public class XYRepossition {
 						}
 					}
 
-				} else {
+				} else if ((editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart)
+						&& reversed) {
+					
+					nodeInputConnector = EditorUtils.getMediatorInputConnector(node);
+					targetConnections = nodeInputConnector.getTargetConnections();
+
+					if (targetConnections != null) {
+						if (targetConnections.size() != 0) {
+							node = (ShapeNodeEditPart) ((EsbLinkEditPart) nodeInputConnector
+									.getTargetConnections().get(0)).getSource().getParent();
+						} else {
+							break;
+						}
+					}			
+					
+				}else {
 					nodeOPconector = EditorUtils.getMediatorOutputConnector(node);
 
 					if (nodeOPconector != null) {
@@ -725,10 +744,12 @@ public class XYRepossition {
 								if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart
 										&& !reversed) {
 									// Started to traverse out sequence.
-									node = getRightMostNodeOfOutSequence(editPart);
+/*									node = getRightMostNodeOfOutSequence(editPart);
 									x = ((IGraphicalEditPart) editPart.getParent().getParent())
 											.getFigure().getBounds().width
-											- arrowAndtwoConnectorsLength * 2;
+											- arrowAndtwoConnectorsLength * 2;*/
+									node = getLeftMostNodeOfOutSequence(editPart);
+									x = arrowAndtwoConnectorsLength - connectorLength;
 									reversed = true;
 								} else {
 									break;
@@ -740,10 +761,12 @@ public class XYRepossition {
 						if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart
 								&& !reversed) {
 							// Started to traverse out sequence.
-							node = getRightMostNodeOfOutSequence(editPart);
+/*							node = getRightMostNodeOfOutSequence(editPart);
 							x = ((IGraphicalEditPart) editPart.getParent().getParent())
 									.getFigure().getBounds().width
-									- arrowAndtwoConnectorsLength * 2;
+									- arrowAndtwoConnectorsLength * 2;*/
+							node = getLeftMostNodeOfOutSequence(editPart);
+							x = arrowAndtwoConnectorsLength - connectorLength;
 							reversed = true;
 						} else {
 							break;
@@ -857,6 +880,55 @@ public class XYRepossition {
 					&& outSequenceOutputConnector.getSourceConnections().size() > 0) {
 				node = (ShapeNodeEditPart) ((EsbLinkEditPart) outSequenceOutputConnector
 						.getSourceConnections().get(0)).getTarget().getParent();
+			}
+		}
+
+		return node;
+	}
+	
+	/**
+	 * Get left most node of the out sequence of a proxy, api or main sequence.
+	 * 
+	 * @param parent
+	 * @return
+	 */
+	private static ShapeNodeEditPart getLeftMostNodeOfOutSequence(IGraphicalEditPart parent) {
+		ShapeNodeEditPart first = null;
+		ShapeNodeEditPart node = null;
+		ShapeNodeEditPart target = null;
+	 
+		AbstractInputConnectorEditPart outSequenceInputConnector = null;
+
+		if (parent instanceof MediatorFlowMediatorFlowCompartmentEditPart) {
+			first = (ShapeNodeEditPart) parent.getParent().getParent().getParent().getParent();
+
+			outSequenceInputConnector = EditorUtils.getBaseFigureInputConnector(first);
+
+			if (outSequenceInputConnector != null
+					&& outSequenceInputConnector.getTargetConnections().size() > 0) {
+				node = (ShapeNodeEditPart) ((EsbLinkEditPart) outSequenceInputConnector
+						.getTargetConnections().get(0)).getSource().getParent();
+			} else {
+				/*
+				 * If there is a drop mediator at the end of the outSequence or
+				 * the last link has been removed due to unexpected reason.
+				 */
+				AbstractOutputConnectorEditPart outputConnector = null;
+				first = (ShapeNodeEditPart) parent.getParent().getParent().getParent().getParent();
+				outputConnector = EditorUtils.getProxyOutSequenceOutputConnector(first);
+				if(outputConnector.getSourceConnections().size()>0){
+	
+					while (outputConnector != null && outputConnector.getSourceConnections().size() > 0) {						
+						target = (ShapeNodeEditPart) ((EsbLinkEditPart) outputConnector
+								.getSourceConnections().get(0)).getTarget().getParent();
+						if(!(target instanceof AbstractBaseFigureEditPart)){
+							node=target;
+							outputConnector = EditorUtils.getMediatorOutputConnector(node);
+						}else{
+							break;
+						}						
+					}
+				}
 			}
 		}
 
