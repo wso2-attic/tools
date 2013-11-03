@@ -80,7 +80,7 @@
     </wsdl:binding>
     <wsdl:service name="AccountDetailService">
         <wsdl:port name="AccountDetailServiceHttpSoap11Endpoint" binding="ns:AccountDetailServiceSoap11Binding">
-            <soap:address location="http://localhost:8280/services/AccountServiceProxy" />
+            <soap:address location="http://localhost:8281/services/AccountServiceProxy" />
             <!-- soap:address location="http://chathuri-laptop:8088/mockAccountDetailServiceSoap11Binding" /-->
         </wsdl:port>
         <!--wsdl:port name="AccountDetailServiceHttpsSoap11Endpoint" binding="ns:AccountDetailServiceSoap11Binding">

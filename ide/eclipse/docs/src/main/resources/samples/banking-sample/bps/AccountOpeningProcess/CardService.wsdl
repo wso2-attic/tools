@@ -95,7 +95,7 @@
             <soap:address location="http://localhost:8088/mockCardServiceSoap11Binding" />
         </wsdl:port-->
         <wsdl:port name="CardServiceHttpSoap11Endpoint" binding="ns:CardServiceSoap11Binding">
-            <soap:address location="http://localhost:8280/services/CardService" />
+            <soap:address location="http://localhost:8281/services/CardService" />
         </wsdl:port>
 
         <!--wsdl:port name="CardServiceHttpsSoap12Endpoint" binding="ns:CardServiceSoap12Binding">
