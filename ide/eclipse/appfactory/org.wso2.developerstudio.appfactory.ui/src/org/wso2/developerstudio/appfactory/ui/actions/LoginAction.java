@@ -36,14 +36,15 @@ import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
+import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 import org.wso2.developerstudio.appfactory.ui.views.PasswordDialog;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class LoginAction {
 	 private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	 private String username="";
-	 private String password="";
+	 private String username=Messages.LoginAction_0;
+	 private String password=Messages.LoginAction_1;
 	 private Authenticator authenticator;
 	 private UserPasswordCredentials credentials;
 	 private Shell activeShell;
@@ -76,7 +77,7 @@ public class LoginAction {
 		 setUsername(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_USERNAME));
 		 setPassword(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_PASSWORD));
 		 String val = preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_SAVE);
-		 if("true".equals(val)){
+		 if(Messages.LoginAction_2.equals(val)){
 			 setSave(true);
 		 }else{
 			 setSave(false);
@@ -107,15 +108,15 @@ public class LoginAction {
 				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_LOCATION, JagApiProperties.getDomain());
 				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_USERNAME,getUsername());
 				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_PASSWORD,getPassword());
-				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_SAVE,"true");
+				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_SAVE,Messages.LoginAction_3);
 			}
 		} catch (Exception e) {
 			 ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
-    	     errorModel.setMessage("Authentication Failer");
+    	     errorModel.setMessage(Messages.LoginAction_4);
     	     List<String> resions = new ArrayList<String>();
-    	     resions.add("Please refer the log file for details");
-    	     errorModel.setResions(resions);
-	        log.error("Login failer", e);
+    	     resions.add(Messages.LoginAction_5);
+    	     errorModel.setReasons(resions);
+	        log.error(Messages.LoginAction_6, e);
 	        Display.getCurrent()
 			.getActiveShell()
 			.setCursor(
@@ -128,17 +129,19 @@ public class LoginAction {
 	private void ShowErrorMsg(){
 		   ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
 		   final String PID = Activator.PLUGIN_ID;
-		   MultiStatus info = new MultiStatus(PID, 1,"AppFactory Login Fail !", null);
+		   MultiStatus info = new MultiStatus(PID, 1,Messages.LoginAction_7, null);
 		   info.add(new Status(IStatus.INFO, PID, 1,errorModel.getMessage(), null));
-		   List<String> resions = errorModel.getResions();
-		   if(resions!=null){
-		   for (String msg : resions) {
-			   info.add(new Status(IStatus.INFO, PID, 1,msg, null));
-		   		}
-		   }else{
-			   info.add(new Status(IStatus.INFO, PID, 1,"Authantication Fail ! \n check username and password", null));
-		   }
-		   ErrorDialog.openError(activeShell, "AppFactory Login Error", null, info);
+		   List<String> reasons = errorModel.getReasons();
+			if (reasons != null) {
+				for (String msg : reasons) {
+					info.add(new Status(IStatus.INFO, PID, 1, msg, null));
+				}
+			} else {
+				info.add(new Status(IStatus.INFO, PID, 1,
+						Messages.LoginAction_8,
+						null));
+			}
+		   ErrorDialog.openError(activeShell, Messages.LoginAction_9, null, info);
 	}
 	
 	public String getUsername() {
@@ -176,9 +179,8 @@ public class LoginAction {
 		 }else {
 			   this.setCansel(true);
 			   MessageBox messageBox = new MessageBox(getActiveShell(), SWT.ICON_INFORMATION | SWT.OK);
-			   messageBox.setText("Information");
-			   messageBox.setMessage("AppFactory Perpective's views Loarding Fail ! \nPlease use perspective " +
-				   		"reset option to relogin to the AppFactory perspective \n ");  
+			   messageBox.setText(Messages.LoginAction_10);
+			   messageBox.setMessage(Messages.LOGIN_ACTION_FAIL);  
 			   messageBox.open();
 		 } 
 	}
@@ -197,6 +199,6 @@ public class LoginAction {
 	public void setSave(boolean isSave) {
 		this.isSave = isSave;
 	}
-	static final String DASHBOARD_VIEW_ID = "org.wso2.developerstudio.eclipse.dashboard";
+	static final String DASHBOARD_VIEW_ID = Messages.LoginAction_11;
 
 }

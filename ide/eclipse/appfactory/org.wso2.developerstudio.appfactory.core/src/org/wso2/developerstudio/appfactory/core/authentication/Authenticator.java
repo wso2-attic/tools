@@ -29,6 +29,7 @@ import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
+import org.wso2.developerstudio.appfactory.core.utils.Messages;
 
 public class Authenticator {
 
@@ -82,11 +83,11 @@ public class Authenticator {
 		progressMonitorDialog.run(true, false, new LoginToAppFacPerfectiveJob(credentials,serverUrl,this));
 		
 		while(true){
-			if("true".equals(this.result)){
+			if(Messages.Authenticator_0.equals(this.result)){
 				this.serverURL = serverUrl;
 				this.credentials = credentials;
 				return true;
-			}else if("false".equals(this.result)){
+			}else if(Messages.Authenticator_1.equals(this.result)){
 				return false;
 			}
 		}
@@ -95,11 +96,11 @@ public class Authenticator {
 	public boolean reLogin()
 	{
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("action", "login");
-		params.put("userName", credentials.getUser());
-		params.put("password", credentials.getPassword());
+		params.put(Messages.Authenticator_2, Messages.Authenticator_3);
+		params.put(Messages.Authenticator_4, credentials.getUser());
+		params.put(Messages.Authenticator_5, credentials.getPassword());
 		String value = HttpsJaggeryClient.httpPostLogin(JagApiProperties.getLoginUrl(), params);
-		if (!"false".equals(value)) {
+		if (!Messages.Authenticator_6.equals(value)) {
 			 return true;
 		}else{
 			 return false;
@@ -128,43 +129,43 @@ public class Authenticator {
 	  
 		@Override
 		public void run(IProgressMonitor monitor) {
-			String operationText="fetching data from AppFactory "+JagApiProperties.getDomain();
+			String operationText=Messages.Authenticator_7+JagApiProperties.getDomain();
 			monitor.beginTask(operationText, 100);
 			try{
-				operationText="validating credintials";
+				operationText=Messages.Authenticator_8;
 				monitor.subTask(operationText);
 				monitor.worked(10);
-				if("".equals(credentials.getUser())||"".equals(credentials.getPassword())){
-					operationText="Incorrect format of credintials";
+				if(Messages.Authenticator_9.equals(credentials.getUser())||Messages.Authenticator_10.equals(credentials.getPassword())){
+					operationText=Messages.Authenticator_11;
 					monitor.subTask(operationText);
 					monitor.worked(0);
 					monitor.setCanceled(true);
-					authenticator.setResult("false");
-					Authenticator.getInstance().getErrorModel().setMessage("Username or password cannot be empty !!");
+					authenticator.setResult(Messages.Authenticator_12);
+					Authenticator.getInstance().getErrorModel().setMessage(Messages.Authenticator_13);
 				    List<String> resions = new ArrayList<String>();
-		    	    errorModel.setResions(resions);
+		    	    errorModel.setReasons(resions);
 					return;
 				}
-				operationText="Sending loging request...";
+				operationText=Messages.Authenticator_14;
 				monitor.subTask(operationText);
 				monitor.worked(20);
 				Map<String, String> params = new HashMap<String, String>();
-				params.put("action", "login");
-				params.put("userName", credentials.getUser());
-				params.put("password", credentials.getPassword());
+				params.put(Messages.Authenticator_15, Messages.Authenticator_16);
+				params.put(Messages.Authenticator_17, credentials.getUser());
+				params.put(Messages.Authenticator_18, credentials.getPassword());
 				String value = HttpsJaggeryClient.httpPostLogin(serverUrl, params);
-				if (!"false".equals(value)) {
-					operationText="Login scussfull ";
-					authenticator.setResult("true");
+				if (!Messages.Authenticator_19.equals(value)) {
+					operationText=Messages.Authenticator_20;
+					authenticator.setResult(Messages.Authenticator_21);
 				}else{
-					operationText="Login unscussfull due to invaild credintials";
-					authenticator.setResult("false");	
+					operationText=Messages.Authenticator_22;
+					authenticator.setResult(Messages.Authenticator_23);	
 				}
 				monitor.subTask(operationText);
 				monitor.worked(80);
 			}catch(Exception e){
 				
-				authenticator.setResult("false");
+				authenticator.setResult(Messages.Authenticator_24);
 							operationText=e.getMessage();
 				monitor.beginTask(operationText, 100);
 				monitor.worked(0);

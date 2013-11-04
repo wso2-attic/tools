@@ -15,6 +15,7 @@ import org.eclipse.ui.console.IConsoleView;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 
 public class AppfactoryConsoleView {
  
@@ -22,7 +23,7 @@ public class AppfactoryConsoleView {
    private  MessageConsole myConsole;
 	
 	public AppfactoryConsoleView() {
-		   myConsole = findConsole("AppFactory Console");
+		   myConsole = findConsole(Messages.AppfactoryConsoleView_0);
 		 MessageConsoleStream out = myConsole.newMessageStream();
 		 setOut(out);
 	}
@@ -71,7 +72,7 @@ public class AppfactoryConsoleView {
 	}
 	
 	private ImageDescriptor getImageDescriptor() {
-		return  Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "/icons/appfac.png");
+		return  Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, Messages.AppfactoryConsoleView_1);
 	}
 
 }

@@ -15,28 +15,30 @@
 
 package org.wso2.developerstudio.appfactory.core.jag.api;
 
+import org.wso2.developerstudio.appfactory.core.utils.Messages;
+
 public class JagApiProperties {
 	/*URLS*/  
-	private static  String domain= "https://appfactorypreview.wso2.com";
+	private static  String domain= Messages.JagApiProperties_0;
  
-	private static final String APP_INFO_URL_SFX = "/appmgt/site/blocks/application/get/ajax/list.jag";
-	private static final String LOGIN_URL_SFX  = "/appmgt/site/blocks/user/login/ajax/login.jag";
-	private static final String BUILD_NUMBER_URL_SFX  = "/appmgt/site/blocks/build/list/ajax/list.jag";
-	private static final String BUILD_INFO_URL_SFX  = "/appmgt/site/blocks/build/get/ajax/get.jag";
-	private static final String LAST_BUILD_URL_SFX  = "/appmgt/site/blocks/buildandrepo/list/ajax/list.jag";
-	private static final String Build_APPLICATION_URL_SFX = "/appmgt/site/blocks/lifecycle/add/ajax/add.jag";
-	private static final String APP_USER_ROLES_URL_SFX = "/appmgt/site/blocks/application/users/get/ajax/list.jag";
-	private static final String APP_DB_INFO_URL ="/appmgt/site/blocks/rssmanager/add/ajax/add.jag";
+	private static final String APP_INFO_URL_SFX = Messages.JagApiProperties_1;
+	private static final String LOGIN_URL_SFX  = Messages.JagApiProperties_2;
+	private static final String BUILD_NUMBER_URL_SFX  = Messages.JagApiProperties_3;
+	private static final String BUILD_INFO_URL_SFX  = Messages.JagApiProperties_4;
+	private static final String LAST_BUILD_URL_SFX  = Messages.JagApiProperties_5;
+	private static final String Build_APPLICATION_URL_SFX = Messages.JagApiProperties_6;
+	private static final String APP_USER_ROLES_URL_SFX = Messages.JagApiProperties_7;
+	private static final String APP_DB_INFO_URL =Messages.JagApiProperties_8;
 	
 	/*Actions*/
-	public static  final String USER_APP_LIST__ACTION = "getApplicationsOfUser";
-	public static final String App_NIFO_ACTION = "getAppVersionsInStage";
-	public static final String App_BUILD_NUMBER_ACTION = "buildinfobyappid";
-	public static final String App_BUILD_URL_ACTIONL = "getBuildLogsUrl";
-	public static final String App_BUILD_INFO_ACTION ="getbuildandrepodata";
-	public static final String App_BUILD_ACTION ="createArtifact";
-	public static final String App_USERS_ROLES_ACTION ="getAppUsersWithRoles";
-	public static final String App_DB_INFO_ACTION = "getDbUserTemplateInfoForStages";
+	public static  final String USER_APP_LIST__ACTION = Messages.JagApiProperties_9;
+	public static final String App_NIFO_ACTION = Messages.JagApiProperties_10;
+	public static final String App_BUILD_NUMBER_ACTION = Messages.JagApiProperties_11;
+	public static final String App_BUILD_URL_ACTIONL = Messages.JagApiProperties_12;
+	public static final String App_BUILD_INFO_ACTION =Messages.JagApiProperties_13;
+	public static final String App_BUILD_ACTION =Messages.JagApiProperties_14;
+	public static final String App_USERS_ROLES_ACTION =Messages.JagApiProperties_15;
+	public static final String App_DB_INFO_ACTION = Messages.JagApiProperties_16;
 	
 	
 	public static String getDomain() {

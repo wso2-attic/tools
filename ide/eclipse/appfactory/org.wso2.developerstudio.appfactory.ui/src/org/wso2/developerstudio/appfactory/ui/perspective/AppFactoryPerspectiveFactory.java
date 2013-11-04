@@ -28,18 +28,19 @@ import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.console.IConsoleConstants;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
+import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
-	private static final String APPLIST_ID = "org.wso2.developerstudio.appfactory.ui." +
-			"views.AppfactoryApplicationListView";
-	private static final String APPDETILS_ID = "org.wso2.developerstudio.appfactory.ui." +
-			"views.AppfactoryApplicationDetailsView";
-	private static final String APPBUILD_ID = "org.wso2.developerstudio.appfactory.ui." +
-			"views.AppfactoryBuildInfoView";
-	private static final String PROJECT_EXPOR_VIEW = "org.eclipse.ui.navigator.ProjectExplorer";
+	private static final String APPLIST_ID = Messages.AppFactoryPerspectiveFactory_0 +
+			Messages.AppFactoryPerspectiveFactory_1;
+	private static final String APPDETILS_ID = Messages.AppFactoryPerspectiveFactory_2 +
+			Messages.AppFactoryPerspectiveFactory_3;
+	private static final String APPBUILD_ID = Messages.AppFactoryPerspectiveFactory_4 +
+			Messages.AppFactoryPerspectiveFactory_5;
+	private static final String PROJECT_EXPOR_VIEW = Messages.AppFactoryPerspectiveFactory_6;
 
 	private static IWebBrowser browser = null;
 
@@ -66,25 +67,25 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 					.getActiveShell()
 					.setCursor(
 							(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));*/
-			log.error("perspective loading issue", e);
+			log.error(Messages.AppFactoryPerspectiveFactory_7, e);
 		}
 	}
 
 	private void addViews(IPageLayout appfacLayout) {
 		String editorArea = appfacLayout.getEditorArea();
-		IFolderLayout lef = appfacLayout.createFolder("topLeft",
+		IFolderLayout lef = appfacLayout.createFolder(Messages.AppFactoryPerspectiveFactory_8,
 				IPageLayout.LEFT, 0.25f, editorArea);
 		lef.addView(PROJECT_EXPOR_VIEW);
 
-		IFolderLayout applist = appfacLayout.createFolder("topRight",
+		IFolderLayout applist = appfacLayout.createFolder(Messages.AppFactoryPerspectiveFactory_9,
 				IPageLayout.RIGHT, 0.75f, editorArea);
 		applist.addView(APPLIST_ID);
 
-		IFolderLayout appDetails = appfacLayout.createFolder("BottomRight",
-				IPageLayout.BOTTOM, 0.60f, "topRight");
+		IFolderLayout appDetails = appfacLayout.createFolder(Messages.AppFactoryPerspectiveFactory_10,
+				IPageLayout.BOTTOM, 0.60f, Messages.AppFactoryPerspectiveFactory_11);
 		appDetails.addView(APPDETILS_ID);
 
-		IFolderLayout buildInfo = appfacLayout.createFolder("Bottomt",
+		IFolderLayout buildInfo = appfacLayout.createFolder(Messages.AppFactoryPerspectiveFactory_12,
 				IPageLayout.BOTTOM, 0.60f, appfacLayout.getEditorArea());
 		buildInfo.addView(IConsoleConstants.ID_CONSOLE_VIEW);
 	}
@@ -103,15 +104,15 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 		@Override
 		public void run(IProgressMonitor monitor)
 				throws InvocationTargetException, InterruptedException {
-			String operationText = "Loading the persfective";
+			String operationText = Messages.AppFactoryPerspectiveFactory_13;
 			monitor.beginTask(operationText, 100);
 			monitor.worked(10);
 			try {
 				AppFactoryPerspectiveManager.val = false;
-				operationText = "Connecting to the AppFactory Url";
+				operationText = Messages.AppFactoryPerspectiveFactory_14;
 				monitor.subTask(operationText);
 				monitor.worked(50);
-				operationText = "Loading Applications.... ";
+				operationText = Messages.AppFactoryPerspectiveFactory_15;
 				monitor.subTask(operationText);
 				addViews(appfacLayout);
 				monitor.worked(80);
@@ -131,15 +132,15 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 				 * !appFactoryPreferenceURL.equals("")){ browser.openURL(new
 				 * URL(appFactoryPreferenceURL)); }else{ browser.openURL(url); }
 				 */
-				operationText = "Completed !";
+				operationText = Messages.AppFactoryPerspectiveFactory_16;
 				monitor.subTask(operationText);
 				monitor.worked(100);
 			} catch (Exception e) {
 				operationText = e.getMessage();
-				monitor.subTask("Application Loading Failed !"+operationText);
+				monitor.subTask(Messages.AppFactoryPerspectiveFactory_17+operationText);
 				monitor.worked(0);
 				monitor.setCanceled(true);
-				log.error("updateprocess error", e);
+				log.error(Messages.AppFactoryPerspectiveFactory_18, e);
 			}
 
 			monitor.worked(100);

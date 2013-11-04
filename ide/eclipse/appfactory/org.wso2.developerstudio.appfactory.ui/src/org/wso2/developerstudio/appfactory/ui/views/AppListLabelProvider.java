@@ -23,6 +23,7 @@ import org.eclipse.jface.viewers.ViewerCell;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 
 
 public class AppListLabelProvider extends StyledCellLabelProvider {
@@ -34,25 +35,25 @@ public class AppListLabelProvider extends StyledCellLabelProvider {
 	      ApplicationInfo app = (ApplicationInfo) element;
 	      text.append(app.getKey());
 	      ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-					 "/icons/submodules.gif");
+					 Messages.AppListLabelProvider_0);
 	      cell.setImage(imageDescriptorFromPlugin.createImage());
 	      
 	      if(app.getLableState()==1){
-	    	  text.append(" (Loading)", StyledString.DECORATIONS_STYLER);
+	    	  text.append(Messages.AppListLabelProvider_1, StyledString.DECORATIONS_STYLER);
 	      }else if(app.getLableState()==2){
-	    	  text.append(" (Opened)", StyledString.COUNTER_STYLER);
+	    	  text.append(Messages.AppListLabelProvider_2, StyledString.COUNTER_STYLER);
 	      }else{
-	    	  text.append(" (Closed)", StyledString.DECORATIONS_STYLER);
+	    	  text.append(Messages.AppListLabelProvider_3, StyledString.DECORATIONS_STYLER);
 	      }
 	    } else {
 	      AppVersionInfo version = (AppVersionInfo) element;
 	      if(version.isCheckedout()){
-	    	  text.append(version.getVersion()+" -Checked out",StyledString.COUNTER_STYLER);
+	    	  text.append(version.getVersion()+Messages.AppListLabelProvider_4,StyledString.COUNTER_STYLER);
 	      }else{
-	    	  text.append(version.getVersion()+" -closed",StyledString.DECORATIONS_STYLER);
+	    	  text.append(version.getVersion()+Messages.AppListLabelProvider_5,StyledString.DECORATIONS_STYLER);
 	      }
 	      ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-					 "/icons/branch_obj.gif");
+					 Messages.AppListLabelProvider_6);
 	      cell.setImage(imageDescriptorFromPlugin.createImage());
 	    }
 	    cell.setText(text.toString());

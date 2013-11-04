@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/gson-2.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/bcprov-jdk16-1.46.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.core_4.2.0.jar" sourcepath="/home/viraj/Downloads/core"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.identity.entitlement.mediator_4.2.0.jar" sourcepath="/home/viraj/Downloads/identity"/>

@@ -37,6 +37,7 @@ import org.apache.http.protocol.ExecutionContext;
 import org.apache.http.protocol.HttpContext;
 import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
+import org.wso2.developerstudio.appfactory.core.utils.Messages;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -56,12 +57,12 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 	        // Generate BASIC scheme object and stick it to the execution context
 	        BasicScheme basicAuth = new BasicScheme();
 	        BasicHttpContext context = new BasicHttpContext();
-	        context.setAttribute("preemptive-auth", basicAuth);
+	        context.setAttribute(Messages.HttpsJenkinsClient_0, basicAuth);
 
 	        // Add as the first (because of the zero) request interceptor
 	        // It will first intercept the request and preemptively initialize the authentication scheme if there is not
 	        client.addRequestInterceptor(new PreemptiveAuth(), 0);
-	        String getUrl =   builderBaseUrl + "/job/" + applicationId + "-" + version + "-default/" + lastBuildNo + "/consoleText";
+	        String getUrl =   builderBaseUrl + Messages.HttpsJenkinsClient_1 + applicationId + Messages.HttpsJenkinsClient_2 + version + Messages.HttpsJenkinsClient_3 + lastBuildNo + Messages.HttpsJenkinsClient_4;
 	        HttpGet get = new HttpGet(getUrl);
 
 	        try {
@@ -69,7 +70,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 	            HttpResponse response = client.execute(get, context);
 	            return response;
 	        } catch (Exception e) {
-	        log.error("Jenkins Client err", e);
+	        log.error(Messages.HttpsJenkinsClient_5, e);
 	        } 
 			return null;
 	    }
@@ -91,7 +92,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 	            // If no auth scheme available yet, try to initialize it preemptively
 	            if (authState.getAuthScheme() == null) {
-	                AuthScheme authScheme = (AuthScheme) context.getAttribute("preemptive-auth");
+	                AuthScheme authScheme = (AuthScheme) context.getAttribute(Messages.HttpsJenkinsClient_6);
 	                CredentialsProvider credsProvider = (CredentialsProvider) context
 	                        .getAttribute(ClientContext.CREDS_PROVIDER);
 	                HttpHost targetHost = (HttpHost) context.getAttribute(ExecutionContext.HTTP_TARGET_HOST);
@@ -99,7 +100,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 	                    Credentials creds = credsProvider.getCredentials(new AuthScope(targetHost.getHostName(), targetHost
 	                            .getPort()));
 	                    if (creds == null) {
-	                        throw new HttpException("No credentials for preemptive authentication");
+	                        throw new HttpException(Messages.HttpsJenkinsClient_7);
 	                    }
 	                    authState.setAuthScheme(authScheme);
 	                    authState.setCredentials(creds);

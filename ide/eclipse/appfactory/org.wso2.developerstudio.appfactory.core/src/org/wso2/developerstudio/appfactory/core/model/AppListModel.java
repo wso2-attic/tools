@@ -25,6 +25,7 @@ import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
+import org.wso2.developerstudio.appfactory.core.utils.Messages;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -44,22 +45,22 @@ public class AppListModel {
 	  }
 
 	public boolean setversionInfo(ApplicationInfo applicationInfo) {
-		String respond = "";
+		String respond = Messages.AppListModel_0;
 		/* Getting version information */
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("action", JagApiProperties.App_NIFO_ACTION);
-		params.put("stageName", "Development");
-		params.put("userName", Authenticator.getInstance().getCredentials()
+		params.put(Messages.AppListModel_1, JagApiProperties.App_NIFO_ACTION);
+		params.put(Messages.AppListModel_2, Messages.AppListModel_3);
+		params.put(Messages.AppListModel_4, Authenticator.getInstance().getCredentials()
 				.getUser());
-		params.put("applicationKey", applicationInfo.getKey());
+		params.put(Messages.AppListModel_5, applicationInfo.getKey());
 		respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(),
 				params);
-		if ("false".equals(respond)) {
+		if (Messages.AppListModel_6.equals(respond)) {
 			return false;
 		} else {
 			JsonElement jelement = new JsonParser().parse(respond);
 			JsonElement jsonElement = jelement.getAsJsonArray().get(0)
-					.getAsJsonObject().get("versions");
+					.getAsJsonObject().get(Messages.AppListModel_7);
 			JsonArray infoArray = jsonElement.getAsJsonArray();
 			ArrayList<AppVersionInfo> appVersionList = new ArrayList<AppVersionInfo>();
 			for (JsonElement jsonElement2 : infoArray) {
@@ -81,11 +82,11 @@ public class AppListModel {
 		Map<String, String> params;
 		JsonElement jelement;
 		params = new HashMap<String, String>();
-		params.put("action", JagApiProperties.App_USERS_ROLES_ACTION);
-		params.put("applicationKey", applicationInfo.getKey());
+		params.put(Messages.AppListModel_8, JagApiProperties.App_USERS_ROLES_ACTION);
+		params.put(Messages.AppListModel_9, applicationInfo.getKey());
 		respond = HttpsJaggeryClient.httpPost(
 				JagApiProperties.getAppUserRolesUrlS(), params);
-		if ("false".equals(respond)) {
+		if (Messages.AppListModel_10.equals(respond)) {
 			return false;
 		} else {
 			jelement = new JsonParser().parse(respond);
@@ -107,11 +108,11 @@ public class AppListModel {
 		Map<String, String> params;
 		JsonElement jelement;
 		params = new HashMap<String, String>();
-		params.put("action", JagApiProperties.App_DB_INFO_ACTION);
-		params.put("applicationKey", applicationInfo.getKey());
+		params.put(Messages.AppListModel_11, JagApiProperties.App_DB_INFO_ACTION);
+		params.put(Messages.AppListModel_12, applicationInfo.getKey());
 		respond = HttpsJaggeryClient.httpPost(
 				JagApiProperties.getAppUserDbInfoUrl(), params);
-		if ("false".equals(respond)) {
+		if (Messages.AppListModel_13.equals(respond)) {
 			return false;
 		} else {
 			jelement = new JsonParser().parse(respond);
@@ -119,28 +120,28 @@ public class AppListModel {
 			ArrayList<AppDBinfo> appDbList = new ArrayList<AppDBinfo>();
 			for (JsonElement jsonElement3 : infoArray2) {
 				JsonObject asJsonObject = jsonElement3.getAsJsonObject();
-				String stage = asJsonObject.get("stage").getAsString();
-				if("Development".equals(stage)){
+				String stage = asJsonObject.get(Messages.AppListModel_14).getAsString();
+				if(Messages.AppListModel_15.equals(stage)){
 					AppDBinfo appDBinfo = new AppDBinfo();
-					JsonArray dbArray = asJsonObject.get("dbs").getAsJsonArray();
+					JsonArray dbArray = asJsonObject.get(Messages.AppListModel_16).getAsJsonArray();
 					List<Map<String,String>> dbs = new ArrayList<Map<String,String>>();
 					for (JsonElement jsonElement : dbArray) {
 						 HashMap<String, String> dbInfo = new HashMap<String, String>();
-						 dbInfo.put("dbName",jsonElement.getAsJsonObject().get("dbName").getAsString());
-						 dbInfo.put("url",jsonElement.getAsJsonObject().get("url").getAsString());
+						 dbInfo.put(Messages.AppListModel_17,jsonElement.getAsJsonObject().get(Messages.AppListModel_18).getAsString());
+						 dbInfo.put(Messages.AppListModel_19,jsonElement.getAsJsonObject().get(Messages.AppListModel_20).getAsString());
 						 dbs.add(dbInfo);
 					}
 					appDBinfo.setDbs(dbs);
-					JsonArray dbusers = asJsonObject.get("users").getAsJsonArray();
+					JsonArray dbusers = asJsonObject.get(Messages.AppListModel_21).getAsJsonArray();
 					List<String> usr = new ArrayList<String>();
 					for (JsonElement jsonElement : dbusers) {
-						usr.add(jsonElement.getAsJsonObject().get("name").getAsString());
+						usr.add(jsonElement.getAsJsonObject().get(Messages.AppListModel_22).getAsString());
 					}
 					appDBinfo.setUsr(usr);
-					JsonArray dbtemplates = asJsonObject.get("templates").getAsJsonArray();
+					JsonArray dbtemplates = asJsonObject.get(Messages.AppListModel_23).getAsJsonArray();
 					List<String> temple = new ArrayList<String>();
 					for (JsonElement jsonElement : dbtemplates) {
-						temple.add(jsonElement.getAsJsonObject().get("name").getAsString());
+						temple.add(jsonElement.getAsJsonObject().get(Messages.AppListModel_24).getAsString());
 					}
 					appDBinfo.setUsr(temple);
 					appDbList.add(appDBinfo);

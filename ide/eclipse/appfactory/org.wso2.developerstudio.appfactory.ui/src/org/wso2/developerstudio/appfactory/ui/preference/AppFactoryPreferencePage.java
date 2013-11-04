@@ -25,15 +25,16 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 
 public class AppFactoryPreferencePage extends FieldEditorPreferencePage
 implements IWorkbenchPreferencePage{
 
-	public static final String APP_FACTORY_PASSWORD = "APP_FACTORY_PASSWORD";
-	public static final String SHOW_PLAIN_PASSWORD = "SHOW_PLAIN_PASSWORD";
-	public static final String APP_FACTORY_USERNAME = "APP_FACTORY_USERNAME";
-	public static final String APP_FACTORY_LOCATION = "APP_FACTORY_LOCATION";
-	public static final String APP_FACTORY_SAVE = "SAVE_USER_CREDINTIAL";
+	public static final String APP_FACTORY_PASSWORD = Messages.AppFactoryPreferencePage_0;
+	public static final String SHOW_PLAIN_PASSWORD = Messages.AppFactoryPreferencePage_1;
+	public static final String APP_FACTORY_USERNAME = Messages.AppFactoryPreferencePage_2;
+	public static final String APP_FACTORY_LOCATION = Messages.AppFactoryPreferencePage_3;
+	public static final String APP_FACTORY_SAVE = Messages.AppFactoryPreferencePage_4;
 	private StringFieldEditor stringField1;
 	IPreferenceStore preferenceStore;
 
@@ -45,24 +46,24 @@ implements IWorkbenchPreferencePage{
 	public void init(IWorkbench arg0) {
 		preferenceStore = Activator.getDefault().getPreferenceStore();
 		setPreferenceStore(preferenceStore);
-		setDescription("WSO2 App Factory User Preferences.");
+		setDescription(Messages.AppFactoryPreferencePage_5);
 	}
 
 	@Override
 	protected void createFieldEditors() {
 		StringFieldEditor editor = new StringFieldEditor(APP_FACTORY_LOCATION,
-				"&AppFactory Url:", getFieldEditorParent());
+				Messages.AppFactoryPreferencePage_6, getFieldEditorParent());
 		
 		Text textControl = editor.getTextControl(getFieldEditorParent());
-		textControl.setText("https://");
+		textControl.setText(Messages.AppFactoryPreferencePage_7);
 		addField(editor);
-		addField(new StringFieldEditor(APP_FACTORY_USERNAME, "App&Factory Username",
+		addField(new StringFieldEditor(APP_FACTORY_USERNAME, Messages.AppFactoryPreferencePage_8,
 				getFieldEditorParent()));
 		stringField1 = new StringFieldEditor(APP_FACTORY_PASSWORD,
-				"AppFactor &Password", getFieldEditorParent());
+				Messages.AppFactoryPreferencePage_9, getFieldEditorParent());
 		addField(stringField1);
 		BooleanFieldEditor booleanFieldEditor = new BooleanFieldEditor(
-				SHOW_PLAIN_PASSWORD, "S&how Password in Plain Text",
+				SHOW_PLAIN_PASSWORD, Messages.AppFactoryPreferencePage_10,
 				getFieldEditorParent());
 		addField(booleanFieldEditor);
 		if (!preferenceStore.getBoolean(SHOW_PLAIN_PASSWORD)) {

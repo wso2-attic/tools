@@ -81,6 +81,7 @@ import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 import org.wso2.developerstudio.appfactory.core.repository.JgitRepoManager;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
+import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
@@ -98,9 +99,9 @@ import org.eclipse.e4.ui.di.UISynchronize;
 
 public class AppfactoryApplicationListView extends ViewPart {
 	
-	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
+	public static final String ID = Messages.AppfactoryApplicationListView_0;
 	
-	public static final String REPO_WIZARD_ID = "org.eclipse.egit.ui.internal.clone.GitCloneWizard";
+	public static final String REPO_WIZARD_ID = Messages.AppfactoryApplicationListView_1;
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
@@ -144,32 +145,32 @@ public class AppfactoryApplicationListView extends ViewPart {
 		broker = eclipseContext.get(IEventBroker.class);
 		
 		buildhandler = getBuildLogEventHandler();
-		broker.subscribe("update", buildhandler);
+		broker.subscribe(Messages.AppfactoryApplicationListView_2, buildhandler);
 			
 		apphandler = getAppListHandler();
-		broker.subscribe("Appupdate", apphandler);
+		broker.subscribe(Messages.AppfactoryApplicationListView_3, apphandler);
  
 		appVersionhandler = getAppVersionEventHandler();
-		broker.subscribe("Appversionupdate", appVersionhandler);
+		broker.subscribe(Messages.AppfactoryApplicationListView_4, appVersionhandler);
 		
 		ErrorLoghandler = getErrorLogEventHandler();
-		broker.subscribe("Errorupdate",ErrorLoghandler);
+		broker.subscribe(Messages.AppfactoryApplicationListView_5,ErrorLoghandler);
 		
 		infoLoghandler = getInfoLogEventHandler();
-		broker.subscribe("Infoupdate",infoLoghandler);
+		broker.subscribe(Messages.AppfactoryApplicationListView_6,infoLoghandler);
 		
 		projectOpenhandler = getPorjectcheckedOUtHandler();
-		broker.subscribe("Projectupdate",projectOpenhandler);
+		broker.subscribe(Messages.AppfactoryApplicationListView_7,projectOpenhandler);
 		
 	}
 
 	@SuppressWarnings("restriction")
 	private void printErrorLog(String msg){
-		 broker.send("Errorupdate", "\n"+"["+new Timestamp(new Date().getTime()) +"] : "+msg);
+		 broker.send(Messages.AppfactoryApplicationListView_8, Messages.AppfactoryApplicationListView_9+Messages.AppfactoryApplicationListView_10+new Timestamp(new Date().getTime()) +Messages.AppfactoryApplicationListView_11+msg);
 	}
 	
 	private void printInfoLog(String msg){
-		 broker.send("Infoupdate", "\n"+"["+new Timestamp(new Date().getTime()) +"] : "+msg);
+		 broker.send(Messages.AppfactoryApplicationListView_12, Messages.AppfactoryApplicationListView_13+Messages.AppfactoryApplicationListView_14+new Timestamp(new Date().getTime()) +Messages.AppfactoryApplicationListView_15+msg);
 	}
 
 	private EventHandler getAppListHandler() {
@@ -204,7 +205,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 							viewer.refresh();
 							
 						} catch (Exception e) {
-							 log.error("checkedoutError", e);
+							 log.error(Messages.AppfactoryApplicationListView_16, e);
 						}
 
 					}
@@ -244,7 +245,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 					@Override
 					public void run() {
 						buildOut.setColor(SWTResourceManager.getColor(SWT.COLOR_DARK_CYAN));
-						buildOut.println(""+event.getProperty(IEventBroker.DATA));
+						buildOut.println(Messages.AppfactoryApplicationListView_17+event.getProperty(IEventBroker.DATA));
 					}
 				});
 			}
@@ -261,7 +262,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 					@Override
 					public void run() {
 						errorOut.setColor(SWTResourceManager.getColor(SWT.COLOR_RED));
-						errorOut.println("\n\n**********[ERROR]**********" + event.getProperty(IEventBroker.DATA));
+						errorOut.println(Messages.AppfactoryApplicationListView_18 + event.getProperty(IEventBroker.DATA));
 					}
 				});
 			}
@@ -278,7 +279,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 					@Override
 					public void run() {
 						infoOut.setColor(SWTResourceManager.getColor(SWT.COLOR_BLACK));
-						infoOut.println("\n\n**********[INFO]**********" + event.getProperty(IEventBroker.DATA));
+						infoOut.println(Messages.AppfactoryApplicationListView_19 + event.getProperty(IEventBroker.DATA));
 					}
 				});
 			}
@@ -290,11 +291,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 		 credentials = Authenticator.getInstance().getCredentials();
 		 try{
 		 if(credentials==null){
-			 printErrorLog("Aunthantication Failed ");
+			 printErrorLog(Messages.AppfactoryApplicationListView_20);
 			 LoginAction loginAction = new LoginAction();
-			 printInfoLog("Attempting to re-login");
+			 printInfoLog(Messages.AppfactoryApplicationListView_21);
 			 if(loginAction.login()){
-				 printInfoLog("Login Sucessfull");
+				 printInfoLog(Messages.AppfactoryApplicationListView_22);
 				 credentials = Authenticator.getInstance().getCredentials();
 			 }
 		 }else {
@@ -310,23 +311,23 @@ public class AppfactoryApplicationListView extends ViewPart {
 	private List<ApplicationInfo> getApplist(){
 		 if(Authenticator.getInstance().getCredentials()!=null){
 		 Map<String,String> params = new HashMap<String,String>();
-		 params.put("action",JagApiProperties.USER_APP_LIST__ACTION);
-		 params.put("userName",Authenticator.getInstance().getCredentials().getUser()); 
-		 printInfoLog("Fetching User Application From Server");
+		 params.put(Messages.AppfactoryApplicationListView_23,JagApiProperties.USER_APP_LIST__ACTION);
+		 params.put(Messages.AppfactoryApplicationListView_24,Authenticator.getInstance().getCredentials().getUser()); 
+		 printInfoLog(Messages.AppfactoryApplicationListView_25);
 		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
-		 if("false".equals(respond)){
-		  printErrorLog(" Fetching Failed now attempting to relogin");	 
+		 if(Messages.AppfactoryApplicationListView_26.equals(respond)){
+		  printErrorLog(Messages.AppfactoryApplicationListView_27);	 
 	      boolean val = Authenticator.getInstance().reLogin();
 	      if(val){
-	       printInfoLog(" Re-Login sucessfull");	  
+	       printInfoLog(Messages.AppfactoryApplicationListView_28);	  
 	       respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
 	      }else{
-	    	printErrorLog("CANNOT PROCEEDS \n Re-Login attempt has filed !! \n " +
-	    			"Please re-Login to the perspective");  
+	    	printErrorLog(Messages.AppfactoryApplicationListView_29 +
+	    			Messages.AppfactoryApplicationListView_30);  
 	      }
 		 }
-		 if(!"false".equals(respond)){
-	     printInfoLog("Fetching completed, Apllications are loading to the view");	 
+		 if(!Messages.AppfactoryApplicationListView_31.equals(respond)){
+	     printInfoLog(Messages.AppfactoryApplicationListView_32);	 
 		 Gson gson = new Gson();
 		 Type collectionType = new TypeToken<java.util.List<ApplicationInfo>>(){}.getType();
 		 return gson.fromJson(respond, collectionType);
@@ -441,11 +442,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 	                    	
 	                    }else if (selection.getFirstElement() instanceof ApplicationInfo){
 	                    	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
-	                    	String title ="";
+	                    	String title =Messages.AppfactoryApplicationListView_33;
 	                        if(appInfo.getappVersionList().isEmpty()){
-	                        	title = "Open  ";
+	                        	title = Messages.AppfactoryApplicationListView_34;
 	                        }else{
-	                        	title = "Update";
+	                        	title = Messages.AppfactoryApplicationListView_35;
 	                        }
 	                    	manager.add(appOpenAction(appInfo,title));
 		                    manager.add(repoSettingsAction(appInfo));
@@ -471,17 +472,17 @@ public class AppfactoryApplicationListView extends ViewPart {
            	}
            	 
            	 public String getText() {
-    				return "Refresh";
+    				return Messages.AppfactoryApplicationListView_36;
     			}
 			});
     }
 	
 	private void  updateApplicationView(){
-		Job job = new Job("Updating User Applications List") {
+		Job job = new Job(Messages.AppfactoryApplicationListView_37) {
 		   @SuppressWarnings("restriction")
 			@Override
 			  protected IStatus run(final IProgressMonitor monitor) {
-				monitor.beginTask("Connecting to remote server for fetching app info", 100);
+				monitor.beginTask(Messages.AppfactoryApplicationListView_38, 100);
 				  UISynchronize uiSynchronize = new UISynchronize() {
 						@Override
 						public void syncExec(Runnable runnable) {
@@ -490,17 +491,17 @@ public class AppfactoryApplicationListView extends ViewPart {
 						
 						@Override
 						public void asyncExec(Runnable runnable) {
-							   monitor.subTask("Getting Applications");
+							   monitor.subTask(Messages.AppfactoryApplicationListView_39);
 							   monitor.worked(10);
 							   List<ApplicationInfo> applist = getApplist();
 							   monitor.worked(40);
 							   if(applist!=null){
-								monitor.subTask("Loading applications into appList view");
+								monitor.subTask(Messages.AppfactoryApplicationListView_40);
 								monitor.worked(60);	   
-							   broker.send("Appupdate", applist);
+							   broker.send(Messages.AppfactoryApplicationListView_41, applist);
 							   monitor.worked(90);	
 							   }else{
-							     monitor.subTask("Data fetching failed !!");
+							     monitor.subTask(Messages.AppfactoryApplicationListView_42);
 							     monitor.worked(30);
 								 monitor.worked(0);	      
 							   }
@@ -522,11 +523,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 	
 	
 	private void  getAppVersions(final ApplicationInfo appInfo){
-		Job job = new Job("Updating Application versions") {
+		Job job = new Job(Messages.AppfactoryApplicationListView_43) {
 		   @SuppressWarnings("restriction")
 			@Override
 			  protected IStatus run(final IProgressMonitor monitor) {
-				monitor.beginTask("Connecting to remote server for fetching app version info", 100);
+				monitor.beginTask(Messages.AppfactoryApplicationListView_44, 100);
 				  UISynchronize uiSynchronize = new UISynchronize() {
 						@Override
 						public void syncExec(Runnable runnable) {
@@ -535,7 +536,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 						@Override
 						public void asyncExec(Runnable runnable) {
 							appInfo.setLableState(1);
-							broker.send("Appversionupdate", model);
+							broker.send(Messages.AppfactoryApplicationListView_45, model);
 							if(getVersionInfo(appInfo, monitor)){
 								getTeamInfo(appInfo, monitor);
 								getDbInfo(appInfo, monitor);
@@ -548,7 +549,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 						private boolean getVersionInfo(
 								final ApplicationInfo appInfo,
 								final IProgressMonitor monitor) {
-							monitor.subTask("Getting version information");
+							monitor.subTask(Messages.AppfactoryApplicationListView_46);
 							monitor.worked(20);	   
 							boolean result = model.setversionInfo(appInfo);
 							if(!result){
@@ -558,9 +559,9 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask("Loading version information");
+							monitor.subTask(Messages.AppfactoryApplicationListView_47);
 							monitor.worked(40);	 
-							broker.send("Appversionupdate", model);
+							broker.send(Messages.AppfactoryApplicationListView_48, model);
 							monitor.worked(50);
 							return true;
 							}else{
@@ -571,7 +572,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 						
 						private boolean getTeamInfo(final ApplicationInfo appInfo,
 								final IProgressMonitor monitor) {
-							monitor.subTask("Getting Team information");
+							monitor.subTask(Messages.AppfactoryApplicationListView_49);
 							monitor.worked(60);	   
 							boolean result = model.setRoleInfomation(appInfo);
 							if(!result){
@@ -581,9 +582,9 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask("Loading team information");
+							monitor.subTask(Messages.AppfactoryApplicationListView_50);
 							monitor.worked(60);	 
-							broker.send("Appversionupdate", model);
+							broker.send(Messages.AppfactoryApplicationListView_51, model);
 							monitor.worked(90);
 							return true;
 							}else{
@@ -593,7 +594,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 						
 						private boolean getDbInfo(final ApplicationInfo appInfo,
 								final IProgressMonitor monitor) {
-							monitor.subTask("Getting Database information");
+							monitor.subTask(Messages.AppfactoryApplicationListView_52);
 							monitor.worked(60);	   
 							boolean result = model.setDBInfomation(appInfo);
 							if(!result){
@@ -603,9 +604,9 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask("Loading database information");
+							monitor.subTask(Messages.AppfactoryApplicationListView_53);
 							monitor.worked(60);	 
-							broker.send("Appversionupdate", model);
+							broker.send(Messages.AppfactoryApplicationListView_54, model);
 							monitor.worked(90);
 							return true;
 							}else{
@@ -633,7 +634,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 	 
 	private void getbuildLogsJob(final AppVersionInfo appInfo,final boolean deploy) {
 		 
-		Job job = new Job("Fetching build logs") {
+		Job job = new Job(Messages.AppfactoryApplicationListView_55) {
 		 
 			@SuppressWarnings("restriction")
 			@Override
@@ -658,11 +659,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 						    		 if(buildId>=newbuildId){
 						    			 break;
 						    		 }
-						    		 printErrorLog("New Build id "+newbuildId+" is still not available , waiting 2 seconds to check again \n" +
-												"you can terminate this process by canseling the bacground process manually");	 
+						    		 printErrorLog(Messages.AppfactoryApplicationListView_56+newbuildId+Messages.AppfactoryApplicationListView_57 +
+												Messages.AppfactoryApplicationListView_58);	 
 										Thread.sleep(2000); 
 										if(monitor.isCanceled()){
-											printInfoLog("Build id requested has been terminated by the user");	  
+											printInfoLog(Messages.AppfactoryApplicationListView_59);	  
 											break;
 										} 
 						    	 }
@@ -674,30 +675,30 @@ public class AppfactoryApplicationListView extends ViewPart {
 							printJenkinsBuildLogs(appInfo, buildId,builderBaseUrl,monitor);
 
 						} catch (Exception e) {
-							printErrorLog("System Failed to get build logs \n "+e.getMessage());	 
-							log.error("BuildLogs Error :",e);
+							printErrorLog(Messages.AppfactoryApplicationListView_60+e.getMessage());	 
+							log.error(Messages.AppfactoryApplicationListView_61,e);
 						}
 
 					}
 
 					private int deploy(final AppVersionInfo appInfo, int buildId) {
 						Map<String, String> params = new HashMap<String, String>();
-						params.put("action",
+						params.put(Messages.AppfactoryApplicationListView_62,
 								JagApiProperties.App_BUILD_ACTION);
-						params.put("stage", "Development");
-						params.put("applicationKey", appInfo.getAppName());
-						params.put("version", appInfo.getVersion());
-						params.put("doDeploy", "true");
-						printInfoLog("Deploying application");	
+						params.put(Messages.AppfactoryApplicationListView_63, Messages.AppfactoryApplicationListView_64);
+						params.put(Messages.AppfactoryApplicationListView_65, appInfo.getAppName());
+						params.put(Messages.AppfactoryApplicationListView_66, appInfo.getVersion());
+						params.put(Messages.AppfactoryApplicationListView_67, Messages.AppfactoryApplicationListView_68);
+						printInfoLog(Messages.AppfactoryApplicationListView_69);	
 						String httpPostrespond = HttpsJaggeryClient.httpPost(
 								JagApiProperties.getBuildApplication(),
 								params); 
-						if(!"false".equals(httpPostrespond)){
-							printInfoLog("SucessFully deployed");
+						if(!Messages.AppfactoryApplicationListView_70.equals(httpPostrespond)){
+							printInfoLog(Messages.AppfactoryApplicationListView_71);
 							buildId++;
 						}else{
-							printErrorLog("Deploying process has failed");
-							printInfoLog("Last build log will be getting");
+							printErrorLog(Messages.AppfactoryApplicationListView_72);
+							printInfoLog(Messages.AppfactoryApplicationListView_73);
 						}
 
 						return buildId;
@@ -707,18 +708,18 @@ public class AppfactoryApplicationListView extends ViewPart {
 							int buidNo) {
 						Map<String, String> params;
 						params = new HashMap<String, String>();
-						params.put("action",JagApiProperties.App_BUILD_URL_ACTIONL);
-						params.put("lastBuildNo", "" + buidNo);
-						params.put("applicationVersion",appInfo.getVersion());
-						params.put("applicationKey",appInfo.getAppName());
-						String builderBaseUrl = "";
+						params.put(Messages.AppfactoryApplicationListView_74,JagApiProperties.App_BUILD_URL_ACTIONL);
+						params.put(Messages.AppfactoryApplicationListView_75, Messages.AppfactoryApplicationListView_76 + buidNo);
+						params.put(Messages.AppfactoryApplicationListView_77,appInfo.getVersion());
+						params.put(Messages.AppfactoryApplicationListView_78,appInfo.getAppName());
+						String builderBaseUrl = Messages.AppfactoryApplicationListView_79;
 						builderBaseUrl = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildInfoUrl(),params);
 						return builderBaseUrl;
 					}
 
 					private void printJenkinsBuildLogs(final AppVersionInfo appInfo, int buidNo,
 							String builderBaseUrl,IProgressMonitor monitor) throws IOException,InterruptedException {
-						printInfoLog("Getting buildLogs of build No "+buidNo);	  
+						printInfoLog(Messages.AppfactoryApplicationListView_80+buidNo);	  
 						while(true){
 						HttpResponse response = HttpsJenkinsClient
 								.getBulildinfo(
@@ -732,21 +733,21 @@ public class AppfactoryApplicationListView extends ViewPart {
 										.getEntity().getContent()));
 						String line;
 						while ((line = rd.readLine()) != null) {
-							broker.send("update", line.toString());
+							broker.send(Messages.AppfactoryApplicationListView_81, line.toString());
 							Thread.sleep(100);
 						}
 						EntityUtils.consume(entity);
 						break;
 						}else if(response.getStatusLine().getStatusCode()==404){
-							printErrorLog("Build Url still not available , waiting 2 seconds to check again \n" +
-									"you can terminate this process by canseling the bacground process manually");	 
+							printErrorLog(Messages.AppfactoryApplicationListView_82 +
+									Messages.AppfactoryApplicationListView_83);	 
 							Thread.sleep(2000); 
 							if(monitor.isCanceled()){
-								printInfoLog("Build logs requested has been terminated by user");	  
+								printInfoLog(Messages.AppfactoryApplicationListView_84);	  
 								break;
 							}
 						}else{
-							printErrorLog("Build log request cannot proceed due to server error "+response.getStatusLine().getStatusCode());
+							printErrorLog(Messages.AppfactoryApplicationListView_85+response.getStatusLine().getStatusCode());
 							 break;
 						}
 					}	
@@ -755,28 +756,28 @@ public class AppfactoryApplicationListView extends ViewPart {
 					private int getLastBuildId(final AppVersionInfo appInfo) {
 						credentials = Authenticator.getInstance().getCredentials();
 						Map<String, String> params = new HashMap<String, String>();
-						params.put("action",JagApiProperties.App_BUILD_INFO_ACTION);
-						params.put("stage", "Development");
-						params.put("applicationKey",appInfo.getAppName());
-						params.put("version", appInfo.getVersion());
-						params.put("buildable", "true");
-						params.put("isRoleBasedPermissionAllowed","false");
-						params.put("metaDataNeed", "false");
-						params.put("userName",credentials.getUser());
-						printInfoLog("Getting last build id");	 
+						params.put(Messages.AppfactoryApplicationListView_86,JagApiProperties.App_BUILD_INFO_ACTION);
+						params.put(Messages.AppfactoryApplicationListView_87, Messages.AppfactoryApplicationListView_88);
+						params.put(Messages.AppfactoryApplicationListView_89,appInfo.getAppName());
+						params.put(Messages.AppfactoryApplicationListView_90, appInfo.getVersion());
+						params.put(Messages.AppfactoryApplicationListView_91, Messages.AppfactoryApplicationListView_92);
+						params.put(Messages.AppfactoryApplicationListView_93,Messages.AppfactoryApplicationListView_94);
+						params.put(Messages.AppfactoryApplicationListView_95, Messages.AppfactoryApplicationListView_96);
+						params.put(Messages.AppfactoryApplicationListView_97,credentials.getUser());
+						printInfoLog(Messages.AppfactoryApplicationListView_98);	 
 						String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildLastSucessfullBuildUrl(),params);
-						if("false".equals(respond)){
-						printErrorLog(" Fetching Failed now attempting to relogin");	 
+						if(Messages.AppfactoryApplicationListView_99.equals(respond)){
+						printErrorLog(Messages.AppfactoryApplicationListView_100);	 
 					    boolean val = Authenticator.getInstance().reLogin();
 					      if(val){
-					    	  printInfoLog("Re-Login sucessfull");	  
+					    	  printInfoLog(Messages.AppfactoryApplicationListView_101);	  
 					    	  respond =HttpsJaggeryClient.httpPost(JagApiProperties.getBuildLastSucessfullBuildUrl(),params);
 					      }else{
-					    	printErrorLog("CANNOT PROCEEDS \n Re-Login attempt has filed !! \n " +
-					    			"Please re-Login to the perspective");  
+					    	printErrorLog(Messages.AppfactoryApplicationListView_102 +
+					    			Messages.AppfactoryApplicationListView_103);  
 					      }
 						}
-						if(!"false".equals(respond)){
+						if(!Messages.AppfactoryApplicationListView_104.equals(respond)){
 							JsonElement jelement = new JsonParser().parse(respond);
 							JsonArray buildInfoArray;
 							int buildId = 0;
@@ -786,22 +787,22 @@ public class AppfactoryApplicationListView extends ViewPart {
 									JsonObject asJsonObject = jsonElement
 											.getAsJsonObject();
 									JsonElement jsonElement2 = asJsonObject
-											.get("version");
+											.get(Messages.AppfactoryApplicationListView_105);
 									JsonObject asJsonObject2 = jsonElement2
 											.getAsJsonObject();
-									String asString = asJsonObject2.get("current")
+									String asString = asJsonObject2.get(Messages.AppfactoryApplicationListView_106)
 											.getAsString();
 									if (asString.equals(appInfo.getVersion())) {
 										JsonElement jsonElement3 = asJsonObject
-												.get("build");
+												.get(Messages.AppfactoryApplicationListView_107);
 										JsonObject asJsonObject3 = jsonElement3
 												.getAsJsonObject();
-										buildId = asJsonObject3.get("lastBuildId")
+										buildId = asJsonObject3.get(Messages.AppfactoryApplicationListView_108)
 												.getAsInt();
 										break;
 									}
 								}
-								printInfoLog("Last build id :"+buildId);
+								printInfoLog(Messages.AppfactoryApplicationListView_109+buildId);
 								return buildId;	
 						}
 						return 0;
@@ -840,7 +841,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 "/icons/open.gif");
+						 Messages.AppfactoryApplicationListView_110);
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -856,11 +857,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 			}
 
 			public String getText() {
-				return "Build Logs";
+				return Messages.AppfactoryApplicationListView_111;
 			}
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 "/icons/buildLog.gif");
+						 Messages.AppfactoryApplicationListView_112);
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -874,23 +875,23 @@ public class AppfactoryApplicationListView extends ViewPart {
 				try {
 					    DirectoryDialog dialog = new DirectoryDialog(Display.getCurrent()
 								.getActiveShell());
-					   dialog.setText("Select New Repository Location, Default will be eclipse workspace");
+					   dialog.setText(Messages.AppfactoryApplicationListView_113);
 					    if(dialog.open()!=null){
 					    	appInfo.setLocalrepoLocation(dialog.getFilterPath());
 					    	appInfo.updateVersions();
 					    }
 				} catch (Exception e) {
-					log.error("", e);
+					log.error(Messages.AppfactoryApplicationListView_114, e);
 				}
 			};
        
 			public String getText() {
-				return "Chnage Local Repo Location ";
+				return Messages.AppfactoryApplicationListView_115;
 			}
 			@Override
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 "/icons/repoLocation.gif");
+						 Messages.AppfactoryApplicationListView_116);
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -903,16 +904,16 @@ public class AppfactoryApplicationListView extends ViewPart {
 				try {
 					getbuildLogsJob(info,true);
 				} catch (Exception e) {
-					log.error("Deploying Error", e);
+					log.error(Messages.AppfactoryApplicationListView_117, e);
 				}
 			};
 			public String getText() {
-				return "Deploy";
+				return Messages.AppfactoryApplicationListView_118;
 			}
 			@Override
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 "/icons/deploy.gif");
+						 Messages.AppfactoryApplicationListView_119);
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -926,12 +927,12 @@ public class AppfactoryApplicationListView extends ViewPart {
 			};
 
 			public String getText() {
-				return "Check Out";
+				return Messages.AppfactoryApplicationListView_120;
 			}
 			@Override
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 "/icons/checkout.gif");
+						 Messages.AppfactoryApplicationListView_121);
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -947,19 +948,19 @@ public class AppfactoryApplicationListView extends ViewPart {
 				try {
 					progressMonitorDialog.run(true, false, new AppImportJobJob(info));
 				} catch (InvocationTargetException e) {
-					 log.error("project open", e);
+					 log.error(Messages.AppfactoryApplicationListView_122, e);
 				} catch (InterruptedException e) {
-					log.error("project open", e);
+					log.error(Messages.AppfactoryApplicationListView_123, e);
 				}
 			};
 
 			public String getText() {
-				return "Import to workspace";
+				return Messages.AppfactoryApplicationListView_124;
 			}
 			@Override
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 "/icons/import.gif");
+						 Messages.AppfactoryApplicationListView_125);
 				return  imageDescriptorFromPlugin;
 			}
 			
@@ -973,11 +974,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 	}
 
 	private void  getcheckoutJob(final AppVersionInfo info){
-		Job job = new Job("Updating Application versions") {
+		Job job = new Job(Messages.AppfactoryApplicationListView_126) {
 		   @SuppressWarnings("restriction")
 			@Override
 			  protected IStatus run(final IProgressMonitor monitor) {
-				monitor.beginTask("Connecting to remote server for fetching data", 100);
+				monitor.beginTask(Messages.AppfactoryApplicationListView_127, 100);
 				  UISynchronize uiSynchronize = new UISynchronize() {
 						@Override
 						public void syncExec(Runnable runnable) {
@@ -986,10 +987,10 @@ public class AppfactoryApplicationListView extends ViewPart {
 						@Override
 						public void asyncExec(Runnable runnable) {
 						 try{
-							monitor.subTask("Cloning with remote repository");
-							printInfoLog("Cloning with remote repository");
+							monitor.subTask(Messages.AppfactoryApplicationListView_128);
+							printInfoLog(Messages.AppfactoryApplicationListView_129);
 							monitor.worked(10);	  
-							if(info.getLocalRepo()==null||info.getLocalRepo().equals("")){
+							if(info.getLocalRepo()==null||info.getLocalRepo().equals(Messages.AppfactoryApplicationListView_130)){
 							 info.setLocalRepo(ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString());
 							}
 							String localRepo =info.getLocalRepo()+File.separator+info.getAppName();
@@ -998,25 +999,25 @@ public class AppfactoryApplicationListView extends ViewPart {
 							monitor.worked(30);
 							if(!manager.isCloned()){
 								manager.gitClone();
-								if(!"trunk".equals(info.getVersion())){	   
+								if(!Messages.AppfactoryApplicationListView_131.equals(info.getVersion())){	   
 										manager.checkout(info.getVersion());
 										monitor.worked(60);
-										monitor.subTask("Cloning completed sucessfully");
-										printInfoLog("Cloning completed sucessfully");
+										monitor.subTask(Messages.AppfactoryApplicationListView_132);
+										printInfoLog(Messages.AppfactoryApplicationListView_133);
 									}
 							}else {
 								manager.checkout(info.getVersion());
 								monitor.worked(60);
-								monitor.subTask("Cloning completed sucessfully");
-								printInfoLog("Cloning completed sucessfully");
+								monitor.subTask(Messages.AppfactoryApplicationListView_134);
+								printInfoLog(Messages.AppfactoryApplicationListView_135);
 							}
                              info.setCheckedout(true);
-                             broker.send("Projectupdate", null);
+                             broker.send(Messages.AppfactoryApplicationListView_136, null);
 							 }catch(Exception e){
 								 monitor.worked(0);
-								 monitor.subTask("Cloning process has failed");
-								 printErrorLog("Cloning process has failed \n"+e.getMessage()); 
-								 log.error("Cloning :", e);
+								 monitor.subTask(Messages.AppfactoryApplicationListView_137);
+								 printErrorLog(Messages.AppfactoryApplicationListView_138+e.getMessage()); 
+								 log.error(Messages.AppfactoryApplicationListView_139, e);
 						   }
 						}
 							
@@ -1084,17 +1085,17 @@ private class AppImportJobJob implements IRunnableWithProgress {
 	  
 		@Override
 		public void run(IProgressMonitor monitor) {
-			String operationText="Importing App into worksapce";
+			String operationText=Messages.AppfactoryApplicationListView_140;
 			monitor.beginTask(operationText, 100);
 			try{
-				operationText="creating the project";
+				operationText=Messages.AppfactoryApplicationListView_141;
 				monitor.subTask(operationText);
 				monitor.worked(10);
 				IProjectDescription description = ResourcesPlugin
 						.getWorkspace()
 						.loadProjectDescription(new Path(appInfo.getLocalRepo()+
-								File.separator+appInfo.getAppName()+File.separator+".project"));
-				operationText="Opening the project";
+								File.separator+appInfo.getAppName()+File.separator+Messages.AppfactoryApplicationListView_142));
+				operationText=Messages.AppfactoryApplicationListView_143;
 				monitor.subTask(operationText);
 				monitor.worked(10); 
 				final IProject project = ResourcesPlugin.getWorkspace()
@@ -1111,10 +1112,10 @@ private class AppImportJobJob implements IRunnableWithProgress {
 				monitor.worked(80);
 				
 			}catch(Throwable e){
-				operationText="project Importing has filed please do it manually";
+				operationText=Messages.AppfactoryApplicationListView_144;
 				 monitor.subTask(operationText);
 				 monitor.worked(10); 
-				 log.error("importing failed", e);
+				 log.error(Messages.AppfactoryApplicationListView_145, e);
 			}
 			
 			monitor.worked(100);

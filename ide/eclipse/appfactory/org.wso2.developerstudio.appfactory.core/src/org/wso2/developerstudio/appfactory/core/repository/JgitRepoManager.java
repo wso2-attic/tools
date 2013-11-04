@@ -26,6 +26,7 @@ import org.eclipse.jgit.storage.file.FileRepository;
 import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
+import org.wso2.developerstudio.appfactory.core.utils.Messages;
 import org.wso2.developerstudio.eclipse.distribution.project.ui.wizard.ProjectsImportPage;
 import org.wso2.developerstudio.eclipse.distribution.project.ui.wizard.ProjectsImportPage.ProjectRecord;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -44,7 +45,7 @@ public class JgitRepoManager {
     public JgitRepoManager(String localPath,String uri) throws IOException {
     	 this.localPath =localPath;
          this.remotePath = uri;
-         File gitDir = new File(localPath +File.separator+ ".git");
+         File gitDir = new File(localPath +File.separator+ Messages.JgitRepoManager_0);
          if(gitDir.exists()){
         	 setCloned(true);
          }
@@ -57,10 +58,10 @@ public class JgitRepoManager {
 	}
    public void createGitRepo(){
 		try {
-			localRepo = new FileRepository(localPath +File.separator +".git");
+			localRepo = new FileRepository(localPath +File.separator +Messages.JgitRepoManager_1);
 			localRepo.create();
 		} catch (Exception e) {
-			log.error("Git Repository creatation Error : ", e);
+			log.error(Messages.JgitRepoManager_2, e);
 		}
     }
 
@@ -77,7 +78,7 @@ public class JgitRepoManager {
 			git.branchCreate()
 				.setForce(true)
 				.setName(branch)
-				.setStartPoint("origin/" + branch)
+				.setStartPoint(Messages.JgitRepoManager_3 + branch)
 				.call();
 	}
 	
@@ -93,8 +94,8 @@ public class JgitRepoManager {
 	public void checkout(String branch) throws RefAlreadyExistsException,
 	RefNotFoundException, InvalidRefNameException,
 	CheckoutConflictException, GitAPIException, IOException {
-		 if ("trunk".equals(branch)){
-			 branch ="master";
+		 if (Messages.JgitRepoManager_4.equals(branch)){
+			 branch =Messages.JgitRepoManager_5;
 		 }
           Ref ref = git.getRepository().getRef(branch);
           if(ref==null){
@@ -111,7 +112,7 @@ public class JgitRepoManager {
 				.setCreateBranch(true)
 				.setName(branch)
 				.setUpstreamMode(CreateBranchCommand.SetupUpstreamMode.TRACK)
-				.setStartPoint("origin/" + branch)
+				.setStartPoint(Messages.JgitRepoManager_6 + branch)
 				.setForce(true)
 				.call();
 
@@ -124,7 +125,7 @@ public class JgitRepoManager {
 		.setCreateBranch(false)
 		.setName(branch)
 		.setUpstreamMode(CreateBranchCommand.SetupUpstreamMode.TRACK)
-		.setStartPoint("origin/" + branch)
+		.setStartPoint(Messages.JgitRepoManager_7 + branch)
 		.setForce(true)
 		.call();
 
@@ -136,7 +137,7 @@ public class JgitRepoManager {
 		    git.branchCreate()
 		       .setName(branch)
 			   .setUpstreamMode(SetupUpstreamMode.SET_UPSTREAM)
-			   .setStartPoint("origin/"+ branch)
+			   .setStartPoint(Messages.JgitRepoManager_8+ branch)
 			   .setForce(true)
 			   .call();
 	}

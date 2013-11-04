@@ -23,7 +23,7 @@ public class ErrorModel {
 	private String cause;
 	private String Stacrace;
 	private Throwable throwable;
-	private List<String> resions;
+	private List<String> reason;
 	public String getMessage() {
 		return message;
 	}
@@ -48,11 +48,11 @@ public class ErrorModel {
 	public void setThrowable(Throwable throwable) {
 		this.throwable = throwable;
 	}
-	public List<String> getResions() {
-		return resions;
+	public List<String> getReasons() {
+		return reason;
 	}
-	public void setResions(List<String> resions) {
-		this.resions = resions;
+	public void setReasons(List<String> resions) {
+		this.reason = resions;
 	}
  
 

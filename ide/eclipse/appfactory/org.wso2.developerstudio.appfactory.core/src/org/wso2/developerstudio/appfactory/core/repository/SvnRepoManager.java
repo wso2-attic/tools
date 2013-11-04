@@ -26,6 +26,7 @@ import org.tmatesoft.svn.core.wc.SVNWCUtil;
 import org.tmatesoft.svn.core.auth.ISVNAuthenticationManager;
 import org.tmatesoft.svn.core.io.SVNRepository;
 import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
+import org.wso2.developerstudio.appfactory.core.utils.Messages;
 
 public class SvnRepoManager {
 
@@ -34,9 +35,9 @@ public class SvnRepoManager {
  
  
  public SvnRepoManager() {
-	 String url = "http://svn.svnkit.com/repos/svnkit/trunk/doc";
-     String name = "anonymous";
-     String password = "anonymous";
+	 String url = Messages.SvnRepoManager_0;
+     String name = Messages.SvnRepoManager_1;
+     String password = Messages.SvnRepoManager_2;
      
      SVNRepository repository = null;
      try {

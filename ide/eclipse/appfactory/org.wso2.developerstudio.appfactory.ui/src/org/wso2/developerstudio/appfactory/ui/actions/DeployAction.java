@@ -32,6 +32,7 @@ import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 import org.wso2.developerstudio.appfactory.ui.views.AppfactoryApplicationListView;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -49,24 +50,24 @@ public class DeployAction implements IActionDelegate{
 				
 				
 				IViewPart findView = PlatformUI.getWorkbench().getActiveWorkbenchWindow().
-				getActivePage().findView("‌​org.wso2.developerstudio.appfactory.ui.views.AppfactoryApplicationListView");
+				getActivePage().findView(Messages.DeployAction_0);
 											 
 				AppfactoryApplicationListView applist = (AppfactoryApplicationListView) findView;
 				 
 				IProject project = (IProject)selection.getFirstElement();
-				File pomfile = project.getFile("pom.xml").getLocation().toFile();
+				File pomfile = project.getFile(Messages.DeployAction_1).getLocation().toFile();
 				MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
 			final Map<String, String> params = new HashMap<String, String>();
-				params.put("action",
+				params.put(Messages.DeployAction_2,
 						JagApiProperties.App_BUILD_ACTION);
-				params.put("stage", "Development");
-				params.put("applicationKey", mavenProject.getArtifactId());
+				params.put(Messages.DeployAction_3, Messages.DeployAction_4);
+				params.put(Messages.DeployAction_5, mavenProject.getArtifactId());
 				String version =mavenProject.getVersion();
-				if("SNAPSHOT".equals(version)){
-					version = "trunk";
+				if(Messages.DeployAction_6.equals(version)){
+					version = Messages.DeployAction_7;
 				}
-				params.put("version", version);
-				params.put("doDeploy", "true");
+				params.put(Messages.DeployAction_8, version);
+				params.put(Messages.DeployAction_9, Messages.DeployAction_10);
 				Display.getCurrent().asyncExec(new Runnable() {
 					@Override
 					public void run() {
@@ -75,13 +76,13 @@ public class DeployAction implements IActionDelegate{
 									JagApiProperties.getBuildApplication(),
 									params); 
 						} catch (Exception e) {
-							log.error("Remote method invokation Error !", e);
+							log.error(Messages.DeployAction_11, e);
 						}
 					}
 				}); 
 
 			   } catch (Exception e) {
-				  log.error("Project Pom Error !", e);  
+				  log.error(Messages.DeployAction_12, e);  
 			}
     	}
     }

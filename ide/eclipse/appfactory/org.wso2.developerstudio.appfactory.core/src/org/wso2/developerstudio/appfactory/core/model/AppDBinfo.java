@@ -19,6 +19,8 @@ package org.wso2.developerstudio.appfactory.core.model;
 import java.util.List;
 import java.util.Map;
 
+import org.wso2.developerstudio.appfactory.core.utils.Messages;
+
 public class AppDBinfo {
 	
 private List<Map<String,String>> dbs;
@@ -48,11 +50,11 @@ public void setDbs(List<Map<String,String>> dbs) {
 }
 
 public String getUsr1() {
-	String value ="";
-	 if("".equals(value)){
+	String value =Messages.AppDBinfo_0;
+	 if(Messages.AppDBinfo_1.equals(value)){
 		 for (String name : usr) {
 			 if(value!=null){
-			 value = value +" , "+name;
+			 value = value +Messages.AppDBinfo_2+name;
 			 }else{
 				 value =name;
 			 }
@@ -66,11 +68,11 @@ public void setUsr(List<String> usr) {
 }
 
 public String getTemplates1() {
-	String value ="";
+	String value =Messages.AppDBinfo_3;
 	if(templates!=null){
 		 for (String name : templates) {
-			 if("".equals(value)){
-			 value = value +" , "+name;
+			 if(Messages.AppDBinfo_4.equals(value)){
+			 value = value +Messages.AppDBinfo_5+name;
 			 }else{
 				 value =name;
 			 }
