@@ -4,6 +4,10 @@ import org.eclipse.osgi.util.NLS;
 
 public class Messages extends NLS {
 	private static final String BUNDLE_NAME = "org.wso2.developerstudio.appfactory.core.utils.messages"; //$NON-NLS-1$
+	static {
+		// initialize resource bundle
+		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
+	}
 	public static String AppDBinfo_0;
 	public static String AppDBinfo_1;
 	public static String AppDBinfo_2;
