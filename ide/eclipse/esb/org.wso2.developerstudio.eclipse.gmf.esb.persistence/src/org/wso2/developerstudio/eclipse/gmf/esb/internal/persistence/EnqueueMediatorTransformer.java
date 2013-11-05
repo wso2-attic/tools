@@ -41,6 +41,7 @@ public class EnqueueMediatorTransformer extends AbstractEsbNodeTransformer{
 		EnqueueMediator visualEnqueue = (EnqueueMediator) subject;
 		
 		org.apache.synapse.mediators.builtin.EnqueueMediator enqueueMediator = new org.apache.synapse.mediators.builtin.EnqueueMediator();
+		setCommonProperties(enqueueMediator, visualEnqueue);
 		enqueueMediator.setExecutorName(visualEnqueue.getExecutor());
 		enqueueMediator.setSequenceName(visualEnqueue.getSequenceKey().getKeyValue());
 		return enqueueMediator;

@@ -70,6 +70,7 @@ public class EnrichMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.apache.synapse.mediators.elementary.Source source = new org.apache.synapse.mediators.elementary.Source();
 		org.apache.synapse.mediators.elementary.Target target = new org.apache.synapse.mediators.elementary.Target();
 		org.apache.synapse.mediators.elementary.EnrichMediator enrichMediator= new org.apache.synapse.mediators.elementary.EnrichMediator();
+		setCommonProperties(enrichMediator, visualEnrich);
 		{
 			
 			source.setClone(visualEnrich.isCloneSource());

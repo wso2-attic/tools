@@ -33,6 +33,7 @@ public class BeanMediatorDeserializer extends
 		BeanMediator mediatorModel = (BeanMediator) DeserializerUtils.createNode(part,
 				EsbElementTypes.BeanMediator_3683);
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 
 		executeSetValueCommand(BEAN_MEDIATOR__VAR, mediator.getVarName());
 

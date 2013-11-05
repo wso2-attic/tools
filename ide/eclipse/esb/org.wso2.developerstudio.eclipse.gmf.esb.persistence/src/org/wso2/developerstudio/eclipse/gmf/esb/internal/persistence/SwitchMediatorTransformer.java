@@ -53,7 +53,8 @@ public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
 		SwitchMediator visualSwitch = (SwitchMediator) subject;
 
 		org.apache.synapse.mediators.filters.SwitchMediator switchMediator = new org.apache.synapse.mediators.filters.SwitchMediator();
-
+		setCommonProperties(switchMediator, visualSwitch);
+		
 		/* NamespacedProperty sourceXPath = visualSwitch.getSourceXpath();
 		 if(null!=sourceXPath.getPropertyValue()){
 		 switchMediator.setSource(new

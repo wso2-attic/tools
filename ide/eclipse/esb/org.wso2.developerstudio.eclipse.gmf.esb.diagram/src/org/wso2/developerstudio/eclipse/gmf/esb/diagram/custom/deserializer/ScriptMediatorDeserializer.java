@@ -42,6 +42,7 @@ public class ScriptMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		org.apache.synapse.mediators.bsf.ScriptMediator scriptMediator = (org.apache.synapse.mediators.bsf.ScriptMediator)mediator;		
 		ScriptMediator visualScriptMediator = (ScriptMediator) DeserializerUtils.createNode(part, EsbElementTypes.ScriptMediator_3508);
 		setElementToEdit(visualScriptMediator);
+		setCommonProperties(scriptMediator, visualScriptMediator);
 		String type = scriptMediator.getScriptSrc();		
 		
 		if("js".equals(scriptMediator.getLanguage())){

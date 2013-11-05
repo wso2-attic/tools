@@ -70,6 +70,7 @@ public class EJBMediatorTransformer extends AbstractEsbNodeTransformer {
 		EJBMediator mediatorModel = (EJBMediator) subject;
 
 		EJBMediatorExt mediator = new EJBMediatorExt();
+		setCommonProperties(mediator, mediatorModel);
 		mediator.setBeanstalkName(mediatorModel.getBeanstalk());
 		mediator.setClassName(mediatorModel.getClass_());
 		mediator.setJndiName(mediatorModel.getJNDIName());

@@ -46,6 +46,7 @@ public class ConditionalRouterMediatorDeserializer extends
 		ConditionalRouterMediator mediatorModel = (ConditionalRouterMediator) DeserializerUtils
 				.createNode(part, EsbElementTypes.ConditionalRouterMediator_3635);
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 
 		executeSetValueCommand(CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_ROUTE,
 				mediator.isContinueAfter());

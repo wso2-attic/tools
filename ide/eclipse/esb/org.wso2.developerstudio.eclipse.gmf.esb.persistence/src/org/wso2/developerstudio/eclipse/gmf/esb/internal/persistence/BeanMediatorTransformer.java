@@ -65,6 +65,7 @@ public class BeanMediatorTransformer extends AbstractEsbNodeTransformer{
 		BeanMediator visualBeanMediator = (BeanMediator) subject;
 
 		BeanMediatorExt beanMediator = new BeanMediatorExt();
+		setCommonProperties(beanMediator, visualBeanMediator);
 		
 		beanMediator.setVarName(visualBeanMediator.getVar());
 

@@ -32,6 +32,7 @@ public class CallMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		CallMediator visualCallMediator = (CallMediator) DeserializerUtils.createNode(part, EsbElementTypes.CallMediator_3742);
 		setElementToEdit(visualCallMediator);
+		setCommonProperties(callMediator, visualCallMediator);
 		
 		refreshEditPartMap();
 		EditPart mediatorFlow=getEditpart(visualCallMediator.getMediatorFlow());

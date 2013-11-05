@@ -28,6 +28,7 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPE
 
 import java.util.regex.Pattern;
 
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -54,6 +55,7 @@ public class PropertyMediatorDeserializer extends
 
 		org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator VisualPropertyMediator = (org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator) DeserializerUtils.createNode(part, EsbElementTypes.PropertyMediator_3492);
 		setElementToEdit(VisualPropertyMediator);
+		setCommonProperties(propertyMediator, VisualPropertyMediator);
 		
 		//PropertyMediator vishualProp = EsbFactory.eINSTANCE
 				//.createPropertyMediator();
@@ -97,7 +99,7 @@ public class PropertyMediatorDeserializer extends
 			
 			// If it's an Expression
 			if (propertyMediator.getExpression() != null) {
-				SynapseXPath xpath = propertyMediator.getExpression();
+				SynapsePath xpath = propertyMediator.getExpression();
 				NamespacedProperty namespaceProp = createNamespacedProperty(xpath);
 				//vishualProp.setValueExpression(namespaceProp);
 				executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_TYPE, PropertyValueType.EXPRESSION);

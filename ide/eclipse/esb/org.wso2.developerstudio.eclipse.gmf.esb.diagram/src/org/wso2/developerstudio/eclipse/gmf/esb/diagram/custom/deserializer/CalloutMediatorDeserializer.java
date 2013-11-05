@@ -23,6 +23,7 @@ public class CalloutMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		
 		CalloutMediator visualCalloutMediator = (CalloutMediator) DeserializerUtils.createNode(part, EsbElementTypes.CalloutMediator_3520);
 		setElementToEdit(visualCalloutMediator);	
+		setCommonProperties(calloutMediator, visualCalloutMediator);
 		
 		if(calloutMediator.getServiceURL()!=null){
 		executeSetValueCommand(CALLOUT_MEDIATOR__SERVICE_URL, calloutMediator.getServiceURL());

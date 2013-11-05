@@ -68,6 +68,7 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 		 *  Configure Cache mediator.
 		 */
 		org.apache.synapse.mediators.builtin.CacheMediator cacheMediator = new org.apache.synapse.mediators.builtin.CacheMediator();
+		setCommonProperties(cacheMediator, visualCache);
 		{	
 			if(visualCache.getCacheAction().getValue()==0){
 				cacheMediator.setId(visualCache.getCacheId());

@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -25,6 +26,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.synapse.Mediator;
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -55,6 +58,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogCategory;
 //import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
@@ -83,6 +87,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 /**
  * This class provides a skeletal implementation of the IEsbNodeDeserializer
@@ -867,6 +872,21 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		return nsp;
 	}
 	
+	protected NamespacedProperty createNamespacedProperty(SynapsePath path) {			
+		NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();		
+		if(path.getPathType()==SynapsePath.X_PATH){
+			nsp.setPropertyValue(path.getExpression());	
+			if (path.getNamespaces() != null) {
+				@SuppressWarnings("unchecked")
+				Map<String, String> map = path.getNamespaces();
+				nsp.setNamespaces(map);
+			}
+		}else if(path.getPathType()==SynapsePath.JSON_PATH){
+			nsp.setPropertyValue(path.getExpression());	
+		}	
+		return nsp;
+	}
+	
 	protected NamespacedProperty createNamespacedProperty(String xpath,Map<String, String> namespaces) {			
 		NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();				
 		nsp.setPropertyValue(xpath.toString());				
@@ -908,6 +928,10 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 
 	protected static boolean isAddedAddressingEndPoint() {
 		return addedAddressingEndPoint;
+	}
+	
+	protected void setCommonProperties(Mediator mediator,org.wso2.developerstudio.eclipse.gmf.esb.Mediator visualElement){
+		executeSetValueCommand(visualElement,ESB_ELEMENT__DESCRIPTION, mediator.getShortDescription());
 	}
 	
 }

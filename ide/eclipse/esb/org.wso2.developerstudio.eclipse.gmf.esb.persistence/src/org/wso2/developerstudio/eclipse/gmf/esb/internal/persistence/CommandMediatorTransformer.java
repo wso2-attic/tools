@@ -63,6 +63,7 @@ public class CommandMediatorTransformer extends AbstractEsbNodeTransformer{
 		CommandMediator visualCommand = (CommandMediator) subject;
 		String className = visualCommand.getClassName();
 		POJOCommandMediatorExt commandMediator =new POJOCommandMediatorExt(className);
+		setCommonProperties(commandMediator, visualCommand);
 		Class clazz= DummyPOJOClass.class;
 		
 		for (CommandProperty property : visualCommand.getProperties()) {

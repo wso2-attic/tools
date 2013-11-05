@@ -46,6 +46,7 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 		
 		org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator visualAggregateMediator = (org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator) DeserializerUtils.createNode(part, EsbElementTypes.AggregateMediator_3525); 
 		setElementToEdit(visualAggregateMediator);
+		setCommonProperties(aggregateMediator, visualAggregateMediator);
 		
 		refreshEditPartMap();
 		EditPart mediatorFlow=getEditpart(visualAggregateMediator.getMediatorFlow());

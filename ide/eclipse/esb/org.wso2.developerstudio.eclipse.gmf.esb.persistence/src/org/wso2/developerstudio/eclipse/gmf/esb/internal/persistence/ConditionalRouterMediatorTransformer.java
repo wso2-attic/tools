@@ -68,6 +68,7 @@ public class ConditionalRouterMediatorTransformer extends AbstractEsbNodeTransfo
 		ConditionalRouterMediator routerModel = (ConditionalRouterMediator) subject;
 		
 		org.apache.synapse.mediators.filters.router.ConditionalRouterMediator router = new org.apache.synapse.mediators.filters.router.ConditionalRouterMediator();
+		setCommonProperties(router, routerModel);
 		router.setContinueAfter(routerModel.isContinueRoute());
 		
 		EList<ConditionalRouteBranch> routes = routerModel.getConditionalRouteBranches();

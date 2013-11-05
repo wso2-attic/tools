@@ -37,6 +37,7 @@ public class RMSequenceMediatorDeserializer extends AbstractEsbNodeDeserializer<
 		
 		RMSequenceMediator visualRMSequenceMediator = (RMSequenceMediator) DeserializerUtils.createNode(part, EsbElementTypes.RMSequenceMediator_3522);
 		setElementToEdit(visualRMSequenceMediator);
+		setCommonProperties(RMSequenceMediator, visualRMSequenceMediator);
 		
 		if(WSRM_SpecVersion_1_0.equals(RMSequenceMediator.getVersion())){
 			executeSetValueCommand(RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION, RMSpecVersion.VERSION_10);

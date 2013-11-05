@@ -69,7 +69,8 @@ public class LoopBackMediatorTransformer extends AbstractEsbNodeTransformer {
 	private org.apache.synapse.mediators.builtin.LoopBackMediator createLoopBackMediator(
 			LoopBackMediator visualMediator) {
 		org.apache.synapse.mediators.builtin.LoopBackMediator loopBackMediator = new org.apache.synapse.mediators.builtin.LoopBackMediator();
-
+		setCommonProperties(loopBackMediator, visualMediator);
+		
 		return loopBackMediator;
 	}
 

@@ -45,6 +45,7 @@ public class OAuthMediatorTransformer extends AbstractEsbNodeTransformer  {
 
 		// Configure properties of the mediator.
 		org.wso2.carbon.identity.oauth.mediator.OAuthMediator OauthMediator = new org.wso2.carbon.identity.oauth.mediator.OAuthMediator();
+		setCommonProperties(OauthMediator, visualOauth);
 		{
 			if (StringUtils.isNotBlank(visualOauth.getRemoteServiceUrl())) {
 				OauthMediator.setRemoteServiceUrl(visualOauth.getRemoteServiceUrl());

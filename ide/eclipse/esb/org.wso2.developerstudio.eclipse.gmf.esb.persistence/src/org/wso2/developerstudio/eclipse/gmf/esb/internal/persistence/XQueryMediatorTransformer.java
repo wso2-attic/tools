@@ -57,6 +57,7 @@ public class XQueryMediatorTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof XQueryMediator, "Invalid subject.");
 		XQueryMediator visualXQuery = (XQueryMediator)subject;
 		org.apache.synapse.mediators.xquery.XQueryMediator xqueryMediator=new org.apache.synapse.mediators.xquery.XQueryMediator();		
+		setCommonProperties(xqueryMediator, visualXQuery);
 		{
 			if(visualXQuery.getTargetXPath().getPropertyValue()!=null && !visualXQuery.getTargetXPath().getPropertyValue().equals("")){
 			SynapseXPath expression=new SynapseXPath(visualXQuery.getTargetXPath().getPropertyValue());	

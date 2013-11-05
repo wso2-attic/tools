@@ -40,6 +40,7 @@ public class EventMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		
 		org.wso2.developerstudio.eclipse.gmf.esb.EventMediator VisualEventMediator = (org.wso2.developerstudio.eclipse.gmf.esb.EventMediator) DeserializerUtils.createNode(part, EsbElementTypes.EventMediator_3504);
 		setElementToEdit(VisualEventMediator);
+		setCommonProperties(eventMediator, VisualEventMediator);
 		
 		//EventMediator vishualEvent = EsbFactory.eINSTANCE.createEventMediator();
 		

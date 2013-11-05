@@ -28,6 +28,7 @@ public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		
 		FaultMediator visualFaultMediator = (FaultMediator) DeserializerUtils.createNode(part, EsbElementTypes.FaultMediator_3509);
 		setElementToEdit(visualFaultMediator);	
+		setCommonProperties(faultMediator, visualFaultMediator);
 		
 		switch (faultMediator.getSoapVersion()) {
 		case SOAP11:

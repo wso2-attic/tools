@@ -88,6 +88,7 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 		 * Configure property mediator.
 		 */
 		org.apache.synapse.mediators.eip.aggregator.AggregateMediator aggregateMediator = new org.apache.synapse.mediators.eip.aggregator.AggregateMediator();
+		setCommonProperties(aggregateMediator, visualAggregate);
 		{
 			aggregateMediator.setCompletionTimeoutMillis(visualAggregate.getCompletionTimeout()*1000 );
 			

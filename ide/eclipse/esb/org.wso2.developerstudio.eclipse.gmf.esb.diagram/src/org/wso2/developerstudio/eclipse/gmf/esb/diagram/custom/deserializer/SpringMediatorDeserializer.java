@@ -17,6 +17,7 @@ public class SpringMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		org.apache.synapse.mediators.spring.SpringMediator springMediator = (org.apache.synapse.mediators.spring.SpringMediator)mediator;
 		SpringMediator visualSpringMediator = (SpringMediator) DeserializerUtils.createNode(part, EsbElementTypes.SpringMediator_3507);
 		setElementToEdit(visualSpringMediator);
+		setCommonProperties(springMediator, visualSpringMediator);
 		
 		//Setting ConfigKey
 		if(springMediator.getConfigKey() != null && !springMediator.getConfigKey().equals("")){

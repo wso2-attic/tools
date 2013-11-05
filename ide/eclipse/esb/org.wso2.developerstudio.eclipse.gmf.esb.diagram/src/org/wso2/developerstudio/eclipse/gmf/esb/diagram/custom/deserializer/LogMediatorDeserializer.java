@@ -48,6 +48,7 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstrac
 		
 		LogMediator visualLog = (LogMediator) DeserializerUtils.createNode(part, EsbElementTypes.LogMediator_3495); //EsbFactory.eINSTANCE.createLogMediator();
 		setElementToEdit(visualLog);
+		setCommonProperties(logMediator, visualLog);
 		
 		switch (logMediator.getCategory()) {
 		

@@ -36,6 +36,7 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 		Sequence visualSequence = (Sequence) subject;
 		org.apache.synapse.mediators.base.SequenceMediator sequence =new SequenceMediator();
 		org.apache.synapse.mediators.base.SequenceMediator refferingSequence =new SequenceMediator();
+		setCommonProperties(refferingSequence, visualSequence);
 		sequence.setName(visualSequence.getName());
 		Value value=null;
 		if(visualSequence.getReferringSequenceType()==KeyType.DYNAMIC){			
@@ -116,6 +117,7 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof Sequence, "Invalid subject.");
 		Sequence visualSequence = (Sequence) subject;
 		org.apache.synapse.mediators.base.SequenceMediator refferingSequence =new SequenceMediator();
+		setCommonProperties(refferingSequence, visualSequence);
 
 		Value value=null;
 		if(visualSequence.getReferringSequenceType()==KeyType.DYNAMIC){			

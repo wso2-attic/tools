@@ -41,6 +41,7 @@ public class CacheMediatorDeserializer extends
 		CacheMediator mediatorModel = (CacheMediator) DeserializerUtils.createNode(part,
 				EsbElementTypes.CacheMediator_3518);
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 		
 		executeSetValueCommand(CACHE_MEDIATOR__CACHE_ID, mediator.getId());
 		if("per-mediator".equals(mediator.getId())){

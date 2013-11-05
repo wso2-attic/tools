@@ -67,6 +67,7 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 		Assert.isTrue(subject instanceof URLRewriteMediator, "Invalid subject.");
 		URLRewriteMediator visualUrlRewriter = (URLRewriteMediator) subject;
 		org.apache.synapse.mediators.transform.url.URLRewriteMediator urlReWriterMediator =new org.apache.synapse.mediators.transform.url.URLRewriteMediator();
+		setCommonProperties(urlReWriterMediator, visualUrlRewriter);
 		{
 			urlReWriterMediator.setInputProperty(visualUrlRewriter.getInProperty());
 			urlReWriterMediator.setOutputProperty(visualUrlRewriter.getOutProperty());

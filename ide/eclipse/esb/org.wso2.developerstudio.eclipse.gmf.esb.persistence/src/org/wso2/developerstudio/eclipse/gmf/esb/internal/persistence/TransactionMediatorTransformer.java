@@ -46,6 +46,7 @@ public class TransactionMediatorTransformer extends AbstractEsbNodeTransformer {
 		 *  Configure property mediator.
 		 */
 		org.apache.synapse.mediators.transaction.TransactionMediator transactionMediator = new org.apache.synapse.mediators.transaction.TransactionMediator();
+		setCommonProperties(transactionMediator, visualTransaction);
 		{
 			String action ="";
 			if(visualTransaction.getAction().getValue()==0){

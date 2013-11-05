@@ -37,6 +37,7 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		
 		org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator VisualXqueryMediator = (org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator) DeserializerUtils.createNode(part, EsbElementTypes.XQueryMediator_3510);
 		setElementToEdit(VisualXqueryMediator);
+		setCommonProperties(xqueryMediator, VisualXqueryMediator);
 		//XQueryMediator vishualXquery = EsbFactory.eINSTANCE.createXQueryMediator();
 		
 		if(xqueryMediator.getTarget() != null){

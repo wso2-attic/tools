@@ -50,6 +50,7 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 		 *  Configure Iterate mediator.
 		 */
 		org.apache.synapse.mediators.eip.splitter.IterateMediator iterateMediator = new org.apache.synapse.mediators.eip.splitter.IterateMediator();
+		setCommonProperties(iterateMediator, visualIterate);
 		{	
 			NamespacedProperty iterateExp = visualIterate.getIterateExpression();
 			

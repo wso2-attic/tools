@@ -49,6 +49,7 @@ public class CloneMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		CloneMediator visualClone = (CloneMediator) DeserializerUtils.createNode(part, EsbElementTypes.CloneMediator_3517);
 		refreshEditPartMap();
 		setElementToEdit(visualClone);
+		setCommonProperties(cloneMediator, visualClone);
 		
 		executeSetValueCommand(CLONE_MEDIATOR__CLONE_ID, cloneMediator.getId());
 		executeSetValueCommand(CLONE_MEDIATOR__SEQUENTIAL_MEDIATION, cloneMediator.isSequential());

@@ -48,6 +48,7 @@ public class HeaderMediatorTransformer extends AbstractEsbNodeTransformer{
 		 * Configure Header mediator.
 		 */
 		org.apache.synapse.mediators.transform.HeaderMediator headerMediator = new org.apache.synapse.mediators.transform.HeaderMediator();	
+		setCommonProperties(headerMediator, visualHeader);
 		{
 			if (visualHeader.getValueType().getValue()!=2) {
 				if (!visualHeader.getHeaderName().getNamespaces().keySet()

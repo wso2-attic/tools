@@ -55,7 +55,7 @@ public class ScriptMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.apache.synapse.mediators.bsf.ScriptMediator scriptMediator =null;
 		if(scriptTypeValue==0){
 		String scriptSourceCode=visualScript.getScriptBody();
-	    scriptMediator = new org.apache.synapse.mediators.bsf.ScriptMediator(language,scriptSourceCode);
+	    scriptMediator = new org.apache.synapse.mediators.bsf.ScriptMediator(language,scriptSourceCode,null);	    
 		}else{
 			Map<Value, Object> includeMap = new HashMap<Value, Object>();
 			EList<RegistryKeyProperty> scriptKeys = visualScript.getScriptKeys();
@@ -77,8 +77,9 @@ public class ScriptMediatorTransformer extends AbstractEsbNodeTransformer {
 				}
 		        value = new Value(synapseXPath);
 		    }
-			scriptMediator = new org.apache.synapse.mediators.bsf.ScriptMediator(language,includeMap,value,visualScript.getMediateFunction());
+			scriptMediator = new org.apache.synapse.mediators.bsf.ScriptMediator(language,includeMap,value,visualScript.getMediateFunction(),null);
 		}
+		setCommonProperties(scriptMediator, visualScript);
  
 		return scriptMediator;
 	}

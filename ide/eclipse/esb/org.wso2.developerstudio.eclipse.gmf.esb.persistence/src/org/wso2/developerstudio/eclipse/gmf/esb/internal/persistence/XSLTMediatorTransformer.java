@@ -65,6 +65,7 @@ public class XSLTMediatorTransformer extends AbstractEsbNodeTransformer {
 		XSLTMediator visualXSLT = (XSLTMediator)subject;
 		
 		org.apache.synapse.mediators.transform.XSLTMediator xsltMediator = new  org.apache.synapse.mediators.transform.XSLTMediator();
+		setCommonProperties(xsltMediator, visualXSLT);
 		
 		NamespacedProperty sourceXPath = visualXSLT.getSourceXPath();
 		if(sourceXPath.getPropertyValue()!=null && !sourceXPath.getPropertyValue().equals("")){

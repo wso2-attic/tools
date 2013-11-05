@@ -31,6 +31,7 @@ public class DropMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		org.wso2.developerstudio.eclipse.gmf.esb.DropMediator visualDropMediator = (org.wso2.developerstudio.eclipse.gmf.esb.DropMediator) DeserializerUtils.createNode(part, EsbElementTypes.DropMediator_3491); 
 		setElementToEdit(visualDropMediator);
+		setCommonProperties(mediator, visualDropMediator);
 		//DropMediator vishualDrop = EsbFactory.eINSTANCE.createDropMediator();
 		
 		return visualDropMediator;

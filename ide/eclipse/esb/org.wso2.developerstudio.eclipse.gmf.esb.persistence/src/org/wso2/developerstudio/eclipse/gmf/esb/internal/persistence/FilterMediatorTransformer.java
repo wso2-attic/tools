@@ -50,6 +50,7 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		
 		// Build filter mediator.
 		org.apache.synapse.mediators.filters.FilterMediator filterMediator = new org.apache.synapse.mediators.filters.FilterMediator();
+		setCommonProperties(filterMediator, visualFilter);
 		if (visualFilter.getConditionType() == FilterConditionType.XPATH) {
 			//TODO: validate xpaths before adding			
 			

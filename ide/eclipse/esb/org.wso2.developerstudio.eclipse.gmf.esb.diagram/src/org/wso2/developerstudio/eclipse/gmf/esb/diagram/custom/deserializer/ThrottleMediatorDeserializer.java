@@ -51,6 +51,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		ThrottleMediator visualThrottle = (ThrottleMediator)DeserializerUtils.createNode(part, EsbElementTypes.ThrottleMediator_3493);
 		
 		setElementToEdit(visualThrottle);
+		setCommonProperties(throttleMediator, visualThrottle);
 		refreshEditPartMap();
 		
 		if(throttleMediator.getId() != null){

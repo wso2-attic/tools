@@ -46,6 +46,7 @@ public class BuilderMediatorTransformer extends AbstractEsbNodeTransformer {
 		BuilderMediator vishualBuilderMediator = (BuilderMediator) subject;
 
 		BuilderMediatorExt builderExt = new BuilderMediatorExt();
+		setCommonProperties(builderExt, vishualBuilderMediator);
 
 		if (vishualBuilderMediator.getMessageBuilders() != null
 				&& !vishualBuilderMediator.getMessageBuilders().isEmpty()) {

@@ -60,6 +60,7 @@ public class BAMMediatorTransformer extends AbstractEsbNodeTransformer{
 		BAMMediator visualBAMMediator = (BAMMediator) subject;
 
 		org.wso2.carbon.mediator.bam.BamMediator bamMediator = new org.wso2.carbon.mediator.bam.BamMediator();
+		setCommonProperties(bamMediator, visualBAMMediator);
 		
 		bamMediator.setServerProfile(visualBAMMediator.getServerProfile());
 		

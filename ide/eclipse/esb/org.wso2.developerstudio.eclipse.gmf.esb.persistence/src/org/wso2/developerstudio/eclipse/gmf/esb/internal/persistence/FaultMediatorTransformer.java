@@ -75,6 +75,7 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 
 		// Configure fault mediator.
 		org.apache.synapse.mediators.transform.FaultMediator faultMediator = new org.apache.synapse.mediators.transform.FaultMediator();
+		setCommonProperties(faultMediator, visualFault);
 		{
 			// Soap Version.
 			switch (visualFault.getSoapVersion()) {

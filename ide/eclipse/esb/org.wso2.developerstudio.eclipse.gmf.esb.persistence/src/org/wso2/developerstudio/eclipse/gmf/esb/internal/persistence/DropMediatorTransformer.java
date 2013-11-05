@@ -23,6 +23,7 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.DropMediator;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -37,7 +38,7 @@ public class DropMediatorTransformer extends AbstractEsbNodeTransformer {
 	 */
 	public void transform(TransformationInfo info, EsbNode subject) throws Exception {
 		// Drop the message.
-		info.getParentSequence().addChild(new DropMediator());
+		info.getParentSequence().addChild(createDropMediator((org.wso2.developerstudio.eclipse.gmf.esb.DropMediator)subject));
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
@@ -46,11 +47,15 @@ public class DropMediatorTransformer extends AbstractEsbNodeTransformer {
 		
 	}
 
-	
+	private DropMediator createDropMediator(org.wso2.developerstudio.eclipse.gmf.esb.DropMediator visualDrop){
+		DropMediator dropMediator=new DropMediator();
+		setCommonProperties(dropMediator, visualDrop);
+		return dropMediator;
+	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		sequence.addChild(new DropMediator());
+		sequence.addChild(createDropMediator((org.wso2.developerstudio.eclipse.gmf.esb.DropMediator)subject));
 		
 	}
 

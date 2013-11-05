@@ -46,6 +46,7 @@ public class EventMediatorTransformer extends AbstractEsbNodeTransformer {
 		EventMediator visualEvent = (EventMediator) subject;
 
 		org.wso2.carbon.mediator.event.EventMediator eventMediator = new org.wso2.carbon.mediator.event.EventMediator();
+		setCommonProperties(eventMediator, visualEvent);
 		{
 			if (visualEvent.getEventExpression() != null
 					&& visualEvent.getEventExpression().getPropertyValue() != null) {

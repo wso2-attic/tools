@@ -42,6 +42,7 @@ public class XSLTMediatorDeserializer extends
 		org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator VisualXsltMediator = (org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator) DeserializerUtils.createNode(part, EsbElementTypes.XSLTMediator_3497);
 
 		setElementToEdit(VisualXsltMediator);
+		setCommonProperties(xsltMediator, VisualXsltMediator);
 		
 		//XSLTMediator vishualXslt = EsbFactory.eINSTANCE.createXSLTMediator();
 

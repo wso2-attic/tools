@@ -1,5 +1,6 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.transform.Argument;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -29,6 +30,7 @@ public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeseriali
 		
 		PayloadFactoryMediator visualPayloadFactoryMediator = (PayloadFactoryMediator) DeserializerUtils.createNode(part, EsbElementTypes.PayloadFactoryMediator_3597);
 		setElementToEdit(visualPayloadFactoryMediator);
+		setCommonProperties(payloadFactoryMediator, visualPayloadFactoryMediator);
 		
 		if (payloadFactoryMediator.getFormatKey() != null) {
 			executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__PAYLOAD_FORMAT, PayloadFormatType.REGISTRY_REFERENCE);
@@ -51,12 +53,17 @@ public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeseriali
 		}
 		
 		EList<PayloadFactoryArgument> arguments=new BasicEList<PayloadFactoryArgument>();
-		for(Argument argument: payloadFactoryMediator.getXPathArgumentList()){
+		for(Argument argument: payloadFactoryMediator.getPathArgumentList()){
 			PayloadFactoryArgument payloadFactoryArgument= EsbFactory.eINSTANCE.createPayloadFactoryArgument();
 			if(argument.getExpression()!=null){
 				executeSetValueCommand(payloadFactoryArgument,PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION, createNamespacedProperty(argument.getExpression()));
 				executeSetValueCommand(payloadFactoryArgument,PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE, PayloadFactoryArgumentType.EXPRESSION);
-				executeSetValueCommand(payloadFactoryArgument,PAYLOAD_FACTORY_ARGUMENT__EVALUATOR, MediaType.XML);
+				if(argument.getExpression().getPathType() == SynapsePath.X_PATH){
+					executeSetValueCommand(payloadFactoryArgument,PAYLOAD_FACTORY_ARGUMENT__EVALUATOR, MediaType.XML);
+				}else if(argument.getExpression().getPathType() == SynapsePath.JSON_PATH){
+					executeSetValueCommand(payloadFactoryArgument,PAYLOAD_FACTORY_ARGUMENT__EVALUATOR, MediaType.JSON);
+				}
+				
 			}else{
 				executeSetValueCommand(payloadFactoryArgument,PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE, argument.getValue());
 				executeSetValueCommand(payloadFactoryArgument,PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE, PayloadFactoryArgumentType.VALUE);
@@ -64,7 +71,7 @@ public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeseriali
 			arguments.add(payloadFactoryArgument);
 		}
 		
-		for(Argument argument: payloadFactoryMediator.getJsonPathArgumentList()){
+/*		for(Argument argument: payloadFactoryMediator.getJsonPathArgumentList()){
 			PayloadFactoryArgument payloadFactoryArgument= EsbFactory.eINSTANCE.createPayloadFactoryArgument();
 			if(argument.getJsonPath()!=null){
 				try {
@@ -77,7 +84,7 @@ public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeseriali
 					e.printStackTrace();
 				}
 			}
-		}
+		}*/
 		
 		executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__ARGS, arguments);
 			

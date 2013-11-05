@@ -41,6 +41,7 @@ public class EJBMediatorDeserializer extends
 		EJBMediator mediatorModel = (EJBMediator) DeserializerUtils.createNode(part,
 				EsbElementTypes.EJBMediator_3686);
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 
 		executeSetValueCommand(EJB_MEDIATOR__BEANSTALK, mediator.getBeanstalkName());
 		executeSetValueCommand(EJB_MEDIATOR__CLASS, mediator.getClassName());

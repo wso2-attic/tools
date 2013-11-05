@@ -59,6 +59,7 @@ public class ThrottleMediatorTransformer extends AbstractEsbNodeTransformer  {
 		 *  Configure  mediator.
 		 */
 		org.apache.synapse.mediators.throttle.ThrottleMediator throttleMediator = new org.apache.synapse.mediators.throttle.ThrottleMediator();
+		setCommonProperties(throttleMediator, visualThrottle);
 		{
 			throttleMediator.setId(visualThrottle.getGroupId());
 			

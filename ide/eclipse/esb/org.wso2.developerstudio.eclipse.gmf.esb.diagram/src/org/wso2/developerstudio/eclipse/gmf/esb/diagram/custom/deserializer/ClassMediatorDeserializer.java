@@ -38,6 +38,7 @@ public class ClassMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		
 		final ClassMediator mediatorModel = (ClassMediator) DeserializerUtils.createNode(part, EsbElementTypes.ClassMediator_3506);
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 		executeSetValueCommand(CLASS_MEDIATOR__CLASS_NAME, mediator.getMediatorClass());
 		@SuppressWarnings("unchecked")
 		Map<String,Object> properties = mediator.getProperties();

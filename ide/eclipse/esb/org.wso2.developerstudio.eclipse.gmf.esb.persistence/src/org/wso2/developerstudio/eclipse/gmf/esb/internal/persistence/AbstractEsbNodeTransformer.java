@@ -1,11 +1,17 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
+import java.util.List;
+
+import org.apache.synapse.Mediator;
+import org.apache.synapse.SynapseArtifact;
+import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.Activator;
@@ -113,6 +119,10 @@ public abstract class AbstractEsbNodeTransformer implements EsbNodeTransformer {
 
 		transformer.transform(info, originNode);
 		}
+	}
+	
+	protected void setCommonProperties(Mediator mediator,org.wso2.developerstudio.eclipse.gmf.esb.Mediator visualElement){
+		mediator.setShortDescription(visualElement.getDescription());
 	}
 	
 }

@@ -40,6 +40,7 @@ public class IterateMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		IterateMediator mediatorModel = (IterateMediator) DeserializerUtils.createNode(part,
 		EsbElementTypes.IterateMediator_3519);
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 		
 		executeSetValueCommand(ITERATE_MEDIATOR__ITERATE_EXPRESSION, createNamespacedProperty(mediator.getExpression()));
 		executeSetValueCommand(ITERATE_MEDIATOR__ATTACH_PATH, createNamespacedProperty(mediator.getAttachPath()));

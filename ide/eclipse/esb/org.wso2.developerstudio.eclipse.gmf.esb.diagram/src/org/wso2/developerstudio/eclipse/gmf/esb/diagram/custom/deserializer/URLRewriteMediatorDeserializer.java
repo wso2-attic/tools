@@ -50,6 +50,7 @@ public class URLRewriteMediatorDeserializer extends AbstractEsbNodeDeserializer<
 		
 		URLRewriteMediator visualURLRewriteMediator = (URLRewriteMediator) DeserializerUtils.createNode(part, EsbElementTypes.URLRewriteMediator_3620);
 		setElementToEdit(visualURLRewriteMediator);
+		setCommonProperties(urlRewriteMediator, visualURLRewriteMediator);
 		
 		executeSetValueCommand(URL_REWRITE_MEDIATOR__IN_PROPERTY, urlRewriteMediator.getInputProperty());
 		executeSetValueCommand(URL_REWRITE_MEDIATOR__OUT_PROPERTY, urlRewriteMediator.getOutputProperty());

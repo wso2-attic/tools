@@ -72,6 +72,7 @@ public class CallMediatorTransformer extends AbstractEsbNodeTransformer {
 		
 		// Configure call mediator.
 		org.apache.synapse.mediators.builtin.CallMediator synapseCallMediator = new org.apache.synapse.mediators.builtin.CallMediator();
+		setCommonProperties(synapseCallMediator, visualCallMediator);
 		
 		if (visualCallMediator.getEndpointType() == CallMediatorEndpointType.XPATH) {
 			NamespacedProperty nameSpacedProperty = visualCallMediator.getEndpointXpath();

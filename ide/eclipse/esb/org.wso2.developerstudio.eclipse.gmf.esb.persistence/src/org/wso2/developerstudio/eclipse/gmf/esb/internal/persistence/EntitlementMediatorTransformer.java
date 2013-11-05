@@ -45,6 +45,7 @@ public class EntitlementMediatorTransformer extends AbstractEsbNodeTransformer{
 		Assert.isTrue(subject instanceof EntitlementMediator, "Invalid subject.");
 		EntitlementMediator visualEntitlement = (EntitlementMediator) subject;
 		EntitlementMediatorExt entitlementMediator=new EntitlementMediatorExt();
+		setCommonProperties(entitlementMediator, visualEntitlement);
 		{			
 			entitlementMediator.setRemoteServiceUrl(visualEntitlement.getEntitlementServerURL());
 			entitlementMediator.setRemoteServiceUserName(visualEntitlement.getUsername());

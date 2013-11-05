@@ -39,6 +39,7 @@ public class FilterMediatorDeserializer extends
 
 		FilterMediator visualFilter = (FilterMediator) DeserializerUtils.createNode(part, EsbElementTypes.FilterMediator_3494) ;
 		setElementToEdit(visualFilter);
+		setCommonProperties(filterMediator, visualFilter);
 		refreshEditPartMap();
 
 		if (filterMediator.getSource() != null && filterMediator.getRegex() != null) {

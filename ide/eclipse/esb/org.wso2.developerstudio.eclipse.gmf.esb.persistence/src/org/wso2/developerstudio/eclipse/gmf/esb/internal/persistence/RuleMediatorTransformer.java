@@ -29,6 +29,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
@@ -77,6 +78,7 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof RuleMediator,
 				"Unsupported mediator passed in for serialization.");
 		RuleMediatorExt ruleMediator = new RuleMediatorExt();
+		setCommonProperties(ruleMediator, (Mediator) subject);
 		ruleMediator.setSubject(subject);
 		return ruleMediator;
  

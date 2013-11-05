@@ -47,6 +47,7 @@ public class SwitchMediatorDeserializer extends
 		org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator visualSwitchMediator = (org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator) DeserializerUtils
 				.createNode(part, EsbElementTypes.SwitchMediator_3498);
 		setElementToEdit(visualSwitchMediator);
+		setCommonProperties(switchMediator, visualSwitchMediator);
 		refreshEditPartMap();
 		
 		if(switchMediator.getSource()!=null){

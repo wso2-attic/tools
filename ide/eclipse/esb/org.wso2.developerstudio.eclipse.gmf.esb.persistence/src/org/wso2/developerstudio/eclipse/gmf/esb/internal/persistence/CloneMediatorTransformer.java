@@ -54,6 +54,7 @@ public class CloneMediatorTransformer extends AbstractEsbNodeTransformer {
 		 * Configure Clone mediator.
 		 */
 		org.apache.synapse.mediators.eip.splitter.CloneMediator cloneMediator = new org.apache.synapse.mediators.eip.splitter.CloneMediator();
+		setCommonProperties(cloneMediator, visualClone);
 		{
 			if (visualClone.getCloneID() != null && !visualClone.getCloneID().isEmpty()) {
 				cloneMediator.setId(visualClone.getCloneID());

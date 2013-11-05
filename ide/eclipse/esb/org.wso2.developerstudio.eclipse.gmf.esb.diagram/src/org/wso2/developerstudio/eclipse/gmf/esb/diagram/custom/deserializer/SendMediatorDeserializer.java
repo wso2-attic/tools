@@ -42,6 +42,7 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		org.wso2.developerstudio.eclipse.gmf.esb.SendMediator visualSendMediator = (org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) DeserializerUtils.createNode(part, EsbElementTypes.SendMediator_3515);
 		setElementToEdit(visualSendMediator);
+		setCommonProperties(sendMediator, visualSendMediator);
 		
 		refreshEditPartMap();
 		EditPart mediatorFlow=getEditpart(visualSendMediator.getMediatorFlow());

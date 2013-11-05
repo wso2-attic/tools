@@ -19,6 +19,7 @@ public class BuilderMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		
 		final BuilderMediator visualBuilderMediator = (BuilderMediator) DeserializerUtils.createNode(part, EsbElementTypes.BuilderMediator_3591);
 		setElementToEdit(visualBuilderMediator);
+		setCommonProperties(builderMediatorExt, visualBuilderMediator);
 		
 		if(builderMediatorExt.getMessageBuilderList() != null && !builderMediatorExt.getMessageBuilderList().isEmpty()){
 			

@@ -34,6 +34,7 @@ public abstract class AbstractDBMediatorDeserializer extends AbstractEsbNodeDese
 	
 	
 	protected <T extends AbstractDBMediator> void deserializeDBMediator(T dbMediator,AbstractSqlExecutorMediator sqlExecutor){	
+		setCommonProperties(dbMediator, sqlExecutor);
 		
 		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__CONNECTION_DS_NAME, dbMediator.getDataSourceProps().get(DSNAME_Q));
 		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__CONNECTION_URL, dbMediator.getDataSourceProps().get(URL_Q));

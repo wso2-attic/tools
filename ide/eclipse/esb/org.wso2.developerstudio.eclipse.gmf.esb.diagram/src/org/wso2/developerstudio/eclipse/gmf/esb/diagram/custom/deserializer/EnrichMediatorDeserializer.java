@@ -47,6 +47,7 @@ public class EnrichMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		
 		org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator visualEnrichMediator = (org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator) DeserializerUtils.createNode(part, EsbElementTypes.EnrichMediator_3496); 
 		setElementToEdit(visualEnrichMediator);
+		setCommonProperties(enrichMediator, visualEnrichMediator);
 		
 		//EnrichMediator vishualEnrich = EsbFactory.eINSTANCE.createEnrichMediator();
 		

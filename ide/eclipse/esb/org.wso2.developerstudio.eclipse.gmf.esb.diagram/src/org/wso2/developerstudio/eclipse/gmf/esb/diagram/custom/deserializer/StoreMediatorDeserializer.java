@@ -16,6 +16,7 @@ public class StoreMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		
 		StoreMediator visualStoreMediator = (StoreMediator) DeserializerUtils.createNode(part, EsbElementTypes.StoreMediator_3588);
 		setElementToEdit(visualStoreMediator);
+		setCommonProperties(storeMediator, visualStoreMediator);
 		
 		executeSetValueCommand(STORE_MEDIATOR__MESSAGE_STORE,storeMediator.getMessageStoreName());
 		if((storeMediator.getOnStoreSequence()!=null)&&!("".equals(storeMediator.getOnStoreSequence()))){

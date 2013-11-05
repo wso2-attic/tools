@@ -33,6 +33,7 @@ AbstractEsbNodeDeserializer<AbstractMediator, RespondMediator> {
 		org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator visualRespondMediator = (org.wso2.developerstudio.eclipse.gmf.esb.RespondMediator) DeserializerUtils
 				.createNode(part, EsbElementTypes.RespondMediator_3739);
 		setElementToEdit(visualRespondMediator);
+		setCommonProperties(mediator, visualRespondMediator);
 
 		return visualRespondMediator;
 	}

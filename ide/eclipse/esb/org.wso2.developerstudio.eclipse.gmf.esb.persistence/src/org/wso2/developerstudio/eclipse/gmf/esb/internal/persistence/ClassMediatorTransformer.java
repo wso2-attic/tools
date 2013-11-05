@@ -68,6 +68,7 @@ public class ClassMediatorTransformer extends AbstractEsbNodeTransformer {
 		ClassMediator visualClass = (ClassMediator) subject;
 
 		ClassMediatorExt classMediator = new ClassMediatorExt(visualClass.getClassName());
+		setCommonProperties(classMediator, visualClass);
 		Mediator m = new DummyClassMediator();
 
 		classMediator.setMediator((Mediator) m);

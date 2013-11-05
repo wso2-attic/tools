@@ -63,7 +63,8 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 		 */
 
 		org.apache.synapse.mediators.builtin.ValidateMediator validateMediator = new org.apache.synapse.mediators.builtin.ValidateMediator();
-
+		setCommonProperties(validateMediator, visualValidateMediator);
+		
 		NamespacedProperty sourceXPath = visualValidateMediator
 				.getSourceXpath();
 		if (sourceXPath.getPropertyValue() != null

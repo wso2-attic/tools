@@ -17,6 +17,7 @@ public class OAuthMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		
 		OAuthMediator visualOauthMediator = (OAuthMediator) DeserializerUtils.createNode(part, EsbElementTypes.OAuthMediator_3524);
 		setElementToEdit(visualOauthMediator);
+		setCommonProperties(oauthMediator, visualOauthMediator);
 		
 		if (StringUtils.isNotBlank(oauthMediator.getRemoteServiceUrl())) {
 			executeSetValueCommand(OAUTH_MEDIATOR__REMOTE_SERVICE_URL, oauthMediator.getRemoteServiceUrl());

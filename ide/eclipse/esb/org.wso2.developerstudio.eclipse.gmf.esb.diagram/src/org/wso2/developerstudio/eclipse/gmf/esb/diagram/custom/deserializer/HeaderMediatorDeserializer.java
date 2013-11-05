@@ -26,7 +26,8 @@ public class HeaderMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		org.apache.synapse.mediators.transform.HeaderMediator headerMediator = (org.apache.synapse.mediators.transform.HeaderMediator)mediator;
 		
 		HeaderMediator visualHeaderMediator = (HeaderMediator) DeserializerUtils.createNode(part, EsbElementTypes.HeaderMediator_3516);
-		setElementToEdit(visualHeaderMediator);		
+		setElementToEdit(visualHeaderMediator);	
+		setCommonProperties(headerMediator, visualHeaderMediator);
 		
 		if(!((headerMediator.getQName().getNamespaceURI()==null)||(headerMediator.getQName().getNamespaceURI().equals("")))){
 			Map<String, String> namespaces=new HashMap<String, String>();

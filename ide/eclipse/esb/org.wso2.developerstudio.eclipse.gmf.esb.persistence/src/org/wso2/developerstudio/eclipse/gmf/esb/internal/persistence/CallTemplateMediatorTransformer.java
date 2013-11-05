@@ -65,6 +65,7 @@ public class CallTemplateMediatorTransformer extends AbstractEsbNodeTransformer{
 			CallTemplateMediator obj) throws JaxenException {
 		
 		InvokeMediator invokeMediator = new InvokeMediator();
+		setCommonProperties(invokeMediator, obj);
 		invokeMediator.setTargetTemplate(obj.getTargetTemplate());
 		
 		for (CallTemplateParameter param : obj.getTemplateParameters()) {

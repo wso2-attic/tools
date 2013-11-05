@@ -38,7 +38,8 @@ public class SmooksMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		org.wso2.carbon.mediator.transform.SmooksMediator smooksMediator = (org.wso2.carbon.mediator.transform.SmooksMediator)mediator;
 		
 		SmooksMediator visualSmooksMediator = (SmooksMediator) DeserializerUtils.createNode(part, EsbElementTypes.SmooksMediator_3514);
-		setElementToEdit(visualSmooksMediator);		
+		setElementToEdit(visualSmooksMediator);
+		setCommonProperties(smooksMediator, visualSmooksMediator);
 		
 		
 		if(smooksMediator.getInput().getExpression()!=null){

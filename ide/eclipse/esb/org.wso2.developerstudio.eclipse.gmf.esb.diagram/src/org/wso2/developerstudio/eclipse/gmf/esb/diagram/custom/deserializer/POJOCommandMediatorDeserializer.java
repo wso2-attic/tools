@@ -43,6 +43,7 @@ public class POJOCommandMediatorDeserializer extends AbstractEsbNodeDeserializer
 		POJOCommandMediatorExt mediator = (POJOCommandMediatorExt) object;
 		CommandMediator mediatorModel = (CommandMediator) DeserializerUtils.createNode(part, EsbElementTypes.CommandMediator_3511);
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 		executeSetValueCommand(COMMAND_MEDIATOR__CLASS_NAME, mediator.getPojoClass());
 		
 		Map<String,CommandProperty> properties = new HashMap<String,CommandProperty>();

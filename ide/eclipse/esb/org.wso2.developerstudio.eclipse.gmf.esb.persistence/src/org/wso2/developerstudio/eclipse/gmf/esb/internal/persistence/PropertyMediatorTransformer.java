@@ -80,6 +80,7 @@ public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
 
 		// Configure property mediator.
 		org.apache.synapse.mediators.builtin.PropertyMediator propMediator = new org.apache.synapse.mediators.builtin.PropertyMediator();
+		setCommonProperties(propMediator, visualProp);
 		{			
 			String pName = visualProp.getPropertyName();
 			if (pName != null && !pName.equals("")) {

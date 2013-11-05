@@ -72,6 +72,7 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 
 		// Configure send mediator.
 		org.apache.synapse.mediators.builtin.SendMediator sendMediator = new org.apache.synapse.mediators.builtin.SendMediator();
+		setCommonProperties(sendMediator, visualSend);
 		{
 			if (visualSend.getReceivingSequenceType().getLiteral()
 					.equals("Static")) {

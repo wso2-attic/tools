@@ -60,6 +60,7 @@ public class RMSequenceMediatorTransformer extends AbstractEsbNodeTransformer{
 
 		// Configure RMSequence mediator.
 		org.apache.synapse.mediators.builtin.RMSequenceMediator rmSequenceMediator = new org.apache.synapse.mediators.builtin.RMSequenceMediator();
+		setCommonProperties(rmSequenceMediator, visualRMSequence);
 		{
 			rmSequenceMediator.setVersion(visualRMSequence.getRmSpecVersion().getLiteral());			
 			if(visualRMSequence.getSequenceType().equals(RMSequenceType.SINGLE_MESSAGE)){

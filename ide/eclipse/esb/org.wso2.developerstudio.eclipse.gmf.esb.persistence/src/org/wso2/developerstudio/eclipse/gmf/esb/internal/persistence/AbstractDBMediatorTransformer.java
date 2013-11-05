@@ -61,6 +61,7 @@ public abstract class  AbstractDBMediatorTransformer extends AbstractEsbNodeTran
     static final QName ICCLASS_Q = new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, "icClass");
 	
 	protected <T extends AbstractDBMediator> void transformDBMediator(T dbMediator,AbstractSqlExecutorMediator sqlExecutor){
+		setCommonProperties(dbMediator, sqlExecutor);
 		
 		dbMediator.setDataSourceName(sqlExecutor.getConnectionDsName());
 		DataSourceInformation dataSourceInfo=new DataSourceInformation();

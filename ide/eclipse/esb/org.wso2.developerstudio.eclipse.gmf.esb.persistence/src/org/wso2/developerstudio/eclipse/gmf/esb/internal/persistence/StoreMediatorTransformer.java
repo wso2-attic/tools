@@ -53,6 +53,7 @@ public class StoreMediatorTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof StoreMediator, "Invalid subject.");
 		StoreMediator visualStore = (StoreMediator)subject;
 		org.apache.synapse.mediators.store.MessageStoreMediator storeMediator=new org.apache.synapse.mediators.store.MessageStoreMediator();
+		setCommonProperties(storeMediator, visualStore);
 		storeMediator.setMessageStoreName(visualStore.getMessageStore());
 		if(null!=visualStore.getOnStoreSequence()){
 			storeMediator.setOnStoreSequence(visualStore.getOnStoreSequence().getKeyValue());

@@ -56,6 +56,7 @@ public class RuleMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		RuleMediator mediatorModel = (RuleMediator) DeserializerUtils.createNode(part, EsbElementTypes.RuleMediator_3523); 
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 		
 		RuleMediatorConfig ruleMediatorConfig = mediator.getRuleMediatorConfig();
 		Input input = ruleMediatorConfig.getInput();

@@ -38,6 +38,7 @@ public class BAMMediatorDeserializer extends
 		BAMMediator mediatorModel = (BAMMediator) DeserializerUtils.createNode(part,
 				EsbElementTypes.BAMMediator_3680);
 		setElementToEdit(mediatorModel);
+		setCommonProperties(mediator, mediatorModel);
 
 		executeSetValueCommand(BAM_MEDIATOR__SERVER_PROFILE, mediator.getServerProfile());
 

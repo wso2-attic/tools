@@ -17,6 +17,7 @@ public class TransactionMediatorDeserializer extends AbstractEsbNodeDeserializer
 		
 		TransactionMediator visualTransactionMediator = (TransactionMediator) DeserializerUtils.createNode(part, EsbElementTypes.TransactionMediator_3521);
 		setElementToEdit(visualTransactionMediator);
+		setCommonProperties(transactionMediator, visualTransactionMediator);
 		
 		if("commit".equals(transactionMediator.getAction())){
 			executeSetValueCommand(TRANSACTION_MEDIATOR__ACTION, TransactionAction.COMMIT);

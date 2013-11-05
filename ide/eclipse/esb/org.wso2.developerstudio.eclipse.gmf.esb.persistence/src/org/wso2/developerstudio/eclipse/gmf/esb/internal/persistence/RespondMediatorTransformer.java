@@ -72,7 +72,8 @@ public class RespondMediatorTransformer extends AbstractEsbNodeTransformer {
 	private org.apache.synapse.mediators.builtin.RespondMediator createRespondMediator(RespondMediator visualMediator) throws Exception {
 
 		org.apache.synapse.mediators.builtin.RespondMediator respondMediator = new org.apache.synapse.mediators.builtin.RespondMediator();
-
+		setCommonProperties(respondMediator, visualMediator);
+		
 		return respondMediator;
 
 	}

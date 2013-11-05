@@ -55,6 +55,7 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		
 		org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator VisualValidateMediator = (org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator) DeserializerUtils.createNode(part, EsbElementTypes.ValidateMediator_3623);
 		setElementToEdit(VisualValidateMediator);
+		setCommonProperties(validateMediator, VisualValidateMediator);
 		//ValidateMediator vishualValidator = EsbFactory.eINSTANCE.createValidateMediator();
 		
 		refreshEditPartMap();

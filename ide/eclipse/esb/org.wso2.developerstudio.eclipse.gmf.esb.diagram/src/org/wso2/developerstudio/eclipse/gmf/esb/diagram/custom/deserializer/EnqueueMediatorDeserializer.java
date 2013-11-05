@@ -19,6 +19,7 @@ public class EnqueueMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		
 		org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator visualEnqueueMediator = (org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator) DeserializerUtils.createNode(part, EsbElementTypes.EnqueueMediator_3600); 
 		setElementToEdit(visualEnqueueMediator);
+		setCommonProperties(enqueueMediator, visualEnqueueMediator);
 		
 		
 		//EnqueueMediator vishualEnqueue = EsbFactory.eINSTANCE.createEnqueueMediator();

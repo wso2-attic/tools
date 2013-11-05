@@ -33,6 +33,7 @@ AbstractEsbNodeDeserializer<AbstractMediator, LoopBackMediator> {
 		org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediator visualLoopBackMediator = (org.wso2.developerstudio.eclipse.gmf.esb.LoopBackMediator) DeserializerUtils
 				.createNode(part, EsbElementTypes.LoopBackMediator_3736);
 		setElementToEdit(visualLoopBackMediator);
+		setCommonProperties(mediator, visualLoopBackMediator);
 
 		return visualLoopBackMediator;
 	}

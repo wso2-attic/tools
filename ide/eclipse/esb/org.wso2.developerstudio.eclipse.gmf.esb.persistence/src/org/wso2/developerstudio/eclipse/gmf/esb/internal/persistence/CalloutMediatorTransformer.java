@@ -54,6 +54,7 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 		 * Configure Callout mediator.
 		 */
 		org.apache.synapse.mediators.builtin.CalloutMediator calloutMediator = new org.apache.synapse.mediators.builtin.CalloutMediator();
+		setCommonProperties(calloutMediator, visualCallout);
 		{
 			
 			if(visualCallout.getEndpointType().getValue()==CalloutEndpointType.URL_VALUE){
