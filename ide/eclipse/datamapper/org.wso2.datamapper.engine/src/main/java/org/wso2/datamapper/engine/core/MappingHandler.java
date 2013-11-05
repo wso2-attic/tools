@@ -37,8 +37,6 @@ public class MappingHandler {
 
 	private Schema inSchema;
 	private Schema outSchema;
-	private String inputDataType;
-	private String outputDataType;
 	private Scriptable scope;
 	private GenericRecord outputRecord;
 	private InputDataReaderAdapter inputDataReader;
@@ -55,11 +53,6 @@ public class MappingHandler {
 		this.context = context;
 		this.outputRecord = new GenericData.Record(outSchema);
 		
-	}
-	
-	public void setInOutTypes(String inputType, String outputtype) {
-		this.inputDataType = inputType;
-		this.outputDataType = outputtype;
 	}
 
 	public void executeMappingFunctions(HashMap<String, MappingConfigModel> mappingTypes) throws JSONException {
@@ -86,34 +79,13 @@ public class MappingHandler {
 		GenericRecord tempRec = null;
 		
 		AvroRecordCreator recCreator = new AvroRecordCreator();
-		outrec = new GenericData.Record(this.outSchema);
-		
-		Iterator<Schema> outSchemaIter = outputSchemaMap.values().iterator();
-		Schema schema;
+		outrec = recCreator.genRecord(this.outSchema);
 
 		boolean isSimpleElementsField = false;
-		
-		System.out.println("out record "+outputSchemaMap.keySet());
 
 		for (Field field : outrec.getSchema().getFields()){
 
-			if(field.schema().getType() == Schema.Type.RECORD){
-				System.out.println("record name "+field.name());
-				System.out.println("record name "+field.schema());
-				
-				outputDatatype = field.name();	
-				
-				model = mappingTypes.get(outputDatatype);
-				inputDataType = model.getInputDataType();
-				functype = model.getMappingFunctionType();
-				
-				inSchema = inputSchemaMap.get(inputDataType);	
-				inrec = this.inputDataReader.getInputRecord(inSchema, inputDataType);
-				tempRec = recCreator.genRecord(field.schema());
-				
-				System.out.println("in rec "+inrec+" "+tempRec);
-				
-			}else if(field.schema().getType() == Schema.Type.ARRAY){
+			if(field.schema().getType() == Schema.Type.ARRAY){
 				
 				outputDatatype = field.schema().getElementType().getName();	
 				
@@ -169,7 +141,6 @@ public class MappingHandler {
 					if(resultOb != ScriptableObject.NOT_FOUND){
 						getOutputRecord(scriptableOb,outrec);
 					}
-					
 					isSimpleElementsField = true;
 				}
 			}	
@@ -177,7 +148,7 @@ public class MappingHandler {
 		}
 		
 		System.out.println("final record "+outrec);
-		
+
 	}
 	
 	public GenericRecord getOutputRecord(Scriptable scrObj,GenericRecord resultRec) {
