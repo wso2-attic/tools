@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/synapse-commons_2.1.2.wso2v2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/synapse-nhttp-transport_2.1.2.wso2v2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/synapse-tasks_2.1.2.wso2v2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-extensions_2.1.2.wso2v2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-core_2.1.2.wso2v2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/gson-2.1.jar"/>

@@ -134,6 +134,7 @@ public class ArtifactRegistryResourceProvider implements IRegistryResourceProvid
 				RegistryResourceImpl registryResourceImpl;
 				if ("item".equals(item.getLocalName())) {
 					String fileName = item.getFirstChildWithName(new QName("file")).getText();
+					IFile file = project.getFile(fileName);
 					String path = item.getFirstChildWithName(new QName("path")).getText();
 					
 					registryResourceImpl = new RegistryFileImpl(null);
@@ -149,7 +150,11 @@ public class ArtifactRegistryResourceProvider implements IRegistryResourceProvid
 						continue;
 					}
 					registryResourceImpl.setSource(registryResource);
-					registryResourceImpl.setPath(path,fileName);
+					if(file.exists()){
+						registryResourceImpl.setPath(path,file.getName());
+					}else{
+						registryResourceImpl.setPath(path,fileName);
+					}
 					childrenFiles.add((IRegistryFile)registryResourceImpl);
 					registryResourceImpl.setName(fileName);
 					

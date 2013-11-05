@@ -330,10 +330,9 @@ Bundle-ClassPath: .,
  lib/gson-2.1.jar,
  lib/synapse-core_2.1.2.wso2v2.jar,
  lib/synapse-extensions_2.1.2.wso2v2.jar,
+ lib/synapse-commons_2.1.2.wso2v2.jar,
  lib/synapse-nhttp-transport_2.1.2.wso2v2.jar,
- lib/synapse-fix-transport_2.1.2.wso2v2.jar,
- lib/synapse-tasks_2.1.2.wso2v2.jar,
- lib/synapse-commons_2.1.2.wso2v2.jar
+ lib/synapse-tasks_2.1.2.wso2v2.jar
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jdt.ui,
