@@ -9307,13 +9307,40 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int ITERATE_MEDIATOR__MEDIATOR_FLOW = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATE_MEDIATOR__SEQUENCE_TYPE = MEDIATOR_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATE_MEDIATOR__SEQUENCE_KEY = MEDIATOR_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATE_MEDIATOR__SEQUENCE_NAME = MEDIATOR_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Iterate Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITERATE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 11;
+	int ITERATE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -28733,6 +28760,39 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getIterateMediator_MediatorFlow();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceType <em>Sequence Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sequence Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceType()
+	 * @see #getIterateMediator()
+	 * @generated
+	 */
+	EAttribute getIterateMediator_SequenceType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceKey <em>Sequence Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sequence Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceKey()
+	 * @see #getIterateMediator()
+	 * @generated
+	 */
+	EReference getIterateMediator_SequenceKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceName <em>Sequence Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sequence Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceName()
+	 * @see #getIterateMediator()
+	 * @generated
+	 */
+	EAttribute getIterateMediator_SequenceName();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorInputConnector <em>Iterate Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40980,6 +41040,30 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference ITERATE_MEDIATOR__MEDIATOR_FLOW = eINSTANCE.getIterateMediator_MediatorFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Sequence Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITERATE_MEDIATOR__SEQUENCE_TYPE = eINSTANCE.getIterateMediator_SequenceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Sequence Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITERATE_MEDIATOR__SEQUENCE_KEY = eINSTANCE.getIterateMediator_SequenceKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Sequence Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ITERATE_MEDIATOR__SEQUENCE_NAME = eINSTANCE.getIterateMediator_SequenceName();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorInputConnectorImpl <em>Iterate Mediator Input Connector</em>}' class.

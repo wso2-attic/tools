@@ -92,20 +92,32 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 			target.setSoapAction(visualIterate.getTarget().getSoapAction());
 			target.setToAddress(visualIterate.getTarget().getToAddress());
 			
-			//ListMediator targetList = new AnonymousListMediator();
-			SequenceMediator targetSequence=new SequenceMediator();
-			
-			TransformationInfo newInfo = new TransformationInfo();
-			newInfo.setTraversalDirection(information.getTraversalDirection());
-			newInfo.setSynapseConfiguration(information.getSynapseConfiguration());
-			newInfo.setOriginInSequence(information.getOriginInSequence());
-			newInfo.setOriginOutSequence(information.getOriginOutSequence());
-			newInfo.setCurrentProxy(information.getCurrentProxy());
-			newInfo.setParentSequence(targetSequence);
-			doTransform(newInfo,visualIterate.getTargetOutputConnector());
-			
-			//targetSequence.addAll(targetList.getList());
-			target.setSequence(targetSequence);
+			switch (visualIterate.getSequenceType()) {
+			case ANONYMOUS:
+				//ListMediator targetList = new AnonymousListMediator();
+				SequenceMediator targetSequence=new SequenceMediator();
+				
+				TransformationInfo newInfo = new TransformationInfo();
+				newInfo.setTraversalDirection(information.getTraversalDirection());
+				newInfo.setSynapseConfiguration(information.getSynapseConfiguration());
+				newInfo.setOriginInSequence(information.getOriginInSequence());
+				newInfo.setOriginOutSequence(information.getOriginOutSequence());
+				newInfo.setCurrentProxy(information.getCurrentProxy());
+				newInfo.setParentSequence(targetSequence);
+				doTransform(newInfo,visualIterate.getTargetOutputConnector());
+				
+				//targetSequence.addAll(targetList.getList());
+				target.setSequence(targetSequence);
+				break;
+				
+			case REGISTRY_REFERENCE:
+				target.setSequenceRef(visualIterate.getSequenceKey().getKeyValue());
+				break;
+				
+			case NAMED_REFERENCE:
+				target.setSequenceRef(visualIterate.getSequenceName());
+				break;
+			}
 			
 			if(visualIterate.isSequentialMediation()) {
 				target.setAsynchronous(false);

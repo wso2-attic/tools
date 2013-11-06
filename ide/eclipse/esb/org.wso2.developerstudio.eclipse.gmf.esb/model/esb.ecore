@@ -1182,6 +1182,10 @@
         eType="#//IterateMediatorTargetOutputConnector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//SequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IterateMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="IterateMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>

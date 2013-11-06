@@ -1198,6 +1198,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/targetOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/mediatorFlow"/>
+      <genFeatures createChild="false" propertyCategory="Sequence" ecoreFeature="ecore:EAttribute esb.ecore#//IterateMediator/sequenceType"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Sequence"
+          ecoreFeature="ecore:EReference esb.ecore#//IterateMediator/sequenceKey"/>
+      <genFeatures createChild="false" propertyCategory="Sequence" ecoreFeature="ecore:EAttribute esb.ecore#//IterateMediator/sequenceName"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//IterateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//IterateMediatorOutputConnector"/>

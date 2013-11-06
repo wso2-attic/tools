@@ -10326,6 +10326,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIterateMediator_SequenceType() {
+		return (EAttribute)iterateMediatorEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIterateMediator_SequenceKey() {
+		return (EReference)iterateMediatorEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIterateMediator_SequenceName() {
+		return (EAttribute)iterateMediatorEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIterateMediatorInputConnector() {
 		return iterateMediatorInputConnectorEClass;
 	}
@@ -16038,6 +16065,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(iterateMediatorEClass, ITERATE_MEDIATOR__OUTPUT_CONNECTOR);
 		createEReference(iterateMediatorEClass, ITERATE_MEDIATOR__TARGET_OUTPUT_CONNECTOR);
 		createEReference(iterateMediatorEClass, ITERATE_MEDIATOR__MEDIATOR_FLOW);
+		createEAttribute(iterateMediatorEClass, ITERATE_MEDIATOR__SEQUENCE_TYPE);
+		createEReference(iterateMediatorEClass, ITERATE_MEDIATOR__SEQUENCE_KEY);
+		createEAttribute(iterateMediatorEClass, ITERATE_MEDIATOR__SEQUENCE_NAME);
 
 		iterateMediatorInputConnectorEClass = createEClass(ITERATE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -18038,6 +18068,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getIterateMediator_OutputConnector(), this.getIterateMediatorOutputConnector(), null, "outputConnector", null, 0, 1, IterateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIterateMediator_TargetOutputConnector(), this.getIterateMediatorTargetOutputConnector(), null, "targetOutputConnector", null, 0, 1, IterateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIterateMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, IterateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIterateMediator_SequenceType(), this.getSequenceType(), "sequenceType", null, 0, 1, IterateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIterateMediator_SequenceKey(), this.getRegistryKeyProperty(), null, "sequenceKey", null, 0, 1, IterateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIterateMediator_SequenceName(), ecorePackage.getEString(), "sequenceName", null, 0, 1, IterateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(iterateMediatorInputConnectorEClass, IterateMediatorInputConnector.class, "IterateMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

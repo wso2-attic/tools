@@ -24,6 +24,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -60,16 +61,15 @@ public class IterateMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		}
 		
 		if(target.getSequence() != null){
-			executeSetValueCommand(targetModel,ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE, TargetSequenceType.ANONYMOUS);
+			executeSetValueCommand(ITERATE_MEDIATOR__SEQUENCE_TYPE, SequenceType.ANONYMOUS);
 			refreshEditPartMap();
 			IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(mediatorModel.getMediatorFlow()).getChildren().get(0);
 			deserializeSequence(compartment, target.getSequence(), mediatorModel.getTargetOutputConnector());
 		}else if(target.getSequenceRef() != null && !target.getSequenceRef().equals("")){
-			//FIXME : this feature does not support in current implementation 
-			executeSetValueCommand(targetModel,ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE, TargetSequenceType.REGISTRY_REFERENCE);
+			executeSetValueCommand(ITERATE_MEDIATOR__SEQUENCE_TYPE, SequenceType.REGISTRY_REFERENCE);
 			RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 			regkey.setKeyValue(target.getSequenceRef());
-			executeSetValueCommand(targetModel,ABSTRACT_COMMON_TARGET__SEQUENCE_KEY, regkey);
+			executeSetValueCommand(ITERATE_MEDIATOR__SEQUENCE_KEY, regkey);
 		}
 		
 		if(target.getEndpoint() != null){

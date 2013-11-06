@@ -26,6 +26,9 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getTargetOutputConnector <em>Target Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceType <em>Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceKey <em>Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceName <em>Sequence Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -319,5 +322,86 @@ public interface IterateMediator extends Mediator {
 	 * @generated
 	 */
 	void setMediatorFlow(MediatorFlow value);
+
+	/**
+	 * Returns the value of the '<em><b>Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #setSequenceType(SequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getIterateMediator_SequenceType()
+	 * @model
+	 * @generated
+	 */
+	SequenceType getSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceType <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #getSequenceType()
+	 * @generated
+	 */
+	void setSequenceType(SequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequence Key</em>' containment reference.
+	 * @see #setSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getIterateMediator_SequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceKey <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence Key</em>' containment reference.
+	 * @see #getSequenceKey()
+	 * @generated
+	 */
+	void setSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sequence Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequence Name</em>' attribute.
+	 * @see #setSequenceName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getIterateMediator_SequenceName()
+	 * @model
+	 * @generated
+	 */
+	String getSequenceName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator#getSequenceName <em>Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence Name</em>' attribute.
+	 * @see #getSequenceName()
+	 * @generated
+	 */
+	void setSequenceName(String value);
 
 } // IterateMediator

@@ -22,6 +22,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorTargetOutputConne
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +43,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl#getTargetOutputConnector <em>Target Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl#getSequenceType <em>Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl#getSequenceKey <em>Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl#getSequenceName <em>Sequence Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -198,6 +203,56 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	protected MediatorFlow mediatorFlow;
 
 	/**
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SequenceType SEQUENCE_TYPE_EDEFAULT = SequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected SequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty sequenceKey;
+
+	/**
+	 * The default value of the '{@link #getSequenceName() <em>Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SEQUENCE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSequenceName() <em>Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sequenceName = SEQUENCE_NAME_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT 
@@ -218,6 +273,12 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 		iterateExpression.setPropertyName("expression");
 		iterateExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);
 		setIterateExpression(iterateExpression);
+		
+		RegistryKeyProperty targetSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		targetSequenceKey.setPrettyName("Sequence Reference");
+		targetSequenceKey.setKeyName("key");
+		targetSequenceKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setSequenceKey(targetSequenceKey);
 
 		setTarget(EsbFactoryImpl.eINSTANCE.createIterateTarget());
 	}
@@ -623,6 +684,91 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SequenceType getSequenceType() {
+		return sequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSequenceType(SequenceType newSequenceType) {
+		SequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ITERATE_MEDIATOR__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getSequenceKey() {
+		return sequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSequenceKey(RegistryKeyProperty newSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
+		if (newSequenceKey != sequenceKey) {
+			NotificationChain msgs = null;
+			if (sequenceKey != null)
+				msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY, null, msgs);
+			if (newSequenceKey != null)
+				msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY, null, msgs);
+			msgs = basicSetSequenceKey(newSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSequenceName() {
+		return sequenceName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSequenceName(String newSequenceName) {
+		String oldSequenceName = sequenceName;
+		sequenceName = newSequenceName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ITERATE_MEDIATOR__SEQUENCE_NAME, oldSequenceName, sequenceName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -641,6 +787,8 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 				return basicSetTargetOutputConnector(null, msgs);
 			case EsbPackage.ITERATE_MEDIATOR__MEDIATOR_FLOW:
 				return basicSetMediatorFlow(null, msgs);
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY:
+				return basicSetSequenceKey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -676,6 +824,12 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 				return getTargetOutputConnector();
 			case EsbPackage.ITERATE_MEDIATOR__MEDIATOR_FLOW:
 				return getMediatorFlow();
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_TYPE:
+				return getSequenceType();
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY:
+				return getSequenceKey();
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_NAME:
+				return getSequenceName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -721,6 +875,15 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 				return;
 			case EsbPackage.ITERATE_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)newValue);
+				return;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_TYPE:
+				setSequenceType((SequenceType)newValue);
+				return;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_NAME:
+				setSequenceName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -768,6 +931,15 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 			case EsbPackage.ITERATE_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)null);
 				return;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_NAME:
+				setSequenceName(SEQUENCE_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -803,6 +975,12 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 				return targetOutputConnector != null;
 			case EsbPackage.ITERATE_MEDIATOR__MEDIATOR_FLOW:
 				return mediatorFlow != null;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_KEY:
+				return sequenceKey != null;
+			case EsbPackage.ITERATE_MEDIATOR__SEQUENCE_NAME:
+				return SEQUENCE_NAME_EDEFAULT == null ? sequenceName != null : !SEQUENCE_NAME_EDEFAULT.equals(sequenceName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -826,6 +1004,10 @@ public class IterateMediatorImpl extends MediatorImpl implements IterateMediator
 		result.append(continueParent);
 		result.append(", preservePayload: ");
 		result.append(preservePayload);
+		result.append(", sequenceType: ");
+		result.append(sequenceType);
+		result.append(", sequenceName: ");
+		result.append(sequenceName);
 		result.append(')');
 		return result.toString();
 	}
