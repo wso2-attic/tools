@@ -226,23 +226,27 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			
 		Properties prop = new Properties();
 		FileInputStream inStream = null;
-		try {
-			inStream = new FileInputStream(pathName+File.separator+"cloudConnector.properties");
-			prop.load(inStream);
-		} catch (FileNotFoundException e) {
-			log.error("File is not available.",e);
-		} catch (IOException e) {
-			log.error("Error occured while trying to load properties",e);
-		}finally{
-			if(inStream != null){
-				try {
-					inStream.close();
-				} catch (IOException e) {
-					log.error("Error occured while tying to close the file stream", e);
+		File cloudConFile = new File(pathName, "cloudConnector.properties");
+		if (cloudConFile.exists()) {
+			try {
+				inStream = new FileInputStream(cloudConFile);
+				prop.load(inStream);
+			} catch (FileNotFoundException e) {
+				log.error("File is not available.", e);
+			} catch (IOException e) {
+				log.error("Error occured while trying to load properties", e);
+			} finally {
+				if (inStream != null) {
+					try {
+						inStream.close();
+					} catch (IOException e) {
+						log.error(
+								"Error occured while tying to close the file stream",
+								e);
+					}
 				}
 			}
 		}
-		
 		
 		String localEntryConfigs=prop.getProperty("LOCAL_ENTRY_CONFIGS");
 		if(localEntryConfigs!=null){
