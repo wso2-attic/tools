@@ -49,13 +49,13 @@ public class PasswordDialog extends Dialog {
   public PasswordDialog(Shell parentShell) {
     super(parentShell);
     setDefaultImage(ResourceManager.getPluginImage(
-			Messages.PasswordDialog_0,
-			Messages.PasswordDialog_1));
+			"org.wso2.developerstudio.eclipse.platform.ui", //$NON-NLS-1$
+			"icons/carbon-studio-small-logo.png")); //$NON-NLS-1$
   }
   
   protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-		newShell.setText(Messages.PasswordDialog_2);
+		newShell.setText(Messages.PasswordDialog_LoginDialog_title);
 	}
   
 /** * Create contents of the dialog. * * @param parent */
@@ -72,8 +72,8 @@ public class PasswordDialog extends Dialog {
     Label lblNewLabel = new Label(container, SWT.NONE);
 	lblNewLabel.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 	lblNewLabel.setImage(ResourceManager.getPluginImage(
-			Messages.PasswordDialog_3,
-			Messages.PasswordDialog_4));
+			"org.wso2.developerstudio.appfactory.ui", //$NON-NLS-1$
+			"icons/appfactory_logo.png")); //$NON-NLS-1$
 	GridData gd_lblNewLabel = new GridData(SWT.LEFT, SWT.TOP, false,
 			true, 2, 1);
 	gd_lblNewLabel.widthHint = 509;
@@ -81,7 +81,7 @@ public class PasswordDialog extends Dialog {
 	lblNewLabel.setLayoutData(gd_lblNewLabel);
 	
     Label lblHost = new Label(container, SWT.NONE);
-    lblHost.setText(Messages.PasswordDialog_5);
+    lblHost.setText(Messages.PasswordDialog_URL);
     lblHost.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
     hostText = new Text(container, SWT.BORDER);
     hostText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
@@ -89,7 +89,7 @@ public class PasswordDialog extends Dialog {
     hostText.setText(host);
     
     Label lblUser = new Label(container, SWT.NONE);
-    lblUser.setText(Messages.PasswordDialog_6);
+    lblUser.setText(Messages.PasswordDialog_USER);
     lblUser.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
     userText = new Text(container, SWT.BORDER);
     userText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
@@ -101,7 +101,7 @@ public class PasswordDialog extends Dialog {
         false, 1, 1);
     gd_lblNewLabel1.horizontalIndent = 1;
     lblNewLabel1.setLayoutData(gd_lblNewLabel1);
-    lblNewLabel1.setText(Messages.PasswordDialog_7);
+    lblNewLabel1.setText(Messages.PasswordDialog_Password);
     lblNewLabel1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
     passwordText = new Text(container, SWT.PASSWORD|SWT.BORDER);
      
@@ -125,7 +125,7 @@ public class PasswordDialog extends Dialog {
     	        }
     	}
     });
-    btnCheckButton.setText(Messages.PasswordDialog_8);
+    btnCheckButton.setText(Messages.PasswordDialog_Save_check);
 
     return container;
   }
@@ -154,8 +154,8 @@ public class PasswordDialog extends Dialog {
     user = userText.getText();
     password = passwordText.getText();
     host =hostText.getText().trim();
-    if(!host.startsWith(Messages.PasswordDialog_9)||!host.startsWith(Messages.PasswordDialog_10)){
-    	host = Messages.PasswordDialog_11+host;
+    if(!host.startsWith("http")||!host.startsWith("https")){ //$NON-NLS-1$ //$NON-NLS-2$
+    	host = "https://"+host; //$NON-NLS-1$
     }
     super.okPressed();
   }

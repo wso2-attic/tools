@@ -41,6 +41,11 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.e4.core.contexts.EclipseContextFactory;
+import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.ui.di.UISynchronize;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -55,6 +60,15 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.wizard.IWizard;
+import org.eclipse.jface.wizard.WizardDialog;
+import org.eclipse.jgit.api.errors.CheckoutConflictException;
+import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.api.errors.InvalidRefNameException;
+import org.eclipse.jgit.api.errors.InvalidRemoteException;
+import org.eclipse.jgit.api.errors.RefAlreadyExistsException;
+import org.eclipse.jgit.api.errors.RefNotFoundException;
+import org.eclipse.jgit.api.errors.TransportException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
@@ -62,18 +76,17 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.part.ViewPart;
-import org.eclipse.e4.core.services.events.IEventBroker;
-import org.eclipse.e4.core.contexts.EclipseContextFactory;
-import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.osgi.framework.Bundle;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
-import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
-import org.wso2.developerstudio.appfactory.core.client.HttpsJenkinsClient;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
+import org.wso2.developerstudio.appfactory.core.client.HttpsJenkinsClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.AppListModel;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
@@ -93,15 +106,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
-
-import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.e4.ui.di.UISynchronize;
-
 public class AppfactoryApplicationListView extends ViewPart {
 	
-	public static final String ID = Messages.AppfactoryApplicationListView_0;
+	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView"; //$NON-NLS-1$
 	
-	public static final String REPO_WIZARD_ID = Messages.AppfactoryApplicationListView_1;
+	public static final String REPO_WIZARD_ID = "org.eclipse.egit.ui.internal.clone.GitCloneWizard"; //$NON-NLS-1$
+	
+	
+	
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
@@ -138,254 +150,22 @@ public class AppfactoryApplicationListView extends ViewPart {
 		buildOut = console.getNewMsgStream();
 		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
 		 
-		@SuppressWarnings("restriction")
 		IEclipseContext eclipseContext = EclipseContextFactory
 				.getServiceContext(bundle.getBundleContext());
 		eclipseContext.set(org.eclipse.e4.core.services.log.Logger.class, null);
 		broker = eclipseContext.get(IEventBroker.class);
 		
-		buildhandler = getBuildLogEventHandler();
-		broker.subscribe(Messages.AppfactoryApplicationListView_2, buildhandler);
-			
-		apphandler = getAppListHandler();
-		broker.subscribe(Messages.AppfactoryApplicationListView_3, apphandler);
- 
-		appVersionhandler = getAppVersionEventHandler();
-		broker.subscribe(Messages.AppfactoryApplicationListView_4, appVersionhandler);
-		
-		ErrorLoghandler = getErrorLogEventHandler();
-		broker.subscribe(Messages.AppfactoryApplicationListView_5,ErrorLoghandler);
-		
-		infoLoghandler = getInfoLogEventHandler();
-		broker.subscribe(Messages.AppfactoryApplicationListView_6,infoLoghandler);
-		
-		projectOpenhandler = getPorjectcheckedOUtHandler();
-		broker.subscribe(Messages.AppfactoryApplicationListView_7,projectOpenhandler);
+		doSubscribe();/*Subscribe UIhandler with EventBroker*/
 		
 	}
 
-	@SuppressWarnings("restriction")
-	private void printErrorLog(String msg){
-		 broker.send(Messages.AppfactoryApplicationListView_8, Messages.AppfactoryApplicationListView_9+Messages.AppfactoryApplicationListView_10+new Timestamp(new Date().getTime()) +Messages.AppfactoryApplicationListView_11+msg);
-	}
-	
-	private void printInfoLog(String msg){
-		 broker.send(Messages.AppfactoryApplicationListView_12, Messages.AppfactoryApplicationListView_13+Messages.AppfactoryApplicationListView_14+new Timestamp(new Date().getTime()) +Messages.AppfactoryApplicationListView_15+msg);
-	}
 
-	private EventHandler getAppListHandler() {
-		return new EventHandler() {
-			public void handleEvent(final Event event) {
-				@SuppressWarnings("unused")
-				final Display display = Display.getDefault();
-				Display.getDefault().asyncExec(new Runnable() {
-					@Override
-					public void run() {
-            			List<ApplicationInfo> oldappLists = appLists;
-						appLists =  (List<ApplicationInfo>) event.getProperty(IEventBroker.DATA);
-            			contentProvider.inputChanged(viewer, oldappLists, appLists);
-            			viewer.refresh();
-            		 
-					}
-				});
-			}
-		};
-	}
-	
-	private EventHandler getPorjectcheckedOUtHandler() {
-		return new EventHandler() {
-			public void handleEvent(final Event event) {
-				@SuppressWarnings("unused")
-				final Display display = Display.getDefault();
-				Display.getDefault().asyncExec(new Runnable() {
-					@Override
-					public void run() {
-						try {
-							contentProvider.inputChanged(viewer, model, model);
-							viewer.refresh();
-							
-						} catch (Exception e) {
-							 log.error(Messages.AppfactoryApplicationListView_16, e);
-						}
-
-					}
-				});
-			}
-		};
-	}
-
-	private EventHandler getAppVersionEventHandler() {
-		return new EventHandler() {
-			public void handleEvent(final Event event) {
-				@SuppressWarnings("unused")
-				final Display display = Display.getDefault();
-				Display.getDefault().asyncExec(new Runnable() {
-
-					@Override
-					public void run() {
-						AppListModel refModel = (AppListModel) event.getProperty(IEventBroker.DATA);
-						contentProvider.inputChanged(viewer, model, refModel);
-						viewer.refresh();
-					}
-				});
-			}
-		};
-	}
-	
-
-	
-	
-	private EventHandler getBuildLogEventHandler() {
-		return new EventHandler() {
-			public void handleEvent(final Event event) {
-				@SuppressWarnings("unused")
-				final Display display = Display.getDefault();
-				Display.getDefault().asyncExec(new Runnable() {
-
-					@Override
-					public void run() {
-						buildOut.setColor(SWTResourceManager.getColor(SWT.COLOR_DARK_CYAN));
-						buildOut.println(Messages.AppfactoryApplicationListView_17+event.getProperty(IEventBroker.DATA));
-					}
-				});
-			}
-		};
-	}
-	
-	private EventHandler getErrorLogEventHandler() {
-		return new EventHandler() {
-			public void handleEvent(final Event event) {
-				@SuppressWarnings("unused")
-				final Display display = Display.getDefault();
-				Display.getDefault().asyncExec(new Runnable() {
-
-					@Override
-					public void run() {
-						errorOut.setColor(SWTResourceManager.getColor(SWT.COLOR_RED));
-						errorOut.println(Messages.AppfactoryApplicationListView_18 + event.getProperty(IEventBroker.DATA));
-					}
-				});
-			}
-		};
-	}
-	
-	private EventHandler getInfoLogEventHandler() {
-		return new EventHandler() {
-			public void handleEvent(final Event event) {
-				@SuppressWarnings("unused")
-				final Display display = Display.getDefault();
-				Display.getDefault().asyncExec(new Runnable() {
-
-					@Override
-					public void run() {
-						infoOut.setColor(SWTResourceManager.getColor(SWT.COLOR_BLACK));
-						infoOut.println(Messages.AppfactoryApplicationListView_19 + event.getProperty(IEventBroker.DATA));
-					}
-				});
-			}
-		};
-	}
-	
-	
-	private void ShowLoginDialog(){
-		 credentials = Authenticator.getInstance().getCredentials();
-		 try{
-		 if(credentials==null){
-			 printErrorLog(Messages.AppfactoryApplicationListView_20);
-			 LoginAction loginAction = new LoginAction();
-			 printInfoLog(Messages.AppfactoryApplicationListView_21);
-			 if(loginAction.login()){
-				 printInfoLog(Messages.AppfactoryApplicationListView_22);
-				 credentials = Authenticator.getInstance().getCredentials();
-			 }
-		 }else {
-			 
-		 }
-		 }catch(Exception e){
-			 
-		 }
-	}
-	
-	
-	@SuppressWarnings("restriction")
-	private List<ApplicationInfo> getApplist(){
-		 if(Authenticator.getInstance().getCredentials()!=null){
-		 Map<String,String> params = new HashMap<String,String>();
-		 params.put(Messages.AppfactoryApplicationListView_23,JagApiProperties.USER_APP_LIST__ACTION);
-		 params.put(Messages.AppfactoryApplicationListView_24,Authenticator.getInstance().getCredentials().getUser()); 
-		 printInfoLog(Messages.AppfactoryApplicationListView_25);
-		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
-		 if(Messages.AppfactoryApplicationListView_26.equals(respond)){
-		  printErrorLog(Messages.AppfactoryApplicationListView_27);	 
-	      boolean val = Authenticator.getInstance().reLogin();
-	      if(val){
-	       printInfoLog(Messages.AppfactoryApplicationListView_28);	  
-	       respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
-	      }else{
-	    	printErrorLog(Messages.AppfactoryApplicationListView_29 +
-	    			Messages.AppfactoryApplicationListView_30);  
-	      }
-		 }
-		 if(!Messages.AppfactoryApplicationListView_31.equals(respond)){
-	     printInfoLog(Messages.AppfactoryApplicationListView_32);	 
-		 Gson gson = new Gson();
-		 Type collectionType = new TypeToken<java.util.List<ApplicationInfo>>(){}.getType();
-		 return gson.fromJson(respond, collectionType);
-		 }
-		}
-		 return new ArrayList<ApplicationInfo>();
-	}
- 
-	/*@SuppressWarnings("restriction")
-	private void create1UserAppList() {
-		try{
-		 credentials = Authenticator.getInstance().getCredentials();
-		 if(credentials==null){
-			 printErrorLog("Aunthantication Failed ");
-			 LoginAction loginAction = new LoginAction();
-			 printInfoLog("Attempting to re-login");
-			 if(loginAction.login()){
-				 printInfoLog("Login Sucessfull");
-				 create1UserAppList();
-			 }
-		 }else {  
-
-			 Map<String,String> params = new HashMap<String,String>();
-			 params.put("action",JagApiProperties.USER_APP_LIST__ACTION);
-			 params.put("userName",credentials.getUser()); 
-			 printInfoLog(" Fetching User Application From Server");
-			 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
-			 if("false".equals(respond)){
-				  printErrorLog(" Fetching Failed now attempting to relogin");	 
-			      boolean val = Authenticator.getInstance().reLogin();
-			      if(val){
-			       printInfoLog(" Re-Login sucessfull");	  
-			       respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
-			      }else{
-			    	printErrorLog("CANNOT PROCEEDS \n Re-Login attempt has filed !! \n " +
-			    			"Please re-Login to the perspective");  
-			      }
-			 }
-
-			 if(!"false".equals(respond)){
-			 printInfoLog("Fetching completed, Apllications are loading to the view");		 
-			 Gson gson = new Gson();
-			 Type collectionType = new TypeToken<java.util.List<ApplicationInfo>>(){}.getType();
-			 appLists = gson.fromJson(respond, collectionType);
-			 }
-		 }
-		}catch(Exception e){
-			printErrorLog("CANNOT PROCEEDS \n Applications loading failed ! \n "+e.getMessage());  
-	    	log.error("Application Loading :", e);
-		}
-	}*/
-	
 	public void createPartControl(Composite parent) {
-          this.parent = parent;
-          contentProvider = new AppListContentProvider(appLists);
-          labelProvider = new AppListLabelProvider();
-          createToolbar();
-          model =new AppListModel();
+        this.parent = parent;
+        contentProvider = new AppListContentProvider(appLists);
+        labelProvider = new AppListLabelProvider();
+        createToolbar();
+        model =new AppListModel();
 		  viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		  viewer.setContentProvider(contentProvider);
 		  viewer.setLabelProvider(labelProvider);
@@ -434,6 +214,8 @@ public class AppfactoryApplicationListView extends ViewPart {
 	                    IStructuredSelection selection = (IStructuredSelection) viewer.getSelection();
 	                    if(selection.getFirstElement() instanceof AppVersionInfo){
 	                       final AppVersionInfo appVersionInfo = (AppVersionInfo) selection.getFirstElement();
+	                        
+	                        manager.add(checkOutAndImportAction(appVersionInfo));
 	                        manager.add(importAction(appVersionInfo));
 	                    	manager.add(checkOutAction(appVersionInfo));
 	                    	manager.add(repoDeployAction(appVersionInfo));
@@ -442,27 +224,226 @@ public class AppfactoryApplicationListView extends ViewPart {
 	                    	
 	                    }else if (selection.getFirstElement() instanceof ApplicationInfo){
 	                    	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
-	                    	String title =Messages.AppfactoryApplicationListView_33;
+	                    	String title =""; //$NON-NLS-1$
 	                        if(appInfo.getappVersionList().isEmpty()){
-	                        	title = Messages.AppfactoryApplicationListView_34;
+	                        	title = "Open  "; //$NON-NLS-1$
 	                        }else{
-	                        	title = Messages.AppfactoryApplicationListView_35;
+	                        	title = "Update"; //$NON-NLS-1$
 	                        }
 	                    	manager.add(appOpenAction(appInfo,title));
 		                    manager.add(repoSettingsAction(appInfo));
 	                    }
 	                }
 	            }
+
+			
 	        });
 	        menuMgr.setRemoveAllWhenShown(true);
 	        viewer.getControl().setMenu(menu); 
 	        ShowLoginDialog();
 	        updateApplicationView();
 	}
+
+	public static AppfactoryApplicationDetailsView getAppDetailView() {
+	    return appDetailView;
+    }
+
+	public static void setAppDetailView(AppfactoryApplicationDetailsView appDetailView) {
+	    AppfactoryApplicationListView.appDetailView = appDetailView;
+    }
 	
-    /**
-     * Create toolbar.
-     */
+	@Override
+	public void setFocus() {
+		
+	}
+	
+	@SuppressWarnings("restriction")
+	private void doSubscribe() {
+		buildhandler = getBuildLogEventHandler();
+		broker.subscribe("update", buildhandler); //$NON-NLS-1$
+			
+		apphandler = getAppListHandler();
+		broker.subscribe("Appupdate", apphandler); //$NON-NLS-1$
+ 
+		appVersionhandler = getAppVersionEventHandler();
+		broker.subscribe("Appversionupdate", appVersionhandler); //$NON-NLS-1$
+		
+		ErrorLoghandler = getErrorLogEventHandler();
+		broker.subscribe("Errorupdate",ErrorLoghandler); //$NON-NLS-1$
+		
+		infoLoghandler = getInfoLogEventHandler();
+		broker.subscribe("Infoupdate",infoLoghandler); //$NON-NLS-1$
+		
+		projectOpenhandler = getPorjectcheckedOUtHandler();
+		broker.subscribe("Projectupdate",projectOpenhandler); //$NON-NLS-1$
+	}
+	
+	@SuppressWarnings("restriction")
+	
+	private void printErrorLog(String msg){
+		 broker.send("Errorupdate", "\n"+"["+new Timestamp(new Date().getTime()) +"] : "+msg); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+	}
+	
+	@SuppressWarnings("restriction")
+	private void printInfoLog(String msg){
+		 broker.send("Infoupdate", "\n"+"["+new Timestamp(new Date().getTime()) +"] : "+msg); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+	}
+
+	private EventHandler getAppListHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+ 
+				Display.getDefault().asyncExec(new Runnable() {
+					@SuppressWarnings({ "unchecked", "restriction" })
+					@Override
+					public void run() {
+            			List<ApplicationInfo> oldappLists = appLists;
+						appLists =  (List<ApplicationInfo>) event.getProperty(IEventBroker.DATA);
+            			contentProvider.inputChanged(viewer, oldappLists, appLists);
+            			viewer.refresh();
+            		 
+					}
+				});
+			}
+		};
+	}
+	
+	private EventHandler getPorjectcheckedOUtHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+ 
+				Display.getDefault().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							contentProvider.inputChanged(viewer, model, model);
+							viewer.refresh();				
+						} catch (Exception e) {
+							 log.error("checkedoutError", e); //$NON-NLS-1$
+						}
+
+					}
+				});
+			}
+		};
+	}
+
+	private EventHandler getAppVersionEventHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+ 
+				Display.getDefault().asyncExec(new Runnable() {
+
+					@Override
+					public void run() {
+						@SuppressWarnings("restriction")
+						AppListModel refModel = (AppListModel) event.getProperty(IEventBroker.DATA);
+						contentProvider.inputChanged(viewer, model, refModel);
+						viewer.refresh();
+					}
+				});
+			}
+		};
+	}
+	
+	private EventHandler getBuildLogEventHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+				@SuppressWarnings("unused")
+				final Display display = Display.getDefault();
+				Display.getDefault().asyncExec(new Runnable() {
+
+					@SuppressWarnings("restriction")
+					@Override
+					public void run() {
+						buildOut.setColor(SWTResourceManager.getColor(SWT.COLOR_DARK_CYAN));
+						buildOut.println(""+event.getProperty(IEventBroker.DATA)); //$NON-NLS-1$
+					}
+				});
+			}
+		};
+	}
+	
+	private EventHandler getErrorLogEventHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+				
+				Display.getDefault().asyncExec(new Runnable() {
+
+					@SuppressWarnings("restriction")
+					@Override
+					public void run() {
+						errorOut.setColor(SWTResourceManager.getColor(SWT.COLOR_RED));
+						errorOut.println("\n\n**********[ERROR]**********" + event.getProperty(IEventBroker.DATA)); //$NON-NLS-1$
+					}
+				});
+			}
+		};
+	}
+	
+	private EventHandler getInfoLogEventHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+				Display.getDefault().asyncExec(new Runnable() {
+
+					@SuppressWarnings("restriction")
+					@Override
+					public void run() {
+						infoOut.setColor(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+						infoOut.println("\n\n**********[INFO]**********" + event.getProperty(IEventBroker.DATA)); //$NON-NLS-1$
+					}
+				});
+			}
+		};
+	}
+	
+	private void ShowLoginDialog(){
+		 credentials = Authenticator.getInstance().getCredentials();
+		 try{
+		 if(credentials==null){
+			 printErrorLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_1);
+			 LoginAction loginAction = new LoginAction();
+			 printInfoLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_2);
+			 if(loginAction.login()){
+				 printInfoLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_3);
+				 credentials = Authenticator.getInstance().getCredentials();
+			 }
+		 }else {
+			 
+		 }
+		 }catch(Exception e){
+			 
+		 }
+	}
+	
+	private List<ApplicationInfo> getApplist(){
+		 if(Authenticator.getInstance().getCredentials()!=null){
+		 Map<String,String> params = new HashMap<String,String>();
+		 params.put("action",JagApiProperties.USER_APP_LIST__ACTION); //$NON-NLS-1$
+		 params.put("userName",Authenticator.getInstance().getCredentials().getUser());  //$NON-NLS-1$
+		 printInfoLog(Messages.AppfactoryApplicationListView_getApplist_plog_msg_001);
+		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
+		 if("false".equals(respond)){ //$NON-NLS-1$
+		  printErrorLog(Messages.AppfactoryApplicationListView_getApplist_plog_msg_01);	 
+	      boolean val = Authenticator.getInstance().reLogin();
+	      if(val){
+	       printInfoLog(Messages.AppfactoryApplicationListView_getApplist_plog_msg_0);	  
+	       respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
+	      }else{
+	    	printErrorLog(Messages.AppfactoryApplicationListView_getApplist_plog_msg_1 +
+	    			Messages.AppfactoryApplicationListView_getApplist_plog_msg_2);  
+	      }
+		 }
+		 if(!"false".equals(respond)){ //$NON-NLS-1$
+	     printInfoLog(Messages.AppfactoryApplicationListView_getApplist_plog_msg_3);	 
+		 Gson gson = new Gson();
+		 Type collectionType = new TypeToken<java.util.List<ApplicationInfo>>(){}.getType();
+		 return gson.fromJson(respond, collectionType);
+		 }
+		}
+		 return new ArrayList<ApplicationInfo>();
+	}
+ 
     private void createToolbar() {
             IToolBarManager mgr = getViewSite().getActionBars().getToolBarManager();
             mgr.add(new Action() {
@@ -472,17 +453,17 @@ public class AppfactoryApplicationListView extends ViewPart {
            	}
            	 
            	 public String getText() {
-    				return Messages.AppfactoryApplicationListView_36;
+    				return Messages.AppfactoryApplicationListView_createToolbar_refresh_menu;
     			}
 			});
     }
 	
 	private void  updateApplicationView(){
-		Job job = new Job(Messages.AppfactoryApplicationListView_37) {
+		Job job = new Job(Messages.AppfactoryApplicationListView_updateApplicationView_job_title) {
 		   @SuppressWarnings("restriction")
 			@Override
 			  protected IStatus run(final IProgressMonitor monitor) {
-				monitor.beginTask(Messages.AppfactoryApplicationListView_38, 100);
+				monitor.beginTask(Messages.AppfactoryApplicationListView_updateApplicationView_monitor_text_0, 100);
 				  UISynchronize uiSynchronize = new UISynchronize() {
 						@Override
 						public void syncExec(Runnable runnable) {
@@ -491,17 +472,17 @@ public class AppfactoryApplicationListView extends ViewPart {
 						
 						@Override
 						public void asyncExec(Runnable runnable) {
-							   monitor.subTask(Messages.AppfactoryApplicationListView_39);
+							   monitor.subTask(Messages.AppfactoryApplicationListView_updateApplicationView_monitor_text_1);
 							   monitor.worked(10);
 							   List<ApplicationInfo> applist = getApplist();
 							   monitor.worked(40);
 							   if(applist!=null){
-								monitor.subTask(Messages.AppfactoryApplicationListView_40);
+								monitor.subTask(Messages.AppfactoryApplicationListView_updateApplicationView_monitor_text_2);
 								monitor.worked(60);	   
-							   broker.send(Messages.AppfactoryApplicationListView_41, applist);
+							   broker.send("Appupdate", applist); //$NON-NLS-1$
 							   monitor.worked(90);	
 							   }else{
-							     monitor.subTask(Messages.AppfactoryApplicationListView_42);
+							     monitor.subTask(Messages.AppfactoryApplicationListView_updateApplicationView_monitor_text_3);
 							     monitor.worked(30);
 								 monitor.worked(0);	      
 							   }
@@ -520,14 +501,12 @@ public class AppfactoryApplicationListView extends ViewPart {
 		job.schedule();
 	}
 	
-	
-	
 	private void  getAppVersions(final ApplicationInfo appInfo){
-		Job job = new Job(Messages.AppfactoryApplicationListView_43) {
+		Job job = new Job(Messages.AppfactoryApplicationListView_getAppVersions_job_title) {
 		   @SuppressWarnings("restriction")
 			@Override
 			  protected IStatus run(final IProgressMonitor monitor) {
-				monitor.beginTask(Messages.AppfactoryApplicationListView_44, 100);
+				monitor.beginTask(Messages.AppfactoryApplicationListView_getAppVersions_monitor_text_1, 100);
 				  UISynchronize uiSynchronize = new UISynchronize() {
 						@Override
 						public void syncExec(Runnable runnable) {
@@ -536,10 +515,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 						@Override
 						public void asyncExec(Runnable runnable) {
 							appInfo.setLableState(1);
-							broker.send(Messages.AppfactoryApplicationListView_45, model);
+							broker.send("Appversionupdate", model); //$NON-NLS-1$
 							if(getVersionInfo(appInfo, monitor)){
 								getTeamInfo(appInfo, monitor);
-								getDbInfo(appInfo, monitor);
+								//getDbInfo(appInfo, monitor);/*currently not supporting*/
+								getDSInfo(appInfo, monitor);
 								appInfo.setLableState(2);
 							}else{
 								appInfo.setLableState(0);
@@ -549,7 +529,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 						private boolean getVersionInfo(
 								final ApplicationInfo appInfo,
 								final IProgressMonitor monitor) {
-							monitor.subTask(Messages.AppfactoryApplicationListView_46);
+							monitor.subTask(Messages.AppfactoryApplicationListView_getVersionInfo_monitor_text_2);
 							monitor.worked(20);	   
 							boolean result = model.setversionInfo(appInfo);
 							if(!result){
@@ -559,9 +539,9 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask(Messages.AppfactoryApplicationListView_47);
+							monitor.subTask(Messages.AppfactoryApplicationListView_getVersionInfo_monitor_text_3);
 							monitor.worked(40);	 
-							broker.send(Messages.AppfactoryApplicationListView_48, model);
+							broker.send("Appversionupdate", model); //$NON-NLS-1$
 							monitor.worked(50);
 							return true;
 							}else{
@@ -572,7 +552,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 						
 						private boolean getTeamInfo(final ApplicationInfo appInfo,
 								final IProgressMonitor monitor) {
-							monitor.subTask(Messages.AppfactoryApplicationListView_49);
+							monitor.subTask(Messages.AppfactoryApplicationListView_getTeamInfo_monitor_text_1);
 							monitor.worked(60);	   
 							boolean result = model.setRoleInfomation(appInfo);
 							if(!result){
@@ -582,19 +562,20 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask(Messages.AppfactoryApplicationListView_50);
+							monitor.subTask(Messages.AppfactoryApplicationListView_getTeamInfo_monitor_text_2);
 							monitor.worked(60);	 
-							broker.send(Messages.AppfactoryApplicationListView_51, model);
+							broker.send("Appversionupdate", model); //$NON-NLS-1$
 							monitor.worked(90);
 							return true;
 							}else{
 								return false;
 							}
 						}
-						
+						/*Currently not supporting*/
+						@SuppressWarnings("unused")
 						private boolean getDbInfo(final ApplicationInfo appInfo,
 								final IProgressMonitor monitor) {
-							monitor.subTask(Messages.AppfactoryApplicationListView_52);
+							monitor.subTask(Messages.AppfactoryApplicationListView_getDbInfo_monitor_text_1);
 							monitor.worked(60);	   
 							boolean result = model.setDBInfomation(appInfo);
 							if(!result){
@@ -604,15 +585,39 @@ public class AppfactoryApplicationListView extends ViewPart {
 								}
 							}
 							if(result){
-							monitor.subTask(Messages.AppfactoryApplicationListView_53);
+							monitor.subTask(Messages.AppfactoryApplicationListView_getDbInfo_monitor_text_2);
 							monitor.worked(60);	 
-							broker.send(Messages.AppfactoryApplicationListView_54, model);
+							broker.send("Appversionupdate", model); //$NON-NLS-1$
 							monitor.worked(90);
 							return true;
 							}else{
 								return false;
 							}
 						}
+						
+						private boolean getDSInfo(final ApplicationInfo appInfo,
+								final IProgressMonitor monitor) {
+							monitor.subTask(Messages.AppfactoryApplicationListView_getDSInfo_monitor_text_2);
+							monitor.worked(60);	   
+							boolean result = model.setDSInfomation(appInfo);
+							if(!result){
+								boolean reLogin = Authenticator.getInstance().reLogin();
+								if(reLogin){
+									result = model.setDBInfomation(appInfo);
+								}
+							}
+							if(result){
+							monitor.subTask(Messages.AppfactoryApplicationListView_getDSInfo_monitor_text_3);
+							monitor.worked(60);	 
+							broker.send("Appversionupdate", model); //$NON-NLS-1$
+							monitor.worked(90);
+							return true;
+							}else{
+								return false;
+							}
+						}
+						
+						
 						
 					};
 					uiSynchronize.asyncExec(new Runnable() {
@@ -628,13 +633,9 @@ public class AppfactoryApplicationListView extends ViewPart {
 		job.schedule();
 	}
  
-	
-	
-	
-	 
 	private void getbuildLogsJob(final AppVersionInfo appInfo,final boolean deploy) {
 		 
-		Job job = new Job(Messages.AppfactoryApplicationListView_55) {
+		Job job = new Job(Messages.AppfactoryApplicationListView_getbuildLogsJob_title) {
 		 
 			@SuppressWarnings("restriction")
 			@Override
@@ -659,11 +660,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 						    		 if(buildId>=newbuildId){
 						    			 break;
 						    		 }
-						    		 printErrorLog(Messages.AppfactoryApplicationListView_56+newbuildId+Messages.AppfactoryApplicationListView_57 +
-												Messages.AppfactoryApplicationListView_58);	 
+						    		 printErrorLog(Messages.AppfactoryApplicationListView_getbuildLogsJob_plog_1+newbuildId+Messages.AppfactoryApplicationListView_getbuildLogsJob_plog_2 +
+												Messages.AppfactoryApplicationListView_getbuildLogsJob_plog_3);	 
 										Thread.sleep(2000); 
 										if(monitor.isCanceled()){
-											printInfoLog(Messages.AppfactoryApplicationListView_59);	  
+											printInfoLog(Messages.AppfactoryApplicationListView_getbuildLogsJob_pInfo_1);	  
 											break;
 										} 
 						    	 }
@@ -675,30 +676,30 @@ public class AppfactoryApplicationListView extends ViewPart {
 							printJenkinsBuildLogs(appInfo, buildId,builderBaseUrl,monitor);
 
 						} catch (Exception e) {
-							printErrorLog(Messages.AppfactoryApplicationListView_60+e.getMessage());	 
-							log.error(Messages.AppfactoryApplicationListView_61,e);
+							printErrorLog(Messages.AppfactoryApplicationListView_getbuildLogsJob_pError_1+e.getMessage());	 
+							log.error("BuildLogs Error :",e); //$NON-NLS-1$
 						}
 
 					}
 
 					private int deploy(final AppVersionInfo appInfo, int buildId) {
 						Map<String, String> params = new HashMap<String, String>();
-						params.put(Messages.AppfactoryApplicationListView_62,
+						params.put("action", //$NON-NLS-1$
 								JagApiProperties.App_BUILD_ACTION);
-						params.put(Messages.AppfactoryApplicationListView_63, Messages.AppfactoryApplicationListView_64);
-						params.put(Messages.AppfactoryApplicationListView_65, appInfo.getAppName());
-						params.put(Messages.AppfactoryApplicationListView_66, appInfo.getVersion());
-						params.put(Messages.AppfactoryApplicationListView_67, Messages.AppfactoryApplicationListView_68);
-						printInfoLog(Messages.AppfactoryApplicationListView_69);	
+						params.put("stage", "Development"); //$NON-NLS-1$ //$NON-NLS-2$
+						params.put("applicationKey", appInfo.getAppName()); //$NON-NLS-1$
+						params.put("version", appInfo.getVersion()); //$NON-NLS-1$
+						params.put("doDeploy", "true"); //$NON-NLS-1$ //$NON-NLS-2$
+						printInfoLog("Deploying application");	 //$NON-NLS-1$
 						String httpPostrespond = HttpsJaggeryClient.httpPost(
 								JagApiProperties.getBuildApplication(),
 								params); 
-						if(!Messages.AppfactoryApplicationListView_70.equals(httpPostrespond)){
-							printInfoLog(Messages.AppfactoryApplicationListView_71);
+						if(!"false".equals(httpPostrespond)){ //$NON-NLS-1$
+							printInfoLog(Messages.AppfactoryApplicationListView_deploy_printInfoLog_2);
 							buildId++;
 						}else{
-							printErrorLog(Messages.AppfactoryApplicationListView_72);
-							printInfoLog(Messages.AppfactoryApplicationListView_73);
+							printErrorLog(Messages.AppfactoryApplicationListView_deploy_printErrorLog_3);
+							printInfoLog(Messages.AppfactoryApplicationListView_deploy_printInfoLog_3);
 						}
 
 						return buildId;
@@ -708,18 +709,19 @@ public class AppfactoryApplicationListView extends ViewPart {
 							int buidNo) {
 						Map<String, String> params;
 						params = new HashMap<String, String>();
-						params.put(Messages.AppfactoryApplicationListView_74,JagApiProperties.App_BUILD_URL_ACTIONL);
-						params.put(Messages.AppfactoryApplicationListView_75, Messages.AppfactoryApplicationListView_76 + buidNo);
-						params.put(Messages.AppfactoryApplicationListView_77,appInfo.getVersion());
-						params.put(Messages.AppfactoryApplicationListView_78,appInfo.getAppName());
-						String builderBaseUrl = Messages.AppfactoryApplicationListView_79;
+						params.put("action",JagApiProperties.App_BUILD_URL_ACTIONL); //$NON-NLS-1$
+						params.put("lastBuildNo", "" + buidNo); //$NON-NLS-1$ //$NON-NLS-2$
+						params.put("applicationVersion",appInfo.getVersion()); //$NON-NLS-1$
+						params.put("applicationKey",appInfo.getAppName()); //$NON-NLS-1$
+						params.put("userName",Authenticator.getInstance().getCredentials().getUser()); //$NON-NLS-1$
+						String builderBaseUrl = ""; //$NON-NLS-1$
 						builderBaseUrl = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildInfoUrl(),params);
 						return builderBaseUrl;
 					}
 
 					private void printJenkinsBuildLogs(final AppVersionInfo appInfo, int buidNo,
 							String builderBaseUrl,IProgressMonitor monitor) throws IOException,InterruptedException {
-						printInfoLog(Messages.AppfactoryApplicationListView_80+buidNo);	  
+						printInfoLog(Messages.AppfactoryApplicationListView_printJenkinsBuildLogs_printInfoLog_0+buidNo);	  
 						while(true){
 						HttpResponse response = HttpsJenkinsClient
 								.getBulildinfo(
@@ -733,21 +735,21 @@ public class AppfactoryApplicationListView extends ViewPart {
 										.getEntity().getContent()));
 						String line;
 						while ((line = rd.readLine()) != null) {
-							broker.send(Messages.AppfactoryApplicationListView_81, line.toString());
+							broker.send("update", line.toString()); //$NON-NLS-1$
 							Thread.sleep(100);
 						}
 						EntityUtils.consume(entity);
 						break;
 						}else if(response.getStatusLine().getStatusCode()==404){
-							printErrorLog(Messages.AppfactoryApplicationListView_82 +
-									Messages.AppfactoryApplicationListView_83);	 
+							printErrorLog(Messages.AppfactoryApplicationListView_printJenkinsBuildLogs_printInfoLog_1 +
+									Messages.AppfactoryApplicationListView_printJenkinsBuildLogs_printInfoLog_2);	 
 							Thread.sleep(2000); 
 							if(monitor.isCanceled()){
-								printInfoLog(Messages.AppfactoryApplicationListView_84);	  
+								printInfoLog(Messages.AppfactoryApplicationListView_printJenkinsBuildLogs_printInfoLog_3);	  
 								break;
 							}
 						}else{
-							printErrorLog(Messages.AppfactoryApplicationListView_85+response.getStatusLine().getStatusCode());
+							printErrorLog(Messages.AppfactoryApplicationListView_printJenkinsBuildLogs_printErrorLog_3+response.getStatusLine().getStatusCode());
 							 break;
 						}
 					}	
@@ -756,28 +758,28 @@ public class AppfactoryApplicationListView extends ViewPart {
 					private int getLastBuildId(final AppVersionInfo appInfo) {
 						credentials = Authenticator.getInstance().getCredentials();
 						Map<String, String> params = new HashMap<String, String>();
-						params.put(Messages.AppfactoryApplicationListView_86,JagApiProperties.App_BUILD_INFO_ACTION);
-						params.put(Messages.AppfactoryApplicationListView_87, Messages.AppfactoryApplicationListView_88);
-						params.put(Messages.AppfactoryApplicationListView_89,appInfo.getAppName());
-						params.put(Messages.AppfactoryApplicationListView_90, appInfo.getVersion());
-						params.put(Messages.AppfactoryApplicationListView_91, Messages.AppfactoryApplicationListView_92);
-						params.put(Messages.AppfactoryApplicationListView_93,Messages.AppfactoryApplicationListView_94);
-						params.put(Messages.AppfactoryApplicationListView_95, Messages.AppfactoryApplicationListView_96);
-						params.put(Messages.AppfactoryApplicationListView_97,credentials.getUser());
-						printInfoLog(Messages.AppfactoryApplicationListView_98);	 
+						params.put("action",JagApiProperties.App_BUILD_INFO_ACTION); //$NON-NLS-1$
+						params.put("stage", "Development"); //$NON-NLS-1$ //$NON-NLS-2$
+						params.put("applicationKey",appInfo.getAppName()); //$NON-NLS-1$
+						params.put("version", appInfo.getVersion()); //$NON-NLS-1$
+						params.put("buildable", "true"); //$NON-NLS-1$ //$NON-NLS-2$
+						params.put("isRoleBasedPermissionAllowed","false"); //$NON-NLS-1$ //$NON-NLS-2$
+						params.put("metaDataNeed", "false"); //$NON-NLS-1$ //$NON-NLS-2$
+						params.put("userName",credentials.getUser()); //$NON-NLS-1$
+						printInfoLog(Messages.AppfactoryApplicationListView_getLastBuildId_printInfoLog_0);	 
 						String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildLastSucessfullBuildUrl(),params);
-						if(Messages.AppfactoryApplicationListView_99.equals(respond)){
-						printErrorLog(Messages.AppfactoryApplicationListView_100);	 
+						if("false".equals(respond)){ //$NON-NLS-1$
+						printErrorLog(Messages.AppfactoryApplicationListView_getLastBuildId_printErrorLog_0);	 
 					    boolean val = Authenticator.getInstance().reLogin();
 					      if(val){
-					    	  printInfoLog(Messages.AppfactoryApplicationListView_101);	  
+					    	  printInfoLog(Messages.AppfactoryApplicationListView_getLastBuildId_printInfoLog_1);	  
 					    	  respond =HttpsJaggeryClient.httpPost(JagApiProperties.getBuildLastSucessfullBuildUrl(),params);
 					      }else{
-					    	printErrorLog(Messages.AppfactoryApplicationListView_102 +
-					    			Messages.AppfactoryApplicationListView_103);  
+					    	printErrorLog(Messages.AppfactoryApplicationListView_getLastBuildId_printErrorLog_1 +
+					    			Messages.AppfactoryApplicationListView_getLastBuildId_printErrorLog_2);  
 					      }
 						}
-						if(!Messages.AppfactoryApplicationListView_104.equals(respond)){
+						if(!"false".equals(respond)){ //$NON-NLS-1$
 							JsonElement jelement = new JsonParser().parse(respond);
 							JsonArray buildInfoArray;
 							int buildId = 0;
@@ -787,22 +789,22 @@ public class AppfactoryApplicationListView extends ViewPart {
 									JsonObject asJsonObject = jsonElement
 											.getAsJsonObject();
 									JsonElement jsonElement2 = asJsonObject
-											.get(Messages.AppfactoryApplicationListView_105);
+											.get("version"); //$NON-NLS-1$
 									JsonObject asJsonObject2 = jsonElement2
 											.getAsJsonObject();
-									String asString = asJsonObject2.get(Messages.AppfactoryApplicationListView_106)
+									String asString = asJsonObject2.get("current") //$NON-NLS-1$
 											.getAsString();
 									if (asString.equals(appInfo.getVersion())) {
 										JsonElement jsonElement3 = asJsonObject
-												.get(Messages.AppfactoryApplicationListView_107);
+												.get("build"); //$NON-NLS-1$
 										JsonObject asJsonObject3 = jsonElement3
 												.getAsJsonObject();
-										buildId = asJsonObject3.get(Messages.AppfactoryApplicationListView_108)
+										buildId = asJsonObject3.get("lastBuildId") //$NON-NLS-1$
 												.getAsInt();
 										break;
 									}
 								}
-								printInfoLog(Messages.AppfactoryApplicationListView_109+buildId);
+								printInfoLog(Messages.AppfactoryApplicationListView_getLastBuildId_plog_Lastbuild+buildId);
 								return buildId;	
 						}
 						return 0;
@@ -824,7 +826,6 @@ public class AppfactoryApplicationListView extends ViewPart {
 		job.schedule();
 	}
 	
-	
 	private Action appOpenAction(final ApplicationInfo appInfo,final String title) {
 		Action reposettings = new Action() {
 			public void run() {
@@ -841,7 +842,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 Messages.AppfactoryApplicationListView_110);
+						 "/icons/open.gif"); //$NON-NLS-1$
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -857,11 +858,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 			}
 
 			public String getText() {
-				return Messages.AppfactoryApplicationListView_111;
+				return Messages.AppfactoryApplicationListView_buildInfoAction_BuildLogs_menu_name;
 			}
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 Messages.AppfactoryApplicationListView_112);
+						 "/icons/buildLog.gif"); //$NON-NLS-1$
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -875,23 +876,23 @@ public class AppfactoryApplicationListView extends ViewPart {
 				try {
 					    DirectoryDialog dialog = new DirectoryDialog(Display.getCurrent()
 								.getActiveShell());
-					   dialog.setText(Messages.AppfactoryApplicationListView_113);
+					   dialog.setText(Messages.AppfactoryApplicationListView_repoSettingsAction_DirectoryDialog_title);
 					    if(dialog.open()!=null){
 					    	appInfo.setLocalrepoLocation(dialog.getFilterPath());
 					    	appInfo.updateVersions();
 					    }
 				} catch (Exception e) {
-					log.error(Messages.AppfactoryApplicationListView_114, e);
+					log.error("", e); //$NON-NLS-1$
 				}
 			};
        
 			public String getText() {
-				return Messages.AppfactoryApplicationListView_115;
+				return Messages.AppfactoryApplicationListView_repoSettingsAction_changeRepoLocation_menu_name;
 			}
 			@Override
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 Messages.AppfactoryApplicationListView_116);
+						 "/icons/repoLocation.gif"); //$NON-NLS-1$
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -904,16 +905,16 @@ public class AppfactoryApplicationListView extends ViewPart {
 				try {
 					getbuildLogsJob(info,true);
 				} catch (Exception e) {
-					log.error(Messages.AppfactoryApplicationListView_117, e);
+					log.error("Deploying Error", e); //$NON-NLS-1$
 				}
 			};
 			public String getText() {
-				return Messages.AppfactoryApplicationListView_118;
+				return Messages.AppfactoryApplicationListView_repoDeployAction_menu_name;
 			}
 			@Override
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 Messages.AppfactoryApplicationListView_119);
+						 "/icons/deploy.gif"); //$NON-NLS-1$
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -927,12 +928,12 @@ public class AppfactoryApplicationListView extends ViewPart {
 			};
 
 			public String getText() {
-				return Messages.AppfactoryApplicationListView_120;
+				return Messages.AppfactoryApplicationListView_checkOutAction_menu_name;
 			}
 			@Override
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 Messages.AppfactoryApplicationListView_121);
+						 "/icons/checkout.gif"); //$NON-NLS-1$
 				return  imageDescriptorFromPlugin;
 			}
 		};
@@ -941,26 +942,27 @@ public class AppfactoryApplicationListView extends ViewPart {
 	
 	private Action importAction(final AppVersionInfo info) {
 		Action reposettings = new Action() {
-			public void run() {				
+			public void run() {	
+				getcheckoutJob(info);
 			    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
 				progressMonitorDialog.create();
 				progressMonitorDialog.open();
 				try {
 					progressMonitorDialog.run(true, false, new AppImportJobJob(info));
 				} catch (InvocationTargetException e) {
-					 log.error(Messages.AppfactoryApplicationListView_122, e);
+					 log.error("project open", e); //$NON-NLS-1$
 				} catch (InterruptedException e) {
-					log.error(Messages.AppfactoryApplicationListView_123, e);
+					log.error("project open", e); //$NON-NLS-1$
 				}
 			};
 
 			public String getText() {
-				return Messages.AppfactoryApplicationListView_124;
+				return Messages.AppfactoryApplicationListView_importAction_menu_name;
 			}
 			@Override
 			public ImageDescriptor getImageDescriptor() {
 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
-						 Messages.AppfactoryApplicationListView_125);
+						 "/icons/import.gif"); //$NON-NLS-1$
 				return  imageDescriptorFromPlugin;
 			}
 			
@@ -972,13 +974,42 @@ public class AppfactoryApplicationListView extends ViewPart {
 		};
 		return reposettings;
 	}
+	
+	private Action checkOutAndImportAction(final AppVersionInfo info) {
+		Action reposettings = new Action() {
+			public void run() {		
+				try {
+			    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
+				progressMonitorDialog.create();
+				progressMonitorDialog.open();
+				progressMonitorDialog.run(true, false, new AppCheckoutAndImportJobJob(info));
+				} catch (InvocationTargetException e) {
+					 log.error("project open", e); //$NON-NLS-1$
+				} catch (InterruptedException e) {
+					log.error("project open", e); //$NON-NLS-1$
+				}
+				
+			};
 
-	private void  getcheckoutJob(final AppVersionInfo info){
-		Job job = new Job(Messages.AppfactoryApplicationListView_126) {
+			public String getText() {
+				return Messages.AppfactoryApplicationListView_checkOutAndImportAction_menu_name;
+			}
+			@Override
+			public ImageDescriptor getImageDescriptor() {
+				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+						 "/icons/checkout.gif"); //$NON-NLS-1$
+				return  imageDescriptorFromPlugin;
+			}
+		};
+		return reposettings;
+	}
+	
+	private void getcheckoutJob(final AppVersionInfo info){
+		Job job = new Job(Messages.AppfactoryApplicationListView_getcheckoutJob_title) {
 		   @SuppressWarnings("restriction")
 			@Override
 			  protected IStatus run(final IProgressMonitor monitor) {
-				monitor.beginTask(Messages.AppfactoryApplicationListView_127, 100);
+				monitor.beginTask(Messages.AppfactoryApplicationListView_getcheckoutJob_monitor_msg_1, 100);
 				  UISynchronize uiSynchronize = new UISynchronize() {
 						@Override
 						public void syncExec(Runnable runnable) {
@@ -987,40 +1018,14 @@ public class AppfactoryApplicationListView extends ViewPart {
 						@Override
 						public void asyncExec(Runnable runnable) {
 						 try{
-							monitor.subTask(Messages.AppfactoryApplicationListView_128);
-							printInfoLog(Messages.AppfactoryApplicationListView_129);
-							monitor.worked(10);	  
-							if(info.getLocalRepo()==null||info.getLocalRepo().equals(Messages.AppfactoryApplicationListView_130)){
-							 info.setLocalRepo(ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString());
-							}
-							String localRepo =info.getLocalRepo()+File.separator+info.getAppName();
-							monitor.worked(20);	
-							JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
-							monitor.worked(30);
-							if(!manager.isCloned()){
-								manager.gitClone();
-								if(!Messages.AppfactoryApplicationListView_131.equals(info.getVersion())){	   
-										manager.checkout(info.getVersion());
-										monitor.worked(60);
-										monitor.subTask(Messages.AppfactoryApplicationListView_132);
-										printInfoLog(Messages.AppfactoryApplicationListView_133);
-									}
-							}else {
-								manager.checkout(info.getVersion());
-								monitor.worked(60);
-								monitor.subTask(Messages.AppfactoryApplicationListView_134);
-								printInfoLog(Messages.AppfactoryApplicationListView_135);
-							}
-                             info.setCheckedout(true);
-                             broker.send(Messages.AppfactoryApplicationListView_136, null);
+							 checkout(info, monitor);
 							 }catch(Exception e){
 								 monitor.worked(0);
-								 monitor.subTask(Messages.AppfactoryApplicationListView_137);
-								 printErrorLog(Messages.AppfactoryApplicationListView_138+e.getMessage()); 
-								 log.error(Messages.AppfactoryApplicationListView_139, e);
+								 monitor.subTask(Messages.AppfactoryApplicationListView_getcheckoutJob_monitor_msg_2);
+								 printErrorLog(Messages.AppfactoryApplicationListView_getcheckoutJob_plog_msg_2+e.getMessage()); 
+								 log.error("Cloning :", e); //$NON-NLS-1$
 						   }
 						}
-							
 					};
 					uiSynchronize.asyncExec(new Runnable() {
 						@Override
@@ -1035,7 +1040,41 @@ public class AppfactoryApplicationListView extends ViewPart {
 		job.schedule();
 	}	
 	
-	
+	@SuppressWarnings("restriction")
+	private void checkout(final AppVersionInfo info,
+			final IProgressMonitor monitor)
+			throws IOException, InvalidRemoteException,
+			TransportException, GitAPIException,
+			RefAlreadyExistsException,
+			RefNotFoundException, InvalidRefNameException,
+			CheckoutConflictException {
+		monitor.subTask(Messages.AppfactoryApplicationListView_checkout_moniter_msg_1);
+		printInfoLog(Messages.AppfactoryApplicationListView_checkout_plog_msg_1);
+		monitor.worked(10);	  
+		if(info.getLocalRepo()==null||info.getLocalRepo().equals("")){ //$NON-NLS-1$
+		 info.setLocalRepo(ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString());
+		}
+		String localRepo =info.getLocalRepo()+File.separator+info.getAppName();
+		monitor.worked(20);	
+		JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
+		monitor.worked(30);
+		if(!manager.isCloned()){
+			manager.gitClone();
+			if(!"trunk".equals(info.getVersion())){	    //$NON-NLS-1$
+					manager.checkout(info.getVersion());
+					monitor.worked(60);
+					monitor.subTask(Messages.AppfactoryApplicationListView_checkout_moniter_msg_2);
+					printInfoLog(Messages.AppfactoryApplicationListView_checkout_plog_msg_2);
+				}
+		}else {
+			manager.checkout(info.getVersion());
+			monitor.worked(60);
+			monitor.subTask(Messages.AppfactoryApplicationListView_checkout_moniter_msg_3);
+			printInfoLog(Messages.AppfactoryApplicationListView_checkout_plog_msg_3);
+		}
+         info.setCheckedout(true);
+         broker.send("Projectupdate", null); //$NON-NLS-1$
+	}
 	
 	/*private void openRepoSettingsWizard() {
 
@@ -1062,21 +1101,30 @@ public class AppfactoryApplicationListView extends ViewPart {
 	}
 */
 
-	public static AppfactoryApplicationDetailsView getAppDetailView() {
-	    return appDetailView;
-    }
+	private void openDSSettingsWizard() {
 
-	public static void setAppDetailView(AppfactoryApplicationDetailsView appDetailView) {
-	    AppfactoryApplicationListView.appDetailView = appDetailView;
-    }
-	
-	@Override
-	public void setFocus() {
-		// TODO Auto-generated method stub
-		
+		IWizardDescriptor descriptor = PlatformUI.getWorkbench()
+				.getNewWizardRegistry().findWizard(REPO_WIZARD_ID);
+		if (descriptor == null) {
+			descriptor = PlatformUI.getWorkbench().getImportWizardRegistry()
+					.findWizard(REPO_WIZARD_ID);
+		}
+		if (descriptor == null) {
+			descriptor = PlatformUI.getWorkbench().getExportWizardRegistry()
+					.findWizard(REPO_WIZARD_ID);
+		}
+		try {
+			if (descriptor != null) {
+				IWizard wizard = descriptor.createWizard();
+				WizardDialog wd = new WizardDialog(parent.getShell(), wizard);
+				wd.setTitle(wizard.getWindowTitle());
+				wd.open();
+			}
+		} catch (Exception e) {
+			 log.error("Wizard invoke error", e); //$NON-NLS-1$
+		}
 	}
-	
-private class AppImportJobJob implements IRunnableWithProgress {
+	private class AppImportJobJob implements IRunnableWithProgress {
 		
 	AppVersionInfo appInfo;
 	 public AppImportJobJob(AppVersionInfo appInfo) {
@@ -1085,17 +1133,17 @@ private class AppImportJobJob implements IRunnableWithProgress {
 	  
 		@Override
 		public void run(IProgressMonitor monitor) {
-			String operationText=Messages.AppfactoryApplicationListView_140;
+			String operationText=Messages.AppfactoryApplicationListView_AppImportJob_opMSG_1;
 			monitor.beginTask(operationText, 100);
 			try{
-				operationText=Messages.AppfactoryApplicationListView_141;
+				operationText=Messages.AppfactoryApplicationListView_AppImportJob_opMSG_2;
 				monitor.subTask(operationText);
 				monitor.worked(10);
 				IProjectDescription description = ResourcesPlugin
 						.getWorkspace()
 						.loadProjectDescription(new Path(appInfo.getLocalRepo()+
-								File.separator+appInfo.getAppName()+File.separator+Messages.AppfactoryApplicationListView_142));
-				operationText=Messages.AppfactoryApplicationListView_143;
+								File.separator+appInfo.getAppName()+File.separator+".project")); //$NON-NLS-1$
+				operationText=Messages.AppfactoryApplicationListView_AppImportJob_opMSG_3;
 				monitor.subTask(operationText);
 				monitor.worked(10); 
 				final IProject project = ResourcesPlugin.getWorkspace()
@@ -1112,10 +1160,10 @@ private class AppImportJobJob implements IRunnableWithProgress {
 				monitor.worked(80);
 				
 			}catch(Throwable e){
-				operationText=Messages.AppfactoryApplicationListView_144;
+				operationText=Messages.AppfactoryApplicationListView_AppImportJob_opMSG_4;
 				 monitor.subTask(operationText);
 				 monitor.worked(10); 
-				 log.error(Messages.AppfactoryApplicationListView_145, e);
+				 log.error("importing failed", e); //$NON-NLS-1$
 			}
 			
 			monitor.worked(100);
@@ -1123,5 +1171,52 @@ private class AppImportJobJob implements IRunnableWithProgress {
 		}
 	}  
 
+	private class AppCheckoutAndImportJobJob implements IRunnableWithProgress {
+	
+	AppVersionInfo appInfo;
+	 public AppCheckoutAndImportJobJob(AppVersionInfo appInfo) {
+		    this.appInfo = appInfo;
+    	}
+	  
+		@Override
+		public void run(IProgressMonitor monitor) {
+			String operationText=Messages.AppfactoryApplicationListView_AppCheckoutAndImportJob_opMSG_1;
+			monitor.beginTask(operationText, 100);
+			try{
+				checkout(appInfo, monitor);
+				operationText=Messages.AppfactoryApplicationListView_AppCheckoutAndImportJob_opMSG_2;
+				monitor.subTask(operationText);
+				monitor.worked(10);
+				IProjectDescription description = ResourcesPlugin
+						.getWorkspace()
+						.loadProjectDescription(new Path(appInfo.getLocalRepo()+
+								File.separator+appInfo.getAppName()+File.separator+".project")); //$NON-NLS-1$
+				operationText=Messages.AppfactoryApplicationListView_AppCheckoutAndImportJob_opMSG_3;
+				monitor.subTask(operationText);
+				monitor.worked(10); 
+				final IProject project = ResourcesPlugin.getWorkspace()
+						.getRoot().getProject(description.getName());
+				        if(!project.exists()){
+						   project.create(description,monitor);
+						   project.open(monitor);
+				        }	
+				ResourcesPlugin
+				.getWorkspace()
+				.getRoot()
+				.refreshLocal(IResource.DEPTH_INFINITE,
+						monitor);
+				monitor.worked(80);
+				
+			}catch(Throwable e){
+				 operationText=Messages.AppfactoryApplicationListView_AppCheckoutAndImportJob_Faild;
+				 monitor.subTask(operationText);
+				 monitor.worked(10); 
+				 log.error("importing failed", e); //$NON-NLS-1$
+			}
+			
+			monitor.worked(100);
+			monitor.done();
+		}
+	}  
 
 }

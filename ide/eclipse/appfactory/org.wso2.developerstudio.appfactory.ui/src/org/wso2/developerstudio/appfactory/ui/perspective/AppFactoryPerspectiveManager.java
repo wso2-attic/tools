@@ -23,7 +23,6 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PerspectiveAdapter;
 import org.eclipse.ui.PlatformUI;
-import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 
 public class AppFactoryPerspectiveManager implements IStartup {
 
@@ -39,7 +38,7 @@ public class AppFactoryPerspectiveManager implements IStartup {
                         public void perspectiveActivated(IWorkbenchPage page,
                                 IPerspectiveDescriptor perspectiveDescriptor) {
                           //  super.perspectiveActivated(page, perspectiveDescriptor);
-                            if(Messages.AppFactoryPerspectiveManager_0.equals(perspectiveDescriptor.getId())){
+                            if("org.wso2.developerstudio.appfactory.ui.perspective".equals(perspectiveDescriptor.getId())){
                             	
                             	try {
                             		if(val){

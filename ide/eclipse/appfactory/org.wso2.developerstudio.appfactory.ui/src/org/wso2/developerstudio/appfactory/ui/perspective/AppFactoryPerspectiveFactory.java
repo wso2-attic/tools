@@ -34,13 +34,13 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
-	private static final String APPLIST_ID = Messages.AppFactoryPerspectiveFactory_0 +
-			Messages.AppFactoryPerspectiveFactory_1;
-	private static final String APPDETILS_ID = Messages.AppFactoryPerspectiveFactory_2 +
-			Messages.AppFactoryPerspectiveFactory_3;
-	private static final String APPBUILD_ID = Messages.AppFactoryPerspectiveFactory_4 +
-			Messages.AppFactoryPerspectiveFactory_5;
-	private static final String PROJECT_EXPOR_VIEW = Messages.AppFactoryPerspectiveFactory_6;
+	private static final String APPLIST_ID = "org.wso2.developerstudio.appfactory.ui." + //$NON-NLS-1$
+			"views.AppfactoryApplicationListView"; //$NON-NLS-1$
+	private static final String APPDETILS_ID = "org.wso2.developerstudio.appfactory.ui." + //$NON-NLS-1$
+			"views.AppfactoryApplicationDetailsView"; //$NON-NLS-1$
+	private static final String APPBUILD_ID = "org.wso2.developerstudio.appfactory.ui." + //$NON-NLS-1$
+			"views.AppfactoryBuildInfoView"; //$NON-NLS-1$
+	private static final String PROJECT_EXPOR_VIEW = "org.eclipse.ui.navigator.ProjectExplorer"; //$NON-NLS-1$
 
 	private static IWebBrowser browser = null;
 
@@ -49,11 +49,6 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 		try {
 			LoginAction loginAction = new LoginAction();
 			if (loginAction.login()) {
-				/*Display.getCurrent()
-						.getActiveShell()
-						.setCursor(
-								(new Cursor(Display.getCurrent(),
-										SWT.CURSOR_WAIT)));*/
 				ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(
 						Display.getDefault().getActiveShell());
 				progressMonitorDialog.create();
@@ -63,29 +58,25 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 				AppFactoryPerspectiveManager.val = false;
 			}
 		} catch (Exception e) {
-		/*	Display.getCurrent()
-					.getActiveShell()
-					.setCursor(
-							(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));*/
-			log.error(Messages.AppFactoryPerspectiveFactory_7, e);
+			log.error("Perspective loading issue", e); //$NON-NLS-1$
 		}
 	}
 
 	private void addViews(IPageLayout appfacLayout) {
 		String editorArea = appfacLayout.getEditorArea();
-		IFolderLayout lef = appfacLayout.createFolder(Messages.AppFactoryPerspectiveFactory_8,
+		IFolderLayout lef = appfacLayout.createFolder("topLeft", //$NON-NLS-1$
 				IPageLayout.LEFT, 0.25f, editorArea);
 		lef.addView(PROJECT_EXPOR_VIEW);
 
-		IFolderLayout applist = appfacLayout.createFolder(Messages.AppFactoryPerspectiveFactory_9,
+		IFolderLayout applist = appfacLayout.createFolder("topRight", //$NON-NLS-1$
 				IPageLayout.RIGHT, 0.75f, editorArea);
 		applist.addView(APPLIST_ID);
 
-		IFolderLayout appDetails = appfacLayout.createFolder(Messages.AppFactoryPerspectiveFactory_10,
-				IPageLayout.BOTTOM, 0.60f, Messages.AppFactoryPerspectiveFactory_11);
+		IFolderLayout appDetails = appfacLayout.createFolder("BottomRight", //$NON-NLS-1$
+				IPageLayout.BOTTOM, 0.60f, "topRight"); //$NON-NLS-1$
 		appDetails.addView(APPDETILS_ID);
 
-		IFolderLayout buildInfo = appfacLayout.createFolder(Messages.AppFactoryPerspectiveFactory_12,
+		IFolderLayout buildInfo = appfacLayout.createFolder("Bottomt", //$NON-NLS-1$
 				IPageLayout.BOTTOM, 0.60f, appfacLayout.getEditorArea());
 		buildInfo.addView(IConsoleConstants.ID_CONSOLE_VIEW);
 	}
@@ -104,43 +95,27 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 		@Override
 		public void run(IProgressMonitor monitor)
 				throws InvocationTargetException, InterruptedException {
-			String operationText = Messages.AppFactoryPerspectiveFactory_13;
+			String operationText = Messages.AppFactoryPerspectiveFactory_LoadAppFacPerfectiveJob_monitor_op_text1;
 			monitor.beginTask(operationText, 100);
 			monitor.worked(10);
 			try {
 				AppFactoryPerspectiveManager.val = false;
-				operationText = Messages.AppFactoryPerspectiveFactory_14;
+				operationText = Messages.AppFactoryPerspectiveFactory_LoadAppFacPerfectiveJob_monitor_op_text2;
 				monitor.subTask(operationText);
 				monitor.worked(50);
-				operationText = Messages.AppFactoryPerspectiveFactory_15;
+				operationText = Messages.AppFactoryPerspectiveFactory_LoadAppFacPerfectiveJob_monitor_op_text3;
 				monitor.subTask(operationText);
 				addViews(appfacLayout);
 				monitor.worked(80);
-				/*
-				 * String appFactoryPreferenceURL =
-				 * loginAction.getPreferenceStore
-				 * ().getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION);
-				 * Stop Opening the Web browser since there is a eclipse bug
-				 * that will kill whole eclipse IWorkbenchBrowserSupport
-				 * browserSupport =
-				 * Activator.getDefault().getWorkbench().getBrowserSupport();
-				 * browser =
-				 * browserSupport.createBrowser(IWorkbenchBrowserSupport
-				 * .LOCATION_BAR, null, null, null); URL url = new
-				 * URL("http://www.google.com/ncr");
-				 * if(appFactoryPreferenceURL!= null &&
-				 * !appFactoryPreferenceURL.equals("")){ browser.openURL(new
-				 * URL(appFactoryPreferenceURL)); }else{ browser.openURL(url); }
-				 */
-				operationText = Messages.AppFactoryPerspectiveFactory_16;
+				operationText = Messages.AppFactoryPerspectiveFactory_LoadAppFacPerfectiveJob_monitor_op_text4;
 				monitor.subTask(operationText);
 				monitor.worked(100);
 			} catch (Exception e) {
 				operationText = e.getMessage();
-				monitor.subTask(Messages.AppFactoryPerspectiveFactory_17+operationText);
+				monitor.subTask(Messages.AppFactoryPerspectiveFactory_LoadAppFacPerfectiveJob_monitor_op_text5+operationText);
 				monitor.worked(0);
 				monitor.setCanceled(true);
-				log.error(Messages.AppFactoryPerspectiveFactory_18, e);
+				log.error("updateprocess error", e); //$NON-NLS-1$
 			}
 
 			monitor.worked(100);
