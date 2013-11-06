@@ -26,7 +26,9 @@ public class HTTPEndpointDeserializer extends AbstractEndpointDeserializer{
 		setElementToEdit(endPoint);
 		deserializeEndpoint(httpEndpoint,endPoint);
 		
-		executeSetValueCommand(HTTP_ENDPOINT__URI_TEMPLATE, httpEndpoint.getUriTemplate().getTemplate());
+		if(httpEndpoint.getUriTemplate() !=null){
+			executeSetValueCommand(HTTP_ENDPOINT__URI_TEMPLATE, httpEndpoint.getUriTemplate().getTemplate());
+		}
 		if (httpEndpoint.getHttpMethod() != null) {
 			executeSetValueCommand(HTTP_ENDPOINT__HTTP_METHOD, HttpMethodType.get(httpEndpoint.getHttpMethod().toUpperCase()));
 		}
