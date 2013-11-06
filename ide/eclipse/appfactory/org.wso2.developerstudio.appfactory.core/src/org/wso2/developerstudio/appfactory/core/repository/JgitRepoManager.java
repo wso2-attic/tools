@@ -22,11 +22,10 @@ import org.eclipse.jgit.api.errors.*;
 import org.eclipse.jgit.api.CreateBranchCommand.SetupUpstreamMode;
 import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.storage.file.FileRepository;
+import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
-import org.wso2.developerstudio.appfactory.core.utils.Messages;
 import org.wso2.developerstudio.eclipse.distribution.project.ui.wizard.ProjectsImportPage;
 import org.wso2.developerstudio.eclipse.distribution.project.ui.wizard.ProjectsImportPage.ProjectRecord;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -45,11 +44,11 @@ public class JgitRepoManager {
     public JgitRepoManager(String localPath,String uri) throws IOException {
     	 this.localPath =localPath;
          this.remotePath = uri;
-         File gitDir = new File(localPath +File.separator+ Messages.JgitRepoManager_0);
+         File gitDir = new File(localPath +File.separator+ ".git");
          if(gitDir.exists()){
         	 setCloned(true);
          }
-         localRepo = new FileRepository(gitDir);
+         localRepo = FileRepositoryBuilder.create(gitDir);
          git = new Git(localRepo); 
          UserPasswordCredentials credentials = Authenticator.getInstance().getCredentials();
          provider = new UsernamePasswordCredentialsProvider(credentials.getUser(), credentials.getPassword());
@@ -58,10 +57,12 @@ public class JgitRepoManager {
 	}
    public void createGitRepo(){
 		try {
-			localRepo = new FileRepository(localPath +File.separator +Messages.JgitRepoManager_1);
+			 File gitDir = new File(localPath +File.separator+ ".git");
+			 localRepo = FileRepositoryBuilder.create(gitDir);
+			//localRepo = new FileRepository(localPath +File.separator +".git");
 			localRepo.create();
 		} catch (Exception e) {
-			log.error(Messages.JgitRepoManager_2, e);
+			log.error("Git Repository creation Error : ", e);
 		}
     }
 
@@ -78,7 +79,7 @@ public class JgitRepoManager {
 			git.branchCreate()
 				.setForce(true)
 				.setName(branch)
-				.setStartPoint(Messages.JgitRepoManager_3 + branch)
+				.setStartPoint("origin/" + branch)
 				.call();
 	}
 	
@@ -94,8 +95,8 @@ public class JgitRepoManager {
 	public void checkout(String branch) throws RefAlreadyExistsException,
 	RefNotFoundException, InvalidRefNameException,
 	CheckoutConflictException, GitAPIException, IOException {
-		 if (Messages.JgitRepoManager_4.equals(branch)){
-			 branch =Messages.JgitRepoManager_5;
+		 if ("trunk".equals(branch)){
+			 branch ="master";
 		 }
           Ref ref = git.getRepository().getRef(branch);
           if(ref==null){
@@ -112,7 +113,7 @@ public class JgitRepoManager {
 				.setCreateBranch(true)
 				.setName(branch)
 				.setUpstreamMode(CreateBranchCommand.SetupUpstreamMode.TRACK)
-				.setStartPoint(Messages.JgitRepoManager_6 + branch)
+				.setStartPoint("origin/" + branch)
 				.setForce(true)
 				.call();
 
@@ -125,7 +126,7 @@ public class JgitRepoManager {
 		.setCreateBranch(false)
 		.setName(branch)
 		.setUpstreamMode(CreateBranchCommand.SetupUpstreamMode.TRACK)
-		.setStartPoint(Messages.JgitRepoManager_7 + branch)
+		.setStartPoint("origin/" + branch)
 		.setForce(true)
 		.call();
 
@@ -137,7 +138,7 @@ public class JgitRepoManager {
 		    git.branchCreate()
 		       .setName(branch)
 			   .setUpstreamMode(SetupUpstreamMode.SET_UPSTREAM)
-			   .setStartPoint(Messages.JgitRepoManager_8+ branch)
+			   .setStartPoint("origin/"+ branch)
 			   .setForce(true)
 			   .call();
 	}
@@ -149,15 +150,9 @@ public class JgitRepoManager {
     public void CloseRepo(){
     	localRepo.close();
     }
-
-
-
 	public boolean isCloned() {
 		return cloned;
 	}
-
-
-
 	public void setCloned(boolean cloned) {
 		this.cloned = cloned;
 	}

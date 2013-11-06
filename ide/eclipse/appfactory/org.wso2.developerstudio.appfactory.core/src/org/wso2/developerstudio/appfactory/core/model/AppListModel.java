@@ -16,16 +16,43 @@
 
 package org.wso2.developerstudio.appfactory.core.model;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import javax.xml.namespace.QName;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.soap.MessageFactory;
+import javax.xml.soap.SOAPBody;
+import javax.xml.soap.SOAPElement;
+import javax.xml.soap.SOAPException;
+import javax.xml.soap.SOAPMessage;
+
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.http.HttpResponse;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
+import org.wso2.developerstudio.appfactory.core.client.RssClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
-import org.wso2.developerstudio.appfactory.core.utils.Messages;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -35,6 +62,9 @@ import com.google.gson.JsonParser;
  
 
 public class AppListModel {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 		public List<ApplicationInfo> getCategories(List<ApplicationInfo> apps) {
 			// TODO  can do changes to default model
 		for (ApplicationInfo applicationInfo : apps) {
@@ -45,22 +75,22 @@ public class AppListModel {
 	  }
 
 	public boolean setversionInfo(ApplicationInfo applicationInfo) {
-		String respond = Messages.AppListModel_0;
+		String respond = "";
 		/* Getting version information */
 		Map<String, String> params = new HashMap<String, String>();
-		params.put(Messages.AppListModel_1, JagApiProperties.App_NIFO_ACTION);
-		params.put(Messages.AppListModel_2, Messages.AppListModel_3);
-		params.put(Messages.AppListModel_4, Authenticator.getInstance().getCredentials()
+		params.put("action", JagApiProperties.App_NIFO_ACTION);
+		params.put("stageName", "Development");
+		params.put("userName", Authenticator.getInstance().getCredentials()
 				.getUser());
-		params.put(Messages.AppListModel_5, applicationInfo.getKey());
+		params.put("applicationKey", applicationInfo.getKey());
 		respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(),
 				params);
-		if (Messages.AppListModel_6.equals(respond)) {
+		if ("false".equals(respond)) {
 			return false;
 		} else {
 			JsonElement jelement = new JsonParser().parse(respond);
 			JsonElement jsonElement = jelement.getAsJsonArray().get(0)
-					.getAsJsonObject().get(Messages.AppListModel_7);
+					.getAsJsonObject().get("versions");
 			JsonArray infoArray = jsonElement.getAsJsonArray();
 			ArrayList<AppVersionInfo> appVersionList = new ArrayList<AppVersionInfo>();
 			for (JsonElement jsonElement2 : infoArray) {
@@ -82,11 +112,11 @@ public class AppListModel {
 		Map<String, String> params;
 		JsonElement jelement;
 		params = new HashMap<String, String>();
-		params.put(Messages.AppListModel_8, JagApiProperties.App_USERS_ROLES_ACTION);
-		params.put(Messages.AppListModel_9, applicationInfo.getKey());
+		params.put("action", JagApiProperties.App_USERS_ROLES_ACTION);
+		params.put("applicationKey", applicationInfo.getKey());
 		respond = HttpsJaggeryClient.httpPost(
 				JagApiProperties.getAppUserRolesUrlS(), params);
-		if (Messages.AppListModel_10.equals(respond)) {
+		if ("false".equals(respond)) {
 			return false;
 		} else {
 			jelement = new JsonParser().parse(respond);
@@ -103,16 +133,98 @@ public class AppListModel {
 		}
 	}
 	
+ 
+	public boolean setDSInfomation(ApplicationInfo applicationInfo) {
+		String respond;
+		Map<String, String> params;
+		params = new HashMap<String, String>();
+		params.put("action", JagApiProperties.App_DS_INFO_ACTION);
+		params.put("stage", "Development");
+		respond = HttpsJaggeryClient.httpPost(
+				JagApiProperties.getAppDsInfoUrl(), params);
+		if ("false".equals(respond)) {
+			return false;
+		} else {
+			RssClient.getDBinfo("reloadAllDataSources", respond);
+			String dsinfo = RssClient.getDBinfo("getAllDataSources", respond);
+			if (dsinfo == null) {
+				return false;
+			}
+			try {
+				List<DataSource> dsModels = new ArrayList<DataSource>();
+				InputStream is = new ByteArrayInputStream(dsinfo.getBytes());
+				SOAPMessage msg = MessageFactory.newInstance().createMessage(null, is);
+				SOAPBody soapBody = msg.getSOAPBody();
+
+				SOAPElement allDataSources = (SOAPElement) soapBody.getFirstChild();
+				@SuppressWarnings("unchecked")
+				Iterator<SOAPElement> dsList = allDataSources.getChildElements();
+				while (dsList.hasNext()) {
+					SOAPElement isactive = (SOAPElement) dsList.next().getLastChild().getLastChild();
+					if ("ACTIVE".equalsIgnoreCase(isactive.getValue())) {
+						try {
+							DataSource dsModel = new DataSource();
+							SOAPElement dsMetaInfo = (SOAPElement) dsList
+									.next().getFirstChild();
+							SOAPElement dsName = (SOAPElement) dsMetaInfo
+									.getElementsByTagNameNS( "http://services.core.ndatasource.carbon.wso2.org/xsd",
+											"name").item(0);
+							dsModel.setName(dsName.getValue());
+							SOAPElement dsDefinition = (SOAPElement) dsMetaInfo.getFirstChild();
+							SOAPElement dsType = (SOAPElement) dsDefinition
+									.getElementsByTagNameNS(
+											"http://services.core.ndatasource.carbon.wso2.org/xsd",
+											"type").item(0);
+							dsModel.setType(dsType.getValue());
+							SOAPElement dsXMLConfiguration = (SOAPElement) dsDefinition
+									.getFirstChild();
+							Map<String, String> dbconfig = new HashMap<String, String>();
+							String xmlSource = dsXMLConfiguration.getValue();
+
+							DocumentBuilderFactory factory = DocumentBuilderFactory
+									.newInstance();
+							DocumentBuilder builder = factory
+									.newDocumentBuilder();
+							Document doc = builder.parse(new InputSource(
+									new StringReader(xmlSource)));
+							Node firstChild = doc.getFirstChild();
+							NodeList childNodes = firstChild.getChildNodes();
+							for (int temp = 0; temp < childNodes.getLength(); temp++) {
+								Node nNode = childNodes.item(temp);
+								Element eElement = (Element) nNode;
+								dbconfig.put(eElement.getNodeName(),
+										eElement.getTextContent());
+							}
+							dsModel.setConfig(dbconfig);
+							dsModels.add(dsModel);
+						} catch (Exception e) {
+							log.error("DataSource Response msg processing error",e);
+						}
+
+					}
+				}
+
+				applicationInfo.setDatasources(dsModels);
+			} catch (IOException e) {
+				return false;
+
+			} catch (SOAPException e) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public boolean setDBInfomation(ApplicationInfo applicationInfo) {
 		String respond;
 		Map<String, String> params;
 		JsonElement jelement;
 		params = new HashMap<String, String>();
-		params.put(Messages.AppListModel_11, JagApiProperties.App_DB_INFO_ACTION);
-		params.put(Messages.AppListModel_12, applicationInfo.getKey());
+		params.put("action", JagApiProperties.App_DB_INFO_ACTION);
+		params.put("applicationKey", applicationInfo.getKey());
 		respond = HttpsJaggeryClient.httpPost(
 				JagApiProperties.getAppUserDbInfoUrl(), params);
-		if (Messages.AppListModel_13.equals(respond)) {
+		if ("false".equals(respond)) {
 			return false;
 		} else {
 			jelement = new JsonParser().parse(respond);
@@ -120,28 +232,28 @@ public class AppListModel {
 			ArrayList<AppDBinfo> appDbList = new ArrayList<AppDBinfo>();
 			for (JsonElement jsonElement3 : infoArray2) {
 				JsonObject asJsonObject = jsonElement3.getAsJsonObject();
-				String stage = asJsonObject.get(Messages.AppListModel_14).getAsString();
-				if(Messages.AppListModel_15.equals(stage)){
+				String stage = asJsonObject.get("stage").getAsString();
+				if("Development".equals(stage)){
 					AppDBinfo appDBinfo = new AppDBinfo();
-					JsonArray dbArray = asJsonObject.get(Messages.AppListModel_16).getAsJsonArray();
+					JsonArray dbArray = asJsonObject.get("dbs").getAsJsonArray();
 					List<Map<String,String>> dbs = new ArrayList<Map<String,String>>();
 					for (JsonElement jsonElement : dbArray) {
 						 HashMap<String, String> dbInfo = new HashMap<String, String>();
-						 dbInfo.put(Messages.AppListModel_17,jsonElement.getAsJsonObject().get(Messages.AppListModel_18).getAsString());
-						 dbInfo.put(Messages.AppListModel_19,jsonElement.getAsJsonObject().get(Messages.AppListModel_20).getAsString());
+						 dbInfo.put("dbName",jsonElement.getAsJsonObject().get("dbName").getAsString());
+						 dbInfo.put("url",jsonElement.getAsJsonObject().get("url").getAsString());
 						 dbs.add(dbInfo);
 					}
 					appDBinfo.setDbs(dbs);
-					JsonArray dbusers = asJsonObject.get(Messages.AppListModel_21).getAsJsonArray();
+					JsonArray dbusers = asJsonObject.get("users").getAsJsonArray();
 					List<String> usr = new ArrayList<String>();
 					for (JsonElement jsonElement : dbusers) {
-						usr.add(jsonElement.getAsJsonObject().get(Messages.AppListModel_22).getAsString());
+						usr.add(jsonElement.getAsJsonObject().get("name").getAsString());
 					}
 					appDBinfo.setUsr(usr);
-					JsonArray dbtemplates = asJsonObject.get(Messages.AppListModel_23).getAsJsonArray();
+					JsonArray dbtemplates = asJsonObject.get("templates").getAsJsonArray();
 					List<String> temple = new ArrayList<String>();
 					for (JsonElement jsonElement : dbtemplates) {
-						temple.add(jsonElement.getAsJsonObject().get(Messages.AppListModel_24).getAsString());
+						temple.add(jsonElement.getAsJsonObject().get("name").getAsString());
 					}
 					appDBinfo.setUsr(temple);
 					appDbList.add(appDBinfo);

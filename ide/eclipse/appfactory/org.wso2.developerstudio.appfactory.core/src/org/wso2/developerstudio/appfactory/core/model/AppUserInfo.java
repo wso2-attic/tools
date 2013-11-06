@@ -16,34 +16,85 @@
 package org.wso2.developerstudio.appfactory.core.model;
 
 public class AppUserInfo {
-	
-private String userName;
-private String userDisplayName;
-private String roles;
-private String displayName;
 
-public String getUserName() {
-	return userName;
-}
-public void setUserName(String userName) {
-	this.userName = userName;
-}
-public String getUserDisplayName() {
-	return userDisplayName;
-}
-public void setUserDisplayName(String userDisplayName) {
-	this.userDisplayName = userDisplayName;
-}
-public String getRoles() {
-	return roles;
-}
-public void setRoles(String roles) {
-	this.roles = roles;
-}
-public String getDisplayName() {
-	return displayName;
-}
-public void setDisplayName(String displayName) {
-	this.displayName = displayName;
-}
+	private String userName;
+	private String[] roles;
+	private String[] displayRoles;
+	private String displayName;
+	private String firstName;
+	private String lastName;
+	private String email;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String[] getRoles() {
+		return roles;
+	}
+
+	public String[] getDisplayroles() {
+		return displayRoles;
+	}
+
+	public void setDisplayroles(String[] displayroles) {
+		this.displayRoles = displayroles;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getEmail() {
+		if (email == null) {
+			return " NA ";
+		}
+		return email;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setRoles(String[] roles) {
+		this.roles = roles;
+	}
+
+	public String getDisplayName() {
+		return displayName;
+	}
+
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
+	}
+
+	public String getDisplayRolesAsString() {
+		StringBuilder builder = new StringBuilder();
+		if (displayRoles != null) {
+			for (String role : displayRoles) {
+				if (role != null) {
+					builder.append(role);
+					builder.append(", ");
+				}
+			}
+		}
+
+		return builder.toString();
+	}
 }

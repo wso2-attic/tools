@@ -29,7 +29,6 @@ import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
-import org.wso2.developerstudio.appfactory.core.utils.Messages;
 
 public class Authenticator {
 
@@ -61,9 +60,6 @@ public class Authenticator {
 	protected Authenticator() {
 
 	}
-	
-
-
 	public static Authenticator getInstance() {
 		if (authanticator == null) {
 			authanticator = new Authenticator();
@@ -76,18 +72,21 @@ public class Authenticator {
 	public boolean Authenticate(String serverUrl,
 			UserPasswordCredentials credentials) throws Exception {
 		
-		Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
-	    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
+		Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(),
+				SWT.CURSOR_WAIT)));
+	    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(
+	    		Display.getDefault().getActiveShell());
 		progressMonitorDialog.create();
 		progressMonitorDialog.open();
-		progressMonitorDialog.run(true, false, new LoginToAppFacPerfectiveJob(credentials,serverUrl,this));
+		progressMonitorDialog.run(true, false, new LoginToAppFacPerfectiveJob(
+				credentials,serverUrl,this));
 		
 		while(true){
-			if(Messages.Authenticator_0.equals(this.result)){
+			if("true".equals(this.result)){
 				this.serverURL = serverUrl;
 				this.credentials = credentials;
 				return true;
-			}else if(Messages.Authenticator_1.equals(this.result)){
+			}else if("false".equals(this.result)){
 				return false;
 			}
 		}
@@ -96,11 +95,11 @@ public class Authenticator {
 	public boolean reLogin()
 	{
 		Map<String, String> params = new HashMap<String, String>();
-		params.put(Messages.Authenticator_2, Messages.Authenticator_3);
-		params.put(Messages.Authenticator_4, credentials.getUser());
-		params.put(Messages.Authenticator_5, credentials.getPassword());
+		params.put("action", "login");
+		params.put("userName", credentials.getUser());
+		params.put("password", credentials.getPassword());
 		String value = HttpsJaggeryClient.httpPostLogin(JagApiProperties.getLoginUrl(), params);
-		if (!Messages.Authenticator_6.equals(value)) {
+		if (!"false".equals(value)) {
 			 return true;
 		}else{
 			 return false;
@@ -121,7 +120,8 @@ public class Authenticator {
 		UserPasswordCredentials credentials;
 		String serverUrl;
 		Authenticator authenticator;
-	 public LoginToAppFacPerfectiveJob(UserPasswordCredentials credentials,String serverUrl,Authenticator authenticator) {
+	 public LoginToAppFacPerfectiveJob(UserPasswordCredentials credentials,String serverUrl,
+			 Authenticator authenticator) {
 		 this.credentials = credentials;
 		 this.serverUrl = serverUrl;
 		 this.authenticator = authenticator;
@@ -129,43 +129,44 @@ public class Authenticator {
 	  
 		@Override
 		public void run(IProgressMonitor monitor) {
-			String operationText=Messages.Authenticator_7+JagApiProperties.getDomain();
+			String operationText="fetching data from AppFactory "+JagApiProperties.getDomain();
 			monitor.beginTask(operationText, 100);
 			try{
-				operationText=Messages.Authenticator_8;
+				operationText="validating credentials";
 				monitor.subTask(operationText);
 				monitor.worked(10);
-				if(Messages.Authenticator_9.equals(credentials.getUser())||Messages.Authenticator_10.equals(credentials.getPassword())){
-					operationText=Messages.Authenticator_11;
+				if("".equals(credentials.getUser())||"".equals(credentials.getPassword())){
+					operationText="Incorrect format of credentials";
 					monitor.subTask(operationText);
 					monitor.worked(0);
 					monitor.setCanceled(true);
-					authenticator.setResult(Messages.Authenticator_12);
-					Authenticator.getInstance().getErrorModel().setMessage(Messages.Authenticator_13);
+					authenticator.setResult("false");
+					Authenticator.getInstance().getErrorModel().setMessage(
+							"Username or password cannot be empty !!");
 				    List<String> resions = new ArrayList<String>();
-		    	    errorModel.setReasons(resions);
+		    	    errorModel.setResions(resions);
 					return;
 				}
-				operationText=Messages.Authenticator_14;
+				operationText="Sending login request...";
 				monitor.subTask(operationText);
 				monitor.worked(20);
 				Map<String, String> params = new HashMap<String, String>();
-				params.put(Messages.Authenticator_15, Messages.Authenticator_16);
-				params.put(Messages.Authenticator_17, credentials.getUser());
-				params.put(Messages.Authenticator_18, credentials.getPassword());
+				params.put("action", "login");
+				params.put("userName", credentials.getUser());
+				params.put("password", credentials.getPassword());
 				String value = HttpsJaggeryClient.httpPostLogin(serverUrl, params);
-				if (!Messages.Authenticator_19.equals(value)) {
-					operationText=Messages.Authenticator_20;
-					authenticator.setResult(Messages.Authenticator_21);
+				if (!"false".equals(value)) {
+					operationText="Login successfully ";
+					authenticator.setResult("true");
 				}else{
-					operationText=Messages.Authenticator_22;
-					authenticator.setResult(Messages.Authenticator_23);	
+					operationText="Login unsuccessfully due to invalid credentials";
+					authenticator.setResult("false");	
 				}
 				monitor.subTask(operationText);
 				monitor.worked(80);
 			}catch(Exception e){
 				
-				authenticator.setResult(Messages.Authenticator_24);
+				authenticator.setResult("false");
 							operationText=e.getMessage();
 				monitor.beginTask(operationText, 100);
 				monitor.worked(0);

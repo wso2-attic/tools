@@ -46,7 +46,6 @@ import org.apache.http.util.EntityUtils;
 import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
-import org.wso2.developerstudio.appfactory.core.utils.Messages;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
  
@@ -65,8 +64,7 @@ public class HttpsJaggeryClient {
 	public static String httpPost(String urlStr, Map<String,String> params){
 		   
 		    HttpPost post = new HttpPost(urlStr);
-		   //  PostMethod postMethod = new PostMethod(urlStr);
-		    String respond = Messages.HttpsJaggeryClient_0;
+		    String respond = "";
 		    HttpResponse response=null;
 	         try{
 		      List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
@@ -76,12 +74,11 @@ public class HttpsJaggeryClient {
 			   }
 		      post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 		      response = client.execute(post);
-		    //  client.executeMethod(post);
 		      if(200==response.getStatusLine().getStatusCode()){
 		      HttpEntity entityGetAppsOfUser = response.getEntity();
 		      BufferedReader rd = new BufferedReader(new InputStreamReader(entityGetAppsOfUser.getContent()));
 		      StringBuilder sb = new StringBuilder();
-		      String line =Messages.HttpsJaggeryClient_1;
+		      String line ="";
 		      while ((line = rd.readLine()) != null) {
 		                  sb.append(line);
 		            }
@@ -92,29 +89,29 @@ public class HttpsJaggeryClient {
 		    	}
 		      }else{
 		    	     ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
-		    	     errorModel.setMessage(Messages.HttpsJaggeryClient_2);
+		    	     errorModel.setMessage("Error respond Code");
 		    	     List<String> reasons = new ArrayList<String>();
-		    	     reasons.add(Messages.HttpsJaggeryClient_3+response.getStatusLine().getStatusCode());
+		    	     reasons.add(""+response.getStatusLine().getStatusCode());
 		    	     reasons.add(response.getStatusLine().getReasonPhrase()); 
-		    	     errorModel.setReasons(reasons);
-		    	  return Messages.HttpsJaggeryClient_4;
+		    	     errorModel.setResions(reasons);
+		    	  return "false";
 		      }
 		     
 	      }catch(Exception e){
 	    	  
 	    	     ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
 	    	     
-	    	     errorModel.setMessage(Messages.HttpsJaggeryClient_5);
+	    	     errorModel.setMessage("Could not connect to the AppFactory due to one of the following reasons");
 	    	     List<String> reasons = new ArrayList<String>();
-	    	     reasons.add(Messages.HttpsJaggeryClient_6);
-	    	     reasons.add(Messages.HttpsJaggeryClient_7);
-	    	     reasons.add(Messages.HttpsJaggeryClient_8);
+	    	     reasons.add("1 Network connection failure");
+	    	     reasons.add("2 Unknown Host-name");
+	    	     reasons.add("3 Connection time out");
 	    	     reasons.add(e.getMessage());
-	    	     reasons.add(Messages.HttpsJaggeryClient_9);
-	    	     reasons.add(Messages.HttpsJaggeryClient_10);
-	    	     errorModel.setReasons(reasons);
-	    	     log.error(Messages.HttpsJaggeryClient_11,e); 
-	        	 return Messages.HttpsJaggeryClient_12;
+	    	     reasons.add("");
+	    	     reasons.add("Please refer the log file for more details");
+	    	     errorModel.setResions(reasons);
+	    	     log.error("Connection failure",e); 
+	        	 return "false";
 	         } finally{
 	           client.getConnectionManager().closeExpiredConnections();
 	         }
@@ -124,7 +121,7 @@ public class HttpsJaggeryClient {
 	@SuppressWarnings("deprecation")
 	public static HttpClient wrapClient(HttpClient base,String urlStr) {
         try {
-            SSLContext ctx = SSLContext.getInstance(Messages.HttpsJaggeryClient_13);
+            SSLContext ctx = SSLContext.getInstance("TLS");
             X509TrustManager tm = new X509TrustManager() {
 
                 public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException {
@@ -149,11 +146,11 @@ public class HttpsJaggeryClient {
             	port=443;
             }
             String protocol = url.getProtocol();
-            if(Messages.HttpsJaggeryClient_14.equals(protocol)){
+            if("https".equals(protocol)){
             	 if(port==-1){
                  	port=443;
                  }
-            }else if(Messages.HttpsJaggeryClient_15.equals(protocol)){
+            }else if("http".equals(protocol)){
             	 if(port==-1){
                  	port=80;
                  }
@@ -163,7 +160,7 @@ public class HttpsJaggeryClient {
             return new DefaultHttpClient(ccm, base.getParams());
         } catch (Throwable ex) {
             ex.printStackTrace();
-            log.error(Messages.HttpsJaggeryClient_16, ex);
+            log.error("Trust Manager Error", ex);
             return null;
         } 
     }

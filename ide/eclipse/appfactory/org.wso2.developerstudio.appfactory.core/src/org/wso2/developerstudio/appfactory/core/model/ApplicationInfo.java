@@ -32,7 +32,7 @@ public class ApplicationInfo{
 	private long revision;
 	private String applicationOwner;
 	private List<AppUserInfo> applicationDevelopers;
-	private List<String> datasources;
+	private List<DataSource> datasources;
 	private List<AppDBinfo> databases;
 	private List<String> apis;
 	private List<String> properties;
@@ -140,7 +140,7 @@ public class ApplicationInfo{
 	/**
 	 * @return the datasources
 	 */
-    public List<String> getDatasources() {
+    public List<DataSource> getDatasources() {
     	if(datasources==null){
     		return Collections.EMPTY_LIST;
     	}
@@ -150,7 +150,7 @@ public class ApplicationInfo{
 	/**
 	 * @param datasources the datasources to set
 	 */
-    public void setDatasources(List<String> datasources) {
+    public void setDatasources(List<DataSource> datasources) {
 	    this.datasources = datasources;
     }
 
