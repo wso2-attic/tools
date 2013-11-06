@@ -27,6 +27,16 @@
         <checksumPolicy>ignore</checksumPolicy>
       </releases>
    </repository>
+	<repository>
+			<id>egit-p2-repo</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/egit/updates</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>ignore</checksumPolicy>
+			</releases>
+  	  </repository>
   </repositories>
 </project>
 
