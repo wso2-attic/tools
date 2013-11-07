@@ -51,11 +51,9 @@ public class SynapseFieldsController extends AbstractFieldController {
 				throw new FieldValidationException("Specified project or path doesn't exist");
 		} else if(modelProperty.equals("import.file") || modelProperty.equals("available.af")){
 			SynapseModel synapseModel = (SynapseModel)model;
-			if(synapseModel.isESBartifactsCreate()){
 				if(null==synapseModel.getSelectedArtifacts() || synapseModel.getSelectedArtifacts().size() <=0){
 					throw new FieldValidationException("Please select at least one artifact");
 				}
-			}
 		}
 	}
 	
@@ -70,15 +68,7 @@ public class SynapseFieldsController extends AbstractFieldController {
 		} 
     	return updateFields;
     }
-    
-    public boolean isVisibleField(String modelProperty, ProjectDataModel model) {
-    	boolean isEnable = super.isEnableField(modelProperty, model);
-    	if(modelProperty.equals("available.af")){
-    		isEnable=((SynapseModel)model).isESBartifactsCreate(); 
-    	}    	
-    	return isEnable;
-    }
-    
+       
 	public boolean isReadOnlyField(String modelProperty, ProjectDataModel model) {
 		boolean readOnlyField = super.isReadOnlyField(modelProperty, model);
 		if (modelProperty.equals("save.file")) {

@@ -49,7 +49,7 @@ public class SynapseModel extends ProjectDataModel {
 	private IContainer esbProject;
 	private List<OMElement> availablePLESList;
 	private List<OMElement> selectedArtifacts=new ArrayList<OMElement>();
-	private boolean isESBartifactsCreate;
+
 	
  	public Object getModelPropertyValue(String key) {
 	  Object modelPropertyValue = super.getModelPropertyValue(key);
@@ -61,8 +61,6 @@ public class SynapseModel extends ProjectDataModel {
 			if(getSelectedArtifacts()!=null){
 				modelPropertyValue = getSelectedArtifacts().toArray();
 			}
-		}else if(key.equals("create.esb.af")){
-			modelPropertyValue = isESBartifactsCreate();
 		}
 	  return modelPropertyValue;
 	} 
@@ -79,8 +77,6 @@ public class SynapseModel extends ProjectDataModel {
 			if(esbProject!=null){
 				setEsbProject(esbProject);
 			}
-		}else if("create.esb.af".equals(key)){
-			isESBartifactsCreate =(Boolean)data;
 		}else if ("import.file".equals(key)) {
 			if (getImportFile() != null && !getImportFile().toString().equals("")) {
 				try {
@@ -191,14 +187,6 @@ public class SynapseModel extends ProjectDataModel {
 
 	public void setAvailablePLESList(List<OMElement> availablePLESList) {
 		this.availablePLESList = availablePLESList;
-	}
-
-	public void setESBartifactsCreate(boolean isESBartifactsCreate) {
-		this.isESBartifactsCreate = isESBartifactsCreate;
-	}
-
-	public boolean isESBartifactsCreate() {
-		return isESBartifactsCreate;
 	}
 
 	public void setSelectedArtifacts(List<OMElement> selectedArtifacts) {

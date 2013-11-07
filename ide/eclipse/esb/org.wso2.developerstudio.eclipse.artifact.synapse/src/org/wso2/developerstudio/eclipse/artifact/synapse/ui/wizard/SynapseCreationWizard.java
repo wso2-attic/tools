@@ -104,20 +104,8 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			} else if (synapseModel.getSelectedOption().equals("new.synapse.tp")) {
 				this.createNewSynapseConfig(SynapseClassTemplate.getRichTemplate(),groupId);
 			} else if (synapseModel.getSelectedOption().equals("import.synapse.config")) {
-				if (synapseModel.isESBartifactsCreate()) {
 					List<OMElement> esbArtiList = synapseModel.getSelectedArtifacts();
 					ESBProjectUtils.createESBArtifacts(esbArtiList,esbProject,pomfile,fileList,groupId);
-				} else {
-					File synConfig = new File(saveLocation.getLocation().toFile(),
-							synapseModel.getImportFile().getName());
-					FileUtils.copy(synapseModel.getImportFile(), synConfig);
-					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-					ESBProjectUtils.addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
-					MavenUtils.saveMavenProject(mavenProject, pomfile);
-					ESBProjectUtils.createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
-					                            saveLocation.getLocation().toFile(),groupId + ".synapse",esbProject);
-					fileList.put(synConfig,"synConfig");
-				}
 			}
 			ESBProjectUtils.updatePom(esbProject);
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
