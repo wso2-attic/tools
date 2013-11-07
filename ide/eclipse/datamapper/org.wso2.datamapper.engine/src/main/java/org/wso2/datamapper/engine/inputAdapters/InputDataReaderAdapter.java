@@ -12,11 +12,8 @@ import org.wso2.datamapper.engine.core.AvroRecordCreator;
 
 public interface InputDataReaderAdapter {
 	
-	public void setInputReader(File inputFile);
-	public List<GenericRecord> getInputRecordList(Schema schema,String element);
-	public void setInputType(String inputType);
+	public void setInputFile(File inputFile);
+	public List<GenericRecord> getInputRecordList(Schema schema , OMElement element);
 	public OMElement getRootElement() ;
-	public void setSchemaMap(Map<String, Schema> schemaMap);
-	public GenericRecord getInputRecord(Schema schema , String elementId);
-	public Iterator<OMElement> getInputElementIterator();
+	public GenericRecord getInputRecord(Schema schema , OMElement element);
 }

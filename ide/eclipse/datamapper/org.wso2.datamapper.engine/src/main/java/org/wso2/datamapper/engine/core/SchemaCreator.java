@@ -11,16 +11,23 @@ import org.apache.avro.Schema.Field;
 public class SchemaCreator {
 
 	private Map<String, Schema> schemaMap;
+	private Map<String, String> avroArrayMap;
 	private String fieldName;
 	
+	public Map<String, String> getAvroArrayMap() {
+		return avroArrayMap;
+	}
+
 	public SchemaCreator(){
 		this.schemaMap = new LinkedHashMap<String, Schema>();
+		this.avroArrayMap = new LinkedHashMap<String, String>();
 	}
 	
 	public void setSchema(Schema schema) {
 
 		if(schema.getType() == Schema.Type.ARRAY){
 			this.schemaMap.put(this.fieldName, schema);
+			this.avroArrayMap.put(schema.getElementType().getName() , this.fieldName);
 			this.fieldName = null;
 			setSchema(schema.getElementType());
 			

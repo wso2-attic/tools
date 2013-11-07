@@ -40,7 +40,7 @@ public class DataMapper {
 		Schema outSchema = new Parser().parse(outputSchema);
 		
 		XmlInputReader reader = new XmlInputReader();
-		reader.setInputReader(inputFile);
+		reader.setInputFile(inputFile);
 		
 		Context context = Context.enter();
 		context.setOptimizationLevel(-1);
@@ -63,11 +63,11 @@ public class DataMapper {
 
 			if(matcher.find()){
 				mappingModel.setMappingFunctionType(matcher.group(1));
-				mappingModel.setInputDataType(matcher.group(2));
-				mappingTypes.put(matcher.group(3), mappingModel);
+				mappingModel.setOutputDataType(matcher.group(3));
+				mappingTypes.put(matcher.group(2), mappingModel);
 			}
 		}
-		context.evaluateString(scope, script , "", 1, null);
+		context.evaluateString(scope, script ,"", 1, null);
 				
 		try {
 			mappingHandler.executeMappingFunctions(mappingTypes);

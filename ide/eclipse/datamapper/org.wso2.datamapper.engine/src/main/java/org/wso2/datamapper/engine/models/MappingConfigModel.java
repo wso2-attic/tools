@@ -3,15 +3,16 @@ package org.wso2.datamapper.engine.models;
 
 public class MappingConfigModel {
 
-	private String inputDataType;
+	private String outputDataType;
 	private String mappingFunctionType;
 
-	public String getInputDataType() {
-		return inputDataType;
+
+	public String getOutputDataType() {
+		return outputDataType;
 	}
 
-	public void setInputDataType(String inputDataType) {
-		this.inputDataType = inputDataType;
+	public void setOutputDataType(String outputDataType) {
+		this.outputDataType = outputDataType;
 	}
 
 	public String getMappingFunctionType() {

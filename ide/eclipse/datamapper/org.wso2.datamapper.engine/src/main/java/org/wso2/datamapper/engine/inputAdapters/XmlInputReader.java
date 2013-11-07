@@ -25,13 +25,8 @@ import org.wso2.datamapper.engine.models.MappingConfigModel;
 public class XmlInputReader implements InputDataReaderAdapter{
 
 	private OMElement documentElement;	
-	private String complexElementId;
-	private Type schemaType;
-	private Field field;
-	private String inputType;
-	private Map<String, Schema> schemaMap;
 	
-	public void setInputReader(File inputFile) {
+	public void setInputFile(File inputFile) {
 		try {
 			InputStream in = new FileInputStream(inputFile);
 			OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
@@ -41,101 +36,70 @@ public class XmlInputReader implements InputDataReaderAdapter{
 			e.printStackTrace();
 		}
 	}
-
-	public void setSchemaMap(Map<String, Schema> schemaMap) {
-		this.schemaMap = schemaMap;
-	}
-
-	public void setInputType(String inputType) {
-		this.inputType = inputType;
-	}
 	
 	public OMElement getRootElement() {
 		return this.documentElement;
 	}
 
-	public List<GenericRecord> getInputRecordList(Schema schema , String xpath) {
-		
-		AXIOMXPath xpathExpression;
-		Iterator<OMElement> machinElementsItr = null;
+	public List<GenericRecord> getInputRecordList(Schema schema , OMElement element) {
+
+		OMElement parentElement = element;
+		Iterator<OMElement> childItr = null;
 		Iterator<OMElement> childElementsItr = null;
 		List<GenericRecord> recordList = new ArrayList<GenericRecord>();
-		AvroRecordCreator recCreator = new AvroRecordCreator();
 		
-		try {
-			xpathExpression = new AXIOMXPath ("//"+xpath);
-			machinElementsItr = xpathExpression.selectNodes(this.documentElement).listIterator();
-			OMElement childElement;
-			while (machinElementsItr.hasNext()) {
-				childElement = (OMElement) machinElementsItr.next();
-				GenericRecord rec = recCreator.genRecord(schema);
-				Schema inSchema = rec.getSchema();
-				Iterator<Field> fieldItr = inSchema.getFields().listIterator();
-				Schema.Field field;
-				
-				while (fieldItr.hasNext()) {
-					field = fieldItr.next();
-					
-					if ((field.schema().getType() != Schema.Type.RECORD) && (field.schema().getType() != Schema.Type.ARRAY)) {
-						childElementsItr = childElement.getChildrenWithLocalName(field.name());
-						
-						while (childElementsItr.hasNext()) {
-							OMElement ele = childElementsItr.next();						
-							rec.put(field.name(), ele.getText());
-						}	
-					}	
-				}
-				recordList.add(rec);
-			}
+		childItr = parentElement.getChildElements();
+		OMElement childElement;
 		
-		} catch (JaxenException e) {
-			e.printStackTrace();
-		}
-		
-		return recordList;
-	}
-	
-	public GenericRecord getInputRecord(Schema schema , String elementId){
-		
-		AvroRecordCreator recCreator = new AvroRecordCreator();
-		GenericRecord rec = recCreator.genRecord(schema);
-		
-		AXIOMXPath xpathExpression;
-		Iterator<OMElement> childElementsItr = null;
-		
-		try {
-			xpathExpression = new AXIOMXPath ("//"+elementId);
-			OMElement element = (OMElement)xpathExpression.selectSingleNode(this.documentElement);
+		while (childItr.hasNext()) {
+			childElement = childItr.next();
+			GenericRecord rec = new GenericData.Record(schema);
 			
-			Schema inSchema = rec.getSchema();
-			Iterator<Field> fieldItr = inSchema.getFields().listIterator();
+			Iterator<Field> fieldItr = schema.getFields().listIterator();
 			Schema.Field field;
 			
 			while (fieldItr.hasNext()) {
 				field = fieldItr.next();
 				
 				if ((field.schema().getType() != Schema.Type.RECORD) && (field.schema().getType() != Schema.Type.ARRAY)) {
-					childElementsItr = element.getChildrenWithLocalName(field.name());
+					childElementsItr = childElement.getChildrenWithLocalName(field.name());
 					
 					while (childElementsItr.hasNext()) {
 						OMElement ele = childElementsItr.next();						
 						rec.put(field.name(), ele.getText());
 					}	
-				}		
+				}	
 			}
+			recordList.add(rec);
 			
-		} catch (JaxenException e) {
-			e.printStackTrace();
-		}
-		
-		return rec;
+		}		
+		return recordList;
 	}
-
-	public Iterator<OMElement> getInputElementIterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
+	public GenericRecord getInputRecord(Schema schema , OMElement element){
+		
+		OMElement childElement = element;
+		GenericRecord record = new GenericData.Record(schema);
+		
+		Iterator<Field> fieldItr = schema.getFields().listIterator();
+		Schema.Field field;
+		
+		Iterator<OMElement> childElementsItr = null;
+		
+		while (fieldItr.hasNext()) {
+			field = fieldItr.next();
+			
+			if ((field.schema().getType() != Schema.Type.RECORD) && (field.schema().getType() != Schema.Type.ARRAY)) {
+				childElementsItr = childElement.getChildrenWithLocalName(field.name());
+				
+				while (childElementsItr.hasNext()) {
+					OMElement ele = childElementsItr.next();						
+					record.put(field.name(), ele.getText());
+				}	
+			}	
+		}
+		System.out.println("record "+record);
+		return record;
+	}	
 
 }

@@ -1,11 +1,12 @@
 {
-  "name" : "pizza",
-  "type": "record", 
-  "fields": [
-      		  {"name" : "name", "type" : "string"}, 
-              {"name" : "price", "type" : "string"},
-              { "name": "toppingsList", 
-          		"type": { 
+ 	"type": "record", 
+ 	"name": "pizza", 
+ 	"fields": [ 
+
+      			{"name" : "name", "type" : "string"}, 
+                {"name" : "price", "type" : "string"},
+    			{"name": "toppingsList", 
+          		 "type": { 
             				"type": "array", 
             				"items": { 
               							"name": "toppings", 
@@ -15,9 +16,9 @@
                    									{"name" : "name", "type" : "string"}, 
                     								{"name" : "extraPrice", "type" : "string"},
                     								{"name" : "category", "type" : "string"}
-                    							   ] 
-          							 } 
+                    							  ] 
+          							} 
         				  } 
-      			}	
-            ]
+      			} 
+    		 ] 
 }
