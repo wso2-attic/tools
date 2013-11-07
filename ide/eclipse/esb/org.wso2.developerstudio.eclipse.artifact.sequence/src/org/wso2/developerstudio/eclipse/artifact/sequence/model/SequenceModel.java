@@ -20,9 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.stream.XMLStreamException;
-
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
@@ -85,7 +83,7 @@ public class SequenceModel extends ProjectDataModel {
 	
 	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
 		boolean returnResult = super.setModelPropertyValue(key, data);
-		selectedSeqList = new ArrayList<OMElement>();
+		selectedSeqList = new ArrayList<OMElement>();	
 		if (key.equals("import.file")) {
 			if (getImportFile() != null && !getImportFile().toString().equals("")) {
 				try {
@@ -139,17 +137,22 @@ public class SequenceModel extends ProjectDataModel {
 		}else if(key.equals("on.error.sequence")){
 			String seqName = ProjectUtils.fileNameWithoutExtension((new File(data.toString())).getName());
 			setOnErrorSequence(seqName);
-		}else if(key.equals("available.eps")){
-			String epName = ProjectUtils.fileNameWithoutExtension((new File(data.toString())).getName());
-			setSelectedEP(epName);
+		}else if(key.equals("available.eps")){			
+			String epName;
+				if ((new File(data.toString())).getParent().contains("synapse-config")){
+				epName = ProjectUtils.fileNameWithoutExtension((new File(data.toString())).getName());
+				}
+				else{
+					epName = data.toString();
+				}
+			setSelectedEP(epName);		
 		}else if(key.equals("available.sequences")){
 			Object[] selectedSequencess = (Object[])data;
 			for (Object object : selectedSequencess) {
 				if(object instanceof OMElement){
 					if(!selectedSeqList.contains((OMElement)object)){
 						selectedSeqList.add((OMElement)object);
-					}
-					
+					}				
 				}
 			}
 		}else if (key.equals("reg.browse")){
