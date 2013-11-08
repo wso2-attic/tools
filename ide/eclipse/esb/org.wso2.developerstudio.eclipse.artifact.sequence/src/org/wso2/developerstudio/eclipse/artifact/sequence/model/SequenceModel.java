@@ -24,6 +24,7 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -68,7 +69,13 @@ public class SequenceModel extends ProjectDataModel {
 			} else if (key.equals("reg.path")) {
 				modelPropertyValue = getRegistryPathID();
 			} else if (key.equals("save.file")) {
-				modelPropertyValue = getSequenceSaveLocation();
+				IContainer container= getSequenceSaveLocation();
+				if(container != null && container instanceof IFolder){
+					IFolder sequenceFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("sequences");
+					modelPropertyValue = sequenceFolder;
+				}else{
+					modelPropertyValue = container;
+				}
 			} else if (key.equals("reg.browse")){
 				modelPropertyValue = getDynamicSeqRegistryPath();
 			} else if(key.equals("available.sequences")){
@@ -116,7 +123,13 @@ public class SequenceModel extends ProjectDataModel {
 			setDynamicSeqRegistryPath("");
 			setRegistryPathID(data.toString());
 		} else if (key.equals("save.file")) {
-			setSequenceSaveLocation((IContainer) data);
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder sequenceFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("sequences");
+				setSequenceSaveLocation(sequenceFolder);
+			}else{
+				setSequenceSaveLocation(container);
+			}
 		} else if (key.equals("create.esb.prj")) {
 			if(isSaveAsDynamic()){
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();

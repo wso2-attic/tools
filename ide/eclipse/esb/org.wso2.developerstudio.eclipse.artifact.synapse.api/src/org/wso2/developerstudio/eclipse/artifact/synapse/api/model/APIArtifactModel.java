@@ -26,6 +26,7 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -105,7 +106,13 @@ public class APIArtifactModel extends ProjectDataModel {
 			} else if (key.equals(ArtifactConstants.ID_API_PORT)) {
 				modelPropertyValue = (getPort()!=0)?getPort():null;
 			} else if (key.equals(ArtifactConstants.ID_SAVE_LOCATION)) {
-				modelPropertyValue = getSaveLocation();
+				IContainer container= getSaveLocation();
+				if(container != null && container instanceof IFolder){
+					IFolder apiFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("api");
+					modelPropertyValue = apiFolder;
+				}else{
+					modelPropertyValue = container;
+				}
 			} else if(key.equals("available.apis")){
 				if(selectedAPIsList!=null){
 					modelPropertyValue = selectedAPIsList.toArray();
@@ -166,7 +173,13 @@ public class APIArtifactModel extends ProjectDataModel {
 				/*ignore*/
 			}
 		} else if (key.equals(ArtifactConstants.ID_SAVE_LOCATION)) {
-			setSaveLocation((IContainer) data);
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder apiFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("api");
+				setSaveLocation(apiFolder);
+			}else{
+				setSaveLocation(container);
+			}
 		} else if (key.contains(ArtifactConstants.ID_CREATE_PRJ)){
 			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 			IProject esbProject = ESBProjectUtils.createESBProject(shell);

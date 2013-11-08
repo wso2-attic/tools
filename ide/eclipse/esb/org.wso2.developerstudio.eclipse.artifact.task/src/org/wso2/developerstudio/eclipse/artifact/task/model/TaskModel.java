@@ -26,6 +26,7 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -143,7 +144,13 @@ public class TaskModel  extends ProjectDataModel {
 		} else if(key.equals(Task_Pinned_Servers)){
 			value = getPinnedServers();
 		} else if (key.equals(Task_Save_location)) {
-			value = getSaveLocation();
+			IContainer container= getSaveLocation();
+			if(container != null && container instanceof IFolder){
+				IFolder templatesFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("tasks");
+				value = templatesFolder;
+			}else{
+				value = container;
+			}
 		} else if(key.equals("available.tasks")){
 			if(selectedTasksList!=null){
 			value = selectedTasksList.toArray();
@@ -214,7 +221,13 @@ public class TaskModel  extends ProjectDataModel {
 		} else if(key.equals(Task_Pinned_Servers)){
 			setPinnedServers(data.toString());
 		} else if (key.equals(Task_Save_location)) {
-			setSaveLocation((IContainer) data);
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder taskFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("tasks");
+				setSaveLocation(taskFolder);
+			}else{
+				setSaveLocation(container);
+			}
 		} else if (key.contains(Task_Create_Project)){
 			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 			IProject esbProject = ESBProjectUtils.createESBProject(shell);

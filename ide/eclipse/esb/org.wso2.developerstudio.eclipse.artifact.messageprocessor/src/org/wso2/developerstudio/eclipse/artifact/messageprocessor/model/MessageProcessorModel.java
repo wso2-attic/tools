@@ -26,6 +26,7 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -300,7 +301,13 @@ public class MessageProcessorModel extends ProjectDataModel {
 			} else if (key.equals("custom_processor.class_FQN")) {
 				modelPropertyValue = getClassFQN();
 			} else if (key.equals("save.location")) {
-				modelPropertyValue = getSaveLocation();
+				IContainer container= getSaveLocation();
+				if(container != null && container instanceof IFolder){
+					IFolder mProcessorFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("message-processors");
+					modelPropertyValue = mProcessorFolder;
+				}else{
+					modelPropertyValue = container;
+				}
 			} else if (key.equals("available.processors")) {
 				if (selectedProcessorList != null) {
 					modelPropertyValue = selectedProcessorList.toArray();
@@ -360,7 +367,13 @@ public class MessageProcessorModel extends ProjectDataModel {
 				setSaveLocation(esbProject);
 			}
 		} else if (key.equals("save.location")) {
-			setSaveLocation((IContainer) data);
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder mProcessorsFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("message-processors");
+				setSaveLocation(mProcessorsFolder);
+			}else{
+				setSaveLocation(container);
+			}
 		} else if (key.equals("import.file")) {
 			if (getImportFile() != null && !getImportFile().toString().equals("")) {
 				try {

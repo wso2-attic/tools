@@ -26,6 +26,7 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -96,7 +97,13 @@ public class LocalEntryModel extends ProjectDataModel {
 			if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_TYPE)){
 				modelPropertyValue = getSelectedLocalEntryType();
 			}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)){
-				modelPropertyValue = getLocalEntrySaveLocation();
+				IContainer container= getLocalEntrySaveLocation();
+				if(container != null && container instanceof IFolder){
+					IFolder localEntryFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("local-entries");
+					modelPropertyValue = localEntryFolder;
+				}else{
+					modelPropertyValue = container;
+				}
 			}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_IMPORT_SOURC_URL_LE_URL)){
 				modelPropertyValue = getSourceURL();
 			}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_IN_LINE_TEXT_LE_VALUE)){
@@ -151,7 +158,13 @@ public class LocalEntryModel extends ProjectDataModel {
 				//make it a file URL
 			}
 		} else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)){
-			setLocalEntrySaveLocation((IContainer) data);
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder localEntryFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("local-entries");
+				setLocalEntrySaveLocation(localEntryFolder);
+			}else{
+				setLocalEntrySaveLocation(container);
+			}
 		}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_NAME)){
 			setLocalENtryName(data.toString());
 		}else if(key.equals(LocalEntryArtifactConstants.WIZARD_OPTION_AVAILABLE_LES)){

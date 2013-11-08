@@ -30,6 +30,7 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -205,7 +206,13 @@ public class MessageStoreModel extends ProjectDataModel  {
 		} else if (key.equals(Constants.FIELD_STORE_NAME)) {
 			value = getStoreName();
 		} else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
-			value = getSaveLocation();
+			IContainer container= getSaveLocation();
+			if(container != null && container instanceof IFolder){
+				IFolder mStoresFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("message-stores");
+				value = mStoresFolder;
+			}else{
+				value = container;
+			}
 		} else if(key.equals(Constants.FIELD_AVAILABLE_STORES)){
 			if(selectedStoresList!=null){
 			value = selectedStoresList.toArray();
@@ -257,7 +264,13 @@ public class MessageStoreModel extends ProjectDataModel  {
 				setSaveLocation(esbProject);
 			}
 		} else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
-			setSaveLocation((IContainer) data);
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder mStoresFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("message-stores");
+				setSaveLocation(mStoresFolder);
+			}else{
+				setSaveLocation(container);
+			}
 		} else if (key.equals(Constants.FIELD_IMPORT_FILE)) {
 			if (getImportFile() != null && !getImportFile().toString().equals("")) {
 				try {

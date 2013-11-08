@@ -26,6 +26,7 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -68,7 +69,13 @@ public class TemplateModel extends ProjectDataModel {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
 		if (modelPropertyValue == null) {
 			if (key.equals("save.file")) {
-				modelPropertyValue = getTemplateSaveLocation();
+				IContainer container= getTemplateSaveLocation();
+				if(container != null && container instanceof IFolder){
+					IFolder templatesFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("templates");
+					modelPropertyValue = templatesFolder;
+				}else{
+					modelPropertyValue = container;
+				}
 			}  
 			if(key.equals("temp.type")){
 				modelPropertyValue = getSelectedTemplate();
@@ -107,7 +114,13 @@ public class TemplateModel extends ProjectDataModel {
 			ArtifactTemplate template = (ArtifactTemplate) data;
 			setSelectedTemplate(template);
 		}else if (key.equals("save.file")) {
-			setTemplateSaveLocation((IContainer) data);
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder templateFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("templates");
+				setTemplateSaveLocation(templateFolder);
+			}else{
+				setTemplateSaveLocation(container);
+			}
 		} else if (key.equals("create.esb.prj")) {
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 				IProject esbProject = ESBProjectUtils.createESBProject(shell);

@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.artifact.proxyservice.model;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -76,9 +77,13 @@ public class ProxyServiceModel extends ProjectDataModel {
 			if (key.equals(PsArtifactConstants.WIZARD_OPTION_PS_TYPE)) {
 				modelPropertyValue = getSelectedTemplate();
 			} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
-				modelPropertyValue = getProxyServiceSaveLocation();
-			} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
-				modelPropertyValue = getProxyServiceSaveLocation();
+				IContainer container= getProxyServiceSaveLocation();
+				if(container != null && container instanceof IFolder){
+					IFolder proxyFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("proxy-services");
+					modelPropertyValue = proxyFolder;
+				}else{
+					modelPropertyValue = container;
+				}
 			} else if (key.equals("proxy.target.ep.type")) {
 				modelPropertyValue = getTargetEPType();
 			} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_COMMON_PS_EPURL)) {
@@ -150,7 +155,13 @@ public class ProxyServiceModel extends ProjectDataModel {
 			ArtifactTemplate template = (ArtifactTemplate) data;
 			setSelectedTemplate(template);
 		} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
-			setProxyServiceSaveLocation((IContainer) data);
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder proxyFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("proxy-services");
+				setProxyServiceSaveLocation(proxyFolder);
+			}else{
+				setProxyServiceSaveLocation(container);
+			}
 		} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_CREATE_ESB_PROJECT)) {
 			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 			IProject esbProject = ESBProjectUtils.createESBProject(shell);

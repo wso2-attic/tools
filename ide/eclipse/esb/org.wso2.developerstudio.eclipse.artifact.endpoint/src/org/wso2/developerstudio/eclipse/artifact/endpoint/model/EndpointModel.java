@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.artifact.endpoint.model;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -90,7 +91,13 @@ public class EndpointModel extends ProjectDataModel {
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_TYPE)) {
 				modelPropertyValue = getRegistryPathID();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
-				modelPropertyValue = getEndpointSaveLocation();
+				IContainer container= getEndpointSaveLocation();
+				if(container != null && container instanceof IFolder){
+					IFolder endpointFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("endpoints");
+					modelPropertyValue = endpointFolder;
+				}else{
+					modelPropertyValue = container;
+				}
 			} else if(key.equals(EpArtifactConstants.WIZARD_OPTION_AVAILABLE_EPS)){
 				modelPropertyValue = selectedEPList.toArray();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_PATH)){
@@ -147,8 +154,13 @@ public class EndpointModel extends ProjectDataModel {
 			setDynamicEpRegistryPath("");
 			setRegistryPathID(data.toString());
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
-			setEndpointSaveLocation((IContainer) data);
-			
+			IContainer container=(IContainer) data;
+			if(container != null && container instanceof IFolder){
+				IFolder endpointFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("endpoints");
+				setEndpointSaveLocation(endpointFolder);
+			}else{
+				setEndpointSaveLocation(container);
+			}
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_CREATE_ESB_PROJECT)) {
 			if(isSaveAsDynamic()){
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
