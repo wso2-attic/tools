@@ -3,12 +3,12 @@
  <projectOptions title="Synapse Configuration Artifact Createtion Wizard "
  				 description="Select how you would like to create your new project"
  				 error="Please select a method to create the project">
- 	<!--  <option id="new.synapse" default="true">Create New Synapse Configuration</option>
-		<option id="new.synapse.tp">Create New Synapse Configuration with Template</option> -->
-	  	<option id="import.synapse.config"  default="true">Import Synapse Configuration from File System</option>
+ 	   <option id="new.synapse" default="true">Create New Synapse Configuration</option>
+		<option id="new.synapse.tp">Create New Synapse Configuration with Template</option> 
+	  	<option id="import.synapse.config">Import Synapse Configuration from File System</option>
  </projectOptions>
  <projectOptionSettings>
-<!--  	 <settings optionId="new.synapse"
+  	 <settings optionId="new.synapse"
  			  		title="Create a New Synapse Configuration"
  			  		description="Give a name for synapse configuration file" 
  			  		error="Please give a name to synapse configuration file">
@@ -33,7 +33,7 @@
  		<projectNatures>
 			<nature>org.eclipse.jdt.core.javanature</nature>
 		</projectNatures>		
- 	</settings> -->
+ 	</settings>
  			<settings optionId="import.synapse.config" 
 				      title="Import Synapse Configuration from File System" 
 				      description="Browse the location of a Synapse Configuration" 
