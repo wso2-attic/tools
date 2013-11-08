@@ -33,7 +33,7 @@ import org.eclipse.php.internal.core.codeassist.contexts.AbstractCompletionConte
 import org.eclipse.php.internal.core.filenetwork.FileNetworkUtility;
 import org.eclipse.php.internal.core.filenetwork.ReferenceTree;
 import org.eclipse.php.internal.core.filenetwork.ReferenceTree.Node;
-import org.eclipse.php.internal.core.language.PHPVariables;
+import org.eclipse.php.internal.core.language.JaggeryVariables;
 import org.eclipse.php.internal.core.model.PhpModelAccess;
 import org.eclipse.php.internal.core.typeinference.FakeField;
 import org.eclipse.php.internal.core.typeinference.PHPModelUtils;
@@ -45,7 +45,7 @@ import org.eclipse.php.internal.core.typeinference.PHPModelUtils;
  */
 public class GlobalVariablesStrategy extends GlobalElementStrategy {
 
-	private boolean showPhpVariables = true;
+	private boolean showJaggeryVariables = true;
 
 	public GlobalVariablesStrategy(ICompletionContext context,
 			IElementFilter elementFilter) {
@@ -53,9 +53,9 @@ public class GlobalVariablesStrategy extends GlobalElementStrategy {
 	}
 
 	public GlobalVariablesStrategy(ICompletionContext context,
-			boolean showPhpVariables) {
+			boolean showJaggeryVariables) {
 		super(context);
-		this.showPhpVariables = showPhpVariables;
+		this.showJaggeryVariables = showJaggeryVariables;
 	}
 
 	public GlobalVariablesStrategy(ICompletionContext context) {
@@ -68,9 +68,9 @@ public class GlobalVariablesStrategy extends GlobalElementStrategy {
 		AbstractCompletionContext abstractContext = (AbstractCompletionContext) context;
 		String prefix = abstractContext.getPrefix();
 
-		if (prefix.length() > 0 && !prefix.startsWith("$")) { //$NON-NLS-1$
-			return;
-		}
+		//		if (prefix.length() > 0 && !prefix.startsWith("$")) { //$NON-NLS-1$
+		// return;
+		// }
 		CompletionRequestor requestor = abstractContext
 				.getCompletionRequestor();
 
@@ -110,20 +110,21 @@ public class GlobalVariablesStrategy extends GlobalElementStrategy {
 			reporter.reportField((IField) var, "", replaceRange, false); //$NON-NLS-1$
 		}
 
-		if (showPhpVariables) {
+		if (showJaggeryVariables) {
 			PHPVersion phpVersion = abstractContext.getPhpVersion();
-			for (String variable : PHPVariables.getVariables(phpVersion)) {
+			for (String variable : JaggeryVariables.getVariables(phpVersion)) {
 				if (variable.startsWith(prefix)) {
 					if (!requestor.isContextInformationMode()
 							|| variable.length() == prefix.length()) {
 						reporter.reportField(
 								new FakeField((ModelElement) abstractContext
 										.getSourceModule(), variable, 0, 0),
-								"", replaceRange, false); // NON-NLS-1 //$NON-NLS-1$
+								"", replaceRange, true); // NON-NLS-1 //$NON-NLS-1$
 					}
 				}
 			}
 		}
+
 	}
 
 	private IDLTKSearchScope createSearchScopeWithReferencedFiles(

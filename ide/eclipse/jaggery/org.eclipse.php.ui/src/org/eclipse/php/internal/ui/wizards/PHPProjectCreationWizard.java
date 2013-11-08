@@ -99,7 +99,7 @@ public class PHPProjectCreationWizard extends NewElementWizard implements
 		if (fFirstPage != null) {
 			fFirstPage.performFinish(monitor); // use the full progress
 			progressMonitor = monitor;
-			System.out.println("***********************" + progressMonitor);
+			// System.out.println("***********************" + progressMonitor);
 		}
 		if (fSecondPage != null)
 			fSecondPage.performFinish(monitor); // use the full progress monitor

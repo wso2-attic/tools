@@ -208,6 +208,10 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
     return PHP_FOR;
 }
 
+<ST_PHP_IN_SCRIPTING>"Log" {
+    return PHP_LOG;
+}
+
 <ST_PHP_IN_SCRIPTING>"endfor" {
     return PHP_ENDFOR;
 }
@@ -286,6 +290,54 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 
 <ST_PHP_IN_SCRIPTING>"self" {
     return PHP_SELF;
+}
+
+<ST_PHP_IN_SCRIPTING>"WSRequest" {
+    return PHP_WSREQUEST;
+}
+
+<ST_PHP_IN_SCRIPTING>"WSStub" {
+    return PHP_WSSTUB;
+}
+
+<ST_PHP_IN_SCRIPTING>"XML" {
+    return PHP_XML;
+}
+
+<ST_PHP_IN_SCRIPTING>"XMLHTTPRequest" {
+    return PHP_XMLHTTPREQUEST;
+}
+
+<ST_PHP_IN_SCRIPTING>"URIMatcher" {
+    return PHP_URIMATCHER;
+}
+
+<ST_PHP_IN_SCRIPTING>"File" {
+    return PHP_FILE;
+}
+
+<ST_PHP_IN_SCRIPTING>"Feed" {
+    return PHP_FEED;
+}
+
+<ST_PHP_IN_SCRIPTING>"Entry" {
+    return PHP_ENTRY;
+}
+
+<ST_PHP_IN_SCRIPTING>"Database" {
+    return PHP_DATABASE;
+}
+
+<ST_PHP_IN_SCRIPTING>"MetadataStore" {
+    return PHP_METADATASTORE;
+}
+
+<ST_PHP_IN_SCRIPTING>"Sender" {
+    return PHP_SENDER;
+}
+
+<ST_PHP_IN_SCRIPTING>"OAuthProvider" {
+    return PHP_OAUTHPROVIDER;
 }
 
 <ST_PHP_IN_SCRIPTING>"->" {
@@ -377,18 +429,6 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 
 <ST_PHP_IN_SCRIPTING>"eval" {
     return PHP_EVAL;
-}
-
-<ST_PHP_IN_SCRIPTING>"include" {
-    return PHP_INCLUDE;
-}
-
-<ST_PHP_IN_SCRIPTING>"include_once" {
-    return PHP_INCLUDE_ONCE;
-}
-
-<ST_PHP_IN_SCRIPTING>"require" {
-    return PHP_REQUIRE;
 }
 
 <ST_PHP_IN_SCRIPTING>"namespace" {
@@ -537,6 +577,42 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 
 <ST_PHP_IN_SCRIPTING>"__NAMESPACE__" {
 	return PHP__NAMESPACE__;
+}
+
+<ST_PHP_IN_SCRIPTING>"get" {
+    return PHP_GET;
+}
+
+<ST_PHP_IN_SCRIPTING>"post" {
+    return PHP_GET;
+}
+
+<ST_PHP_IN_SCRIPTING>"require" {
+    return PHP_REQUIRE;
+}
+
+<ST_PHP_IN_SCRIPTING>"include" {
+    return PHP_INCLUDE;
+}
+
+<ST_PHP_IN_SCRIPTING>"include_once" {
+    return PHP_INCLUDE_ONCE;
+}
+
+<ST_PHP_IN_SCRIPTING>"put" {
+    return PHP_PUT;
+}
+
+<ST_PHP_IN_SCRIPTING>"del" {
+    return PHP_DEL;
+}
+
+<ST_PHP_IN_SCRIPTING>"parse" {
+    return PHP_PARSE;
+}
+
+<ST_PHP_IN_SCRIPTING>"stringify" {
+    return PHP_STRINGIFY;
 }
 
 <ST_PHP_IN_SCRIPTING>"$this" {

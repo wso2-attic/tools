@@ -23,7 +23,7 @@ import org.eclipse.php.internal.core.PHPVersion;
 import org.eclipse.php.internal.core.codeassist.ICompletionReporter;
 import org.eclipse.php.internal.core.codeassist.contexts.AbstractCompletionContext;
 import org.eclipse.php.internal.core.codeassist.contexts.GlobalMethodStatementContext;
-import org.eclipse.php.internal.core.language.PHPVariables;
+import org.eclipse.php.internal.core.language.JaggeryVariables;
 import org.eclipse.php.internal.core.typeinference.FakeField;
 import org.eclipse.php.internal.core.typeinference.PHPModelUtils;
 
@@ -105,7 +105,7 @@ public class LocalMethodVariablesStrategy extends GlobalElementStrategy {
 		}
 
 		PHPVersion phpVersion = concreteContext.getPhpVersion();
-		for (String variable : PHPVariables.getVariables(phpVersion)) {
+		for (String variable : JaggeryVariables.getVariables(phpVersion)) {
 			if (variable.startsWith(prefix)) {
 				if (!requestor.isContextInformationMode()
 						|| variable.length() == prefix.length()) {

@@ -124,6 +124,7 @@ terminal String T_VAR_COMMENT;
 terminal String T_DEFINE;
 
 terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE,T_REQUIRE_ONCE;
+terminal String T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
 terminal T_COMMA;
 terminal String T_LOGICAL_OR,T_LOGICAL_XOR,T_LOGICAL_AND,T_PRINT;
 terminal T_EQUAL;
@@ -322,6 +323,7 @@ non terminal PHPCallArgumentsList array_method_dereference;
 non terminal Expression array_function_dereference;
 
 precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE, T_REQUIRE_ONCE;
+precedence left T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
 precedence left T_COMMA;
 precedence left T_LOGICAL_OR;
 precedence left T_LOGICAL_XOR;
@@ -656,6 +658,20 @@ inner_statement_list:statementList T_CURLY_CLOSE:end
 	RESULT = new EmptyStatement(tokenleft, tokenright); 
 :}
 
+| T_TRY:start T_CURLY_OPEN:tryBlockStart inner_statement_list:tryList T_CURLY_CLOSE:tryBlockEnd
+T_CATCH:catch_word T_OPEN_PARENTHESE tracked_variable:var T_CLOSE_PARENTHESE
+T_CURLY_OPEN:catchBlockStart inner_statement_list:catchList T_CURLY_CLOSE:catchBlockEnd
+additional_catches:catchesList
+{:
+	Block tryBlock = new Block(tryBlockStartleft, tryBlockEndright, tryList);
+	Block catchBlock = new Block(catchBlockStartleft, catchBlockEndright, catchList);
+	CatchClause catchClause = new CatchClause(catch_wordleft, catchBlockEndright, var, catchBlock);
+	((LinkedList) catchesList).addFirst(catchClause);
+	TryStatement tryStatement = new TryStatement(startleft, catchesListright, tryBlock, catchesList);
+	RESULT = tryStatement;	
+:}
+
+
 | T_THROW:token expr:expr T_SEMICOLON:end
 {: 
 	RESULT = new ThrowStatement(tokenleft, endright, expr); 
@@ -691,6 +707,17 @@ additional_catch:catch_statement
 {:
 	list.add(catch_statement);
 	RESULT = list;	
+:}
+;
+
+additional_catch ::=
+T_CATCH:catch_word T_OPEN_PARENTHESE  T_STRING:var T_CLOSE_PARENTHESE
+ T_CURLY_OPEN:catchBlockStart inner_statement_list:catchList T_CURLY_CLOSE:catchBlockEnd
+{:
+	Block catchBlock = new Block(catchBlockStartleft, catchBlockEndright, catchList);
+	VariableReference variable = new VariableReference(varleft, varright, var, PHPVariableKind.LOCAL);
+	CatchClause catchClause = new CatchClause(catch_wordleft, catchBlockEndright,variable, catchBlock);
+	RESULT = catchClause;
 :}
 ;
 
@@ -2237,11 +2264,7 @@ T_STRING_VARNAME:scalar
 {:
 	RESULT = scalar;
 :}
-| T_QUATE:start encaps_list:list T_QUATE:end
-{:
-	Quote quote = new Quote(startleft, endright, list, Quote.QT_QUOTE);
-	RESULT = quote;
-:}
+
 | T_START_HEREDOC:start encaps_list:list T_END_HEREDOC:end
 {:
 	Quote hereDoc = new Quote(startleft, endright, list, Quote.QT_HEREDOC);
@@ -2775,6 +2798,12 @@ T_ISSET:start T_OPEN_PARENTHESE:openPar isset_variables:varList T_CLOSE_PARENTHE
 | T_INCLUDE_ONCE:include expr:expr
 {:
 	Include result = new Include(includeleft, exprright, expr, Include.IT_INCLUDE_ONCE);
+	RESULT = result;
+:}
+
+| T_POST:post expr:expr
+{:
+	Include result = new Include(postleft, exprright, expr, Include.IT_INCLUDE);
 	RESULT = result;
 :}
 

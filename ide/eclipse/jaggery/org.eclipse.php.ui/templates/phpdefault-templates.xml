@@ -83,16 +83,16 @@ ${body_statement}</template>
 
 <!-- new PHP templates -->
 <template
-	name="New simple PHP file"
-	description="%description.newphp.simple"
+	name="New simple Jaggery file"
+	description="%description.newjaggery.simple"
 	id="org.eclipse.php.ui.editor.templates.php.author"
 	context="php_new_file_context"
 	enabled="true">
 ${cursor}</template>
 
 <template
-	name="New PHP file - HTML frameset"
-	description="%description.newphp.html.frameset"
+	name="New Jaggery file - HTML frameset"
+	description="%description.newjaggery.html.frameset"
 	id="org.eclipse.php.ui.editor.templates.php.html.frameset"
 	context="php_new_file_context"
 	enabled="true">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"&gt;
@@ -128,21 +128,21 @@ ${cursor}
 
 <template
 	name="prs"
-	description="%description.php.print.string"
+	description="%description.jaggery.print.string"
 	id="org.eclipse.php.ui.editor.templates.php.print.string"
 	context="php-statements"
 	enabled="true"
-	autoinsert="false">print ("");
-${cursor}</template>
+	autoinsert="false">print ("${cursor}");
+</template>
 
-<!-- <template -->
-<!-- 	name="prln" -->
-<!-- 	description="%description.php.print.newline" -->
-<!-- 	id="org.eclipse.php.ui.editor.templates.php.print.newline" -->
-<!-- 	context="php-statements" -->
-<!-- 	enabled="true" -->
-<!-- 	autoinsert="false">print ${}."\n"; -->
-<!-- ${cursor}</template> -->
+<template
+	name="pr"
+	description="%description.jaggery.print"
+	id="org.eclipse.php.ui.editor.templates.php.print.newline"
+	context="php-statements"
+	enabled="true"
+	autoinsert="false">print (${cursor});
+</template>
 
 <!-- <template -->
 <!-- 	name="prv" -->
@@ -202,15 +202,15 @@ ${cursor}</template>
 <!-- } -->
 <!-- </template> -->
 
-<!-- <template  -->
-<!-- 	name="for"  -->
-<!-- 	description="%description.php.for" -->
-<!-- 	id="org.eclipse.php.ui.editor.templates.php.for"  -->
-<!-- 	context="php-statements"  -->
-<!-- 	enabled="true"  -->
-<!-- 	autoinsert="false">for (${index} = 0; ${index} &lt; ${number_variable}; ${index}++) { -->
-<!-- 	${line_selection}${cursor} -->
-<!-- }</template> -->
+<template 
+	name="for" 
+	description="%description.jaggery.for"
+	id="org.eclipse.php.ui.editor.templates.php.for" 
+	context="php-statements" 
+	enabled="true" 
+	autoinsert="false">for (${index} = 0; ${index} &lt; index; ${index}++) {
+	${line_selection}${cursor}
+}</template>
 
 
 <!-- <template -->
@@ -237,7 +237,7 @@ ${cursor}</template>
 
 <template
 	name="swi"
-	description="%description.php.switch"
+	description="%description.jaggery.switch"
 	id="org.eclipse.php.ui.editor.templates.php.switch"
 	context="php-statements"
 	enabled="true"
@@ -253,8 +253,8 @@ ${cursor}</template>
 </template>
 
 <template
-	name="fnc"
-	description="%description.php.functionStatement"
+	name="fn"
+	description="%description.jaggery.functionStatement"
 	id="org.eclipse.php.ui.editor.templates.php.fnc"
 	context="php-type-members"
 	enabled="true"
@@ -263,20 +263,20 @@ ${cursor}</template>
 }
 </template>
 
+<!-- <template -->
+<!-- 	name="function" -->
+<!-- 	description="%description.jaggery.functionStatement" -->
+<!-- 	id="org.eclipse.php.ui.editor.templates.php.function" -->
+<!-- 	context="php-type-members" -->
+<!-- 	enabled="true" -->
+<!-- 	autoinsert="false">function ${function_name}(parameters) { -->
+<!-- 	${cursor}; -->
+<!-- } -->
+<!-- </template> -->
+
 <template
-	name="function"
-	description="%description.php.functionStatement"
-	id="org.eclipse.php.ui.editor.templates.php.function"
-	context="php-type-members"
-	enabled="true"
-	autoinsert="false">function ${function_name}(parameters) {
-	${cursor};
-}
-</template>
-parameters
-<template
-	name="fnc"
-	description="%description.php.functionStatement"
+	name="fn"
+	description="%description.jaggery.functionStatement"
 	id="org.eclipse.php.ui.editor.templates.php.fnc1"
 	context="php-global-members"
 	enabled="true"
@@ -285,64 +285,52 @@ parameters
 }
 </template>
 
+<!-- <template -->
+<!-- 	name="function" -->
+<!-- 	description="%description.jaggery.functionStatement" -->
+<!-- 	id="org.eclipse.php.ui.editor.templates.php.function1" -->
+<!-- 	context="php-global-members" -->
+<!-- 	enabled="true" -->
+<!-- 	autoinsert="false">function ${function_name}(parameters) { -->
+<!-- 	${cursor}; -->
+<!-- } -->
+<!-- </template> -->
+
 <template
-	name="function"
-	description="%description.php.functionStatement"
-	id="org.eclipse.php.ui.editor.templates.php.function1"
+	name="var"
+	description="%description.jaggery.varStatement"
+	id="org.eclipse.php.ui.editor.templates.php.lambda"
 	context="php-global-members"
 	enabled="true"
-	autoinsert="false">function ${function_name}(parameters) {
-	${cursor};
-}
+	autoinsert="false">var ${variable_name};
 </template>
 
-<!-- <template -->
-<!-- 	name="lambda" -->
-<!-- 	description="%description.php.lambdaStatement" -->
-<!-- 	id="org.eclipse.php.ui.editor.templates.php.lambda" -->
-<!-- 	context="php-global-members" -->
-<!-- 	enabled="true" -->
-<!-- 	autoinsert="false">function (${parameters}) use (${lexical_variables}) { -->
-<!-- 	${cursor}; -->
-<!-- } -->
-<!-- </template> -->
+<template
+	name="inc"
+	description="%description.jaggery.includeStatement"
+	id="org.eclipse.php.ui.editor.templates.php.closure"
+	context="php-global-members"
+	enabled="true"
+	autoinsert="false">include ("${cursor}");
+</template>
 
-<!-- <template -->
-<!-- 	name="closure" -->
-<!-- 	description="%description.php.lambdaStatement" -->
-<!-- 	id="org.eclipse.php.ui.editor.templates.php.closure" -->
-<!-- 	context="php-global-members" -->
-<!-- 	enabled="true" -->
-<!-- 	autoinsert="false">function (${parameters}) use (${lexical_variables}) { -->
-<!-- 	${cursor}; -->
-<!-- } -->
-<!-- </template> -->
+<template
+	name="inc_once"
+	description="%description.jaggery.includeOnceStatement"
+	id="org.eclipse.php.ui.editor.templates.php.cls"
+	context="php-global-members"
+	enabled="true"
+	autoinsert="false">include_once("${cursor}");
+</template>
 
-<!-- <template -->
-<!-- 	name="cls" -->
-<!-- 	description="%description.php.class" -->
-<!-- 	id="org.eclipse.php.ui.editor.templates.php.cls" -->
-<!-- 	context="php-global-members" -->
-<!-- 	enabled="true" -->
-<!-- 	autoinsert="false">class ${class_name} { -->
-<!-- 	function ${function_name}() { -->
-<!-- 		${cursor}; -->
-<!-- 	} -->
-<!-- } -->
-<!-- </template> -->
-
-<!-- <template -->
-<!-- 	name="class" -->
-<!-- 	description="%description.php.class" -->
-<!-- 	id="org.eclipse.php.ui.editor.templates.php.class" -->
-<!-- 	context="php-global-members" -->
-<!-- 	enabled="true" -->
-<!-- 	autoinsert="false">class ${class_name} { -->
-<!-- 	function ${function_name}() { -->
-<!-- 		${cursor}; -->
-<!-- 	} -->
-<!-- } -->
-<!-- </template> -->
+<template
+	name="reqr"
+	description="%description.jaggery.require"
+	id="org.eclipse.php.ui.editor.templates.php.class"
+	context="php-global-members"
+	enabled="true"
+	autoinsert="false">require("${cursor}");
+</template>
 
 <!-- <template -->
 <!-- 	name="trt" -->
@@ -385,7 +373,7 @@ parameters
 
 <template
 	name="if"
-	description="%description.php.if"
+	description="%description.jaggery.if"
 	id="org.eclipse.php.ui.editor.templates.php.if"
 	context="php-statements"
 	enabled="true"
@@ -394,43 +382,22 @@ parameters
 }
 </template>
 
-<template
-	name="els"
-	description="%description.php.else"
-	id="org.eclipse.php.ui.editor.templates.php.else"
-	context="php-statements"
-	enabled="true"
-	autoinsert="false">else {
-	
-}
-</template>
-
-<template
-	name="elif"
-	description="%${cursor};description.php.elif"
-	id="org.eclipse.php.ui.editor.templates.php.elif"
-	context="php-statements"
-	enabled="true"
-	autoinsert="false">else if (${condition}) {
-	
-}
-</template>
 
 <template
 	name="try"
-	description="%description.php.try"
+	description="%description.jaggery.try"
 	id="org.eclipse.php.ui.editor.templates.php.try"
 	context="php-statements"
 	enabled="true"
 	autoinsert="false">try {
 	${cursor}
-} catch (${Exception} e) {
+} catch (${Exception}) {
 }
 </template>
 
 <template
 	name="while"
-	description="%description.php.while"
+	description="%description.jaggery.while"
 	id="org.eclipse.php.ui.editor.templates.php.while"
 	context="php-statements"
 	enabled="true"
@@ -520,14 +487,14 @@ parameters
 <!-- 	autoinsert="false">parent::__construct(); -->
 <!-- ${cursor}</template> -->
 
-<!-- <template -->
-<!-- 	name="pclon" -->
-<!-- 	description="%description.php.pclon" -->
-<!-- 	id="org.eclipse.php.ui.editor.templates.php.pclon" -->
-<!-- 	context="php-type-method-statements" -->
-<!-- 	enabled="true" -->
-<!-- 	autoinsert="false">parent::__clone(); -->
-<!-- </template> -->
+<template
+	name="pclon"
+	description="%description.php.pclon"
+	id="org.eclipse.php.ui.editor.templates.php.pclon"
+	context="php-type-method-statements"
+	enabled="true"
+	autoinsert="false">parent::__clone();
+</template>
 
 <!-- <template -->
 <!-- 	name="use" -->

@@ -121,6 +121,7 @@ terminal  T_PAAMAYIM_NEKUDOTAYIM;
 terminal String T_VAR_COMMENT;
 
 terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE;
+terminal String T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
 terminal T_COMMA;
 terminal String T_LOGICAL_OR,T_LOGICAL_XOR,T_LOGICAL_AND,T_PRINT;
 terminal T_EQUAL;
@@ -230,6 +231,7 @@ non terminal List ref_list;
 non terminal PHPMethodDeclaration function_body;
 
 precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE;
+precedence left T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
 precedence left T_COMMA;
 precedence left T_LOGICAL_OR;
 precedence left T_LOGICAL_XOR;

@@ -51,13 +51,11 @@ public class KeywordInitializerPHP_5_4 implements IPHPKeywordsInitializer {
 		list.add(new KeywordData("getProtocol", PARENTESES_SUFFIX, 1));
 		list.add(new KeywordData("getQueryString", PARENTESES_SUFFIX, 1));
 		list.add(new KeywordData("if", WHITESPACE_PARENTESES_SUFFIX, 2));
-		list.add(new KeywordData("in", WHITESPACE_SUFFIX, 1));
+		// list.add(new KeywordData("in", WHITESPACE_SUFFIX, 1));
 		list.add(new KeywordData("include", WHITESPACE_SUFFIX, 1));
 		list.add(new KeywordData("Infinity", EMPTY_SUFFIX, 0));
 		list.add(new KeywordData("instanceof", WHITESPACE_SUFFIX, 1));
 		list.add(new KeywordData("let", WHITESPACE_SUFFIX, 1));
-		list.add(new KeywordData("MatadataStore", PARENTESES_SUFFIX, 1,
-				PHPKeywords.CLASS_BODY));
 		list.add(new KeywordData("NaN", EMPTY_SUFFIX, 0));
 		list.add(new KeywordData("new", WHITESPACE_SUFFIX, 1));
 		list.add(new KeywordData("null", EMPTY_SUFFIX, 0));
@@ -67,7 +65,7 @@ public class KeywordInitializerPHP_5_4 implements IPHPKeywordsInitializer {
 		list.add(new KeywordData("post", PARENTESES_SUFFIX, 1));
 		list.add(new KeywordData("print", PARENTESES_SUFFIX, 1));
 		list.add(new KeywordData("put", PARENTESES_SUFFIX, 1));
-		list.add(new KeywordData("request", EMPTY_SUFFIX, 0));
+		// list.add(new KeywordData("request", EMPTY_SUFFIX, 0));
 		list.add(new KeywordData("require", PARENTESES_SUFFIX, 1));
 		list.add(new KeywordData("return", WHITESPACE_SUFFIX, 1));
 		list.add(new KeywordData("stringify", PARENTESES_SUFFIX, 1));
@@ -82,9 +80,29 @@ public class KeywordInitializerPHP_5_4 implements IPHPKeywordsInitializer {
 		list.add(new KeywordData("with", WHITESPACE_SUFFIX, 1));
 		list.add(new KeywordData("WSRequest", PARENTESES_SUFFIX, 1,
 				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("Log", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
 		list.add(new KeywordData("WSStub", PARENTESES_SUFFIX, 1,
 				PHPKeywords.CLASS_BODY));
 		list.add(new KeywordData("XML", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("XMLHTTPRequest", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("URIMatcher", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("File", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("Feed", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("Entry", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("Database", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("MetadataStore", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("Sender", PARENTESES_SUFFIX, 1,
+				PHPKeywords.CLASS_BODY));
+		list.add(new KeywordData("OAuthProvider", PARENTESES_SUFFIX, 1,
 				PHPKeywords.CLASS_BODY));
 
 	}

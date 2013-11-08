@@ -29,7 +29,7 @@ import org.eclipse.php.internal.core.PHPVersion;
 import org.eclipse.php.internal.core.codeassist.ICompletionReporter;
 import org.eclipse.php.internal.core.codeassist.ProposalExtraInfo;
 import org.eclipse.php.internal.core.codeassist.contexts.ArrayKeyContext;
-import org.eclipse.php.internal.core.language.PHPVariables;
+import org.eclipse.php.internal.core.language.JaggeryVariables;
 import org.eclipse.php.internal.core.model.PhpModelAccess;
 import org.eclipse.php.internal.core.typeinference.FakeField;
 
@@ -129,7 +129,7 @@ public class BuiltinArrayKeysStrategy extends AbstractCompletionStrategy {
 
 			PHPVersion phpVersion = arrayContext.getPhpVersion();
 			reportVariables(reporter, arrayContext,
-					PHPVariables.getVariables(phpVersion), prefix, true,
+					JaggeryVariables.getVariables(phpVersion), prefix, true,
 					extraObject);
 		}
 	}

@@ -15,7 +15,7 @@ import org.eclipse.php.internal.core.ast.nodes.ArrayAccess;
 import org.eclipse.php.internal.core.ast.nodes.Identifier;
 import org.eclipse.php.internal.core.ast.nodes.Variable;
 import org.eclipse.php.internal.core.ast.nodes.VariableBase;
-import org.eclipse.php.internal.core.language.PHPVariables;
+import org.eclipse.php.internal.core.language.JaggeryVariables;
 import org.eclipse.php.internal.ui.editor.highlighter.AbstractSemanticApply;
 import org.eclipse.php.internal.ui.editor.highlighter.AbstractSemanticHighlighting;
 
@@ -34,7 +34,8 @@ public class SuperGlobalHighlighting extends AbstractSemanticHighlighting {
 					&& ((Variable) n).getName() instanceof Identifier) {
 				String name = "$" //$NON-NLS-1$
 						+ ((Identifier) ((Variable) n).getName()).getName();
-				String[] globals = PHPVariables.getVariables(PHPVersion.PHP5_3);
+				String[] globals = JaggeryVariables
+						.getVariables(PHPVersion.PHP5_3);
 				for (String global : globals) {
 					if (global.equals(name)) {
 						return true;

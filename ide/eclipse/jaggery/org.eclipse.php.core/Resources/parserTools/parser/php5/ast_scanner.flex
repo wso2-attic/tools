@@ -411,18 +411,6 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
 	return createSymbol(ParserConstants.T_EVAL);
 }
 
-<ST_IN_SCRIPTING>"include" {
-	return createSymbol(ParserConstants.T_INCLUDE);
-}
-
-<ST_IN_SCRIPTING>"include_once" {
-	return createSymbol(ParserConstants.T_INCLUDE_ONCE);
-}
-
-<ST_IN_SCRIPTING>"require" {
-	return createSymbol(ParserConstants.T_REQUIRE);
-}
-
 <ST_IN_SCRIPTING>"use" {
 	return createSymbol(ParserConstants.T_USE);
 }
@@ -656,6 +644,42 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
 
 <ST_IN_SCRIPTING>"__FILE__" {
     return createSymbol(ParserConstants.T_FILE);
+}
+
+<ST_IN_SCRIPTING>"post" {
+    return createSymbol(ParserConstants.T_POST);
+}
+
+<ST_IN_SCRIPTING>"get" {
+    return createSymbol(ParserConstants.T_GET);
+}
+
+<ST_IN_SCRIPTING>"put" {
+    return createSymbol(ParserConstants.T_PUT);
+}
+
+<ST_IN_SCRIPTING>"del" {
+    return createSymbol(ParserConstants.T_DEL);
+}
+
+<ST_IN_SCRIPTING>"include" {
+	return createSymbol(ParserConstants.T_INCLUDE);
+}
+
+<ST_IN_SCRIPTING>"include_once" {
+	return createSymbol(ParserConstants.T_INCLUDE_ONCE);
+}
+
+<ST_IN_SCRIPTING>"require" {
+	return createSymbol(ParserConstants.T_REQUIRE);
+}
+
+<ST_IN_SCRIPTING>"parse" {
+	return createSymbol(ParserConstants.T_PARSE);
+}
+
+<ST_IN_SCRIPTING>"stringify" {
+	return createSymbol(ParserConstants.T_STRINGIFY);
 }
 
 <YYINITIAL>(([^<]|"<"[^?%s<])+)|"<s"|"<" {

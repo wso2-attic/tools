@@ -133,6 +133,7 @@ terminal  T_PAAMAYIM_NEKUDOTAYIM;
 terminal String T_VAR_COMMENT;
 
 terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE;
+terminal String T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
 terminal T_COMMA;
 terminal String T_LOGICAL_OR,T_LOGICAL_XOR,T_LOGICAL_AND,T_PRINT;
 terminal T_EQUAL;
@@ -266,6 +267,7 @@ non terminal VariableBase base_variable_with_function_calls;
 
 
 precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE;
+precedence left T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
 precedence left T_COMMA;
 precedence left T_LOGICAL_OR;
 precedence left T_LOGICAL_XOR;
@@ -549,12 +551,12 @@ T_CURLY_OPEN:token inner_statement_list:statementList T_CURLY_CLOSE:end
 	RESULT = new EmptyStatement(tokenleft, tokenright, parser.ast); 
 :}
 
-| T_TRY:start T_CURLY_OPEN:tryBlockStart inner_statement_list:tryList T_CURLY_CLOSE:tryBlockEnd T_CATCH:catch_word T_OPEN_PARENTHESE fully_qualified_class_name:className tracked_variable:var T_CLOSE_PARENTHESE
+| T_TRY:start T_CURLY_OPEN:tryBlockStart inner_statement_list:tryList T_CURLY_CLOSE:tryBlockEnd T_CATCH:catch_word T_OPEN_PARENTHESE tracked_variable:var T_CLOSE_PARENTHESE
 T_CURLY_OPEN:catchBlockStart inner_statement_list:catchList T_CURLY_CLOSE:catchBlockEnd additional_catches:catchesList
 {:
 	Block tryBlock = new Block(tryBlockStartleft, tryBlockEndright, parser.ast, tryList);
 	Block catchBlock = new Block(catchBlockStartleft, catchBlockEndright, parser.ast, catchList);
-	CatchClause catchClause = new CatchClause(catch_wordleft, catchBlockEndright, parser.ast, className, var, catchBlock);
+	CatchClause catchClause = new CatchClause(catch_wordleft, catchBlockEndright, parser.ast, var, catchBlock);
 	((LinkedList) catchesList).addFirst(catchClause);
 	TryStatement tryStatement = new TryStatement(startleft, catchesListright, parser.ast, tryBlock, catchesList);
 	RESULT = tryStatement;	
@@ -605,12 +607,12 @@ additional_catch:catch_statement
 ;
 
 additional_catch ::=
-T_CATCH:catch_word T_OPEN_PARENTHESE fully_qualified_class_name:className T_VARIABLE:var T_CLOSE_PARENTHESE
+T_CATCH:catch_word T_OPEN_PARENTHESE  T_STRING:var T_CLOSE_PARENTHESE
  T_CURLY_OPEN:catchBlockStart inner_statement_list:catchList T_CURLY_CLOSE:catchBlockEnd
 {:
 	Block catchBlock = new Block(catchBlockStartleft, catchBlockEndright, parser.ast, catchList);
 	Variable variable = new Variable(varleft, varright, parser.ast, var);
-	CatchClause catchClause = new CatchClause(catch_wordleft, catchBlockEndright, parser.ast, className, variable, catchBlock);
+	CatchClause catchClause = new CatchClause(catch_wordleft, catchBlockEndright, parser.ast, variable, catchBlock);
 	RESULT = catchClause;
 :}
 ;

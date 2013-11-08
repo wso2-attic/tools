@@ -20,11 +20,15 @@ import org.eclipse.php.internal.core.ast.match.ASTMatcher;
 import org.eclipse.php.internal.core.ast.visitor.Visitor;
 
 /**
- * Holds a variable. 
- * note that the variable name can be expression, 
- * <pre>e.g.<pre> $a
- *
- * Subclasses: {@link ArrayAccess}, {@link ReflectionVariable}, {@link StaticFieldAccess}
+ * Holds a variable. note that the variable name can be expression,
+ * 
+ * <pre>e.g.
+ * 
+ * <pre>
+ * $a
+ * 
+ * Subclasses: {@link ArrayAccess}, {@link ReflectionVariable},
+ * {@link StaticFieldAccess}
  */
 public class Variable extends VariableBase {
 
@@ -34,11 +38,11 @@ public class Variable extends VariableBase {
 	/**
 	 * The structural property of this node type.
 	 */
-	public static final ChildPropertyDescriptor NAME_PROPERTY = 
-		new ChildPropertyDescriptor(Variable.class, "name", Expression.class, MANDATORY, CYCLE_RISK); //$NON-NLS-1$
-	public static final SimplePropertyDescriptor DOLLARED_PROPERTY = 
-		new SimplePropertyDescriptor(Variable.class, "isDollared", Boolean.class, OPTIONAL); //$NON-NLS-1$
-	
+	public static final ChildPropertyDescriptor NAME_PROPERTY = new ChildPropertyDescriptor(
+			Variable.class, "name", Expression.class, MANDATORY, CYCLE_RISK); //$NON-NLS-1$
+	public static final SimplePropertyDescriptor DOLLARED_PROPERTY = new SimplePropertyDescriptor(
+			Variable.class, "isDollared", Boolean.class, OPTIONAL); //$NON-NLS-1$
+
 	/**
 	 * @return the name PROPERTY
 	 */
@@ -52,21 +56,22 @@ public class Variable extends VariableBase {
 	public SimplePropertyDescriptor getDollaredProperty() {
 		return Variable.DOLLARED_PROPERTY;
 	}
-	
+
 	/**
-	 * A list of property descriptors (element type: 
-	 * {@link StructuralPropertyDescriptor}),
-	 * or null if uninitialized.
+	 * A list of property descriptors (element type:
+	 * {@link StructuralPropertyDescriptor}), or null if uninitialized.
 	 */
 	private static final List<StructuralPropertyDescriptor> PROPERTY_DESCRIPTORS;
 	static {
-		List<StructuralPropertyDescriptor> propertyList = new ArrayList<StructuralPropertyDescriptor>(2);
+		List<StructuralPropertyDescriptor> propertyList = new ArrayList<StructuralPropertyDescriptor>(
+				2);
 		propertyList.add(NAME_PROPERTY);
 		propertyList.add(DOLLARED_PROPERTY);
 		PROPERTY_DESCRIPTORS = Collections.unmodifiableList(propertyList);
 	}
-	
-	protected Variable(int start, int end, AST ast, Expression variableName, boolean isDollared) {
+
+	protected Variable(int start, int end, AST ast, Expression variableName,
+			boolean isDollared) {
 		super(start, end, ast);
 
 		if (variableName == null) {
@@ -76,19 +81,21 @@ public class Variable extends VariableBase {
 		setIsDollared(isDollared);
 	}
 
-	protected Variable(int start, int end, AST ast, Expression variableName) {
+	public Variable(int start, int end, AST ast, Expression variableName) {
 		this(start, end, ast, variableName, false);
 	}
 
 	/**
-	 * A simple variable (like $a) can be constructed with a string
-	 * The string is warped by an identifier
+	 * A simple variable (like $a) can be constructed with a string The string
+	 * is warped by an identifier
+	 * 
 	 * @param start
 	 * @param end
 	 * @param variableName
 	 */
 	public Variable(int start, int end, AST ast, String variableName) {
-		this(start, end, ast, createIdentifier(start, end, ast, variableName), checkIsDollared(variableName));
+		this(start, end, ast, createIdentifier(start, end, ast, variableName),
+				checkIsDollared(variableName));
 	}
 
 	public Variable(AST ast) {
@@ -99,7 +106,8 @@ public class Variable extends VariableBase {
 		return variableName.indexOf('$') == 0;
 	}
 
-	private static Identifier createIdentifier(int start, int end, AST ast, String idName) {
+	private static Identifier createIdentifier(int start, int end, AST ast,
+			String idName) {
 		if (checkIsDollared(idName)) {
 			idName = idName.substring(1);
 			// the start position move after the the dollar mark
@@ -114,7 +122,7 @@ public class Variable extends VariableBase {
 			childrenAccept(visitor);
 		}
 		visitor.endVisit(this);
-	}	
+	}
 
 	public void childrenAccept(Visitor visitor) {
 		name.accept(visitor);
@@ -153,15 +161,18 @@ public class Variable extends VariableBase {
 	}
 
 	/**
-	 * Sets the dollared property of this variable (true - the variable is dollared)
+	 * Sets the dollared property of this variable (true - the variable is
+	 * dollared)
 	 * 
-	 * @param value new value for is this variable 
-	 * @exception IllegalArgumentException if:
-	 * <ul>
-	 * <li>the node belongs to a different AST</li>
-	 * <li>the node already has a parent</li>
-	 * <li>a cycle in would be created</li>
-	 * </ul>
+	 * @param value
+	 *            new value for is this variable
+	 * @exception IllegalArgumentException
+	 *                if:
+	 *                <ul>
+	 *                <li>the node belongs to a different AST</li>
+	 *                <li>the node already has a parent</li>
+	 *                <li>a cycle in would be created</li>
+	 *                </ul>
 	 */
 	public final void setIsDollared(boolean value) {
 		final SimplePropertyDescriptor dollaredProperty = getDollaredProperty();
@@ -172,7 +183,7 @@ public class Variable extends VariableBase {
 
 	/**
 	 * @deprecated use {@link #getName()}
-	 */ 
+	 */
 	public Expression getVariableName() {
 		return name;
 	}
@@ -181,22 +192,24 @@ public class Variable extends VariableBase {
 	 * Returns the name (expression) of this variable
 	 * 
 	 * @return the expression name node
-	 */ 
+	 */
 	public Expression getName() {
 		return name;
 	}
-	
+
 	/**
 	 * Sets the name of this variable
 	 * 
-	 * @param expression the new variable name
-	 * @exception IllegalArgumentException if:
-	 * <ul>
-	 * <li>the node belongs to a different AST</li>
-	 * <li>the node already has a parent</li>
-	 * <li>a cycle in would be created</li>
-	 * </ul>
-	 */ 
+	 * @param expression
+	 *            the new variable name
+	 * @exception IllegalArgumentException
+	 *                if:
+	 *                <ul>
+	 *                <li>the node belongs to a different AST</li>
+	 *                <li>the node already has a parent</li>
+	 *                <li>a cycle in would be created</li>
+	 *                </ul>
+	 */
 	public void setName(Expression expression) {
 		if (expression == null) {
 			throw new IllegalArgumentException();
@@ -207,8 +220,9 @@ public class Variable extends VariableBase {
 		this.name = expression;
 		postReplaceChild(oldChild, expression, nameProperty);
 	}
-	
-	ASTNode internalGetSetChildProperty(ChildPropertyDescriptor property, boolean get, ASTNode child) {
+
+	ASTNode internalGetSetChildProperty(ChildPropertyDescriptor property,
+			boolean get, ASTNode child) {
 		if (property == getNameProperty()) {
 			if (get) {
 				return getName();
@@ -220,8 +234,9 @@ public class Variable extends VariableBase {
 		// allow default implementation to flag the error
 		return super.internalGetSetChildProperty(property, get, child);
 	}
-	
-	boolean internalGetSetBooleanProperty(SimplePropertyDescriptor property, boolean get, boolean value) {
+
+	boolean internalGetSetBooleanProperty(SimplePropertyDescriptor property,
+			boolean get, boolean value) {
 		if (property == getDollaredProperty()) {
 			if (get) {
 				return isDollared();
@@ -234,8 +249,7 @@ public class Variable extends VariableBase {
 		return super.internalGetSetBooleanProperty(property, get, value);
 	}
 
-	
-	/* 
+	/*
 	 * Method declared on ASTNode.
 	 */
 	public boolean subtreeMatch(ASTMatcher matcher, Object other) {
@@ -246,16 +260,18 @@ public class Variable extends VariableBase {
 	@Override
 	ASTNode clone0(AST target) {
 		final boolean dollared = isDollared();
-		final Expression name = ASTNode.copySubtree(target, getName()); 
-		final Variable result = new Variable(getStart(), getEnd(), target, name, dollared);
+		final Expression name = ASTNode.copySubtree(target, getName());
+		final Variable result = new Variable(getStart(), getEnd(), target,
+				name, dollared);
 		return result;
 	}
 
 	@Override
-	List<StructuralPropertyDescriptor> internalStructuralPropertiesForType(PHPVersion apiLevel) {
+	List<StructuralPropertyDescriptor> internalStructuralPropertiesForType(
+			PHPVersion apiLevel) {
 		return PROPERTY_DESCRIPTORS;
 	}
-	
+
 	/**
 	 * Resolves and returns the binding for the field accessed by this
 	 * expression.
@@ -263,13 +279,13 @@ public class Variable extends VariableBase {
 	 * Note that bindings are generally unavailable unless requested when the
 	 * AST is being built.
 	 * </p>
-	 *
+	 * 
 	 * @return the variable binding, or <code>null</code> if the binding cannot
-	 * be resolved
+	 *         be resolved
 	 * @since 3.0
 	 */
 	public IVariableBinding resolveVariableBinding() {
 		return this.ast.getBindingResolver().resolveVariable(this);
 	}
-	
+
 }

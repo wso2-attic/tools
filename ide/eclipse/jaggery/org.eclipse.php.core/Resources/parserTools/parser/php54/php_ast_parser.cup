@@ -146,6 +146,7 @@ terminal String T_VAR_COMMENT;
 terminal String T_DEFINE;
 
 terminal String T_INCLUDE,T_INCLUDE_ONCE,T_EVAL,T_REQUIRE,T_REQUIRE_ONCE;
+terminal String T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
 terminal T_COMMA;
 terminal String T_LOGICAL_OR,T_LOGICAL_XOR,T_LOGICAL_AND,T_PRINT;
 terminal T_EQUAL;
@@ -334,6 +335,7 @@ non terminal VariableBase array_function_dereference;
 
 
 precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE, T_REQUIRE_ONCE;
+precedence left T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
 precedence left T_COMMA;
 precedence left T_LOGICAL_OR;
 precedence left T_LOGICAL_XOR;
@@ -557,6 +559,18 @@ T_CURLY_OPEN:token inner_statement_list:sList T_CURLY_CLOSE:e
 :}
 
 
+| T_TRY:s T_CURLY_OPEN:tryBlockStart inner_statement_list:tryList T_CURLY_CLOSE:tryBlockEnd T_CATCH:catch_word T_OPEN_PARENTHESE tracked_variable:var T_CLOSE_PARENTHESE
+T_CURLY_OPEN:catchBlockStart inner_statement_list:catchList T_CURLY_CLOSE:catchBlockEnd additional_catches:catchesList
+{:
+	Block tryBlock = new Block(tryBlockStartleft, tryBlockEndright, parser.ast, tryList);
+	Block catchBlock = new Block(catchBlockStartleft, catchBlockEndright, parser.ast, catchList);
+	CatchClause catchClause = new CatchClause(catch_wordleft, catchBlockEndright, parser.ast, var, catchBlock);
+	((LinkedList) catchesList).addFirst(catchClause);
+	RESULT = new TryStatement(sleft, catchesListright, parser.ast, tryBlock, catchesList);	
+:}
+
+
+
 | T_THROW:token expr:expr T_SEMICOLON:e
 {: 
 	RESULT = new ThrowStatement(tokenleft, eright, parser.ast, expr); 
@@ -576,6 +590,43 @@ T_CURLY_OPEN:token inner_statement_list:sList T_CURLY_CLOSE:e
 | T_VAR_COMMENT:varComment unticked_statement:statement
 {:
 	RESULT = statement;
+:}
+;
+
+additional_catches ::=
+non_empty_additional_catches:list
+{:
+	RESULT = list;
+:}
+
+| /* empty */
+{:
+	List list = new LinkedList();
+	RESULT = list;	
+:}
+;
+
+non_empty_additional_catches ::=
+additional_catch:catch_statement
+{:
+	List list = new LinkedList();
+	list.add(catch_statement);
+	RESULT = list;	
+:}
+| non_empty_additional_catches:list additional_catch:catch_statement
+{:
+	list.add(catch_statement);
+	RESULT = list;	
+:}
+;
+
+additional_catch ::=
+T_CATCH:catch_word T_OPEN_PARENTHESE T_STRING:var T_CLOSE_PARENTHESE
+ T_CURLY_OPEN:catchBlockStart inner_statement_list:catchList T_CURLY_CLOSE:catchBlockEnd
+{:
+	RESULT = new CatchClause(catch_wordleft, catchBlockEndright, parser.ast, 
+		new Variable(varleft, varright, parser.ast, var),
+		new Block(catchBlockStartleft, catchBlockEndright, parser.ast, catchList));
 :}
 ;
 
@@ -1948,7 +1999,6 @@ T_LNUMBER:scalar
 {:
 	RESULT = new Quote(labelleft, eright, parser.ast, new LinkedList(), label.charAt(0) == '\'' ? Quote.QT_NOWDOC : Quote.QT_HEREDOC);
 :}
-
 ;
 
 static_scalar ::=  /* compile-time evaluated scalars */
@@ -1997,17 +2047,10 @@ T_STRING_VARNAME:scalar
 {:
 	RESULT = new Scalar(scalarleft, scalarright, parser.ast, scalar, Scalar.TYPE_STRING);
 :}
-
 | common_scalar:scalar
 {:
 	RESULT = scalar;
 :}
-
-| T_QUATE:s encaps_list:list T_QUATE:e
-{:
-	RESULT = new Quote(sleft, eright, parser.ast, list, Quote.QT_QUOTE);
-:}
-
 | T_START_HEREDOC:s encaps_list:list T_END_HEREDOC:e
 {:
 	RESULT = new Quote(sleft, eright, parser.ast, list, Quote.QT_HEREDOC);
@@ -2482,6 +2525,11 @@ T_ISSET:s T_OPEN_PARENTHESE isset_variables:varList T_CLOSE_PARENTHESE:e
 | T_INCLUDE_ONCE:include expr:expr
 {:
 	RESULT = new Include(includeleft, exprright, parser.ast, expr, Include.IT_INCLUDE_ONCE);
+:}
+
+| T_POST:post expr:expr
+{:
+	RESULT = new Include(postleft, exprright, parser.ast, expr, Include.IT_INCLUDE);
 :}
 
 | T_EVAL:s T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE:e

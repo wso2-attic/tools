@@ -2,15 +2,23 @@
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+
+	<parent>
+    	<groupId>org.wso2.eclipse</groupId>
+    	<artifactId>wso2-eclipse-parent</artifactId>
+    	<version>3.3.0-SNAPSHOT</version>
+    	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.php</groupId>
 	<artifactId>org.eclipse.pdt.releng</artifactId>
-	<version>3.2.0.wso2v1</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<!-- this is the parent POM from which all modules inherit common settings -->
 	<properties>
-		<tycho-version>0.14.1</tycho-version>
+		
 		<antrun-version>1.7</antrun-version>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 	</properties>
@@ -41,11 +49,11 @@
 	</build>
 
 	<repositories>
-		<repository>
+		<!--repository>
 			<id>dltk-tests</id>
 			<layout>p2</layout>
 			<url>https://hudson.eclipse.org/hudson/job/dltk-nightly/lastSuccessfulBuild/artifact/org.eclipse.dltk.releng/build/update.site/target/site/</url>
-		</repository>
+		</repository -->
 		<repository>
 			<id>juno</id>
 			<layout>p2</layout>
@@ -70,8 +78,8 @@
 		<module>org.eclipse.php-repository</module>
 		<module>org.eclipse.php.core</module>
 		<module>org.eclipse.php.core.parser</module>
-		<!--<module>../tests/org.eclipse.php.core.performance.tests</module>
-		<module>../tests/org.eclipse.php.core.tests</module> -->
+		<!--module>org.eclipse.php.core.performance.tests</module-->
+		<!--module>org.eclipse.php.core.tests</module-->
 		<module>org.eclipse.php.debug.core</module>
 		<module>org.eclipse.php.debug.daemon</module>
 		<module>org.eclipse.php.debug.ui</module>
@@ -81,7 +89,7 @@
 		<module>org.eclipse.php.server.core</module>
 		<module>org.eclipse.php.server.ui</module>
 		<module>org.eclipse.php.source-feature</module>
-		<module>org.eclipse.php.test-feature</module>
+		<!--module>org.eclipse.php.test-feature</module-->
 		<module>org.eclipse.php.ui</module>
 		<!--<module>org.eclipse.php.ui.tests</module>-->
 	</modules>

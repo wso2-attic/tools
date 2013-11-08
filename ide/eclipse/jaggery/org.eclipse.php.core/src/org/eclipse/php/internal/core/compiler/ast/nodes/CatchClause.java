@@ -21,20 +21,24 @@ import org.eclipse.php.internal.core.compiler.ast.visitor.ASTPrintVisitor;
 
 /**
  * Represents a catch clause (as part of a try statement)
- * <pre>e.g.<pre> catch (ClassName $e) { },
- *
+ * 
+ * <pre>e.g.
+ * 
+ * <pre> catch (ClassName $e) { },
+ * 
  */
 public class CatchClause extends Statement {
 
-	private final TypeReference className;
+	// private final TypeReference className;
 	private final VariableReference variable;
 	private final Block statement;
 
-	public CatchClause(int start, int end, TypeReference className, VariableReference variable, Block statement) {
+	public CatchClause(int start, int end, VariableReference variable,
+			Block statement) {
 		super(start, end);
 
-		assert className != null && variable != null && statement != null;
-		this.className = className;
+		assert variable != null && statement != null;
+		// this.className = className;
 		this.variable = variable;
 		this.statement = statement;
 	}
@@ -42,7 +46,7 @@ public class CatchClause extends Statement {
 	public void traverse(ASTVisitor visitor) throws Exception {
 		final boolean visit = visitor.visit(this);
 		if (visit) {
-			className.traverse(visitor);
+			// className.traverse(visitor);
 			variable.traverse(visitor);
 			statement.traverse(visitor);
 		}
@@ -54,7 +58,8 @@ public class CatchClause extends Statement {
 	}
 
 	public TypeReference getClassName() {
-		return className;
+		// return className;
+		return null;
 	}
 
 	public Block getStatement() {

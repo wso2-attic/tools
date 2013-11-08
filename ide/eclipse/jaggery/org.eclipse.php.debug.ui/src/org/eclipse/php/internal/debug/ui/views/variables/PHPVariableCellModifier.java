@@ -20,7 +20,7 @@ import org.eclipse.php.internal.debug.core.zend.model.PHPVariable;
 import org.eclipse.php.internal.debug.ui.PHPDebugUIPlugin;
 
 /**
- * PHPVariableCellModifier is the cell modifier for the PHPVariables.
+ * PHPVariableCellModifier is the cell modifier for the JaggeryVariables.
  * 
  * @author shalom
  * 
@@ -29,7 +29,7 @@ public class PHPVariableCellModifier extends DefaultVariableCellModifier
 		implements ICellModifier {
 
 	/**
-	 * Overrides the default cell modifier to support PHPVariables. (The method
+	 * Overrides the default cell modifier to support JaggeryVariables. (The method
 	 * returns the PHPValue.getValue() instead of getValueString()).
 	 */
 	public Object getValue(Object element, String property) {

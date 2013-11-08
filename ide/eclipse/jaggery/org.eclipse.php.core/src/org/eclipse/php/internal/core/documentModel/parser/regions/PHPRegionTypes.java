@@ -64,8 +64,6 @@ public interface PHPRegionTypes {
 
 	// static final String PHP_BOOLEAN_OR = "PHP_BOOLEAN_OR";
 
-	static final String PHP_INCLUDE = "PHP_INCLUDE"; //$NON-NLS-1$
-
 	static final String PHP_EMPTY = "PHP_EMPTY"; //$NON-NLS-1$
 
 	// static final String PHP_XOR_EQUAL = "PHP_XOR_EQUAL";
@@ -168,8 +166,6 @@ public interface PHPRegionTypes {
 
 	static final String PHP_HALT_COMPILER = "PHP_HALT_COMPILER"; //$NON-NLS-1$
 
-	static final String PHP_INCLUDE_ONCE = "PHP_INCLUDE_ONCE"; //$NON-NLS-1$
-
 	// static final String PHP_BAD_CHARACTER = "PHP_BAD_CHARACTER";
 
 	// static final String PHP_OBJECT_CAST = "PHP_OBJECT_CAST";
@@ -251,8 +247,6 @@ public interface PHPRegionTypes {
 	// static final String PHP_CHARACTER = "PHP_CHARACTER";
 
 	// static final String PHP_TIMES = "PHP_TIMES";
-
-	static final String PHP_REQUIRE = "PHP_REQUIRE"; //$NON-NLS-1$
 
 	// static final String PHP_ARRAY_CAST = "PHP_ARRAY_CAST";
 
@@ -448,6 +442,50 @@ public interface PHPRegionTypes {
 	static final String PHP_TRUE = "PHP_TRUE"; //$NON-NLS-1$
 
 	static final String PHP_FALSE = "PHP_FALSE"; //$NON-NLS-1$
+
+	static final String PHP_LOG = "PHP_LOG";
+
+	static final String PHP_WSREQUEST = "PHP_WSREQUEST";
+
+	static final String PHP_WSSTUB = "PHP_WSSTUB";
+
+	static final String PHP_XML = "PHP_XML";
+
+	static final String PHP_XMLHTTPREQUEST = "PHP_XMLHTTPREQUEST";
+
+	static final String PHP_URIMATCHER = "PHP_URIMATCHER";
+
+	static final String PHP_FILE = "PHP_FILE";
+
+	static final String PHP_FEED = "PHP_FEED";
+
+	static final String PHP_ENTRY = "PHP_ENTRY";
+
+	static final String PHP_DATABASE = "PHP_DATABASE";
+
+	static final String PHP_METADATASTORE = "PHP_METADATASTORE";
+
+	static final String PHP_SENDER = "PHP_SENDER";
+
+	static final String PHP_OAUTHPROVIDER = "PHP_OAUTHPROVIDER";
+
+	static final String PHP_REQUIRE = "PHP_REQUIRE"; //$NON-NLS-1$
+
+	static final String PHP_GET = "PHP_GET";
+
+	static final String PHP_POST = "PHP_POST";
+
+	static final String PHP_PUT = "PHP_PUT";
+
+	static final String PHP_DEL = "PHP_DEL";
+
+	static final String PHP_INCLUDE = "PHP_INCLUDE"; //$NON-NLS-1$
+
+	static final String PHP_INCLUDE_ONCE = "PHP_INCLUDE_ONCE"; //$NON-NLS-1$
+
+	static final String PHP_PARSE = "PHP_PARSE";
+
+	static final String PHP_STRINGIFY = "PHP_STRINGIFY";
 
 	//	static final String TASK = "TASK"; //$NON-NLS-1$
 }

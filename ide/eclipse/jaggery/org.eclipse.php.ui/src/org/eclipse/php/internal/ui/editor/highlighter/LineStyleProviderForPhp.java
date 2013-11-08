@@ -127,10 +127,7 @@ public class LineStyleProviderForPhp extends AbstractLineStyleProvider
 				PreferenceConstants.EDITOR_KEYWORD_COLOR);
 		// fColorTypes.put(PHPRegionTypes.PHP_HALT_COMPILER,
 		// PreferenceConstants.EDITOR_KEYWORD_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_INCLUDE,
-				PreferenceConstants.EDITOR_KEYWORD_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_INCLUDE_ONCE,
-				PreferenceConstants.EDITOR_KEYWORD_COLOR);
+
 		// fColorTypes.put(PHPRegionTypes.PHP_GLOBAL,
 		// PreferenceConstants.EDITOR_KEYWORD_COLOR);
 		fColorTypes.put(PHPRegionTypes.PHP_LIST,
@@ -148,8 +145,6 @@ public class LineStyleProviderForPhp extends AbstractLineStyleProvider
 		fColorTypes.put(PHPRegionTypes.PHP_PRIVATE,
 				PreferenceConstants.EDITOR_KEYWORD_COLOR);
 		fColorTypes.put(PHPRegionTypes.PHP_PROTECTED,
-				PreferenceConstants.EDITOR_KEYWORD_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_REQUIRE,
 				PreferenceConstants.EDITOR_KEYWORD_COLOR);
 		// fColorTypes.put(PHPRegionTypes.PHP_REQUIRE_ONCE,
 		// PreferenceConstants.EDITOR_KEYWORD_COLOR);
@@ -213,6 +208,52 @@ public class LineStyleProviderForPhp extends AbstractLineStyleProvider
 		// PreferenceConstants.EDITOR_KEYWORD_COLOR);
 		fColorTypes.put(PHPRegionTypes.PHP_KEYWORD,
 				PreferenceConstants.EDITOR_KEYWORD_COLOR);
+
+		fColorTypes.put(PHPRegionTypes.PHP_LOG,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_WSREQUEST,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_WSSTUB,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_XML,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_XMLHTTPREQUEST,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_URIMATCHER,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_FILE,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_FEED,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_ENTRY,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_DATABASE,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_METADATASTORE,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_SENDER,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_OAUTHPROVIDER,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+
+		fColorTypes.put(PHPRegionTypes.PHP_POST,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_GET,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_PUT,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_DEL,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_INCLUDE,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_INCLUDE_ONCE,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_REQUIRE,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_PARSE,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
+		fColorTypes.put(PHPRegionTypes.PHP_STRINGIFY,
+				PreferenceConstants.EDITOR_CLASS_COLOR);
 
 		// Variables
 		fColorTypes.put(PHPRegionTypes.PHP_VARIABLE,
@@ -808,6 +849,7 @@ public class LineStyleProviderForPhp extends AbstractLineStyleProvider
 		addTextAttribute(PreferenceConstants.EDITOR_NORMAL_COLOR);
 		addTextAttribute(PreferenceConstants.EDITOR_BOUNDARYMARKER_COLOR);
 		addTextAttribute(PreferenceConstants.EDITOR_KEYWORD_COLOR);
+		addTextAttribute(PreferenceConstants.EDITOR_CLASS_COLOR);
 		addTextAttribute(PreferenceConstants.EDITOR_VARIABLE_COLOR);
 		addTextAttribute(PreferenceConstants.EDITOR_STRING_COLOR);
 		addTextAttribute(PreferenceConstants.EDITOR_COMMENT_COLOR);
@@ -858,6 +900,7 @@ public class LineStyleProviderForPhp extends AbstractLineStyleProvider
 					|| PreferenceConstants.EDITOR_BOUNDARYMARKER_COLOR
 							.equals(prefKey)
 					|| PreferenceConstants.EDITOR_KEYWORD_COLOR.equals(prefKey)
+					|| PreferenceConstants.EDITOR_CLASS_COLOR.equals(prefKey)
 					|| PreferenceConstants.EDITOR_VARIABLE_COLOR
 							.equals(prefKey)
 					|| PreferenceConstants.EDITOR_STRING_COLOR.equals(prefKey)
@@ -878,6 +921,9 @@ public class LineStyleProviderForPhp extends AbstractLineStyleProvider
 							.equals(prefKey)
 					|| PreferenceConstants.getEnabledPreferenceKey(
 							PreferenceConstants.EDITOR_KEYWORD_COLOR).equals(
+							prefKey)
+					|| PreferenceConstants.getEnabledPreferenceKey(
+							PreferenceConstants.EDITOR_CLASS_COLOR).equals(
 							prefKey)
 					|| PreferenceConstants.getEnabledPreferenceKey(
 							PreferenceConstants.EDITOR_VARIABLE_COLOR).equals(

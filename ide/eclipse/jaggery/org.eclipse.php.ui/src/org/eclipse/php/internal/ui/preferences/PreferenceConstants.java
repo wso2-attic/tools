@@ -305,6 +305,31 @@ public class PreferenceConstants {
 					ColorHelper.getColorString(127, 0, 85), null, "true" }); //$NON-NLS-1$
 
 	/**
+	 * A named preference that holds the color for the Class Type keyword (Log,
+	 * post, XMLHttpRequest etc.)
+	 * <p>
+	 * Value is of type <code>String</code>.
+	 * </p>
+	 */
+	public static final String EDITOR_CLASS_COLOR = "editorColorClassTypeKeyword"; //$NON-NLS-1$
+
+	/**
+	 * A named preference that holds the default color for the PHP keyword
+	 * <p>
+	 * Value is of type <code>String</code>.
+	 * </p>
+	 */
+	public static final String EDITOR_CLASS_DEFAULT_COLOR = ColorHelper
+			.getColorString(61, 96, 170);
+
+	// ColorHelper
+	// .packStylePreferences(new String[] {
+	// ColorHelper.getColorString(185, 89, 163), null, "true" });
+	//
+	// ColorHelper
+	// .getColorString(85, 127, 95);
+
+	/**
 	 * A named preference that holds the color for the normal PHP text
 	 * <p>
 	 * Value is of type <code>String</code>.
@@ -749,7 +774,7 @@ public class PreferenceConstants {
 	public static final String EDITOR_FOLDING_PHPDOC = "foldPHPDoc"; //$NON-NLS-1$
 	public static final String EDITOR_FOLDING_CLASSES = "foldClasses"; //$NON-NLS-1$
 	public static final String EDITOR_FOLDING_FUNCTIONS = "foldFunctions"; //$NON-NLS-1$
-	//	public static final String EDITOR_FOLDING_INCLUDES = "foldIncludes"; 
+	// public static final String EDITOR_FOLDING_INCLUDES = "foldIncludes";
 	public static final String EDITOR_FOLDING_HEADER_COMMENTS = "foldHeaderComment"; //$NON-NLS-1$
 
 	/**
@@ -774,7 +799,8 @@ public class PreferenceConstants {
 	 * @since 3.1
 	 * @see IStructuredTextFoldingProvider#FOLDING_ENABLED
 	 */
-	//	public static final String EDITOR_FOLDING_ENABLED= "editor_folding_enabled"; 
+	// public static final String EDITOR_FOLDING_ENABLED=
+	// "editor_folding_enabled";
 	public static final String EDITOR_FOLDING_ENABLED = AbstractStructuredFoldingStrategy.FOLDING_ENABLED;
 
 	/**
@@ -948,7 +974,8 @@ public class PreferenceConstants {
 	 * 
 	 * @see #SRCBIN_FOLDERS_IN_NEWPROJ
 	 */
-	//public static final String SRCBIN_SRCNAME = "org.eclipse.php.ui.wizards.srcBinFoldersSrcName"; 
+	// public static final String SRCBIN_SRCNAME =
+	// "org.eclipse.php.ui.wizards.srcBinFoldersSrcName";
 	public static final String SRCBIN_SRCNAME = "com.xore.dltk.ui.wizards.srcFoldersSrcName"; //$NON-NLS-1$
 
 	/**
@@ -1122,6 +1149,7 @@ public class PreferenceConstants {
 		store.setDefault(EDITOR_BOUNDARYMARKER_COLOR,
 				EDITOR_BOUNDARYMARKER_DEFAULT_COLOR);
 		store.setDefault(EDITOR_KEYWORD_COLOR, EDITOR_KEYWORD_DEFAULT_COLOR);
+		store.setDefault(EDITOR_CLASS_COLOR, EDITOR_CLASS_DEFAULT_COLOR);
 		store.setDefault(EDITOR_VARIABLE_COLOR, EDITOR_VARIABLE_DEFAULT_COLOR);
 		store.setDefault(EDITOR_STRING_COLOR, EDITOR_STRING_DEFAULT_COLOR);
 		store.setDefault(EDITOR_NUMBER_COLOR, EDITOR_NUMBER_DEFAULT_COLOR);
@@ -1139,6 +1167,7 @@ public class PreferenceConstants {
 		store.setDefault(getEnabledPreferenceKey(EDITOR_BOUNDARYMARKER_COLOR),
 				true);
 		store.setDefault(getEnabledPreferenceKey(EDITOR_KEYWORD_COLOR), true);
+		store.setDefault(getEnabledPreferenceKey(EDITOR_CLASS_COLOR), true);
 		store.setDefault(getEnabledPreferenceKey(EDITOR_VARIABLE_COLOR), true);
 		store.setDefault(getEnabledPreferenceKey(EDITOR_STRING_COLOR), true);
 		store.setDefault(getEnabledPreferenceKey(EDITOR_NUMBER_COLOR), true);
@@ -1188,7 +1217,7 @@ public class PreferenceConstants {
 				"org.eclipse.php.ui.editor.hover.BestMatchHover;0;org.eclipse.php.ui.editor.hover.PHPSourceTextHover;" + mod1Name); //$NON-NLS-1$
 		store.setDefault(
 				EDITOR_TEXT_HOVER_MODIFIER_MASKS,
-				"org.eclipse.php.ui.editor.hover.BestMatchHover;0;org.eclipse.php.ui.editor.hover.PHPSourceTextHover;" + SWT.MOD1); 		 //$NON-NLS-1$
+				"org.eclipse.php.ui.editor.hover.BestMatchHover;0;org.eclipse.php.ui.editor.hover.PHPSourceTextHover;" + SWT.MOD1); //$NON-NLS-1$
 
 		store.setDefault(PHP_MANUAL_SITE, PHPManualConfigSerializer
 				.toString(new PHPManualConfig(

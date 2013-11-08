@@ -2036,8 +2036,7 @@ public final class ASTRewriteAnalyzer extends AbstractVisitor {
 	 * @see org.eclipse.jdt.core.dom.ASTVisitor#visit(CatchClause)
 	 */
 	public boolean visit(CatchClause node) { // catch (Exception) Block
-		return rewriteRequiredNodeVisit(node, CatchClause.CLASS_NAME_PROPERTY,
-				CatchClause.BODY_PROPERTY);
+		return rewriteRequiredNodeVisit(node, CatchClause.BODY_PROPERTY);
 	}
 
 	/*
