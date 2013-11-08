@@ -70,6 +70,7 @@ public class RegistryResourcePage extends FormPage {
 	}
 
 	protected void createFormContent(IManagedForm managedForm) {
+		//Creating Form Toolkit
 		toolkit = managedForm.getToolkit();
 		form = managedForm.getForm();
 		form.setText("Registry Resource Editor");
@@ -79,6 +80,7 @@ public class RegistryResourcePage extends FormPage {
         layout.marginWidth = 10;
         form.getBody().setLayout(layout);
         
+        //Creating new section for Artifact List
         Section listSection = toolkit.createSection(form.getBody(), Section.EXPANDED |  Section.TITLE_BAR);
         listSection.setText("Artifact List");
         listSection.setBounds(40, 20, 220,100);
@@ -90,31 +92,32 @@ public class RegistryResourcePage extends FormPage {
 		comp.setLayout(glcomp);
 		listSection.setClient(comp);
 		
+		//Creating the table which hosts Artifact List
 		artifactListTable = toolkit.createTable(comp,  SWT.MULTI|SWT.FULL_SELECTION);
 		artifactListTable.setBackground(SWTResourceManager.getColor(255, 255, 224));
 		artifactListTable.setBounds(4, 2, 22, 10);
-		 TableColumn tc1 = new TableColumn(artifactListTable, SWT.CENTER);
-		    TableColumn tc2 = new TableColumn(artifactListTable, SWT.LEFT);
-	        tc1.setResizable(false);
-		    tc2.setText("Artifact List");
-		    tc1.setWidth(0);
-		    tc2.setWidth(1000);
-//		    artifactListTable.setHeaderVisible(true);
-		    
-		    artifactNameEditor = new TableEditor(artifactListTable);
-		    artifactNameEditor.setEditor(new Text(artifactListTable, SWT.BORDER));
-		    artifactNameEditor.horizontalAlignment = SWT.LEFT;
-		    artifactNameEditor.grabHorizontal = true;
-		    artifactNameEditor.minimumWidth = 50;
-		    
-		    
-			listGridData = new GridData(GridData.FILL_BOTH);
-			listGridData.heightHint = 206;
-			artifactListTable.setLayoutData(listGridData);
-			new Label(comp, SWT.NONE);
-			toolkit.paintBordersFor(comp);
+		TableColumn tc1 = new TableColumn(artifactListTable, SWT.CENTER);
+		TableColumn tc2 = new TableColumn(artifactListTable, SWT.LEFT);
+		tc1.setResizable(false);
+		tc2.setText("Artifact List");
+		tc1.setWidth(0);
+		tc2.setWidth(1000);
+		// artifactListTable.setHeaderVisible(true);
 
-		
+		// Adding Table editor for editing Artifact Names
+		artifactNameEditor = new TableEditor(artifactListTable);
+		artifactNameEditor.setEditor(new Text(artifactListTable, SWT.BORDER));
+		artifactNameEditor.horizontalAlignment = SWT.LEFT;
+		artifactNameEditor.grabHorizontal = true;
+		artifactNameEditor.minimumWidth = 50;
+
+		listGridData = new GridData(GridData.FILL_BOTH);
+		listGridData.heightHint = 206;
+		artifactListTable.setLayoutData(listGridData);
+		new Label(comp, SWT.NONE);
+		toolkit.paintBordersFor(comp);
+
+		//Creating new section to host the registry elements in an registry artifact
 	    Section tableSection = toolkit.createSection(form.getBody(), Section.EXPANDED |  Section.TITLE_BAR);
 		tableSection.setText("Registry Resources' Deploy Paths");
 		tableSection.setBounds(40, 20, 220,100);
@@ -125,6 +128,8 @@ public class RegistryResourcePage extends FormPage {
 		tableSection.setClient(comp2);
 		createTable(comp2);
 		new Label(comp2, SWT.NONE);
+		
+		//Setting uo Listeners
 		addArtifactListListener();
 		addTableListener();
 		editorMain();
@@ -166,7 +171,7 @@ public class RegistryResourcePage extends FormPage {
 	}
 	
 	private void addArtifactListListener(){
-		
+		//Adding Selection Listener to populate the elements list 
 		artifactListTable.addSelectionListener(new SelectionListener() {
 		      public void widgetSelected(SelectionEvent event) {
 		       addResourcesPath1();	  
@@ -176,9 +181,9 @@ public class RegistryResourcePage extends FormPage {
 		      }
 		    });
 		
+		//Adding Mouse Listener to allow editing artifact name
 		artifactListTable.addListener(SWT.MouseDown, new Listener() {
 			
-			@Override
 			public void handleEvent(Event event) {
 				 // Clean up any previous editor control
 		        Control oldEditor = artifactNameEditor.getEditor();
@@ -204,7 +209,7 @@ public class RegistryResourcePage extends FormPage {
 					
 					@Override
 					public void keyReleased(KeyEvent e) {
-						// TODO Auto-generated method stub
+						// Check whether user pressed Enter key which indicates that editing is complete.
 						if(e.keyCode==SWT.CR){
 							Control oldEditor = artifactNameEditor.getEditor();
 					        if (oldEditor != null){
