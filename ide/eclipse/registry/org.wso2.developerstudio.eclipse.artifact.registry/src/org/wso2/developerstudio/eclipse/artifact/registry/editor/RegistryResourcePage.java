@@ -8,6 +8,8 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
@@ -25,7 +27,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
@@ -43,20 +44,22 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 public class RegistryResourcePage extends FormPage {
 
-	private List artifactlist;
+	private Table artifactListTable;
 	private Map<Integer,RegistryElement> itemMap;
     private GeneralProjectArtifact generalProjectArtifact;
     private boolean isSave;
     private GridData listGridData;
     private Table table;
     private FormToolkit toolkit;
+    private TableEditor artifactNameEditor;
     private TableEditor registryPathEditor;
     private TableEditor mediaTypeEditor;
     private GridData tableGridData;
     private ScrolledForm form;
+    private static final int INDEX_COLUMN = 0;
+    private static final int ARTIFACT_NAME_COLUMN = 1;
     private static final int EDITABLE_COLUMN = 2;
     private static final int MEDIATYPE_COLUMN = 3;
-    private static final int INDEX_COLUMN = 0;
     
 	public RegistryResourcePage(String id, String title) {
 		super(id, title);
@@ -86,15 +89,31 @@ public class RegistryResourcePage extends FormPage {
 		GridLayout glcomp = new GridLayout(2,false);
 		comp.setLayout(glcomp);
 		listSection.setClient(comp);
-		artifactlist = new List(comp, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
-		artifactlist.setBackground(SWTResourceManager.getColor(255, 255, 224));
-		artifactlist.setBounds(4, 2, 22, 10);
+		
+		artifactListTable = toolkit.createTable(comp,  SWT.MULTI|SWT.FULL_SELECTION);
+		artifactListTable.setBackground(SWTResourceManager.getColor(255, 255, 224));
+		artifactListTable.setBounds(4, 2, 22, 10);
+		 TableColumn tc1 = new TableColumn(artifactListTable, SWT.CENTER);
+		    TableColumn tc2 = new TableColumn(artifactListTable, SWT.LEFT);
+	        tc1.setResizable(false);
+		    tc2.setText("Artifact List");
+		    tc1.setWidth(0);
+		    tc2.setWidth(1000);
+//		    artifactListTable.setHeaderVisible(true);
+		    
+		    artifactNameEditor = new TableEditor(artifactListTable);
+		    artifactNameEditor.setEditor(new Text(artifactListTable, SWT.BORDER));
+		    artifactNameEditor.horizontalAlignment = SWT.LEFT;
+		    artifactNameEditor.grabHorizontal = true;
+		    artifactNameEditor.minimumWidth = 50;
+		    
+		    
+			listGridData = new GridData(GridData.FILL_BOTH);
+			listGridData.heightHint = 206;
+			artifactListTable.setLayoutData(listGridData);
+			new Label(comp, SWT.NONE);
+			toolkit.paintBordersFor(comp);
 
-		tableGridData = new GridData(GridData.FILL_BOTH);
-		tableGridData.heightHint = 124;
-		artifactlist.setLayoutData(tableGridData);
-		toolkit.paintBordersFor(comp);
-		new Label(comp, SWT.NONE);
 		
 	    Section tableSection = toolkit.createSection(form.getBody(), Section.EXPANDED |  Section.TITLE_BAR);
 		tableSection.setText("Registry Resources' Deploy Paths");
@@ -147,18 +166,93 @@ public class RegistryResourcePage extends FormPage {
 	}
 	
 	private void addArtifactListListener(){
-		artifactlist.addSelectionListener(new SelectionListener() {
+		
+		artifactListTable.addSelectionListener(new SelectionListener() {
 		      public void widgetSelected(SelectionEvent event) {
-		       addResourcesPath();	  
-               }
+		       addResourcesPath1();	  
+             }
 		      public void widgetDefaultSelected(SelectionEvent event) {
 		        widgetSelected(event);
 		      }
 		    });
+		
+		artifactListTable.addListener(SWT.MouseDown, new Listener() {
+			
+			@Override
+			public void handleEvent(Event event) {
+				 // Clean up any previous editor control
+		        Control oldEditor = artifactNameEditor.getEditor();
+		        if (oldEditor != null){
+		          oldEditor.dispose();  
+		        }
+		        TableItem[] selection = artifactListTable.getSelection();
+		        
+		        if(selection==null){
+		        	return;
+		        }
+		        if(selection.length == 0 || selection.length>1){
+		        	return;
+		        }
+		        TableItem item =selection[0];
+		        if (item == null){
+		        	  return;
+		        }
+		        final String olderText=item.getText(ARTIFACT_NAME_COLUMN);
+		        Text newEditor = new Text(item.getParent(), SWT.NONE);
+		        
+		        newEditor.addKeyListener(new KeyListener() {
+					
+					@Override
+					public void keyReleased(KeyEvent e) {
+						// TODO Auto-generated method stub
+						if(e.keyCode==SWT.CR){
+							Control oldEditor = artifactNameEditor.getEditor();
+					        if (oldEditor != null){
+					          oldEditor.dispose();  
+					        }
+						}
+						
+					}
+					
+					@Override
+					public void keyPressed(KeyEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
+		        String newPath =item.getText(ARTIFACT_NAME_COLUMN);
+		        final Integer index = Integer.parseInt(item.getText(INDEX_COLUMN));
+		        newEditor.setText(newPath);
+		        newEditor.addModifyListener(new ModifyListener() {
+			          public void modifyText(ModifyEvent me) {
+			        	setSave(true);  
+			            Text text = (Text) artifactNameEditor.getEditor();
+			            artifactNameEditor.getItem().setText(ARTIFACT_NAME_COLUMN, text.getText());
+			            RegistryArtifact artifact = (RegistryArtifact)artifactListTable.getData(olderText);
+			            artifact.setName(text.getText());
+			            artifactListTable.setData(text.getText(), artifact);
+//			            Control oldEditor = artifactNameEditor.getEditor();
+//				        if (oldEditor != null){
+//				          oldEditor.dispose();  
+//				        }
+				        artifactListTable.update();
+				        artifactListTable.layout();
+				        artifactListTable.redraw();
+			            updateDirtyState();
+			          }
+			        });
+		        
+		        newEditor.selectAll();
+		        newEditor.setFocus();
+		        artifactNameEditor.setEditor(newEditor, item, ARTIFACT_NAME_COLUMN);
+		        artifactListTable.redraw();
+			}
+		});
 
 	}
 	
-	private void addResourcesPath(){
+	
+	private void addResourcesPath1(){
 		 table.removeAll();
 	      if(registryPathEditor.getEditor() instanceof Text){
 	         Text t =(Text)registryPathEditor.getEditor();
@@ -170,8 +264,15 @@ public class RegistryResourcePage extends FormPage {
 		         t.dispose();
 		      } 
 
-	      String key = artifactlist.getItem(artifactlist.getSelectionIndex());
-	      RegistryArtifact artifact =(RegistryArtifact)artifactlist.getData(key);
+//	      String key = artifactList.getItem(artifactList.getSelectionIndex());
+	      if(artifactListTable.getSelectionIndex()==-1){
+	    	  return;
+	      }
+	      
+	      TableItem selectionItem = artifactListTable.getItem(artifactListTable.getSelectionIndex());
+	      String key = selectionItem.getText(ARTIFACT_NAME_COLUMN);
+	      
+	      RegistryArtifact artifact =(RegistryArtifact)artifactListTable.getData(key);
 	      java.util.List<RegistryElement> elements = artifact.getAllRegistryItems();
 	      itemMap = new HashMap<Integer, RegistryElement>();
 	      int i=0;
@@ -200,7 +301,7 @@ public class RegistryResourcePage extends FormPage {
 	        	  item.setBackground(blue);
 	          } 
 
-             table.layout();
+            table.layout();
 	          itemMap.put(i, registryElement);
 		}
 
@@ -226,7 +327,7 @@ public class RegistryResourcePage extends FormPage {
 			        if(selection==null){
 			        	return;
 			        }
-			        if(selection.length>1){
+			        if(selection.length == 0 || selection.length>1){
 			        	return;
 			        }
 			        TableItem item =selection[0];
@@ -282,9 +383,13 @@ public class RegistryResourcePage extends FormPage {
                 generalProjectArtifact=new GeneralProjectArtifact();
 			    generalProjectArtifact.fromFile(artifactXml);
 			    java.util.List<RegistryArtifact> regArtifact = generalProjectArtifact.getAllArtifacts();
+			    int i=0;
 			    for (RegistryArtifact artifact : regArtifact) {
-			    	 artifactlist.add(artifact.getName());
-			    	 artifactlist.setData(artifact.getName(), artifact);
+			    	i++;
+			    	 TableItem item = new TableItem(artifactListTable, SWT.NONE);
+			    	  String index =""+i;
+			          item.setText(new String[] {index, artifact.getName() });
+			          artifactListTable.setData(artifact.getName(), artifact);
 		    	}
 		      } catch (Exception e) {
 			  e.printStackTrace();
@@ -297,7 +402,7 @@ public class RegistryResourcePage extends FormPage {
 			setSave(false);
 			((ResourceFormEditor)getEditor()).setDirty(false);
 			updateDirtyState();
-			addResourcesPath();
+			addResourcesPath1();
 			((FileEditorInput) getEditorInput()).getFile().getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		 } catch (Exception e) {
 			e.printStackTrace(); 
