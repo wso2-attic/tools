@@ -123,6 +123,21 @@ public class ProjectUtils {
 
 	}
 	
+	public static String fileNameWithExtension(String fileName){
+	    File file = new File(fileName);
+	    if (file.isDirectory()) return fileName;
+	    String name = file.getName();
+	    final int lastPeriodPos = name.lastIndexOf('.', name.length() - 1);
+	    if (lastPeriodPos == -1){
+	        return fileName;
+	    }
+	    else {
+	        File nameWithoutExt = new File(file.getParent(), name.substring(0, lastPeriodPos)+"_"+name.substring(lastPeriodPos+1).toLowerCase());
+	        return nameWithoutExt.getPath();
+	    }
+
+	}
+	
 	/**
 	 * folderNameList should be {"src", "main", "java"}
 	 * parentFolder will be src

@@ -31,6 +31,8 @@ import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationE
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 
 
@@ -172,7 +174,13 @@ public List<String> getUpdateFields(String modelProperty,
 					tempmodel.setArtifactName(resourcesName);			
 					updateFields.add("artifact.name");
 				}
-			} else {
+			} else if("import.file".equals(modelProperty)){
+				if (tempmodel.getImportFile()!=null) {
+					String fileNameWithExtension = ProjectUtils.fileNameWithExtension(tempmodel.getImportFile().getName());
+					tempmodel.setArtifactName(fileNameWithExtension);
+					updateFields.add("artifact.name");
+				}
+			}else {
 				if (tempmodel.getResourceName()!=null) {
 					tempmodel.setArtifactName(tempmodel.getResourceName());
 					updateFields.add("artifact.name");
