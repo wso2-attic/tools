@@ -150,15 +150,18 @@ public class SequenceModel extends ProjectDataModel {
 		}else if(key.equals("on.error.sequence")){
 			String seqName = ProjectUtils.fileNameWithoutExtension((new File(data.toString())).getName());
 			setOnErrorSequence(seqName);
-		}else if(key.equals("available.eps")){			
-			String epName;
-				if ((new File(data.toString())).getParent().contains("synapse-config")){
-				epName = ProjectUtils.fileNameWithoutExtension((new File(data.toString())).getName());
-				}
-				else{
-					epName = data.toString();
-				}
-			setSelectedEP(epName);		
+		}else if(key.equals("available.eps")){					
+						String epName = "";
+						File file = (new File(data.toString()));
+						if (file.exists()){
+							if (file.getParent().contains("synapse-config")){
+								epName = ProjectUtils.fileNameWithoutExtension(file.getName());
+							}				
+						}	
+						else{
+							epName = data.toString();
+						}
+						setSelectedEP(epName);		
 		}else if(key.equals("available.sequences")){
 			Object[] selectedSequencess = (Object[])data;
 			for (Object object : selectedSequencess) {

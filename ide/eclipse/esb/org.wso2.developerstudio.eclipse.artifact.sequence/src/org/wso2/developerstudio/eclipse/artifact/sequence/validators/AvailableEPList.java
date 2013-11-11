@@ -83,10 +83,15 @@ public class AvailableEPList extends AbstractListDataProvider{
 								 java.util.List<RegistryElement> elements = registryArtifact.getAllRegistryItems();		
 										 for (RegistryElement registryElement : elements) {
 											 if(registryElement instanceof RegistryItem){    		 
-									    		String  mediaType = ((RegistryItem)registryElement).getMediaType();	 
+									    		String  mediaType = ((RegistryItem)registryElement).getMediaType();	 							    		 
 									    		if (mediaType.equals("application/vnd.wso2.esb.endpoint")){
-													String relativePath =((RegistryItem)registryElement).getPath() +((RegistryItem)registryElement).getFile();
-													availableEPList.add(relativePath);
+									    			String path  = ((RegistryItem)registryElement).getPath() + "/"+ ((RegistryItem)registryElement).getFile();
+									    			if(path.startsWith("/_system/governance/")){		
+								    				path = String.format("gov:%s", path.substring("/_system/governance/".length()));
+								    			} else if (path.startsWith("/_system/config/")) {
+								    				path = String.format("conf:%s", path.substring("/_system/config/".length()));
+									    			}									    		
+													availableEPList.add(path);
 												}
 									    	}
 										 }
