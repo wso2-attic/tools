@@ -94,8 +94,8 @@ public class LoginAction {
 				return false;
 			}
 			
-			credentials = new UserPasswordCredentials(getUsername(),getPassword());
-		    val = authenticator.Authenticate(JagApiProperties.getLoginUrl(), credentials); 
+		//	credentials = new UserPasswordCredentials(getUsername(),getPassword());
+		//    val = authenticator.Authenticate(JagApiProperties.getLoginUrl(), credentials); 
 		    if(!val){
                 this.ShowErrorMsg(); 
                 Display.getCurrent()

@@ -16,25 +16,44 @@
 
 package org.wso2.developerstudio.appfactory.ui.views;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
+import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
+import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
+import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
+import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
+import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.utils.Messages;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 
 public class PasswordDialog extends Dialog {
+  private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+  static final String DASHBOARD_VIEW_ID = "org.wso2.developerstudio.eclipse.dashboard";
   private Text userText;
   private Text passwordText;
   private Text hostText;
@@ -42,7 +61,8 @@ public class PasswordDialog extends Dialog {
   private String password;
   private String host;
   private boolean isSave;
-
+  private boolean isOT;
+  private UserPasswordCredentials credentials;
   
 /** * Create the dialog. * * @param parentShell */
 
@@ -108,6 +128,26 @@ public class PasswordDialog extends Dialog {
     passwordText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
         false, 1, 1));
     passwordText.setText(password);
+    
+    new Label(container, SWT.NONE);
+
+    Button btnCheckButton1 = new Button(container, SWT.CHECK);
+    btnCheckButton1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+    btnCheckButton1.setLayoutData(new GridData(SWT.FILL, SWT.LEFT, true, false,
+            1, 1));
+    btnCheckButton1.addSelectionListener(new SelectionAdapter() {
+    	@Override
+    	public void widgetSelected(SelectionEvent e) {
+    		 Button button = (Button) e.widget;
+    	        if (button.getSelection()){
+    	        	setOT(true);
+    	        }else{
+    	        	setOT(false);
+    	        }
+    	}
+    });
+    btnCheckButton1.setText(Messages.PasswordDialog_OT_check);
+    
     new Label(container, SWT.NONE);
     
     Button btnCheckButton = new Button(container, SWT.CHECK);
@@ -146,20 +186,77 @@ public class PasswordDialog extends Dialog {
 
   @Override
   protected Point getInitialSize() {
-    return new Point(539, 258);
+    return new Point(539, 300);
   }
 
   @Override
   protected void okPressed() {
-    user = userText.getText();
+	  user = userText.getText(); 
+	 if((isOT)&&(user!=null)&&(!user.isEmpty())){
+	   String[] temp = user.split("@");
+	   user = temp[0]+".."+temp[1]+"@wso2.org";
+	 }
     password = passwordText.getText();
     host =hostText.getText().trim();
     if(!host.startsWith("http")||!host.startsWith("https")){ //$NON-NLS-1$ //$NON-NLS-2$
     	host = "https://"+host; //$NON-NLS-1$
     }
-    super.okPressed();
+    if(login()){
+    	super.okPressed();
+    }
   }
-
+  
+  
+  private boolean login() {
+		boolean val = true;
+		try { 
+			credentials = new UserPasswordCredentials(getUser(),getPassword());
+		    val = Authenticator.getInstance().Authenticate(JagApiProperties.getLoginUrl(), credentials); 
+		    if(!val){
+              
+		    }else{
+		    	hideDashboards();
+		    	IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+	        	PlatformUI.getWorkbench().showPerspective("org.wso2.developerstudio.appfactory.ui.perspective", window);
+		    }
+		   
+		} catch (Exception e) {
+			 ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
+  	     errorModel.setMessage("Authentication Fail");
+  	     List<String> resions = new ArrayList<String>();
+  	     resions.add("Please refer the log file for details");
+  	     errorModel.setResions(resions);
+	        log.error("Login fail", e);
+	        Display.getCurrent()
+			.getActiveShell()
+			.setCursor(
+					(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
+	        return false;
+		} 
+		return val;
+	}
+  
+  private void hideDashboards(){
+  	try {
+  		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+			IWorkbenchPage page = window.getActivePage();
+			List<IEditorReference> openEditors = new ArrayList<IEditorReference>();
+			IEditorReference[] editorReferences = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+			for (IEditorReference iEditorReference : editorReferences) {
+				if (DASHBOARD_VIEW_ID.equals(iEditorReference.getId())) {
+					openEditors.add(iEditorReference);
+				}
+			}
+			if (openEditors.size() > 0) {
+				page.closeEditors(openEditors.toArray(new IEditorReference[] {}), false);
+			}
+		} catch (Exception e) {
+			/* safe to ignore */
+		}
+  }
+  
+ 
   public String getUser() {
     return user;
   }
@@ -192,5 +289,13 @@ public boolean isSave() {
 
 public void setSave(boolean isSave) {
 	this.isSave = isSave;
+}
+
+public boolean isOT() {
+	return isOT;
+}
+
+public void setOT(boolean isOT) {
+	this.isOT = isOT;
 }
 }

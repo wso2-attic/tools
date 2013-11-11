@@ -164,8 +164,8 @@ public class AppListModel {
 					if ("ACTIVE".equalsIgnoreCase(isactive.getValue())) {
 						try {
 							DataSource dsModel = new DataSource();
-							SOAPElement dsMetaInfo = (SOAPElement) dsList
-									.next().getFirstChild();
+							SOAPElement reInfo = (SOAPElement) dsList.next();
+							SOAPElement dsMetaInfo = (SOAPElement)reInfo.getFirstChild();
 							SOAPElement dsName = (SOAPElement) dsMetaInfo
 									.getElementsByTagNameNS( "http://services.core.ndatasource.carbon.wso2.org/xsd",
 											"name").item(0);

@@ -85,6 +85,7 @@ public class Messages extends NLS {
 	public static String PasswordDialog_Save_check;
 	public static String PasswordDialog_URL;
 	public static String PasswordDialog_USER;
+	public static String PasswordDialog_OT_check;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);

@@ -47,16 +47,16 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 	public void createInitialLayout(IPageLayout appfacLayout) {
 
 		try {
-			LoginAction loginAction = new LoginAction();
-			if (loginAction.login()) {
+		//	LoginAction loginAction = new LoginAction();
+			//if (loginAction.login()) {
 				ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(
 						Display.getDefault().getActiveShell());
 				progressMonitorDialog.create();
 				progressMonitorDialog.open();
 				progressMonitorDialog.run(true, false,
-						new LoadAppFacPerfectiveJob(loginAction, appfacLayout));
+						new LoadAppFacPerfectiveJob(appfacLayout));
 				AppFactoryPerspectiveManager.val = false;
-			}
+		//	}
 		} catch (Exception e) {
 			log.error("Perspective loading issue", e); //$NON-NLS-1$
 		}
@@ -83,12 +83,11 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 
 	private class LoadAppFacPerfectiveJob implements IRunnableWithProgress {
 
-		private LoginAction loginAction;
+	//	private LoginAction loginAction;
 		private IPageLayout appfacLayout;
 
-		public LoadAppFacPerfectiveJob(LoginAction loginAction,
-				IPageLayout appfacLayout) {
-			this.loginAction = loginAction;
+		public LoadAppFacPerfectiveJob(IPageLayout appfacLayout) {
+			//this.loginAction = loginAction;
 			this.appfacLayout = appfacLayout;
 		}
 
