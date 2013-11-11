@@ -160,12 +160,13 @@ public class AppListModel {
 				@SuppressWarnings("unchecked")
 				Iterator<SOAPElement> dsList = allDataSources.getChildElements();
 				while (dsList.hasNext()) {
-					SOAPElement isactive = (SOAPElement) dsList.next().getLastChild().getLastChild();
+					SOAPElement element = dsList.next();
+					SOAPElement isactive = (SOAPElement) element.getLastChild().getLastChild();
 					if ("ACTIVE".equalsIgnoreCase(isactive.getValue())) {
 						try {
 							DataSource dsModel = new DataSource();
-							SOAPElement reInfo = (SOAPElement) dsList.next();
-							SOAPElement dsMetaInfo = (SOAPElement)reInfo.getFirstChild();
+							//SOAPElement reInfo = (SOAPElement) element;
+							SOAPElement dsMetaInfo = (SOAPElement)element.getFirstChild();
 							SOAPElement dsName = (SOAPElement) dsMetaInfo
 									.getElementsByTagNameNS( "http://services.core.ndatasource.carbon.wso2.org/xsd",
 											"name").item(0);
