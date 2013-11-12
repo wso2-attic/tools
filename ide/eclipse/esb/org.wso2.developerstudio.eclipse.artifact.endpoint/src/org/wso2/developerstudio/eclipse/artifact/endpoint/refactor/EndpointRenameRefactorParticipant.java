@@ -29,6 +29,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
@@ -42,6 +43,8 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
 public class EndpointRenameRefactorParticipant extends RenameParticipant {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	private static final String ESB_EXTENSION = ".esb";
+	private static final String ESB_DIAGRAM_EXTENSION = ".esb_diagram";
 
 	private IFile originalFile;
 	private String changedFileName;
@@ -61,15 +64,16 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 
 	public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
 	                                                                                            throws OperationCanceledException {
+		String fileName=null;
+		String ext="";
 		if (originalFile != null) {
 			List<String> matchinFilesList = new ArrayList<String>();
+			fileName = RefactorUtils.getFilenameWOExtension(changedFileName);
+			ext = RefactorUtils.getFilenameExtension(changedFileName);
 
 			org.wso2.developerstudio.eclipse.utils.file.FileUtils.getAllExactMatchingFiles(esbProject.getLocation()
-			                                                                                         .toOSString(),
-			                                                                               changedFileName.substring(0,
-			                                                                                                         changedFileName.lastIndexOf(".")),
-			                                                                               changedFileName.substring(changedFileName.lastIndexOf(".") + 1),
-			                                                                               matchinFilesList,
+			                                                                                         .toOSString(),fileName,
+			                                                                              ext,matchinFilesList,
 			                                                                               skipList);
 
 			if (!matchinFilesList.isEmpty()) {
@@ -77,8 +81,7 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 				                                                changedFileName +
 				                                                " in the project " +
 				                                                esbProject.getName());
-			} else if (changedFileName.substring(0, changedFileName.lastIndexOf("."))
-			                          .equalsIgnoreCase(esbProject.getName())) {
+			} else if (esbProject.getName().equalsIgnoreCase(fileName)) {
 				return RefactoringStatus.createFatalErrorStatus("You are trying to rename your ESB Artifact to have the project name.");
 			}
 
@@ -102,10 +105,11 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 
 		String changedNameWithoutExtention = FilenameUtils.removeExtension(changedFileName);
 		String originalNameWithoutExtension = FilenameUtils.removeExtension(originalFile.getName());
-		String originalEsbFileName = getEsbFile(originalNameWithoutExtension);
-		String originalEsbDiagramFileName = getEsbDiagramFile(originalNameWithoutExtension);
-		String changedEsbFileName = getEsbFile(changedNameWithoutExtention);
-		String changedEsbDiagramFileName = getEsbDiagramFile(changedNameWithoutExtention);
+		String prefix=getDirectoryPrefix();
+		String originalEsbFileName = getESBFilePath(originalNameWithoutExtension, false, prefix);
+		String originalEsbDiagramFileName = getESBFilePath(originalNameWithoutExtension, true, prefix);
+		String changedEsbFileName = getESBFilePath(changedNameWithoutExtention, false, prefix);
+		String changedEsbDiagramFileName = getESBFilePath(changedNameWithoutExtention, true, prefix);
 
 		CompositeChange compositeChange = new CompositeChange("ESB Artifact Rename");
 
@@ -123,7 +127,7 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		                            GRAPHICAL_SYNAPSE_CONFIG_DIR +
 		                                    originalFile.getParent().getName();
 
-		IFile esbIFile = esbProject.getFile(immediateDirectory + "/" + originalEsbFileName);
+		IFile esbIFile = originalFile.getParent().getFile(new Path(originalEsbFileName));
 		if (esbIFile.exists()) {
 			// Change content of the esb file
 			EndpointEsbFileChange esbFileChange =
@@ -140,9 +144,7 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 			compositeChange.add(esbFileRename);
 		}
 
-		IFile esbDiagramIFile =
-		                        esbProject.getFile(immediateDirectory + "/" +
-		                                           originalEsbDiagramFileName);
+		IFile esbDiagramIFile = originalFile.getParent().getFile(new Path(originalEsbDiagramFileName));
 		if (esbDiagramIFile.exists()) {
 			// Change content of the esb diagram file
 			EndpointEsbFileChange esbDiagramFileChange =
@@ -189,14 +191,11 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		return compositeChange;
 	}
 
-	private String getEsbDiagramFile(String fileName) {
-		String prefix = getDirectoryPrefix();
-		return prefix + fileName + ".esb_diagram";
-	}
-
-	private String getEsbFile(String fileName) {
-		String prefix = getDirectoryPrefix();
-		return prefix + fileName + ".esb";
+	private String getESBFilePath(String filename, boolean isDiagram, String prefix){
+		if(isDiagram){
+			return prefix + filename + ESB_DIAGRAM_EXTENSION;
+		}
+		return prefix + filename + ESB_EXTENSION;
 	}
 
 	private String getDirectoryPrefix() {
@@ -232,8 +231,7 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		if (arg0 instanceof IFile) {
 			originalFile = (IFile) arg0;
 			esbProject = originalFile.getProject();
-			RenameArguments arguments = getArguments();
-			changedFileName = arguments.getNewName();
+			changedFileName = getArguments().getNewName();
 			return true;
 		}
 		return false;

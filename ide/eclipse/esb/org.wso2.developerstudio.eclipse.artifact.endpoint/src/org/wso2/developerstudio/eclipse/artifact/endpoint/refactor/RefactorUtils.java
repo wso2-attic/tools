@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 
 import javax.xml.stream.FactoryConfigurationError;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
@@ -130,6 +131,24 @@ public class RefactorUtils {
 		}
 		
 		return null;
+	}
+	
+	public static String getFilenameWOExtension(String filename){
+		String fileNameWOExt=null;
+		if(FilenameUtils.indexOfExtension(filename)==-1){
+			fileNameWOExt=filename;
+		}else{
+			fileNameWOExt=FilenameUtils.removeExtension(filename);
+		}
+		return fileNameWOExt;
+	}
+	
+	public static String getFilenameExtension(String filename){
+		String fileNameExt="";
+		if(FilenameUtils.indexOfExtension(filename) != -1){
+			fileNameExt=FilenameUtils.getExtension(filename);
+		}
+		return fileNameExt;
 	}
 
 }

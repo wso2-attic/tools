@@ -31,18 +31,20 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
-import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
+import org.wso2.developerstudio.eclipse.general.project.Activator;
 import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RegistryResourceArtifactRenameParticipant extends RenameParticipant {
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private static final String ESB_EXTENSION = ".esb";
 	private static final String ESB_DIAGRAM_EXTENSION = ".esb_diagram";
 	private IFile originalFile;
@@ -207,8 +209,7 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 				try {
 					in.close();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					log.error("Error occured while trying to close resource stream", e);
 				}
 			}
 		}
