@@ -118,7 +118,9 @@ public class FactsDialog extends Dialog{
 			
 			factTypeCombo.setItems(factsForCombo);
 			
-			factTypeCombo.setText(factsForCombo[0]);
+			if (factsForCombo.length > 0) {
+				factTypeCombo.setText(factsForCombo[0]);
+			}
 			
 			factTypeCombo.setText(updateFactType());
 			
