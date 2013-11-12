@@ -53,6 +53,7 @@ import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.io.FilenameUtils;
 import org.eclipse.core.runtime.Path;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.internal.model.TempFileTag;
@@ -385,16 +386,27 @@ public class FileUtils{
             		}
             	}else{
 	                String item = items[i].getName();
+	                
+	                String fileName = null;
+	                String ext = "";
+	                
+	                if(FilenameUtils.indexOfExtension(item)==-1){
+						fileName=item;
+					}else{
+						fileName = FilenameUtils.removeExtension(item);
+						ext = FilenameUtils.getExtension(item); 
+					}
+	                
 	                if (fileNamePrefix != null && extension != null) {
-	                    if (item.substring(0,item.lastIndexOf(".")).equalsIgnoreCase(fileNamePrefix) && item.substring(item.lastIndexOf(".")+1).equalsIgnoreCase(extension)) {
+	                    if (fileNamePrefix.equalsIgnoreCase(fileName) && extension.equalsIgnoreCase(ext)) {
 	                        fileList.add(new File(libDirPath + File.separator + item));
 	                    }
 	                } else if (fileNamePrefix == null && extension != null) {
-	                    if (item.substring(item.lastIndexOf(".")+1).equalsIgnoreCase(extension)) {
+	                    if (extension.equalsIgnoreCase(ext)) {
 	                        fileList.add(new File(libDirPath + File.separator + item));
 	                    }
 	                } else if (fileNamePrefix != null && extension == null) {
-	                    if (item.substring(0,item.lastIndexOf(".")).equalsIgnoreCase(fileNamePrefix)) {
+	                    if (fileNamePrefix.equalsIgnoreCase(fileName)) {
 	                        fileList.add(new File(libDirPath + File.separator + item));
 	                    }
 	                } else {

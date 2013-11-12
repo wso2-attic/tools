@@ -55,6 +55,7 @@ public class RegistryResourceEsbFileChange extends TextFileChange {
 	}
 
 	private void identifyReplaces() throws IOException {
+		//This logic is incorrect
 		String fileContent =
 		                     FileUtils.readFileToString(new File(esbFile.getRawLocation()
 		                                                                .toString()));

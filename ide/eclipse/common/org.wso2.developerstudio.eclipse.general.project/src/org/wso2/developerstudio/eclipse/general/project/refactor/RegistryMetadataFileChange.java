@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.general.project.refactor;
 
+import org.apache.commons.io.FilenameUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
@@ -23,6 +24,7 @@ import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.text.edits.MultiTextEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.wso2.developerstudio.eclipse.general.project.Activator;
+import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -70,17 +72,12 @@ public class RegistryMetadataFileChange extends TextFileChange  {
 		                        new BufferedReader(fileReader);
 		String case1String = null;
 		String originalResourceName = originalName.getName();
+		String originalFileNameWOExt=GeneralProjectUtils.getFilenameWOExtension(originalResourceName);
+		String newFileNameWOExt=GeneralProjectUtils.getFilenameWOExtension(newName);
 		if (originalName instanceof IFile) {
-			case1String = "\""
-					+ originalResourceName
-							.substring(
-									0,
-									originalResourceName.length()
-											- (originalName.getFileExtension()
-													.length() + 1)) + "\"";
+			case1String = "\"" + originalFileNameWOExt + "\"";
 		}else if(originalName instanceof IFolder){
-			case1String = "\""
-				+ originalResourceName+ "\"";
+			case1String = "\"" + originalResourceName+ "\"";
 		}
 		String nameElement = "name=";
 		String line = reader.readLine();
@@ -95,7 +92,7 @@ public class RegistryMetadataFileChange extends TextFileChange  {
 				//CASE 1 => <artifact name="proxy1" version="1.0.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
 				//Swapping 1 element for "\""
 				int case1LineIndex = line.indexOf(case1String)+1;
-				addEdit(new ReplaceEdit(fullIndex+case1LineIndex, originalName.getName().substring(0, originalName.getName().length()-(originalName.getFileExtension().length()+1)).length(), newName.substring(0, newName.lastIndexOf("."))));
+				addEdit(new ReplaceEdit(fullIndex+case1LineIndex,  originalFileNameWOExt.length(), newFileNameWOExt));
 			} else {
 	            if(type==RegistryArtifactType.Resource && line.contains(case2String) && line.endsWith(originalResourceName+"</file>")){
 	            	//CASE 2 => <file>src/main/synapse-config/proxy-services/proxy1.xml</file>

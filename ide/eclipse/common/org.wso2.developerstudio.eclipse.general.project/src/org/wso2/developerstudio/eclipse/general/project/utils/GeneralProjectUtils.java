@@ -1,5 +1,6 @@
 package org.wso2.developerstudio.eclipse.general.project.utils;
 
+import org.apache.commons.io.FilenameUtils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -40,5 +41,23 @@ public class GeneralProjectUtils {
 			}
 		}
 		return null;
+	}
+	
+	public static String getFilenameWOExtension(String filename){
+		String fileNameWOExt=null;
+		if(FilenameUtils.indexOfExtension(filename)==-1){
+			fileNameWOExt=filename;
+		}else{
+			fileNameWOExt=FilenameUtils.removeExtension(filename);
+		}
+		return fileNameWOExt;
+	}
+	
+	public static String getFilenameExtension(String filename){
+		String fileNameExt="";
+		if(FilenameUtils.indexOfExtension(filename) != -1){
+			fileNameExt=FilenameUtils.getExtension(filename);
+		}
+		return fileNameExt;
 	}
 }

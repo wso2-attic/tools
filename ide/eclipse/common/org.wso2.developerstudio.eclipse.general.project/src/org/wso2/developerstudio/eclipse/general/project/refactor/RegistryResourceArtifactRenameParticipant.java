@@ -26,19 +26,25 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
+import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class RegistryResourceArtifactRenameParticipant extends RenameParticipant {
+	private static final String ESB_EXTENSION = ".esb";
+	private static final String ESB_DIAGRAM_EXTENSION = ".esb_diagram";
 	private IFile originalFile;
 	private IFolder originalFolder;
 	private String changedFileName;
@@ -54,12 +60,17 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 			skipList.add("target");
 			skipList.add("bin");
 			skipList.add(".svn");
-
+			
+			String fileName=null;
+			String ext="";
+			
 			if (originalFile != null) {
+				
+				fileName = GeneralProjectUtils.getFilenameWOExtension(changedFileName);
+				ext = GeneralProjectUtils.getFilenameExtension(changedFileName);
+				
 				FileUtils.getAllExactMatchingFiles(registryProject.getLocation().toOSString(),
-				                                   changedFileName.substring(0,
-				                                                             changedFileName.lastIndexOf(".")),
-				                                   changedFileName.substring(changedFileName.lastIndexOf(".") + 1),
+				                                   fileName,ext,
 				                                   matchinFilesList, skipList);
 			} else {
 				FileUtils.getAllExactMatchingFiles(registryProject.getLocation().toOSString(),
@@ -78,9 +89,7 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 					                                                " in the project " +
 					                                                registryProject.getName());
 				}
-			} else if (changedFileName != null &&
-			           changedFileName.substring(0, changedFileName.lastIndexOf("."))
-			                          .equalsIgnoreCase(registryProject.getName())) {
+			} else if (changedFileName != null && registryProject.getName().equalsIgnoreCase(fileName)) {
 				return RefactoringStatus.createFatalErrorStatus("You are trying to rename your Registry Artifact to have the project name.");
 			} else if (changedFolderName != null &&
 			           changedFolderName.equalsIgnoreCase(registryProject.getName())) {
@@ -108,15 +117,15 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 
 		String changedNameWithoutExtention = FilenameUtils.removeExtension(changedFileName);
 		String originalNameWithoutExtension = FilenameUtils.removeExtension(originalFile.getName());
-		String originalEsbFileName = getEsbFile(originalNameWithoutExtension);
-		String originalEsbDiagramFileName = getEsbDiagramFile(originalNameWithoutExtension);
-		String changedEsbFileName = getEsbFile(changedNameWithoutExtention);
-		String changedEsbDiagramFileName = getEsbDiagramFile(changedNameWithoutExtention);
+		String prefix=getDirectoryPrefix();
+		String originalEsbFileName = getESBFilePath(originalNameWithoutExtension, false, prefix);
+		String originalEsbDiagramFileName = getESBFilePath(originalNameWithoutExtension, true, prefix);
+		String changedEsbFileName = getESBFilePath(changedNameWithoutExtention, false, prefix);
+		String changedEsbDiagramFileName = getESBFilePath(changedNameWithoutExtention, true, prefix);
 
 		CompositeChange change = new CompositeChange("Registry Artifact Rename");
 
-		RegistryResourceArtifactFileChange registryResourceArtifactFileChange =
-		                                                                        new RegistryResourceArtifactFileChange(
+		RegistryResourceArtifactFileChange registryResourceArtifactFileChange = new RegistryResourceArtifactFileChange(
 		                                                                                                               "Changing original file content " +
 		                                                                                                                       originalNameWithoutExtension,
 		                                                                                                               originalFile,
@@ -139,13 +148,7 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 		/*
 		 * Rename artifact_<name>.esb and artifact_<name>.esb_diagram
 		 */
-		String immediateDirectory;
-		if (originalFile.getParent().getName().equals(registryProject.getName()))
-			immediateDirectory = "";
-		else
-			immediateDirectory = originalFile.getParent().getProjectRelativePath().toString();
-
-		IFile esbIFile = registryProject.getFile(immediateDirectory + "/" + originalEsbFileName);
+		IFile esbIFile = originalFile.getParent().getFile(new Path(originalEsbFileName));
 		if (esbIFile.exists()) {
 			RegistryResourceEsbFileChange esbFileChange =
 			                                              new RegistryResourceEsbFileChange(
@@ -161,9 +164,7 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 			change.add(esbFileRename);
 		}
 
-		IFile esbDiagramIFile =
-		                        registryProject.getFile(immediateDirectory + "/" +
-		                                                originalEsbDiagramFileName);
+		IFile esbDiagramIFile = originalFile.getParent().getFile(new Path(originalEsbDiagramFileName));
 		if (esbDiagramIFile.exists()) {
 			RegistryResourceEsbFileChange esbDiagramFileChange =
 			                                                     new RegistryResourceEsbFileChange(
@@ -182,27 +183,34 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 		return change;
 	}
 
-	private String getEsbDiagramFile(String fileName) {
-		String prefix = getDirectoryPrefix();
-		return prefix + fileName + ".esb_diagram";
-	}
-
-	private String getEsbFile(String fileName) {
-		String prefix = getDirectoryPrefix();
-		return prefix + fileName + ".esb";
+	private String getESBFilePath(String filename, boolean isDiagram, String prefix){
+		if(isDiagram){
+			return prefix + filename + ESB_DIAGRAM_EXTENSION;
+		}
+		return prefix + filename + ESB_EXTENSION;
 	}
 
 	private String getDirectoryPrefix() {
 
 		String directoryPrefix = "";
-
+		InputStream in = null;
+		
 		try {
-			InputStream in = originalFile.getContents(true);
+			in = originalFile.getContents(true);
 			OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
 			OMElement documentElement = builder.getDocumentElement();
 			directoryPrefix = documentElement.getLocalName() + "_";
 		} catch (CoreException e) {
 			e.printStackTrace();
+		}finally{
+			if(in != null){
+				try {
+					in.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 
 		return directoryPrefix;
@@ -218,8 +226,7 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 		if (arg0 instanceof IFile) {
 			originalFile = (IFile) arg0;
 			registryProject = originalFile.getProject();
-			RenameArguments arguments = getArguments();
-			changedFileName = arguments.getNewName();
+			changedFileName = getArguments().getNewName();
 			return true;
 		} else if (arg0 instanceof IFolder) {
 			originalFolder = (IFolder) arg0;
