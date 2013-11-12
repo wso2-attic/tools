@@ -26,7 +26,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class RegistryResourceEsbFileChange extends TextFileChange {
-
+	private static final String ESB_EXTENSION = ".esb";
+	private static final String ESB_DIAGRAM_EXTENSION = ".esb_diagram";
 	private IFile esbFile;
 	private String match;
 	private String replace;
@@ -35,8 +36,13 @@ public class RegistryResourceEsbFileChange extends TextFileChange {
 	                                     String newName) {
 		super(name, file);
 		esbFile = file;
-		match = originalName;
-		replace = newName;
+		if (esbFile.getName().endsWith(ESB_EXTENSION)) {
+			match = originalName;
+			replace = newName;
+		} else if(esbFile.getName().endsWith(ESB_DIAGRAM_EXTENSION)){
+			match = "_" + originalName;
+			replace = "_" + newName;
+		}
 		addTextEdits();
 	}
 
