@@ -459,8 +459,10 @@ public class CarbonServer40Utils {
 				Node httpNode = (Node) xPath.evaluate(
 						"/axisconfig/parameter[@name='hotupdate']", document,
 						XPathConstants.NODE);
-				return httpNode.getTextContent().toString().equalsIgnoreCase(
-						"true");
+				if(httpNode != null){
+					return "true".equalsIgnoreCase(httpNode.getTextContent().toString());
+				}
+				return false;
 			}else{
 				return false;
 			}
@@ -519,6 +521,9 @@ public class CarbonServer40Utils {
             Document document = builder.parse(xmlDocument);
 	    	XPath xPath=factory.newXPath();
 	    	Node httpNode = (Node)xPath.evaluate("/axisconfig/parameter[@name='hotupdate']", document, XPathConstants.NODE);
+	    	if(httpNode == null){
+	    		return false;
+	    	}
 	    	httpNode.setTextContent(enabled ? "true":"false");
 	        Transformer t = TransformerFactory.newInstance().newTransformer();
 	        File confPath = new File((new File(axis2Xml)).getParent());
