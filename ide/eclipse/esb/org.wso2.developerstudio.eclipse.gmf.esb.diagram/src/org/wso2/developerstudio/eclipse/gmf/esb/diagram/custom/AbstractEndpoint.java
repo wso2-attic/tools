@@ -207,13 +207,13 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart implem
 	}
 	
 	protected void getMostSuitableElementToConnect(){
-		if(this.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart){
-			((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
-		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart){
-			((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).connectNormally(this);
-		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment19EditPart){
+		if(this.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart){ //proxy
+			((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);  
+		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart){		//sequence
+			((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).connectNormally(this);  
+		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment19EditPart){		//send mediator
 			((MediatorFlowMediatorFlowCompartment19EditPart)this.getParent()).connectNormally(this);
-		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment20EditPart){
+		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment20EditPart){		//clone mediator
 			((MediatorFlowMediatorFlowCompartment20EditPart)this.getParent()).connectNormally(this);
 		}
 	}

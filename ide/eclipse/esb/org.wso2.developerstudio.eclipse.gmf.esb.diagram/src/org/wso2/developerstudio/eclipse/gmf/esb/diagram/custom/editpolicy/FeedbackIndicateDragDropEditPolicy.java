@@ -36,6 +36,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EndpoinMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment19EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
@@ -85,7 +86,12 @@ public class FeedbackIndicateDragDropEditPolicy extends DragDropEditPolicy {
 					showFeedBackFigure(false);
 				}
 			} else {
-				showFeedBackFigure(false);
+				if (getHost() instanceof AbstractEndpoint) {
+					showFeedBackFigure(true);
+				} else {
+					showFeedBackFigure(false);
+				}
+				
 			}
 		}
 	}
@@ -185,11 +191,11 @@ public class FeedbackIndicateDragDropEditPolicy extends DragDropEditPolicy {
 						 */
 						if(!endPointTypes.contains(object)){
 							return UnexecutableCommand.INSTANCE;
-						} else {
-							if (getHost().getChildren().size() >= 1) {
-								return UnexecutableCommand.INSTANCE;
-							}
-						}
+					} //else { //comented out since we need to replace endpoint with newly added endpoint
+//						if (getHost().getChildren().size() >= 1) {
+//								return UnexecutableCommand.INSTANCE;
+//							}
+//						}
 					}
 				}
 		}

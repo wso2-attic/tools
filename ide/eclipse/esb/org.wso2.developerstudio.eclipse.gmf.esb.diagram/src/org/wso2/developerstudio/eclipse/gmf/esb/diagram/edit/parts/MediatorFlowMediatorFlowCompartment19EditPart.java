@@ -1,24 +1,38 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gef.editparts.AbstractEditPart;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EndpoinMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
@@ -61,6 +75,9 @@ public class MediatorFlowMediatorFlowCompartment19EditPart extends
 	}
 
 	public void connectNormally(EditPart child) {
+		if (this.getChildren().size() > 1) {
+			deleteExistingEndpointAndLink();
+		}
 		AbstractBorderItemEditPart inputConnector = null;
 		AbstractBorderItemEditPart outputConnector = null;
 		ShapeNodeEditPart sourceEditPart = null;
@@ -95,5 +112,26 @@ public class MediatorFlowMediatorFlowCompartment19EditPart extends
 
 		}
 	}
+	
+	private void deleteExistingEndpointAndLink() {
+		
+		AbstractEditPart existingEndpoint = (AbstractEditPart) this.getChildren().get(0);
+		EditingDomain editingDomain = ((GraphicalEditPart) existingEndpoint).getEditingDomain();
+		
+		AbstractEndpointInputConnectorEditPart inputConector = EditorUtils.getEndpointInputConnector((ShapeNodeEditPart) existingEndpoint);
+		EsbLinkEditPart linkEditPart = (EsbLinkEditPart) inputConector.getTargetConnections().get(0);
+		
+		Collection linkCollection = new ArrayList();
+		//Here we are deleteing the linkpart as well
+		linkCollection.add(((ConnectorImpl) linkEditPart.getModel()).getElement());
+		linkCollection.add(existingEndpoint.getModel());
+		org.eclipse.emf.edit.command.DeleteCommand modelDeleteCommand = new org.eclipse.emf.edit.command.DeleteCommand(
+				editingDomain, linkCollection);
+		if (modelDeleteCommand.canExecute()) {
+			editingDomain.getCommandStack().execute(modelDeleteCommand);
+		}
+		
+	}
 
+	
 }
