@@ -81,8 +81,8 @@ public class Axis2ServiceExportWizard extends Wizard implements IExportWizard {
 		if (selection.getFirstElement() instanceof IProject){
 			p=(IProject)selection.getFirstElement();
 		}
-		mainPage = new Axis2ServiceExportWizardPage("Carbon Application Archive",p);
-		mainPage.setTitle("Carbon Application Archive");
+		mainPage = new Axis2ServiceExportWizardPage("Composite Application Archive",p);
+		mainPage.setTitle("Composite Application Archive");
 //		mainPage.setImageDescriptor(CAppImageUtils.getInstance().getImageDescriptor("car-wizard.png"));
 		mainPage.setDescription("CAR export settings");
 

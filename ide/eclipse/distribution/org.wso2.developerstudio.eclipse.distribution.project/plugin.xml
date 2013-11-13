@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension point="org.eclipse.ui.newWizards">
-		<wizard name="Carbon Application Project" 
+		<wizard name="Composite Application Project" 
 			category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.capp.distribution"
 			class="org.wso2.developerstudio.eclipse.distribution.project.ui.wizard.DistributionProjectWizard"
             finalPerspective="org.eclipse.jst.j2ee.J2EEPerspective"
@@ -10,7 +10,7 @@
 			wizardManifest="project_wizard.xml"
 			icon="icons/distribution-project-12.png"
 			project="true">
-			<description>Carbon Application Project</description>
+			<description>Composite Application Project</description>
 		</wizard>
    </extension>
    
@@ -24,7 +24,7 @@
 	</extension>	
    
    <extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.developerstudio.eclipse.distribution.project.nature" name="Carbon Application Project Nature">
+		id="org.wso2.developerstudio.eclipse.distribution.project.nature" name="Composite Application Project Nature">
 		<runtime>
 			<run
 				class="org.wso2.developerstudio.eclipse.distribution.project.nature.DistributionProjectNature">
@@ -42,7 +42,7 @@
             class="org.wso2.developerstudio.eclipse.distribution.project.editor.DistProjectEditor"
             id="org.wso2.developerstudio.eclipse.distribution.project.editor.DistProjectEditor"
             extensions="xml"
-            name="Carbon Application Project POM Editor">
+            name="Composite Application Project POM Editor">
             <contentTypeBinding
 				contentTypeId="org.wso2.developerstudio.eclipse.distribution.project.contenttype.pom">
 			</contentTypeBinding>
@@ -62,7 +62,7 @@
 			name="WSO2 Platform Distribution" />
 	</extension>
 		<extension point="org.eclipse.ui.exportWizards">
-		<wizard id="org.wso2.developerstudio.eclipse.distribution.exportAsCar" name="Carbon Application Archive [CAR]"
+		<wizard id="org.wso2.developerstudio.eclipse.distribution.exportAsCar" name="Composite Application Archive [CAR]"
 			class="org.wso2.developerstudio.eclipse.distribution.project.ui.wizard.DistributionProjectExportWizard" icon="icons/car.png"
 			category="org.wso2.developerstudio.eclipse.distribution.export">
 			<description>
@@ -77,7 +77,7 @@
               objectClass="org.eclipse.core.resources.IProject"
                     id="org.wso2.developerstudio.eclipse.distribution.project.popup.export">
                <action
-                        label="Export Carbon Application Project"
+                        label="Export Composite Application Project"
                         icon="icons/car.png"
                    class="org.wso2.developerstudio.eclipse.distribution.project.ui.action.ExportDistributionAction"
                         id="org.wso2.developerstudio.eclipse.distribution.project.ui.action.export">

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wizard>
-	<projectOptions title="New Carbon Application Project" 
-					description="Create new Carbon Application Project" 
+	<projectOptions title="New Composite Application Project" 
+					description="Create new Composite Application Project" 
 					error="">
-		<option id="new.distribution" default="true">New Carbon Application Project</option>
+		<option id="new.distribution" default="true">New Composite Application Project</option>
 	</projectOptions>
 	<projectOptionSettings>
 		<settings optionId="new.distribution" 
-				  title="New Carbon Application Project" 
-				  description="Create new Carbon Application Project" 
+				  title="New Composite Application Project" 
+				  description="Create new Composite Application Project" 
 				  error="Please give a name for the project">
 			<data modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.distribution.project.validator.DistributionProjectFieldController">Project Name</data>
 			

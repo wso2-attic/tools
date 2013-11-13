@@ -46,7 +46,7 @@
 				class="org.wso2.developerstudio.eclipse.distributionproject.module.factory.CarbonFacetInstallDataModelProvider" />
 		</action>
 		<template id="org.wso2.developerstudio.eclipse.carbon.facetId.template">
-			<label>WSO2 Carbon Application Project Template</label>
+			<label>WSO2 Composite Application Project Template</label>
 			<fixed facet="org.wso2.developerstudio.eclipse.carbon.facetId" />
 	    </template>
  </extension>

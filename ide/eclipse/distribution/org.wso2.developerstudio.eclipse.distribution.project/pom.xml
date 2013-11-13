@@ -25,7 +25,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.wso2.developerstudio.eclipse.distribution.project</artifactId>
   	<packaging>eclipse-plugin</packaging>
-    <name>Developer Studio Carbon Application Project</name>
+    <name>Developer Studio Composite Application Project</name>
     <!--dependencies>
     	<dependency>
             <groupId>org.wso2.developerstudio</groupId>
