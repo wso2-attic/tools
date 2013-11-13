@@ -74,7 +74,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IViewSite;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.MessageConsoleStream;
@@ -111,10 +113,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView"; //$NON-NLS-1$
 	
 	public static final String REPO_WIZARD_ID = "org.eclipse.egit.ui.internal.clone.GitCloneWizard"; //$NON-NLS-1$
-	
-	
-	
-	
+
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	private static AppfactoryApplicationDetailsView appDetailView;
@@ -254,7 +253,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 	
 	@Override
 	public void setFocus() {
-		
+		System.out.println("asdadadsa");
 	}
 	
 	@SuppressWarnings("restriction")
@@ -398,7 +397,11 @@ public class AppfactoryApplicationListView extends ViewPart {
 	}
 	
 	private void ShowLoginDialog(){
-		 credentials = Authenticator.getInstance().getCredentials();
+		
+		IWorkbench workbench = PlatformUI.getWorkbench();
+    	IPerspectiveDescriptor perspective = workbench.getActiveWorkbenchWindow().getActivePage().getPerspective();
+    	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(perspective, false, true);
+		/* credentials = Authenticator.getInstance().getCredentials();
 		 try{
 		 if(credentials==null){
 			 printErrorLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_1);
@@ -413,7 +416,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 		 }
 		 }catch(Exception e){
 			 
-		 }
+		 }*/
 	}
 	
 	private List<ApplicationInfo> getApplist(){

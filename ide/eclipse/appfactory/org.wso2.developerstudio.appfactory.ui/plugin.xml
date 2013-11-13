@@ -123,6 +123,23 @@
 				</enablement>
               </objectContribution>
         </extension-->
+      <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="WSO2 AppFactory"
+            id="org.wso2.developerstudio.appfactory.ui">
+      </category>
+      <view
+            name="WSO2 AppFactory -Ghost view"
+            icon="icons/appfac.png"
+            category="org.wso2.developerstudio.appfactory.ui"
+            class="org.wso2.developerstudio.appfactory.ui.views.AppFactoryGhostView"
+            id="org.wso2.developerstudio.appfactory.ui.views.AppfactoryGhostViewId">
+      </view>
+   </extension>
+        
+        
+        
         <extension
               point="org.eclipse.ui.perspectives">
            <perspective

@@ -36,7 +36,7 @@ public class Authenticator {
 	private static Authenticator authanticator = null;
 	private UserPasswordCredentials credentials;
 	private String result;
-	
+	private boolean loginCancel;
 
 	private ErrorModel errorModel;
  
@@ -113,6 +113,14 @@ public class Authenticator {
 
 	public void setCredentials(UserPasswordCredentials credentials) {
 		this.credentials = credentials;
+	}
+
+	public boolean isLoginCancel() {
+		return loginCancel;
+	}
+
+	public void setLoginCancel(boolean loginCancel) {
+		this.loginCancel = loginCancel;
 	}
 
 	private class LoginToAppFacPerfectiveJob implements IRunnableWithProgress {

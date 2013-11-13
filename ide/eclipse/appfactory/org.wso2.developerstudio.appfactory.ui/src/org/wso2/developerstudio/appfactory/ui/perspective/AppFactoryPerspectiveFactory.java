@@ -26,6 +26,7 @@ import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.console.IConsoleConstants;
+import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
 import org.wso2.developerstudio.appfactory.ui.utils.Messages;
@@ -41,14 +42,15 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 	private static final String APPBUILD_ID = "org.wso2.developerstudio.appfactory.ui." + //$NON-NLS-1$
 			"views.AppfactoryBuildInfoView"; //$NON-NLS-1$
 	private static final String PROJECT_EXPOR_VIEW = "org.eclipse.ui.navigator.ProjectExplorer"; //$NON-NLS-1$
-
+	
+	private static final String GhostView = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryGhostViewId"; //$NON-NLS-1$
+	
 	private static IWebBrowser browser = null;
-
+ 
 	public void createInitialLayout(IPageLayout appfacLayout) {
 
 		try {
-		//	LoginAction loginAction = new LoginAction();
-			//if (loginAction.login()) {
+			if (Authenticator.getInstance().getCredentials()!=null) {
 				ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(
 						Display.getDefault().getActiveShell());
 				progressMonitorDialog.create();
@@ -56,10 +58,21 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 				progressMonitorDialog.run(true, false,
 						new LoadAppFacPerfectiveJob(appfacLayout));
 				AppFactoryPerspectiveManager.val = false;
-		//	}
+			}else{
+				LoginAction loginAction = new LoginAction();
+				loginAction.login();
+				addGostView(appfacLayout);
+			}
 		} catch (Exception e) {
 			log.error("Perspective loading issue", e); //$NON-NLS-1$
 		}
+	}
+	
+	private void addGostView(IPageLayout appfacLayout){
+		String editorArea = appfacLayout.getEditorArea();
+		IFolderLayout lef = appfacLayout.createFolder("topLeft", //$NON-NLS-1$
+				IPageLayout.LEFT, 0.25f, editorArea);
+		lef.addView(GhostView);
 	}
 
 	private void addViews(IPageLayout appfacLayout) {
@@ -121,4 +134,8 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 			monitor.done();
 		}
 	}
+	
+	
+	
+	
 }

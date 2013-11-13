@@ -21,35 +21,36 @@ import java.util.List;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.FocusAdapter;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.layout.GridData;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
 import org.wso2.developerstudio.appfactory.ui.Activator;
-import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.ui.IEditorReference;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PlatformUI;
 
 public class PasswordDialog extends Dialog {
   private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -62,6 +63,7 @@ public class PasswordDialog extends Dialog {
   private String host;
   private boolean isSave;
   private boolean isOT;
+  private Label error;
   private UserPasswordCredentials credentials;
   
 /** * Create the dialog. * * @param parentShell */
@@ -130,25 +132,6 @@ public class PasswordDialog extends Dialog {
     passwordText.setText(password);
     
     new Label(container, SWT.NONE);
-
-    Button btnCheckButton1 = new Button(container, SWT.CHECK);
-    btnCheckButton1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-    btnCheckButton1.setLayoutData(new GridData(SWT.FILL, SWT.LEFT, true, false,
-            1, 1));
-    btnCheckButton1.addSelectionListener(new SelectionAdapter() {
-    	@Override
-    	public void widgetSelected(SelectionEvent e) {
-    		 Button button = (Button) e.widget;
-    	        if (button.getSelection()){
-    	        	setOT(true);
-    	        }else{
-    	        	setOT(false);
-    	        }
-    	}
-    });
-    btnCheckButton1.setText(Messages.PasswordDialog_OT_check);
-    
-    new Label(container, SWT.NONE);
     
     Button btnCheckButton = new Button(container, SWT.CHECK);
     btnCheckButton.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
@@ -166,7 +149,25 @@ public class PasswordDialog extends Dialog {
     	}
     });
     btnCheckButton.setText(Messages.PasswordDialog_Save_check);
+    
+    new Label(container, SWT.NONE);
 
+    error = new Label(container, SWT.NONE);
+    error.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+    error.setLayoutData(new GridData(SWT.FILL, SWT.LEFT, true, false,
+            1, 1));
+  
+    FocusAdapter adapter = new FocusAdapter() {
+    	@Override
+    	public void focusGained(FocusEvent e) {
+    		 error.setText("");
+    		super.focusGained(e);
+    	}
+	};
+    hostText.addFocusListener(adapter);
+    userText.addFocusListener(adapter);
+    passwordText.addFocusListener(adapter);
+ 
     return container;
   }
 
@@ -182,6 +183,7 @@ public class PasswordDialog extends Dialog {
   }
 
   
+
 /** * Return the initial size of the dialog. */
 
   @Override
@@ -192,10 +194,10 @@ public class PasswordDialog extends Dialog {
   @Override
   protected void okPressed() {
 	  user = userText.getText(); 
-	 if((isOT)&&(user!=null)&&(!user.isEmpty())){
+	/* if((isOT)&&(user!=null)&&(!user.isEmpty())){
 	   String[] temp = user.split("@");
 	   user = temp[0]+".."+temp[1]+"@wso2.org";
-	 }
+	 }*/
     password = passwordText.getText();
     host =hostText.getText().trim();
     if(!host.startsWith("http")||!host.startsWith("https")){ //$NON-NLS-1$ //$NON-NLS-2$
@@ -203,6 +205,8 @@ public class PasswordDialog extends Dialog {
     }
     if(login()){
     	super.okPressed();
+    }else {
+    	error.setText(Authenticator.getInstance().getErrorModel().getMessage());
     }
   }
   
@@ -212,16 +216,13 @@ public class PasswordDialog extends Dialog {
 		try { 
 			credentials = new UserPasswordCredentials(getUser(),getPassword());
 		    val = Authenticator.getInstance().Authenticate(JagApiProperties.getLoginUrl(), credentials); 
-		    if(!val){
-              
-		    }else{
+		    if(val){
 		    	hideDashboards();
 		    	IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 	        	PlatformUI.getWorkbench().showPerspective("org.wso2.developerstudio.appfactory.ui.perspective", window);
-		    }
-		   
+		    } 
 		} catch (Exception e) {
-			 ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
+	     ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
   	     errorModel.setMessage("Authentication Fail");
   	     List<String> resions = new ArrayList<String>();
   	     resions.add("Please refer the log file for details");
