@@ -22,8 +22,10 @@ import java.util.List;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.Path;
 import org.wso2.developerstudio.eclipse.artifact.registry.model.RegistryArtifactModel;
 import org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryArtifactConstants;
+import org.wso2.developerstudio.eclipse.artifact.registry.utils.RegistryTemplate;
 import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
 import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
@@ -82,10 +84,22 @@ public void validate(String modelProperty, Object value,
 							}
 							
 						} catch (Exception e) {
-							throw new FieldValidationException("Artifact name already exsits");
+							throw new FieldValidationException("Artifact name already exists");
 						}
 					}
-				}		 	 
+				}
+				
+				if (regModel != null) {
+					IContainer resLocation = regModel.getResourceSaveLocation();
+					if (resLocation != null) {
+						RegistryTemplate selectedTemplate = regModel.getSelectedTemplate();
+						String file = regModel.getResourceName() + "." + selectedTemplate.getTemplateFileName().substring(selectedTemplate.getTemplateFileName().lastIndexOf(".")+1);
+						IResource findMember = resLocation.findMember(file);
+						if(findMember != null){
+							throw new FieldValidationException("A Resource already exist in the same location with same name.");
+						}
+					}
+				}
 			}
 		}else if (modelProperty.equals(RegistryArtifactConstants.DATA_IMPORT_FILE)) {
 			if (value == null) {
