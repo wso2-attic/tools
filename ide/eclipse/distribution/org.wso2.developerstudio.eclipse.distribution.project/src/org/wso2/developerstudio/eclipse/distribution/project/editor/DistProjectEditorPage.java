@@ -20,6 +20,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -188,7 +189,7 @@ public class DistProjectEditorPage extends FormPage {
 	
 	private void writeProperties(){
 		Properties properties = parentPrj.getModel().getProperties();
-		properties.clear();
+		identifyNonProjectProperties(properties);
 		for (Dependency dependency : getDependencyList().values()) {
 			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
 			if(serverRoleList.containsKey(artifactInfo)){
@@ -199,6 +200,20 @@ public class DistProjectEditorPage extends FormPage {
 		}	
 		properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
 		parentPrj.getModel().setProperties(properties);
+	}
+	
+	private Properties identifyNonProjectProperties(Properties properties){
+		Map<String, DependencyData> dependencies = getProjectList();
+		for (Iterator iterator = dependencies.values().iterator(); iterator.hasNext();) {
+			DependencyData dependency = (DependencyData) iterator.next();
+			String artifactInfoAsString = DistProjectUtils.getArtifactInfoAsString(dependency.getDependency());
+			if(properties.containsKey(artifactInfoAsString)){
+				properties.remove(artifactInfoAsString);
+			}
+		}
+		//Removing the artifact.type
+		properties.remove("artifact.types");
+		return properties;
 	}
 	
 
