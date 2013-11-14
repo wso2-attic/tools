@@ -22,10 +22,13 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.model.EndpointModel;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
@@ -42,6 +45,8 @@ import java.util.Map;
 import javax.xml.stream.FactoryConfigurationError;
 
 public class EndpointProjectFieldController extends AbstractFieldController {
+	
+	private static IDeveloperStudioLog log =Logger.getLog(Activator.PLUGIN_ID);
 
 	IProject project =null;
 	
@@ -56,7 +61,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		boolean isWSDlEP = EpArtifactConstants.WSDL_EP.equals(templateName);
 		boolean isHttpEP = EpArtifactConstants.HTTP_EP.equals(templateName);
 		
-		if (modelProperty.equals("ep.name")) {
+	   if (modelProperty.equals("ep.name")) {
 			CommonFieldValidator.validateArtifactName(value);	
 			if (value != null) {
 				String resource = value.toString();
@@ -70,98 +75,92 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 							esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 							List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
 							for (ESBArtifact artifact : allArtifacts) {
-								if (resource.equals(artifact.getName())) {
-									throw new FieldValidationException("");
+								if (resource.equals(artifact.getName())) {									
+									throw new FieldValidationException("");									
 								}
 							}
-
-						} catch (Exception e) {
-							throw new FieldValidationException("Artifact name already exsits");
+						} catch (Exception e) {						
+							throw new FieldValidationException("Artifact name already exsits");							
 						}
 					}
 				}		 	 
 			}
-			
-		} else if (modelProperty.equals("import.file")) {
+		}else if (modelProperty.equals("import.file")) {
 			CommonFieldValidator.validateImportFile(value);
-		}  else if (modelProperty.equals("save.file")) {
-			IResource resource = (IResource)value;
-			if(resource==null || !resource.exists())	 
-				throw new FieldValidationException("Specified project or path doesn't exist");
+		}else if (modelProperty.equals("save.file")) {
+				IResource resource = (IResource)value;
+				if(resource==null || !resource.exists()){	
+					throw new FieldValidationException("Specified project or path doesn't exist");
+				}						
 		}else if (modelProperty.equals("templ.address.ep.uri") && isAddressEP) {	
 			if (value == null || value.toString().trim().isEmpty()) {
-				throw new FieldValidationException("Address url cannot be empty");
+				throw new FieldValidationException("Address url cannot be empty");				
 			} else{
 				CommonFieldValidator.isValidUrl(value.toString().trim(), "Address url");
 			}
 		} else if (modelProperty.equals("templ.http.ep.uritemplate") && isHttpEP) {	
 			if (value == null || value.toString().trim().isEmpty()) {
-				throw new FieldValidationException("URI Template cannot be empty");
+				throw new FieldValidationException("URI Template cannot be empty");				
 			} 
 			//Identified as irrelevant
 			//else{
 			//	CommonFieldValidator.isValidUrl(value.toString().trim(), "URI Template");
 			//}
 		} else if (modelProperty.equals("templ.wsdl.ep.uri") && isWSDlEP) {	
-			if (value == null || value.toString().trim().isEmpty()) {
-				throw new FieldValidationException("WSDL url cannot be empty");
+			if (value == null || value.toString().trim().isEmpty()) {		
+				throw new FieldValidationException("WSDL url cannot be empty");				
 			} else{
 				CommonFieldValidator.isValidUrl(value.toString().trim(), "WSDL url");
 			}
 		} else if (modelProperty.equals("templ.wsdl.ep.service") && isWSDlEP) {	
-			if (value == null || value.toString().trim().isEmpty()) {
-				throw new FieldValidationException("WSDL service cannot be empty");
+			if (value == null || value.toString().trim().isEmpty()) {				
+				throw new FieldValidationException("WSDL service cannot be empty");				
 			} 
 		} else if (modelProperty.equals("templ.wsdl.ep.port") && isWSDlEP) {	
-			if (value == null || value.toString().trim().isEmpty()) {
-				throw new FieldValidationException("WSDL port cannot be empty");
+			if (value == null || value.toString().trim().isEmpty()) {			    
+				throw new FieldValidationException("WSDL port cannot be empty");				
 			} 
 		} else if(modelProperty.equals("registry.browser")){
-			if(epModel.isSaveAsDynamic()){
-				if(null==value || value.toString().trim().isEmpty()){
-					throw new FieldValidationException("Registry path cannot be empty");
+			if(epModel.getSelectedOption_DynamicEP()){
+				if(null==value || value.toString().trim().isEmpty()){					
+					throw new FieldValidationException("Registry path cannot be empty");			
 				}
 			}
-		}
+	    }	 
 	}
-
-	
 	
 	public boolean isEnableField(String modelProperty, ProjectDataModel model) {
 		boolean enableField = super.isEnableField(modelProperty, model);
-		if (modelProperty.equals("reg.path")) {
-			enableField = ((EndpointModel) model).isSaveAsDynamic();
-		} else if (modelProperty.equals("reg.path")) {
-			enableField = ((EndpointModel) model).isSaveAsDynamic();
-		} else if (modelProperty.equals("import.file")) {
+		 if (modelProperty.equals("import.file")) {
 			enableField = true;
-		} else if(modelProperty.equals("registry.browser")) {
-			enableField = ((EndpointModel) model).isSaveAsDynamic();
 		} 
 		return enableField;
 	}
-
-	
 	public List<String> getUpdateFields(String modelProperty, ProjectDataModel model) {
 		List<String> updateFields = super.getUpdateFields(modelProperty, model);
 		
-			if (modelProperty.equals("dynamic.ep")) {
+		if (modelProperty.equals("dynamic.ep")) {
 			updateFields.add("reg.path");
 			updateFields.add("registry.browser");
-			updateFields.add("save.file");
-		} else if (modelProperty.equals("import.file")) {
+			updateFields.add("save.file");			
+		}else if(modelProperty.equals("static.ep")){
+			updateFields.add("reg.path");
+			updateFields.add("registry.browser");
+			updateFields.add("save.file");		
+		}else if (modelProperty.equals("import.file")) {
 			updateFields.add("available.eps");
 		} else if (modelProperty.equals("create.esb.prj")) {
 			updateFields.add("save.file");
-		} else if (modelProperty.equals("ep.type")) {
+		}else if (modelProperty.equals("ep.type")) {
 			Map<String, List<String>> templateFieldProperties = getTemplateFieldProperties();
 			for (List<String> fields : templateFieldProperties.values()) {
 				updateFields.addAll(fields);
-			}
-		} else if (modelProperty.equals("reg.path")) {
+			}		
+	     }		
+		else if (modelProperty.equals("reg.path")) {
 			updateFields.add("registry.browser");
 		} else if (modelProperty.equals("save.file")){
-			updateFields.add("templ.target.availabletemplates");
+	     updateFields.add("templ.target.availabletemplates");
 			
 		}else if (modelProperty.equals("templ.target.availabletemplates")){
 			updateFields.add("templ.target.template");
@@ -170,8 +169,28 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 	}
 
 	
-	public boolean isVisibleField(String modelProperty, ProjectDataModel model) {
-		boolean visibleField = super.isVisibleField(modelProperty, model);
+	public boolean isVisibleField(String modelProperty, ProjectDataModel model) {		
+		boolean visibleField = super.isVisibleField(modelProperty, model);	
+        if(modelProperty.equals("reg.path")){
+        	boolean dynamic = ((EndpointModel)model).getSelectedOption_DynamicEP();
+        	boolean statep = ((EndpointModel)model).getSelectedOption_StaticEP();
+        	if(dynamic){
+        		visibleField = true;
+        	}else if(statep){
+        		visibleField = false;
+        	}
+        }
+		
+        if (modelProperty.equals("registry.browser")){
+        	boolean dynamic = ((EndpointModel)model).getSelectedOption_DynamicEP();
+        	boolean statep = ((EndpointModel)model).getSelectedOption_StaticEP();
+        	if(dynamic){
+        		visibleField = true;
+        	}else if(statep){
+        		visibleField = false;
+        	}
+        }
+		
 		if (modelProperty.startsWith("templ.")) {
 			Map<String, List<String>> templateFieldProperties = getTemplateFieldProperties();
 			List<String> list =
@@ -226,4 +245,3 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 	
 	
 	}
-

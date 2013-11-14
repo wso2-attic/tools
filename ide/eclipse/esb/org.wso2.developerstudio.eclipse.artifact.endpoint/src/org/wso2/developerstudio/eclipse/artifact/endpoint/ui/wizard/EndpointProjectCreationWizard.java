@@ -103,7 +103,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			epModel = (EndpointModel) getModel();
 			project = epModel.getEndpointSaveLocation().getProject();
 	
-			if(epModel.isSaveAsDynamic()){
+			if(epModel.getSelectedOption_DynamicEP()){
 				createDynamicEndpointArtifact(epModel.getEndpointSaveLocation(),epModel);
 			} else{
 				if(!createEndpointArtifact(project,epModel)){
@@ -127,14 +127,17 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	}
 	
 	@Override
-	public boolean performCancel() {
+	public boolean performCancel() {		
 		ProjectFilter.setShowGeneralProjects(false);
 		return super.performCancel();
 	}
 	
 	@Override
 	public IWizardPage getPreviousPage(IWizardPage page) {
-		return super.getPreviousPage(page);
+		ProjectFilter.setShowGeneralProjects(false);
+		epModel = (EndpointModel) getModel();
+		epModel.setSelectedOption_DynamicEP(false);
+		return super.getPreviousPage(page);		
 	}
 	
 	private boolean createEndpointArtifact(IProject prj, EndpointModel model)

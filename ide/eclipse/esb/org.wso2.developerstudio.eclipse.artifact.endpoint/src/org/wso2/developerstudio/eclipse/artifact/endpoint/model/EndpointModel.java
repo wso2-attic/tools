@@ -19,7 +19,6 @@ package org.wso2.developerstudio.eclipse.artifact.endpoint.model;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -61,7 +60,6 @@ public class EndpointModel extends ProjectDataModel {
 	public static final String GOV_REG_ID = "3";
 
 	private ArtifactTemplate selectedTemplate;
-	private boolean saveAsDynamic = false;
 	private String availableTemplate;
 	private String registryPathID = GOV_REG_ID;
 	private String dynamicEpRegistryPath= new String();
@@ -76,6 +74,8 @@ public class EndpointModel extends ProjectDataModel {
 	private String templateEPURI;
 	private String templateEPTargetTemp = "";
 	private String httpUriTemplate;
+	private Boolean dyOption = false;
+	private Boolean stOption = true;
 	private HttpMethodType httpMethod;
 	private List<OMElement> selectedEPList=new ArrayList<OMElement>();
 	
@@ -87,18 +87,14 @@ public class EndpointModel extends ProjectDataModel {
 			if (key.equals(EpArtifactConstants.WIZARD_OPTION_EP_TYPE)) {
 				modelPropertyValue = getSelectedTemplate();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_DYNAMIC_EP)) {
-				modelPropertyValue = isSaveAsDynamic();
+				modelPropertyValue = getSelectedOption_DynamicEP();
+			} else if(key.equals(EpArtifactConstants.WIZARD_OPTION_STATIC_EP)){
+				modelPropertyValue = getSelectedOption_StaticEP();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_TYPE)) {
 				modelPropertyValue = getRegistryPathID();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
-				IContainer container= getEndpointSaveLocation();
-				if(container != null && container instanceof IFolder){
-					IFolder endpointFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("endpoints");
-					modelPropertyValue = endpointFolder;
-				}else{
-					modelPropertyValue = container;
-				}
-			} else if(key.equals(EpArtifactConstants.WIZARD_OPTION_AVAILABLE_EPS)){
+				modelPropertyValue = getEndpointSaveLocation();
+		    }else if(key.equals(EpArtifactConstants.WIZARD_OPTION_AVAILABLE_EPS)){
 				modelPropertyValue = selectedEPList.toArray();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_PATH)){
 				modelPropertyValue = getDynamicEpRegistryPath();
@@ -110,7 +106,6 @@ public class EndpointModel extends ProjectDataModel {
 		}
 		return modelPropertyValue;
 	}
-
 	
 	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
 		boolean returnResult = super.setModelPropertyValue(key, data);
@@ -139,30 +134,24 @@ public class EndpointModel extends ProjectDataModel {
 				} catch (Exception e) {
 					log.error("An unexpected error has occurred", e);
 				}
-			}
-			
-	
-		
+			}				
 		}else if (key.equals(EpArtifactConstants.WIZARD_OPTION_EP_TYPE)) {
 			ArtifactTemplate template = (ArtifactTemplate) data;
 			setSelectedTemplate(template);
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_DYNAMIC_EP)) {
-			setSaveAsDynamic((Boolean) data);
 			ProjectFilter.setShowGeneralProjects((Boolean) data);
 			setEndpointSaveLocation("");
-		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_TYPE)) {
+			setSelectedOption_DynamicEP((Boolean)data);
+		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_STATIC_EP)){
+			setSelectedOption_StaticEP((Boolean)data);		
+		}else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_TYPE)) {
 			setDynamicEpRegistryPath("");
 			setRegistryPathID(data.toString());
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_SAVE_LOCATION)) {
-			IContainer container=(IContainer) data;
-			if(container != null && container instanceof IFolder){
-				IFolder endpointFolder = container.getProject().getFolder("src").getFolder("main").getFolder("synapse-config").getFolder("endpoints");
-				setEndpointSaveLocation(endpointFolder);
-			}else{
-				setEndpointSaveLocation(container);
-			}
+			setEndpointSaveLocation((IContainer) data);
+			
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_CREATE_ESB_PROJECT)) {
-			if(isSaveAsDynamic()){
+			if(getSelectedOption_DynamicEP()){
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
 				IProject generalProject = GeneralProjectUtils.createGeneralProject(shell);
 				if(generalProject!=null){
@@ -217,7 +206,7 @@ public class EndpointModel extends ProjectDataModel {
 	return returnResult;
 
 	}
-
+	
 	public void setSelectedTemplate(ArtifactTemplate selectedTemplate) {
 		this.selectedTemplate = selectedTemplate;
 	}
@@ -247,14 +236,7 @@ public class EndpointModel extends ProjectDataModel {
 	protected ListData createListData(String caption, Object data) {
 		return new ListData(caption, data);
 	}
-	public void setSaveAsDynamic(boolean saveAsDynamic) {
-		this.saveAsDynamic = saveAsDynamic;
-	}
-
-	public boolean isSaveAsDynamic() {
-		return saveAsDynamic;
-	}
-
+	
 	public void setDynamicEpRegistryPath(String dynamicEpRegistryPath) {
 		this.dynamicEpRegistryPath = dynamicEpRegistryPath;
 	}
@@ -266,8 +248,6 @@ public class EndpointModel extends ProjectDataModel {
 	public void setAvailableEPList(List<OMElement> availableEPList) {
 		this.availableEPList = availableEPList;
 	}
-
-	
 
 	public List<OMElement> getAvailableEPList() {
 		return availableEPList;
@@ -286,7 +266,6 @@ public class EndpointModel extends ProjectDataModel {
 	public IContainer getEndpointSaveLocation() {
 		return endpointSaveLocation;
 	}
-
 	
 	public void setLocation(File location) {
 		super.setLocation(location);
@@ -426,4 +405,19 @@ public class EndpointModel extends ProjectDataModel {
 		return httpMethod;
 	}
 	
+	public void setSelectedOption_DynamicEP(Boolean dyOption) {
+		this.dyOption = dyOption;
+	}
+
+	public Boolean getSelectedOption_DynamicEP() {
+		return dyOption;
+	}
+	
+	public void setSelectedOption_StaticEP(Boolean stOption){
+		this.stOption = stOption;
+	}
+	
+	public Boolean getSelectedOption_StaticEP(){
+		return stOption;
+	}
 }

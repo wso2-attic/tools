@@ -50,8 +50,7 @@ public final class EpArtifactConstants extends NLS{
 	public static String WIZARD_OPTION_AVAILABLE_EPS;
 	public static String WIZARD_OPTION_HTTP_EP_URITEMPLATE;
 	public static String WIZARD_OPTION_HTTP_EP_METHOD;
-	
-	
+	public static String WIZARD_OPTION_STATIC_EP;
 	
 	static {
 		// initialize resource bundle
