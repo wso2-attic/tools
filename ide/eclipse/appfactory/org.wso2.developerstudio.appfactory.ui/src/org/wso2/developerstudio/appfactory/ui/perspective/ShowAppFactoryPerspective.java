@@ -18,6 +18,7 @@ package org.wso2.developerstudio.appfactory.ui.perspective;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.wso2.developerstudio.appfactory.core.Activator;
+import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -29,7 +30,9 @@ private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	public void run() {
 		 try {
 				LoginAction loginAction = new LoginAction();
-				loginAction.login();
+				loginAction.login(true,true);
+				 
+				
 			} catch (Exception e) {
 				log.error("Cannot open AppFactory perspective",e);
 			}

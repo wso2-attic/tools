@@ -44,7 +44,7 @@ import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
-import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
+import org.wso2.developerstudio.appfactory.core.model.ErrorType;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -65,6 +65,7 @@ public class PasswordDialog extends Dialog {
   private boolean isOT;
   private Label error;
   private UserPasswordCredentials credentials;
+  private boolean fromDashboad;
   
 /** * Create the dialog. * * @param parentShell */
 
@@ -156,7 +157,7 @@ public class PasswordDialog extends Dialog {
     error.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
     error.setLayoutData(new GridData(SWT.FILL, SWT.LEFT, true, false,
             1, 1));
-  
+    error.setForeground(container.getDisplay().getSystemColor(SWT.COLOR_RED));
     FocusAdapter adapter = new FocusAdapter() {
     	@Override
     	public void focusGained(FocusEvent e) {
@@ -203,39 +204,69 @@ public class PasswordDialog extends Dialog {
     if(!host.startsWith("http")||!host.startsWith("https")){ //$NON-NLS-1$ //$NON-NLS-2$
     	host = "https://"+host; //$NON-NLS-1$
     }
+    if("".equals(getUser())||"".equals(getPassword())){
+		error.setText("Username or Password cannot be empty !");
+		return;
+	}
     if(login()){
     	super.okPressed();
     }else {
-    	error.setText(Authenticator.getInstance().getErrorModel().getMessage());
+    	ErrorType errorcode = Authenticator.getInstance().getErrorcode();
+    	switch (errorcode) {
+        case INVALID:
+        	    error.setText("Invalid username or password");
+                break;
+        case FAILD:
+        	    error.setText(Authenticator.getInstance().getErrormsg());
+                break;
+        case ERROR:
+        	   error.setText("Connection failed");
+                break;
+          }
     }
   }
-  
-  
+   
   private boolean login() {
 		boolean val = true;
+		UserPasswordCredentials oldCredentials = null;
+		String oldServerURL = null;
+		setCursorBusy();
 		try { 
+			if(Authenticator.getInstance().isLoaded()){
+				oldCredentials = Authenticator.getInstance().getCredentials();
+				oldServerURL = Authenticator.getInstance().getServerURL();
+			}
 			credentials = new UserPasswordCredentials(getUser(),getPassword());
 		    val = Authenticator.getInstance().Authenticate(JagApiProperties.getLoginUrl(), credentials); 
-		    if(val){
+		    if(val && isfromDashboad()){
+		    	Authenticator.getInstance().setFromDashboad(isfromDashboad());
 		    	hideDashboards();
 		    	IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 	        	PlatformUI.getWorkbench().showPerspective("org.wso2.developerstudio.appfactory.ui.perspective", window);
 		    } 
+		    resetCredintials(val, oldCredentials, oldServerURL);
 		} catch (Exception e) {
-	     ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
-  	     errorModel.setMessage("Authentication Fail");
-  	     List<String> resions = new ArrayList<String>();
-  	     resions.add("Please refer the log file for details");
-  	     errorModel.setResions(resions);
 	        log.error("Login fail", e);
-	        Display.getCurrent()
-			.getActiveShell()
-			.setCursor(
-					(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
+	        error.setText("Login failed due to system error");
+	        setCursorNormal();
+	        resetCredintials(val, oldCredentials, oldServerURL);
 	        return false;
 		} 
+		setCursorNormal();
 		return val;
 	}
+
+private void resetCredintials(boolean val,
+		UserPasswordCredentials oldCredentials, String oldServerURL) {
+	if(!val){
+		if(Authenticator.getInstance().isLoaded()){
+			Authenticator.getInstance().setCredentials(oldCredentials);
+			Authenticator.getInstance().setServerURL(oldServerURL);
+	}else{
+		Authenticator.getInstance().setCredentials(null);
+	  }
+	}
+}
   
   private void hideDashboards(){
   	try {
@@ -257,7 +288,23 @@ public class PasswordDialog extends Dialog {
 		}
   }
   
- 
+  private void setCursorNormal() {
+		try {
+			Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(),
+					SWT.CURSOR_ARROW)));
+		} catch (Throwable e) {
+			 /*safe to ignore*/
+		}
+  }
+  private void setCursorBusy() {
+		try {
+			Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(),
+					SWT.CURSOR_WAIT)));
+		} catch (Throwable e) {
+			 /*safe to ignore*/
+		}
+	}
+  
   public String getUser() {
     return user;
   }
@@ -298,5 +345,13 @@ public boolean isOT() {
 
 public void setOT(boolean isOT) {
 	this.isOT = isOT;
+}
+
+public boolean isfromDashboad() {
+	return fromDashboad;
+}
+
+public void setIsfromDashboad(boolean isfromDashboad) {
+	this.fromDashboad = isfromDashboad;
 }
 }

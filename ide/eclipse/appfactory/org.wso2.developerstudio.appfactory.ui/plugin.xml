@@ -9,7 +9,7 @@
             id="org.wso2.developerstudio.appfactory.ui">
       </category>
       <view
-            name="WSO2 AppFactory - Applications List"
+            name="Applications List"
             icon="icons/appfac.png"
             category="org.wso2.developerstudio.appfactory.ui"
             class="org.wso2.developerstudio.appfactory.ui.views.AppfactoryApplicationListView"
@@ -52,7 +52,7 @@
             id="org.wso2.developerstudio.appfactory.ui">
       </category>
       <view
-            name="WSO2 AppFactory - Application Details"
+            name="Application Details"
             icon="icons/appfac.png"
             category="org.wso2.developerstudio.appfactory.ui"
             class="org.wso2.developerstudio.appfactory.ui.views.AppfactoryApplicationDetailsView"

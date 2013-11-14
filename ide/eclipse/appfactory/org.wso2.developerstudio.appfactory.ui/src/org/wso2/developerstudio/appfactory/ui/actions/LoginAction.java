@@ -16,24 +16,16 @@
 
 package org.wso2.developerstudio.appfactory.ui.actions;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.MultiStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
-import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.views.PasswordDialog;
@@ -83,64 +75,49 @@ public class LoginAction {
 		 }
 	 }
 	
-	public boolean login() {
+	public boolean login(boolean isFromDashboad,boolean logoutAndLogin) {
 		boolean val = true;
 		try { 
 			
 			if(!isSave){
-				showLoginDialog();
+				showLoginDialog(isFromDashboad);
+			}else if(logoutAndLogin){
+				showLoginDialog(isFromDashboad);
+			}else{
+				Authenticator.getInstance().setCredentials(new UserPasswordCredentials(getUsername()
+						, getPassword()));
+				Authenticator.getInstance().setServerURL(JagApiProperties.getLoginUrl());
 			}
 			if(isCansel){
 				return false;
 			}
-			
-		//	credentials = new UserPasswordCredentials(getUsername(),getPassword());
-		//    val = authenticator.Authenticate(JagApiProperties.getLoginUrl(), credentials); 
 		    if(!val){
-                this.ShowErrorMsg(); 
-                Display.getCurrent()
-				.getActiveShell()
-				.setCursor(
-						(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
+                setCursorNormal();
 		    }
-		    if(isSave()){
+		    if((isSave())&& (Authenticator.getInstance().getCredentials()!=null)){
 				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_LOCATION, JagApiProperties.getDomain());
 				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_USERNAME,getUsername());
 				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_PASSWORD,getPassword());
 				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_SAVE,"true");
 			}
 		} catch (Exception e) {
-			 ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
-    	     errorModel.setMessage("Authentication Fail");
-    	     List<String> resions = new ArrayList<String>();
-    	     resions.add("Please refer the log file for details");
-    	     errorModel.setResions(resions);
-	        log.error("Login fail", e);
-	        Display.getCurrent()
-			.getActiveShell()
-			.setCursor(
-					(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
+			log.error("Login fail", e);
 	        return false;
 		} 
 		return val;
 	}
 
-	private void ShowErrorMsg(){
-		   ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
-		   final String PID = Activator.PLUGIN_ID;
-		   MultiStatus info = new MultiStatus(PID, 1,"AppFactory Login Fail !", null);
-		   info.add(new Status(IStatus.INFO, PID, 1,errorModel.getMessage(), null));
-		   List<String> resions = errorModel.getResions();
-		   if(resions!=null){
-		   for (String msg : resions) {
-			   info.add(new Status(IStatus.INFO, PID, 1,msg, null));
-		   		}
-		   }else{
-			   info.add(new Status(IStatus.INFO, PID, 1,"Authentication Fail ! \n check username and password", null));
-		   }
-		   ErrorDialog.openError(activeShell, "AppFactory Login Error", null, info);
+	private void setCursorNormal() {
+		try {
+			Display.getCurrent()
+			.getActiveShell()
+			.setCursor(
+					(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
+		} catch (Throwable e) {
+         /*safe to ignore*/
+		}
 	}
-	
+
 	public String getUsername() {
 		return username;
 	}
@@ -157,17 +134,16 @@ public class LoginAction {
 		this.password = password;
 	}
 
-	 
-
 	public void setLoginUrl(String loginUrl) {
 		JagApiProperties.setDomain(loginUrl);
 	}
 	
-	private void showLoginDialog(){
+	private void showLoginDialog(boolean isFromDashboad){
 		  PasswordDialog dialog = new PasswordDialog(activeShell);
 		  dialog.setHost(JagApiProperties.getDomain());
 		  dialog.setUser(getUsername());
 		  dialog.setPassword(getPassword());
+		  dialog.setIsfromDashboad(isFromDashboad);
 		 if (dialog.open() == Window.OK) {
 			  setUsername(dialog.getUser());
 			  setPassword(dialog.getPassword());
@@ -175,11 +151,6 @@ public class LoginAction {
 			  setSave(dialog.isSave());
 		 }else {
 			   this.setCansel(true);
-			   MessageBox messageBox = new MessageBox(getActiveShell(), SWT.ICON_INFORMATION | SWT.OK);
-			   messageBox.setText("Information");
-			   messageBox.setMessage("AppFactory Perspective Loading Fail ! \nPlease use perspective " +
-				   		"reset option to re-login \n ");  
-			   messageBox.open();
 		 } 
 	}
 

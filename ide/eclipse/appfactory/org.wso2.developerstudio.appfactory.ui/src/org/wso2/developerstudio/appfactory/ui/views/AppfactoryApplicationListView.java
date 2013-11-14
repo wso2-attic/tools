@@ -153,11 +153,18 @@ public class AppfactoryApplicationListView extends ViewPart {
 				.getServiceContext(bundle.getBundleContext());
 		eclipseContext.set(org.eclipse.e4.core.services.log.Logger.class, null);
 		broker = eclipseContext.get(IEventBroker.class);
-		
 		doSubscribe();/*Subscribe UIhandler with EventBroker*/
-		
+		Authenticator.getInstance().setLoaded(true);
 	}
 
+	@Override
+	public void dispose() {
+	   	doUnSubscribe();
+	   	Authenticator.getInstance().setLoaded(false);
+		super.dispose();
+	}
+	
+	
 
 	public void createPartControl(Composite parent) {
         this.parent = parent;
@@ -253,11 +260,12 @@ public class AppfactoryApplicationListView extends ViewPart {
 	
 	@Override
 	public void setFocus() {
-		System.out.println("asdadadsa");
+	
 	}
 	
 	@SuppressWarnings("restriction")
 	private void doSubscribe() {
+		 
 		buildhandler = getBuildLogEventHandler();
 		broker.subscribe("update", buildhandler); //$NON-NLS-1$
 			
@@ -277,6 +285,15 @@ public class AppfactoryApplicationListView extends ViewPart {
 		broker.subscribe("Projectupdate",projectOpenhandler); //$NON-NLS-1$
 	}
 	
+	@SuppressWarnings("restriction")
+	private void doUnSubscribe() {
+		broker.unsubscribe(buildhandler); //$NON-NLS-1$
+		broker.unsubscribe(apphandler); //$NON-NLS-1$
+		broker.unsubscribe(appVersionhandler); //$NON-NLS-1$
+		broker.unsubscribe(ErrorLoghandler); //$NON-NLS-1$
+		broker.unsubscribe(infoLoghandler); //$NON-NLS-1$
+		broker.unsubscribe(projectOpenhandler); //$NON-NLS-1$
+	}
 	@SuppressWarnings("restriction")
 	
 	private void printErrorLog(String msg){
@@ -397,26 +414,20 @@ public class AppfactoryApplicationListView extends ViewPart {
 	}
 	
 	private void ShowLoginDialog(){
-		
-		IWorkbench workbench = PlatformUI.getWorkbench();
-    	IPerspectiveDescriptor perspective = workbench.getActiveWorkbenchWindow().getActivePage().getPerspective();
-    	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(perspective, false, true);
-		/* credentials = Authenticator.getInstance().getCredentials();
+		 credentials = Authenticator.getInstance().getCredentials();
 		 try{
 		 if(credentials==null){
 			 printErrorLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_1);
 			 LoginAction loginAction = new LoginAction();
 			 printInfoLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_2);
-			 if(loginAction.login()){
+			 if(loginAction.login(false,false)){
 				 printInfoLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_3);
 				 credentials = Authenticator.getInstance().getCredentials();
 			 }
-		 }else {
-			 
-		 }
+		 } 
 		 }catch(Exception e){
-			 
-		 }*/
+			 /*safe to ignore*/
+		 } 
 	}
 	
 	private List<ApplicationInfo> getApplist(){
@@ -450,15 +461,61 @@ public class AppfactoryApplicationListView extends ViewPart {
     private void createToolbar() {
             IToolBarManager mgr = getViewSite().getActionBars().getToolBarManager();
             mgr.add(new Action() {
+              	 @Override
+              	public void run() {
+        			 LoginAction loginAction;
+					try {
+						 loginAction = new LoginAction();
+	        			 if(loginAction.login(false,true)){
+	        				 printInfoLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_3);
+	        				 credentials = Authenticator.getInstance().getCredentials();
+	        				 updateApplicationView();
+	        			 }
+					} catch (Exception e) {
+						 /*safe to ignore*/
+					}
+              	}
+              	 
+              	 public String getText() {
+       				return "Re-login";
+       			}
+              	 
+             	@Override
+    			public ImageDescriptor getImageDescriptor() {
+    				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+    						 "/icons/users.gif"); //$NON-NLS-1$
+    				return  imageDescriptorFromPlugin;
+    			}
+             	
+             	@Override
+             	public String getToolTipText() {
+             		
+             		return credentials.getUser();
+             	}
+             	
+ 
+   			});
+            mgr.add(new Action() {
            	 @Override
            	public void run() {
            		updateApplicationView();
            	}
+ 
+           	public ImageDescriptor getImageDescriptor() {
+				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+						 "/icons/refresh.gif"); //$NON-NLS-1$
+				return  imageDescriptorFromPlugin;
+			}
+         	
+         	@Override
+         	public String getToolTipText() {
+         		return Messages.AppfactoryApplicationListView_createToolbar_refresh_menu;
+         	}
            	 
-           	 public String getText() {
-    				return Messages.AppfactoryApplicationListView_createToolbar_refresh_menu;
-    			}
+           	 
 			});
+            
+            
     }
 	
 	private void  updateApplicationView(){

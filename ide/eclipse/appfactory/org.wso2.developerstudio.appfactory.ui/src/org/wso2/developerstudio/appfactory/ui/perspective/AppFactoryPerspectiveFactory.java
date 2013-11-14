@@ -50,22 +50,38 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 	public void createInitialLayout(IPageLayout appfacLayout) {
 
 		try {
-			if (Authenticator.getInstance().getCredentials()!=null) {
-				ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(
-						Display.getDefault().getActiveShell());
-				progressMonitorDialog.create();
-				progressMonitorDialog.open();
-				progressMonitorDialog.run(true, false,
-						new LoadAppFacPerfectiveJob(appfacLayout));
-				AppFactoryPerspectiveManager.val = false;
+			if(Authenticator.getInstance().isFromDashboad()){/*Request come form dash-board*/
+				Authenticator.getInstance().setFromDashboad(false);
+				initAfViewsloadingProcess(appfacLayout);
 			}else{
-				LoginAction loginAction = new LoginAction();
-				loginAction.login();
-				addGostView(appfacLayout);
+				if(Authenticator.getInstance().isLoaded()){/*Request come from Perspective selector*/
+					initAfViewsloadingProcess(appfacLayout);
+				}else{
+					Authenticator.getInstance().setCredentials(null);/*Should be a new Login attempts*/
+					LoginAction loginAction = new LoginAction();
+					loginAction.login(false,false);
+					if(Authenticator.getInstance().getCredentials()!=null){
+						initAfViewsloadingProcess(appfacLayout);
+					}else{
+						addGostView(appfacLayout);
+					}
+				}
 			}
 		} catch (Exception e) {
 			log.error("Perspective loading issue", e); //$NON-NLS-1$
 		}
+	}
+
+	
+	
+	private void initAfViewsloadingProcess(IPageLayout appfacLayout)
+			throws InvocationTargetException, InterruptedException {
+		ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(
+				Display.getDefault().getActiveShell());
+		progressMonitorDialog.create();
+		progressMonitorDialog.open();
+		progressMonitorDialog.run(true, false,
+				new LoadAppFacPerfectiveJob(appfacLayout));
 	}
 	
 	private void addGostView(IPageLayout appfacLayout){
@@ -82,7 +98,7 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 		lef.addView(PROJECT_EXPOR_VIEW);
 
 		IFolderLayout applist = appfacLayout.createFolder("topRight", //$NON-NLS-1$
-				IPageLayout.RIGHT, 0.75f, editorArea);
+				IPageLayout.RIGHT, 0.70f, editorArea);
 		applist.addView(APPLIST_ID);
 
 		IFolderLayout appDetails = appfacLayout.createFolder("BottomRight", //$NON-NLS-1$

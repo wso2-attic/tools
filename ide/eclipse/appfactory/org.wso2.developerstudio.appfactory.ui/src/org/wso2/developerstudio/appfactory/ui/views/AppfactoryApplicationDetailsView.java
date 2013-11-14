@@ -17,8 +17,10 @@
 package org.wso2.developerstudio.appfactory.ui.views;
 
 import java.util.List;
-import java.util.Map;
 
+import org.eclipse.jface.action.Action;
+import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
@@ -40,19 +42,17 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.wizards.IWizardDescriptor;
-import org.wso2.developerstudio.appfactory.core.model.AppDBinfo;
 import org.wso2.developerstudio.appfactory.core.model.AppUserInfo;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 import org.wso2.developerstudio.appfactory.core.model.DataSource;
 import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.appfactory.ui.utils.Messages;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-
 public class AppfactoryApplicationDetailsView extends ViewPart {
 
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
@@ -114,7 +114,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		tabFolder = new TabFolder(parent, SWT.BORDER);
 		tabFolder.setBackground(tabFolder.getDisplay().getSystemColor(SWT.COLOR_WHITE));
-
+		createToolbar();
 		createTabPages();
 
 		/*
@@ -420,7 +420,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 			    });
 
 
-		String[] titles = { "Name","DB Url","user","password","  "};
+		String[] titles = { "Name","DB Url","user"};
 		for (int i = 0; i < titles.length; i++) {
 			TableColumn column = new TableColumn(dataSourcesTable, SWT.BOLD);
 			column.setText(titles[i]);
@@ -556,8 +556,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 				   item.setText(0, ds.getName());
 				   item.setText(1, ds.getConfig().get("url"));
 				   item.setText(2, ds.getConfig().get("username"));
-				   item.setText(3, ds.getConfig().get("password"));
-				   datasourceTableEditor.setEditor(dsConfigWizard, item, 4);
+				  // datasourceTableEditor.setEditor(dsConfigWizard, item, 4);
 				   
 			   }
 			   for (int i = 0; i < dataSourcesTable.getColumnCount(); i++) {
@@ -592,5 +591,31 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 			 log.error("Wizard invoke error", e);
 		}
 	}
+	
+	 private void createToolbar() {
+         IToolBarManager mgr = getViewSite().getActionBars().getToolBarManager();
+         mgr.add(new Action() {
+        	 @Override
+        	public void run() {
+        		
+        		 openDSSettingsWizard();
+        	}
+        	 
+        	 @Override
+ 			public ImageDescriptor getImageDescriptor() {
+ 				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+ 						 "/icons/repository_rep.gif"); //$NON-NLS-1$
+ 				return  imageDescriptorFromPlugin;
+ 			}
+        	 
+        	 @Override
+        	public String getToolTipText() {
+        		return Messages.AppfactoryApplicationDetailsView_createToolbar_refresh_menu;  
+        	}
+        	 
+        	 
+			});
+      }
+	
 	
 }
