@@ -52,10 +52,10 @@ public class AvailableEPList extends AbstractListDataProvider{
 		List<ListData> list = new ArrayList<ListData>();
 		list.add(createListData("", ""));
 		try{
-			//List<String> availabledynamicEP = getAvailableDynamicEP();
-			//for(String filename : availabledynamicEP){
-			//list.add(createListData(ProjectUtils.fileNameWithoutExtension(filename), filename));
-			//}	
+			List<String> availabledynamicEP = getAvailableDynamicEP();
+			for(String filename : availabledynamicEP){
+			list.add(createListData(ProjectUtils.fileNameWithoutExtension(filename), filename));
+			}	
 			List<File> availablestaticEP = getAvailableStaticEP();
 			for (File file : availablestaticEP) {
 				list.add(createListData(ProjectUtils.fileNameWithoutExtension(file.getName()), file));
