@@ -7,11 +7,11 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.editparts.AbstractEditPart;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
@@ -19,7 +19,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
@@ -31,8 +30,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EndpoinMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
@@ -119,19 +116,51 @@ public class MediatorFlowMediatorFlowCompartment19EditPart extends
 		EditingDomain editingDomain = ((GraphicalEditPart) existingEndpoint).getEditingDomain();
 		
 		AbstractEndpointInputConnectorEditPart inputConector = EditorUtils.getEndpointInputConnector((ShapeNodeEditPart) existingEndpoint);
-		EsbLinkEditPart linkEditPart = (EsbLinkEditPart) inputConector.getTargetConnections().get(0);
+		EsbLinkEditPart	linkEditPart = null;
+		if (inputConector.getTargetConnections().size() > 0) {
+			linkEditPart = (EsbLinkEditPart) inputConector.getTargetConnections().get(0);
+		}
 		
-		Collection linkCollection = new ArrayList();
 		//Here we are deleteing the linkpart as well
+		if (linkEditPart != null) {
+			deleteESbLinkEditpart(editingDomain, inputConector);
+		}
+		
+		deleteEndpoint(existingEndpoint);
+	}
+
+	private void deleteESbLinkEditpart(EditingDomain editingDomain,
+			AbstractEndpointInputConnectorEditPart inputConector) {
+		EsbLinkEditPart linkEditPart;
+		Collection linkCollection = new ArrayList();
+		linkEditPart = (EsbLinkEditPart) inputConector.getTargetConnections().get(0);
 		linkCollection.add(((ConnectorImpl) linkEditPart.getModel()).getElement());
-		linkCollection.add(existingEndpoint.getModel());
+		
 		org.eclipse.emf.edit.command.DeleteCommand modelDeleteCommand = new org.eclipse.emf.edit.command.DeleteCommand(
 				editingDomain, linkCollection);
 		if (modelDeleteCommand.canExecute()) {
 			editingDomain.getCommandStack().execute(modelDeleteCommand);
 		}
 		
+		org.eclipse.gef.commands.CompoundCommand ccView = new org.eclipse.gef.commands.CompoundCommand();
+		DeleteCommand viewDeleteCommand = new DeleteCommand(linkEditPart.getNotationView());
+		if (viewDeleteCommand.canExecute()) {
+		    ccView.add(new ICommandProxy(viewDeleteCommand));
+		}
+		if (ccView.canExecute()) {
+		       this.getDiagramEditDomain().getDiagramCommandStack().execute(ccView);
+		}
 	}
 
+	private void deleteEndpoint(AbstractEditPart existingEndpoint) {
+		RemoveCommand removeCmd = new RemoveCommand(((GraphicalEditPart) existingEndpoint).getEditingDomain(), 
+				((Node)existingEndpoint.getModel()).getElement().eContainer(),
+				EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, 
+				((Node)existingEndpoint.getModel()).getElement());
+
+		if (removeCmd.canExecute()) {
+			((GraphicalEditPart) existingEndpoint).getEditingDomain().getCommandStack().execute(removeCmd);
+		}
+	}
 	
 }

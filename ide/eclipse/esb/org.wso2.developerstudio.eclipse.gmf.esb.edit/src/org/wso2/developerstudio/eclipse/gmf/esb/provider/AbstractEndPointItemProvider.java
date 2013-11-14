@@ -125,8 +125,10 @@ public class AbstractEndPointItemProvider
 	
 	        addDescriptionPropertyDescriptor(object);
 			if(object instanceof AbstractEndPoint){
-				if(((AbstractEndPoint)object).eContainer().eContainer() instanceof Template){
-					addTemplateParametersPropertyDescriptor(object);		
+				if(((AbstractEndPoint)object).eContainer() != null){
+					if(((AbstractEndPoint)object).eContainer().eContainer() instanceof Template){
+						addTemplateParametersPropertyDescriptor(object);		
+					}
 				}
 			}
 	        
