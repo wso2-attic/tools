@@ -109,6 +109,15 @@ public void validate(String modelProperty, Object value,
 			if (resource==null || !resource.exists()) {
 				throw new FieldValidationException("Specified resource doesn't exist");
 			} 
+			
+			RegistryArtifactModel regModel = (RegistryArtifactModel) model;
+			IContainer resLocation = regModel.getResourceSaveLocation();
+			if (resLocation != null) {
+				IResource findMember = resLocation.findMember(resource.getName());
+				if(findMember != null){
+					throw new FieldValidationException("A Resource already exist in the same location with same name.");
+				}
+			}
 		} else if (modelProperty.equals("save.file")) {
 			IResource resource = (IResource)value;
 			if(resource==null || !resource.exists())	
