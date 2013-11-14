@@ -15,38 +15,38 @@
 
 package org.wso2.developerstudio.appfactory.core.authentication;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Display;
+import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
-import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
+import org.wso2.developerstudio.appfactory.core.model.ErrorType;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class Authenticator {
-
-	public String serverURL;
+	
+	private String serverURL;
 	private static Authenticator authanticator = null;
 	private UserPasswordCredentials credentials;
 	private String result;
 	private boolean loginCancel;
+	private ErrorType errorcode;
+    private String errormsg;
+    private boolean fromDashboad;
+    private boolean loaded;
 
-	private ErrorModel errorModel;
- 
-
-	public ErrorModel getErrorModel() {
-		return errorModel;
+	public String getErrormsg() {
+		return errormsg;
 	}
 
-	public void setErrorModel(ErrorModel errorModel) {
-		this.errorModel = errorModel;
+	public void setErrormsg(String errormsg) {
+		this.errormsg = errormsg;
 	}
 
 	public String getResult() {
@@ -63,17 +63,12 @@ public class Authenticator {
 	public static Authenticator getInstance() {
 		if (authanticator == null) {
 			authanticator = new Authenticator();
-			ErrorModel errorModel = new ErrorModel();
-			authanticator.setErrorModel(errorModel);
 		}
 		return authanticator;
 	}
 
-	public boolean Authenticate(String serverUrl,
-			UserPasswordCredentials credentials) throws Exception {
-		
-		Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(),
-				SWT.CURSOR_WAIT)));
+	public boolean Authenticate(String serverUrl,UserPasswordCredentials credentials) throws
+	Exception {
 	    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(
 	    		Display.getDefault().getActiveShell());
 		progressMonitorDialog.create();
@@ -83,13 +78,14 @@ public class Authenticator {
 		
 		while(true){
 			if("true".equals(this.result)){
-				this.serverURL = serverUrl;
+				this.setServerURL(serverUrl);
 				this.credentials = credentials;
 				return true;
 			}else if("false".equals(this.result)){
 				return false;
 			}
 		}
+		
 	}
 	
 	public boolean reLogin()
@@ -123,11 +119,44 @@ public class Authenticator {
 		this.loginCancel = loginCancel;
 	}
 
+	public ErrorType getErrorcode() {
+		return errorcode;
+	}
+
+	public void setErrorcode(ErrorType errorcode) {
+		this.errorcode = errorcode;
+	}
+
+	public boolean isFromDashboad() {
+		return fromDashboad;
+	}
+
+	public void setFromDashboad(boolean fromDashboad) {
+		this.fromDashboad = fromDashboad;
+	}
+
+	public boolean isLoaded() {
+		return loaded;
+	}
+
+	public void setLoaded(boolean loaded) {
+		this.loaded = loaded;
+	}
+
+	public String getServerURL() {
+		return serverURL;
+	}
+
+	public void setServerURL(String serverURL) {
+		this.serverURL = serverURL;
+	}
+
 	private class LoginToAppFacPerfectiveJob implements IRunnableWithProgress {
-		
+		private IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 		UserPasswordCredentials credentials;
 		String serverUrl;
 		Authenticator authenticator;
+		
 	 public LoginToAppFacPerfectiveJob(UserPasswordCredentials credentials,String serverUrl,
 			 Authenticator authenticator) {
 		 this.credentials = credentials;
@@ -140,21 +169,6 @@ public class Authenticator {
 			String operationText="fetching data from AppFactory "+JagApiProperties.getDomain();
 			monitor.beginTask(operationText, 100);
 			try{
-				operationText="validating credentials";
-				monitor.subTask(operationText);
-				monitor.worked(10);
-				if("".equals(credentials.getUser())||"".equals(credentials.getPassword())){
-					operationText="Incorrect format of credentials";
-					monitor.subTask(operationText);
-					monitor.worked(0);
-					monitor.setCanceled(true);
-					authenticator.setResult("false");
-					Authenticator.getInstance().getErrorModel().setMessage(
-							"Username or password cannot be empty !!");
-				    List<String> resions = new ArrayList<String>();
-		    	    errorModel.setResions(resions);
-					return;
-				}
 				operationText="Sending login request...";
 				monitor.subTask(operationText);
 				monitor.worked(20);
@@ -164,16 +178,14 @@ public class Authenticator {
 				params.put("password", credentials.getPassword());
 				String value = HttpsJaggeryClient.httpPostLogin(serverUrl, params);
 				if (!"false".equals(value)) {
-					operationText="Login successfully ";
 					authenticator.setResult("true");
 				}else{
-					operationText="Login unsuccessfully due to invalid credentials";
 					authenticator.setResult("false");	
 				}
 				monitor.subTask(operationText);
 				monitor.worked(80);
 			}catch(Exception e){
-				
+				log.error("Login process has been failed", e) ;
 				authenticator.setResult("false");
 							operationText=e.getMessage();
 				monitor.beginTask(operationText, 100);
@@ -184,8 +196,6 @@ public class Authenticator {
 			monitor.worked(100);
 			monitor.done();
 		}
-	}  
+	}
+ 
 }
-
-
-

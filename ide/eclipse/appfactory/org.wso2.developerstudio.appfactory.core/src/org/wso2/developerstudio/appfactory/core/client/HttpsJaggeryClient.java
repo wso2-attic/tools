@@ -45,7 +45,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
-import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
+import org.wso2.developerstudio.appfactory.core.model.ErrorType;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
  
@@ -55,7 +55,6 @@ public class HttpsJaggeryClient {
 
 	public static String httpPostLogin(String urlStr, Map<String,String> params){
  
-	 
 	    client = new DefaultHttpClient();
 	    client = HttpsJaggeryClient.wrapClient(client,urlStr);
 	    return  httpPost(urlStr,params);
@@ -83,33 +82,23 @@ public class HttpsJaggeryClient {
 		                  sb.append(line);
 		            }
 		      respond = sb.toString();
+		      if("false".equals(respond)){
+		    	  Authenticator.getInstance().setErrorcode(ErrorType.INVALID);
+		      }
 		      EntityUtils.consume(entityGetAppsOfUser);
 		      if (entityGetAppsOfUser != null) {
 		    	  entityGetAppsOfUser.getContent().close();
 		    	}
 		      }else{
-		    	     ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
-		    	     errorModel.setMessage("Error respond Code");
-		    	     List<String> reasons = new ArrayList<String>();
-		    	     reasons.add(""+response.getStatusLine().getStatusCode());
-		    	     reasons.add(response.getStatusLine().getReasonPhrase()); 
-		    	     errorModel.setResions(reasons);
+				     Authenticator.getInstance().setErrorcode(ErrorType.FAILD);
+		    	     Authenticator.getInstance().setErrormsg(response.getStatusLine().getReasonPhrase());
+		    	     log.error("("+response.getStatusLine().getStatusCode()+")"+
+		    	    		 ":"+response.getStatusLine().getReasonPhrase());
 		    	  return "false";
 		      }
 		     
-	      }catch(Exception e){
-	    	  
-	    	     ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
-	    	     
-	    	     errorModel.setMessage("Could not connect to the AppFactory due to one of the following reasons");
-	    	     List<String> reasons = new ArrayList<String>();
-	    	     reasons.add("1 Network connection failure");
-	    	     reasons.add("2 Unknown Host-name");
-	    	     reasons.add("3 Connection time out");
-	    	     reasons.add(e.getMessage());
-	    	     reasons.add("");
-	    	     reasons.add("Please refer the log file for more details");
-	    	     errorModel.setResions(reasons);
+	      }catch(Exception e){   	     
+	    	     Authenticator.getInstance().setErrorcode(ErrorType.ERROR);
 	    	     log.error("Connection failure",e); 
 	        	 return "false";
 	         } finally{
