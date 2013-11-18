@@ -62,6 +62,9 @@ public class HttpsJaggeryClient {
 	
 	public static String httpPost(String urlStr, Map<String,String> params){
 		   
+		   if(client ==null){
+			   httpPostLogin(urlStr,params);
+		   }
 		    HttpPost post = new HttpPost(urlStr);
 		    String respond = "";
 		    HttpResponse response=null;
