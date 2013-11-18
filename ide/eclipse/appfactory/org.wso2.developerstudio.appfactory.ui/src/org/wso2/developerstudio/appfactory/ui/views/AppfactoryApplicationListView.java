@@ -137,6 +137,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 	private MessageConsoleStream infoOut;
 	private MessageConsoleStream errorOut;
 	private MessageConsoleStream buildOut;
+	private IToolBarManager toolBarmgr;
 	@SuppressWarnings("restriction")
 	@Override
 	public void init(IViewSite site) throws PartInitException {
@@ -262,6 +263,8 @@ public class AppfactoryApplicationListView extends ViewPart {
 	public void setFocus() {
 	
 	}
+	
+
 	
 	@SuppressWarnings("restriction")
 	private void doSubscribe() {
@@ -459,8 +462,9 @@ public class AppfactoryApplicationListView extends ViewPart {
 	}
  
     private void createToolbar() {
-            IToolBarManager mgr = getViewSite().getActionBars().getToolBarManager();
-            mgr.add(new Action() {
+    	toolBarmgr = getViewSite().getActionBars().getToolBarManager();
+             
+    	toolBarmgr.add(new Action() {
               	 @Override
               	public void run() {
         			 LoginAction loginAction;
@@ -470,6 +474,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 	        				 printInfoLog(Messages.AppfactoryApplicationListView_ShowLoginDialog_plog_msg_3);
 	        				 credentials = Authenticator.getInstance().getCredentials();
 	        				 updateApplicationView();
+	        				 setText(credentials.getUser());
 	        			 }
 					} catch (Exception e) {
 						 /*safe to ignore*/
@@ -489,13 +494,16 @@ public class AppfactoryApplicationListView extends ViewPart {
              	
              	@Override
              	public String getToolTipText() {
-             		
-             		return credentials.getUser();
+             		    if(Authenticator.getInstance().getCredentials()!=null){
+             		return Authenticator.getInstance().getCredentials().getUser();
+             		    }else{
+             		    	return "Login";
+             		    }
              	}
              	
- 
+             	
    			});
-            mgr.add(new Action() {
+    	toolBarmgr.add(new Action() {
            	 @Override
            	public void run() {
            		updateApplicationView();
