@@ -126,7 +126,7 @@ public class XSLTMediatorTransformer extends AbstractEsbNodeTransformer {
 		}
 		ResourceMap rMap = new ResourceMap();
 		for(XSLTResource resource:visualXSLT.getResources()){
-			rMap.addResource(resource.getLocation(), resource.getKey().getKeyName());
+			rMap.addResource(resource.getLocation(), resource.getKey().getKeyValue());
 		}
 		if(rMap.getResources().size()>0){
 			xsltMediator.setResourceMap(rMap);

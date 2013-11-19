@@ -478,7 +478,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 			XSLTResource resource = EsbFactory.eINSTANCE.createXSLTResource();
 			RegistryKeyProperty key = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 			key.setKeyName(item.getText(0));
-			key.setKeyValue(item.getText(1));
+			key.setKeyValue(item.getText(0));
 			resource.setKey(key);
 			resource.setLocation(item.getText(1));
 
