@@ -19,6 +19,9 @@ package org.wso2.developerstudio.appfactory.ui.views;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.equinox.security.storage.ISecurePreferences;
+import org.eclipse.equinox.security.storage.SecurePreferencesFactory;
+import org.eclipse.equinox.security.storage.StorageException;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
@@ -66,6 +69,9 @@ public class PasswordDialog extends Dialog {
   private Label error;
   private UserPasswordCredentials credentials;
   private boolean fromDashboad;
+  private ISecurePreferences gitTempNode;
+  private Button btnCheckButton;
+  private ISecurePreferences preferences;
   
 /** * Create the dialog. * * @param parentShell */
 
@@ -74,6 +80,7 @@ public class PasswordDialog extends Dialog {
     setDefaultImage(ResourceManager.getPluginImage(
 			"org.wso2.developerstudio.eclipse.platform.ui", //$NON-NLS-1$
 			"icons/carbon-studio-small-logo.png")); //$NON-NLS-1$
+     
   }
   
   protected void configureShell(Shell newShell) {
@@ -134,7 +141,7 @@ public class PasswordDialog extends Dialog {
     
     new Label(container, SWT.NONE);
     
-    Button btnCheckButton = new Button(container, SWT.CHECK);
+    btnCheckButton = new Button(container, SWT.CHECK);
     btnCheckButton.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
     btnCheckButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
             1, 1));
@@ -142,11 +149,24 @@ public class PasswordDialog extends Dialog {
     	@Override
     	public void widgetSelected(SelectionEvent e) {
     		 Button button = (Button) e.widget;
+    		 if("".equals(userText.getText())||"".equals( passwordText.getText())){
+    				error.setText("Username or Password cannot be empty !");
+    				btnCheckButton.setSelection(false);
+    			}else{
     	        if (button.getSelection()){
     	        	setSave(true);
+    	        	 try {
+    	        		  preferences = SecurePreferencesFactory.getDefault();
+    	        	      gitTempNode = preferences.node("Test");
+						  gitTempNode.put("user","testUser", true);/*get secure store password*/
+					} catch (StorageException e1) {
+						btnCheckButton.setSelection(false);
+						log.error(e1);
+					}
     	        }else{
     	        	setSave(false);
-    	        }
+    	           }
+    			} 
     	}
     });
     btnCheckButton.setText(Messages.PasswordDialog_Save_check);
@@ -209,6 +229,18 @@ public class PasswordDialog extends Dialog {
 		return;
 	}
     if(login()){
+    	try {
+    		if (isSave) {
+				 gitTempNode.removeNode();
+				 ISecurePreferences preferences = SecurePreferencesFactory.getDefault();
+				 ISecurePreferences node = preferences.node("GIT");
+				 node.put("user",Authenticator.getInstance().getCredentials().getUser(), true);
+				 node.put("password",Authenticator.getInstance().getCredentials().getPassword(), true);
+			}
+		} catch (StorageException e) {
+			 error.setText("Failed to save Credentials in secure storage");
+			 log.error(e);
+		}
     	super.okPressed();
     }else {
     	ErrorType errorcode = Authenticator.getInstance().getErrorcode();
