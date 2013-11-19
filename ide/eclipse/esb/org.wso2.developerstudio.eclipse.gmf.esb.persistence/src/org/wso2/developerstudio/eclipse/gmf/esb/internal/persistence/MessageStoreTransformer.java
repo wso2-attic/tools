@@ -67,9 +67,9 @@ public class MessageStoreTransformer {
 			if (!StringUtils.isBlank(model.getJndiQueueName())) {
 				parameters.put("store.jms.destination", model.getJndiQueueName());
 			}
-			if (!StringUtils.isBlank(model.getInitialContextFactory())) {
+			if (!StringUtils.isBlank(model.getConnectionFactory())) {
 				parameters.put("store.jms.connection.factory",
-						model.getInitialContextFactory());
+						model.getConnectionFactory());
 			}
 			if (!StringUtils.isBlank(model.getUserName())) {
 				parameters.put("store.jms.username", model.getUserName());
