@@ -181,29 +181,39 @@ public class AppfactoryApplicationListView extends ViewPart {
 			
 			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
-				 final IStructuredSelection selection = (IStructuredSelection) viewer
-			              .getSelection();
-				 Object selectedNode = selection.getFirstElement();
-			   if (selectedNode instanceof ApplicationInfo){
-		        	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
-		        	if(!appInfo.getappVersionList().isEmpty()){
-		        		appDetailView.updateView(appInfo);
-		        	}
-		        }
+			try {
+					final IStructuredSelection selection = (IStructuredSelection) viewer
+							.getSelection();
+					Object selectedNode = selection.getFirstElement();
+					if (selectedNode instanceof ApplicationInfo) {
+						ApplicationInfo appInfo = (ApplicationInfo) selection
+								.getFirstElement();
+						if (!appInfo.getappVersionList().isEmpty()) {
+							appDetailView.updateView(appInfo);
+						}
+					}
+				} catch (Throwable e) {
+				  /*safe to ignore*/
+				} 
 			}
+			 
 		});
 		  viewer.addDoubleClickListener(new IDoubleClickListener() {
 
 		      @Override
 		      public void doubleClick(DoubleClickEvent event) {
-		        TreeViewer viewer = (TreeViewer) event.getViewer();
-		        IStructuredSelection thisSelection = (IStructuredSelection) event
-		            .getSelection();
-		        Object selectedNode = thisSelection.getFirstElement();
-		        if (selectedNode instanceof AppVersionInfo) {
-		        viewer.setExpandedState(selectedNode,
-		            !viewer.getExpandedState(selectedNode));
-		        }
+				try {
+					TreeViewer viewer = (TreeViewer) event.getViewer();
+					IStructuredSelection thisSelection = (IStructuredSelection) event
+							.getSelection();
+					Object selectedNode = thisSelection.getFirstElement();
+					if (selectedNode instanceof AppVersionInfo) {
+						viewer.setExpandedState(selectedNode,
+								!viewer.getExpandedState(selectedNode));
+					}
+				} catch (Throwable e) {
+					  /*safe to ignore*/
+				 } 
 		      }
 		    });
 		    
@@ -213,34 +223,38 @@ public class AppfactoryApplicationListView extends ViewPart {
 	        menuMgr.addMenuListener(new IMenuListener() {
 	            @Override
 	            public void menuAboutToShow(final IMenuManager manager) {
-	                if (viewer.getSelection().isEmpty()) {
-	                    return;
-	                }
+	                try {
+						if (viewer.getSelection().isEmpty()) {
+						    return;
+						}
 
-	                if (viewer.getSelection() instanceof IStructuredSelection) {
-	                    IStructuredSelection selection = (IStructuredSelection) viewer.getSelection();
-	                    if(selection.getFirstElement() instanceof AppVersionInfo){
-	                       final AppVersionInfo appVersionInfo = (AppVersionInfo) selection.getFirstElement();
-	                        
-	                        manager.add(checkOutAndImportAction(appVersionInfo));
-	                        manager.add(importAction(appVersionInfo));
-	                    	manager.add(checkOutAction(appVersionInfo));
-	                    	manager.add(repoDeployAction(appVersionInfo));
-	                    	manager.add(buildInfoAction(appVersionInfo)); 
-	                    	
-	                    	
-	                    }else if (selection.getFirstElement() instanceof ApplicationInfo){
-	                    	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
-	                    	String title =""; //$NON-NLS-1$
-	                        if(appInfo.getappVersionList().isEmpty()){
-	                        	title = "Open  "; //$NON-NLS-1$
-	                        }else{
-	                        	title = "Update"; //$NON-NLS-1$
-	                        }
-	                    	manager.add(appOpenAction(appInfo,title));
-		                    manager.add(repoSettingsAction(appInfo));
-	                    }
-	                }
+						if (viewer.getSelection() instanceof IStructuredSelection) {
+						    IStructuredSelection selection = (IStructuredSelection) viewer.getSelection();
+						    if(selection.getFirstElement() instanceof AppVersionInfo){
+						       final AppVersionInfo appVersionInfo = (AppVersionInfo) selection.getFirstElement();
+						        
+						        manager.add(checkOutAndImportAction(appVersionInfo));
+						        manager.add(importAction(appVersionInfo));
+						    	manager.add(checkOutAction(appVersionInfo));
+						    	manager.add(repoDeployAction(appVersionInfo));
+						    	manager.add(buildInfoAction(appVersionInfo)); 
+						    	
+						    	
+						    }else if (selection.getFirstElement() instanceof ApplicationInfo){
+						    	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
+						    	String title =""; //$NON-NLS-1$
+						        if(appInfo.getappVersionList().isEmpty()){
+						        	title = "Open  "; //$NON-NLS-1$
+						        }else{
+						        	title = "Update"; //$NON-NLS-1$
+						        }
+						    	manager.add(appOpenAction(appInfo,title));
+						        manager.add(repoSettingsAction(appInfo));
+						    }
+						}
+					} catch (Throwable e) {
+						 /*safe to ignore*/
+					}
 	            }
 
 			

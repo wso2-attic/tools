@@ -78,14 +78,17 @@ public class PasswordDialog extends Dialog {
   public PasswordDialog(Shell parentShell) {
     super(parentShell);
     setDefaultImage(ResourceManager.getPluginImage(
-			"org.wso2.developerstudio.eclipse.platform.ui", //$NON-NLS-1$
-			"icons/carbon-studio-small-logo.png")); //$NON-NLS-1$
+			"org.wso2.developerstudio.appfactory.ui", //$NON-NLS-1$
+			"icons/users.gif")); //$NON-NLS-1$
      
   }
   
   protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
 		newShell.setText(Messages.PasswordDialog_LoginDialog_title);
+		newShell.setImage(ResourceManager.getPluginImage(
+			"org.wso2.developerstudio.appfactory.ui", //$NON-NLS-1$
+			"icons/users.gif"));
 	}
   
 /** * Create contents of the dialog. * * @param parent */
