@@ -37,6 +37,9 @@ import org.eclipse.emf.ecore.util.FeatureMap;
  * <li>
  * {@link org.wso2.developerstudio.eclipse.ds.ResultMapping#isUseColumnNumbers
  * <em>Use Column Numbers</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.ResultMapping#isEscapeNonPrintableChar
+ * <em>Escape Non Printable Char</em>}</li>
  * <li>{@link org.wso2.developerstudio.eclipse.ds.ResultMapping#getXsltPath <em>
  * Xslt Path</em>}</li>
  * </ul>
@@ -262,6 +265,39 @@ public interface ResultMapping extends EObject {
 	 * @generated
 	 */
 	void setUseColumnNumbers(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Escape Non Printable Char</b></em>'
+	 * attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Escape Non Printable Char</em>' attribute
+	 * isn't clear, there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the value of the '<em>Escape Non Printable Char</em>' attribute.
+	 * @see #setEscapeNonPrintableChar(boolean)
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getResultMapping_EscapeNonPrintableChar()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean isEscapeNonPrintableChar();
+
+	/**
+	 * Sets the value of the '
+	 * {@link org.wso2.developerstudio.eclipse.ds.ResultMapping#isEscapeNonPrintableChar
+	 * <em>Escape Non Printable Char</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @param value
+	 *            the new value of the '<em>Escape Non Printable Char</em>'
+	 *            attribute.
+	 * @see #isEscapeNonPrintableChar()
+	 * @generated
+	 */
+	void setEscapeNonPrintableChar(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Xslt Path</b></em>' attribute.

@@ -50,8 +50,9 @@ public interface DetailSectionCustomUiConstants {
 	public String RESULT_GROUPED_BY_ELEMENT = "Grouped by Element";
 	public String RESULT_ROW_NAME = "Row Name";
 	public String RESULT_USE_COLUMN_NUMBERS = "Use Column Numbers";
+	public String RESULT_ESCAPE_NONPRINTABLE_CHAR = "Escape Non-printable Characters";
 	public String RESULT_XSLT_PATH = "XSLT Path";
-	// Displya items
+	// Display items
 
 	public String QUERY_TIMEOUT_DISPLAY = "Timeout (Seconds)";
 	public String FETCH_DIRECTION_DISPLAY = "Fetch Direction";

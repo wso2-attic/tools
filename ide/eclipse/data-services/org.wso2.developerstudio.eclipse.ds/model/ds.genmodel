@@ -208,6 +208,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/elementName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/rowName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/useColumnNumbers"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/escapeNonPrintableChar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ResultMapping/xsltPath"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//Sparql">

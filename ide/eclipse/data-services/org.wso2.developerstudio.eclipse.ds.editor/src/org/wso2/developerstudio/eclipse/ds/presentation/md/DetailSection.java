@@ -1037,6 +1037,18 @@ public class DetailSection {
 					voidMaker();
 				}
 
+				if (displayName.equals(DetailSectionCustomUiConstants.RESULT_ESCAPE_NONPRINTABLE_CHAR)) {
+
+					labelMaker(DetailSectionCustomUiConstants.RESULT_ESCAPE_NONPRINTABLE_CHAR);
+					sectionUtil.getBooleanComboField(detailsclient,
+					                                 toolkit,
+					                                 result,
+					                                 result.isEscapeNonPrintableChar(),
+					                                 DsPackage.eINSTANCE.getResultMapping_EscapeNonPrintableChar());
+					voidMaker();
+					voidMaker();
+				}
+
 			}
 		}
 	}

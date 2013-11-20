@@ -45,10 +45,10 @@ public class DsDocumentProvider extends FileDocumentProvider {
 
 		IToken xmlComment = new Token(XML_COMMENT);
 		MultiLineRule comment = new MultiLineRule("<!--", "-->", xmlComment); // define
-																			  // the
-																			  // comment
-																			  // multiline
-																			  // rule
+		                                                                      // the
+		                                                                      // comment
+		                                                                      // multiline
+		                                                                      // rule
 
 		IToken tag = new Token(XML_TAG);
 		TagRule tagRule = new TagRule(tag); // define tag rule (multiline rule)

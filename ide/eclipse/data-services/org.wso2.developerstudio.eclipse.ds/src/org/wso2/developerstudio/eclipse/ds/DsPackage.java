@@ -2182,6 +2182,17 @@ public interface DsPackage extends EPackage {
 	int RESULT_MAPPING__USE_COLUMN_NUMBERS = 7;
 
 	/**
+	 * The feature id for the '<em><b>Escape Non Printable Char</b></em>'
+	 * attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR = 8;
+
+	/**
 	 * The feature id for the '<em><b>Xslt Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2189,7 +2200,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__XSLT_PATH = 8;
+	int RESULT_MAPPING__XSLT_PATH = 9;
 
 	/**
 	 * The number of structural features of the '<em>Result Mapping</em>' class.
@@ -2199,7 +2210,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING_FEATURE_COUNT = 9;
+	int RESULT_MAPPING_FEATURE_COUNT = 10;
 
 	/**
 	 * The meta object id for the '
@@ -4855,6 +4866,21 @@ public interface DsPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for the attribute '
+	 * {@link org.wso2.developerstudio.eclipse.ds.ResultMapping#isEscapeNonPrintableChar
+	 * <em>Escape Non Printable Char</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @return the meta object for the attribute '
+	 *         <em>Escape Non Printable Char</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ResultMapping#isEscapeNonPrintableChar()
+	 * @see #getResultMapping()
+	 * @generated
+	 */
+	EAttribute getResultMapping_EscapeNonPrintableChar();
+
+	/**
+	 * Returns the meta object for the attribute '
 	 * {@link org.wso2.developerstudio.eclipse.ds.ResultMapping#getXsltPath
 	 * <em>Xslt Path</em>}'.
 	 * <!-- begin-user-doc -->
@@ -6906,6 +6932,17 @@ public interface DsPackage extends EPackage {
 		 */
 		EAttribute RESULT_MAPPING__USE_COLUMN_NUMBERS =
 		                                                eINSTANCE.getResultMapping_UseColumnNumbers();
+
+		/**
+		 * The meta object literal for the '
+		 * <em><b>Escape Non Printable Char</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * 
+		 * @generated
+		 */
+		EAttribute RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR =
+		                                                       eINSTANCE.getResultMapping_EscapeNonPrintableChar();
 
 		/**
 		 * The meta object literal for the '<em><b>Xslt Path</b></em>' attribute

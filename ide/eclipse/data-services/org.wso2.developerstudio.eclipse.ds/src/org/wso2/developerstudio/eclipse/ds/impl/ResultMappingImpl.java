@@ -62,6 +62,9 @@ import org.wso2.developerstudio.eclipse.ds.ResultMapping;
  * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#isUseColumnNumbers
  * <em>Use Column Numbers</em>}</li>
  * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#isEscapeNonPrintableChar
+ * <em>Escape Non Printable Char</em>}</li>
+ * <li>
  * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getXsltPath
  * <em>Xslt Path</em>}</li>
  * </ul>
@@ -177,6 +180,30 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @ordered
 	 */
 	protected boolean useColumnNumbers = USE_COLUMN_NUMBERS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isEscapeNonPrintableChar()
+	 * <em>Escape Non Printable Char</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isEscapeNonPrintableChar()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ESCAPE_NON_PRINTABLE_CHAR_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isEscapeNonPrintableChar()
+	 * <em>Escape Non Printable Char</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @see #isEscapeNonPrintableChar()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean escapeNonPrintableChar = ESCAPE_NON_PRINTABLE_CHAR_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getXsltPath() <em>Xslt Path</em>}'
@@ -372,6 +399,31 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * 
 	 * @generated
 	 */
+	public boolean isEscapeNonPrintableChar() {
+		return escapeNonPrintableChar;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public void setEscapeNonPrintableChar(boolean newEscapeNonPrintableChar) {
+		boolean oldEscapeNonPrintableChar = escapeNonPrintableChar;
+		escapeNonPrintableChar = newEscapeNonPrintableChar;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR,
+			                              oldEscapeNonPrintableChar, escapeNonPrintableChar));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
 	public String getXsltPath() {
 		return xsltPath;
 	}
@@ -442,6 +494,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 				return getRowName();
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
 				return isUseColumnNumbers();
+			case DsPackage.RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR:
+				return isEscapeNonPrintableChar();
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				return getXsltPath();
 		}
@@ -485,6 +539,9 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
 				setUseColumnNumbers((Boolean) newValue);
 				return;
+			case DsPackage.RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR:
+				setEscapeNonPrintableChar((Boolean) newValue);
+				return;
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				setXsltPath((String) newValue);
 				return;
@@ -526,6 +583,9 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
 				setUseColumnNumbers(USE_COLUMN_NUMBERS_EDEFAULT);
 				return;
+			case DsPackage.RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR:
+				setEscapeNonPrintableChar(ESCAPE_NON_PRINTABLE_CHAR_EDEFAULT);
+				return;
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				setXsltPath(XSLT_PATH_EDEFAULT);
 				return;
@@ -563,6 +623,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 				                                : !ROW_NAME_EDEFAULT.equals(rowName);
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
 				return useColumnNumbers != USE_COLUMN_NUMBERS_EDEFAULT;
+			case DsPackage.RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR:
+				return escapeNonPrintableChar != ESCAPE_NON_PRINTABLE_CHAR_EDEFAULT;
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				return XSLT_PATH_EDEFAULT == null ? xsltPath != null
 				                                 : !XSLT_PATH_EDEFAULT.equals(xsltPath);
@@ -593,6 +655,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 		result.append(rowName);
 		result.append(", useColumnNumbers: ");
 		result.append(useColumnNumbers);
+		result.append(", escapeNonPrintableChar: ");
+		result.append(escapeNonPrintableChar);
 		result.append(", xsltPath: ");
 		result.append(xsltPath);
 		result.append(')');

@@ -59,10 +59,10 @@ class DsCompletionProcessor implements IContentAssistProcessor, DsSyntax {
 					// levelTag = previousTag.getTag();
 
 					TagInfo nextOpendTag = getNextOpenedTagInfo(viewer, offset); // get
-																				 // the
-																				 // current
-																				 // tag
-																				 // info
+					                                                             // the
+					                                                             // current
+					                                                             // tag
+					                                                             // info
 
 					String nextTag = nextOpendTag.getTag();
 
@@ -107,11 +107,11 @@ class DsCompletionProcessor implements IContentAssistProcessor, DsSyntax {
 				} else {
 
 					String closingTag = previousOpenTagClosedInfo.getTag(); // open
-																			// and
-																			// close
-																			// with
-																			// this
-																			// tag
+					                                                        // and
+					                                                        // close
+					                                                        // with
+					                                                        // this
+					                                                        // tag
 					boolean isItValidClosing = previousOpenTagClosedInfo.isDetected();
 
 					TagInfo nextOpendTag = getNextOpenedTagInfo(viewer, offset);
@@ -219,34 +219,34 @@ class DsCompletionProcessor implements IContentAssistProcessor, DsSyntax {
 
 			result[index] = new CompletionProposal(keyWord + "=" + "\"\"", // replacementString
 			                                       offset, // replacementOffset
-														   // the offset of the
-														   // text to be
-														   // replaced
+			                                               // the offset of the
+			                                               // text to be
+			                                               // replaced
 			                                       0, // replacementLength the
-													  // length of the text to
-													  // be replaced
+			                                          // length of the text to
+			                                          // be replaced
 			                                       keyWord.length() + 2, // cursorPosition
-																		 // the
-																		 // position
-																		 // of
-																		 // the
-																		 // cursor
-																		 // following
-																		 // the
-																		 // insert
-																		 // relative
-																		 // to
-																		 // replacementOffset
+			                                                             // the
+			                                                             // position
+			                                                             // of
+			                                                             // the
+			                                                             // cursor
+			                                                             // following
+			                                                             // the
+			                                                             // insert
+			                                                             // relative
+			                                                             // to
+			                                                             // replacementOffset
 			                                       null, // image to display
 			                                       keyWord, // displayString the
-															// string to be
-															// displayed for the
-															// proposal
+			                                                // string to be
+			                                                // displayed for the
+			                                                // proposal
 			                                       info, // contntentInformation
-														 // the context
-														 // information
-														 // associated with this
-														 // proposal
+			                                             // the context
+			                                             // information
+			                                             // associated with this
+			                                             // proposal
 			                                       "info2");
 			index++;
 		}

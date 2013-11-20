@@ -77,6 +77,7 @@ public class ResultMappingItemProvider extends ItemProviderAdapter implements
 			addElementNamePropertyDescriptor(object);
 			addRowNamePropertyDescriptor(object);
 			addUseColumnNumbersPropertyDescriptor(object);
+			addEscapeNonPrintableCharPropertyDescriptor(object);
 			addXsltPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -163,6 +164,29 @@ public class ResultMappingItemProvider extends ItemProviderAdapter implements
 		                                                                   "_UI_ResultMapping_useColumnNumbers_feature",
 		                                                                   "_UI_ResultMapping_type"),
 		                                                         DsPackage.Literals.RESULT_MAPPING__USE_COLUMN_NUMBERS,
+		                                                         true,
+		                                                         false,
+		                                                         false,
+		                                                         ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+		                                                         null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Escape Non Printable Char
+	 * feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	protected void addEscapeNonPrintableCharPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+		                                                         getResourceLocator(),
+		                                                         getString("_UI_ResultMapping_escapeNonPrintableChar_feature"),
+		                                                         getString("_UI_PropertyDescriptor_description",
+		                                                                   "_UI_ResultMapping_escapeNonPrintableChar_feature",
+		                                                                   "_UI_ResultMapping_type"),
+		                                                         DsPackage.Literals.RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR,
 		                                                         true,
 		                                                         false,
 		                                                         false,
@@ -280,6 +304,7 @@ public class ResultMappingItemProvider extends ItemProviderAdapter implements
 			case DsPackage.RESULT_MAPPING__ELEMENT_NAME:
 			case DsPackage.RESULT_MAPPING__ROW_NAME:
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
+			case DsPackage.RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR:
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(),
 				                                         false, true));

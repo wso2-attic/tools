@@ -2137,8 +2137,18 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * 
 	 * @generated
 	 */
-	public EAttribute getResultMapping_XsltPath() {
+	public EAttribute getResultMapping_EscapeNonPrintableChar() {
 		return (EAttribute) resultMappingEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	public EAttribute getResultMapping_XsltPath() {
+		return (EAttribute) resultMappingEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -2540,6 +2550,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(resultMappingEClass, RESULT_MAPPING__ELEMENT_NAME);
 		createEAttribute(resultMappingEClass, RESULT_MAPPING__ROW_NAME);
 		createEAttribute(resultMappingEClass, RESULT_MAPPING__USE_COLUMN_NUMBERS);
+		createEAttribute(resultMappingEClass, RESULT_MAPPING__ESCAPE_NON_PRINTABLE_CHAR);
 		createEAttribute(resultMappingEClass, RESULT_MAPPING__XSLT_PATH);
 
 		sparqlEClass = createEClass(SPARQL);
@@ -3167,6 +3178,10 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		               !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResultMapping_UseColumnNumbers(), theXMLTypePackage.getBoolean(),
 		               "useColumnNumbers", null, 0, 1, ResultMapping.class, !IS_TRANSIENT,
+		               !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+		               IS_ORDERED);
+		initEAttribute(getResultMapping_EscapeNonPrintableChar(), theXMLTypePackage.getBoolean(),
+		               "escapeNonPrintableChar", null, 0, 1, ResultMapping.class, !IS_TRANSIENT,
 		               !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
 		               IS_ORDERED);
 		initEAttribute(getResultMapping_XsltPath(), theXMLTypePackage.getString(), "xsltPath",
