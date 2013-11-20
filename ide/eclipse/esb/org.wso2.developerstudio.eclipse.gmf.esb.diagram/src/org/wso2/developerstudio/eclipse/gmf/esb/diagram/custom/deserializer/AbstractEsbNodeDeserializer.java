@@ -534,9 +534,9 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 				} else{
 					ConnectionUtils.createConnection(targetConnector, sourceConnector);
 				}
-				
+				sourceConnector = nextSourceConnector;
 			}
-			sourceConnector = nextSourceConnector;
+			//sourceConnector = nextSourceConnector;
 		}
 	}
 
