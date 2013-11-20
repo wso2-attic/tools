@@ -27,8 +27,7 @@ import org.wso2.developerstudio.eclipse.ds.ElementMapping;
 import org.wso2.developerstudio.eclipse.ds.Query;
 import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 
-public class ObjectDetailPage implements IDetailsPage, IPartListener,
-		ISelectionChangedListener {
+public class ObjectDetailPage implements IDetailsPage, IPartListener, ISelectionChangedListener {
 
 	private Object input;
 	private DsEditor editor;
@@ -41,21 +40,20 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 	private Section detailsection;
 	private DetailSection sectionHolder;
 	private boolean isCreateContentCalled;
-	
+
 	public ObjectDetailPage(Object key, DsEditor editor) {
 
 		this.input = key;
 		this.editor = editor;
 		this.adapterFactory = this.editor.getAdapterFactory();
-		this.adapterFactoryItemDelegator = new AdapterFactoryItemDelegator(
-				adapterFactory);
+		this.adapterFactoryItemDelegator = new AdapterFactoryItemDelegator(adapterFactory);
 
 	}
 
 	public void createContents(Composite parent) {
-		
+
 		isCreateContentCalled = true;
-		
+
 		TableWrapLayout layout = new TableWrapLayout();
 		layout.topMargin = 5;
 		layout.leftMargin = 5;
@@ -69,7 +67,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 		detailsection.marginWidth = 10;
 		detailsection.setText(adapterFactoryItemDelegator.getText(input));
 		detailsection.setDescription("Set the properties of the selected object.");
-		TableWrapData td = new TableWrapData(TableWrapData.FILL,TableWrapData.TOP);
+		TableWrapData td = new TableWrapData(TableWrapData.FILL, TableWrapData.TOP);
 		td.colspan = 2;
 		td.grabHorizontal = true;
 		detailsection.setLayoutData(td);
@@ -81,7 +79,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 		glayout.numColumns = 2;
 		glayout.horizontalSpacing = 100;
 		detailsclient.setLayout(glayout);
-		
+
 		detailsPageSwitch(input);
 		// add the client to the section
 		detailsection.setClient(detailsclient);
@@ -89,7 +87,6 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 		final SectionPart spart = new SectionPart(detailsection);
 		// add the part to the form
 		mform.addPart(spart);
-		
 
 	}
 
@@ -101,15 +98,15 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 	private void detailsPageSwitch(Object input) {
 		if (input != null) {
 			// switch on input for specific details
-			sectionHolder = new DetailSection(toolkit,adapterFactoryItemDelegator, detailsclient, input,editor);
+			sectionHolder =
+			                new DetailSection(toolkit, adapterFactoryItemDelegator, detailsclient,
+			                                  input, editor);
 			sectionHolder.createSection(input);
 		} else {
 			Label lb = new Label(detailsclient, SWT.NONE);
 			lb.setText("No data Avilable");
 		}
 	}
-
-	
 
 	public void dispose() {
 		// TODO Auto-generated method stub
@@ -121,39 +118,33 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 		return false;
 	}
 
-	
 	public void commit(boolean onSave) {
 		// TODO Auto-generated method stub
 
 	}
 
-	
 	public boolean setFormInput(Object input) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	
 	public void setFocus() {
 		// TODO Auto-generated method stub
 
 	}
 
-	
 	public boolean isStale() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	
 	public void refresh() {
 		// update();
 
 	}
 
-	
 	public void selectionChanged(IFormPart part, ISelection selection) {
-		
+
 		IStructuredSelection ssel = (IStructuredSelection) selection;
 
 		if (ssel.size() == 1) {
@@ -161,8 +152,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 			input = (EObjectImpl) ssel.getFirstElement();
 
 			// Fixing TOOLS-1004
-			if ((input instanceof Query || input instanceof CallQuery )
-					&& !isCreateContentCalled) {
+			if ((input instanceof Query || input instanceof CallQuery) && !isCreateContentCalled) {
 
 				if (detailsclient != null) {
 
@@ -186,31 +176,26 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 		}
 
 	}
-	
-		
+
 	public void selectionChanged(SelectionChangedEvent arg0) {
 		// TODO Auto-generated method stub
 	}
 
-	
 	public void partActivated(IWorkbenchPart arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	
 	public void partBroughtToTop(IWorkbenchPart arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	
 	public void partClosed(IWorkbenchPart arg0) {
 		// TODO Auto-generated method stub
 
 	}
 
-	
 	public void partDeactivated(IWorkbenchPart arg0) {
 		// TODO Auto-generated method stub
 

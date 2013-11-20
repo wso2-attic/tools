@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -29,21 +29,30 @@ import org.wso2.developerstudio.eclipse.ds.Resource;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getCallQuery <em>Call Query</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getMethod <em>Method</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getPath <em>Path</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#isReturnRequestStatus <em>Return Request Status</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getMixed
+ * <em>Mixed</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getCallQuery
+ * <em>Call Query</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getMethod
+ * <em>Method</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getPath <em>
+ * Path</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#isReturnRequestStatus
+ * <em>Return Request Status</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
-	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
@@ -51,9 +60,11 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	protected FeatureMap mixed;
 
 	/**
-	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
+	 * The default value of the '{@link #getMethod() <em>Method</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMethod()
 	 * @generated
 	 * @ordered
@@ -64,6 +75,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The cached value of the '{@link #getMethod() <em>Method</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMethod()
 	 * @generated
 	 * @ordered
@@ -74,6 +86,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPath()
 	 * @generated
 	 * @ordered
@@ -84,6 +97,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getPath()
 	 * @generated
 	 * @ordered
@@ -91,9 +105,11 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	protected String path = PATH_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isReturnRequestStatus() <em>Return Request Status</em>}' attribute.
+	 * The default value of the '{@link #isReturnRequestStatus()
+	 * <em>Return Request Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isReturnRequestStatus()
 	 * @generated
 	 * @ordered
@@ -101,9 +117,11 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	protected static final boolean RETURN_REQUEST_STATUS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isReturnRequestStatus() <em>Return Request Status</em>}' attribute.
+	 * The cached value of the '{@link #isReturnRequestStatus()
+	 * <em>Return Request Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isReturnRequestStatus()
 	 * @generated
 	 * @ordered
@@ -113,6 +131,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ResourceImpl() {
@@ -122,10 +141,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.RESOURCE;
@@ -134,6 +153,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureMap getMixed() {
@@ -146,33 +166,39 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CallQuery getCallQuery() {
-		return (CallQuery)getMixed().get(DsPackage.Literals.RESOURCE__CALL_QUERY, true);
+		return (CallQuery) getMixed().get(DsPackage.Literals.RESOURCE__CALL_QUERY, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCallQuery(CallQuery newCallQuery, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.RESOURCE__CALL_QUERY, newCallQuery, msgs);
+		return ((FeatureMap.Internal) getMixed()).basicAdd(DsPackage.Literals.RESOURCE__CALL_QUERY,
+		                                                   newCallQuery, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCallQuery(CallQuery newCallQuery) {
-		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.RESOURCE__CALL_QUERY, newCallQuery);
+		((FeatureMap.Internal) getMixed()).set(DsPackage.Literals.RESOURCE__CALL_QUERY,
+		                                       newCallQuery);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getMethod() {
@@ -182,18 +208,21 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setMethod(String newMethod) {
 		String oldMethod = method;
 		method = newMethod;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESOURCE__METHOD, oldMethod, method));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESOURCE__METHOD,
+			                              oldMethod, method));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getPath() {
@@ -203,18 +232,21 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setPath(String newPath) {
 		String oldPath = path;
 		path = newPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESOURCE__PATH, oldPath, path));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESOURCE__PATH,
+			                              oldPath, path));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isReturnRequestStatus() {
@@ -224,27 +256,31 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setReturnRequestStatus(boolean newReturnRequestStatus) {
 		boolean oldReturnRequestStatus = returnRequestStatus;
 		returnRequestStatus = newReturnRequestStatus;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESOURCE__RETURN_REQUEST_STATUS, oldReturnRequestStatus, returnRequestStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.RESOURCE__RETURN_REQUEST_STATUS,
+			                              oldReturnRequestStatus, returnRequestStatus));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID,
+	                                        NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.RESOURCE__MIXED:
-				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESOURCE__CALL_QUERY:
 				return basicSetCallQuery(null, msgs);
 		}
@@ -254,16 +290,17 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.RESOURCE__MIXED:
-				if (coreType) return getMixed();
-				return ((FeatureMap.Internal)getMixed()).getWrapper();
+				if (coreType)
+					return getMixed();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
 			case DsPackage.RESOURCE__CALL_QUERY:
 				return getCallQuery();
 			case DsPackage.RESOURCE__METHOD:
@@ -279,27 +316,27 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.RESOURCE__MIXED:
-				((FeatureMap.Internal)getMixed()).set(newValue);
+				((FeatureMap.Internal) getMixed()).set(newValue);
 				return;
 			case DsPackage.RESOURCE__CALL_QUERY:
-				setCallQuery((CallQuery)newValue);
+				setCallQuery((CallQuery) newValue);
 				return;
 			case DsPackage.RESOURCE__METHOD:
-				setMethod((String)newValue);
+				setMethod((String) newValue);
 				return;
 			case DsPackage.RESOURCE__PATH:
-				setPath((String)newValue);
+				setPath((String) newValue);
 				return;
 			case DsPackage.RESOURCE__RETURN_REQUEST_STATUS:
-				setReturnRequestStatus((Boolean)newValue);
+				setReturnRequestStatus((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -308,10 +345,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -319,7 +356,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 				getMixed().clear();
 				return;
 			case DsPackage.RESOURCE__CALL_QUERY:
-				setCallQuery((CallQuery)null);
+				setCallQuery((CallQuery) null);
 				return;
 			case DsPackage.RESOURCE__METHOD:
 				setMethod(METHOD_EDEFAULT);
@@ -337,10 +374,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -361,13 +398,14 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: ");
@@ -382,4 +420,4 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		return result.toString();
 	}
 
-} //ResourceImpl
+} // ResourceImpl

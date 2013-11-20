@@ -28,8 +28,7 @@ public class ExelReader {
 		try {
 
 			// Create a work book reference
-			HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(
-					filePath));
+			HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(filePath));
 
 			// get the first sheet
 			HSSFSheet sheet = workbook.getSheet(nameOfWorkSheet);
@@ -45,20 +44,17 @@ public class ExelReader {
 			}
 
 		} catch (FileNotFoundException e) {
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(), "File not found",
-					e.toString());
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "File not found",
+			                              e.toString());
 		} catch (IOException e) {
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(),
-					"Error occured while reading the file", e.toString());
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+			                              "Error occured while reading the file", e.toString());
 		}
 
 		return headerHolder;
 	}
 
-	public ArrayList<String> getWorkSheets() throws FileNotFoundException,
-			IOException {
+	public ArrayList<String> getWorkSheets() throws FileNotFoundException, IOException {
 
 		ArrayList<String> sheetNames = new ArrayList<String>();
 

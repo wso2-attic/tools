@@ -1,12 +1,12 @@
 /*
  * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -66,7 +66,8 @@ public class NamedEntityDescriptor {
 		 * Array of enum constants.
 		 */
 		private static final NamedEntityType[] values = new NamedEntityType[] { SEQUENCE, ENDPOINT,
-				PROXY_SERVICE, LOCAL_ENTRY, };
+		                                                                       PROXY_SERVICE,
+		                                                                       LOCAL_ENTRY, };
 
 		/**
 		 * Quantifier used to identify the entity type.

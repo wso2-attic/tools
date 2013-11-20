@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -60,8 +60,7 @@ import org.eclipse.jface.text.templates.TemplateProposal;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.wst.xml.ui.internal.contentassist.ContentAssistRequest;
 
-public class DataServiceContentAssistantProcessor extends
-		XMLContentAssistProcessor {
+public class DataServiceContentAssistantProcessor extends XMLContentAssistProcessor {
 	private static final ProposalComparator PROPOSAL_COMPARATOR = new ProposalComparator();
 
 	private ISourceViewer sourceViewer;
@@ -70,19 +69,21 @@ public class DataServiceContentAssistantProcessor extends
 		this.sourceViewer = sourceViewer;
 	}
 
-	protected void addTagNameProposals(
-			ContentAssistRequest contentAssistRequest, int childPosition) {
+	protected void addTagNameProposals(ContentAssistRequest contentAssistRequest, int childPosition) {
 		addTagInsertionProposals(contentAssistRequest, childPosition);
 	}
+
 	@SuppressWarnings("restriction")
-	protected void addTagInsertionProposals(
-			ContentAssistRequest contentAssistRequest, int childPosition) {
-		DataserviceTagElement currentDataserviceElement = getCurrentDataserviceElement(contentAssistRequest);
+	protected void addTagInsertionProposals(ContentAssistRequest contentAssistRequest,
+	                                        int childPosition) {
+		DataserviceTagElement currentDataserviceElement =
+		                                                  getCurrentDataserviceElement(contentAssistRequest);
 		if (currentDataserviceElement != null) {
 			List<DataserviceTagElement> subElements = currentDataserviceElement.getSubElements();
 			Node currentNode = getCurrentNode(contentAssistRequest);
 			for (DataserviceTagElement element : subElements) {
-				if (element.isUpperLimitUnbound() || getChildNodeCount(currentNode, element.getName())<element.getMaxOccurances()){
+				if (element.isUpperLimitUnbound() ||
+				    getChildNodeCount(currentNode, element.getName()) < element.getMaxOccurances()) {
 					contentAssistRequest.addProposal(getTagProposal(element));
 				}
 			}
@@ -92,12 +93,14 @@ public class DataServiceContentAssistantProcessor extends
 	}
 
 	protected void addAttributeNameProposals(ContentAssistRequest contentAssistRequest) {
-		DataserviceTagElement currentDataserviceElement = getCurrentDataserviceElement(contentAssistRequest);
+		DataserviceTagElement currentDataserviceElement =
+		                                                  getCurrentDataserviceElement(contentAssistRequest);
 		if (currentDataserviceElement != null) {
-			List<DataserviceAttributeElement> attributes = currentDataserviceElement.getAttributes();
+			List<DataserviceAttributeElement> attributes =
+			                                               currentDataserviceElement.getAttributes();
 			Node currentNode = getCurrentNode(contentAssistRequest);
 			for (DataserviceAttributeElement element : attributes) {
-				if (!isAttributePresent(currentNode, element.getName())){
+				if (!isAttributePresent(currentNode, element.getName())) {
 					contentAssistRequest.addProposal(getAttributeNameProposal(element));
 				}
 			}
@@ -106,26 +109,29 @@ public class DataServiceContentAssistantProcessor extends
 			super.addAttributeNameProposals(contentAssistRequest);
 		}
 	}
-	
-	protected void addAttributeValueProposals(
-			ContentAssistRequest contentAssistRequest) {
+
+	protected void addAttributeValueProposals(ContentAssistRequest contentAssistRequest) {
 		super.addAttributeValueProposals(contentAssistRequest);
 	}
+
 	public char[] getCompletionProposalAutoActivationCharacters() {
 		return new char[] { '<' };
 	}
 
 	private DataserviceTagCompletionProposal getTagProposal(DataserviceTagElement element) {
-		DataserviceTagCompletionProposal dataserviceCompletionProposal = new DataserviceTagCompletionProposal(
-				element);
+		DataserviceTagCompletionProposal dataserviceCompletionProposal =
+		                                                                 new DataserviceTagCompletionProposal(
+		                                                                                                      element);
 		return dataserviceCompletionProposal;
 	}
 
 	private DataserviceAttributeNameCompletionProposal getAttributeNameProposal(DataserviceAttributeElement element) {
-		DataserviceAttributeNameCompletionProposal dataserviceCompletionProposal = new DataserviceAttributeNameCompletionProposal(element);
+		DataserviceAttributeNameCompletionProposal dataserviceCompletionProposal =
+		                                                                           new DataserviceAttributeNameCompletionProposal(
+		                                                                                                                          element);
 		return dataserviceCompletionProposal;
 	}
-	
+
 	private Node getCurrentNode(ContentAssistRequest contentAssistRequest) {
 		Node currentNode = contentAssistRequest.getParent();
 		if (currentNode instanceof Text) {
@@ -134,41 +140,40 @@ public class DataServiceContentAssistantProcessor extends
 		return currentNode;
 	}
 
-	private NodeList getChildrenForNode(Node currentNode){
+	private NodeList getChildrenForNode(Node currentNode) {
 		return currentNode.getChildNodes();
 	}
-	
-	private int getChildNodeCount(Node currentNode,String name){
+
+	private int getChildNodeCount(Node currentNode, String name) {
 		NodeList childrenForCurrentNode = getChildrenForNode(currentNode);
-		int count=0;
+		int count = 0;
 		for (int i = 0; i < childrenForCurrentNode.getLength(); i++) {
-			Node node=childrenForCurrentNode.item(i);
-			if (!(node instanceof Text)){
-				if (node.getNodeName().equals(name)){
+			Node node = childrenForCurrentNode.item(i);
+			if (!(node instanceof Text)) {
+				if (node.getNodeName().equals(name)) {
 					count++;
 				}
 			}
 		}
 		return count;
 	}
-	
-	private boolean isAttributePresent(Node currentNode,String name){
+
+	private boolean isAttributePresent(Node currentNode, String name) {
 		NamedNodeMap attributes = currentNode.getAttributes();
 		for (int i = 0; i < attributes.getLength(); i++) {
-			Node node=attributes.item(i);
-			if (node.getNodeName().equals(name)){
+			Node node = attributes.item(i);
+			if (node.getNodeName().equals(name)) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	private DataserviceTagElement getCurrentDataserviceElement(
-			ContentAssistRequest contentAssistRequest) {
+
+	private DataserviceTagElement getCurrentDataserviceElement(ContentAssistRequest contentAssistRequest) {
 		List<String> path = new ArrayList<String>();
 		Node currentNode = getCurrentNode(contentAssistRequest);
 		while (currentNode != null) {
-			if (!(currentNode instanceof Text) && currentNode.getOwnerDocument()!=null) {
+			if (!(currentNode instanceof Text) && currentNode.getOwnerDocument() != null) {
 				path.add(currentNode.getNodeName());
 			}
 			currentNode = currentNode.getParentNode();
@@ -349,8 +354,7 @@ public class DataServiceContentAssistantProcessor extends
 		}
 	}
 
-	static final class ProposalComparator implements
-			Comparator<TemplateProposal> {
+	static final class ProposalComparator implements Comparator<TemplateProposal> {
 		public int compare(TemplateProposal o1, TemplateProposal o2) {
 			int res = o2.getRelevance() - o1.getRelevance();
 			if (res == 0) {

@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -29,10 +29,13 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.wso2.developerstudio.eclipse.ds.model.DataserviceAttributeElement;
 
-public class DataserviceAttributeNameCompletionProposal implements ICompletionProposal, ICompletionProposalExtension, ICompletionProposalExtension2, ICompletionProposalExtension3 {
+public class DataserviceAttributeNameCompletionProposal implements ICompletionProposal,
+                                                       ICompletionProposalExtension,
+                                                       ICompletionProposalExtension2,
+                                                       ICompletionProposalExtension3 {
 	private DataserviceAttributeElement element;
 	private Point selectedRange;
-	
+
 	public DataserviceAttributeNameCompletionProposal(DataserviceAttributeElement element) {
 		setElement(element);
 	}
@@ -60,24 +63,27 @@ public class DataserviceAttributeNameCompletionProposal implements ICompletionPr
 	public void apply(ITextViewer viewer, char trigger, int stateMask, int offset) {
 		String s = viewer.getDocument().get();
 		selectedRange = viewer.getSelectedRange();
-		String key=getElement().getAttributeName();
-		String seperator=getElement().getAttributeNameValueSeparator();
-		String valueStart=getElement().getAttributeValueStart();
-		String valueStr=getElement().getAttributeValueString();
-		String valueEnd=getElement().getAttributeValueEnd();
-		if (trigger=='<'){
-			key=getElement().getName()+">";
+		String key = getElement().getAttributeName();
+		String seperator = getElement().getAttributeNameValueSeparator();
+		String valueStart = getElement().getAttributeValueStart();
+		String valueStr = getElement().getAttributeValueString();
+		String valueEnd = getElement().getAttributeValueEnd();
+		if (trigger == '<') {
+			key = getElement().getName() + ">";
 		}
-		viewer.getDocument().set(s.substring(0, offset)+key+seperator+valueStart+valueStr+valueEnd+s.substring(offset));
-		selectedRange.x=selectedRange.x+key.length()+seperator.length()+valueStart.length()+valueStr.length();
+		viewer.getDocument().set(s.substring(0, offset) + key + seperator + valueStart + valueStr +
+		                                 valueEnd + s.substring(offset));
+		selectedRange.x =
+		                  selectedRange.x + key.length() + seperator.length() +
+		                          valueStart.length() + valueStr.length();
 	}
 
 	public void selected(ITextViewer arg0, boolean arg1) {
-		
+
 	}
 
 	public void unselected(ITextViewer arg0) {
-		
+
 	}
 
 	public boolean validate(IDocument arg0, int arg1, DocumentEvent arg2) {
@@ -85,7 +91,7 @@ public class DataserviceAttributeNameCompletionProposal implements ICompletionPr
 	}
 
 	public void apply(IDocument arg0, char arg1, int arg2) {
-		
+
 	}
 
 	public int getContextInformationPosition() {
@@ -93,7 +99,7 @@ public class DataserviceAttributeNameCompletionProposal implements ICompletionPr
 	}
 
 	public char[] getTriggerCharacters() {
-		return new char[]{'<'};
+		return new char[] { '<' };
 	}
 
 	public boolean isValidFor(IDocument arg0, int arg1) {

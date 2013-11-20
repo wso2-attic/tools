@@ -1,11 +1,12 @@
-/* Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+/*
+ * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -87,12 +88,13 @@ import org.wso2.developerstudio.eclipse.ds.provider.choiceListProvider.DSPropert
  * @generated
  */
 public class DsActionBarContributor extends EditingDomainActionBarContributor implements
-		ISelectionChangedListener {
+                                                                             ISelectionChangedListener {
 
 	/**
 	 * This keeps track of the active editor.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IEditorPart activeEditorPart;
@@ -101,6 +103,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * This keeps track of the current selection provider.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ISelectionProvider selectionProvider;
@@ -110,8 +113,6 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * to be displayed.
 	 */
 	private boolean generateDataSourceMenu = false;
-	
-	
 
 	/**
 	 * Indicates whether the menu items common to Query, Operation and Resource
@@ -130,9 +131,9 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * displayed.
 	 */
 	private boolean generateOutputMappingMenu = false;
-	
+
 	private boolean generateElementMappingMenu = false;
-	
+
 	private boolean generateExcelMenu = false;
 
 	/**
@@ -146,8 +147,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * belonging to a Validator element need to be displayed.
 	 */
 	private boolean generateValidatorMenu = false;
-	
-	
+
 	private boolean generateEventTriggerMenu = false;
 
 	/**
@@ -212,9 +212,9 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 	/** The event trigger action. */
 	private IAction eventTriggerAction;
-	
+
 	private IAction expressionAction;
-	
+
 	private IAction targetTopicAcion;
 
 	/** The subscription action. */
@@ -231,7 +231,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 	/** The shell. */
 	private final Shell shell = new Shell();
-	
+
 	private DSAction descriptionAction;
 
 	/** The data source configuration instance. */
@@ -245,40 +245,38 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 	/** The result. */
 	private ResultMapping result;
-	
+
 	private DSAction sqlAction;
-	
+
 	private DSAction sparqlAction;
-	
+
 	private DSAction excelAction;
-	
+
 	private DSAction gspredAction;
-	
+
 	private DSAction queryParmAction;
-	
+
 	/** The selected object in the editor. */
 	private Object referenceObject = null;
-
-	
-	
 
 	/**
 	 * This action opens the Properties view.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected IAction showPropertiesViewAction = new Action(DsEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
-			@Override
-			public void run() {
-				try {
-					getPage().showView("org.eclipse.ui.views.PropertySheet");
-				}
-				catch (PartInitException exception) {
-					DsEditorPlugin.INSTANCE.log(exception);
-				}
+	protected IAction showPropertiesViewAction = new Action(
+	        DsEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		@Override
+		public void run() {
+			try {
+				getPage().showView("org.eclipse.ui.views.PropertySheet");
+			} catch (PartInitException exception) {
+				DsEditorPlugin.INSTANCE.log(exception);
 			}
-		};
+		}
+	};
 
 	/**
 	 * This action refreshes the viewer of the current editor if the editor
@@ -287,27 +285,31 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * 
 	 * @generated
 	 */
-	protected IAction refreshViewerAction = new Action(DsEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
-			@Override
-			public boolean isEnabled() {
-				return activeEditorPart instanceof IViewerProvider;
-			}
+	protected IAction refreshViewerAction = new Action(
+	        DsEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		@Override
+		public boolean isEnabled() {
+			return activeEditorPart instanceof IViewerProvider;
+		}
 
-			@Override
-			public void run() {
-				if (activeEditorPart instanceof IViewerProvider) {
-					Viewer viewer = ((IViewerProvider)activeEditorPart).getViewer();
-					if (viewer != null) {
-						viewer.refresh();
-					}
+		@Override
+		public void run() {
+			if (activeEditorPart instanceof IViewerProvider) {
+				Viewer viewer = ((IViewerProvider) activeEditorPart).getViewer();
+				if (viewer != null) {
+					viewer.refresh();
 				}
 			}
-		};
+		}
+	};
 
 	/**
-	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to each descriptor
+	 * This will contain one
+	 * {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding to
+	 * each descriptor
 	 * generated for the current selection by the item provider.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Collection<IAction> createChildActions;
@@ -322,17 +324,22 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	protected IMenuManager createChildMenuManager;
 
 	/**
-	 * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding to each descriptor
+	 * This will contain one
+	 * {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} corresponding
+	 * to each descriptor
 	 * generated for the current selection by the item provider.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Collection<IAction> createSiblingActions;
 
 	/**
-	 * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
+	 * This is the menu manager into which menu contribution items should be
+	 * added for CreateSibling actions.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IMenuManager createSiblingMenuManager;
@@ -341,6 +348,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 * This creates an instance of the contributor.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DsActionBarContributor() {
@@ -358,7 +366,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 *            the tool bar manager
 	 * @generated
 	 */
-	
+
 	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		toolBarManager.add(new Separator("ds-settings"));
@@ -374,13 +382,14 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 *            the menu manager
 	 * @generated_not
 	 */
-	
+
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(
-				DsEditorPlugin.INSTANCE.getString("_UI_DsEditor_menu"),
-				"org.wso2.developerstudio.eclipse.dsMenuID");
+		IMenuManager submenuManager =
+		                              new MenuManager(
+		                                              DsEditorPlugin.INSTANCE.getString("_UI_DsEditor_menu"),
+		                                              "org.wso2.developerstudio.eclipse.dsMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -426,7 +435,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		}
 
 		if (generateQueryPropertyListMenu) {
-			
+
 			submenuManager.insertBefore("additions", queryPropertyAction);
 		}
 
@@ -442,12 +451,14 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	}
 
 	/**
-	 * When the active editor changes, this remembers the change and registers with it as a selection provider.
+	 * When the active editor changes, this remembers the change and registers
+	 * with it as a selection provider.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
+
 	@Override
 	public void setActiveEditor(IEditorPart part) {
 		super.setActiveEditor(part);
@@ -460,15 +471,15 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		}
 		if (part == null) {
 			selectionProvider = null;
-		}
-		else {
+		} else {
 			selectionProvider = part.getSite().getSelectionProvider();
 			selectionProvider.addSelectionChangedListener(this);
 
 			// Fake a selection changed event to update the menus.
 			//
 			if (selectionProvider.getSelection() != null) {
-				selectionChanged(new SelectionChangedEvent(selectionProvider, selectionProvider.getSelection()));
+				selectionChanged(new SelectionChangedEvent(selectionProvider,
+				                                           selectionProvider.getSelection()));
 			}
 		}
 	}
@@ -508,8 +519,8 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		Collection<?> newSiblingDescriptors = null;
 
 		ISelection selection = event.getSelection();
-		if (selection instanceof IStructuredSelection
-				&& ((IStructuredSelection) selection).size() == 1) {
+		if (selection instanceof IStructuredSelection &&
+		    ((IStructuredSelection) selection).size() == 1) {
 			referenceObject = ((IStructuredSelection) selection).getFirstElement();
 
 			// An editing domain manages a self-contained set of interrelated
@@ -537,20 +548,30 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			// If the selected element is of type DataService
 
 			if (referenceObject != null && referenceObject instanceof DataService) {
-				
+
 				generateDataSourceMenu = true;
-				
+
 				populateAddDatasourceActions(selection, domain, newChildDescriptors);
-				
-				descriptionAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_DESCRIPTION_ACTION);
-				
-				queryAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_QUERY_ACTION);
-				
-				operationAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_OPERATION_ACTION);
-				
-				eventTriggerAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_EVENT_TRIGGER_ACTION);
-				
-				resourceAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_RESOURCE_ACTION);
+
+				descriptionAction =
+				                    new DSAction(selection, domain, newChildDescriptors,
+				                                 DSActionConstants.ADD_DESCRIPTION_ACTION);
+
+				queryAction =
+				              new DSAction(selection, domain, newChildDescriptors,
+				                           DSActionConstants.ADD_QUERY_ACTION);
+
+				operationAction =
+				                  new DSAction(selection, domain, newChildDescriptors,
+				                               DSActionConstants.ADD_OPERATION_ACTION);
+
+				eventTriggerAction =
+				                     new DSAction(selection, domain, newChildDescriptors,
+				                                  DSActionConstants.ADD_EVENT_TRIGGER_ACTION);
+
+				resourceAction =
+				                 new DSAction(selection, domain, newChildDescriptors,
+				                              DSActionConstants.ADD_RESOURCE_ACTION);
 
 			} else {
 				generateDataSourceMenu = false;
@@ -561,84 +582,103 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			if (referenceObject != null && referenceObject instanceof DataSourceConfiguration) {
 
 				config = (DataSourceConfigurationImpl) referenceObject;
-				
-				//do noting we do nto give add properties to the configuration
-				
-			} 
+
+				// do noting we do nto give add properties to the configuration
+
+			}
 
 			// If the selected element is of type Query
 
 			if (referenceObject != null && referenceObject instanceof Query) {
 				query = (QueryImpl) referenceObject;
 				generateQueryMenu = true;
-				
-				sqlAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SQL_ACTION);
-				
-				sparqlAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SPARQL_ACTION);
-				
-				queryPropertyGroupAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION);
-				
-				resultAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_OUTPUT_MAPPING_ACTION);
-				
-				excelAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_EXCEL_QUERY_ACTION);
-				
-				gspredAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_GSPREAD_QUERY_ACTION);
-				
-				queryParmAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_INPUT_MAPPING_ACTION);//DSActionConstants.ADD_QUERY_PARAM_ACTION);
-	
+
+				sqlAction =
+				            new DSAction(selection, domain, newChildDescriptors,
+				                         DSActionConstants.ADD_SQL_ACTION);
+
+				sparqlAction =
+				               new DSAction(selection, domain, newChildDescriptors,
+				                            DSActionConstants.ADD_SPARQL_ACTION);
+
+				queryPropertyGroupAction =
+				                           new DSAction(
+				                                        selection,
+				                                        domain,
+				                                        newChildDescriptors,
+				                                        DSActionConstants.ADD_QUERY_PROPERTY_LIST_ACTION);
+
+				resultAction =
+				               new DSAction(selection, domain, newChildDescriptors,
+				                            DSActionConstants.ADD_OUTPUT_MAPPING_ACTION);
+
+				excelAction =
+				              new DSAction(selection, domain, newChildDescriptors,
+				                           DSActionConstants.ADD_EXCEL_QUERY_ACTION);
+
+				gspredAction =
+				               new DSAction(selection, domain, newChildDescriptors,
+				                            DSActionConstants.ADD_GSPREAD_QUERY_ACTION);
+
+				queryParmAction =
+				                  new DSAction(selection, domain, newChildDescriptors,
+				                               DSActionConstants.ADD_INPUT_MAPPING_ACTION);// DSActionConstants.ADD_QUERY_PARAM_ACTION);
+
 			} else {
 				generateQueryMenu = false;
-				
+
 			}
 
 			// If the selected element is of type QueryPropertyList
 
 			if (referenceObject != null && referenceObject instanceof QueryPropertyList) {
 				generateQueryPropertyListMenu = true;
-				
-				queryPropertyAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_QUERY_PROPERTY_ACTION);
-				
+
+				queryPropertyAction =
+				                      new DSAction(selection, domain, newChildDescriptors,
+				                                   DSActionConstants.ADD_QUERY_PROPERTY_ACTION);
+
 			} else {
-				
+
 				generateQueryPropertyListMenu = false;
 			}
-			
-			//if the selected element is ResultMapping
+
+			// if the selected element is ResultMapping
 
 			if (referenceObject != null && referenceObject instanceof ResultMapping) {
-				
+
 				result = (ResultMapping) referenceObject;
 				generateOutputMappingMenu = true;
 				populateAddElementAndAttributeAction(selection, domain, newChildDescriptors);
-				
+
 			} else {
-				
+
 				generateOutputMappingMenu = false;
 			}
-			
-			if(referenceObject != null && referenceObject instanceof ElementMapping){
-				
-				ElementMapping elmMap = (ElementMapping)referenceObject;
-				
-				if(elmMap.isIsComplexType()){
+
+			if (referenceObject != null && referenceObject instanceof ElementMapping) {
+
+				ElementMapping elmMap = (ElementMapping) referenceObject;
+
+				if (elmMap.isIsComplexType()) {
 					generateElementMappingMenu = true;
-				}else{
+				} else {
 					generateElementMappingMenu = false;
 				}
 				populateAddElementAndAttributeAction(selection, domain, newChildDescriptors);
-				
-			}else{
-				
+
+			} else {
+
 				generateElementMappingMenu = false;
 			}
-			
-			//If the selected element is of type QueryParameter
+
+			// If the selected element is of type QueryParameter
 
 			if (referenceObject != null && referenceObject instanceof QueryParameter) {
-				
+
 				generateValidatorMenu = true;
 				populateAddValidatorAction(selection, domain, newChildDescriptors);
-				
+
 			} else {
 				generateValidatorMenu = false;
 			}
@@ -648,63 +688,81 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			if (referenceObject != null && referenceObject instanceof EventTrigger) {
 				eventTrigger = (EventTriggerImpl) referenceObject;
 				generateEventTriggerMenu = true;
-				
-				expressionAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_EXPRESSION_ACTION);
-				targetTopicAcion = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_TARGET_TOPOIC_ACTION);
-				subscriptionAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_SUBSCRIPTIONS_ACTION);
-				
-				
+
+				expressionAction =
+				                   new DSAction(selection, domain, newChildDescriptors,
+				                                DSActionConstants.ADD_EXPRESSION_ACTION);
+				targetTopicAcion =
+				                   new DSAction(selection, domain, newChildDescriptors,
+				                                DSActionConstants.ADD_TARGET_TOPOIC_ACTION);
+				subscriptionAction =
+				                     new DSAction(selection, domain, newChildDescriptors,
+				                                  DSActionConstants.ADD_SUBSCRIPTIONS_ACTION);
+
 			} else {
 				generateEventTriggerMenu = false;
-				
+
 			}
-			
+
 			// if the selected element is of type EventSubscriptionList
-			
-			if(referenceObject != null && referenceObject instanceof EventSubscriptionList){
-				
+
+			if (referenceObject != null && referenceObject instanceof EventSubscriptionList) {
+
 				generateSubscriptionMenu = true;
-				
-				subscriptionAction = new DSAction(selection, domain, newChildDescriptors, DSActionConstants.ADD_SUBSCRIPTION_ACTION);
-			}else{
-				
+
+				subscriptionAction =
+				                     new DSAction(selection, domain, newChildDescriptors,
+				                                  DSActionConstants.ADD_SUBSCRIPTION_ACTION);
+			} else {
+
 				generateSubscriptionMenu = false;
 			}
-			
+
 			// If the selected element is of type Operation or Resource or
 			// CallQueryList (to generate the Add Call Query menu item since
 			// CallQuery is a common child)
-			if (referenceObject != null
-					&& (referenceObject instanceof Operation || referenceObject instanceof Resource || referenceObject instanceof CallQueryList)) {
+			if (referenceObject != null &&
+			    (referenceObject instanceof Operation || referenceObject instanceof Resource || referenceObject instanceof CallQueryList)) {
 				generateCallQueryMenu = true;
-				callQueryAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION);
+				callQueryAction =
+				                  new DSAction(
+				                               selection,
+				                               domain,
+				                               newChildDescriptors,
+				                               DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION);
 			} else {
-				
+
 				generateCallQueryMenu = false;
 			}
-			
+
 			// If the selected element is of type CallQuery
-		
+
 			if (referenceObject != null && referenceObject instanceof CallQuery) {
 				generateCallQueryInputMappingMenu = true;
-				callQueryInputMappingAction = new DSAction(selection, domain, newChildDescriptors,DSActionConstants.ADD_INPUT_MAPPING_ACTION);
+				callQueryInputMappingAction =
+				                              new DSAction(
+				                                           selection,
+				                                           domain,
+				                                           newChildDescriptors,
+				                                           DSActionConstants.ADD_INPUT_MAPPING_ACTION);
 
 			} else {
 				generateCallQueryInputMappingMenu = false;
 			}
-			
-			
+
 		}
 	}
 
 	/**
-	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in <code>descriptors</code>,
+	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction}
+	 * for each object in <code>descriptors</code>,
 	 * and returns the collection of these actions.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors,
-			ISelection selection) {
+	                                                         ISelection selection) {
 		Collection<IAction> actions = new ArrayList<IAction>();
 		if (descriptors != null) {
 			for (Object descriptor : descriptors) {
@@ -715,13 +773,16 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	}
 
 	/**
-	 * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object in <code>descriptors</code>,
+	 * This generates a
+	 * {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each
+	 * object in <code>descriptors</code>,
 	 * and returns the collection of these actions.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected Collection<IAction> generateCreateSiblingActions(Collection<?> descriptors,
-			ISelection selection) {
+	                                                           ISelection selection) {
 		Collection<IAction> actions = new ArrayList<IAction>();
 		if (descriptors != null) {
 			for (Object descriptor : descriptors) {
@@ -732,21 +793,25 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	}
 
 	/**
-	 * This populates the specified <code>manager</code> with {@link org.eclipse.jface.action.ActionContributionItem}s
-	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
-	 * by inserting them before the specified contribution item <code>contributionID</code>.
-	 * If <code>contributionID</code> is <code>null</code>, they are simply added.
+	 * This populates the specified <code>manager</code> with
+	 * {@link org.eclipse.jface.action.ActionContributionItem}s
+	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the
+	 * <code>actions</code> collection,
+	 * by inserting them before the specified contribution item
+	 * <code>contributionID</code>.
+	 * If <code>contributionID</code> is <code>null</code>, they are simply
+	 * added.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void populateManager(IContributionManager manager,
-			Collection<? extends IAction> actions, String contributionID) {
+	                               Collection<? extends IAction> actions, String contributionID) {
 		if (actions != null) {
 			for (IAction action : actions) {
 				if (contributionID != null) {
 					manager.insertBefore(contributionID, action);
-				}
-				else {
+				} else {
 					manager.add(action);
 				}
 			}
@@ -754,14 +819,17 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	}
 
 	/**
-	 * This removes from the specified <code>manager</code> all {@link org.eclipse.jface.action.ActionContributionItem}s
-	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
+	 * This removes from the specified <code>manager</code> all
+	 * {@link org.eclipse.jface.action.ActionContributionItem}s
+	 * based on the {@link org.eclipse.jface.action.IAction}s contained in the
+	 * <code>actions</code> collection.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void depopulateManager(IContributionManager manager,
-			Collection<? extends IAction> actions) {
+	                                 Collection<? extends IAction> actions) {
 		if (actions != null) {
 			IContributionItem[] items = manager.getItems();
 			for (int i = 0; i < items.length; i++) {
@@ -769,13 +837,13 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				//
 				IContributionItem contributionItem = items[i];
 				while (contributionItem instanceof SubContributionItem) {
-					contributionItem = ((SubContributionItem)contributionItem).getInnerItem();
+					contributionItem = ((SubContributionItem) contributionItem).getInnerItem();
 				}
 
 				// Delete the ActionContributionItems with matching action.
 				//
 				if (contributionItem instanceof ActionContributionItem) {
-					IAction action = ((ActionContributionItem)contributionItem).getAction();
+					IAction action = ((ActionContributionItem) contributionItem).getAction();
 					if (actions.contains(action)) {
 						manager.remove(contributionItem);
 					}
@@ -785,66 +853,63 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	}
 
 	/**
-	 * This populates the pop-up menu(context menu) before it appears. <!-- begin-user-doc -->
+	 * This populates the pop-up menu(context menu) before it appears. <!--
+	 * begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * 
 	 * @param menuManager
 	 *            the menu manager
 	 * @generated NOT
 	 */
-	
+
 	public void menuAboutToShow(IMenuManager menuManager) {
 		super.menuAboutToShow(menuManager);
 
-		//Menu for data service item
-		
+		// Menu for data service item
+
 		if (generateDataSourceMenu) {
 			generateDataSourceSubMenusAndActions();
 			menuManager.insertBefore("edit", dsMenuManager);
-			menuManager.insertBefore("edit", descriptionAction );
+			menuManager.insertBefore("edit", descriptionAction);
 			menuManager.insertBefore("edit", queryAction);
 			menuManager.insertBefore("edit", eventTriggerAction);
-			menuManager.insertBefore("edit", operationAction );
-			menuManager.insertBefore("edit", resourceAction );
+			menuManager.insertBefore("edit", operationAction);
+			menuManager.insertBefore("edit", resourceAction);
 			generateDataSourceMenu = false;
 		}
-		
-		//Menu for query item
-		
-		if(generateQueryMenu){
-			
+
+		// Menu for query item
+
+		if (generateQueryMenu) {
+
 			if (query != null && (query.getId() == null || StringUtils.isBlank(query.getId()))) {
-				
+
 				displayError("Enter the Query Id to proceed.");
-				
-			}else if(query != null && (query.getUseConfig() == null || StringUtils.isBlank(query.getUseConfig()))){
-				
+
+			} else if (query != null &&
+			           (query.getUseConfig() == null || StringUtils.isBlank(query.getUseConfig()))) {
+
 				displayError("Please Select a valid data source to proceed.");
-				
+
 			} else {
-				
+
 				DataService dataService = getDataServiceObject(query);
 
 				if (dataService != null && query.getUseConfig() != null) {
-					
+
 					String dataSourceType = getDataSourceType(dataService, query.getUseConfig());
 
-					if (dataSourceType
-							.equals(DSActionConstants.DRIVER_PROPERTY)
-							|| dataSourceType
-									.equals(DSActionConstants.JNDI_CONTEXT_PROPERTY)
-							|| dataSourceType
-									.equals(DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
+					if (dataSourceType.equals(DSActionConstants.DRIVER_PROPERTY) ||
+					    dataSourceType.equals(DSActionConstants.JNDI_CONTEXT_PROPERTY) ||
+					    dataSourceType.equals(DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
 
 						menuManager.insertBefore("edit", sqlAction);
 
-					} else if (dataSourceType
-							.equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)) {
+					} else if (dataSourceType.equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)) {
 
 						menuManager.insertBefore("edit", excelAction);
 
-					} else if (dataSourceType
-							.equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY)) {
+					} else if (dataSourceType.equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY)) {
 
 						menuManager.insertBefore("edit", gspredAction);
 
@@ -859,73 +924,73 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				menuManager.insertBefore("edit", resultAction);
 				menuManager.insertBefore("edit", queryParmAction);
 				generateQueryMenu = false;
-				
+
 			}
 		}
-		
-		//Menu for query property list item
-		
-		if(generateQueryPropertyListMenu){
+
+		// Menu for query property list item
+
+		if (generateQueryPropertyListMenu) {
 			menuManager.insertBefore("edit", queryPropertyAction);
-			
+
 		}
-		
+
 		// To add an Output Mapping to a Result element, the Grouped By Element
 		// and Row Name values should be provided.
 		if (generateOutputMappingMenu | generateElementMappingMenu) {
-			
-			if (result != null && (result.getElementName() == null || StringUtils.isBlank(result.getElementName()))) {
-				
+
+			if (result != null &&
+			    (result.getElementName() == null || StringUtils.isBlank(result.getElementName()))) {
+
 				displayError("Enter value for Grouped by Element");
-				
+
 			} else {
 				String lb = DSActionConstants.ADD_OUTPUT_MAPPING_ACTION;
-				if(generateElementMappingMenu){
+				if (generateElementMappingMenu) {
 					lb = DSActionConstants.ADD_OUTOUT_MAPPING_NESTED_ELEMENT;
 					generateElementMappingMenu = false;
 				}
 				generateOutputMappingSubMenusAndActions(lb);
 				menuManager.insertBefore("edit", outputMappingsMenuManager);
 				generateOutputMappingMenu = false;
-									
+
 			}
 		}
-		 //Validator menu
-		
+		// Validator menu
+
 		if (generateValidatorMenu) {
 			generateValidatorSubMenusAndActions();
 			menuManager.insertBefore("edit", validatorMenuManager);
 			generateValidatorMenu = false;
 		}
-		
-		//event trigger menu
-		
-		if(generateEventTriggerMenu){
-			
+
+		// event trigger menu
+
+		if (generateEventTriggerMenu) {
+
 			menuManager.insertBefore("edit", expressionAction);
 			menuManager.insertBefore("edit", targetTopicAcion);
 			menuManager.insertBefore("edit", subscriptionAction);
 			generateEventTriggerMenu = false;
 		}
-		
-		//subscription menu
-		
+
+		// subscription menu
+
 		if (generateSubscriptionMenu) {
-			
-				menuManager.insertBefore("edit", subscriptionAction);
-				generateSubscriptionMenu = false;
-		}	
-		
+
+			menuManager.insertBefore("edit", subscriptionAction);
+			generateSubscriptionMenu = false;
+		}
+
 		if (generateCallQueryMenu) {
 			menuManager.insertBefore("edit", callQueryAction);
 			generateCallQueryMenu = false;
 		}
-		
+
 		if (generateCallQueryInputMappingMenu) {
 			menuManager.insertBefore("edit", callQueryInputMappingAction);
 			generateCallQueryInputMappingMenu = false;
 		}
-
 
 	}
 
@@ -937,24 +1002,26 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 *            the menu manager
 	 * @generated
 	 */
-	
+
 	@Override
 	protected void addGlobalActions(IMenuManager menuManager) {
 		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
 		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
 
-		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
+		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());
 		menuManager.insertAfter("ui-actions", refreshViewerAction);
 
 		super.addGlobalActions(menuManager);
 	}
 
 	/**
-	 * This ensures that a delete action will clean up all references to deleted objects.
+	 * This ensures that a delete action will clean up all references to deleted
+	 * objects.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
+
 	@Override
 	protected boolean removeAllReferencesOnDelete() {
 		return true;
@@ -971,7 +1038,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 *            the new DS child descriptors
 	 */
 	private void populateAddDatasourceActions(ISelection selection, EditingDomain domain,
-			Collection<?> newDSChildDescriptors) {
+	                                          Collection<?> newDSChildDescriptors) {
 
 		// Create an array list to hold actions
 		dataSourceActions = new ArrayList<IAction>();
@@ -981,95 +1048,146 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 		rdbmsDataSourceActions = new ArrayList<IAction>();
 
 		// Add actions for MySQL data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.MYSQL_DATASOURCE_TYPE, DSActionConstants.MYSQL_DRIVER_VALUE,
-				DSActionConstants.MYSQL_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.MYSQL_DATASOURCE_TYPE,
+		                                                             DSActionConstants.MYSQL_DRIVER_VALUE,
+		                                                             DSActionConstants.MYSQL_PROTOCOL_VALUE));
 
 		// Add actions for Apache Derby data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.APACHE_DERBY_DATASOURCE_TYPE,
-				DSActionConstants.APACHE_DERBY_DRIVER_VALUE,
-				DSActionConstants.APACHE_DERBY_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.APACHE_DERBY_DATASOURCE_TYPE,
+		                                                             DSActionConstants.APACHE_DERBY_DRIVER_VALUE,
+		                                                             DSActionConstants.APACHE_DERBY_PROTOCOL_VALUE));
 
 		// Add actions for Microsoft SQL Server data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.MS_SQL_SERVER_DATASOURCE_TYPE,
-				DSActionConstants.MS_SQL_SERVER_DRIVER_VALUE,
-				DSActionConstants.MS_SQL_SERVER_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.MS_SQL_SERVER_DATASOURCE_TYPE,
+		                                                             DSActionConstants.MS_SQL_SERVER_DRIVER_VALUE,
+		                                                             DSActionConstants.MS_SQL_SERVER_PROTOCOL_VALUE));
 
 		// Add actions for Oracle data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.ORACLE_DATASOURCE_TYPE, DSActionConstants.ORACLE_DRIVER_VALUE,
-				DSActionConstants.ORACLE_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.ORACLE_DATASOURCE_TYPE,
+		                                                             DSActionConstants.ORACLE_DRIVER_VALUE,
+		                                                             DSActionConstants.ORACLE_PROTOCOL_VALUE));
 
 		// Add actions for IBM DB2 data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.IBM_DB2_DATASOURCE_TYPE, DSActionConstants.IBM_DB2_DRIVER_VALUE,
-				DSActionConstants.IBM_DB2_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.IBM_DB2_DATASOURCE_TYPE,
+		                                                             DSActionConstants.IBM_DB2_DRIVER_VALUE,
+		                                                             DSActionConstants.IBM_DB2_PROTOCOL_VALUE));
 
 		// Add actions for HSQLDB data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.HSQLDB_DATASOURCE_TYPE, DSActionConstants.HSQLDB_DB_DRIVER_VALUE,
-				DSActionConstants.HSQLDB_DB_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.HSQLDB_DATASOURCE_TYPE,
+		                                                             DSActionConstants.HSQLDB_DB_DRIVER_VALUE,
+		                                                             DSActionConstants.HSQLDB_DB_PROTOCOL_VALUE));
 
 		// Add actions for Informix data sources
-		rdbmsDataSourceActions
-				.add(new DataSourceConfigurationAction(selection, domain, newDSChildDescriptors,
-						DSActionConstants.RDBMS_TYPE, DSActionConstants.INFORMIX_DATASOURCE_TYPE,
-						DSActionConstants.INFORMIX_DRIVER_VALUE,
-						DSActionConstants.INFORMIX_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.INFORMIX_DATASOURCE_TYPE,
+		                                                             DSActionConstants.INFORMIX_DRIVER_VALUE,
+		                                                             DSActionConstants.INFORMIX_PROTOCOL_VALUE));
 
 		// Add actions for PostgreSQL data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.POSTGRESQL_DATASOURCE_TYPE,
-				DSActionConstants.POSTGRESQL_DRIVER_VALUE,
-				DSActionConstants.POSTGRESQL_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.POSTGRESQL_DATASOURCE_TYPE,
+		                                                             DSActionConstants.POSTGRESQL_DRIVER_VALUE,
+		                                                             DSActionConstants.POSTGRESQL_PROTOCOL_VALUE));
 
 		// Add actions for Sybase ASE data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.SYBASE_ASE_DATASOURCE_TYPE,
-				DSActionConstants.SYBASE_ASE_DRIVER_VALUE,
-				DSActionConstants.SYBASE_ASE_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.SYBASE_ASE_DATASOURCE_TYPE,
+		                                                             DSActionConstants.SYBASE_ASE_DRIVER_VALUE,
+		                                                             DSActionConstants.SYBASE_ASE_PROTOCOL_VALUE));
 
 		// Add actions for H2 data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.H2_DATASOURCE_TYPE, DSActionConstants.H2_DRIVER_VALUE,
-				DSActionConstants.H2_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.H2_DATASOURCE_TYPE,
+		                                                             DSActionConstants.H2_DRIVER_VALUE,
+		                                                             DSActionConstants.H2_PROTOCOL_VALUE));
 
 		// Add actions for Generic data sources
-		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.RDBMS_TYPE,
-				DSActionConstants.GENERIC_DATASOURCE_TYPE, DSActionConstants.GENERIC_DRIVER_VALUE,
-				DSActionConstants.GENERIC_PROTOCOL_VALUE));
+		rdbmsDataSourceActions.add(new DataSourceConfigurationAction(
+		                                                             selection,
+		                                                             domain,
+		                                                             newDSChildDescriptors,
+		                                                             DSActionConstants.RDBMS_TYPE,
+		                                                             DSActionConstants.GENERIC_DATASOURCE_TYPE,
+		                                                             DSActionConstants.GENERIC_DRIVER_VALUE,
+		                                                             DSActionConstants.GENERIC_PROTOCOL_VALUE));
 
 		// CSV Type
 		dataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.CSV_TYPE, null, null, null));
+		                                                        newDSChildDescriptors,
+		                                                        DSActionConstants.CSV_TYPE, null,
+		                                                        null, null));
 
 		// Excel Type
 		dataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.SPREADSHEET_TYPE, null, null, null));
+		                                                        newDSChildDescriptors,
+		                                                        DSActionConstants.SPREADSHEET_TYPE,
+		                                                        null, null, null));
 
 		// JNDI Type
 		dataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.JNDI_TYPE, null, null, null));
+		                                                        newDSChildDescriptors,
+		                                                        DSActionConstants.JNDI_TYPE, null,
+		                                                        null, null));
 
 		// Google Spreadsheet Type
 		dataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.GSPREAD_TYPE, null, null, null));
+		                                                        newDSChildDescriptors,
+		                                                        DSActionConstants.GSPREAD_TYPE,
+		                                                        null, null, null));
 
 		// Carbon Datasource Type
-		dataSourceActions.add(new DataSourceConfigurationAction(selection, domain,
-				newDSChildDescriptors, DSActionConstants.CARBON_DATASOURCE_TYPE, null, null, null));
+		dataSourceActions.add(new DataSourceConfigurationAction(
+		                                                        selection,
+		                                                        domain,
+		                                                        newDSChildDescriptors,
+		                                                        DSActionConstants.CARBON_DATASOURCE_TYPE,
+		                                                        null, null, null));
 
 	}
 
@@ -1084,31 +1202,43 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 *            the new output mapping child descriptors
 	 */
 	private void populateAddElementAndAttributeAction(ISelection selection, EditingDomain domain,
-			Collection<?> newOutputMappingChildDescriptors) {
-		
+	                                                  Collection<?> newOutputMappingChildDescriptors) {
+
 		boolean enableCompleElem = false;
-		IStructuredSelection structuredSelection =  (IStructuredSelection)selection;
-		Object owner  = structuredSelection.getFirstElement();
-		if(owner instanceof ElementMapping){
-			
-		ElementMapping element = (ElementMapping)owner;
-		enableCompleElem = element.isIsComplexType();
-		
-		}else{
-			
+		IStructuredSelection structuredSelection = (IStructuredSelection) selection;
+		Object owner = structuredSelection.getFirstElement();
+		if (owner instanceof ElementMapping) {
+
+			ElementMapping element = (ElementMapping) owner;
+			enableCompleElem = element.isIsComplexType();
+
+		} else {
+
 			enableCompleElem = true;
 		}
-		if(enableCompleElem){
-		outputMappingsActions = new ArrayList<IAction>();
-		outputMappingsActions.add(new DSAction(selection, domain, newOutputMappingChildDescriptors,
-				DSActionConstants.ADD_OUTPUT_MAPPING_ELEMENT_ACTION));
-		outputMappingsActions.add(new DSAction(selection, domain, newOutputMappingChildDescriptors,
-				DSActionConstants.ADD_OUTPUT_MAPPING_ATTRIBUTE_ACTION));
-		outputMappingsActions.add(new DSAction(selection, domain, newOutputMappingChildDescriptors,
-				DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION));
-		
-		outputMappingsActions.add(new DSAction(selection, domain, newOutputMappingChildDescriptors,
-				DSActionConstants.ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT));
+		if (enableCompleElem) {
+			outputMappingsActions = new ArrayList<IAction>();
+			outputMappingsActions.add(new DSAction(
+			                                       selection,
+			                                       domain,
+			                                       newOutputMappingChildDescriptors,
+			                                       DSActionConstants.ADD_OUTPUT_MAPPING_ELEMENT_ACTION));
+			outputMappingsActions.add(new DSAction(
+			                                       selection,
+			                                       domain,
+			                                       newOutputMappingChildDescriptors,
+			                                       DSActionConstants.ADD_OUTPUT_MAPPING_ATTRIBUTE_ACTION));
+			outputMappingsActions.add(new DSAction(
+			                                       selection,
+			                                       domain,
+			                                       newOutputMappingChildDescriptors,
+			                                       DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION));
+
+			outputMappingsActions.add(new DSAction(
+			                                       selection,
+			                                       domain,
+			                                       newOutputMappingChildDescriptors,
+			                                       DSActionConstants.ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT));
 		}
 
 	}
@@ -1124,23 +1254,23 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 *            the new validator child descriptors
 	 */
 	private void populateAddValidatorAction(ISelection selection, EditingDomain domain,
-			Collection<?> newValidatorChildDescriptors) {
+	                                        Collection<?> newValidatorChildDescriptors) {
 		validatorActions = new ArrayList<IAction>();
 
 		validatorActions.add(new DSAction(selection, domain, newValidatorChildDescriptors,
-				DSActionConstants.ADD_LONG_RANGE_VALIDATOR_ACTION));
+		                                  DSActionConstants.ADD_LONG_RANGE_VALIDATOR_ACTION));
 
 		validatorActions.add(new DSAction(selection, domain, newValidatorChildDescriptors,
-				DSActionConstants.ADD_DOUBLE_RANGE_VALIDATOR_ACTION));
+		                                  DSActionConstants.ADD_DOUBLE_RANGE_VALIDATOR_ACTION));
 
 		validatorActions.add(new DSAction(selection, domain, newValidatorChildDescriptors,
-				DSActionConstants.ADD_LENGTH_VALIDATOR_ACTION));
+		                                  DSActionConstants.ADD_LENGTH_VALIDATOR_ACTION));
 
 		validatorActions.add(new DSAction(selection, domain, newValidatorChildDescriptors,
-				DSActionConstants.ADD_PATTERN_VALIDATOR_ACTION));
+		                                  DSActionConstants.ADD_PATTERN_VALIDATOR_ACTION));
 
 		validatorActions.add(new DSAction(selection, domain, newValidatorChildDescriptors,
-				DSActionConstants.ADD_CUSTOM_VALIDATOR_ACTION));
+		                                  DSActionConstants.ADD_CUSTOM_VALIDATOR_ACTION));
 	}
 
 	/**
@@ -1192,8 +1322,9 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 		URL url = (URL) DsEditPlugin.INSTANCE.getImage("wso2/rdbms");
 
-		rdbmsMenuManager = new MenuManager(DSActionConstants.RDBMS_TYPE,
-				ImageDescriptor.createFromURL(url), null);
+		rdbmsMenuManager =
+		                   new MenuManager(DSActionConstants.RDBMS_TYPE,
+		                                   ImageDescriptor.createFromURL(url), null);
 
 		for (IAction action : rdbmsDataSourceActions) {
 			rdbmsMenuManager.add(action);
@@ -1245,18 +1376,20 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			MessageDialog.openWarning(shell, "Warning", errorMsg);
 		}
 	}
+
 	/**
 	 * 
-	 * @param eobject EObject submit to get the root 
+	 * @param eobject
+	 *            EObject submit to get the root
 	 * @return DataService Object
 	 */
-	private DataService getDataServiceObject(EObject eobject){
-		
-		DocumentRootImpl root  = (DocumentRootImpl)EcoreUtil.getRootContainer(eobject);
+	private DataService getDataServiceObject(EObject eobject) {
+
+		DocumentRootImpl root = (DocumentRootImpl) EcoreUtil.getRootContainer(eobject);
 		return root.getData();
 	}
-	
-	private String getDataSourceType(DataService dataService,String usedDataSource){
+
+	private String getDataSourceType(DataService dataService, String usedDataSource) {
 
 		String dataSourceType = "";
 
@@ -1264,13 +1397,11 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			int index = 0;
 			EList<DataSourceConfiguration> configList = dataService.getConfig();
 
-			DataSourceConfiguration[] confArr = configList
-					.toArray(new DataSourceConfiguration[0]);
+			DataSourceConfiguration[] confArr = configList.toArray(new DataSourceConfiguration[0]);
 
 			for (int j = 0; j < configList.size(); j++) {
 
-				if (confArr[j].getId() != null
-						&& confArr[j].getId().equals(usedDataSource)) {
+				if (confArr[j].getId() != null && confArr[j].getId().equals(usedDataSource)) {
 
 					index = j;
 				}
@@ -1286,28 +1417,18 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 
 				while (iterator.hasNext()) {
 
-					ConfigurationProperty property = (ConfigurationProperty) iterator
-							.next();
+					ConfigurationProperty property = (ConfigurationProperty) iterator.next();
 
 					if (property != null) {
 
-						if (property.getName().equals(
-								DSActionConstants.DRIVER_PROPERTY)
-								|| property
-										.getName()
-										.equals(DSActionConstants.CSV_DATASOURCE_PROPERTY)
-								|| property
-										.getName()
-										.equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY)
-								|| property
-										.getName()
-										.equals(DSActionConstants.JNDI_CONTEXT_PROPERTY)
-								|| property
-										.getName()
-										.equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY)
-								|| property
-										.getName()
-										.equals(DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
+						if (property.getName().equals(DSActionConstants.DRIVER_PROPERTY) ||
+						    property.getName().equals(DSActionConstants.CSV_DATASOURCE_PROPERTY) ||
+						    property.getName().equals(DSActionConstants.EXCEL_DATASOURCE_PROPERTY) ||
+						    property.getName().equals(DSActionConstants.JNDI_CONTEXT_PROPERTY) ||
+						    property.getName()
+						            .equals(DSActionConstants.GSPREAD_DATASOURCE_PROPERTY) ||
+						    property.getName()
+						            .equals(DSActionConstants.CARBON_DATASOURCE_NAME_PROPERTY)) {
 
 							dataSourceType = property.getName();
 						}

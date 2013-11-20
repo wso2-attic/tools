@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -23,10 +23,11 @@ import org.wso2.developerstudio.eclipse.ds.HasHeader;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.HasHeaderImpl#isValue <em>Value</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.HasHeaderImpl#isValue
+ * <em>Value</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class HasHeaderImpl extends EObjectImpl implements HasHeader {
@@ -34,6 +35,7 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	 * The default value of the '{@link #isValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isValue()
 	 * @generated
 	 * @ordered
@@ -44,6 +46,7 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	 * The cached value of the '{@link #isValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isValue()
 	 * @generated
 	 * @ordered
@@ -53,6 +56,7 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected HasHeaderImpl() {
@@ -62,10 +66,10 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.HAS_HEADER;
@@ -74,6 +78,7 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isValue() {
@@ -83,22 +88,24 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValue(boolean newValue) {
 		boolean oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.HAS_HEADER__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.HAS_HEADER__VALUE,
+			                              oldValue, value));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -111,15 +118,15 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.HAS_HEADER__VALUE:
-				setValue((Boolean)newValue);
+				setValue((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -128,10 +135,10 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -145,10 +152,10 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -161,13 +168,14 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
@@ -176,4 +184,4 @@ public class HasHeaderImpl extends EObjectImpl implements HasHeader {
 		return result.toString();
 	}
 
-} //HasHeaderImpl
+} // HasHeaderImpl

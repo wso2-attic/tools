@@ -13,8 +13,7 @@ public class XMLFormattingStrategy extends DefaultFormattingStrategy {
 		this.initialIndentation = initialIndentation;
 	}
 
-	public String format(String content, boolean isLineStart,
-			String indentation, int[] positions) {
+	public String format(String content, boolean isLineStart, String indentation, int[] positions) {
 
 		if (isLineStart)
 			indentation = initialIndentation;
@@ -54,8 +53,7 @@ public class XMLFormattingStrategy extends DefaultFormattingStrategy {
 			// indentation
 			if (!lastOpening) {
 				if (indentation.length() > 1)
-					indentation = indentation.substring(0,
-							indentation.length() - 1);
+					indentation = indentation.substring(0, indentation.length() - 1);
 
 				// add new line after content
 				return lineSeparator + indentation + content;

@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -20,18 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataserviceTagElement {
-	private List<DataserviceTagElement> subElements=new ArrayList<DataserviceTagElement>();
-	private List<DataserviceAttributeElement> attributes=new ArrayList<DataserviceAttributeElement>();
+	private List<DataserviceTagElement> subElements = new ArrayList<DataserviceTagElement>();
+	private List<DataserviceAttributeElement> attributes =
+	                                                       new ArrayList<DataserviceAttributeElement>();
 	private String name;
 	private DataserviceTagElement parentElement;
 	private int minOccurances;
 	private int maxOccurances;
-	
+
 	public DataserviceTagElement(DataserviceTagElement parentElement, String name) {
 		setName(name);
 		setParentElement(parentElement);
 	}
-	
+
 	public List<DataserviceTagElement> getSubElements() {
 		return subElements;
 	}
@@ -55,19 +56,19 @@ public class DataserviceTagElement {
 	public DataserviceTagElement getParentElement() {
 		return parentElement;
 	}
-	
-	public DataserviceTagElement getSubElement(String name){
+
+	public DataserviceTagElement getSubElement(String name) {
 		for (DataserviceTagElement child : getSubElements()) {
-			if (child.getName().equals(name)){
+			if (child.getName().equals(name)) {
 				return child;
 			}
 		}
 		return null;
 	}
-	
-	public DataserviceAttributeElement getAttrubute(String name){
+
+	public DataserviceAttributeElement getAttrubute(String name) {
 		for (DataserviceAttributeElement child : getAttributes()) {
-			if (child.getName().equals(name)){
+			if (child.getName().equals(name)) {
 				return child;
 			}
 		}
@@ -89,8 +90,8 @@ public class DataserviceTagElement {
 	public int getMaxOccurances() {
 		return maxOccurances;
 	}
-	
-	public boolean isUpperLimitUnbound(){
-		return getMaxOccurances()==-1;
+
+	public boolean isUpperLimitUnbound() {
+		return getMaxOccurances() == -1;
 	}
 }

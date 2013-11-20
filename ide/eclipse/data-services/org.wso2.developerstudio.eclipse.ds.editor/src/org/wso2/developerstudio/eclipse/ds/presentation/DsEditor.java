@@ -1,11 +1,12 @@
-/* Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+/*
+ * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -138,28 +139,27 @@ import org.wso2.developerstudio.eclipse.ds.presentation.md.MasterDetailsPage;
 import org.wso2.developerstudio.eclipse.ds.presentation.source.DsObjectSourceEditor;
 import org.wso2.developerstudio.eclipse.ds.provider.DsItemProviderAdapterFactory;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * This is an example of a Ds model editor.
  * <!-- begin-user-doc --> <!--
  * end-user-doc -->
+ * 
  * @generated NOT
  */
-public class DsEditor extends FormEditor implements IEditingDomainProvider,
-		ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker{
-	
+public class DsEditor extends FormEditor implements IEditingDomainProvider, ISelectionProvider,
+                                        IMenuListener, IViewerProvider, IGotoMarker {
+
 	private DsEditor dsEditor;
-	
-	
+
 	private DesignViewActionHandler designViewActionHandler;
-	
-	
+
 	private DataService dataService;
 	/**
-	 * This keeps track of the editing domain that is used to track all changes to the model.
+	 * This keeps track of the editing domain that is used to track all changes
+	 * to the model.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AdapterFactoryEditingDomain editingDomain;
@@ -167,6 +167,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	/**
 	 * This is the one adapter factory used for providing views of the model.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ComposedAdapterFactory adapterFactory;
@@ -175,6 +176,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This is the content outline page.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IContentOutlinePage contentOutlinePage;
@@ -182,6 +184,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	/**
 	 * This is a kludge...
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IStatusLineManager contentOutlineStatusLineManager;
@@ -190,16 +193,17 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This is the content outline page's viewer.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TreeViewer contentOutlineViewer;
-	
+
 	/**
 	 * This is MasterDetail page
 	 * 
 	 */
 	private MasterDetailsPage mdPage;
-	
+
 	/**
 	 * This is Data Source detail page
 	 * 
@@ -210,13 +214,13 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * 
 	 */
 	private DsObjectSourceEditor sourceEditor;
-	
+
 	/**
 	 * Design view index
 	 * 
 	 */
 	private static final int DESIGN_VIEW_INDEX = 0;
-	
+
 	/**
 	 * Data Source Page index
 	 * 
@@ -227,32 +231,31 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * 
 	 */
 	private static final int SOURCE_VIEW_INDEX = 1;
-	
+
 	/**
 	 * Resource holder for the Dseditor
 	 * 
 	 */
 	private Resource domainResource;
-	
+
 	/**
 	 * Keep track the changes in Source view.
 	 * 
 	 */
 	private boolean isSourceModified;
-	
+
 	/**
 	 * Keep track the state of design view.
 	 * 
 	 */
 	private boolean designViewActivated;
-	
-	
-	
+
 	private boolean isSavingProcOk;
 	/**
 	 * This is the property sheet page.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected PropertySheetPage propertySheetPage;
@@ -267,8 +270,10 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	protected TreeViewer selectionViewer;
 
 	/**
-	 * This inverts the roll of parent and child in the content provider and show parents as a tree.
+	 * This inverts the roll of parent and child in the content provider and
+	 * show parents as a tree.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TreeViewer parentViewer;
@@ -277,6 +282,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This shows how a tree view works.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TreeViewer treeViewer;
@@ -285,6 +291,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This shows how a list view works.
 	 * A list viewer doesn't support icons.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ListViewer listViewer;
@@ -293,6 +300,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This shows how a table view works.
 	 * A table can be used as a list with icons.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TableViewer tableViewer;
@@ -301,6 +309,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This shows how a tree view with columns works.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected TreeViewer treeViewerWithColumns;
@@ -326,6 +335,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This listens to which ever viewer is active.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ISelectionChangedListener selectionChangedListener;
@@ -335,7 +345,8 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * {@link org.eclipse.jface.viewers.ISelectionChangedListener}s that are
 	 * listening to this editor. <!-- begin-user-doc --> <!-- end-user-doc --> @generated
 	 */
-	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
+	protected Collection<ISelectionChangedListener> selectionChangedListeners =
+	                                                                            new ArrayList<ISelectionChangedListener>();
 
 	/**
 	 * This keeps track of the selection of the editor as a whole. <!--
@@ -346,10 +357,12 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	protected ISelection editorSelection = StructuredSelection.EMPTY;
 
 	/**
-	 * The MarkerHelper is responsible for creating workspace resource markers presented
+	 * The MarkerHelper is responsible for creating workspace resource markers
+	 * presented
 	 * in Eclipse's Problems View.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected MarkerHelper markerHelper = new EditUIMarkerHelper();
@@ -359,37 +372,39 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * <!-- end-user-doc -->. @generated
 	 */
 	protected IPartListener partListener = new IPartListener() {
-			public void partActivated(IWorkbenchPart p) {
-				if (p instanceof ContentOutline) {
-					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(DsEditor.this);
+		public void partActivated(IWorkbenchPart p) {
+			if (p instanceof ContentOutline) {
+				if (((ContentOutline) p).getCurrentPage() == contentOutlinePage) {
+					getActionBarContributor().setActiveEditor(DsEditor.this);
 
-						setCurrentViewer(contentOutlineViewer);
-					}
+					setCurrentViewer(contentOutlineViewer);
 				}
-				else if (p instanceof PropertySheet) {
-					if (((PropertySheet)p).getCurrentPage() == propertySheetPage) {
-						getActionBarContributor().setActiveEditor(DsEditor.this);
-						handleActivate();
-					}
-				}
-				else if (p == DsEditor.this) {
+			} else if (p instanceof PropertySheet) {
+				if (((PropertySheet) p).getCurrentPage() == propertySheetPage) {
+					getActionBarContributor().setActiveEditor(DsEditor.this);
 					handleActivate();
 				}
+			} else if (p == DsEditor.this) {
+				handleActivate();
 			}
-			public void partBroughtToTop(IWorkbenchPart p) {
-				// Ignore.
-			}
-			public void partClosed(IWorkbenchPart p) {
-				// Ignore.
-			}
-			public void partDeactivated(IWorkbenchPart p) {
-				// Ignore.
-			}
-			public void partOpened(IWorkbenchPart p) {
-				// Ignore.
-			}
-		};
+		}
+
+		public void partBroughtToTop(IWorkbenchPart p) {
+			// Ignore.
+		}
+
+		public void partClosed(IWorkbenchPart p) {
+			// Ignore.
+		}
+
+		public void partDeactivated(IWorkbenchPart p) {
+			// Ignore.
+		}
+
+		public void partOpened(IWorkbenchPart p) {
+			// Ignore.
+		}
+	};
 
 	/**
 	 * Resources that have been removed since last activation. <!--
@@ -421,7 +436,8 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * 
 	 * @generated
 	 */
-	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
+	protected Map<Resource, Diagnostic> resourceToDiagnosticMap =
+	                                                              new LinkedHashMap<Resource, Diagnostic>();
 
 	/**
 	 * Controls whether the problem indication should be updated. <!--
@@ -432,130 +448,129 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	protected boolean updateProblemIndication = true;
 
 	/**
-	 * Adapter used to update the problem indication when resources are demanded loaded.
+	 * Adapter used to update the problem indication when resources are demanded
+	 * loaded.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
-			
-			public void notifyChanged(Notification notification) {
-				if (notification.getNotifier() instanceof Resource) {
-					switch (notification.getFeatureID(Resource.class)) {
-						case Resource.RESOURCE__IS_LOADED:
-						case Resource.RESOURCE__ERRORS:
-						case Resource.RESOURCE__WARNINGS: {
-							Resource resource = (Resource)notification.getNotifier();
-							Diagnostic diagnostic = analyzeResourceProblems(resource, null);
-							if (diagnostic.getSeverity() != Diagnostic.OK) {
-								resourceToDiagnosticMap.put(resource, diagnostic);
-							}
-							else {
-								resourceToDiagnosticMap.remove(resource);
-							}
 
-							if (updateProblemIndication) {
-								getSite().getShell().getDisplay().asyncExec
-									(new Runnable() {
-										 public void run() {
-											 updateProblemIndication();
-										 }
-									 });
-							}
-							break;
+		public void notifyChanged(Notification notification) {
+			if (notification.getNotifier() instanceof Resource) {
+				switch (notification.getFeatureID(Resource.class)) {
+					case Resource.RESOURCE__IS_LOADED:
+					case Resource.RESOURCE__ERRORS:
+					case Resource.RESOURCE__WARNINGS: {
+						Resource resource = (Resource) notification.getNotifier();
+						Diagnostic diagnostic = analyzeResourceProblems(resource, null);
+						if (diagnostic.getSeverity() != Diagnostic.OK) {
+							resourceToDiagnosticMap.put(resource, diagnostic);
+						} else {
+							resourceToDiagnosticMap.remove(resource);
 						}
+
+						if (updateProblemIndication) {
+							getSite().getShell().getDisplay().asyncExec(new Runnable() {
+								public void run() {
+									updateProblemIndication();
+								}
+							});
+						}
+						break;
 					}
 				}
-				else {
-					super.notifyChanged(notification);
-				}
+			} else {
+				super.notifyChanged(notification);
 			}
+		}
 
-			
-			protected void setTarget(Resource target) {
-				basicSetTarget(target);
-			}
+		protected void setTarget(Resource target) {
+			basicSetTarget(target);
+		}
 
-			
-			protected void unsetTarget(Resource target) {
-				basicUnsetTarget(target);
-			}
-		};
+		protected void unsetTarget(Resource target) {
+			basicUnsetTarget(target);
+		}
+	};
 
 	/**
 	 * This listens for workspace changes.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IResourceChangeListener resourceChangeListener = new IResourceChangeListener() {
-			public void resourceChanged(IResourceChangeEvent event) {
-				IResourceDelta delta = event.getDelta();
-				try {
-					class ResourceDeltaVisitor implements IResourceDeltaVisitor {
-						protected ResourceSet resourceSet = editingDomain.getResourceSet();
-						protected Collection<Resource> changedResources = new ArrayList<Resource>();
-						protected Collection<Resource> removedResources = new ArrayList<Resource>();
+		public void resourceChanged(IResourceChangeEvent event) {
+			IResourceDelta delta = event.getDelta();
+			try {
+				class ResourceDeltaVisitor implements IResourceDeltaVisitor {
+					protected ResourceSet resourceSet = editingDomain.getResourceSet();
+					protected Collection<Resource> changedResources = new ArrayList<Resource>();
+					protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
-						public boolean visit(IResourceDelta delta) {
-							if (delta.getResource().getType() == IResource.FILE) {
-								if (delta.getKind() == IResourceDelta.REMOVED ||
-								    delta.getKind() == IResourceDelta.CHANGED && delta.getFlags() != IResourceDelta.MARKERS) {
-									Resource resource = resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath().toString(), true), false);
-									if (resource != null) {
-										if (delta.getKind() == IResourceDelta.REMOVED) {
-											removedResources.add(resource);
-										}
-										else if (!savedResources.remove(resource)) {
-											changedResources.add(resource);
-										}
+					public boolean visit(IResourceDelta delta) {
+						if (delta.getResource().getType() == IResource.FILE) {
+							if (delta.getKind() == IResourceDelta.REMOVED ||
+							    delta.getKind() == IResourceDelta.CHANGED &&
+							    delta.getFlags() != IResourceDelta.MARKERS) {
+								Resource resource =
+								                    resourceSet.getResource(URI.createPlatformResourceURI(delta.getFullPath()
+								                                                                               .toString(),
+								                                                                          true),
+								                                            false);
+								if (resource != null) {
+									if (delta.getKind() == IResourceDelta.REMOVED) {
+										removedResources.add(resource);
+									} else if (!savedResources.remove(resource)) {
+										changedResources.add(resource);
 									}
 								}
 							}
-
-							return true;
 						}
 
-						public Collection<Resource> getChangedResources() {
-							return changedResources;
-						}
-
-						public Collection<Resource> getRemovedResources() {
-							return removedResources;
-						}
+						return true;
 					}
 
-					final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
-					delta.accept(visitor);
-
-					if (!visitor.getRemovedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 removedResources.addAll(visitor.getRemovedResources());
-									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(DsEditor.this, false);
-									 }
-								 }
-							 });
+					public Collection<Resource> getChangedResources() {
+						return changedResources;
 					}
 
-					if (!visitor.getChangedResources().isEmpty()) {
-						getSite().getShell().getDisplay().asyncExec
-							(new Runnable() {
-								 public void run() {
-									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == DsEditor.this) {
-										 handleActivate();
-									 }
-								 }
-							 });
+					public Collection<Resource> getRemovedResources() {
+						return removedResources;
 					}
 				}
-				catch (CoreException exception) {
-					DsEditorPlugin.INSTANCE.log(exception);
+
+				final ResourceDeltaVisitor visitor = new ResourceDeltaVisitor();
+				delta.accept(visitor);
+
+				if (!visitor.getRemovedResources().isEmpty()) {
+					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						public void run() {
+							removedResources.addAll(visitor.getRemovedResources());
+							if (!isDirty()) {
+								getSite().getPage().closeEditor(DsEditor.this, false);
+							}
+						}
+					});
 				}
+
+				if (!visitor.getChangedResources().isEmpty()) {
+					getSite().getShell().getDisplay().asyncExec(new Runnable() {
+						public void run() {
+							changedResources.addAll(visitor.getChangedResources());
+							if (getSite().getPage().getActiveEditor() == DsEditor.this) {
+								handleActivate();
+							}
+						}
+					});
+				}
+			} catch (CoreException exception) {
+				DsEditorPlugin.INSTANCE.log(exception);
 			}
-		};
+		}
+	};
 
 	/**
 	 * Handles activation of the editor or it's associated views. <!--
@@ -567,24 +582,22 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		// Recompute the read only state.
 		//
 		if (editingDomain.getResourceToReadOnlyMap() != null) {
-		  editingDomain.getResourceToReadOnlyMap().clear();
+			editingDomain.getResourceToReadOnlyMap().clear();
 
-		  // Refresh any actions that may become enabled or disabled.
-		  //
-		  setSelection(getSelection());
+			// Refresh any actions that may become enabled or disabled.
+			//
+			setSelection(getSelection());
 		}
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
 				getSite().getPage().closeEditor(DsEditor.this, false);
-			}
-			else {
+			} else {
 				removedResources.clear();
 				changedResources.clear();
 				savedResources.clear();
 			}
-		}
-		else if (!changedResources.isEmpty()) {
+		} else if (!changedResources.isEmpty()) {
 			changedResources.removeAll(savedResources);
 			handleChangedResources();
 			changedResources.clear();
@@ -611,10 +624,10 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 					resource.unload();
 					try {
 						resource.load(Collections.EMPTY_MAP);
-					}
-					catch (IOException exception) {
+					} catch (IOException exception) {
 						if (!resourceToDiagnosticMap.containsKey(resource)) {
-							resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+							resourceToDiagnosticMap.put(resource,
+							                            analyzeResourceProblems(resource, exception));
 						}
 					}
 				}
@@ -630,19 +643,21 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	}
 
 	/**
-	 * Updates the problems indication with the information described in the specified diagnostic.
+	 * Updates the problems indication with the information described in the
+	 * specified diagnostic.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void updateProblemIndication() {
 		if (updateProblemIndication) {
 			BasicDiagnostic diagnostic =
-				new BasicDiagnostic
-					(Diagnostic.OK,
-					 "org.wso2.developerstudio.eclipse.ds.editor",
-					 0,
-					 null,
-					 new Object [] { editingDomain.getResourceSet() });
+			                             new BasicDiagnostic(
+			                                                 Diagnostic.OK,
+			                                                 "org.wso2.developerstudio.eclipse.ds.editor",
+			                                                 0,
+			                                                 null,
+			                                                 new Object[] { editingDomain.getResourceSet() });
 			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
 				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
 					diagnostic.add(childDiagnostic);
@@ -651,12 +666,11 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 
 			int lastEditorPage = getPageCount() - 1;
 			if (lastEditorPage >= 0 && getEditor(lastEditorPage) instanceof ProblemEditorPart) {
-				((ProblemEditorPart)getEditor(lastEditorPage)).setDiagnostic(diagnostic);
+				((ProblemEditorPart) getEditor(lastEditorPage)).setDiagnostic(diagnostic);
 				if (diagnostic.getSeverity() != Diagnostic.OK) {
 					setActivePage(lastEditorPage);
 				}
-			}
-			else if (diagnostic.getSeverity() != Diagnostic.OK) {
+			} else if (diagnostic.getSeverity() != Diagnostic.OK) {
 				ProblemEditorPart problemEditorPart = new ProblemEditorPart();
 				problemEditorPart.setDiagnostic(diagnostic);
 				problemEditorPart.setMarkerHelper(markerHelper);
@@ -665,8 +679,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 					setPageText(lastEditorPage, problemEditorPart.getPartName());
 					setActivePage(lastEditorPage);
 					showTabs();
-				}
-				catch (PartInitException exception) {
+				} catch (PartInitException exception) {
 					DsEditorPlugin.INSTANCE.log(exception);
 				}
 			}
@@ -676,8 +689,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 				if (diagnostic.getSeverity() != Diagnostic.OK) {
 					try {
 						markerHelper.createMarkers(diagnostic);
-					}
-					catch (CoreException exception) {
+					} catch (CoreException exception) {
 						DsEditorPlugin.INSTANCE.log(exception);
 					}
 				}
@@ -693,11 +705,9 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * @generated
 	 */
 	protected boolean handleDirtyConflict() {
-		return
-			MessageDialog.openQuestion
-				(getSite().getShell(),
-				 getString("_UI_FileConflict_label"),
-				 getString("_WARN_FileConflict"));
+		return MessageDialog.openQuestion(getSite().getShell(),
+		                                  getString("_UI_FileConflict_label"),
+		                                  getString("_WARN_FileConflict"));
 	}
 
 	/**
@@ -711,7 +721,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		initializeEditingDomain();
 		dsEditor = this;
 	}
-	
+
 	/**
 	 * This is called during startup. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
@@ -722,74 +732,85 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 *            the editor input
 	 * @generated NOT
 	 */
-	
+
 	public void init(IEditorSite site, IEditorInput editorInput) {
 		setSite(site);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
 		site.setSelectionProvider(this);
 		site.getPage().addPartListener(partListener);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener, IResourceChangeEvent.POST_CHANGE);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(resourceChangeListener,
+		                                                         IResourceChangeEvent.POST_CHANGE);
 		createModel();
 		setSavingProcOk(true);
-		
+
 	}
 
 	/**
 	 * This sets up the editing domain for the model editor.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void initializeEditingDomain() {
 		// Create an adapter factory that yields item providers.
 		//
-		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+		adapterFactory =
+		                 new ComposedAdapterFactory(
+		                                            ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new DsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-		// Create the command stack that will notify this editor as commands are executed.
+		// Create the command stack that will notify this editor as commands are
+		// executed.
 		//
 		BasicCommandStack commandStack = new BasicCommandStack();
 
-		// Add a listener to set the most recent command's affected objects to be the selection of the viewer with focus.
+		// Add a listener to set the most recent command's affected objects to
+		// be the selection of the viewer with focus.
 		//
-		commandStack.addCommandStackListener
-			(new CommandStackListener() {
-				 public void commandStackChanged(final EventObject event) {
-					 getContainer().getDisplay().asyncExec
-						 (new Runnable() {
-							  public void run() {
-								  firePropertyChange(IEditorPart.PROP_DIRTY);
+		commandStack.addCommandStackListener(new CommandStackListener() {
+			public void commandStackChanged(final EventObject event) {
+				getContainer().getDisplay().asyncExec(new Runnable() {
+					public void run() {
+						firePropertyChange(IEditorPart.PROP_DIRTY);
 
-								  // Try to select the affected objects.
-								  //
-								  Command mostRecentCommand = ((CommandStack)event.getSource()).getMostRecentCommand();
-								  if (mostRecentCommand != null && mdPage != null && mdPage.getOutLineBlock() != null) {
-									  mdPage.getOutLineBlock().setSelectionToViewer(mostRecentCommand.getAffectedObjects());
-								  }
-								  if (propertySheetPage != null && !propertySheetPage.getControl().isDisposed()) {
-									  propertySheetPage.refresh();
-								  }
-							  }
-						  });
-				 }
-			 });
+						// Try to select the affected objects.
+						//
+						Command mostRecentCommand =
+						                            ((CommandStack) event.getSource()).getMostRecentCommand();
+						if (mostRecentCommand != null && mdPage != null &&
+						    mdPage.getOutLineBlock() != null) {
+							mdPage.getOutLineBlock()
+							      .setSelectionToViewer(mostRecentCommand.getAffectedObjects());
+						}
+						if (propertySheetPage != null &&
+						    !propertySheetPage.getControl().isDisposed()) {
+							propertySheetPage.refresh();
+						}
+					}
+				});
+			}
+		});
 
 		// Create the editing domain with a special command stack.
 		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
+		editingDomain =
+		                new AdapterFactoryEditingDomain(adapterFactory, commandStack,
+		                                                new HashMap<Resource, Boolean>());
 	}
 
 	/**
 	 * This is here for the listener to be able to call it.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
+
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
 	}
@@ -807,25 +828,29 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		// Make sure it's okay.
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
-			Runnable runnable =
-				new Runnable() {
-					public void run() {
-						// Try to select the items in the current content viewer of the editor.
-						//
-						if (currentViewer != null) {
-							currentViewer.setSelection(new StructuredSelection(theSelection.toArray()), true);
-						}
+			Runnable runnable = new Runnable() {
+				public void run() {
+					// Try to select the items in the current content viewer of
+					// the editor.
+					//
+					if (currentViewer != null) {
+						currentViewer.setSelection(new StructuredSelection(theSelection.toArray()),
+						                           true);
 					}
-				};
+				}
+			};
 			getSite().getShell().getDisplay().asyncExec(runnable);
 		}
 	}
 
 	/**
-	 * This returns the editing domain as required by the {@link IEditingDomainProvider} interface.
-	 * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain}
-	 * and for supporting {@link org.eclipse.emf.edit.ui.action.CommandAction}.
+	 * This returns the editing domain as required by the
+	 * {@link IEditingDomainProvider} interface.
+	 * This is important for implementing the static methods of
+	 * {@link AdapterFactoryEditingDomain} and for supporting
+	 * {@link org.eclipse.emf.edit.ui.action.CommandAction}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EditingDomain getEditingDomain() {
@@ -858,8 +883,8 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		 * @return the elements
 		 * @generated
 		 */
-		
-		public Object [] getElements(Object object) {
+
+		public Object[] getElements(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
@@ -872,8 +897,8 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		 * @return the children
 		 * @generated
 		 */
-		
-		public Object [] getChildren(Object object) {
+
+		public Object[] getChildren(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
@@ -886,7 +911,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		 * @return true, if successful
 		 * @generated
 		 */
-		
+
 		public boolean hasChildren(Object object) {
 			Object parent = super.getParent(object);
 			return parent != null;
@@ -900,7 +925,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		 * @return the parent
 		 * @generated
 		 */
-		
+
 		public Object getParent(Object object) {
 			return null;
 		}
@@ -939,14 +964,14 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			if (selectionChangedListener == null) {
 				// Create the listener on demand.
 				//
-				selectionChangedListener =
-					new ISelectionChangedListener() {
-						// This just notifies those things that are affected by the section.
-						//
-						public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
-							setSelection(selectionChangedEvent.getSelection());
-						}
-					};
+				selectionChangedListener = new ISelectionChangedListener() {
+					// This just notifies those things that are affected by the
+					// section.
+					//
+					public void selectionChanged(SelectionChangedEvent selectionChangedEvent) {
+						setSelection(selectionChangedEvent.getSelection());
+					}
+				};
 			}
 
 			// Stop listening to the old one.
@@ -965,15 +990,19 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			//
 			currentViewer = viewer;
 
-			// Set the editors selection based on the current viewer's selection.
+			// Set the editors selection based on the current viewer's
+			// selection.
 			//
-			setSelection(currentViewer == null ? StructuredSelection.EMPTY : currentViewer.getSelection());
+			setSelection(currentViewer == null ? StructuredSelection.EMPTY
+			                                  : currentViewer.getSelection());
 		}
 	}
 
 	/**
-	 * This returns the viewer as required by the {@link IViewerProvider} interface.
+	 * This returns the viewer as required by the {@link IViewerProvider}
+	 * interface.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Viewer getViewer() {
@@ -981,9 +1010,11 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	}
 
 	/**
-	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension.
+	 * This creates a context menu for the viewer and adds a listener as well
+	 * registering the menu for extension.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createContextMenuFor(StructuredViewer viewer) {
@@ -991,24 +1022,27 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		contextMenu.add(new Separator("additions"));
 		contextMenu.setRemoveAllWhenShown(true);
 		contextMenu.addMenuListener(this);
-		Menu menu= contextMenu.createContextMenu(viewer.getControl());
+		Menu menu = contextMenu.createContextMenu(viewer.getControl());
 		viewer.getControl().setMenu(menu);
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
 		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
 		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance() };
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+		viewer.addDropSupport(dndOperations, transfers,
+		                      new EditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 
 	/**
-	 * This is the method called to load a resource into the editing domain's resource set based on the editor's input.
+	 * This is the method called to load a resource into the editing domain's
+	 * resource set based on the editor's input.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * @throws PartInitException 
+	 * 
+	 * @throws PartInitException
 	 * @generated NOT
 	 */
-	public void createModel(){
+	public void createModel() {
 		URI initialResourceURI = EditUIUtil.getURI(getEditorInput());
 		Exception exception = null;
 		Resource resource = null;
@@ -1016,108 +1050,108 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			// Load the resource through the editing domain.
 			//
 			resource = editingDomain.getResourceSet().getResource(initialResourceURI, true);
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			exception = e;
 			resource = editingDomain.getResourceSet().getResource(initialResourceURI, false);
 		}
-		
+
 		try {
 			resource.load(Collections.EMPTY_MAP);
 			EList<EObject> contents = resource.getContents();
-			
-			if (!contents.isEmpty() && contents.get(0) instanceof DocumentRoot ) {
-				dataService = ((DocumentRoot) contents.get(0)).getData();		
-				
+
+			if (!contents.isEmpty() && contents.get(0) instanceof DocumentRoot) {
+				dataService = ((DocumentRoot) contents.get(0)).getData();
+
 			}
 		} catch (IOException e) {
-			MessageDialog.openError(Display.getCurrent().getActiveShell(),"Error", "Can not load Data Service Configuration");
+			MessageDialog.openError(Display.getCurrent().getActiveShell(), "Error",
+			                        "Can not load Data Service Configuration");
 		}
-		
 
 		Diagnostic diagnostic = analyzeResourceProblems(resource, exception);
 		if (diagnostic.getSeverity() != Diagnostic.OK) {
-			resourceToDiagnosticMap.put(resource,  analyzeResourceProblems(resource, exception));
+			resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
 		}
 		editingDomain.getResourceSet().eAdapters().add(problemIndicationAdapter);
 	}
 
-	
 	/**
 	 * Adding pages to the DsEditor
 	 * 
 	 */
-	
+
 	protected void addPages() {
 		try {
 
 			mdPage = new MasterDetailsPage(this, adapterFactory, editingDomain);
-			addPage(DESIGN_VIEW_INDEX,mdPage);
-			setPageText(DESIGN_VIEW_INDEX,"Outline");
-			 
+			addPage(DESIGN_VIEW_INDEX, mdPage);
+			setPageText(DESIGN_VIEW_INDEX, "Outline");
+
 			sourceEditor = new DsObjectSourceEditor(this, editingDomain);
 			addPage(SOURCE_VIEW_INDEX, sourceEditor.getEditor(), sourceEditor.getInput());
-			setPageText(SOURCE_VIEW_INDEX,"Source");
+			setPageText(SOURCE_VIEW_INDEX, "Source");
 			sourceEditor.init();
-			
-		    dataSourcePage = new DataSourcePage(this, dataService);
-			addPage(DATA_SOURCE_PAGE_INDEX,dataSourcePage);
-			setPageText(DATA_SOURCE_PAGE_INDEX,"Data Sources");
-			
+
+			dataSourcePage = new DataSourcePage(this, dataService);
+			addPage(DATA_SOURCE_PAGE_INDEX, dataSourcePage);
+			setPageText(DATA_SOURCE_PAGE_INDEX, "Data Sources");
+
 			addDesignViewAction();
-			
+
 		} catch (PartInitException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * Returns a diagnostic describing the errors and warnings listed in the resource
+	 * Returns a diagnostic describing the errors and warnings listed in the
+	 * resource
 	 * and the specified exception (if any).
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
 		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
 			BasicDiagnostic basicDiagnostic =
-				new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 "org.wso2.developerstudio.eclipse.ds.editor",
-					 0,
-					 getString("_UI_CreateModelError_message", resource.getURI()),
-					 new Object [] { exception == null ? (Object)resource : exception });
+			                                  new BasicDiagnostic(
+			                                                      Diagnostic.ERROR,
+			                                                      "org.wso2.developerstudio.eclipse.ds.editor",
+			                                                      0,
+			                                                      getString("_UI_CreateModelError_message",
+			                                                                resource.getURI()),
+			                                                      new Object[] { exception == null
+			                                                                                      ? (Object) resource
+			                                                                                      : exception });
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
 			return basicDiagnostic;
-		}
-		else if (exception != null) {
-			return
-				new BasicDiagnostic
-					(Diagnostic.ERROR,
-					 "org.wso2.developerstudio.eclipse.ds.editor",
-					 0,
-					 getString("_UI_CreateModelError_message", resource.getURI()),
-					 new Object[] { exception });
-		}
-		else {
+		} else if (exception != null) {
+			return new BasicDiagnostic(
+			                           Diagnostic.ERROR,
+			                           "org.wso2.developerstudio.eclipse.ds.editor",
+			                           0,
+			                           getString("_UI_CreateModelError_message", resource.getURI()),
+			                           new Object[] { exception });
+		} else {
 			return Diagnostic.OK_INSTANCE;
 		}
 	}
 
-	
 	/**
 	 * If there is just one page in the multi-page editor part,
 	 * this hides the single tab at the bottom.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void hideTabs() {
 		if (getPageCount() <= 1) {
 			setPageText(0, "");
 			if (getContainer() instanceof CTabFolder) {
-				((CTabFolder)getContainer()).setTabHeight(1);
+				((CTabFolder) getContainer()).setTabHeight(1);
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y + 6);
 			}
@@ -1128,13 +1162,14 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * If there is more than one page in the multi-page editor part,
 	 * this shows the tabs at the bottom.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void showTabs() {
 		if (getPageCount() > 1) {
 			setPageText(0, getString("_UI_SelectionPage_label"));
 			if (getContainer() instanceof CTabFolder) {
-				((CTabFolder)getContainer()).setTabHeight(SWT.DEFAULT);
+				((CTabFolder) getContainer()).setTabHeight(SWT.DEFAULT);
 				Point point = getContainer().getSize();
 				getContainer().setSize(point.x, point.y - 6);
 			}
@@ -1145,123 +1180,135 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This is used to track the active viewer.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	
+
 	protected void pageChange(int pageIndex) {
 		super.pageChange(pageIndex);
-		
+
 		switch (pageIndex) {
-		case DESIGN_VIEW_INDEX: {
-			
-			designViewActivated = true;
-			
-			break;
-		 }
-		case SOURCE_VIEW_INDEX:{
-			
-			designViewActivated = false;
-			
-			break;
+			case DESIGN_VIEW_INDEX: {
+
+				designViewActivated = true;
+
+				break;
+			}
+			case SOURCE_VIEW_INDEX: {
+
+				designViewActivated = false;
+
+				break;
+			}
+			case DATA_SOURCE_PAGE_INDEX: {
+
+				designViewActivated = false;
+				if (dataService != null && dataService.getConfig() != null &&
+				    !dataService.getConfig().isEmpty())
+					dataSourcePage.updateDataSourceViewer();
+			}
 		}
-		case DATA_SOURCE_PAGE_INDEX:{
-			
-			designViewActivated = false;
-			if(dataService != null && dataService.getConfig() != null && !dataService.getConfig().isEmpty())
-			dataSourcePage.updateDataSourceViewer();
-		}
-		}
-		
+
 		if (contentOutlinePage != null) {
 			handleContentOutlineSelection(contentOutlinePage.getSelection());
 		}
 	}
-	
+
 	/**
-	 * Handle the design activated event and make sure the model 
+	 * Handle the design activated event and make sure the model
 	 * rebuild with the newly changes.
 	 * 
 	 */
 	private void saveSourceViewChanges() {
-		
-			setSavingProcOk(true);	
+
+		setSavingProcOk(true);
 		if (sourceEditor.isTmpFileHasContent() && sourceEditor.isModelChanged()) {
 			DocumentRootImpl nwroot = null;
 			DataService nwdata = null;
 			DocumentRoot oldroot = null;
-			
+
 			try {
 				domainResource = sourceEditor.reconstructModel();
-				if(domainResource != null){
-					if(domainResource.getContents() != null && domainResource.getContents().size() != 0){
-						if(domainResource.getContents().get(0) != null){
-							if(domainResource.getContents().get(0) instanceof DocumentRootImpl)
-							nwroot = (DocumentRootImpl)domainResource.getContents().get(0);
-							
-							if(nwroot != null){
-								if(nwroot.getData() != null){
+				if (domainResource != null) {
+					if (domainResource.getContents() != null &&
+					    domainResource.getContents().size() != 0) {
+						if (domainResource.getContents().get(0) != null) {
+							if (domainResource.getContents().get(0) instanceof DocumentRootImpl)
+								nwroot = (DocumentRootImpl) domainResource.getContents().get(0);
+
+							if (nwroot != null) {
+								if (nwroot.getData() != null) {
 									nwdata = nwroot.getData();
 								}
 							}
 						}
 					}
 				}
-				
-				if(editingDomain != null){
-					if(editingDomain.getResourceSet() != null){
-						if(editingDomain.getResourceSet().getResources() != null && editingDomain.getResourceSet().getResources().size() != 0){
-							if(editingDomain.getResourceSet().getResources().get(0) != null){
-								if(editingDomain.getResourceSet().getResources().get(0).getContents() != null
-										&& editingDomain.getResourceSet().getResources().get(0).getContents().size() != 0){
-									if(editingDomain.getResourceSet().getResources().get(0).getContents().get(0)!= null){
-										oldroot = (DocumentRoot)editingDomain.getResourceSet().getResources().get(0).getContents().get(0);
-										
+
+				if (editingDomain != null) {
+					if (editingDomain.getResourceSet() != null) {
+						if (editingDomain.getResourceSet().getResources() != null &&
+						    editingDomain.getResourceSet().getResources().size() != 0) {
+							if (editingDomain.getResourceSet().getResources().get(0) != null) {
+								if (editingDomain.getResourceSet().getResources().get(0)
+								                 .getContents() != null &&
+								    editingDomain.getResourceSet().getResources().get(0)
+								                 .getContents().size() != 0) {
+									if (editingDomain.getResourceSet().getResources().get(0)
+									                 .getContents().get(0) != null) {
+										oldroot =
+										          (DocumentRoot) editingDomain.getResourceSet()
+										                                      .getResources()
+										                                      .get(0).getContents()
+										                                      .get(0);
+
 									}
 								}
 							}
 						}
 					}
 				}
-								
-				SetCommand addDataCommand = new SetCommand(editingDomain, oldroot, DsPackage.Literals.DOCUMENT_ROOT__DATA, nwdata);
+
+				SetCommand addDataCommand =
+				                            new SetCommand(editingDomain, oldroot,
+				                                           DsPackage.Literals.DOCUMENT_ROOT__DATA,
+				                                           nwdata);
 				if (addDataCommand.canExecute()) {
 					editingDomain.getCommandStack().execute(addDataCommand);
 					mdPage.getOutLineBlock().getViewer().setAutoExpandLevel(TreeViewer.ALL_LEVELS);
-					
+
 					updateAllPagesWithNewDataServiceObject(nwdata);
-				}else{
+				} else {
 					//
 				}
-				
+
 			} catch (Exception e) {
-				MessageDialog.openError(Display.getCurrent().getActiveShell(), "Incomplete Data Service Configuration", e.getMessage());
+				MessageDialog.openError(Display.getCurrent().getActiveShell(),
+				                        "Incomplete Data Service Configuration", e.getMessage());
 				setSavingProcOk(false);
 				this.setActivePage(SOURCE_VIEW_INDEX);
 			}
 		}
 	}
-		
+
 	/**
 	 * This is how the framework determines which interfaces we implement. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @param key the key
+	 * @param key
+	 *            the key
 	 * @return the adapter
 	 * @generated
 	 */
 	@SuppressWarnings("rawtypes")
-	
 	public Object getAdapter(Class key) {
 		if (key.equals(IContentOutlinePage.class)) {
 			return showOutlineView() ? getContentOutlinePage() : null;
-		}
-		else if (key.equals(IPropertySheetPage.class)) {
+		} else if (key.equals(IPropertySheetPage.class)) {
 			return getPropertySheetPage();
-		}
-		else if (key.equals(IGotoMarker.class)) {
+		} else if (key.equals(IGotoMarker.class)) {
 			return this;
-		}
-		else {
+		} else {
 			return super.getAdapter(key);
 		}
 	}
@@ -1278,7 +1325,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 			// The content outline is just a tree.
 			//
 			class MyContentOutlinePage extends ContentOutlinePage {
-				
+
 				public void createControl(Composite parent) {
 					super.createControl(parent);
 					contentOutlineViewer = getTreeViewer();
@@ -1286,8 +1333,10 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 
 					// Set up the tree viewer.
 					//
-					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
-					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+					contentOutlineViewer.setContentProvider(new AdapterFactoryContentProvider(
+					                                                                          adapterFactory));
+					contentOutlineViewer.setLabelProvider(new AdapterFactoryLabelProvider(
+					                                                                      adapterFactory));
 					contentOutlineViewer.setInput(editingDomain.getResourceSet());
 
 					// Make sure our popups work.
@@ -1295,19 +1344,23 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 					createContextMenuFor(contentOutlineViewer);
 
 					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
-					  // Select the root object in the view.
-					  //
-					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
+						// Select the root object in the view.
+						//
+						contentOutlineViewer.setSelection(new StructuredSelection(
+						                                                          editingDomain.getResourceSet()
+						                                                                       .getResources()
+						                                                                       .get(0)),
+						                                  true);
 					}
 				}
 
-				
-				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager) {
+				public void makeContributions(IMenuManager menuManager,
+				                              IToolBarManager toolBarManager,
+				                              IStatusLineManager statusLineManager) {
 					super.makeContributions(menuManager, toolBarManager, statusLineManager);
 					contentOutlineStatusLineManager = statusLineManager;
 				}
 
-				
 				public void setActionBars(IActionBars actionBars) {
 					super.setActionBars(actionBars);
 					getActionBarContributor().shareGlobalActions(this, actionBars);
@@ -1318,14 +1371,13 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 
 			// Listen to selection so that we can handle it is a special way.
 			//
-			contentOutlinePage.addSelectionChangedListener
-				(new ISelectionChangedListener() {
-					 // This ensures that we handle selections correctly.
-					 //
-					 public void selectionChanged(SelectionChangedEvent event) {
-						 handleContentOutlineSelection(event.getSelection());
-					 }
-				 });
+			contentOutlinePage.addSelectionChangedListener(new ISelectionChangedListener() {
+				// This ensures that we handle selections correctly.
+				//
+				public void selectionChanged(SelectionChangedEvent event) {
+					handleContentOutlineSelection(event.getSelection());
+				}
+			});
 		}
 
 		return contentOutlinePage;
@@ -1342,7 +1394,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		if (propertySheetPage == null) {
 			propertySheetPage = new CustomExtendedPropertySheetPage(editingDomain);
 			propertySheetPage.setPropertySourceProvider(new CustomAdapterFactoryContentProvider(
-					adapterFactory));
+			                                                                                    adapterFactory));
 		}
 
 		return propertySheetPage;
@@ -1417,19 +1469,23 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	}
 
 	/**
-	 * This deals with how we want selection in the outliner to affect the other views.
+	 * This deals with how we want selection in the outliner to affect the other
+	 * views.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
-		if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
-			Iterator<?> selectedElements = ((IStructuredSelection)selection).iterator();
+		if (currentViewerPane != null && !selection.isEmpty() &&
+		    selection instanceof IStructuredSelection) {
+			Iterator<?> selectedElements = ((IStructuredSelection) selection).iterator();
 			if (selectedElements.hasNext()) {
 				// Get the first selected element.
 				//
 				Object selectedElement = selectedElements.next();
 
-				// If it's the selection viewer, then we want it to select the same selection as this selection.
+				// If it's the selection viewer, then we want it to select the
+				// same selection as this selection.
 				//
 				if (currentViewerPane.getViewer() == selectionViewer) {
 					ArrayList<Object> selectionList = new ArrayList<Object>();
@@ -1441,8 +1497,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 					// Set the selection to the widget.
 					//
 					selectionViewer.setSelection(new StructuredSelection(selectionList));
-				}
-				else {
+				} else {
 					// Set the input to the widget.
 					//
 					if (currentViewerPane.getViewer().getInput() != selectedElement) {
@@ -1455,61 +1510,69 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	}
 
 	/**
-	 * This is for implementing {@link IEditorPart} and simply tests the command stack.
+	 * This is for implementing {@link IEditorPart} and simply tests the command
+	 * stack.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	
+
 	public boolean isDirty() {
-	
-	  if (((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded() || isSourceModified ){
-		 return true;
-	   }else{
-		   return false;
-	   }
-		
+
+		if (((BasicCommandStack) editingDomain.getCommandStack()).isSaveNeeded() ||
+		    isSourceModified) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 
 	/**
-	 * This is for implementing {@link IEditorPart} and simply saves the model file.
+	 * This is for implementing {@link IEditorPart} and simply saves the model
+	 * file.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
-	
+
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Save only resources that have actually changed.
 		//
-		if(this.getActivePage() == SOURCE_VIEW_INDEX){
+		if (this.getActivePage() == SOURCE_VIEW_INDEX) {
 			saveSourceViewChanges();
 		}
-		
-		if(isSavingProcOk()){
-			
-		final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
-		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
 
-		// Do the work within an operation because this is a long running activity that modifies the workbench.
-		//
-		WorkspaceModifyOperation operation =
-			new WorkspaceModifyOperation() {
+		if (isSavingProcOk()) {
+
+			final Map<Object, Object> saveOptions = new HashMap<Object, Object>();
+			saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED,
+			                Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+
+			// Do the work within an operation because this is a long running
+			// activity that modifies the workbench.
+			//
+			WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 				// This is the method that gets invoked when the operation runs.
 				//
-				
+
 				public void execute(IProgressMonitor monitor) {
 					// Save the resources to the file system.
 					//
 					boolean first = true;
 					for (Resource resource : editingDomain.getResourceSet().getResources()) {
-						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
+						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) &&
+						    !editingDomain.isReadOnly(resource)) {
 							try {
 								long timeStamp = resource.getTimeStamp();
 								resource.save(saveOptions);
 								if (resource.getTimeStamp() != timeStamp) {
 									savedResources.add(resource);
 								}
-							}
-							catch (Exception exception) {
-								resourceToDiagnosticMap.put(resource, analyzeResourceProblems(resource, exception));
+							} catch (Exception exception) {
+								resourceToDiagnosticMap.put(resource,
+								                            analyzeResourceProblems(resource,
+								                                                    exception));
 							}
 							first = false;
 						}
@@ -1517,61 +1580,62 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 				}
 			};
 
-		updateProblemIndication = false;
-		try {
-			// This runs the options, and shows progress.
-			//
-			new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
-
-			// Refresh the necessary state.
-			//
-			((BasicCommandStack)editingDomain.getCommandStack()).saveIsDone();
-			
-			if(isSourceModified)
-				setSourceModified(false);
-				firePropertyChange(IEditorPart.PROP_DIRTY);
-			
-		}
-		catch (Exception exception) {
-			// Something went wrong that shouldn't.
-			//
-			DsEditorPlugin.INSTANCE.log(exception);
-		}
-		updateProblemIndication = true;
-		updateProblemIndication();
-		
-		
-		
-		if(designViewActivated && !isSourceModified){
-			
+			updateProblemIndication = false;
 			try {
-				sourceEditor.getEditor().getDocumentProvider().resetDocument(getEditorInput());
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				// This runs the options, and shows progress.
+				//
+				new ProgressMonitorDialog(getSite().getShell()).run(true, false, operation);
+
+				// Refresh the necessary state.
+				//
+				((BasicCommandStack) editingDomain.getCommandStack()).saveIsDone();
+
+				if (isSourceModified)
+					setSourceModified(false);
+				firePropertyChange(IEditorPart.PROP_DIRTY);
+
+			} catch (Exception exception) {
+				// Something went wrong that shouldn't.
+				//
+				DsEditorPlugin.INSTANCE.log(exception);
+			}
+			updateProblemIndication = true;
+			updateProblemIndication();
+
+			if (designViewActivated && !isSourceModified) {
+
+				try {
+					sourceEditor.getEditor().getDocumentProvider().resetDocument(getEditorInput());
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
-		}
-		
+
 	}
 
 	/**
-	 * This returns whether something has been persisted to the URI of the specified resource.
-	 * The implementation uses the URI converter from the editor's resource set to try to open an input stream. 
+	 * This returns whether something has been persisted to the URI of the
+	 * specified resource.
+	 * The implementation uses the URI converter from the editor's resource set
+	 * to try to open an input stream.
 	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected boolean isPersisted(Resource resource) {
 		boolean result = false;
 		try {
-			InputStream stream = editingDomain.getResourceSet().getURIConverter().createInputStream(resource.getURI());
+			InputStream stream =
+			                     editingDomain.getResourceSet().getURIConverter()
+			                                  .createInputStream(resource.getURI());
 			if (stream != null) {
 				result = true;
 				stream.close();
 			}
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			// Ignore
 		}
 		return result;
@@ -1584,7 +1648,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * @return true, if is save as allowed
 	 * @generated
 	 */
-	
+
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
@@ -1593,9 +1657,10 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * This also changes the editor's input.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
+
 	public void doSaveAs() {
 		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
 		saveAsDialog.open();
@@ -1603,7 +1668,8 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		if (path != null) {
 			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
 			if (file != null) {
-				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
+				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true),
+				         new FileEditorInput(file));
 			}
 		}
 	}
@@ -1622,9 +1688,10 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
 		IProgressMonitor progressMonitor =
-			getActionBars().getStatusLineManager() != null ?
-				getActionBars().getStatusLineManager().getProgressMonitor() :
-				new NullProgressMonitor();
+		                                   getActionBars().getStatusLineManager() != null
+		                                                                                 ? getActionBars().getStatusLineManager()
+		                                                                                                  .getProgressMonitor()
+		                                                                                 : new NullProgressMonitor();
 		doSave(progressMonitor);
 	}
 
@@ -1643,12 +1710,11 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 					URI uri = URI.createURI(uriAttribute);
 					EObject eObject = editingDomain.getResourceSet().getEObject(uri, true);
 					if (eObject != null) {
-					  setSelectionToViewer(Collections.singleton(editingDomain.getWrapper(eObject)));
+						setSelectionToViewer(Collections.singleton(editingDomain.getWrapper(eObject)));
 					}
 				}
 			}
-		}
-		catch (CoreException exception) {
+		} catch (CoreException exception) {
 			DsEditorPlugin.INSTANCE.log(exception);
 		}
 	}
@@ -1658,12 +1724,11 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * 
 	 * @generated
 	 */
-	
+
 	public void setFocus() {
 		if (currentViewerPane != null) {
 			currentViewerPane.setFocus();
-		}
-		else {
+		} else {
 			getControl(getActivePage()).setFocus();
 		}
 	}
@@ -1671,6 +1736,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void addSelectionChangedListener(ISelectionChangedListener listener) {
@@ -1680,6 +1746,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	/**
 	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider}.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void removeSelectionChangedListener(ISelectionChangedListener listener) {
@@ -1687,9 +1754,11 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	}
 
 	/**
-	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's overall selection.
+	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to
+	 * return this editor's overall selection.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ISelection getSelection() {
@@ -1697,9 +1766,11 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	}
 
 	/**
-	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to set this editor's overall selection.
+	 * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to
+	 * set this editor's overall selection.
 	 * Calling this result will notify the listeners.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setSelection(ISelection selection) {
@@ -1719,29 +1790,34 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * @generated
 	 */
 	public void setStatusLineManager(ISelection selection) {
-		IStatusLineManager statusLineManager = currentViewer != null && currentViewer == contentOutlineViewer ?
-			contentOutlineStatusLineManager : getActionBars().getStatusLineManager();
+		IStatusLineManager statusLineManager =
+		                                       currentViewer != null &&
+		                                               currentViewer == contentOutlineViewer
+		                                                                                    ? contentOutlineStatusLineManager
+		                                                                                    : getActionBars().getStatusLineManager();
 
 		if (statusLineManager != null) {
 			if (selection instanceof IStructuredSelection) {
-				Collection<?> collection = ((IStructuredSelection)selection).toList();
+				Collection<?> collection = ((IStructuredSelection) selection).toList();
 				switch (collection.size()) {
 					case 0: {
 						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
 						break;
 					}
 					case 1: {
-						String text = new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator().next());
+						String text =
+						              new AdapterFactoryItemDelegator(adapterFactory).getText(collection.iterator()
+						                                                                                .next());
 						statusLineManager.setMessage(getString("_UI_SingleObjectSelected", text));
 						break;
 					}
 					default: {
-						statusLineManager.setMessage(getString("_UI_MultiObjectSelected", Integer.toString(collection.size())));
+						statusLineManager.setMessage(getString("_UI_MultiObjectSelected",
+						                                       Integer.toString(collection.size())));
 						break;
 					}
 				}
-			}
-			else {
+			} else {
 				statusLineManager.setMessage("");
 			}
 		}
@@ -1772,7 +1848,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return DsEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return DsEditorPlugin.INSTANCE.getString(key, new Object[] { s1 });
 	}
 
 	/**
@@ -1785,7 +1861,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * @generated
 	 */
 	public void menuAboutToShow(IMenuManager menuManager) {
-		((IMenuListener)getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
+		((IMenuListener) getEditorSite().getActionBarContributor()).menuAboutToShow(menuManager);
 	}
 
 	/**
@@ -1795,7 +1871,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * @generated
 	 */
 	public EditingDomainActionBarContributor getActionBarContributor() {
-		return (EditingDomainActionBarContributor)getEditorSite().getActionBarContributor();
+		return (EditingDomainActionBarContributor) getEditorSite().getActionBarContributor();
 	}
 
 	/**
@@ -1823,7 +1899,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	 * 
 	 * @generated NOT
 	 */
-	
+
 	public void dispose() {
 		updateProblemIndication = false;
 
@@ -1832,10 +1908,10 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		getSite().getPage().removePartListener(partListener);
 
 		adapterFactory.dispose();
-		if(sourceEditor.getTempTag() != null){
-		sourceEditor.getTempTag().clearAndEnd();
+		if (sourceEditor.getTempTag() != null) {
+			sourceEditor.getTempTag().clearAndEnd();
 		}
-		
+
 		if (getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);
 		}
@@ -1866,8 +1942,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 		this.isSourceModified = isSourceModified;
 	}
 
-	
-	public void fireTextPropertyChange(){
+	public void fireTextPropertyChange() {
 		firePropertyChange(IEditorPart.PROP_DIRTY);
 	}
 
@@ -1878,13 +1953,14 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	public static int getSourceViewIndex() {
 		return SOURCE_VIEW_INDEX;
 	}
-	
+
 	/**
 	 * update the all data service references to new data service object
+	 * 
 	 * @param newDataService
 	 */
-	private void updateAllPagesWithNewDataServiceObject(DataService newDataService){
-		
+	private void updateAllPagesWithNewDataServiceObject(DataService newDataService) {
+
 		this.dataService = newDataService;
 		dataSourcePage.setDataService(newDataService);
 	}
@@ -1896,24 +1972,23 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	public DataService getDataService() {
 		return dataService;
 	}
-	
-	private void addDesignViewAction(){
-		
+
+	private void addDesignViewAction() {
+
 		designViewActionHandler = new DesignViewActionHandler();
-		
+
 		Display.getCurrent().addFilter(SWT.KeyDown, new Listener() {
-			
-			
+
 			public void handleEvent(Event event) {
-				IEditorPart editorPart = PlatformUI.getWorkbench()
-						.getActiveWorkbenchWindow().getActivePage()
-						.getActiveEditor();
+				IEditorPart editorPart =
+				                         PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				                                   .getActivePage().getActiveEditor();
 				if (editorPart == DsEditor.this) {
 
 					DsEditor dsEditor = (DsEditor) editorPart;
 
-					if ((dsEditor.getActivePage() == DESIGN_VIEW_INDEX)
-							&& !DetailSectionUiUtil.isFocusedOnDetailSection) {
+					if ((dsEditor.getActivePage() == DESIGN_VIEW_INDEX) &&
+					    !DetailSectionUiUtil.isFocusedOnDetailSection) {
 						if (event.keyCode == SWT.DEL) {
 
 							designViewActionHandler.delete(dsEditor);
@@ -1921,7 +1996,7 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 					}
 				}
 			}
-		}); 
+		});
 	}
 
 	public boolean isSavingProcOk() {
@@ -1931,8 +2006,5 @@ public class DsEditor extends FormEditor implements IEditingDomainProvider,
 	public void setSavingProcOk(boolean isSavingProcOk) {
 		this.isSavingProcOk = isSavingProcOk;
 	}
-	
-	
 
-		
 }

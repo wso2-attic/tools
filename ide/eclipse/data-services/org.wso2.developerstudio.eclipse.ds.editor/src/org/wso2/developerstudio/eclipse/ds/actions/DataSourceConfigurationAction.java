@@ -1,11 +1,12 @@
-/* Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+/*
+ * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -70,7 +71,6 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 
 	/** The image url. */
 	protected String imageURL;
-	
 
 	/**
 	 * Instantiates a new data source configuration action.
@@ -91,8 +91,9 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 	 *            the protocol value
 	 */
 	public DataSourceConfigurationAction(ISelection selection, EditingDomain editingDomain,
-			Collection<?> newChildDescriptors, String mainType, String dataSourceType,
-			String driverValue, String protocolValue) {
+	                                     Collection<?> newChildDescriptors, String mainType,
+	                                     String dataSourceType, String driverValue,
+	                                     String protocolValue) {
 		super(editingDomain);
 		this.selection = selection;
 		this.newChildDescriptors = newChildDescriptors;
@@ -119,7 +120,7 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 	 * @see org.eclipse.emf.edit.ui.action.StaticSelectionCommandAction#
 	 * getDefaultImageDescriptor()
 	 */
-	
+
 	protected ImageDescriptor getDefaultImageDescriptor() {
 		URL url = (URL) DsEditPlugin.INSTANCE.getImage(imageURL);
 		return ImageDescriptor.createFromURL(url);
@@ -234,7 +235,7 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 	 * createActionCommand(org.eclipse.emf.edit.domain.EditingDomain,
 	 * java.util.Collection)
 	 */
-	
+
 	protected Command createActionCommand(EditingDomain editingDomain, Collection<?> collection) {
 
 		if (collection.size() == 1 && newChildDescriptors != null) {
@@ -242,65 +243,72 @@ public class DataSourceConfigurationAction extends StaticSelectionCommandAction 
 			// owner is the DataService element that was selected
 			Object owner = collection.iterator().next();
 			for (Object descriptor : newChildDescriptors) {
-				
+
 				CommandParameter compar = (CommandParameter) descriptor;
-				// ensure that only the DataSourceconfiguration elements are empowerd
-				if(compar.getValue() instanceof DataSourceConfiguration){
-					
-				// A compound command can execute several commands at once. A
-				// config element and corresponding property elements need to be
-				// added, hence a compound command is used.
-				CompoundCommand compoundCmd = new CompoundCommand(dataSourceType);
+				// ensure that only the DataSourceconfiguration elements are
+				// empowerd
+				if (compar.getValue() instanceof DataSourceConfiguration) {
 
-				// configCmd is used to add a config element to the tree
-				Command configCmd = CreateChildCommand.create(editingDomain, owner, descriptor,
-						collection);
-				CommandParameter param = (CommandParameter) descriptor;
+					// A compound command can execute several commands at once.
+					// A
+					// config element and corresponding property elements need
+					// to be
+					// added, hence a compound command is used.
+					CompoundCommand compoundCmd = new CompoundCommand(dataSourceType);
 
-				EObject childObj = param.getEValue();
-				
-				// Add the config command to the compound command
-				compoundCmd.append(configCmd);
+					// configCmd is used to add a config element to the tree
+					Command configCmd =
+					                    CreateChildCommand.create(editingDomain, owner, descriptor,
+					                                              collection);
+					CommandParameter param = (CommandParameter) descriptor;
 
-				// From the list of children a Data Source can create, check if
-				// childObj is an instance of DataSourceConfiguration.
-				if (childObj instanceof DataSourceConfiguration) {
+					EObject childObj = param.getEValue();
 
-					DataSourceConfiguration child = (DataSourceConfiguration) childObj;
-					child.setId("New Data Source");
+					// Add the config command to the compound command
+					compoundCmd.append(configCmd);
 
-					// generate the properties
-					Iterator<String> i = listOfProperties.iterator();
-					Iterator<String> j = listOfValues.iterator();
+					// From the list of children a Data Source can create, check
+					// if
+					// childObj is an instance of DataSourceConfiguration.
+					if (childObj instanceof DataSourceConfiguration) {
 
-					while (i.hasNext() && j.hasNext()) {
+						DataSourceConfiguration child = (DataSourceConfiguration) childObj;
+						child.setId("New Data Source");
 
-						// Create a configuration property
-						ConfigurationProperty configProperty = DsFactory.eINSTANCE
-								.createConfigurationProperty();
+						// generate the properties
+						Iterator<String> i = listOfProperties.iterator();
+						Iterator<String> j = listOfValues.iterator();
 
-						// Set the name and value for the property element
-						configProperty.setName(i.next());
-						configProperty.setValue(j.next());
+						while (i.hasNext() && j.hasNext()) {
 
-						CommandParameter param2 = new CommandParameter(
-								child,
-								DsPackage.Literals.DATA_SOURCE_CONFIGURATION__PROPERTY,
-								configProperty);
-						Command propertyCmd = CreateChildCommand.create(editingDomain, child,
-								param2, collection);
+							// Create a configuration property
+							ConfigurationProperty configProperty =
+							                                       DsFactory.eINSTANCE.createConfigurationProperty();
 
-						// Add the property command to the compound command
-						compoundCmd.append(propertyCmd);
+							// Set the name and value for the property element
+							configProperty.setName(i.next());
+							configProperty.setValue(j.next());
+
+							CommandParameter param2 =
+							                          new CommandParameter(
+							                                               child,
+							                                               DsPackage.Literals.DATA_SOURCE_CONFIGURATION__PROPERTY,
+							                                               configProperty);
+							Command propertyCmd =
+							                      CreateChildCommand.create(editingDomain, child,
+							                                                param2, collection);
+
+							// Add the property command to the compound command
+							compoundCmd.append(propertyCmd);
+						}
+
 					}
 
-				}
-				
-				return compoundCmd;
+					return compoundCmd;
 				}
 			}
-			}
-			
+		}
+
 		// return a command that cannot be executed
 		return UnexecutableCommand.INSTANCE;
 	}

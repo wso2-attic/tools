@@ -15,11 +15,13 @@
 	<xs:element name="data">
 		<xs:complexType ecore:name="DataService">
 			<xs:choice maxOccurs="unbounded" ecore:featureMap="">
-				<xs:element name="description" maxOccurs="1" minOccurs="0"/>
-				<xs:element name="config" maxOccurs="unbounded" minOccurs="1">
+				<xs:element name="description" maxOccurs="1" minOccurs="0" />
+				<xs:element name="config" maxOccurs="unbounded"
+					minOccurs="1">
 					<xs:complexType ecore:name="DataSourceConfiguration">
 						<xs:sequence>
-							<xs:element ref="property" maxOccurs="unbounded" minOccurs="1" />
+							<xs:element ref="property" maxOccurs="unbounded"
+								minOccurs="1" />
 						</xs:sequence>
 						<xs:attribute name="id" type="xs:string" use="optional" />
 					</xs:complexType>
@@ -27,18 +29,21 @@
 				<xs:element name="query" maxOccurs="unbounded" minOccurs="0">
 					<xs:complexType ecore:name="Query">
 						<xs:choice maxOccurs="unbounded" ecore:featureMap="">
-							<xs:element name="sql" maxOccurs="unbounded" minOccurs="0" />
-							<xs:element name="sparql" maxOccurs="1" minOccurs="0"/>
+							<xs:element name="sql" maxOccurs="unbounded"
+								minOccurs="0" />
+							<xs:element name="sparql" maxOccurs="1" minOccurs="0" />
 							<xs:element name="properties" maxOccurs="1" minOccurs="0">
 								<xs:complexType ecore:name="QueryPropertyList">
 									<xs:sequence>
-										<xs:element name="property" minOccurs="0" maxOccurs="5">
+										<xs:element name="property" minOccurs="0"
+											maxOccurs="5">
 											<xs:complexType ecore:name="QueryProperty">
 												<xs:simpleContent>
 													<xs:extension base="xs:string">
-														<xs:attribute name="name" type="xs:string" use="required" />
-													</xs:extension>													
-												</xs:simpleContent>																							
+														<xs:attribute name="name" type="xs:string"
+															use="required" />
+													</xs:extension>
+												</xs:simpleContent>
 											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
@@ -47,40 +52,53 @@
 							<xs:element name="result" maxOccurs="1" minOccurs="0">
 								<xs:complexType ecore:name="ResultMapping">
 									<xs:choice maxOccurs="unbounded" ecore:featureMap="">
-										<xs:element name="element" maxOccurs="unbounded" minOccurs="0">
+										<xs:element name="element" maxOccurs="unbounded"
+											minOccurs="0">
 											<xs:complexType ecore:name="ElementMapping">
 												<xs:attribute name="name" type="xs:string" use="required" />
-												<xs:attribute name="column" type="xs:string" use="required" />
-												<xs:attribute name="xsdType" type="xs:string" use="optional" />
-												<xs:attribute name="requiredRoles" type="xs:string" use="optional" />
-												<xs:attribute name="export" type="xs:string" use="optional" />
+												<xs:attribute name="column" type="xs:string"
+													use="required" />
+												<xs:attribute name="xsdType" type="xs:string"
+													use="optional" />
+												<xs:attribute name="requiredRoles" type="xs:string"
+													use="optional" />
+												<xs:attribute name="export" type="xs:string"
+													use="optional" />
 											</xs:complexType>
 										</xs:element>
-										<xs:element name="attribute" maxOccurs="unbounded" minOccurs="0">
+										<xs:element name="attribute" maxOccurs="unbounded"
+											minOccurs="0">
 											<xs:complexType ecore:name="AttributeMapping">
 												<xs:attribute name="name" type="xs:string" use="required" />
-												<xs:attribute name="column" type="xs:string" use="required" />
-												<xs:attribute name="xsdType" type="xs:string" use="optional" />
-												<xs:attribute name="requiredRoles" type="xs:string" use="optional" />
+												<xs:attribute name="column" type="xs:string"
+													use="required" />
+												<xs:attribute name="xsdType" type="xs:string"
+													use="optional" />
+												<xs:attribute name="requiredRoles" type="xs:string"
+													use="optional" />
 											</xs:complexType>
 										</xs:element>
-										<xs:element ref="call-query" maxOccurs="unbounded" minOccurs="0" />
+										<xs:element ref="call-query" maxOccurs="unbounded"
+											minOccurs="0" />
 									</xs:choice>
 									<xs:attribute name="element" type="xs:string" use="required" />
 									<xs:attribute name="rowName" type="xs:string" use="required" />
-									<xs:attribute name="defaultNamespace" type="xs:string" use="optional" />
-									<xs:attribute name="xsltPath" type="xs:string" use="optional" />
-                                    <xs:attribute name="useColumnNumbers" type="xs:string" use="optional" /> 
+									<xs:attribute name="defaultNamespace" type="xs:string"
+										use="optional" />
+									<xs:attribute name="xsltPath" type="xs:string"
+										use="optional" />
+									<xs:attribute name="useColumnNumbers" type="xs:string"
+										use="optional" />
 								</xs:complexType>
 							</xs:element>
 							<xs:element name="excel" maxOccurs="unbounded"
 								minOccurs="0">
 								<xs:complexType ecore:name="ExcelQuery">
 									<xs:sequence>
-								<xs:element name="workbookname" type="xs:string"/>
-                                   				<xs:element name="hasheader" type="xs:boolean"/>
-                                   				<xs:element name="startingrow" type="xs:unsignedLong"/>
-                                   				<xs:element name="maxrowcount" type="xs:unsignedLong"/>
+										<xs:element name="workbookname" type="xs:string" />
+										<xs:element name="hasheader" type="xs:boolean" />
+										<xs:element name="startingrow" type="xs:unsignedLong" />
+										<xs:element name="maxrowcount" type="xs:unsignedLong" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -88,10 +106,10 @@
 								minOccurs="0">
 								<xs:complexType ecore:name="GSpreadQuery">
 									<xs:sequence>
-										<xs:element name="worksheetnumber" type="xs:unsignedLong"/>
-                                   				<xs:element name="startingrow" type="xs:unsignedLong"/>
-                                   				<xs:element name="maxrowcount" type="xs:unsignedLong"/>
-                                   				<xs:element name="hasheader" type="xs:boolean"/>
+										<xs:element name="worksheetnumber" type="xs:unsignedLong" />
+										<xs:element name="startingrow" type="xs:unsignedLong" />
+										<xs:element name="maxrowcount" type="xs:unsignedLong" />
+										<xs:element name="hasheader" type="xs:boolean" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
@@ -142,56 +160,72 @@
 										</xs:element>
 									</xs:sequence>
 									<xs:attribute name="name" type="xs:string" use="required" />
-									<xs:attribute name="paramType" type="xs:string" use="optional" />
+									<xs:attribute name="paramType" type="xs:string"
+										use="optional" />
 									<xs:attribute name="sqlType" type="xs:string" use="required" />
 									<xs:attribute name="type" type="xs:string" use="optional" />
-									<xs:attribute name="ordinal" type="xs:unsignedInt" use="optional" />
-									<xs:attribute name="defaultValue" type="xs:string" use="optional" />
-									<xs:attribute name="structType" type="xs:string" use="optional" />
+									<xs:attribute name="ordinal" type="xs:unsignedInt"
+										use="optional" />
+									<xs:attribute name="defaultValue" type="xs:string"
+										use="optional" />
+									<xs:attribute name="structType" type="xs:string"
+										use="optional" />
 								</xs:complexType>
 							</xs:element>
 						</xs:choice>
 						<xs:attribute name="id" type="xs:string" use="required" />
 						<xs:attribute name="useConfig" type="xs:string" use="optional" />
-						<xs:attribute name="input-event-trigger" type="xs:string" use="optional" />
-						<xs:attribute name="output-event-trigger" type="xs:string" use="optional" />
-						<xs:attribute name="returnGeneratedKeys" type="xs:boolean" use="optional" />
-						<xs:attribute name="keyColumns" type="xs:string" use="optional"/>
+						<xs:attribute name="input-event-trigger" type="xs:string"
+							use="optional" />
+						<xs:attribute name="output-event-trigger" type="xs:string"
+							use="optional" />
+						<xs:attribute name="returnGeneratedKeys" type="xs:boolean"
+							use="optional" />
+						<xs:attribute name="keyColumns" type="xs:string" use="optional" />
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="event-trigger" maxOccurs="unbounded"
 					minOccurs="0">
 					<xs:complexType ecore:name="EventTrigger">
 						<xs:sequence>
-							<xs:element name="expression" type="xs:string" maxOccurs="1" minOccurs="1"/>
-							<xs:element name="target-topic" type="xs:string" maxOccurs="1" minOccurs="1"/>
-							<xs:element name="subscriptions" maxOccurs="1" minOccurs="1">
+							<xs:element name="expression" type="xs:string"
+								maxOccurs="1" minOccurs="1" />
+							<xs:element name="target-topic" type="xs:string"
+								maxOccurs="1" minOccurs="1" />
+							<xs:element name="subscriptions" maxOccurs="1"
+								minOccurs="1">
 								<xs:complexType ecore:name="EventSubscriptionList">
 									<xs:sequence>
-										<!--<xs:element name="subscription" maxOccurs="unbounded" minOccurs="1"/>  old -->
-										<xs:element name="subscription" maxOccurs="unbounded" minOccurs="1" />
+										<!--<xs:element name="subscription" maxOccurs="unbounded" minOccurs="1"/> 
+											old -->
+										<xs:element name="subscription" maxOccurs="unbounded"
+											minOccurs="1" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
 						<xs:attribute name="id" type="xs:string" use="required" />
-                        <xs:attribute name="language" type="xs:string" use="optional" />
+						<xs:attribute name="language" type="xs:string" use="optional" />
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="operation" maxOccurs="unbounded" minOccurs="0">
+				<xs:element name="operation" maxOccurs="unbounded"
+					minOccurs="0">
 					<xs:complexType ecore:name="Operation">
 						<xs:choice ecore:featureMap="">
 							<xs:element ref="call-query" maxOccurs="1" minOccurs="1" />
-							<xs:element name="call-query-group" maxOccurs="1" minOccurs="0">
+							<xs:element name="call-query-group" maxOccurs="1"
+								minOccurs="0">
 								<xs:complexType ecore:name="CallQueryList">
 									<xs:sequence>
-										<xs:element ref="call-query" maxOccurs="unbounded" minOccurs="1" />
+										<xs:element ref="call-query" maxOccurs="unbounded"
+											minOccurs="1" />
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
 						</xs:choice>
 						<xs:attribute name="name" type="xs:string" use="required" />
-						<xs:attribute name="disableStreaming" type="xs:boolean" use="optional" />
+						<xs:attribute name="disableStreaming" type="xs:boolean"
+							use="optional" />
 					</xs:complexType>
 				</xs:element>
 				<xs:element name="resource" maxOccurs="unbounded"
@@ -202,7 +236,8 @@
 						</xs:sequence>
 						<xs:attribute name="path" type="xs:string" use="required" />
 						<xs:attribute name="method" type="xs:string" use="required" />
-						<xs:attribute name="returnRequestStatus" type="xs:boolean" use="optional"/>
+						<xs:attribute name="returnRequestStatus" type="xs:boolean"
+							use="optional" />
 					</xs:complexType>
 				</xs:element>
 			</xs:choice>
@@ -228,10 +263,12 @@
 	<xs:element name="call-query">
 		<xs:complexType ecore:name="CallQuery">
 			<xs:sequence>
-				<xs:element name="with-param" maxOccurs="unbounded" minOccurs="0">
+				<xs:element name="with-param" maxOccurs="unbounded"
+					minOccurs="0">
 					<xs:complexType ecore:name="ParameterMapping">
 						<xs:attribute name="name" type="xs:string" use="required" />
-						<xs:attribute name="query-param" type="xs:string" use="optional" />
+						<xs:attribute name="query-param" type="xs:string"
+							use="optional" />
 						<xs:attribute name="column" type="xs:string" use="optional" />
 					</xs:complexType>
 				</xs:element>
@@ -240,16 +277,16 @@
 		</xs:complexType>
 	</xs:element>
 
-	 <xs:element name="property">
-	<xs:complexType ecore:name="ConfigurationProperty">
-             
+	<xs:element name="property">
+		<xs:complexType ecore:name="ConfigurationProperty">
+
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
 					<xs:attribute name="name" type="xs:string" use="required" />
 				</xs:extension>
 			</xs:simpleContent>
-		
-        </xs:complexType>
-     </xs:element>
+
+		</xs:complexType>
+	</xs:element>
 </xs:schema>
 

@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.util;
@@ -35,18 +35,21 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  */
 public class DsResourceImpl extends XMLResourceImpl {
 
-	private static final String prettyPrintStylesheet = "<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' version='1.0' "
-			+ " xmlns:xalan='http://xml.apache.org/xslt' "
-			+ " exclude-result-prefixes='xalan'>"
-			+ "  <xsl:output method='xml' indent='yes' xalan:indent-amount='4'/>"
-			+ "  <xsl:strip-space elements='*'/>"
-			+ "  <xsl:template match='/'>"
-			+ "    <xsl:apply-templates/>"
-			+ "  </xsl:template>"
-			+ "  <xsl:template match='node() | @*'>"
-			+ "        <xsl:copy>"
-			+ "          <xsl:apply-templates select='node() | @*'/>"
-			+ "        </xsl:copy>" + "  </xsl:template>" + "</xsl:stylesheet>";
+	private static final String prettyPrintStylesheet =
+	                                                    "<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' version='1.0' "
+	                                                            + " xmlns:xalan='http://xml.apache.org/xslt' "
+	                                                            + " exclude-result-prefixes='xalan'>"
+	                                                            + "  <xsl:output method='xml' indent='yes' xalan:indent-amount='4'/>"
+	                                                            + "  <xsl:strip-space elements='*'/>"
+	                                                            + "  <xsl:template match='/'>"
+	                                                            + "    <xsl:apply-templates/>"
+	                                                            + "  </xsl:template>"
+	                                                            + "  <xsl:template match='node() | @*'>"
+	                                                            + "        <xsl:copy>"
+	                                                            + "          <xsl:apply-templates select='node() | @*'/>"
+	                                                            + "        </xsl:copy>"
+	                                                            + "  </xsl:template>"
+	                                                            + "</xsl:stylesheet>";
 
 	/**
 	 * Creates an instance of the resource. <!-- begin-user-doc --> <!--
@@ -61,8 +64,7 @@ public class DsResourceImpl extends XMLResourceImpl {
 	}
 
 	@Override
-	public void doSave(OutputStream outputStream, Map<?, ?> options)
-			throws IOException {
+	public void doSave(OutputStream outputStream, Map<?, ?> options) throws IOException {
 		XMLSave xmlSave = createXMLSave();
 		StringWriter source = new StringWriter();
 
@@ -70,8 +72,7 @@ public class DsResourceImpl extends XMLResourceImpl {
 			options = Collections.EMPTY_MAP;
 		}
 
-		ResourceHandler handler = (ResourceHandler) options
-				.get(OPTION_RESOURCE_HANDLER);
+		ResourceHandler handler = (ResourceHandler) options.get(OPTION_RESOURCE_HANDLER);
 
 		if (handler != null) {
 			handler.preSave(this, outputStream, options);
@@ -79,10 +80,13 @@ public class DsResourceImpl extends XMLResourceImpl {
 
 		try {
 			xmlSave.save(this, source, options);
-			Source stylesheetSource = new StreamSource(
-					new ByteArrayInputStream(prettyPrintStylesheet.getBytes()));
-			Source xmlSource = new StreamSource(new ByteArrayInputStream(source
-					.toString().getBytes()));
+			Source stylesheetSource =
+			                          new StreamSource(
+			                                           new ByteArrayInputStream(
+			                                                                    prettyPrintStylesheet.getBytes()));
+			Source xmlSource =
+			                   new StreamSource(new ByteArrayInputStream(source.toString()
+			                                                                   .getBytes()));
 
 			TransformerFactory tf = TransformerFactory.newInstance();
 			Templates templates = tf.newTemplates(stylesheetSource);
@@ -90,7 +94,8 @@ public class DsResourceImpl extends XMLResourceImpl {
 			transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
 			transformer.transform(xmlSource, new StreamResult(outputStream));
 		} catch (Exception e) {
-			//ignored transformation errors and save xml to default outputStream
+			// ignored transformation errors and save xml to default
+			// outputStream
 			xmlSave.save(this, outputStream, options);
 		}
 

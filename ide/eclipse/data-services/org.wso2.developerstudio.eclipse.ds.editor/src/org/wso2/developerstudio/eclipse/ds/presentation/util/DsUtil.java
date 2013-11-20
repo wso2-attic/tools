@@ -7,9 +7,10 @@ import org.eclipse.swt.widgets.TableColumn;
 
 public class DsUtil {
 
-	public static TableViewerColumn createTableViewerColumn(TableViewer viewer,String title, int bound) {
-		
-		final TableViewerColumn viewerColumn = new TableViewerColumn(viewer,SWT.NONE);
+	public static TableViewerColumn createTableViewerColumn(TableViewer viewer, String title,
+	                                                        int bound) {
+
+		final TableViewerColumn viewerColumn = new TableViewerColumn(viewer, SWT.NONE);
 		final TableColumn column = viewerColumn.getColumn();
 		column.setText(title);
 		column.setWidth(bound);

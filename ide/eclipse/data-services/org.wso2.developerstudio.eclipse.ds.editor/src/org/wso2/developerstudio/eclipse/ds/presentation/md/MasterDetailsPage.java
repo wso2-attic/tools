@@ -10,19 +10,20 @@ import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 /**
  * Master Detail page for the DsEditor form editor
  * this take care of the all tree /property related actions.
- *
+ * 
  */
 
 public class MasterDetailsPage extends FormPage {
 
 	private OutlineBlock outLineBlock;
-	
-	public MasterDetailsPage(DsEditor editor ,ComposedAdapterFactory adapterFactory,EditingDomain domain) {
-		super(editor, "md", "OutlinePage"); 
-		outLineBlock = new OutlineBlock(editor,adapterFactory, domain);
+
+	public MasterDetailsPage(DsEditor editor, ComposedAdapterFactory adapterFactory,
+	                         EditingDomain domain) {
+		super(editor, "md", "OutlinePage");
+		outLineBlock = new OutlineBlock(editor, adapterFactory, domain);
 	}
-	
-	protected void createFormContent(IManagedForm managedForm){
+
+	protected void createFormContent(IManagedForm managedForm) {
 		ScrolledForm form = managedForm.getForm();
 		form.setText("Data Service Description");
 		outLineBlock.createContent(managedForm);
@@ -31,6 +32,5 @@ public class MasterDetailsPage extends FormPage {
 	public OutlineBlock getOutLineBlock() {
 		return outLineBlock;
 	}
-	
-	
+
 }

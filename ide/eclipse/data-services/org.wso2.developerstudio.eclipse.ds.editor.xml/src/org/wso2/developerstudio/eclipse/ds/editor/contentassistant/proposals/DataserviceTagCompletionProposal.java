@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -30,10 +30,13 @@ import org.eclipse.swt.graphics.Point;
 import org.wso2.developerstudio.eclipse.ds.model.DataserviceAttributeElement;
 import org.wso2.developerstudio.eclipse.ds.model.DataserviceTagElement;
 
-public class DataserviceTagCompletionProposal implements ICompletionProposal, ICompletionProposalExtension, ICompletionProposalExtension2, ICompletionProposalExtension3 {
+public class DataserviceTagCompletionProposal implements ICompletionProposal,
+                                             ICompletionProposalExtension,
+                                             ICompletionProposalExtension2,
+                                             ICompletionProposalExtension3 {
 	private DataserviceTagElement element;
 	private Point selectedRange;
-	
+
 	public DataserviceTagCompletionProposal(DataserviceTagElement element) {
 		setElement(element);
 	}
@@ -61,27 +64,27 @@ public class DataserviceTagCompletionProposal implements ICompletionProposal, IC
 	public void apply(ITextViewer viewer, char trigger, int stateMask, int offset) {
 		String s = viewer.getDocument().get();
 		selectedRange = viewer.getSelectedRange();
-		String startTag=getElement().getName();
+		String startTag = getElement().getName();
 		for (DataserviceAttributeElement attr : element.getAttributes()) {
-			if (attr.isRequired()){
-				startTag+=" "+attr.getAttributeString();
+			if (attr.isRequired()) {
+				startTag += " " + attr.getAttributeString();
 			}
 		}
-		startTag+=">";
-		String endTag="</"+getElement().getName()+">";
-		if (!s.substring(offset-1, offset).equals("<")){
-			startTag="<"+startTag;
+		startTag += ">";
+		String endTag = "</" + getElement().getName() + ">";
+		if (!s.substring(offset - 1, offset).equals("<")) {
+			startTag = "<" + startTag;
 		}
-		viewer.getDocument().set(s.substring(0, offset)+startTag+endTag+s.substring(offset));
-		selectedRange.x=selectedRange.x+startTag.length();
+		viewer.getDocument().set(s.substring(0, offset) + startTag + endTag + s.substring(offset));
+		selectedRange.x = selectedRange.x + startTag.length();
 	}
 
 	public void selected(ITextViewer arg0, boolean arg1) {
-		
+
 	}
 
 	public void unselected(ITextViewer arg0) {
-		
+
 	}
 
 	public boolean validate(IDocument arg0, int arg1, DocumentEvent arg2) {
@@ -96,7 +99,7 @@ public class DataserviceTagCompletionProposal implements ICompletionProposal, IC
 	}
 
 	public char[] getTriggerCharacters() {
-		return new char[]{'<'};
+		return new char[] { '<' };
 	}
 
 	public boolean isValidFor(IDocument arg0, int arg1) {

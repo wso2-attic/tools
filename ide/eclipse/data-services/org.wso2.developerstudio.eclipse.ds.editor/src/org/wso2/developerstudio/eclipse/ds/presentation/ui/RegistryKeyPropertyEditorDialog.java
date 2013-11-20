@@ -1,12 +1,12 @@
 /*
  * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -201,7 +201,7 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 	 *            named entities currently defined on the local configuration.
 	 */
 	public RegistryKeyPropertyEditorDialog(Shell parent, int style,
-			java.util.List<NamedEntityDescriptor> localNamedEntities) {
+	                                       java.util.List<NamedEntityDescriptor> localNamedEntities) {
 		super(parent, style);
 		this.localNamedEntities = localNamedEntities;
 	}
@@ -215,8 +215,11 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 	public static void main(String[] args) {
 		Display display = Display.getDefault();
 		Shell shell = new Shell(display);
-		RegistryKeyPropertyEditorDialog dialog = new RegistryKeyPropertyEditorDialog(shell,
-				SWT.NULL, new ArrayList<NamedEntityDescriptor>());
+		RegistryKeyPropertyEditorDialog dialog =
+		                                         new RegistryKeyPropertyEditorDialog(
+		                                                                             shell,
+		                                                                             SWT.NULL,
+		                                                                             new ArrayList<NamedEntityDescriptor>());
 		dialog.open();
 	}
 
@@ -239,9 +242,9 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 			rkLabel.setText("Key:");
 			FormData rkLabelLayoutData = new FormData();
 			rkLabelLayoutData.top = new FormAttachment(2); // Otherwise
-															// rkTextField
-															// aligns to dialog
-															// border.
+			                                               // rkTextField
+			                                               // aligns to dialog
+			                                               // border.
 			rkLabelLayoutData.left = new FormAttachment(0);
 			rkLabel.setLayoutData(rkLabelLayoutData);
 		}
@@ -318,8 +321,9 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 
 				FormData registryUrlsComboBoxLayoutData = new FormData();
 				registryUrlsComboBoxLayoutData.left = new FormAttachment(registryUrlLabel, 5);
-				registryUrlsComboBoxLayoutData.top = new FormAttachment(registryUrlLabel, 0,
-						SWT.CENTER);
+				registryUrlsComboBoxLayoutData.top =
+				                                     new FormAttachment(registryUrlLabel, 0,
+				                                                        SWT.CENTER);
 				registryUrlsComboBoxLayoutData.right = new FormAttachment(100);
 				registryUrlsComboBox.setLayoutData(registryUrlsComboBoxLayoutData);
 			}
@@ -333,8 +337,9 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 
 				FormData registryTypeComboBoxLayoutData = new FormData();
 				registryTypeComboBoxLayoutData.top = new FormAttachment(registryUrlsComboBox, 5);
-				registryTypeComboBoxLayoutData.left = new FormAttachment(registryUrlsComboBox, 0,
-						SWT.LEAD);
+				registryTypeComboBoxLayoutData.left =
+				                                      new FormAttachment(registryUrlsComboBox, 0,
+				                                                         SWT.LEAD);
 				registryTypeComboBox.setLayoutData(registryTypeComboBoxLayoutData);
 			}
 
@@ -343,8 +348,9 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 			{
 				registryTypeLabel.setText("Registry Type:");
 				FormData registryTypeLabelLayoutData = new FormData();
-				registryTypeLabelLayoutData.top = new FormAttachment(registryTypeComboBox, 0,
-						SWT.CENTER);
+				registryTypeLabelLayoutData.top =
+				                                  new FormAttachment(registryTypeComboBox, 0,
+				                                                     SWT.CENTER);
 				registryTypeLabelLayoutData.left = new FormAttachment(0);
 				registryTypeLabelLayoutData.right = new FormAttachment(registryTypeComboBox);
 				registryTypeLabel.setLayoutData(registryTypeLabelLayoutData);
@@ -356,7 +362,8 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 				browseButton.setText("Browse");
 				FormData browseButtonLayoutData = new FormData();
 				browseButtonLayoutData.left = new FormAttachment(registryTypeComboBox, 5);
-				browseButtonLayoutData.top = new FormAttachment(registryTypeComboBox, 0, SWT.CENTER);
+				browseButtonLayoutData.top =
+				                             new FormAttachment(registryTypeComboBox, 0, SWT.CENTER);
 				browseButtonLayoutData.width = 80;
 				browseButton.setLayoutData(browseButtonLayoutData);
 			}
@@ -371,8 +378,9 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 				localEntriesGroupBoxLayoutData.top = new FormAttachment(rkTextField, 5);
 				localEntriesGroupBoxLayoutData.left = new FormAttachment(0);
 				localEntriesGroupBoxLayoutData.right = new FormAttachment(100);
-				localEntriesGroupBoxLayoutData.bottom = new FormAttachment(remoteRegistryGroupBox,
-						-5);
+				localEntriesGroupBoxLayoutData.bottom =
+				                                        new FormAttachment(remoteRegistryGroupBox,
+				                                                           -5);
 				localEntriesGroupBox.setLayoutData(localEntriesGroupBoxLayoutData);
 
 				// Local entries group box internal layout.
@@ -392,8 +400,9 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 				}
 
 				// Local entries list box.
-				localEntriesListBox = new List(localEntriesGroupBox, SWT.BORDER | SWT.V_SCROLL
-						| SWT.H_SCROLL);
+				localEntriesListBox =
+				                      new List(localEntriesGroupBox, SWT.BORDER | SWT.V_SCROLL |
+				                                                     SWT.H_SCROLL);
 				{
 					for (NamedEntityDescriptor descriptor : localNamedEntities) {
 						localEntriesListBox.add(descriptor.toString());
@@ -448,8 +457,8 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 				public void handleEvent(Event event) {
 					String[] selection = localEntriesListBox.getSelection();
 					if (selection.length > 0) {
-						NamedEntityDescriptor descriptor = NamedEntityDescriptor
-								.fromString(selection[0]);
+						NamedEntityDescriptor descriptor =
+						                                   NamedEntityDescriptor.fromString(selection[0]);
 						if (null != descriptor) {
 							rkTextField.setText(descriptor.getName());
 						}
@@ -485,17 +494,21 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 	}
 
 	private void setTabOrder() {
-		Control[] remoteRegistryGroupBoxTabOrder = new Control[] { registryUrlsComboBox,
-				registryTypeComboBox, browseButton };
+		Control[] remoteRegistryGroupBoxTabOrder =
+		                                           new Control[] { registryUrlsComboBox,
+		                                                          registryTypeComboBox,
+		                                                          browseButton };
 		remoteRegistryGroupBox.setTabList(remoteRegistryGroupBoxTabOrder);
 
 		Control[] globalTabOrder;
 		if (null != localEntriesGroupBox) {
-			globalTabOrder = new Control[] { rkTextField, localEntriesGroupBox,
-					remoteRegistryGroupBox, okButton, cancelButton };
+			globalTabOrder =
+			                 new Control[] { rkTextField, localEntriesGroupBox,
+			                                remoteRegistryGroupBox, okButton, cancelButton };
 		} else {
-			globalTabOrder = new Control[] { rkTextField, remoteRegistryGroupBox, okButton,
-					cancelButton };
+			globalTabOrder =
+			                 new Control[] { rkTextField, remoteRegistryGroupBox, okButton,
+			                                cancelButton };
 		}
 		dialogShell.setTabList(globalTabOrder);
 	}
@@ -531,9 +544,12 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 		IRegistryData selectedPathData = null;
 		// Open registry browser.
 		try {
-			selectedPathData = CAppEnvironment.getRegistryHandler().selectRegistryPath(
-					new IRegistryConnection[] { registryConnection }, registryName,
-					"Select Registry Resource:", IRegistryHandler.SELECTED_REGISTRY_RESOURCE);
+			selectedPathData =
+			                   CAppEnvironment.getRegistryHandler()
+			                                  .selectRegistryPath(new IRegistryConnection[] { registryConnection },
+			                                                      registryName,
+			                                                      "Select Registry Resource:",
+			                                                      IRegistryHandler.SELECTED_REGISTRY_RESOURCE);
 		} catch (Exception e) {
 
 			okButton.setEnabled(false);
@@ -543,11 +559,13 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 		String selectedPath = selectedPathData.getPath();
 
 		if (selectedPath.startsWith(G_REG_PATH_PREFIX)) {
-			selectedPath = String.format("gov:%s",
-					selectedPath.substring(G_REG_PATH_PREFIX.length()));
+			selectedPath =
+			               String.format("gov:%s",
+			                             selectedPath.substring(G_REG_PATH_PREFIX.length()));
 		} else if (selectedPath.startsWith(C_REG_PATH_PREFIX)) {
-			selectedPath = String.format("conf:%s",
-					selectedPath.substring(C_REG_PATH_PREFIX.length()));
+			selectedPath =
+			               String.format("conf:%s",
+			                             selectedPath.substring(C_REG_PATH_PREFIX.length()));
 		}
 
 		// Save current registry url for later use.
@@ -570,8 +588,9 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 	private static Set<String> getKnownRegistryUrls() {
 		if (null == knownRegistryUrls) {
 			knownRegistryUrls = new LinkedHashSet<String>();
-			String registryUrlsPrefValue = DsEditorPlugin.getPlugin().getPreferenceStore()
-					.getString(REGISTRY_URLS_PREFERENCE_KEY);
+			String registryUrlsPrefValue =
+			                               DsEditorPlugin.getPlugin().getPreferenceStore()
+			                                             .getString(REGISTRY_URLS_PREFERENCE_KEY);
 			if (!StringUtils.isBlank(registryUrlsPrefValue)) {
 				// Decode.
 				for (String registryUrl : registryUrlsPrefValue.split("\n")) {
@@ -599,7 +618,7 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 				buffer.append(registryUrl).append("\n");
 			}
 			DsEditorPlugin.getPlugin().getPreferenceStore()
-					.setValue(REGISTRY_URLS_PREFERENCE_KEY, buffer.toString());
+			              .setValue(REGISTRY_URLS_PREFERENCE_KEY, buffer.toString());
 		}
 	}
 

@@ -1,11 +1,12 @@
-/* Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+/*
+ * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,8 +22,8 @@ public interface DSActionConstants {
 
 	// Actions
 
-	public String ADD_DESCRIPTION_ACTION= "Add Description";
-	
+	public String ADD_DESCRIPTION_ACTION = "Add Description";
+
 	public String ADD_DATASOURCE_ACTION = "Add DataSource";
 
 	public String ADD_CONFIG_PROPERTY_ACTION = "Add Property";
@@ -32,9 +33,9 @@ public interface DSActionConstants {
 	public String ADD_OPERATION_ACTION = "Add Operation";
 
 	public String ADD_RESOURCE_ACTION = "Add Resource";
-	
-	public String ADD_SQL_ACTION ="Add Sql";
-	
+
+	public String ADD_SQL_ACTION = "Add Sql";
+
 	public String ADD_SPARQL_ACTION = "Add Sparql";
 
 	public String ADD_RESULT_ACTION = "Add Result";
@@ -42,9 +43,9 @@ public interface DSActionConstants {
 	public String ADD_EVENT_TRIGGER_ACTION = "Add Event Trigger";
 
 	public String ADD_OUTPUT_MAPPING_ACTION = "Add Output Mapping";
-	
+
 	public String ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT = "Add Complex Element";
-	
+
 	public String ADD_OUTOUT_MAPPING_NESTED_ELEMENT = "Add Nested Element";
 
 	public String ADD_OUTPUT_MAPPING_ELEMENT_ACTION = "Add Element";
@@ -58,13 +59,13 @@ public interface DSActionConstants {
 	public String ADD_INPUT_MAPPING_ACTION = "Add Input Mapping";
 
 	public String ADD_VALIDATOR_ACTION = "Add Validator";
-	
+
 	public String ADD_EXPRESSION_ACTION = "Add Expression";
-	
+
 	public String ADD_TARGET_TOPOIC_ACTION = "Add Target Topic";
 
 	public String ADD_SUBSCRIPTIONS_ACTION = "Add Subscriptions";
-	
+
 	public String ADD_SUBSCRIPTION_ACTION = "ADD Subscription";
 
 	public String ADD_LONG_RANGE_VALIDATOR_ACTION = "Add Long Range Validator";
@@ -80,17 +81,17 @@ public interface DSActionConstants {
 	public String ADD_QUERY_PROPERTY_LIST_ACTION = "Add Properties";
 
 	public String ADD_QUERY_PROPERTY_ACTION = "Add Property";
-	
-	//excel query
-	
-	public String ADD_EXCEL_QUERY_ACTION ="Add Excel Query";
-	
-	//gspred query
-	
+
+	// excel query
+
+	public String ADD_EXCEL_QUERY_ACTION = "Add Excel Query";
+
+	// gspred query
+
 	public String ADD_GSPREAD_QUERY_ACTION = "Add Gspread Query";
-	
-	//query param
-	
+
+	// query param
+
 	public String ADD_QUERY_PARAM_ACTION = "Add Query Param";
 
 	// RDBMS Properties
@@ -110,7 +111,7 @@ public interface DSActionConstants {
 	public String MAXPOOLSIZE_PROPERTY = "org.wso2.ws.dataservice.maxpoolsize";
 
 	public String VALIDATIONQUERY_PROPERTY = "org.wso2.ws.dataservice.validation_query";
-	
+
 	public String ENABLE_AUTO_COMMIT = "org.wso2.ws.dataservice.autocommit";
 
 	// RDBMS Display Values
@@ -128,7 +129,7 @@ public interface DSActionConstants {
 	public String MAXPOOLSIZE_DISPLAY = "Max Pool Size";
 
 	public String VALIDATIONQUERY_DISPLAY = "Validation Query";
-	
+
 	public String ENABLE_AUTO_COMMIT_DISPLAY = "Enable Auto Commit";
 
 	// CSV Properties
@@ -243,7 +244,8 @@ public interface DSActionConstants {
 
 	public String MS_SQL_SERVER_DRIVER_VALUE = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
-	public String MS_SQL_SERVER_PROTOCOL_VALUE = "jdbc:sqlserver://[HOST][PORT1433];databaseName=[DB]";
+	public String MS_SQL_SERVER_PROTOCOL_VALUE =
+	                                             "jdbc:sqlserver://[HOST][PORT1433];databaseName=[DB]";
 
 	// Oracle
 
@@ -251,7 +253,8 @@ public interface DSActionConstants {
 
 	public String ORACLE_DRIVER_VALUE = "oracle.jdbc.driver.OracleDriver";
 
-	public String ORACLE_PROTOCOL_VALUE = "jdbc:oracle:[drivertype]:[username/password]@[host]:[port]/[database]";
+	public String ORACLE_PROTOCOL_VALUE =
+	                                      "jdbc:oracle:[drivertype]:[username/password]@[host]:[port]/[database]";
 
 	// IBM DB2
 
@@ -275,7 +278,8 @@ public interface DSActionConstants {
 
 	public String INFORMIX_DRIVER_VALUE = "com.informix.jdbc.IfxDriver";
 
-	public String INFORMIX_PROTOCOL_VALUE = "jdbc:informix-sqli://[HOST]:[PORT]/[database]:INFORMIXSERVER=[server-name]";
+	public String INFORMIX_PROTOCOL_VALUE =
+	                                        "jdbc:informix-sqli://[HOST]:[PORT]/[database]:INFORMIXSERVER=[server-name]";
 
 	// PostgreSQL
 

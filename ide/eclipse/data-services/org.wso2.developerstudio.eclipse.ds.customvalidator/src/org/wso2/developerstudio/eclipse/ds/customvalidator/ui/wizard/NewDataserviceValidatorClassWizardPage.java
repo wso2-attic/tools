@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -32,23 +32,17 @@ import org.wso2.developerstudio.eclipse.ds.customvalidator.utils.DataserviceCons
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 
-public class NewDataserviceValidatorClassWizardPage extends NewClassWizardPage{
+public class NewDataserviceValidatorClassWizardPage extends NewClassWizardPage {
 	private String selectedProject;
-	private String[] depedencyList = {"abdera_1.0.0.wso2v3.jar",
-									"axiom_1.2.11.wso2v3.jar",
-									"axis2_1.6.1.wso2v7.jar",
-									"commons-codec_1.4.0.wso2v1.jar",
-									"commons-httpclient_3.1.0.wso2v2.jar",
-									"commons-io_2.0.0.wso2v2.jar",
-									"commons-logging-1.1.1.jar",
-									"geronimo-stax-api_1.0_spec_1.0.1.wso2v2.jar",
-									"httpcore_4.1.0.wso2v1.jar",
-									"neethi_2.0.4.wso2v4.jar",
-									"not-yet-commons-ssl-0.3.9.jar",
-									"woden-1.0.0.M8-wso2v1.jar",
-									"wsdl4j_1.6.2.wso2v4.jar",
-									"XmlSchema_1.4.7.wso2v2.jar"};
-	
+	private String[] depedencyList = { "abdera_1.0.0.wso2v3.jar", "axiom_1.2.11.wso2v3.jar",
+	                                  "axis2_1.6.1.wso2v7.jar", "commons-codec_1.4.0.wso2v1.jar",
+	                                  "commons-httpclient_3.1.0.wso2v2.jar",
+	                                  "commons-io_2.0.0.wso2v2.jar", "commons-logging-1.1.1.jar",
+	                                  "geronimo-stax-api_1.0_spec_1.0.1.wso2v2.jar",
+	                                  "httpcore_4.1.0.wso2v1.jar", "neethi_2.0.4.wso2v4.jar",
+	                                  "not-yet-commons-ssl-0.3.9.jar", "woden-1.0.0.M8-wso2v1.jar",
+	                                  "wsdl4j_1.6.2.wso2v4.jar", "XmlSchema_1.4.7.wso2v2.jar" };
+
 	public String getSelectedProject() {
 		return selectedProject;
 	}
@@ -56,43 +50,45 @@ public class NewDataserviceValidatorClassWizardPage extends NewClassWizardPage{
 	public void setSelectedProject(String selectedProject) {
 		this.selectedProject = selectedProject;
 	}
-	
+
 	public NewDataserviceValidatorClassWizardPage() {
 		setDescription("Create new dataservice validator class");
 		setTitle("WSO2 Dataservice Validator Java Class");
 	}
-	
+
 	public void init(IStructuredSelection selection) {
-	    super.init(selection);
+		super.init(selection);
 		addSuperInterface(DataserviceConstants.DATASERVICE_VALIDATOR_INTERFACE_NAME);
 		setMethodStubSelection(false, false, true, true);
 	}
-	
-	public String createClass() throws CoreException, InterruptedException{
+
+	public String createClass() throws CoreException, InterruptedException {
 		addDSLibrary();
 		addOtherDependencies();
 		createType(new NullProgressMonitor());
-		IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), (IFile)getCreatedType().getResource());
+		IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
+		               (IFile) getCreatedType().getResource());
 		setSelectedProject(getCreatedType().getJavaProject().getElementName());
 		return getCreatedType().getFullyQualifiedName();
 	}
 
-	public void addOtherDependencies() throws JavaModelException{
+	public void addOtherDependencies() throws JavaModelException {
 		IJavaProject javaProject = getJavaProject();
 		for (String dependencyName : depedencyList) {
 			File dependencyPath = LibraryUtils.getDependencyPath(dependencyName);
 			JavaUtils.addJarLibraryToProject(javaProject, dependencyPath);
 		}
 	}
-	
-	private void addDSLibrary() throws JavaModelException {
-	    IJavaProject javaProject = getJavaProject();
-		File library = LibraryUtils.getDependencyPath("org.wso2.carbon.dataservices.core-3.0.1.jar");
-		JavaUtils.addJarLibraryToProject(javaProject, library);
-    }
 
-	public  IProject getProject() {
-	    return getJavaProject().getProject();
-    }
-	
+	private void addDSLibrary() throws JavaModelException {
+		IJavaProject javaProject = getJavaProject();
+		File library =
+		               LibraryUtils.getDependencyPath("org.wso2.carbon.dataservices.core-3.0.1.jar");
+		JavaUtils.addJarLibraryToProject(javaProject, library);
+	}
+
+	public IProject getProject() {
+		return getJavaProject().getProject();
+	}
+
 }

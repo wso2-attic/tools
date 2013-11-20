@@ -13,8 +13,7 @@ import org.eclipse.swt.widgets.Display;
 
 public class DLoader {
 
-	public static boolean download(String address, String localFileName)
-			throws IOException {
+	public static boolean download(String address, String localFileName) throws IOException {
 
 		String[] schemes = { "http", "https" };
 		UrlValidator urlValidator = new UrlValidator(schemes);
@@ -47,9 +46,8 @@ public class DLoader {
 
 		} else {
 
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(), "Invalied URL ",
-					"Invalied URL");
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Invalied URL ",
+			                              "Invalied URL");
 			return false;
 		}
 

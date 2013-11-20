@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -23,21 +23,33 @@ import org.wso2.developerstudio.eclipse.ds.DsPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getColumn <em>Column</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getRequiredRoles <em>Required Roles</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getXsdType <em>Xsd Type</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#isOptional <em>Optional</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getColumn
+ * <em>Column</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getName
+ * <em>Name</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getRequiredRoles
+ * <em>Required Roles</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getXsdType
+ * <em>Xsd Type</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#isOptional
+ * <em>Optional</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class AttributeMappingImpl extends EObjectImpl implements AttributeMapping {
 	/**
-	 * The default value of the '{@link #getColumn() <em>Column</em>}' attribute.
+	 * The default value of the '{@link #getColumn() <em>Column</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getColumn()
 	 * @generated
 	 * @ordered
@@ -48,6 +60,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * The cached value of the '{@link #getColumn() <em>Column</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getColumn()
 	 * @generated
 	 * @ordered
@@ -58,6 +71,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -68,6 +82,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -75,9 +90,11 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRequiredRoles() <em>Required Roles</em>}' attribute.
+	 * The default value of the '{@link #getRequiredRoles()
+	 * <em>Required Roles</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredRoles()
 	 * @generated
 	 * @ordered
@@ -85,9 +102,11 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	protected static final String REQUIRED_ROLES_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRequiredRoles() <em>Required Roles</em>}' attribute.
+	 * The cached value of the '{@link #getRequiredRoles()
+	 * <em>Required Roles</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRequiredRoles()
 	 * @generated
 	 * @ordered
@@ -95,9 +114,11 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	protected String requiredRoles = REQUIRED_ROLES_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getXsdType() <em>Xsd Type</em>}' attribute.
+	 * The default value of the '{@link #getXsdType() <em>Xsd Type</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getXsdType()
 	 * @generated
 	 * @ordered
@@ -105,9 +126,11 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	protected static final String XSD_TYPE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getXsdType() <em>Xsd Type</em>}' attribute.
+	 * The cached value of the '{@link #getXsdType() <em>Xsd Type</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getXsdType()
 	 * @generated
 	 * @ordered
@@ -115,9 +138,11 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	protected String xsdType = XSD_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
+	 * The default value of the '{@link #isOptional() <em>Optional</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isOptional()
 	 * @generated
 	 * @ordered
@@ -125,9 +150,11 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	protected static final boolean OPTIONAL_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isOptional() <em>Optional</em>}' attribute.
+	 * The cached value of the '{@link #isOptional() <em>Optional</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isOptional()
 	 * @generated
 	 * @ordered
@@ -137,6 +164,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected AttributeMappingImpl() {
@@ -146,10 +174,10 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.ATTRIBUTE_MAPPING;
@@ -158,6 +186,7 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getColumn() {
@@ -167,18 +196,21 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setColumn(String newColumn) {
 		String oldColumn = column;
 		column = newColumn;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ATTRIBUTE_MAPPING__COLUMN, oldColumn, column));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.ATTRIBUTE_MAPPING__COLUMN, oldColumn, column));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -188,18 +220,21 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ATTRIBUTE_MAPPING__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.ATTRIBUTE_MAPPING__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getRequiredRoles() {
@@ -209,18 +244,22 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRequiredRoles(String newRequiredRoles) {
 		String oldRequiredRoles = requiredRoles;
 		requiredRoles = newRequiredRoles;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ATTRIBUTE_MAPPING__REQUIRED_ROLES, oldRequiredRoles, requiredRoles));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.ATTRIBUTE_MAPPING__REQUIRED_ROLES,
+			                              oldRequiredRoles, requiredRoles));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getXsdType() {
@@ -230,18 +269,22 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setXsdType(String newXsdType) {
 		String oldXsdType = xsdType;
 		xsdType = newXsdType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE, oldXsdType, xsdType));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE, oldXsdType,
+			                              xsdType));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isOptional() {
@@ -251,22 +294,25 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setOptional(boolean newOptional) {
 		boolean oldOptional = optional;
 		optional = newOptional;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ATTRIBUTE_MAPPING__OPTIONAL, oldOptional, optional));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.ATTRIBUTE_MAPPING__OPTIONAL, oldOptional,
+			                              optional));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -287,27 +333,27 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.ATTRIBUTE_MAPPING__COLUMN:
-				setColumn((String)newValue);
+				setColumn((String) newValue);
 				return;
 			case DsPackage.ATTRIBUTE_MAPPING__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case DsPackage.ATTRIBUTE_MAPPING__REQUIRED_ROLES:
-				setRequiredRoles((String)newValue);
+				setRequiredRoles((String) newValue);
 				return;
 			case DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE:
-				setXsdType((String)newValue);
+				setXsdType((String) newValue);
 				return;
 			case DsPackage.ATTRIBUTE_MAPPING__OPTIONAL:
-				setOptional((Boolean)newValue);
+				setOptional((Boolean) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -316,10 +362,10 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -345,10 +391,10 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -357,9 +403,12 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 			case DsPackage.ATTRIBUTE_MAPPING__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DsPackage.ATTRIBUTE_MAPPING__REQUIRED_ROLES:
-				return REQUIRED_ROLES_EDEFAULT == null ? requiredRoles != null : !REQUIRED_ROLES_EDEFAULT.equals(requiredRoles);
+				return REQUIRED_ROLES_EDEFAULT == null
+				                                      ? requiredRoles != null
+				                                      : !REQUIRED_ROLES_EDEFAULT.equals(requiredRoles);
 			case DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE:
-				return XSD_TYPE_EDEFAULT == null ? xsdType != null : !XSD_TYPE_EDEFAULT.equals(xsdType);
+				return XSD_TYPE_EDEFAULT == null ? xsdType != null
+				                                : !XSD_TYPE_EDEFAULT.equals(xsdType);
 			case DsPackage.ATTRIBUTE_MAPPING__OPTIONAL:
 				return optional != OPTIONAL_EDEFAULT;
 		}
@@ -369,13 +418,14 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (column: ");
@@ -392,4 +442,4 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 		return result.toString();
 	}
 
-} //AttributeMappingImpl
+} // AttributeMappingImpl

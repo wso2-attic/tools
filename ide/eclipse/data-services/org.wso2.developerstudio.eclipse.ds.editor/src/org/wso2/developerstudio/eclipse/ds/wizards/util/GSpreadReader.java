@@ -41,8 +41,7 @@ public class GSpreadReader {
 		isPrivate = false;
 	}
 
-	public ArrayList<String> getWorkSheets() throws IOException,
-			ServiceException {
+	public ArrayList<String> getWorkSheets() throws IOException, ServiceException {
 
 		ArrayList<String> sheetNames = new ArrayList<String>();
 
@@ -75,16 +74,14 @@ public class GSpreadReader {
 		isTagsLoaded = false;
 
 		try {
-			SpreadsheetService service = new SpreadsheetService(
-					"example-service");
+			SpreadsheetService service = new SpreadsheetService("example-service");
 
 			if (isPrivate)
 				service.setUserCredentials(mailAddress, password);
 
 			URL metafeedUrl = new URL(feedURL);
 
-			WorksheetFeed feed = service.getFeed(metafeedUrl,
-					WorksheetFeed.class);
+			WorksheetFeed feed = service.getFeed(metafeedUrl, WorksheetFeed.class);
 
 			List<WorksheetEntry> worksheetEntryl = feed.getEntries();
 
@@ -96,21 +93,18 @@ public class GSpreadReader {
 
 					URL listFeedUrl = worksheet.getListFeedUrl();
 
-					ListFeed lfeed = service.getFeed(listFeedUrl,
-							ListFeed.class);
+					ListFeed lfeed = service.getFeed(listFeedUrl, ListFeed.class);
 
 					for (ListEntry entry : lfeed.getEntries()) {
 
-						if (entry.getCustomElements().getTags() != null
-								&& !entry.getCustomElements().getTags()
-										.isEmpty()) {
+						if (entry.getCustomElements().getTags() != null &&
+						    !entry.getCustomElements().getTags().isEmpty()) {
 
 							if (!isTagsLoaded) {
 
 								isTagsLoaded = true;
 
-								for (String tag : entry.getCustomElements()
-										.getTags()) {
+								for (String tag : entry.getCustomElements().getTags()) {
 
 									headers.add(tag);
 
@@ -125,24 +119,21 @@ public class GSpreadReader {
 
 			}
 		} catch (AuthenticationException e) {
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(),
-					"Wrong user name or password", e.toString());
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+			                              "Wrong user name or password", e.toString());
 
 		} catch (MalformedURLException e) {
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(), "Malformed URL",
-					e.toString());
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(), "Malformed URL",
+			                              e.toString());
 
 		} catch (IOException e) {
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(),
-					"Error occured while reading the file", e.toString());
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+			                              "Error occured while reading the file", e.toString());
 		} catch (ServiceException e) {
 
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(),
-					"Google Data Service can not be established", e.toString());
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+			                              "Google Data Service can not be established",
+			                              e.toString());
 		}
 
 		return headers;

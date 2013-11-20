@@ -1,12 +1,12 @@
 /*
  * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -38,7 +38,7 @@ public class CustomPropertyEditorFactory {
 	 */
 	interface CustomPropertyEditorBuilder {
 		CellEditor build(Composite composite, Object propertyContainer,
-				IItemPropertyDescriptor propertyDescriptor);
+		                 IItemPropertyDescriptor propertyDescriptor);
 	}
 
 	/**
@@ -49,9 +49,9 @@ public class CustomPropertyEditorFactory {
 
 		customPropertyEditorBuildersMap.put("xsltPath", new CustomPropertyEditorBuilder() {
 			public CellEditor build(Composite composite, Object propertyContainer,
-					IItemPropertyDescriptor propertyDescriptor) {
+			                        IItemPropertyDescriptor propertyDescriptor) {
 				return new RegistryKeyPropertyEditor(composite, propertyContainer,
-						propertyDescriptor);
+				                                     propertyDescriptor);
 			}
 		});
 	}
@@ -69,12 +69,13 @@ public class CustomPropertyEditorFactory {
 	 *         null if no such custom editor is defined.
 	 */
 	public static CellEditor createCustomPropertyEditor(Composite composite,
-			Object propertyContainer, IItemPropertyDescriptor propertyDescriptor) {
+	                                                    Object propertyContainer,
+	                                                    IItemPropertyDescriptor propertyDescriptor) {
 		Object feature = propertyDescriptor.getFeature(propertyContainer);
 		if (feature instanceof EStructuralFeature) {
 			if ((((EStructuralFeature) feature).getName()).equals("xsltPath")) {
-				CustomPropertyEditorBuilder builder = customPropertyEditorBuildersMap
-						.get("xsltPath");
+				CustomPropertyEditorBuilder builder =
+				                                      customPropertyEditorBuildersMap.get("xsltPath");
 				if (null != builder) {
 					return builder.build(composite, propertyContainer, propertyDescriptor);
 				}

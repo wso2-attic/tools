@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -23,11 +23,15 @@ import org.wso2.developerstudio.eclipse.ds.QueryProperty;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyImpl#getName <em>Name</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyImpl#getValue
+ * <em>Value</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyImpl#getName
+ * <em>Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
@@ -35,6 +39,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -45,6 +50,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -55,6 +61,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -65,6 +72,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -74,6 +82,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected QueryPropertyImpl() {
@@ -83,10 +92,10 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.QUERY_PROPERTY;
@@ -95,6 +104,7 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getValue() {
@@ -104,18 +114,21 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PROPERTY__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PROPERTY__VALUE,
+			                              oldValue, value));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -125,22 +138,24 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PROPERTY__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PROPERTY__NAME,
+			                              oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -155,18 +170,18 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY__VALUE:
-				setValue((String)newValue);
+				setValue((String) newValue);
 				return;
 			case DsPackage.QUERY_PROPERTY__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,10 +190,10 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -195,10 +210,10 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -213,13 +228,14 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
@@ -230,4 +246,4 @@ public class QueryPropertyImpl extends EObjectImpl implements QueryProperty {
 		return result.toString();
 	}
 
-} //QueryPropertyImpl
+} // QueryPropertyImpl

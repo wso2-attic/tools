@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -23,19 +23,27 @@ import org.wso2.developerstudio.eclipse.ds.ParameterMapping;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ParameterMappingImpl#getColumn <em>Column</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ParameterMappingImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ParameterMappingImpl#getQueryParam <em>Query Param</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ParameterMappingImpl#getColumn
+ * <em>Column</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ParameterMappingImpl#getName
+ * <em>Name</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ParameterMappingImpl#getQueryParam
+ * <em>Query Param</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ParameterMappingImpl extends EObjectImpl implements ParameterMapping {
 	/**
-	 * The default value of the '{@link #getColumn() <em>Column</em>}' attribute.
+	 * The default value of the '{@link #getColumn() <em>Column</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getColumn()
 	 * @generated
 	 * @ordered
@@ -46,6 +54,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 * The cached value of the '{@link #getColumn() <em>Column</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getColumn()
 	 * @generated
 	 * @ordered
@@ -56,6 +65,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -66,6 +76,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -73,9 +84,11 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getQueryParam() <em>Query Param</em>}' attribute.
+	 * The default value of the '{@link #getQueryParam() <em>Query Param</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getQueryParam()
 	 * @generated
 	 * @ordered
@@ -83,9 +96,11 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	protected static final String QUERY_PARAM_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getQueryParam() <em>Query Param</em>}' attribute.
+	 * The cached value of the '{@link #getQueryParam() <em>Query Param</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getQueryParam()
 	 * @generated
 	 * @ordered
@@ -95,6 +110,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ParameterMappingImpl() {
@@ -104,10 +120,10 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.PARAMETER_MAPPING;
@@ -116,6 +132,7 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getColumn() {
@@ -125,18 +142,21 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setColumn(String newColumn) {
 		String oldColumn = column;
 		column = newColumn;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.PARAMETER_MAPPING__COLUMN, oldColumn, column));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.PARAMETER_MAPPING__COLUMN, oldColumn, column));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -146,18 +166,21 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.PARAMETER_MAPPING__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.PARAMETER_MAPPING__NAME, oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getQueryParam() {
@@ -167,22 +190,25 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setQueryParam(String newQueryParam) {
 		String oldQueryParam = queryParam;
 		queryParam = newQueryParam;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.PARAMETER_MAPPING__QUERY_PARAM, oldQueryParam, queryParam));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.PARAMETER_MAPPING__QUERY_PARAM, oldQueryParam,
+			                              queryParam));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -199,21 +225,21 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.PARAMETER_MAPPING__COLUMN:
-				setColumn((String)newValue);
+				setColumn((String) newValue);
 				return;
 			case DsPackage.PARAMETER_MAPPING__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 			case DsPackage.PARAMETER_MAPPING__QUERY_PARAM:
-				setQueryParam((String)newValue);
+				setQueryParam((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -222,10 +248,10 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -245,10 +271,10 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -257,7 +283,8 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 			case DsPackage.PARAMETER_MAPPING__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case DsPackage.PARAMETER_MAPPING__QUERY_PARAM:
-				return QUERY_PARAM_EDEFAULT == null ? queryParam != null : !QUERY_PARAM_EDEFAULT.equals(queryParam);
+				return QUERY_PARAM_EDEFAULT == null ? queryParam != null
+				                                   : !QUERY_PARAM_EDEFAULT.equals(queryParam);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -265,13 +292,14 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (column: ");
@@ -284,4 +312,4 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 		return result.toString();
 	}
 
-} //ParameterMappingImpl
+} // ParameterMappingImpl

@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -33,26 +33,34 @@ import org.wso2.developerstudio.eclipse.ds.QueryPropertyList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyListImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyListImpl#getProperty <em>Property</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyListImpl#getMixed
+ * <em>Mixed</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyListImpl#getProperty
+ * <em>Property</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyList {
 	/**
-	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
 	protected FeatureMap mixed;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected QueryPropertyListImpl() {
@@ -62,10 +70,10 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.QUERY_PROPERTY_LIST;
@@ -74,6 +82,7 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureMap getMixed() {
@@ -86,6 +95,7 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<QueryProperty> getProperty() {
@@ -95,17 +105,18 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID,
+	                                        NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY_LIST__MIXED:
-				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
-				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getProperty()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -113,16 +124,17 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY_LIST__MIXED:
-				if (coreType) return getMixed();
-				return ((FeatureMap.Internal)getMixed()).getWrapper();
+				if (coreType)
+					return getMixed();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
 				return getProperty();
 		}
@@ -132,20 +144,19 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	
-	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.QUERY_PROPERTY_LIST__MIXED:
-				((FeatureMap.Internal)getMixed()).set(newValue);
+				((FeatureMap.Internal) getMixed()).set(newValue);
 				return;
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
 				getProperty().clear();
-				getProperty().addAll((Collection<? extends QueryProperty>)newValue);
+				getProperty().addAll((Collection<? extends QueryProperty>) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -154,10 +165,10 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -174,10 +185,10 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -192,11 +203,13 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: ");
@@ -205,4 +218,4 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 		return result.toString();
 	}
 
-} //QueryPropertyListImpl
+} // QueryPropertyListImpl

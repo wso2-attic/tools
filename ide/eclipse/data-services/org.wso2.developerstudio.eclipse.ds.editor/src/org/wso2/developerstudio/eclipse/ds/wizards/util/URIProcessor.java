@@ -33,28 +33,23 @@ public class URIProcessor {
 		boolean isOnline = false;
 		boolean isGspread = false;
 
-		Pattern gspread_pattern = Pattern
-				.compile(DBUriConstants.REGEX_GSS_SPREAD);
+		Pattern gspread_pattern = Pattern.compile(DBUriConstants.REGEX_GSS_SPREAD);
 		Matcher gss_matcher = gspread_pattern.matcher(input);
 
 		String[] schemes = { "http", "https" };
 		UrlValidator urlValidator = new UrlValidator(schemes);
 
-		if (input.length() > 4
-				&& input.substring(0, 4).equals(DBUriConstants.REGEX_RDBMS)) {
+		if (input.length() > 4 && input.substring(0, 4).equals(DBUriConstants.REGEX_RDBMS)) {
 
 			details = rdbmsProccesor(input);
 
-		} else if (input.length() > 24
-				&& (input.substring(0, 24).equals(
-						DBUriConstants.GSS_TYPE.substring(0, 24)) && gss_matcher
-						.find())) {
+		} else if (input.length() > 24 &&
+		           (input.substring(0, 24).equals(DBUriConstants.GSS_TYPE.substring(0, 24)) && gss_matcher.find())) {
 			isGspread = true;
 
 			details.put(DBUriConstants.DB_TYPE, DBUriConstants.GSS_TYPE);
 
-		} else if (input.length() > 36
-				&& input.substring(0, 36).equals(DBUriConstants.GSS_TYPE)) {
+		} else if (input.length() > 36 && input.substring(0, 36).equals(DBUriConstants.GSS_TYPE)) {
 
 			isGspread = true;
 
@@ -66,30 +61,25 @@ public class URIProcessor {
 
 			if (extIdentifer(input).equals(DBUriConstants.CSV_TYPE)) {
 
-				details.put(DBUriConstants.DB_TYPE,
-						DBUriConstants.CSV_TYPE_ONLIN);
+				details.put(DBUriConstants.DB_TYPE, DBUriConstants.CSV_TYPE_ONLIN);
 
 			} else if (extIdentifer(input).equals(DBUriConstants.XLS_TYPE)) {
 
-				details.put(DBUriConstants.DB_TYPE,
-						DBUriConstants.XLS_TYPE_ONLIN);
+				details.put(DBUriConstants.DB_TYPE, DBUriConstants.XLS_TYPE_ONLIN);
 			}
 
-		} else if (!isOnline 
-				&& extIdentifer(input).equals(DBUriConstants.CSV_TYPE)) {
+		} else if (!isOnline && extIdentifer(input).equals(DBUriConstants.CSV_TYPE)) {
 
 			details.put(DBUriConstants.DB_TYPE, DBUriConstants.CSV_TYPE);
 
-		} else if (!isOnline 
-				&& extIdentifer(input).equals(DBUriConstants.XLS_TYPE)) {
+		} else if (!isOnline && extIdentifer(input).equals(DBUriConstants.XLS_TYPE)) {
 
 			details.put(DBUriConstants.DB_TYPE, DBUriConstants.XLS_TYPE);
 
 		} else {
 
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(),
-					"DB URL not in correct Format", "Error!");
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+			                              "DB URL not in correct Format", "Error!");
 
 		}
 
@@ -102,7 +92,7 @@ public class URIProcessor {
 
 		detailMap.put(DBUriConstants.RDBMS_FLAG, DBUriConstants.REGEX_RDBMS);
 		detailMap.put(DBUriConstants.DB_URL, input);
-		
+
 		Pattern p = Pattern.compile(DBUriConstants.REGEX_COLON);
 		String[] items = p.split(input);
 
@@ -115,8 +105,8 @@ public class URIProcessor {
 				 */
 
 				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.MYSQL_ID);
-				detailMap.put(DBUriConstants.DB_DRIVER,DBUriConstants.MY_SQL_DRIVER );
-				
+				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.MY_SQL_DRIVER);
+
 				if (items.length == 4) {
 
 					detailMap.put(DBUriConstants.HOST, items[2].substring(2)); // host
@@ -139,7 +129,7 @@ public class URIProcessor {
 				 */
 				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.DERBY_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.DERBY_DRIVER);
-				
+
 				if (items.length == 3) {
 
 					detailMap.put(DBUriConstants.DB_FILE_PATH, items[2]);
@@ -154,7 +144,7 @@ public class URIProcessor {
 
 				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.MS_SQL_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.MS_SQL_DRIVER);
-				
+
 				if (items.length == 4) {
 
 					detailMap.put(DBUriConstants.HOST, items[2].substring(2)); // host
@@ -169,8 +159,7 @@ public class URIProcessor {
 
 						if (brk != -1) {
 
-							detailMap.put(DBUriConstants.DB_NAME,
-									t[1].substring(brk + 1));
+							detailMap.put(DBUriConstants.DB_NAME, t[1].substring(brk + 1));
 						}
 
 					}
@@ -189,21 +178,21 @@ public class URIProcessor {
 
 				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.ORACLE_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.ORACLE_DRIVER);
-				
+
 				if (items.length == 5) {
 
 					detailMap.put(DBUriConstants.DB_DRIVE_TYPE, items[2]); // drive
-																			// type
+					                                                       // type
 
 					if (items[3].contains("@//")) {
 
-						detailMap.put(DBUriConstants.HOST,items[3].substring(3));
+						detailMap.put(DBUriConstants.HOST, items[3].substring(3));
 						detailMap.put(DBUriConstants.ORC_TYPE, DBUriConstants.ORC_TYPE_ONE);
 
 					} else {
 
 						String[] q = items[3].split(DBUriConstants.REGEX_AT);
-						
+
 						detailMap.put(DBUriConstants.ORC_TYPE, DBUriConstants.ORC_TYPE_TWO);
 
 						if (q.length == 2) {
@@ -237,27 +226,25 @@ public class URIProcessor {
 				} else if (items.length == 6) {
 
 					detailMap.put(DBUriConstants.DB_DRIVE_TYPE, items[2]); // drive
-																			// type
+					                                                       // type
 					detailMap.put(DBUriConstants.ORC_TYPE, DBUriConstants.ORC_TYPE_THREE);
-						String[] q = items[3].split(DBUriConstants.REGEX_AT);
+					String[] q = items[3].split(DBUriConstants.REGEX_AT);
 
-						if (q.length == 2) {
+					if (q.length == 2) {
 
-							String[] r = q[0].split(DBUriConstants.REGEX_SLASH);
+						String[] r = q[0].split(DBUriConstants.REGEX_SLASH);
 
-							if (r.length == 2) {
+						if (r.length == 2) {
 
-								detailMap.put(DBUriConstants.DB_U_NAME, r[0]);
+							detailMap.put(DBUriConstants.DB_U_NAME, r[0]);
 
-								detailMap.put(DBUriConstants.DB_PASSWD, r[1]);
-
-							}
-
-							detailMap.put(DBUriConstants.HOST, q[1]);
+							detailMap.put(DBUriConstants.DB_PASSWD, r[1]);
 
 						}
 
-					
+						detailMap.put(DBUriConstants.HOST, q[1]);
+
+					}
 
 					detailMap.put(DBUriConstants.PORT, items[4]);
 
@@ -273,7 +260,7 @@ public class URIProcessor {
 
 				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.DB2_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.DB2_DRIVER);
-				
+
 				if (items.length == 3) {
 
 					detailMap.put(DBUriConstants.DB_NAME, items[2]);
@@ -288,7 +275,7 @@ public class URIProcessor {
 
 				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.HSQL_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.HSQL_DRIVER);
-				
+
 				if (items.length == 3) {
 
 					detailMap.put(DBUriConstants.DB_FILE_PATH, items[2]);
@@ -302,10 +289,9 @@ public class URIProcessor {
 				 * server-name]
 				 */
 
-				detailMap.put(DBUriConstants.DB_TYPE,DBUriConstants.INFORMIX_ID);
+				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.INFORMIX_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.INFORMIX_DRIVER);
-				
-				
+
 				if (items.length == 5) {
 
 					detailMap.put(DBUriConstants.HOST, items[2].substring(2));
@@ -323,8 +309,7 @@ public class URIProcessor {
 					int brk = items[4].lastIndexOf("=");
 
 					if (brk != -1) {
-						detailMap.put(DBUriConstants.DB_SERVER_NAME,
-								items[4].substring(brk + 1));
+						detailMap.put(DBUriConstants.DB_SERVER_NAME, items[4].substring(brk + 1));
 					}
 
 				}
@@ -335,9 +320,9 @@ public class URIProcessor {
 				 * jdbc:postgresql://[HOST]:[PORT5432]/[database]
 				 */
 
-				detailMap.put(DBUriConstants.DB_TYPE,DBUriConstants.POSTGRESQL_ID);
+				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.POSTGRESQL_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.POSTGRESQL_DRIVER);
-				
+
 				if (items.length == 4) {
 
 					detailMap.put(DBUriConstants.HOST, items[2].substring(2)); // host
@@ -361,7 +346,7 @@ public class URIProcessor {
 
 				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.SYBASE_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.SYBASE_DRIVER);
-				
+
 				if (items.length == 5) {
 
 					detailMap.put(DBUriConstants.HOST, items[3]);
@@ -386,7 +371,7 @@ public class URIProcessor {
 
 				detailMap.put(DBUriConstants.DB_TYPE, DBUriConstants.H2_ID);
 				detailMap.put(DBUriConstants.DB_DRIVER, DBUriConstants.H2_DRIVER);
-				
+
 				if (items.length == 5) {
 
 					detailMap.put(DBUriConstants.HOST, items[3]);
@@ -404,16 +389,14 @@ public class URIProcessor {
 
 			} else {
 
-				MessageDialog.openInformation(Display.getCurrent()
-						.getActiveShell(), "DB URL not in corret Format",
-						"Error!");
+				MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+				                              "DB URL not in corret Format", "Error!");
 			}
 
 		} else {
 
-			MessageDialog.openInformation(
-					Display.getCurrent().getActiveShell(),
-					"DB URL not in corret Format", "Error!");
+			MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+			                              "DB URL not in corret Format", "Error!");
 
 		}
 

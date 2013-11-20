@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.util;
@@ -18,13 +18,14 @@ import org.wso2.developerstudio.eclipse.ds.*;
 /**
  * <!-- begin-user-doc -->
  * The <b>Switch</b> for the model's inheritance hierarchy.
- * It supports the call {@link #doSwitch(EObject) doSwitch(object)}
- * to invoke the <code>caseXXX</code> method for each class of the model,
+ * It supports the call {@link #doSwitch(EObject) doSwitch(object)} to invoke
+ * the <code>caseXXX</code> method for each class of the model,
  * starting with the actual class of the object
  * and proceeding up the inheritance hierarchy
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
+ * 
  * @see org.wso2.developerstudio.eclipse.ds.DsPackage
  * @generated
  */
@@ -33,6 +34,7 @@ public class DsSwitch<T> extends Switch<T> {
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static DsPackage modelPackage;
@@ -41,6 +43,7 @@ public class DsSwitch<T> extends Switch<T> {
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DsSwitch() {
@@ -53,6 +56,7 @@ public class DsSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
@@ -63,243 +67,288 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * Calls <code>caseXXX</code> for each class of the model until one returns
+	 * a non null result; it yields that result.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * 
+	 * @return the first non-null result returned by a <code>caseXXX</code>
+	 *         call.
 	 * @generated
 	 */
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case DsPackage.ATTRIBUTE_MAPPING: {
-				AttributeMapping attributeMapping = (AttributeMapping)theEObject;
+				AttributeMapping attributeMapping = (AttributeMapping) theEObject;
 				T result = caseAttributeMapping(attributeMapping);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.CALL_QUERY: {
-				CallQuery callQuery = (CallQuery)theEObject;
+				CallQuery callQuery = (CallQuery) theEObject;
 				T result = caseCallQuery(callQuery);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.CALL_QUERY_LIST: {
-				CallQueryList callQueryList = (CallQueryList)theEObject;
+				CallQueryList callQueryList = (CallQueryList) theEObject;
 				T result = caseCallQueryList(callQueryList);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.CONFIGURATION_PROPERTY: {
-				ConfigurationProperty configurationProperty = (ConfigurationProperty)theEObject;
+				ConfigurationProperty configurationProperty = (ConfigurationProperty) theEObject;
 				T result = caseConfigurationProperty(configurationProperty);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.CUSTOM_VALIDATOR: {
-				CustomValidator customValidator = (CustomValidator)theEObject;
+				CustomValidator customValidator = (CustomValidator) theEObject;
 				T result = caseCustomValidator(customValidator);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.DATA_SERVICE: {
-				DataService dataService = (DataService)theEObject;
+				DataService dataService = (DataService) theEObject;
 				T result = caseDataService(dataService);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.DATA_SOURCE_CONFIGURATION: {
-				DataSourceConfiguration dataSourceConfiguration = (DataSourceConfiguration)theEObject;
+				DataSourceConfiguration dataSourceConfiguration =
+				                                                  (DataSourceConfiguration) theEObject;
 				T result = caseDataSourceConfiguration(dataSourceConfiguration);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.DESCRIPTION: {
-				Description description = (Description)theEObject;
+				Description description = (Description) theEObject;
 				T result = caseDescription(description);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.DOCUMENT_ROOT: {
-				DocumentRoot documentRoot = (DocumentRoot)theEObject;
+				DocumentRoot documentRoot = (DocumentRoot) theEObject;
 				T result = caseDocumentRoot(documentRoot);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.DOUBLE_RANGE_VALIDATOR: {
-				DoubleRangeValidator doubleRangeValidator = (DoubleRangeValidator)theEObject;
+				DoubleRangeValidator doubleRangeValidator = (DoubleRangeValidator) theEObject;
 				T result = caseDoubleRangeValidator(doubleRangeValidator);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.ELEMENT_MAPPING: {
-				ElementMapping elementMapping = (ElementMapping)theEObject;
+				ElementMapping elementMapping = (ElementMapping) theEObject;
 				T result = caseElementMapping(elementMapping);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.EVENT_SUBSCRIPTION_LIST: {
-				EventSubscriptionList eventSubscriptionList = (EventSubscriptionList)theEObject;
+				EventSubscriptionList eventSubscriptionList = (EventSubscriptionList) theEObject;
 				T result = caseEventSubscriptionList(eventSubscriptionList);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.EVENT_TRIGGER: {
-				EventTrigger eventTrigger = (EventTrigger)theEObject;
+				EventTrigger eventTrigger = (EventTrigger) theEObject;
 				T result = caseEventTrigger(eventTrigger);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.EXCEL_QUERY: {
-				ExcelQuery excelQuery = (ExcelQuery)theEObject;
+				ExcelQuery excelQuery = (ExcelQuery) theEObject;
 				T result = caseExcelQuery(excelQuery);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.EXPRESSION: {
-				Expression expression = (Expression)theEObject;
+				Expression expression = (Expression) theEObject;
 				T result = caseExpression(expression);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.GSPREAD_QUERY: {
-				GSpreadQuery gSpreadQuery = (GSpreadQuery)theEObject;
+				GSpreadQuery gSpreadQuery = (GSpreadQuery) theEObject;
 				T result = caseGSpreadQuery(gSpreadQuery);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.HAS_HEADER: {
-				HasHeader hasHeader = (HasHeader)theEObject;
+				HasHeader hasHeader = (HasHeader) theEObject;
 				T result = caseHasHeader(hasHeader);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.LENGTH_VALIDATOR: {
-				LengthValidator lengthValidator = (LengthValidator)theEObject;
+				LengthValidator lengthValidator = (LengthValidator) theEObject;
 				T result = caseLengthValidator(lengthValidator);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.LONG_RANGE_VALIDATOR: {
-				LongRangeValidator longRangeValidator = (LongRangeValidator)theEObject;
+				LongRangeValidator longRangeValidator = (LongRangeValidator) theEObject;
 				T result = caseLongRangeValidator(longRangeValidator);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.MAX_ROW_COUNT: {
-				MaxRowCount maxRowCount = (MaxRowCount)theEObject;
+				MaxRowCount maxRowCount = (MaxRowCount) theEObject;
 				T result = caseMaxRowCount(maxRowCount);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.OPERATION: {
-				Operation operation = (Operation)theEObject;
+				Operation operation = (Operation) theEObject;
 				T result = caseOperation(operation);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.PARAMETER_MAPPING: {
-				ParameterMapping parameterMapping = (ParameterMapping)theEObject;
+				ParameterMapping parameterMapping = (ParameterMapping) theEObject;
 				T result = caseParameterMapping(parameterMapping);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.PATTERN_VALIDATOR: {
-				PatternValidator patternValidator = (PatternValidator)theEObject;
+				PatternValidator patternValidator = (PatternValidator) theEObject;
 				T result = casePatternValidator(patternValidator);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.QUERY: {
-				Query query = (Query)theEObject;
+				Query query = (Query) theEObject;
 				T result = caseQuery(query);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.QUERY_PARAMETER: {
-				QueryParameter queryParameter = (QueryParameter)theEObject;
+				QueryParameter queryParameter = (QueryParameter) theEObject;
 				T result = caseQueryParameter(queryParameter);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.QUERY_PROPERTY: {
-				QueryProperty queryProperty = (QueryProperty)theEObject;
+				QueryProperty queryProperty = (QueryProperty) theEObject;
 				T result = caseQueryProperty(queryProperty);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.QUERY_PROPERTY_LIST: {
-				QueryPropertyList queryPropertyList = (QueryPropertyList)theEObject;
+				QueryPropertyList queryPropertyList = (QueryPropertyList) theEObject;
 				T result = caseQueryPropertyList(queryPropertyList);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.RESOURCE: {
-				Resource resource = (Resource)theEObject;
+				Resource resource = (Resource) theEObject;
 				T result = caseResource(resource);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.RESULT_MAPPING: {
-				ResultMapping resultMapping = (ResultMapping)theEObject;
+				ResultMapping resultMapping = (ResultMapping) theEObject;
 				T result = caseResultMapping(resultMapping);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.SPARQL: {
-				Sparql sparql = (Sparql)theEObject;
+				Sparql sparql = (Sparql) theEObject;
 				T result = caseSparql(sparql);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.SQL: {
-				Sql sql = (Sql)theEObject;
+				Sql sql = (Sql) theEObject;
 				T result = caseSql(sql);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.STARTING_ROW: {
-				StartingRow startingRow = (StartingRow)theEObject;
+				StartingRow startingRow = (StartingRow) theEObject;
 				T result = caseStartingRow(startingRow);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.SUBSCRIPTION: {
-				Subscription subscription = (Subscription)theEObject;
+				Subscription subscription = (Subscription) theEObject;
 				T result = caseSubscription(subscription);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.TARGET_TOPIC: {
-				TargetTopic targetTopic = (TargetTopic)theEObject;
+				TargetTopic targetTopic = (TargetTopic) theEObject;
 				T result = caseTargetTopic(targetTopic);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.WORK_BOOK_NAME: {
-				WorkBookName workBookName = (WorkBookName)theEObject;
+				WorkBookName workBookName = (WorkBookName) theEObject;
 				T result = caseWorkBookName(workBookName);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
 			case DsPackage.WORK_SHEET_NUMBER: {
-				WorkSheetNumber workSheetNumber = (WorkSheetNumber)theEObject;
+				WorkSheetNumber workSheetNumber = (WorkSheetNumber) theEObject;
 				T result = caseWorkSheetNumber(workSheetNumber);
-				if (result == null) result = defaultCase(theEObject);
+				if (result == null)
+					result = defaultCase(theEObject);
 				return result;
 			}
-			default: return defaultCase(theEObject);
+			default:
+				return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Attribute Mapping</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Attribute Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Attribute Mapping</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Attribute Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -308,13 +357,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Call Query</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Call Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Call Query</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Call Query</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -323,13 +376,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Call Query List</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Call Query List</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Call Query List</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Call Query List</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -338,13 +395,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Configuration Property</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Configuration Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Configuration Property</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Configuration Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -353,13 +414,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Custom Validator</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Custom Validator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Custom Validator</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Custom Validator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -368,13 +433,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Service</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Data Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Service</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Data Service</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -383,13 +452,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Data Source Configuration</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Data Source Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Data Source Configuration</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Data Source Configuration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -398,13 +471,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Description</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Description</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Description</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Description</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -413,13 +490,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Document Root</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Document Root</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Document Root</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Document Root</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -428,13 +509,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Double Range Validator</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Double Range Validator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Double Range Validator</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Double Range Validator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -443,13 +528,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element Mapping</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Element Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Element Mapping</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Element Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -458,13 +547,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event Subscription List</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Event Subscription List</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event Subscription List</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Event Subscription List</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -473,13 +566,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Event Trigger</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Event Trigger</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Event Trigger</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Event Trigger</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -488,13 +585,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Excel Query</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Excel Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Excel Query</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Excel Query</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -503,13 +604,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Expression</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -518,13 +623,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>GSpread Query</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>GSpread Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>GSpread Query</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>GSpread Query</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -533,13 +642,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Has Header</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Has Header</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Has Header</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Has Header</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -548,13 +661,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Length Validator</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Length Validator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Length Validator</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Length Validator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -563,13 +680,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Long Range Validator</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Long Range Validator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Long Range Validator</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Long Range Validator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -578,13 +699,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Max Row Count</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Max Row Count</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Max Row Count</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Max Row Count</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -593,13 +718,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Operation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Operation</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Operation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -608,13 +737,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter Mapping</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Parameter Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter Mapping</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Parameter Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -623,13 +756,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pattern Validator</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Pattern Validator</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pattern Validator</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Pattern Validator</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -638,13 +775,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Query</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Query</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Query</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Query</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -653,13 +794,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Query Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Query Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Query Parameter</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Query Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -668,13 +813,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Query Property</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Query Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Query Property</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Query Property</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -683,13 +832,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Query Property List</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Query Property List</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Query Property List</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Query Property List</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -698,13 +851,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Resource</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Resource</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -713,13 +870,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Result Mapping</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Result Mapping</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Result Mapping</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Result Mapping</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -728,13 +889,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sparql</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Sparql</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sparql</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Sparql</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -743,13 +908,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Sql</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Sql</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Sql</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Sql</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -758,13 +927,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Starting Row</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Starting Row</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Starting Row</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Starting Row</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -773,13 +946,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Subscription</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Subscription</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Subscription</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Subscription</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -788,13 +965,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Target Topic</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Target Topic</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Target Topic</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Target Topic</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -803,13 +984,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Work Book Name</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Work Book Name</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Work Book Name</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Work Book Name</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -818,13 +1003,17 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Work Sheet Number</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>Work Sheet Number</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Work Sheet Number</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>Work Sheet Number</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -833,13 +1022,18 @@ public class DsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * Returns the result of interpreting the object as an instance of '
+	 * <em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
+	 * returning a non-null result will terminate the switch, but this is the
+	 * last case anyway.
 	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * 
+	 * @param object
+	 *            the target of the switch.
+	 * @return the result of interpreting the object as an instance of '
+	 *         <em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
@@ -848,4 +1042,4 @@ public class DsSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //DsSwitch
+} // DsSwitch

@@ -1,11 +1,12 @@
-/* Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+/*
+ * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -45,7 +46,7 @@ public class DSEditPropertiesLabelProvider {
 
 	private String AUTO_COMMIT_PROPERTY = "org.wso2.ws.dataservice.autocommit";
 	private String AUTO_COMMIT_DISPLAY = "Auto Commit";
-	
+
 	// CSV Properties
 
 	private String CSV_DATASOURCE_PROPERTY = "csv_datasource";
@@ -100,12 +101,13 @@ public class DSEditPropertiesLabelProvider {
 
 	private String CARBON_DATASOURCE_NAME_PROPERTY = "carbon_datasource_name";
 	private String CARBON_DATASOURCE_NAME_DISPLAY = "Data Source Name";
-	
-	//XA Data Source
-	private String XA_DATASOURCE_CLASS_PROPERTY  = "org.wso2.ws.dataservice.xa_datasource_class";
-	private String XA_DATASOURCE_CLASS_DISPLAY ="Xa Data Source Class";
-	
-	private String XA_DATASOURCE_PROPS_PROPERTY  = "org.wso2.ws.dataservice.xa_datasource_properties";
+
+	// XA Data Source
+	private String XA_DATASOURCE_CLASS_PROPERTY = "org.wso2.ws.dataservice.xa_datasource_class";
+	private String XA_DATASOURCE_CLASS_DISPLAY = "Xa Data Source Class";
+
+	private String XA_DATASOURCE_PROPS_PROPERTY =
+	                                              "org.wso2.ws.dataservice.xa_datasource_properties";
 	private String XA_DATASOURCE_PROPS_DISPLAY = "Xa Data Source Properties";
 	// Query Properties
 
@@ -124,7 +126,6 @@ public class DSEditPropertiesLabelProvider {
 	public String MAX_ROWS = "org.wso2.ws.dataservice.max_rows";
 	public String MAX_ROWS_DISPLAY = "Max Rows";
 
-
 	private DSEditPropertiesLabelProvider() {
 		nameMap = new HashMap<String, String>();
 
@@ -139,10 +140,10 @@ public class DSEditPropertiesLabelProvider {
 		nameMap.put(VALIDATIONQUERY_PROPERTY, VALIDATIONQUERY_DISPLAY);
 		nameMap.put(AUTO_COMMIT_PROPERTY, AUTO_COMMIT_DISPLAY);
 
-		//XA Data Source
-		nameMap.put(XA_DATASOURCE_CLASS_PROPERTY,XA_DATASOURCE_CLASS_DISPLAY);
-		nameMap.put(XA_DATASOURCE_PROPS_PROPERTY,XA_DATASOURCE_PROPS_DISPLAY);
-		
+		// XA Data Source
+		nameMap.put(XA_DATASOURCE_CLASS_PROPERTY, XA_DATASOURCE_CLASS_DISPLAY);
+		nameMap.put(XA_DATASOURCE_PROPS_PROPERTY, XA_DATASOURCE_PROPS_DISPLAY);
+
 		// CSV
 		nameMap.put(CSV_DATASOURCE_PROPERTY, CSV_DATASOURCE_DISPLAY);
 		nameMap.put(COLUMN_SEPERATOR_PROPERTY, COLUMN_SEPERATOR_DISPLAY);

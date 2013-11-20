@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -37,25 +37,45 @@ import org.wso2.developerstudio.eclipse.ds.ResultMapping;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getElement <em>Element</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getCallQuery <em>Call Query</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getDefaultNamespace <em>Default Namespace</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getElementName <em>Element Name</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getRowName <em>Row Name</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#isUseColumnNumbers <em>Use Column Numbers</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getXsltPath <em>Xslt Path</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getMixed
+ * <em>Mixed</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getElement
+ * <em>Element</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getAttribute
+ * <em>Attribute</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getCallQuery
+ * <em>Call Query</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getDefaultNamespace
+ * <em>Default Namespace</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getElementName
+ * <em>Element Name</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getRowName
+ * <em>Row Name</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#isUseColumnNumbers
+ * <em>Use Column Numbers</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getXsltPath
+ * <em>Xslt Path</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
-	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
@@ -63,9 +83,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected FeatureMap mixed;
 
 	/**
-	 * The default value of the '{@link #getDefaultNamespace() <em>Default Namespace</em>}' attribute.
+	 * The default value of the '{@link #getDefaultNamespace()
+	 * <em>Default Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDefaultNamespace()
 	 * @generated
 	 * @ordered
@@ -73,9 +95,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected static final String DEFAULT_NAMESPACE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDefaultNamespace() <em>Default Namespace</em>}' attribute.
+	 * The cached value of the '{@link #getDefaultNamespace()
+	 * <em>Default Namespace</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDefaultNamespace()
 	 * @generated
 	 * @ordered
@@ -83,9 +107,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected String defaultNamespace = DEFAULT_NAMESPACE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getElementName() <em>Element Name</em>}' attribute.
+	 * The default value of the '{@link #getElementName() <em>Element Name</em>}
+	 * ' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getElementName()
 	 * @generated
 	 * @ordered
@@ -93,9 +119,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected static final String ELEMENT_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getElementName() <em>Element Name</em>}' attribute.
+	 * The cached value of the '{@link #getElementName() <em>Element Name</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getElementName()
 	 * @generated
 	 * @ordered
@@ -103,9 +131,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected String elementName = ELEMENT_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRowName() <em>Row Name</em>}' attribute.
+	 * The default value of the '{@link #getRowName() <em>Row Name</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRowName()
 	 * @generated
 	 * @ordered
@@ -113,9 +143,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected static final String ROW_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRowName() <em>Row Name</em>}' attribute.
+	 * The cached value of the '{@link #getRowName() <em>Row Name</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getRowName()
 	 * @generated
 	 * @ordered
@@ -123,9 +155,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected String rowName = ROW_NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isUseColumnNumbers() <em>Use Column Numbers</em>}' attribute.
+	 * The default value of the '{@link #isUseColumnNumbers()
+	 * <em>Use Column Numbers</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isUseColumnNumbers()
 	 * @generated
 	 * @ordered
@@ -133,9 +167,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected static final boolean USE_COLUMN_NUMBERS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isUseColumnNumbers() <em>Use Column Numbers</em>}' attribute.
+	 * The cached value of the '{@link #isUseColumnNumbers()
+	 * <em>Use Column Numbers</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isUseColumnNumbers()
 	 * @generated
 	 * @ordered
@@ -143,9 +179,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected boolean useColumnNumbers = USE_COLUMN_NUMBERS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getXsltPath() <em>Xslt Path</em>}' attribute.
+	 * The default value of the '{@link #getXsltPath() <em>Xslt Path</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getXsltPath()
 	 * @generated
 	 * @ordered
@@ -153,9 +191,11 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	protected static final String XSLT_PATH_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getXsltPath() <em>Xslt Path</em>}' attribute.
+	 * The cached value of the '{@link #getXsltPath() <em>Xslt Path</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getXsltPath()
 	 * @generated
 	 * @ordered
@@ -165,6 +205,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ResultMappingImpl() {
@@ -174,10 +215,10 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.RESULT_MAPPING;
@@ -186,6 +227,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureMap getMixed() {
@@ -198,6 +240,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ElementMapping> getElement() {
@@ -207,6 +250,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<AttributeMapping> getAttribute() {
@@ -216,6 +260,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<CallQuery> getCallQuery() {
@@ -225,6 +270,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDefaultNamespace() {
@@ -234,18 +280,22 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDefaultNamespace(String newDefaultNamespace) {
 		String oldDefaultNamespace = defaultNamespace;
 		defaultNamespace = newDefaultNamespace;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE, oldDefaultNamespace, defaultNamespace));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE,
+			                              oldDefaultNamespace, defaultNamespace));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getElementName() {
@@ -255,18 +305,22 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setElementName(String newElementName) {
 		String oldElementName = elementName;
 		elementName = newElementName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__ELEMENT_NAME, oldElementName, elementName));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.RESULT_MAPPING__ELEMENT_NAME, oldElementName,
+			                              elementName));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getRowName() {
@@ -276,18 +330,21 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setRowName(String newRowName) {
 		String oldRowName = rowName;
 		rowName = newRowName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__ROW_NAME, oldRowName, rowName));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.RESULT_MAPPING__ROW_NAME, oldRowName, rowName));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isUseColumnNumbers() {
@@ -297,18 +354,22 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setUseColumnNumbers(boolean newUseColumnNumbers) {
 		boolean oldUseColumnNumbers = useColumnNumbers;
 		useColumnNumbers = newUseColumnNumbers;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS, oldUseColumnNumbers, useColumnNumbers));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS,
+			                              oldUseColumnNumbers, useColumnNumbers));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getXsltPath() {
@@ -318,33 +379,37 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setXsltPath(String newXsltPath) {
 		String oldXsltPath = xsltPath;
 		xsltPath = newXsltPath;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESULT_MAPPING__XSLT_PATH, oldXsltPath, xsltPath));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.RESULT_MAPPING__XSLT_PATH, oldXsltPath,
+			                              xsltPath));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID,
+	                                        NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.RESULT_MAPPING__MIXED:
-				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESULT_MAPPING__ELEMENT:
-				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getElement()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
-				return ((InternalEList<?>)getAttribute()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getAttribute()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESULT_MAPPING__CALL_QUERY:
-				return ((InternalEList<?>)getCallQuery()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getCallQuery()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -352,16 +417,17 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.RESULT_MAPPING__MIXED:
-				if (coreType) return getMixed();
-				return ((FeatureMap.Internal)getMixed()).getWrapper();
+				if (coreType)
+					return getMixed();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
 			case DsPackage.RESULT_MAPPING__ELEMENT:
 				return getElement();
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
@@ -385,43 +451,42 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	
-	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.RESULT_MAPPING__MIXED:
-				((FeatureMap.Internal)getMixed()).set(newValue);
+				((FeatureMap.Internal) getMixed()).set(newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__ELEMENT:
 				getElement().clear();
-				getElement().addAll((Collection<? extends ElementMapping>)newValue);
+				getElement().addAll((Collection<? extends ElementMapping>) newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
 				getAttribute().clear();
-				getAttribute().addAll((Collection<? extends AttributeMapping>)newValue);
+				getAttribute().addAll((Collection<? extends AttributeMapping>) newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__CALL_QUERY:
 				getCallQuery().clear();
-				getCallQuery().addAll((Collection<? extends CallQuery>)newValue);
+				getCallQuery().addAll((Collection<? extends CallQuery>) newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE:
-				setDefaultNamespace((String)newValue);
+				setDefaultNamespace((String) newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__ELEMENT_NAME:
-				setElementName((String)newValue);
+				setElementName((String) newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__ROW_NAME:
-				setRowName((String)newValue);
+				setRowName((String) newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
-				setUseColumnNumbers((Boolean)newValue);
+				setUseColumnNumbers((Boolean) newValue);
 				return;
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
-				setXsltPath((String)newValue);
+				setXsltPath((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -430,10 +495,10 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -471,10 +536,10 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -487,15 +552,20 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 			case DsPackage.RESULT_MAPPING__CALL_QUERY:
 				return !getCallQuery().isEmpty();
 			case DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE:
-				return DEFAULT_NAMESPACE_EDEFAULT == null ? defaultNamespace != null : !DEFAULT_NAMESPACE_EDEFAULT.equals(defaultNamespace);
+				return DEFAULT_NAMESPACE_EDEFAULT == null
+				                                         ? defaultNamespace != null
+				                                         : !DEFAULT_NAMESPACE_EDEFAULT.equals(defaultNamespace);
 			case DsPackage.RESULT_MAPPING__ELEMENT_NAME:
-				return ELEMENT_NAME_EDEFAULT == null ? elementName != null : !ELEMENT_NAME_EDEFAULT.equals(elementName);
+				return ELEMENT_NAME_EDEFAULT == null ? elementName != null
+				                                    : !ELEMENT_NAME_EDEFAULT.equals(elementName);
 			case DsPackage.RESULT_MAPPING__ROW_NAME:
-				return ROW_NAME_EDEFAULT == null ? rowName != null : !ROW_NAME_EDEFAULT.equals(rowName);
+				return ROW_NAME_EDEFAULT == null ? rowName != null
+				                                : !ROW_NAME_EDEFAULT.equals(rowName);
 			case DsPackage.RESULT_MAPPING__USE_COLUMN_NUMBERS:
 				return useColumnNumbers != USE_COLUMN_NUMBERS_EDEFAULT;
 			case DsPackage.RESULT_MAPPING__XSLT_PATH:
-				return XSLT_PATH_EDEFAULT == null ? xsltPath != null : !XSLT_PATH_EDEFAULT.equals(xsltPath);
+				return XSLT_PATH_EDEFAULT == null ? xsltPath != null
+				                                 : !XSLT_PATH_EDEFAULT.equals(xsltPath);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -503,13 +573,14 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: ");
@@ -528,4 +599,4 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 		return result.toString();
 	}
 
-} //ResultMappingImpl
+} // ResultMappingImpl

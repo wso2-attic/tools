@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -30,22 +30,34 @@ import org.wso2.developerstudio.eclipse.ds.Operation;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getCallQuery <em>Call Query</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getCallQueryGroup <em>Call Query Group</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#isDisableStreaming <em>Disable Streaming</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#isReturnRequestStatus <em>Return Request Status</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getName <em>Name</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getMixed
+ * <em>Mixed</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getCallQuery
+ * <em>Call Query</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getCallQueryGroup
+ * <em>Call Query Group</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#isDisableStreaming
+ * <em>Disable Streaming</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#isReturnRequestStatus
+ * <em>Return Request Status</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.OperationImpl#getName
+ * <em>Name</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class OperationImpl extends EObjectImpl implements Operation {
 	/**
-	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
@@ -53,9 +65,11 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	protected FeatureMap mixed;
 
 	/**
-	 * The default value of the '{@link #isDisableStreaming() <em>Disable Streaming</em>}' attribute.
+	 * The default value of the '{@link #isDisableStreaming()
+	 * <em>Disable Streaming</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isDisableStreaming()
 	 * @generated
 	 * @ordered
@@ -63,9 +77,11 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	protected static final boolean DISABLE_STREAMING_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isDisableStreaming() <em>Disable Streaming</em>}' attribute.
+	 * The cached value of the '{@link #isDisableStreaming()
+	 * <em>Disable Streaming</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isDisableStreaming()
 	 * @generated
 	 * @ordered
@@ -73,9 +89,11 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	protected boolean disableStreaming = DISABLE_STREAMING_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isReturnRequestStatus() <em>Return Request Status</em>}' attribute.
+	 * The default value of the '{@link #isReturnRequestStatus()
+	 * <em>Return Request Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isReturnRequestStatus()
 	 * @generated
 	 * @ordered
@@ -83,9 +101,11 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	protected static final boolean RETURN_REQUEST_STATUS_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isReturnRequestStatus() <em>Return Request Status</em>}' attribute.
+	 * The cached value of the '{@link #isReturnRequestStatus()
+	 * <em>Return Request Status</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #isReturnRequestStatus()
 	 * @generated
 	 * @ordered
@@ -96,6 +116,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -106,6 +127,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getName()
 	 * @generated
 	 * @ordered
@@ -115,6 +137,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected OperationImpl() {
@@ -124,10 +147,10 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.OPERATION;
@@ -136,6 +159,7 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureMap getMixed() {
@@ -148,60 +172,72 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CallQuery getCallQuery() {
-		return (CallQuery)getMixed().get(DsPackage.Literals.OPERATION__CALL_QUERY, true);
+		return (CallQuery) getMixed().get(DsPackage.Literals.OPERATION__CALL_QUERY, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetCallQuery(CallQuery newCallQuery, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.OPERATION__CALL_QUERY, newCallQuery, msgs);
+		return ((FeatureMap.Internal) getMixed()).basicAdd(DsPackage.Literals.OPERATION__CALL_QUERY,
+		                                                   newCallQuery, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCallQuery(CallQuery newCallQuery) {
-		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.OPERATION__CALL_QUERY, newCallQuery);
+		((FeatureMap.Internal) getMixed()).set(DsPackage.Literals.OPERATION__CALL_QUERY,
+		                                       newCallQuery);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CallQueryList getCallQueryGroup() {
-		return (CallQueryList)getMixed().get(DsPackage.Literals.OPERATION__CALL_QUERY_GROUP, true);
+		return (CallQueryList) getMixed().get(DsPackage.Literals.OPERATION__CALL_QUERY_GROUP, true);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public NotificationChain basicSetCallQueryGroup(CallQueryList newCallQueryGroup, NotificationChain msgs) {
-		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.OPERATION__CALL_QUERY_GROUP, newCallQueryGroup, msgs);
+	public NotificationChain basicSetCallQueryGroup(CallQueryList newCallQueryGroup,
+	                                                NotificationChain msgs) {
+		return ((FeatureMap.Internal) getMixed()).basicAdd(DsPackage.Literals.OPERATION__CALL_QUERY_GROUP,
+		                                                   newCallQueryGroup, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setCallQueryGroup(CallQueryList newCallQueryGroup) {
-		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.OPERATION__CALL_QUERY_GROUP, newCallQueryGroup);
+		((FeatureMap.Internal) getMixed()).set(DsPackage.Literals.OPERATION__CALL_QUERY_GROUP,
+		                                       newCallQueryGroup);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isDisableStreaming() {
@@ -211,18 +247,22 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDisableStreaming(boolean newDisableStreaming) {
 		boolean oldDisableStreaming = disableStreaming;
 		disableStreaming = newDisableStreaming;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.OPERATION__DISABLE_STREAMING, oldDisableStreaming, disableStreaming));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.OPERATION__DISABLE_STREAMING,
+			                              oldDisableStreaming, disableStreaming));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public boolean isReturnRequestStatus() {
@@ -232,18 +272,22 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setReturnRequestStatus(boolean newReturnRequestStatus) {
 		boolean oldReturnRequestStatus = returnRequestStatus;
 		returnRequestStatus = newReturnRequestStatus;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.OPERATION__RETURN_REQUEST_STATUS, oldReturnRequestStatus, returnRequestStatus));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+			                              DsPackage.OPERATION__RETURN_REQUEST_STATUS,
+			                              oldReturnRequestStatus, returnRequestStatus));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getName() {
@@ -253,27 +297,30 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.OPERATION__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.OPERATION__NAME,
+			                              oldName, name));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID,
+	                                        NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.OPERATION__MIXED:
-				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.OPERATION__CALL_QUERY:
 				return basicSetCallQuery(null, msgs);
 			case DsPackage.OPERATION__CALL_QUERY_GROUP:
@@ -285,16 +332,17 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.OPERATION__MIXED:
-				if (coreType) return getMixed();
-				return ((FeatureMap.Internal)getMixed()).getWrapper();
+				if (coreType)
+					return getMixed();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
 			case DsPackage.OPERATION__CALL_QUERY:
 				return getCallQuery();
 			case DsPackage.OPERATION__CALL_QUERY_GROUP:
@@ -312,30 +360,30 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.OPERATION__MIXED:
-				((FeatureMap.Internal)getMixed()).set(newValue);
+				((FeatureMap.Internal) getMixed()).set(newValue);
 				return;
 			case DsPackage.OPERATION__CALL_QUERY:
-				setCallQuery((CallQuery)newValue);
+				setCallQuery((CallQuery) newValue);
 				return;
 			case DsPackage.OPERATION__CALL_QUERY_GROUP:
-				setCallQueryGroup((CallQueryList)newValue);
+				setCallQueryGroup((CallQueryList) newValue);
 				return;
 			case DsPackage.OPERATION__DISABLE_STREAMING:
-				setDisableStreaming((Boolean)newValue);
+				setDisableStreaming((Boolean) newValue);
 				return;
 			case DsPackage.OPERATION__RETURN_REQUEST_STATUS:
-				setReturnRequestStatus((Boolean)newValue);
+				setReturnRequestStatus((Boolean) newValue);
 				return;
 			case DsPackage.OPERATION__NAME:
-				setName((String)newValue);
+				setName((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -344,10 +392,10 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -355,10 +403,10 @@ public class OperationImpl extends EObjectImpl implements Operation {
 				getMixed().clear();
 				return;
 			case DsPackage.OPERATION__CALL_QUERY:
-				setCallQuery((CallQuery)null);
+				setCallQuery((CallQuery) null);
 				return;
 			case DsPackage.OPERATION__CALL_QUERY_GROUP:
-				setCallQueryGroup((CallQueryList)null);
+				setCallQueryGroup((CallQueryList) null);
 				return;
 			case DsPackage.OPERATION__DISABLE_STREAMING:
 				setDisableStreaming(DISABLE_STREAMING_EDEFAULT);
@@ -376,10 +424,10 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -402,13 +450,14 @@ public class OperationImpl extends EObjectImpl implements Operation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: ");
@@ -423,4 +472,4 @@ public class OperationImpl extends EObjectImpl implements Operation {
 		return result.toString();
 	}
 
-} //OperationImpl
+} // OperationImpl

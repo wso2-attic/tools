@@ -13,7 +13,6 @@ public class CSVReader {
 	public CSVReader(String filePath) {
 
 		this.filePath = filePath;
-		
 
 	}
 

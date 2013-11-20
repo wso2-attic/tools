@@ -41,64 +41,62 @@ import org.wso2.developerstudio.eclipse.ds.DsFactory;
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
 import org.wso2.developerstudio.eclipse.ds.presentation.DsEditorPlugin;
 
-
 public class DataServiceCreationWizard extends Wizard implements INewWizard {
 
-	public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays.asList(DsEditorPlugin.INSTANCE.getString("_UI_DsEditorFilenameExtensions").split("\\s*,\\s*")));
-	
-	public static final String FORMATTED_FILE_EXTENSIONS = DsEditorPlugin.INSTANCE.getString("_UI_DsEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
-	
+	public static final List<String> FILE_EXTENSIONS =
+	                                                   Collections.unmodifiableList(Arrays.asList(DsEditorPlugin.INSTANCE.getString("_UI_DsEditorFilenameExtensions")
+	                                                                                                                     .split("\\s*,\\s*")));
+
+	public static final String FORMATTED_FILE_EXTENSIONS =
+	                                                       DsEditorPlugin.INSTANCE.getString("_UI_DsEditorFilenameExtensions")
+	                                                                              .replaceAll("\\s*,\\s*",
+	                                                                                          ", ");
+
 	protected DsPackage dsPackage = DsPackage.eINSTANCE;
-	
+
 	protected DsFactory dsFactory = dsPackage.getDsFactory();
-	
+
 	protected IStructuredSelection selection;
-	
+
 	protected IWorkbench workbench;
-	
+
 	DataServiceCreationWizadPage mainPage;
-	
+
 	CPWizardSelectionPage cpwizpage;
-	
+
 	CSVWizardPage csvPage;
-	
+
 	ExelWizardPage xlsPage;
-	
+
 	GSpreadWizardPage gspPage;
-	
+
 	DBDetailWizarPage dbdPage;
-	
+
 	DriverConnDetailPage driveConPage;
-	
+
 	ServiceGenModeWizardPage serviceGenModePage;
-	
+
 	protected DsModelWizardNewFileCreationPage newFileCreationPage;
-	
+
 	protected boolean dbFlag = false;
-	
+
 	protected boolean serviceGenPageCompleted = false;
-	
+
 	protected List<String> initialObjectNames;
-	
-	
-	
+
 	public DataServiceCreationWizard() {
-		
-		
+
 	}
 
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
-		
+
 		this.workbench = workbench;
 		this.selection = selection;
-		
 
 	}
-	
-	
-	public void addPages(){
-		
-		
+
+	public void addPages() {
+
 		mainPage = new DataServiceCreationWizadPage();
 		addPage(mainPage);
 		driveConPage = new DriverConnDetailPage();
@@ -115,162 +113,160 @@ public class DataServiceCreationWizard extends Wizard implements INewWizard {
 		addPage(gspPage);
 		newFileCreationPage = new DsModelWizardNewFileCreationPage("file location", selection);
 		addPage(newFileCreationPage);
-		
+
 		if (selection != null && !selection.isEmpty()) {
 			// Get the resource...
-			
+
 			Object selectedElement = selection.iterator().next();
 			if (selectedElement instanceof IResource) {
 				// Get the resource parent, if its a file.
-				
-				IResource selectedResource = (IResource)selectedElement;
+
+				IResource selectedResource = (IResource) selectedElement;
 				if (selectedResource.getType() == IResource.FILE) {
 					selectedResource = selectedResource.getParent();
 				}
 
 				// This gives us a directory...
-				
+
 				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
 					// Set this for the container.
-					
+
 					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
 
 					// Make up a unique new name here.
-					
-					String defaultModelBaseFilename = DsEditorPlugin.INSTANCE.getString("_UI_DsEditorFilenameDefaultBase");
+
+					String defaultModelBaseFilename =
+					                                  DsEditorPlugin.INSTANCE.getString("_UI_DsEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
-						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+					String modelFilename =
+					                       defaultModelBaseFilename + "." +
+					                               defaultModelFilenameExtension;
+					for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+						modelFilename =
+						                defaultModelBaseFilename + i + "." +
+						                        defaultModelFilenameExtension;
 					}
 					newFileCreationPage.setFileName(modelFilename);
 				}
 			}
 		}
-		
+
 	}
-	
+
 	protected EObject createInitialModel() {
 		EClass eClass = ExtendedMetaData.INSTANCE.getDocumentRoot(dsPackage);
 		EStructuralFeature eStructuralFeature = eClass.getEStructuralFeature("data");
 		EObject rootObject = dsFactory.create(eClass);
-		rootObject.eSet(eStructuralFeature, EcoreUtil.create((EClass)eStructuralFeature.getEType()));
+		rootObject.eSet(eStructuralFeature,
+		                EcoreUtil.create((EClass) eStructuralFeature.getEType()));
 		return rootObject;
 	}
-	
-	
 
-	public boolean performCancel()  {
-		
+	public boolean performCancel() {
+
 		this.getContainer().getCurrentPage().dispose();
 		return true;
-		
+
 	}
-	
-	public boolean canFinish(){
-		
-	  if (this.getContainer().getCurrentPage() == mainPage )
-				return false;
-	  
-	  if(dbFlag) 
-		  return serviceGenPageCompleted;
-	  
-	  return false;
-				
+
+	public boolean canFinish() {
+
+		if (this.getContainer().getCurrentPage() == mainPage)
+			return false;
+
+		if (dbFlag)
+			return serviceGenPageCompleted;
+
+		return false;
+
 	}
-	
-	
+
 	public boolean performFinish() {
 		try {
 			// Remember the file.
-			
+
 			final IFile modelFile = getModelFile();
 
 			// Do the work within an operation.
-			
-			WorkspaceModifyOperation operation =
-				new WorkspaceModifyOperation() {
-					
-					protected void execute(IProgressMonitor progressMonitor) {
-						try {
-							// Create a resource set
-							
-							ResourceSet resourceSet = new ResourceSetImpl();
 
-							// Get the URI of the model file.
-							
-							URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+			WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
 
-							// Create a resource for this file.
-							
-							Resource resource = resourceSet.createResource(fileURI);
+				protected void execute(IProgressMonitor progressMonitor) {
+					try {
+						// Create a resource set
 
-							// Add the initial model object to the contents.
-							
-							EObject rootObject = createInitialModel();
-							if (rootObject != null) {
-								resource.getContents().add(rootObject);
-							}
+						ResourceSet resourceSet = new ResourceSetImpl();
 
-							// Save the contents of the resource to the file system.
-							
-							Map<Object, Object> options = new HashMap<Object, Object>();
-							options.put(XMLResource.OPTION_ENCODING, "UTF-8");
-							resource.save(options);
+						// Get the URI of the model file.
+
+						URI fileURI =
+						              URI.createPlatformResourceURI(modelFile.getFullPath()
+						                                                     .toString(), true);
+
+						// Create a resource for this file.
+
+						Resource resource = resourceSet.createResource(fileURI);
+
+						// Add the initial model object to the contents.
+
+						EObject rootObject = createInitialModel();
+						if (rootObject != null) {
+							resource.getContents().add(rootObject);
 						}
-						catch (Exception exception) {
-							DsEditorPlugin.INSTANCE.log(exception);
-						}
-						finally {
-							progressMonitor.done();
-						}
+
+						// Save the contents of the resource to the file system.
+
+						Map<Object, Object> options = new HashMap<Object, Object>();
+						options.put(XMLResource.OPTION_ENCODING, "UTF-8");
+						resource.save(options);
+					} catch (Exception exception) {
+						DsEditorPlugin.INSTANCE.log(exception);
+					} finally {
+						progressMonitor.done();
 					}
-				};
+				}
+			};
 
 			getContainer().run(false, false, operation);
 
 			// Select the new file resource in the current view.
-			
+
 			IWorkbenchWindow workbenchWindow = workbench.getActiveWorkbenchWindow();
 			IWorkbenchPage page = workbenchWindow.getActivePage();
 			final IWorkbenchPart activePart = page.getActivePart();
 			if (activePart instanceof ISetSelectionTarget) {
 				final ISelection targetSelection = new StructuredSelection(modelFile);
-				getShell().getDisplay().asyncExec
-					(new Runnable() {
-						 public void run() {
-							 ((ISetSelectionTarget)activePart).selectReveal(targetSelection);
-						 }
-					 });
+				getShell().getDisplay().asyncExec(new Runnable() {
+					public void run() {
+						((ISetSelectionTarget) activePart).selectReveal(targetSelection);
+					}
+				});
 			}
 
 			// Open an editor on the new file.
-			
+
 			try {
-				page.openEditor
-					(new FileEditorInput(modelFile),
-					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
-			}
-			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), DsEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				page.openEditor(new FileEditorInput(modelFile),
+				                workbench.getEditorRegistry()
+				                         .getDefaultEditor(modelFile.getFullPath().toString())
+				                         .getId());
+			} catch (PartInitException exception) {
+				MessageDialog.openError(workbenchWindow.getShell(),
+				                        DsEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
+				                        exception.getMessage());
 				return false;
 			}
 
 			return true;
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			DsEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
-		
-		
+
 	}
-	
-		
+
 	public IFile getModelFile() {
 		return newFileCreationPage.getModelFile();
 	}
-	
-	
 
 }

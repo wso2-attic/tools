@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,12 +19,12 @@ package org.wso2.developerstudio.eclipse.ds.model;
 public class DataserviceAttributeElement {
 	private String name;
 	private boolean required;
-	
+
 	public DataserviceAttributeElement(String name, boolean required) {
 		setName(name);
 		setRequired(required);
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -40,37 +40,37 @@ public class DataserviceAttributeElement {
 	public boolean isOptional() {
 		return !isRequired();
 	}
-	
+
 	public boolean isRequired() {
 		return required;
 	}
-	
-	public String getAttributeName(){
+
+	public String getAttributeName() {
 		return getName();
 	}
-	
-	public String getAttributeNameValueSeparator(){
+
+	public String getAttributeNameValueSeparator() {
 		return "=";
 	}
-	
-	public String getAttributeValueStart(){
+
+	public String getAttributeValueStart() {
 		return "\"";
 	}
 
-	public String getAttributeValueString(){
+	public String getAttributeValueString() {
 		return "";
 	}
-	
-	public String getAttributeValueEnd(){
+
+	public String getAttributeValueEnd() {
 		return "\"";
 	}
-	
-	public String getAttributeValue(){
-		return getAttributeValueStart()+getAttributeValueString()+getAttributeValueEnd();
+
+	public String getAttributeValue() {
+		return getAttributeValueStart() + getAttributeValueString() + getAttributeValueEnd();
 	}
-	
-	public String getAttributeString(){
-		return getAttributeName()+getAttributeNameValueSeparator()+getAttributeValue();
+
+	public String getAttributeString() {
+		return getAttributeName() + getAttributeNameValueSeparator() + getAttributeValue();
 	}
 
 }

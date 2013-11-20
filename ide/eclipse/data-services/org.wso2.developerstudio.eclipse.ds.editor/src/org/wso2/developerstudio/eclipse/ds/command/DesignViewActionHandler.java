@@ -36,23 +36,21 @@ public class DesignViewActionHandler extends AbstractHandler {
 
 		if (editor.getActivePage() == DsEditor.getDesignViewIndex()) {
 
-			currentSelection = editor.getMdPage().getOutLineBlock()
-					.getCurrentSelection();
+			currentSelection = editor.getMdPage().getOutLineBlock().getCurrentSelection();
 
-			if (currentSelection instanceof IStructuredSelection
-					&& ((IStructuredSelection) currentSelection).size() == 1) {
+			if (currentSelection instanceof IStructuredSelection &&
+			    ((IStructuredSelection) currentSelection).size() == 1) {
 
-				referenceObject = (EObject) ((IStructuredSelection) currentSelection)
-						.getFirstElement();
+				referenceObject =
+				                  (EObject) ((IStructuredSelection) currentSelection).getFirstElement();
 
-				if (referenceObject != null
-						&& referenceObject instanceof DataService) {
+				if (referenceObject != null && referenceObject instanceof DataService) {
 
 					DataService dataService = (DataService) referenceObject;
-					MessageDialog.openError(Display.getCurrent()
-							.getActiveShell(), "Can not complete this action!",
-							"You Can not delete " + dataService.getName()
-									+ " service!");
+					MessageDialog.openError(Display.getCurrent().getActiveShell(),
+					                        "Can not complete this action!", "You Can not delete " +
+					                                                         dataService.getName() +
+					                                                         " service!");
 					return;
 				}
 				value = referenceObject;
@@ -61,15 +59,15 @@ public class DesignViewActionHandler extends AbstractHandler {
 
 			} else {
 
-				MessageDialog.openError(Display.getCurrent().getActiveShell(),
-						"Error Occuerd", "Can not delete this component");
+				MessageDialog.openError(Display.getCurrent().getActiveShell(), "Error Occuerd",
+				                        "Can not delete this component");
 				return;
 			}
 
-			if (editingDomain != null && parent != null && feature != null
-					&& value != null) {
-				RemoveCommand removeCommand = new RemoveCommand(editingDomain,
-						parent, feature, value);
+			if (editingDomain != null && parent != null && feature != null && value != null) {
+				RemoveCommand removeCommand =
+				                              new RemoveCommand(editingDomain, parent, feature,
+				                                                value);
 				if (removeCommand.canExecute()) {
 					editingDomain.getCommandStack().execute(removeCommand);
 				}
@@ -77,8 +75,7 @@ public class DesignViewActionHandler extends AbstractHandler {
 				else {
 					Collection<EObject> collection = new ArrayList<EObject>();
 					collection.add((EObject) value);
-					DeleteCommand deleteCommand = new DeleteCommand(
-							editingDomain, collection);
+					DeleteCommand deleteCommand = new DeleteCommand(editingDomain, collection);
 					if (deleteCommand.canExecute()) {
 						editingDomain.getCommandStack().execute(deleteCommand);
 					}
@@ -92,12 +89,13 @@ public class DesignViewActionHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IEditorPart editorpart = HandlerUtil.getActiveWorkbenchWindow(event)
-				.getActivePage().getActiveEditor();
+		IEditorPart editorpart =
+		                         HandlerUtil.getActiveWorkbenchWindow(event).getActivePage()
+		                                    .getActiveEditor();
 		if (editorpart != null && editorpart instanceof DsEditor) {
-			DsEditor dseditor = (DsEditor) HandlerUtil
-					.getActiveWorkbenchWindow(event).getActivePage()
-					.getActiveEditor();
+			DsEditor dseditor =
+			                    (DsEditor) HandlerUtil.getActiveWorkbenchWindow(event)
+			                                          .getActivePage().getActiveEditor();
 			delete(dseditor);
 		}
 		return null;

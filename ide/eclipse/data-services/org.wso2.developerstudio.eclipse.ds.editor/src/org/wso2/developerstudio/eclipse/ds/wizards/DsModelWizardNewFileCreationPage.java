@@ -9,20 +9,22 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.wso2.developerstudio.eclipse.ds.presentation.DsEditorPlugin;
 
-public class DsModelWizardNewFileCreationPage  extends WizardNewFileCreationPage{
+public class DsModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 
 	public DsModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 		super(pageId, selection);
 	}
 
-	
-	
 	protected boolean validatePage() {
 		if (super.validatePage()) {
 			String extension = new Path(getFileName()).getFileExtension();
 			if (extension == null || !DataServiceCreationWizard.FILE_EXTENSIONS.contains(extension)) {
-				String key = DataServiceCreationWizard.FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-				setErrorMessage(DsEditorPlugin.INSTANCE.getString(key, new Object [] { DataServiceCreationWizard.FORMATTED_FILE_EXTENSIONS }));
+				String key =
+				             DataServiceCreationWizard.FILE_EXTENSIONS.size() > 1
+				                                                                 ? "_WARN_FilenameExtensions"
+				                                                                 : "_WARN_FilenameExtension";
+				setErrorMessage(DsEditorPlugin.INSTANCE.getString(key,
+				                                                  new Object[] { DataServiceCreationWizard.FORMATTED_FILE_EXTENSIONS }));
 				return false;
 			}
 			return true;
@@ -30,7 +32,6 @@ public class DsModelWizardNewFileCreationPage  extends WizardNewFileCreationPage
 		return false;
 	}
 
-	
 	public IFile getModelFile() {
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IPath path = getContainerFullPath().append(getFileName());

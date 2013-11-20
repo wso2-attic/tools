@@ -38,12 +38,12 @@ import org.wso2.developerstudio.eclipse.ds.wizards.util.ValidateUtil;
 
 import com.google.gdata.util.ServiceException;
 
-public class DataServiceCreationWizadPage extends WizardPage implements
-		Listener {
+public class DataServiceCreationWizadPage extends WizardPage implements Listener {
 
 	public static final String PAGE_NAME = "DataServiceCreationWizardPage";
 
-	public static final String BASE_WORKSHEET_URL = "http://spreadsheets.google.com/feeds/worksheets/";
+	public static final String BASE_WORKSHEET_URL =
+	                                                "http://spreadsheets.google.com/feeds/worksheets/";
 
 	private static final String TEMP_FILE_NAME = "temp";
 
@@ -99,7 +99,7 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 	}
 
 	private void addListeners() {
-		
+
 		sourceUriText.addListener(SWT.Modify, this);
 	}
 
@@ -120,65 +120,59 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 
 		if (sourceDetails != null) {
 			if (sourceDetails.get(DBUriConstants.DB_TYPE) != null) {
-				if (sourceDetails.get(DBUriConstants.DB_TYPE).equals(
-						DBUriConstants.CSV_TYPE)) {
+				if (sourceDetails.get(DBUriConstants.DB_TYPE).equals(DBUriConstants.CSV_TYPE)) {
 
 					try {
 						csvHandler(inputUrl);
 					} catch (IOException e) {
 
-						MessageDialog.openInformation(Display.getCurrent()
-								.getActiveShell(),
-								"Error occured while reading the file", e
-										.toString());
+						MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+						                              "Error occured while reading the file",
+						                              e.toString());
 						return null;
 					}
 
 					nextPage = ((DataServiceCreationWizard) getWizard()).csvPage;
 
-				} else if (sourceDetails.get(DBUriConstants.DB_TYPE).equals(
-						DBUriConstants.XLS_TYPE)) {
+				} else if (sourceDetails.get(DBUriConstants.DB_TYPE)
+				                        .equals(DBUriConstants.XLS_TYPE)) {
 
 					try {
 						exelHandler(inputUrl);
 					} catch (FileNotFoundException e) {
-						MessageDialog.openInformation(Display.getCurrent()
-								.getActiveShell(), "File not found", e
-								.toString());
+						MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+						                              "File not found", e.toString());
 						return null;
 					} catch (IOException e) {
-						MessageDialog.openInformation(Display.getCurrent()
-								.getActiveShell(),
-								"Error occured while reading the file", e
-										.toString());
+						MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+						                              "Error occured while reading the file",
+						                              e.toString());
 						return null;
 					}
 
 					nextPage = ((DataServiceCreationWizard) getWizard()).xlsPage;
 
-				} else if (sourceDetails.get(DBUriConstants.DB_TYPE).equals(
-						DBUriConstants.GSS_TYPE)) {
+				} else if (sourceDetails.get(DBUriConstants.DB_TYPE)
+				                        .equals(DBUriConstants.GSS_TYPE)) {
 
 					try {
 						gspreadhandler();
 					} catch (IOException e) {
-						MessageDialog.openInformation(Display.getCurrent()
-								.getActiveShell(),
-								"Error occured while reading the file", e
-										.toString());
+						MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+						                              "Error occured while reading the file",
+						                              e.toString());
 						return null;
 					} catch (ServiceException e) {
-						MessageDialog.openInformation(Display.getCurrent()
-								.getActiveShell(),
-								"Google Data Service can not be established", e
-										.toString());
+						MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+						                              "Google Data Service can not be established",
+						                              e.toString());
 						return null;
 					}
 
 					nextPage = ((DataServiceCreationWizard) getWizard()).gspPage;
 
-				} else if (sourceDetails.get(DBUriConstants.DB_TYPE).equals(
-						DBUriConstants.CSV_TYPE_ONLIN)) {
+				} else if (sourceDetails.get(DBUriConstants.DB_TYPE)
+				                        .equals(DBUriConstants.CSV_TYPE_ONLIN)) {
 
 					IProject project = null;
 					try {
@@ -186,27 +180,24 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 
 					} catch (CoreException e) {
 
-						MessageDialog.openInformation(Display.getCurrent()
-								.getActiveShell(),
-								"Error occured while reading the file", e
-										.toString());
+						MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+						                              "Error occured while reading the file",
+						                              e.toString());
 
 					}
 
 					if (project != null) {
 
-						String tempFilePath = project.getLocation().toString()
-								+ File.separator + TEMP_FILE_NAME
-								+ DBUriConstants.CSV_TYPE;
+						String tempFilePath =
+						                      project.getLocation().toString() + File.separator +
+						                              TEMP_FILE_NAME + DBUriConstants.CSV_TYPE;
 						boolean isComplete = false;
 
 						try {
-							isComplete = DLoader.download(inputUrl,
-									tempFilePath);
+							isComplete = DLoader.download(inputUrl, tempFilePath);
 						} catch (IOException e) {
-							MessageDialog.openInformation(Display.getCurrent()
-									.getActiveShell(), "File not found", e
-									.toString());
+							MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+							                              "File not found", e.toString());
 							return null;
 						}
 						if (isComplete) {
@@ -214,18 +205,17 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 							try {
 								csvHandler(tempFilePath);
 							} catch (IOException e) {
-								MessageDialog.openInformation(Display
-										.getCurrent().getActiveShell(),
-										"Error occured while reading the file",
-										e.toString());
+								MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+								                              "Error occured while reading the file",
+								                              e.toString());
 								return null;
 							}
 						}
 					}
 					nextPage = ((DataServiceCreationWizard) getWizard()).csvPage;
 
-				} else if (sourceDetails.get(DBUriConstants.DB_TYPE).equals(
-						DBUriConstants.XLS_TYPE_ONLIN)) {
+				} else if (sourceDetails.get(DBUriConstants.DB_TYPE)
+				                        .equals(DBUriConstants.XLS_TYPE_ONLIN)) {
 
 					IProject project = null;
 
@@ -235,43 +225,38 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 
 					} catch (CoreException e) {
 
-						MessageDialog.openInformation(Display.getCurrent()
-								.getActiveShell(),
-								"Error occured while reading the file", e
-										.toString());
+						MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+						                              "Error occured while reading the file",
+						                              e.toString());
 
 					}
 
 					if (project != null) {
 
-						String tempFilePath = project.getLocation().toString()
-								+ File.separator + TEMP_FILE_NAME
-								+ DBUriConstants.XLS_TYPE;
+						String tempFilePath =
+						                      project.getLocation().toString() + File.separator +
+						                              TEMP_FILE_NAME + DBUriConstants.XLS_TYPE;
 						boolean isComplete = false;
 
 						try {
-							isComplete = DLoader.download(inputUrl,
-									tempFilePath);
+							isComplete = DLoader.download(inputUrl, tempFilePath);
 						} catch (IOException e) {
-							MessageDialog.openInformation(Display.getCurrent()
-									.getActiveShell(), "File not found", e
-									.toString());
+							MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+							                              "File not found", e.toString());
 							return null;
 						}
 						if (isComplete) {
 							try {
 								exelHandler(tempFilePath);
 							} catch (FileNotFoundException e) {
-								MessageDialog.openInformation(Display
-										.getCurrent().getActiveShell(),
-										"Error occured while reading the file",
-										e.toString());
+								MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+								                              "Error occured while reading the file",
+								                              e.toString());
 								return null;
 							} catch (IOException e) {
-								MessageDialog.openInformation(Display
-										.getCurrent().getActiveShell(),
-										"Error occured while reading the file",
-										e.toString());
+								MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+								                              "Error occured while reading the file",
+								                              e.toString());
 								return null;
 							}
 						}
@@ -279,12 +264,10 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 
 					nextPage = ((DataServiceCreationWizard) getWizard()).xlsPage;
 
-				} else if (sourceDetails.get(DBUriConstants.RDBMS_FLAG).equals(
-						DBUriConstants.REGEX_RDBMS)) {
+				} else if (sourceDetails.get(DBUriConstants.RDBMS_FLAG)
+				                        .equals(DBUriConstants.REGEX_RDBMS)) {
 
-					
-					((DataServiceCreationWizard) getWizard()).driveConPage
-							.init(sourceDetails);
+					((DataServiceCreationWizard) getWizard()).driveConPage.init(sourceDetails);
 
 					nextPage = ((DataServiceCreationWizard) getWizard()).driveConPage;
 					((DataServiceCreationWizard) getWizard()).dbFlag = true;
@@ -303,8 +286,7 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 
 	}
 
-	private void exelHandler(String inputUrl) throws FileNotFoundException,
-			IOException {
+	private void exelHandler(String inputUrl) throws FileNotFoundException, IOException {
 
 		ExelWizardPage xlsPage = ((DataServiceCreationWizard) getWizard()).xlsPage;
 
@@ -312,8 +294,7 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 
 		ArrayList<String> sheetNames = exlreader.getWorkSheets();
 
-		if (xlsPage.sheetCombo.getItems() != null
-				&& xlsPage.sheetCombo.getItems().length != 0) {
+		if (xlsPage.sheetCombo.getItems() != null && xlsPage.sheetCombo.getItems().length != 0) {
 
 			xlsPage.sheetCombo.removeAll();
 		}
@@ -343,8 +324,7 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 		} else {
 			String userName = "";
 			String password = "";
-			if (ValidateUtil.isTextNonEmpty(username)
-					&& ValidateUtil.isTextNonEmpty(passwd)) {
+			if (ValidateUtil.isTextNonEmpty(username) && ValidateUtil.isTextNonEmpty(passwd)) {
 				// TODO validation
 				userName = username.getText();
 				password = passwd.getText();
@@ -358,8 +338,7 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 
 		if (sheetNames.size() != 0) {
 
-			if (gspPage.sheetCombo.getItems() != null
-					&& gspPage.sheetCombo.getItems().length != 0) {
+			if (gspPage.sheetCombo.getItems() != null && gspPage.sheetCombo.getItems().length != 0) {
 
 				gspPage.sheetCombo.removeAll();
 			}
@@ -412,8 +391,8 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 		visibilityCombo = new Combo(comp, SWT.READ_ONLY);
 		visibilityCombo.add("Public");
 		visibilityCombo.add("Private");
-		GridData cgd1 = new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING
-				| GridData.FILL_HORIZONTAL);
+		GridData cgd1 =
+		                new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING | GridData.FILL_HORIZONTAL);
 
 		visibilityCombo.setLayoutData(cgd1);
 
@@ -458,8 +437,7 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 		gridLayout.numColumns = 2;
 		ownerInfo.setLayout(gridLayout);
 
-		GridData gridData = new GridData(GridData.FILL, GridData.CENTER, true,
-				false);
+		GridData gridData = new GridData(GridData.FILL, GridData.CENTER, true, false);
 		gridData.horizontalSpan = 2;
 		ownerInfo.setLayoutData(gridData);
 
@@ -514,8 +492,6 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 		return sourceUriText.getText().trim();
 	}
 
-	
-	
 	public void handleEvent(Event event) {
 
 		if (event.widget == sourceUriText) {
@@ -533,20 +509,17 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 
 			if (isGspredWidgetadded == false) {
 
-				Pattern gspread_pattern = Pattern
-						.compile(DBUriConstants.REGEX_GSS_SPREAD);
-				Matcher gss_matcher = gspread_pattern.matcher(sourceUriText
-						.getText().trim());
+				Pattern gspread_pattern = Pattern.compile(DBUriConstants.REGEX_GSS_SPREAD);
+				Matcher gss_matcher = gspread_pattern.matcher(sourceUriText.getText().trim());
 
-				if (sourceUriText.getText().trim().substring(0, 36)
-						.equals(DBUriConstants.GSS_TYPE)) {
+				if (sourceUriText.getText().trim().substring(0, 36).equals(DBUriConstants.GSS_TYPE)) {
 
 					gSpreadUpdater(false);
 					isGspredWidgetadded = true;
 
 				} else if (sourceUriText.getText().trim().substring(0, 24)
-						.equals(DBUriConstants.GSS_TYPE.substring(0, 24))
-						&& gss_matcher.find()) {
+				                        .equals(DBUriConstants.GSS_TYPE.substring(0, 24)) &&
+				           gss_matcher.find()) {
 
 					gSpreadUpdater(false);
 					isGspredWidgetadded = true;
@@ -571,9 +544,9 @@ public class DataServiceCreationWizadPage extends WizardPage implements
 		}
 
 	}
-	
-	protected void setSourceUriText(String dbSourceUri){
-		
+
+	protected void setSourceUriText(String dbSourceUri) {
+
 		sourceUriText.setText(dbSourceUri);
 	}
 

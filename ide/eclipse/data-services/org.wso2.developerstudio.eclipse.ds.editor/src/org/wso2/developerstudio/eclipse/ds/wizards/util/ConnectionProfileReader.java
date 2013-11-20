@@ -21,8 +21,7 @@ public class ConnectionProfileReader {
 
 	public IConnectionProfile[] getConectionProfiles() {
 
-		IConnectionProfile[] profiles = ProfileManager.getInstance()
-				.getProfiles();
+		IConnectionProfile[] profiles = ProfileManager.getInstance().getProfiles();
 
 		return profiles;
 	}
@@ -37,7 +36,7 @@ public class ConnectionProfileReader {
 
 			try {
 				DatabaseMetaData dbMetaData = conn.getMetaData();
-				ResultSet rs = dbMetaData.getTables(null, null, null,DB_TABLE_TYPES);
+				ResultSet rs = dbMetaData.getTables(null, null, null, DB_TABLE_TYPES);
 
 				while (rs.next()) {
 					String tableName = rs.getString(TABLE_NAME);
@@ -48,18 +47,17 @@ public class ConnectionProfileReader {
 				}
 
 			} catch (SQLException e) {
-				MessageDialog.openInformation(Display.getCurrent()
-						.getActiveShell(),
-						"Error occurs while accessing the Database", e
-								.toString());
+				MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+				                              "Error occurs while accessing the Database",
+				                              e.toString());
 			}
 
 		} else {
 
 			if (status.getException() != null) {
-				MessageDialog.openInformation(Display.getCurrent()
-						.getActiveShell(), "Connection error occured", status
-						.getException().toString());
+				MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
+				                              "Connection error occured", status.getException()
+				                                                                .toString());
 
 			}
 		}
@@ -68,11 +66,10 @@ public class ConnectionProfileReader {
 	}
 
 	public Connection getJavaConnectionForProfile(IConnectionProfile profile) {
-		IManagedConnection managedConnection = ((IConnectionProfile) profile)
-				.getManagedConnection("java.sql.Connection");
+		IManagedConnection managedConnection =
+		                                       ((IConnectionProfile) profile).getManagedConnection("java.sql.Connection");
 		if (managedConnection != null) {
-			return (Connection) managedConnection.getConnection()
-					.getRawConnection();
+			return (Connection) managedConnection.getConnection().getRawConnection();
 		}
 		return null;
 	}

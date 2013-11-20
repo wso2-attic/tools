@@ -48,22 +48,19 @@ public class OutlineBlock extends MasterDetailsBlock {
 	private ScrolledForm scrolledForm;
 	private TreeViewer viewer;
 	private ISelection currentSelection;
-	
-	public OutlineBlock(DsEditor editor,ComposedAdapterFactory adapterFactory,EditingDomain domain) {
+
+	public OutlineBlock(DsEditor editor, ComposedAdapterFactory adapterFactory, EditingDomain domain) {
 		this.adapterFactory = adapterFactory;
 		this.domain = domain;
 		this.dseditor = editor;
 		dsDetailsPageProvider = new DetailPageProvider(dseditor);
 	}
 
-	
-	protected void createMasterPart(final IManagedForm managedForm,
-			Composite parent) {
+	protected void createMasterPart(final IManagedForm managedForm, Composite parent) {
 		FormToolkit toolkit = managedForm.getToolkit();
 		scrolledForm = managedForm.getForm();
-		Section section = toolkit.createSection(parent, Section.DESCRIPTION
-				| Section.TITLE_BAR);
-		section.setText("Data Service Outline"); 
+		Section section = toolkit.createSection(parent, Section.DESCRIPTION | Section.TITLE_BAR);
+		section.setText("Data Service Outline");
 		section.marginWidth = 10;
 		section.marginHeight = 5;
 		Composite client = toolkit.createComposite(section, SWT.WRAP);
@@ -73,27 +70,28 @@ public class OutlineBlock extends MasterDetailsBlock {
 		layout.marginHeight = 2;
 		client.setLayout(layout);
 		Tree tr = null;
-		tr = toolkit.createTree(client, SWT.NULL);	
+		tr = toolkit.createTree(client, SWT.NULL);
 		GridData gd = new GridData(GridData.FILL_BOTH);
 		gd.heightHint = 20;
 		gd.widthHint = 100;
-		tr.setLayoutData(gd);	
+		tr.setLayoutData(gd);
 		toolkit.paintBordersFor(client);
-		
+
 		section.setClient(client);
-		
+
 		final SectionPart spart = new SectionPart(section);
 		managedForm.addPart(spart);
-		
+
 		viewer = new TreeViewer(tr);
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
-				
+
 				currentSelection = event.getSelection();
-				
-				DsActionBarContributor dscbc =(DsActionBarContributor)dseditor.getActionBarContributor();
+
+				DsActionBarContributor dscbc =
+				                               (DsActionBarContributor) dseditor.getActionBarContributor();
 				dscbc.selectionChanged(event);
-				
+
 				managedForm.fireSelectionChanged(spart, event.getSelection());
 
 			}
@@ -101,8 +99,8 @@ public class OutlineBlock extends MasterDetailsBlock {
 		viewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(DoubleClickEvent event) {
 				try {
-					dseditor.getEditorSite().getPage().showView(
-							"org.eclipse.ui.views.PropertySheet");
+					dseditor.getEditorSite().getPage()
+					        .showView("org.eclipse.ui.views.PropertySheet");
 				} catch (PartInitException ex) {
 					ex.printStackTrace();
 				}
@@ -110,144 +108,158 @@ public class OutlineBlock extends MasterDetailsBlock {
 		});
 		viewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 		viewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		
-		//make sure that the workbench selection service knows about the object selected in tree viewer.
-		dseditor.getSite().setSelectionProvider(viewer); 
 
-	    
-		if(domain != null){
-			if(domain.getResourceSet() != null){
-				if(domain.getResourceSet().getResources() != null && domain.getResourceSet().getResources().size() != 0){
-					if(domain.getResourceSet().getResources().get(0) != null){
-						Resource resource = (Resource) domain.getResourceSet().getResources().get(0);
+		// make sure that the workbench selection service knows about the object
+		// selected in tree viewer.
+		dseditor.getSite().setSelectionProvider(viewer);
+
+		if (domain != null) {
+			if (domain.getResourceSet() != null) {
+				if (domain.getResourceSet().getResources() != null &&
+				    domain.getResourceSet().getResources().size() != 0) {
+					if (domain.getResourceSet().getResources().get(0) != null) {
+						Resource resource =
+						                    (Resource) domain.getResourceSet().getResources()
+						                                     .get(0);
 						Boolean hasNodes = checkResourceAvilability(resource);
-						if(hasNodes == false){
-							
+						if (hasNodes == false) {
+
 							toolkit.decorateFormHeading(scrolledForm.getForm());
-							scrolledForm.getForm().setMessage("No data available in the .dbs file to populate the Modle Tree", IMessageProvider.ERROR);	
+							scrolledForm.getForm()
+							            .setMessage("No data available in the .dbs file to populate the Modle Tree",
+							                        IMessageProvider.ERROR);
 						}
-						if(resource.getContents() != null && resource.getContents().size() != 0){
-							if(resource.getContents().get(0) != null){
-							DocumentRootImpl root = (DocumentRootImpl)resource.getContents().get(0);
-							viewer.setInput(root);
-							viewer.setAutoExpandLevel(TreeViewer.ALL_LEVELS);
-							viewer.setSelection(new StructuredSelection(root), true);
+						if (resource.getContents() != null && resource.getContents().size() != 0) {
+							if (resource.getContents().get(0) != null) {
+								DocumentRootImpl root =
+								                        (DocumentRootImpl) resource.getContents()
+								                                                   .get(0);
+								viewer.setInput(root);
+								viewer.setAutoExpandLevel(TreeViewer.ALL_LEVELS);
+								viewer.setSelection(new StructuredSelection(root), true);
 							}
-							
-						}else{
-							scrolledForm.getForm().setMessage("No data available in the .dbs file to populate the Modle Tree", IMessageProvider.ERROR);	
+
+						} else {
+							scrolledForm.getForm()
+							            .setMessage("No data available in the .dbs file to populate the Modle Tree",
+							                        IMessageProvider.ERROR);
 						}
 						dseditor.createContextMenuFor(viewer);
-					}else{
+					} else {
 						toolkit.decorateFormHeading(scrolledForm.getForm());
-						scrolledForm.getForm().setMessage("No data available in the .dbs file to populate the Modle Tree", IMessageProvider.ERROR);
+						scrolledForm.getForm()
+						            .setMessage("No data available in the .dbs file to populate the Modle Tree",
+						                        IMessageProvider.ERROR);
 					}
-				}else{
+				} else {
 					toolkit.decorateFormHeading(scrolledForm.getForm());
-					scrolledForm.getForm().setMessage("No data available in the .dbs file to populate the Modle Tree", IMessageProvider.ERROR);
+					scrolledForm.getForm()
+					            .setMessage("No data available in the .dbs file to populate the Modle Tree",
+					                        IMessageProvider.ERROR);
 				}
-			}else{
+			} else {
 				toolkit.decorateFormHeading(scrolledForm.getForm());
-				scrolledForm.getForm().setMessage("No data available in the .dbs file to populate the Modle Tree", IMessageProvider.ERROR);
+				scrolledForm.getForm()
+				            .setMessage("No data available in the .dbs file to populate the Modle Tree",
+				                        IMessageProvider.ERROR);
 			}
-		}else{
+		} else {
 			toolkit.decorateFormHeading(scrolledForm.getForm());
-			scrolledForm.getForm().setMessage("No data available in the .dbs file to populate the Modle Tree", IMessageProvider.ERROR);
+			scrolledForm.getForm()
+			            .setMessage("No data available in the .dbs file to populate the Modle Tree",
+			                        IMessageProvider.ERROR);
 		}
-	
+
 	}
 
-	
 	protected void createToolBarActions(IManagedForm managedForm) {
 		final ScrolledForm form = managedForm.getForm();
-		Action haction = new Action("Horizontal", Action.AS_RADIO_BUTTON) { 
+		Action haction = new Action("Horizontal", Action.AS_RADIO_BUTTON) {
 			public void run() {
 				sashForm.setOrientation(SWT.HORIZONTAL);
 				form.reflow(true);
 			}
 		};
 		haction.setChecked(true);
-		haction.setToolTipText("Horizontal"); 
-		Action vaction = new Action("Vertical", Action.AS_RADIO_BUTTON) { 
+		haction.setToolTipText("Horizontal");
+		Action vaction = new Action("Vertical", Action.AS_RADIO_BUTTON) {
 			public void run() {
 				sashForm.setOrientation(SWT.VERTICAL);
 				form.reflow(true);
 			}
 		};
 		vaction.setChecked(false);
-		vaction.setToolTipText("vertical"); 
+		vaction.setToolTipText("vertical");
 		form.getToolBarManager().add(haction);
 		form.getToolBarManager().add(vaction);
 	}
 
 	protected void registerPages(DetailsPart detailsPart) {
-		
-		//Register the DetailPage provider for OutlineBlock
-		
-		 detailsPart.setPageProvider(dsDetailsPageProvider);
-		
+
+		// Register the DetailPage provider for OutlineBlock
+
+		detailsPart.setPageProvider(dsDetailsPageProvider);
+
 	}
-	
-	private Boolean checkResourceAvilability(Resource resource){
+
+	private Boolean checkResourceAvilability(Resource resource) {
 		TreeIterator<EObject> tre = resource.getAllContents();
 		Boolean hasNodes = tre.hasNext();
 		return hasNodes;
 	}
 
-
 	public TreeViewer getViewer() {
 		return viewer;
 	}
-
 
 	public void setViewer(TreeViewer viewer) {
 		this.viewer = viewer;
 	}
 
-
 	public ISelection getCurrentSelection() {
 		return currentSelection;
 	}
-	
+
 	public void setSelectionToViewer(Collection<?> collection) {
 		final Collection<?> theSelection = collection;
-		
-		if (theSelection != null && !theSelection.isEmpty()) {
-			Runnable runnable =
-				new Runnable() {
-					public void run() {
-						// Try to select the item in the current content viewer of the editor.
-						//
-						if (viewer != null && !isEditAction) {
-							
-							Object selectedObject = null;
-							
-							Object []  arr = theSelection.toArray();
-							
-							if(arr.length >= 1 && arr[0] != null){
-								
-								// get the current viewer selection
-								IStructuredSelection ssel = (IStructuredSelection) viewer.getSelection();
-								
-								if (ssel != null && ssel.size() == 1) {
 
-									selectedObject = (EObjectImpl) ssel.getFirstElement();
-								}
-								//check whether newly selected object already selected.
-								if(selectedObject != null && !selectedObject.equals(arr[0])){
-									
-									viewer.setSelection(new StructuredSelection(arr[0]));
-								}
+		if (theSelection != null && !theSelection.isEmpty()) {
+			Runnable runnable = new Runnable() {
+				public void run() {
+					// Try to select the item in the current content viewer of
+					// the editor.
+					//
+					if (viewer != null && !isEditAction) {
+
+						Object selectedObject = null;
+
+						Object[] arr = theSelection.toArray();
+
+						if (arr.length >= 1 && arr[0] != null) {
+
+							// get the current viewer selection
+							IStructuredSelection ssel =
+							                            (IStructuredSelection) viewer.getSelection();
+
+							if (ssel != null && ssel.size() == 1) {
+
+								selectedObject = (EObjectImpl) ssel.getFirstElement();
 							}
-						}else{
-							
-							isEditAction = false;
+							// check whether newly selected object already
+							// selected.
+							if (selectedObject != null && !selectedObject.equals(arr[0])) {
+
+								viewer.setSelection(new StructuredSelection(arr[0]));
+							}
 						}
+					} else {
+
+						isEditAction = false;
 					}
-				};
-				dseditor.getSite().getShell().getDisplay().asyncExec(runnable);
+				}
+			};
+			dseditor.getSite().getShell().getDisplay().asyncExec(runnable);
 		}
 	}
-	
 
 }

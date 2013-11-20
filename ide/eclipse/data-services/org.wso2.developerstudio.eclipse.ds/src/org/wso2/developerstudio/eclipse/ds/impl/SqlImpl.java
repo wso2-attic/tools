@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -23,11 +23,13 @@ import org.wso2.developerstudio.eclipse.ds.Sql;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.SqlImpl#getValue <em>Value</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.SqlImpl#getDialect <em>Dialect</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.SqlImpl#getValue <em>
+ * Value</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.SqlImpl#getDialect <em>
+ * Dialect</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SqlImpl extends EObjectImpl implements Sql {
@@ -35,6 +37,7 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -45,6 +48,7 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -52,9 +56,11 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	protected String value = VALUE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDialect() <em>Dialect</em>}' attribute.
+	 * The default value of the '{@link #getDialect() <em>Dialect</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDialect()
 	 * @generated
 	 * @ordered
@@ -62,9 +68,11 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	protected static final String DIALECT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDialect() <em>Dialect</em>}' attribute.
+	 * The cached value of the '{@link #getDialect() <em>Dialect</em>}'
+	 * attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getDialect()
 	 * @generated
 	 * @ordered
@@ -74,6 +82,7 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected SqlImpl() {
@@ -83,10 +92,10 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.SQL;
@@ -95,6 +104,7 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getValue() {
@@ -104,18 +114,21 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setValue(String newValue) {
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.SQL__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.SQL__VALUE, oldValue,
+			                              value));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getDialect() {
@@ -125,22 +138,24 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setDialect(String newDialect) {
 		String oldDialect = dialect;
 		dialect = newDialect;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.SQL__DIALECT, oldDialect, dialect));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.SQL__DIALECT,
+			                              oldDialect, dialect));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -155,18 +170,18 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.SQL__VALUE:
-				setValue((String)newValue);
+				setValue((String) newValue);
 				return;
 			case DsPackage.SQL__DIALECT:
-				setDialect((String)newValue);
+				setDialect((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -175,10 +190,10 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -195,17 +210,18 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DsPackage.SQL__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 			case DsPackage.SQL__DIALECT:
-				return DIALECT_EDEFAULT == null ? dialect != null : !DIALECT_EDEFAULT.equals(dialect);
+				return DIALECT_EDEFAULT == null ? dialect != null
+				                               : !DIALECT_EDEFAULT.equals(dialect);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -213,13 +229,14 @@ public class SqlImpl extends EObjectImpl implements Sql {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
@@ -230,4 +247,4 @@ public class SqlImpl extends EObjectImpl implements Sql {
 		return result.toString();
 	}
 
-} //SqlImpl
+} // SqlImpl

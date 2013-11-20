@@ -1,7 +1,7 @@
 /**
  * <copyright>
  * </copyright>
- *
+ * 
  * $Id$
  */
 package org.wso2.developerstudio.eclipse.ds.impl;
@@ -35,19 +35,25 @@ import org.wso2.developerstudio.eclipse.ds.ParameterMapping;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryImpl#getMixed <em>Mixed</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryImpl#getWithParam <em>With Param</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryImpl#getHref <em>Href</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryImpl#getMixed
+ * <em>Mixed</em>}</li>
+ * <li>
+ * {@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryImpl#getWithParam
+ * <em>With Param</em>}</li>
+ * <li>{@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryImpl#getHref
+ * <em>Href</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
-	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute
+	 * list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getMixed()
 	 * @generated
 	 * @ordered
@@ -58,6 +64,7 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	 * The default value of the '{@link #getHref() <em>Href</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getHref()
 	 * @generated
 	 * @ordered
@@ -68,6 +75,7 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	 * The cached value of the '{@link #getHref() <em>Href</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getHref()
 	 * @generated
 	 * @ordered
@@ -77,6 +85,7 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CallQueryImpl() {
@@ -86,10 +95,10 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	protected EClass eStaticClass() {
 		return DsPackage.Literals.CALL_QUERY;
@@ -98,6 +107,7 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public FeatureMap getMixed() {
@@ -110,6 +120,7 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<ParameterMapping> getWithParam() {
@@ -119,6 +130,7 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String getHref() {
@@ -128,29 +140,32 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setHref(String newHref) {
 		String oldHref = href;
 		href = newHref;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.CALL_QUERY__HREF, oldHref, href));
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.CALL_QUERY__HREF,
+			                              oldHref, href));
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID,
+	                                        NotificationChain msgs) {
 		switch (featureID) {
 			case DsPackage.CALL_QUERY__MIXED:
-				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.CALL_QUERY__WITH_PARAM:
-				return ((InternalEList<?>)getWithParam()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>) getWithParam()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -158,16 +173,17 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DsPackage.CALL_QUERY__MIXED:
-				if (coreType) return getMixed();
-				return ((FeatureMap.Internal)getMixed()).getWrapper();
+				if (coreType)
+					return getMixed();
+				return ((FeatureMap.Internal) getMixed()).getWrapper();
 			case DsPackage.CALL_QUERY__WITH_PARAM:
 				return getWithParam();
 			case DsPackage.CALL_QUERY__HREF:
@@ -179,23 +195,22 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	
-	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DsPackage.CALL_QUERY__MIXED:
-				((FeatureMap.Internal)getMixed()).set(newValue);
+				((FeatureMap.Internal) getMixed()).set(newValue);
 				return;
 			case DsPackage.CALL_QUERY__WITH_PARAM:
 				getWithParam().clear();
-				getWithParam().addAll((Collection<? extends ParameterMapping>)newValue);
+				getWithParam().addAll((Collection<? extends ParameterMapping>) newValue);
 				return;
 			case DsPackage.CALL_QUERY__HREF:
-				setHref((String)newValue);
+				setHref((String) newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -204,10 +219,10 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -227,10 +242,10 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -247,13 +262,14 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	
-	
+
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (mixed: ");
@@ -264,4 +280,4 @@ public class CallQueryImpl extends EObjectImpl implements CallQuery {
 		return result.toString();
 	}
 
-} //CallQueryImpl
+} // CallQueryImpl

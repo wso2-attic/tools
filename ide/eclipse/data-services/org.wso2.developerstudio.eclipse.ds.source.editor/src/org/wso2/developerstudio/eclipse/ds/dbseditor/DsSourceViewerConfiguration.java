@@ -25,42 +25,46 @@ import org.eclipse.ui.editors.text.TextSourceViewerConfiguration;
 import org.eclipse.ui.texteditor.HippieProposalProcessor;
 
 public class DsSourceViewerConfiguration extends TextSourceViewerConfiguration {
-	
+
 	private DsSourceEditor editor;
-		
+
 	private final ISharedTextColors fSharedColors;
-	
-	public DsSourceViewerConfiguration(ISharedTextColors sharedColors, IPreferenceStore store,DsSourceEditor editor) {
+
+	public DsSourceViewerConfiguration(ISharedTextColors sharedColors, IPreferenceStore store,
+	                                   DsSourceEditor editor) {
 		super(store);
-		fSharedColors= sharedColors;
+		fSharedColors = sharedColors;
 		this.editor = editor;
 	}
 
 	public String getConfiguredDocumentPartitioning(ISourceViewer sourceViewer) {
 		return DsDocumentProvider.DS_PARTITIONING;
 	}
-	
+
 	public String[] getConfiguredContentTypes(ISourceViewer sourceViewer) {
-		 return DsDocumentProvider.CONTENT_TYPES;
+		return DsDocumentProvider.CONTENT_TYPES;
 	}
-	
+
 	public IContentAssistant getContentAssistant(final ISourceViewer sourceViewer) {
-		ContentAssistant assistant= new ContentAssistant();
+		ContentAssistant assistant = new ContentAssistant();
 		assistant.setDocumentPartitioning(getConfiguredDocumentPartitioning(sourceViewer));
 		assistant.enableAutoActivation(true);
 		assistant.setAutoActivationDelay(500);
-		
-		assistant.setContentAssistProcessor(new HippieProposalProcessor(), DsDocumentProvider.XML_COMMENT);
-		assistant.setContentAssistProcessor(new DsCompletionProcessor(editor), DsDocumentProvider.DS_CODE);
-		assistant.setContentAssistProcessor(new DsCompletionProcessor(editor), DsDocumentProvider.XML_TAG);
+
+		assistant.setContentAssistProcessor(new HippieProposalProcessor(),
+		                                    DsDocumentProvider.XML_COMMENT);
+		assistant.setContentAssistProcessor(new DsCompletionProcessor(editor),
+		                                    DsDocumentProvider.DS_CODE);
+		assistant.setContentAssistProcessor(new DsCompletionProcessor(editor),
+		                                    DsDocumentProvider.XML_TAG);
 		return assistant;
 	}
 
 	public IPresentationReconciler getPresentationReconciler(ISourceViewer sourceViewer) {
-		PresentationReconciler reconciler= new PresentationReconciler();
-		
+		PresentationReconciler reconciler = new PresentationReconciler();
+
 		reconciler.setDocumentPartitioning(getConfiguredDocumentPartitioning(sourceViewer));
-		
+
 		DefaultDamagerRepairer dr = new DefaultDamagerRepairer(XMLTagScanner());
 		reconciler.setDamager(dr, XMLPartitionScanner.XML_TAG);
 		reconciler.setRepairer(dr, XMLPartitionScanner.XML_TAG);
@@ -70,37 +74,34 @@ public class DsSourceViewerConfiguration extends TextSourceViewerConfiguration {
 		reconciler.setRepairer(dr, IDocument.DEFAULT_CONTENT_TYPE);
 
 		addDamagerRepairer(reconciler, createCommentScanner(), DsDocumentProvider.XML_COMMENT);
-		
-		
+
 		return reconciler;
 	}
-	
-	public IContentFormatter getContentFormatter(ISourceViewer sourceViewer){
-		
+
+	public IContentFormatter getContentFormatter(ISourceViewer sourceViewer) {
+
 		ContentFormatter formatter = new ContentFormatter();
 		XMLFormattingStrategy formattingStrategy = new XMLFormattingStrategy();
 		formatter.setFormattingStrategy(formattingStrategy, XMLPartitionScanner.XML_TAG);
 		return formatter;
 	}
 
-
-	private void addDamagerRepairer(PresentationReconciler reconciler, RuleBasedScanner commentScanner, String contentType) {
-		DefaultDamagerRepairer commentDamagerRepairer= new DefaultDamagerRepairer(commentScanner);
+	private void addDamagerRepairer(PresentationReconciler reconciler,
+	                                RuleBasedScanner commentScanner, String contentType) {
+		DefaultDamagerRepairer commentDamagerRepairer = new DefaultDamagerRepairer(commentScanner);
 		reconciler.setDamager(commentDamagerRepairer, contentType);
 		reconciler.setRepairer(commentDamagerRepairer, contentType);
 	}
 
 	private RuleBasedScanner createCommentScanner() {
-		Color green= fSharedColors.getColor(new RGB(0, 150, 0));
-		RuleBasedScanner commentScanner= new RuleBasedScanner();
+		Color green = fSharedColors.getColor(new RGB(0, 150, 0));
+		RuleBasedScanner commentScanner = new RuleBasedScanner();
 		commentScanner.setDefaultReturnToken(new Token(new TextAttribute(green, null, SWT.ITALIC)));
 		return commentScanner;
 	}
-	
-	
-	
-	private RuleBasedScanner XMLTagScanner(){ //XMLPartitionScanner.XML_TAG
-		Color green= fSharedColors.getColor(new RGB(0, 128, 0));
+
+	private RuleBasedScanner XMLTagScanner() { // XMLPartitionScanner.XML_TAG
+		Color green = fSharedColors.getColor(new RGB(0, 128, 0));
 		IToken string = new Token(new TextAttribute(green));
 		IRule[] rules = new IRule[3];
 
@@ -110,35 +111,32 @@ public class DsSourceViewerConfiguration extends TextSourceViewerConfiguration {
 		rules[1] = new SingleLineRule("'", "'", string, '\\');
 		// Add generic whitespace rule.
 		rules[2] = new WhitespaceRule(new XMLWhitespaceDetector());
-		
-		RuleBasedScanner tagScanner= new RuleBasedScanner();
+
+		RuleBasedScanner tagScanner = new RuleBasedScanner();
 		tagScanner.setRules(rules);
-		
+
 		Color tag = fSharedColors.getColor(new RGB(0, 0, 128));
 		tagScanner.setDefaultReturnToken(new Token(new TextAttribute(tag)));
 		return tagScanner;
-		
+
 	}
-	
-	private RuleBasedScanner XMLScanner(){  //IDocument.DEFAULT_CONTENT_TYPE
-		Color blue= fSharedColors.getColor(new RGB(128, 128, 128));
-		IToken procInstr =new Token(new TextAttribute(blue));
+
+	private RuleBasedScanner XMLScanner() { // IDocument.DEFAULT_CONTENT_TYPE
+		Color blue = fSharedColors.getColor(new RGB(128, 128, 128));
+		IToken procInstr = new Token(new TextAttribute(blue));
 
 		IRule[] rules = new IRule[2];
-		//Add rule for processing instructions
+		// Add rule for processing instructions
 		rules[0] = new SingleLineRule("<?", "?>", procInstr);
 		// Add generic whitespace rule.
 		rules[1] = new WhitespaceRule(new XMLWhitespaceDetector());
 
-		RuleBasedScanner tagScanner= new RuleBasedScanner();
+		RuleBasedScanner tagScanner = new RuleBasedScanner();
 		tagScanner.setRules(rules);
-		
+
 		Color defauult = fSharedColors.getColor(new RGB(0, 0, 0));
 		tagScanner.setDefaultReturnToken(new Token(new TextAttribute(defauult)));
 		return tagScanner;
 	}
-	
-	
-	
-	
+
 }

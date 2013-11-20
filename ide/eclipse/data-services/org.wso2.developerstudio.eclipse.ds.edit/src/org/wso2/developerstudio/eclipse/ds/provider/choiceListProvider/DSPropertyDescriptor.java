@@ -1,11 +1,12 @@
-/* Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+/*
+ * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -49,15 +50,15 @@ public class DSPropertyDescriptor extends ItemPropertyDescriptor {
 	private static List<String> eventTriggerList;
 
 	public DSPropertyDescriptor(AdapterFactory adapterFactory, ResourceLocator resourceLocator,
-			String displayName, String description, EStructuralFeature feature, boolean isSettable,
-			boolean multiLine, boolean sortChoices, Object staticImage, String category,
-			String[] filterFlags, int selection) {
+	                            String displayName, String description, EStructuralFeature feature,
+	                            boolean isSettable, boolean multiLine, boolean sortChoices,
+	                            Object staticImage, String category, String[] filterFlags,
+	                            int selection) {
 		super(adapterFactory, resourceLocator, displayName, description, feature, isSettable,
-				multiLine, sortChoices, staticImage, category, filterFlags);
+		      multiLine, sortChoices, staticImage, category, filterFlags);
 		this.selection = selection;
 	}
 
-	
 	public Collection<?> getChoiceOfValues(Object object) {
 		List<String> list = new ArrayList<String>();
 		if (selection == sqlType) {
@@ -163,8 +164,9 @@ public class DSPropertyDescriptor extends ItemPropertyDescriptor {
 	public static boolean isReferredConfiguration(Object object) {
 		rootObject = EcoreUtil.getRootContainer((EObject) object);
 		// Get the Query elements in the tree
-		Iterator<Query> queryIterator = Iterators.filter(((EObject) rootObject).eAllContents(),
-				Query.class);
+		Iterator<Query> queryIterator =
+		                                Iterators.filter(((EObject) rootObject).eAllContents(),
+		                                                 Query.class);
 		DataSourceConfiguration configuration = (DataSourceConfiguration) object;
 		while (queryIterator.hasNext()) {
 			try {
@@ -186,8 +188,9 @@ public class DSPropertyDescriptor extends ItemPropertyDescriptor {
 			rootObject = EcoreUtil.getRootContainer((EObject) object);
 
 			// Get the DataSourceConfiguration elements in the tree
-			Iterator<DataSourceConfiguration> configIterator = Iterators.filter(
-					((EObject) rootObject).eAllContents(), DataSourceConfiguration.class);
+			Iterator<DataSourceConfiguration> configIterator =
+			                                                   Iterators.filter(((EObject) rootObject).eAllContents(),
+			                                                                    DataSourceConfiguration.class);
 			configList = new ArrayList<String>();
 			while (configIterator.hasNext()) {
 				DataSourceConfiguration config = configIterator.next();
@@ -201,8 +204,9 @@ public class DSPropertyDescriptor extends ItemPropertyDescriptor {
 			rootObject = EcoreUtil.getRootContainer((EObject) object);
 
 			// Get the Query elements in the tree
-			Iterator<Query> queryIterator = Iterators.filter(((EObject) rootObject).eAllContents(),
-					Query.class);
+			Iterator<Query> queryIterator =
+			                                Iterators.filter(((EObject) rootObject).eAllContents(),
+			                                                 Query.class);
 			queryList = new ArrayList<String>();
 			while (queryIterator.hasNext()) {
 				Query query = queryIterator.next();
@@ -216,8 +220,9 @@ public class DSPropertyDescriptor extends ItemPropertyDescriptor {
 			rootObject = EcoreUtil.getRootContainer((EObject) object);
 
 			// Get the EventTrigger elements in the tree
-			Iterator<EventTrigger> eventIterator = Iterators.filter(
-					((EObject) rootObject).eAllContents(), EventTrigger.class);
+			Iterator<EventTrigger> eventIterator =
+			                                       Iterators.filter(((EObject) rootObject).eAllContents(),
+			                                                        EventTrigger.class);
 			eventTriggerList = new ArrayList<String>();
 			while (eventIterator.hasNext()) {
 				EventTrigger event = eventIterator.next();

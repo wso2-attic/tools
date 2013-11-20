@@ -15,8 +15,9 @@ public class ColorManager {
 	public void dispose() {
 		Iterator e = fColorTable.values().iterator();
 		while (e.hasNext())
-			 ((Color) e.next()).dispose();
+			((Color) e.next()).dispose();
 	}
+
 	public Color getColor(RGB rgb) {
 		Color color = (Color) fColorTable.get(rgb);
 		if (color == null) {
