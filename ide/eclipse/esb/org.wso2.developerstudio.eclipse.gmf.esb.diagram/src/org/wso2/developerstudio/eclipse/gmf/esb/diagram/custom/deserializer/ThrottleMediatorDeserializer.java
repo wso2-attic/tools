@@ -128,7 +128,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 			if(throttleMediator.getOnRejectMediator() instanceof SequenceMediator){
 				MediatorFlow mediatorFlow = visualThrottle.getThrottleContainer().getOnRejectContainer().getMediatorFlow();
 				GraphicalEditPart compartment = (GraphicalEditPart)((getEditpart(mediatorFlow)).getChildren().get(0));
-				deserializeSequence(compartment, (SequenceMediator)throttleMediator.getOnAcceptMediator(), visualThrottle.getOnRejectOutputConnector());
+				deserializeSequence(compartment, (SequenceMediator)throttleMediator.getOnRejectMediator(), visualThrottle.getOnRejectOutputConnector());
 			} else{
 				getLog().warn("Ignoring configuration : throttle OnRejectMediator is not an instanceof SequenceMediator");
 			}

@@ -66,10 +66,10 @@ public class ThrottleMediatorTransformer extends AbstractEsbNodeTransformer  {
 			if(visualThrottle.getPolicyType().equals(ThrottlePolicyType.INLINE)){
 				
 				
-				if(visualThrottle.getPolicyEntries().size()>0){
-					OMElement policyConfig  = createPolicyconfiguration(visualThrottle);
-					if(policyConfig != null){
-					throttleMediator.setInLinePolicy(policyConfig);
+				if (visualThrottle.getPolicyEntries().size() > 0 || visualThrottle.getMaxConcurrentAccessCount() > 0) {
+					OMElement policyConfig = createPolicyconfiguration(visualThrottle);
+					if (policyConfig != null) {
+						throttleMediator.setInLinePolicy(policyConfig);
 					}
 				}
 				
