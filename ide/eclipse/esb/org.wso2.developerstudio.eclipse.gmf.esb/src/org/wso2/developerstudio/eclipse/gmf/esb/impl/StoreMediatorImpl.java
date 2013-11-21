@@ -125,7 +125,7 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 		onStoreSequence = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
 		onStoreSequence.setPrettyName("onStore Sequence");
 		onStoreSequence.setKeyName("onStore Sequence");
-		onStoreSequence.setKeyValue(DEFAULT_REGISTRY_KEY);
+		onStoreSequence.setKeyValue("");
 		setOnStoreSequence(onStoreSequence);
 	}
 

@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
@@ -55,7 +56,8 @@ public class StoreMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.apache.synapse.mediators.store.MessageStoreMediator storeMediator=new org.apache.synapse.mediators.store.MessageStoreMediator();
 		setCommonProperties(storeMediator, visualStore);
 		storeMediator.setMessageStoreName(visualStore.getMessageStore());
-		if(null!=visualStore.getOnStoreSequence()){
+		if (null != visualStore.getOnStoreSequence()
+				&& StringUtils.isNotBlank(visualStore.getOnStoreSequence().getKeyValue())) {
 			storeMediator.setOnStoreSequence(visualStore.getOnStoreSequence().getKeyValue());
 		}
 		return storeMediator;
