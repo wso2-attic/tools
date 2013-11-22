@@ -36,31 +36,14 @@ public class XmlInputReader implements InputDataReaderAdapter{
 	private OMElement documentElement;	
 	private Iterator<OMElement> childElementIter;
 	private Map<String, Schema> inputSchemaMap;
-	private Map<String, Schema> outputSchemaMap;
-	private Map<String, String> avroArrayMap;
-	private HashMap<String, MappingConfigModel> mappingTypes;
-	private FunctionExecuter funcExecuter;
 	private GenericRecord rootRecord;
-	private Iterator<OMElement> childArrayIter;
 
 	public boolean hasChildRecords() {
 		return childElementIter.hasNext();
 	}
-	
-	public void setAvroArrayData(Map<String, String> avroArrayMap) {
-		this.avroArrayMap = avroArrayMap;
-	}
-
-	public void setMappingTypes(HashMap<String, MappingConfigModel> mappingTypes) {
-		this.mappingTypes = mappingTypes;
-	}
 
 	public void setInputSchemaMap(Map<String, Schema> inputSchemaMap) {
 		this.inputSchemaMap = inputSchemaMap;
-	}
-
-	public void setFuncExecuter(FunctionExecuter funcExecuter) {
-		this.funcExecuter = funcExecuter;
 	}
 
 	public GenericRecord getRootRecord() {

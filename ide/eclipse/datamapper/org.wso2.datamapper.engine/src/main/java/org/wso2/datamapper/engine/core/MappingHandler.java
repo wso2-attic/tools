@@ -68,12 +68,8 @@ public class MappingHandler {
 		
 		Map<String, String> avroArrayMap = outputSchemaCreator.getAvroArrayMap();
 		inputDataReader.setInputSchemaMap(inputSchemaMap);
-		inputDataReader.setAvroArrayData(avroArrayMap);
-		inputDataReader.setMappingTypes(mappingTypes);
 		
-		FunctionExecuter funcExecuter = new FunctionExecuter(mappingTypes, scope, outputSchemaMap, context);
-		inputDataReader.setFuncExecuter(funcExecuter);
-		
+		FunctionExecuter funcExecuter = new FunctionExecuter(mappingTypes, scope, outputSchemaMap, context);	
 		this.mappingTypes = mappingTypes;	
 		
 		GenericRecord inputRecord = new GenericData.Record(inSchema);

@@ -74,10 +74,6 @@ public class DataMapper {
 		}
 		
 		System.out.println("end mapping "+outRecord);
-		
-		
-		
-		
 		confReader.close();
 
 	}

@@ -17,9 +17,6 @@ public interface InputDataReaderAdapter {
 	public void setInputFile(File inputFile);
 	public boolean hasChildRecords();
 	public void setInputSchemaMap(Map<String, Schema> inputSchemaMap);
-	public void setAvroArrayData(Map<String, String> avroArrayMap );
-	public void setMappingTypes(HashMap<String, MappingConfigModel> mappingTypes);
-	public void setFuncExecuter(FunctionExecuter funcExecuter);
 	public void setRootRecord(GenericRecord rootRecord);
 	public GenericRecord getRootRecord();
 	public GenericRecord getChildRecord();
