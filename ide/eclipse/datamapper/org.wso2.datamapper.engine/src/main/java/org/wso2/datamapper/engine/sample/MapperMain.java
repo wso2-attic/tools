@@ -13,7 +13,7 @@ public class MapperMain {
 		
 		DataMapper mapper = new DataMapper();
 		try {
-			mapper.doMap(new File("./resources/MappingConfig1.js"),new File("./resources/input1.xml"),new File("./resources/inputSchema1.avsc"),new File("./resources/outputSchema1.avsc"));
+			mapper.doMap(new File("./resources/MappingConfig4.js"),new File("./resources/input4.xml"),new File("./resources/inputSchema4.avsc"),new File("./resources/outputSchema4.avsc"));
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

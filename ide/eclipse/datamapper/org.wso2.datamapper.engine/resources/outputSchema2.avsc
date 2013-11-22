@@ -2,17 +2,7 @@
       "name": "engineer", 
       "type": "record", 
       "fields": [ 
-                    { "name" : "fullname", "type" : "string"}, 
-                    { "name" : "address", 
-                      "type" :{
-                    			"name" : "addressRecord",
-              					"type": "record", 
-              					"fields": [ 
-                    						{"name" : "no", "type" : "string"}, 
-                   							{"name" : "street", "type" : "string"}, 
-                    						{"name" : "city", "type" : "string"} 
-                    					 ] 
-          						}
-                    }
+                    { "name" : "fullname", "type" : "string"},
+                    { "name" : "address", "type" : "string"}
                 ] 
 } 

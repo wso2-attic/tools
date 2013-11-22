@@ -32,6 +32,7 @@ import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 import org.wso2.datamapper.engine.inputAdapters.InputDataReaderAdapter;
 import org.wso2.datamapper.engine.models.MappingConfigModel;
+import org.wso2.datamapper.engine.sample.AvroWrapper;
 
 public class MappingHandler {
 
@@ -41,6 +42,10 @@ public class MappingHandler {
 	private InputDataReaderAdapter inputDataReader;
 	private Context context;
 	private JSONObject outputJson;
+	private Map<String, Schema> inputSchemaMap;
+	private Map<String, Schema> outputSchemaMap;
+	private HashMap<String, MappingConfigModel> mappingTypes;
+	private AvroRecordCreator recordCreator;
 
 	public MappingHandler(Schema inSchema, Schema outSchema, Scriptable scope,
 			InputDataReaderAdapter inputDataReader, Context context) {
@@ -52,33 +57,115 @@ public class MappingHandler {
 		this.context = context;
 		
 	}
-	
 
-	public void executeMappingFunctions(HashMap<String, MappingConfigModel> mappingTypes) throws JSONException {
+	public GenericRecord executeMappingFunctions(HashMap<String, MappingConfigModel> mappingTypes) throws JSONException {
 		
 		SchemaCreator inputSchemaCreator = new SchemaCreator();	
 		inputSchemaCreator.setSchema(this.inSchema);
-		Map<String, Schema> inputSchemaMap = inputSchemaCreator.getSchemaMap();
+		this.inputSchemaMap = inputSchemaCreator.getSchemaMap();
 			
 		SchemaCreator outputSchemaCreator = new SchemaCreator();	
 		outputSchemaCreator.setSchema(this.outSchema);
-		Map<String, Schema> outputSchemaMap = outputSchemaCreator.getSchemaMap();
+		this.outputSchemaMap = outputSchemaCreator.getSchemaMap();
+		
 		Map<String, String> avroArrayMap = outputSchemaCreator.getAvroArrayMap();
+		inputDataReader.setInputSchemaMap(inputSchemaMap);
+		inputDataReader.setAvroArrayData(avroArrayMap);
+		inputDataReader.setMappingTypes(mappingTypes);
 		
-		OMElement rootElement = this.inputDataReader.getRootElement();		
+		FunctionExecuter funcExecuter = new FunctionExecuter(mappingTypes, scope, outputSchemaMap, context);
+		inputDataReader.setFuncExecuter(funcExecuter);
 		
-		MappingExecuter executer = new MappingExecuter();
-		executer.setInputSchemaMap(inputSchemaMap);
-		executer.setOutputSchemaMap(outputSchemaMap);
-		executer.setMappingTypes(mappingTypes);
-		executer.setInputDataReader(this.inputDataReader);
-		executer.setContext(this.context);
-		executer.setScope(this.scope);
-		executer.setAvroArrayMap(avroArrayMap);
-		executer.setOutputSchema(this.outSchema);
+		this.mappingTypes = mappingTypes;	
+		this.recordCreator = new AvroRecordCreator();
 		
-		executer.execute(rootElement);
+		GenericRecord inputRecord = new GenericData.Record(inSchema);
+		GenericRecord outputRecord = new GenericData.Record(outSchema);
+		GenericRecord childRecord;
+		GenericRecord resultRecord;
+		
+		Map<String, String> inputAvroArrayMap = inputSchemaCreator.getAvroArrayMap();
+		String arrayId = null;
+		Schema tempSchema;
+		GenericData.Array<GenericRecord> recArray =null;
+		
+		inputDataReader.setRootRecord(inputRecord);
+		
+		List<GenericRecord> outRecordList = null;
+		Map<String, List<GenericRecord>> outRecordMap = new HashMap<String, List<GenericRecord>>();
+		String outSchemaName = null;
+		GenericRecord rootRecord;
+		List<GenericRecord> inChildRecordList = new ArrayList<GenericRecord>();
+		
+		while (inputDataReader.hasChildRecords()) {
+			
+			childRecord = inputDataReader.getChildRecord();
+			
+			if(childRecord != null){	
+					
+				resultRecord = funcExecuter.execute(childRecord.getSchema().getName(), childRecord);		
+				
+				if (resultRecord != null) {
+					arrayId = avroArrayMap.get(resultRecord.getSchema().getName());
 
+					if(arrayId != null){
+						tempSchema = outputSchemaMap.get(arrayId);
+						
+						if((outSchemaName != null) && (arrayId.equals(outSchemaName))){
+							outRecordList.add(resultRecord);
+							outRecordMap.put(outSchemaName, outRecordList);
+						}else{
+							outSchemaName = arrayId;
+							outRecordList = new ArrayList<GenericRecord>();
+							outRecordList.add(resultRecord);	
+						}
+					}else{
+						outRecordList = new ArrayList<GenericRecord>();
+						outRecordList.add(resultRecord);
+						outRecordMap.put(childRecord.getSchema().getName(), outRecordList);
+					}
+				}else{
+					inChildRecordList.add(childRecord);
+				}
+			}
+		}
+		
+		rootRecord = inputDataReader.getRootRecord();
+		
+		for (GenericRecord genericRecord : inChildRecordList) {
+			rootRecord.put(genericRecord.getSchema().getName(), genericRecord);
+		}
+		
+		outputRecord = funcExecuter.execute(inputDataReader.getRootRecord().getSchema().getName(), rootRecord);
+		
+		if (outputRecord == null) {
+			outputRecord = new GenericData.Record(outSchema);
+		}
+		
+		Iterator<String> outRecordKeySet = outRecordMap.keySet().iterator();
+		String key;
+		List<GenericRecord> recList;
+		
+		while (outRecordKeySet.hasNext()) {
+			key = outRecordKeySet.next();
+			Schema tempsc = outputSchemaMap.get(key);
+			recList = outRecordMap.get(key);
+			
+			if (tempsc.getType() == Schema.Type.RECORD) {
+				for (GenericRecord genericRecord : recList) {
+					outputRecord.put(key, genericRecord);
+				}			
+			}else if (tempsc.getType() == Schema.Type.ARRAY) {
+				recArray = new GenericData.Array<GenericRecord>(recList.size(), tempsc);
+				
+				for (GenericRecord genericRecord : recList) {
+					recArray.add(genericRecord);
+				}	
+				outputRecord.put(key, recArray);
+			}
+		}	
+
+		return outputRecord;
 	}
 	
 	public void endmapping() throws IOException{

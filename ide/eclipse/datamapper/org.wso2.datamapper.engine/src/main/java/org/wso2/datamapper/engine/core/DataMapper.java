@@ -68,14 +68,18 @@ public class DataMapper {
 			}
 		}
 		context.evaluateString(scope, script ,"", 1, null);
-				
+		GenericRecord outRecord = null;		
 		try {
-			mappingHandler.executeMappingFunctions(mappingTypes);
+			outRecord = mappingHandler.executeMappingFunctions(mappingTypes);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println("end mapping");
+		System.out.println("end mapping "+outRecord);
+		
+		
+		
+		
 		confReader.close();
 
 	}

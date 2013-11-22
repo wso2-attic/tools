@@ -6,7 +6,6 @@ public class MappingConfigModel {
 	private String outputDataType;
 	private String mappingFunctionType;
 
-
 	public String getOutputDataType() {
 		return outputDataType;
 	}
