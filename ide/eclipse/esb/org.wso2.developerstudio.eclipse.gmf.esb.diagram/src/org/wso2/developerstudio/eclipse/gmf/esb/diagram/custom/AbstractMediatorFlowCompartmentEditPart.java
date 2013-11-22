@@ -128,11 +128,15 @@ public class AbstractMediatorFlowCompartmentEditPart extends ShapeCompartmentEdi
 		super.addChild(child, index);
 		
 		if (child instanceof SendMediatorEditPart) {
-			if(((SendMediator)((Node)((SendMediatorEditPart)child).getModel()).getElement()).getOutputConnector().getOutgoingLink()==null){
-				if(this instanceof MediatorFlowMediatorFlowCompartmentEditPart){
-					addInSequenceInputConnector((SendMediatorEditPart)child);	
-				}else if(EditorUtils.getMediator(this)!=null && !EditorUtils.getMediator(this).reversed){
-					addInSequenceInputConnector((SendMediatorEditPart)child);	
+			if (((SendMediator) ((Node) ((SendMediatorEditPart) child).getModel()).getElement())
+					.getOutputConnector().getOutgoingLink() == null
+					&& !((SendMediator) ((Node) ((SendMediatorEditPart) child).getModel())
+							.getElement()).isReverse()) {
+				if (this instanceof MediatorFlowMediatorFlowCompartmentEditPart) {
+					addInSequenceInputConnector((SendMediatorEditPart) child);
+				} else if (EditorUtils.getMediator(this) != null
+						&& !EditorUtils.getMediator(this).reversed) {
+					addInSequenceInputConnector((SendMediatorEditPart) child);
 				}
 			}
 		}

@@ -30,6 +30,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
@@ -428,7 +429,17 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		
 
 		if(this instanceof SendMediatorEditPart){
-			((AbstractMediatorFlowCompartmentEditPart)this.getParent()).removeInSequenceInputConnector((SendMediatorEditPart) this);
+			SendMediator element = (SendMediator) ((Node) ((SendMediatorEditPart) this).getModel()).getElement();
+			if (!element.isReverse()) {
+				((AbstractMediatorFlowCompartmentEditPart)this.getParent()).removeInSequenceInputConnector((SendMediatorEditPart) this);
+				
+				SetCommand setCommand = new SetCommand(getEditingDomain(), element,
+						EsbPackage.Literals.MEDIATOR__REVERSE, true);
+				
+				if(setCommand.canExecute()) {
+					getEditingDomain().getCommandStack().execute(setCommand);
+				}
+			}
 		}	
 	}	
 
