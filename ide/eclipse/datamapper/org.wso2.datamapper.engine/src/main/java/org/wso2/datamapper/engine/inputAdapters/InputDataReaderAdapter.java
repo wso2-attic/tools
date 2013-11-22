@@ -9,7 +9,6 @@ import java.util.Map;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.axiom.om.OMElement;
-import org.wso2.datamapper.engine.core.AvroRecordCreator;
 import org.wso2.datamapper.engine.core.FunctionExecuter;
 import org.wso2.datamapper.engine.models.MappingConfigModel;
 

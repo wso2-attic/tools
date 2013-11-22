@@ -32,7 +32,6 @@ import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 import org.wso2.datamapper.engine.inputAdapters.InputDataReaderAdapter;
 import org.wso2.datamapper.engine.models.MappingConfigModel;
-import org.wso2.datamapper.engine.sample.AvroWrapper;
 
 public class MappingHandler {
 
@@ -45,7 +44,6 @@ public class MappingHandler {
 	private Map<String, Schema> inputSchemaMap;
 	private Map<String, Schema> outputSchemaMap;
 	private HashMap<String, MappingConfigModel> mappingTypes;
-	private AvroRecordCreator recordCreator;
 
 	public MappingHandler(Schema inSchema, Schema outSchema, Scriptable scope,
 			InputDataReaderAdapter inputDataReader, Context context) {
@@ -77,7 +75,6 @@ public class MappingHandler {
 		inputDataReader.setFuncExecuter(funcExecuter);
 		
 		this.mappingTypes = mappingTypes;	
-		this.recordCreator = new AvroRecordCreator();
 		
 		GenericRecord inputRecord = new GenericData.Record(inSchema);
 		GenericRecord outputRecord = new GenericData.Record(outSchema);

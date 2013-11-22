@@ -27,10 +27,9 @@ import org.mozilla.javascript.NativeJavaMethod;
 import org.mozilla.javascript.NativeJavaObject;
 import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
-import org.wso2.datamapper.engine.core.AvroRecordCreator;
+import org.wso2.datamapper.engine.core.AvroWrapper;
 import org.wso2.datamapper.engine.core.FunctionExecuter;
 import org.wso2.datamapper.engine.models.MappingConfigModel;
-import org.wso2.datamapper.engine.sample.AvroWrapper;
 
 public class XmlInputReader implements InputDataReaderAdapter{
 

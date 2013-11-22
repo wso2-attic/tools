@@ -29,8 +29,6 @@ import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 import org.wso2.datamapper.engine.inputAdapters.XmlInputReader;
 import org.wso2.datamapper.engine.models.MappingConfigModel;
-import org.wso2.datamapper.engine.sample.Employee;
-import org.wso2.datamapper.engine.sample.Engineer;
 
 public class DataMapper {
 	
