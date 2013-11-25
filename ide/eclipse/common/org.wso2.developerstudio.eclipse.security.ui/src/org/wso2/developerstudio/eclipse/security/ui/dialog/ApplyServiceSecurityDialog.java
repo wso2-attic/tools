@@ -47,39 +47,39 @@ public class ApplyServiceSecurityDialog extends org.eclipse.jface.dialogs.Dialog
     	Composite container = (Composite) super.createDialogArea(parent);
     	
     	
-    	 Composite composite = new Composite(container, SWT.BORDER);
-    	  GridData  gridData = new GridData(SWT.FILL, SWT.FILL, true, false);
-    	    gridData.horizontalSpan = 2;
-    	    composite.setLayoutData(gridData);
-    	    composite.setLayout(new GridLayout(1, false));
-    	
-        Button button = new Button(composite, SWT.PUSH);
-        button.setLayoutData(gridData);
-        button.setText("Press me");
-        button.addSelectionListener(new SelectionAdapter() {
-          @Override
-          public void widgetSelected(SelectionEvent e) {
-            System.out.println("Pressed Top");
-          }
-        });
-        
-     	 Composite composite1 = new Composite(container, SWT.BORDER);
-   	  GridData  gridData1 = new GridData(SWT.FILL, SWT.FILL, true, false);
-   	    gridData1.horizontalSpan = 2;
-   	    composite1.setLayoutData(gridData1);
-   	    composite1.setLayout(new GridLayout(1, false));
-   	
-       Button button1 = new Button(composite1, SWT.PUSH);
-       button1.setLayoutData(gridData1);
-       button1.setText("Press me");
-       button1.addSelectionListener(new SelectionAdapter() {
-         @Override
-         public void widgetSelected(SelectionEvent e) {
-           System.out.println("Pressed Bottom");
-         }
-       });
+		Composite topComposite = new Composite(container, SWT.BORDER);
+		GridData topGridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+		topGridData.horizontalSpan = 2;
+		topComposite.setLayoutData(topGridData);
+		topComposite.setLayout(new GridLayout(1, false));
 
-        return container;
+		Button button = new Button(topComposite, SWT.PUSH);
+		button.setLayoutData(topGridData);
+		button.setText("Press me");
+		button.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				System.out.println("Pressed Top");
+			}
+		});
+
+		Composite bottomComposite = new Composite(container, SWT.BORDER);
+		GridData bottomGridData = new GridData(SWT.FILL, SWT.FILL, true, false);
+		bottomGridData.horizontalSpan = 2;
+		bottomComposite.setLayoutData(bottomGridData);
+		bottomComposite.setLayout(new GridLayout(1, false));
+
+		Button button1 = new Button(bottomComposite, SWT.PUSH);
+		button1.setLayoutData(bottomGridData);
+		button1.setText("Press me");
+		button1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				System.out.println("Pressed Bottom");
+			}
+		});
+
+		return container;
     }
 
 }
