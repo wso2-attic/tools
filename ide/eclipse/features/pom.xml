@@ -41,7 +41,7 @@
         <module>usermgt</module>                    
         <module>registry</module>
         <module>app-server</module>
-        <module>bps</module>
+        <!--module>bps</module-->
         <module>esb</module>
 	<module>appfactory</module>
         <module>data-services</module>
