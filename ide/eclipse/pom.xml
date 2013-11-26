@@ -208,6 +208,7 @@
         <greg.tools.version>3.3.0-SNAPSHOT</greg.tools.version>
         <common.libraries.version>3.3.0-SNAPSHOT</common.libraries.version>        
         <bps.tools.version>0.5.0.wso2v1</bps.tools.version>
+	<eclipse.bps.tools.version>1.0.3-SNAPSHOT</eclipse.bps.tools.version>
 	<bpel.artifact.version>3.3.0-SNAPSHOT</bpel.artifact.version>
         <logging.tools.version>3.3.0-SNAPSHOT</logging.tools.version>
         <common.utils.version>3.3.0-SNAPSHOT</common.utils.version>
@@ -272,10 +273,8 @@
         <capp.tools.feature.version>3.3.0-SNAPSHOT</capp.tools.feature.version>
         
         <carbonstudio.tools.feature.version>3.3.0-SNAPSHOT</carbonstudio.tools.feature.version>
-
         <greg.connector.tools.feature.version>3.3.0-SNAPSHOT</greg.connector.tools.feature.version>
         <bps.connector.tools.feature.version>3.3.0-SNAPSHOT</bps.connector.tools.feature.version>
-
         <carbonserver.30.feature.version>3.3.0-SNAPSHOT</carbonserver.30.feature.version>        
         <carbonserver.31.feature.version>3.3.0-SNAPSHOT</carbonserver.31.feature.version>  
 	<carbonserver.32.feature.version>3.3.0-SNAPSHOT</carbonserver.32.feature.version>
