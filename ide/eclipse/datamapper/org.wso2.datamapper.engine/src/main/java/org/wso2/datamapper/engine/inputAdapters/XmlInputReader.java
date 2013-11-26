@@ -37,6 +37,7 @@ public class XmlInputReader implements InputDataReaderAdapter{
 	private Iterator<OMElement> childElementIter;
 	private Map<String, Schema> inputSchemaMap;
 	private GenericRecord rootRecord;
+	private Iterator<OMElement> childIter;
 
 	public boolean hasChildRecords() {
 		return childElementIter.hasNext();
@@ -54,17 +55,12 @@ public class XmlInputReader implements InputDataReaderAdapter{
 		this.rootRecord = rootRecord;
 	}
 
-	public void setInputFile(File inputFile) {
-		
-		try {
-			InputStream in = new FileInputStream(inputFile);
-			OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
-			this.documentElement = builder.getDocumentElement();
-			childElementIter = this.documentElement.getChildElements();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		
+	public void setInptStream(InputStream inputStream) {
+		InputStream in = inputStream;
+		OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
+		this.documentElement = builder.getDocumentElement();
+		childElementIter = this.documentElement.getChildElements();
+
 	}
 	
 	public GenericRecord getChildRecord() {
@@ -74,8 +70,12 @@ public class XmlInputReader implements InputDataReaderAdapter{
 			
 		childElement = childElementIter.next();
 		childName = childElement.getLocalName();
-				
-		GenericRecord childRecord = getChild(childElement);
+		
+		if((childIter == null) || (!childIter.hasNext())){
+			childIter = childElement.getChildElements();
+		}
+		
+		GenericRecord childRecord = getChild(childElement,childIter);
 			
 		if (childRecord == null) {
 			rootRecord.put(childName, childElement.getText());
@@ -84,33 +84,31 @@ public class XmlInputReader implements InputDataReaderAdapter{
 		return childRecord;
 	}
 
-	public GenericRecord getChild(OMElement element) {
+	public GenericRecord getChild(OMElement element, Iterator<OMElement> childIter) {
 		
 		GenericRecord childRec = null;
 		OMElement parentElement = element;	
-		
-		Schema sc = inputSchemaMap.get(parentElement.getLocalName());
-		
+		String parentId = parentElement.getLocalName();
+		Schema sc = inputSchemaMap.get(parentId);	
+				
 		if(sc != null) {
 			OMElement childElement = null;
+			
 			if( sc.getType() == Schema.Type.RECORD){
-				
-				childRec = new GenericData.Record(sc);		
-				Iterator<OMElement> childIter = parentElement.getChildElements();
-				
-				while (childIter.hasNext()) {
-					childElement = childIter.next();
-					childRec.put(childElement.getLocalName(), childElement.getText());
-				}			
-			}			
+				childRec = new GenericData.Record(sc);							
+			}else if(sc.getType() == Schema.Type.ARRAY){
+				childRec = new GenericData.Record(sc.getElementType());			
+			}	
+			while (childIter.hasNext()) {
+				childElement = childIter.next();
+				childRec.put(childElement.getLocalName(), childElement.getText());
+			}
 		}
-		
 		return childRec;
 	}
 	
 	public OMElement getChildElement(OMElement ele , Iterator<OMElement> childIter) {
 		
-		OMElement element = ele;
 		Iterator<OMElement> iter = childIter;
 		OMElement childElement = null;
 		
@@ -119,9 +117,6 @@ public class XmlInputReader implements InputDataReaderAdapter{
 			getChildElement(childElement, childElement.getChildElements());
 		}
 
-		return childElement;
-		
+		return childElement;	
 	}
-
-
 }
