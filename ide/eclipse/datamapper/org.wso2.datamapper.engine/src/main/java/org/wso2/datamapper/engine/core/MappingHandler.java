@@ -64,20 +64,20 @@ public class MappingHandler {
 			
 		SchemaCreator outputSchemaCreator = new SchemaCreator();	
 		outputSchemaCreator.setSchema(this.outSchema);
-		this.outputSchemaMap = outputSchemaCreator.getSchemaMap();
+		this.outputSchemaMap = outputSchemaCreator.getSchemaMap();		
 		
-		Map<String, String> avroArrayMap = outputSchemaCreator.getAvroArrayMap();
+		Map<String, String> outputAvroArrayMap = outputSchemaCreator.getAvroArrayMap();
+		Map<String, String> inputAvroArrayMap = inputSchemaCreator.getAvroArrayMap();
 		inputDataReader.setInputSchemaMap(inputSchemaMap);
 		
-		FunctionExecuter funcExecuter = new FunctionExecuter(mappingTypes, scope, outputSchemaMap, context);	
-		this.mappingTypes = mappingTypes;	
+		this.mappingTypes = mappingTypes;
+		FunctionExecuter funcExecuter = new FunctionExecuter(this.mappingTypes, scope, outputSchemaMap, context, inputAvroArrayMap);	
 		
 		GenericRecord inputRecord = new GenericData.Record(inSchema);
 		GenericRecord outputRecord = new GenericData.Record(outSchema);
 		GenericRecord childRecord;
 		GenericRecord resultRecord;
 		
-		Map<String, String> inputAvroArrayMap = inputSchemaCreator.getAvroArrayMap();
 		String arrayId = null;
 		Schema tempSchema;
 		GenericData.Array<GenericRecord> recArray =null;
@@ -95,15 +95,13 @@ public class MappingHandler {
 			childRecord = inputDataReader.getChildRecord();
 			
 			if(childRecord != null){	
-					
-				resultRecord = funcExecuter.execute(childRecord.getSchema().getName(), childRecord);		
+				resultRecord = funcExecuter.execute(childRecord.getSchema().getName(), childRecord);			
 				
 				if (resultRecord != null) {
-					arrayId = avroArrayMap.get(resultRecord.getSchema().getName());
+					arrayId = outputAvroArrayMap.get(resultRecord.getSchema().getName());
 
 					if(arrayId != null){
-						tempSchema = outputSchemaMap.get(arrayId);
-						
+						tempSchema = outputSchemaMap.get(arrayId);				
 						if((outSchemaName != null) && (arrayId.equals(outSchemaName))){
 							outRecordList.add(resultRecord);
 							outRecordMap.put(outSchemaName, outRecordList);
