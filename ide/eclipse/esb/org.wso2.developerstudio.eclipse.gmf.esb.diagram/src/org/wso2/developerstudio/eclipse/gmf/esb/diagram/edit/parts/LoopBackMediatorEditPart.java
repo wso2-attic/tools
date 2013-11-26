@@ -188,12 +188,12 @@ public class LoopBackMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NodeFigure createNodePlate() {
+	/*protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
-	}
+	}*/
 
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {

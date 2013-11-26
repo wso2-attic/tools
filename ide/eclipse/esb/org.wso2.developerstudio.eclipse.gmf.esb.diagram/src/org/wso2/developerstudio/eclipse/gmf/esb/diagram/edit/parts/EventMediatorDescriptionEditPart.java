@@ -43,6 +43,7 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.MediatorFigureSelectionListener;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EsbTextSelectionEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -157,9 +158,11 @@ public class EventMediatorDescriptionEditPart extends CompartmentEditPart implem
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setLabel(WrappingLabel figure) {
+		figure.addMouseListener(new MediatorFigureSelectionListener(this.getParent()));
+		
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);

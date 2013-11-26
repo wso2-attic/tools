@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPolicy;
@@ -29,9 +30,11 @@ public abstract class FixedSizedAbstractMediator extends AbstractMediator {
 	public static int FigureWidth = 75;
 	public static int FigureHeight = 75;
 	protected IFigure primaryShape;
+	private boolean selected;
 	
 	public FixedSizedAbstractMediator(View view) {
 		super(view);
+		this.setSelected(false);
 	}
 	
 	public IFigure getFigure() {
@@ -43,6 +46,16 @@ public abstract class FixedSizedAbstractMediator extends AbstractMediator {
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(FigureWidth, FigureHeight);
 		result.setMinimumSize(new Dimension(FigureWidth, FigureHeight));
+		
+		/*
+		 * Add mouse listener to node figure which enables editing mediator
+		 * description on mediator selection.
+		 */
+		result.addMouseListener(new MediatorFigureSelectionListener(this));
+
+		// Add mediator editpart listener to listen on select deselect events
+		this.addEditPartListener(new MediatorEditPartListener(this));
+
 		return result;
 	}
 	
@@ -55,5 +68,19 @@ public abstract class FixedSizedAbstractMediator extends AbstractMediator {
 		super.createDefaultEditPolicies();
 			installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new CustomNonResizableEditPolicyEx());  //remove 8 corners
 			installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new HighlightOnSelectionEditPolicy()); //selection
+	}
+
+	/**
+	 * @return the selected
+	 */
+	public boolean isSelected() {
+		return selected;
+	}
+
+	/**
+	 * @param selected the selected to set
+	 */
+	public void setSelected(boolean selected) {
+		this.selected = selected;
 	}
 }

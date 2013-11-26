@@ -127,12 +127,12 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NodeFigure createNodePlate() {
+	/*protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
-	}
+	}*/
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 

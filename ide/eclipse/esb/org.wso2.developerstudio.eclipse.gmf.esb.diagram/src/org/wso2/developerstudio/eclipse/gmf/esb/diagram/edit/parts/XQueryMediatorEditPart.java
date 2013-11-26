@@ -215,12 +215,12 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	protected NodeFigure createNodePlate() {
+	/*protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
-	}
+	}*/
 
 	/**
 	 * Creates figure for this edit part.

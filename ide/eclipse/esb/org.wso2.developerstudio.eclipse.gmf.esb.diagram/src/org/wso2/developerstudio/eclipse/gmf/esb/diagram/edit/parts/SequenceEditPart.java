@@ -330,11 +330,11 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		return figure;
 	}
 
-	protected NodeFigure createNodePlate() {
+	/*protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(75, 75);
 		result.setMinimumSize(new Dimension(75, 75));
 		return result;
-	}
+	}*/
 
 	/**
 	 * @generated
