@@ -41,8 +41,7 @@ public class AvroWrapper implements Scriptable{
 		Object resource = this.record.get(name);
 		if(resource != null){
 			return resource;
-		}
-		
+		}		
 		return NOT_FOUND;
 	}
 
@@ -67,7 +66,6 @@ public class AvroWrapper implements Scriptable{
 		}else{
 			this.record.put(name, value);
 		}
-
 	}
 
 	public void put(int index, Scriptable start, Object value) {
