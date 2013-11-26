@@ -1,6 +1,7 @@
 package org.wso2.datamapper.engine.inputAdapters;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -14,7 +15,7 @@ import org.wso2.datamapper.engine.models.MappingConfigModel;
 
 public interface InputDataReaderAdapter {
 	
-	public void setInputFile(File inputFile);
+	public void setInptStream(InputStream inputStream);
 	public boolean hasChildRecords();
 	public void setInputSchemaMap(Map<String, Schema> inputSchemaMap);
 	public void setRootRecord(GenericRecord rootRecord);
