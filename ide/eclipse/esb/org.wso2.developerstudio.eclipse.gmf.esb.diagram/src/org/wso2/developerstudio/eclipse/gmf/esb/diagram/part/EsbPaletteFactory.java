@@ -1272,9 +1272,10 @@ public class EsbPaletteFactory {
 		}
 	}
 
-	public void addCloudConnectorOperations(IEditorPart editor, String cloudConnectorName) {
+	public void addCloudConnectorOperations(IEditorPart editor, String connectorDirectoryName) {
 		Set<String> cloudConnectorOperations = Collections.emptySet();
 		String connectorPath = null;
+		String cloudConnectorName = connectorDirectoryName.split("-")[0];
 		try {
 			/*			IEditorPart editorpart = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 			 .getActivePage().getActiveEditor();*/
@@ -1282,7 +1283,7 @@ public class EsbPaletteFactory {
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
 			connectorPath = activeProject.getLocation().toOSString() + File.separator
-					+ "cloudConnectors" + File.separator + cloudConnectorName + "-connector";
+					+ "cloudConnectors" + File.separator + connectorDirectoryName;
 			cloudConnectorOperations = CloudConnectorDirectoryTraverser.getInstance(connectorPath)
 					.getOperationsMap().keySet();
 		} catch (Exception e) {

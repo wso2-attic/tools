@@ -210,7 +210,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		if(directory.isDirectory()){
 			String[] children=directory.list();
 	        for(int i=0;i<children.length;++i){
-	        	esbPaletteFactory.addCloudConnectorOperations(getEditor(0),children[i].split("-")[0]);
+	        	esbPaletteFactory.addCloudConnectorOperations(getEditor(0), children[i]);
 	        }
 		}
 

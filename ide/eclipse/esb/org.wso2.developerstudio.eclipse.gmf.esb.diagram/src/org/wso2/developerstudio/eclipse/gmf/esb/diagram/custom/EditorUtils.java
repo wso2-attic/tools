@@ -534,7 +534,7 @@ public class EditorUtils {
 		if(directory.isDirectory()){
 			String[] children=directory.list();
 	        for(int i=0;i<children.length;++i){
-	        	esbPaletteFactory.addCloudConnectorOperations(editorPart,children[i].split("-")[0]);
+	        	esbPaletteFactory.addCloudConnectorOperations(editorPart, children[i]);
 	        }
 		}
 

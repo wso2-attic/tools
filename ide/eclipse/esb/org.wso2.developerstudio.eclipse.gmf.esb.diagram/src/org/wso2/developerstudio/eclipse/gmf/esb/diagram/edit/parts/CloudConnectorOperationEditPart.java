@@ -147,8 +147,13 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 			}
 
 		}
-		iconPath = project.getLocation().toOSString() + File.separator + "cloudConnectors"
+		String connectorPath = CloudConnectorDirectoryTraverser.getInstance()
+				.getConnectorDirectoryPathFromConnectorName(project.getLocation().toOSString(),
+						connectorName);
+		/*iconPath = project.getLocation().toOSString() + File.separator + "cloudConnectors"
 				+ File.separator + connectorName + "-connector" + File.separator + "icon"
+				+ File.separator + "icon-large.gif";*/
+		iconPath = connectorPath + File.separator + "icon"
 				+ File.separator + "icon-large.gif";
 
 	}
@@ -201,8 +206,11 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		if (activeProject != null) {
 			if (addedConnector != null && addedOperation != null) {
 
-				String connectorPath = activeProject.getLocation().toOSString() + File.separator
-						+ "cloudConnectors" + File.separator + addedConnector + "-connector";
+				//String connectorPath = activeProject.getLocation().toOSString() + File.separator
+				//		+ "cloudConnectors" + File.separator + addedConnector + "-connector";
+				String connectorPath = CloudConnectorDirectoryTraverser.getInstance()
+						.getConnectorDirectoryPathFromConnectorName(
+								activeProject.getLocation().toOSString(), addedConnector);
 
 				CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
 						.getInstance(connectorPath);

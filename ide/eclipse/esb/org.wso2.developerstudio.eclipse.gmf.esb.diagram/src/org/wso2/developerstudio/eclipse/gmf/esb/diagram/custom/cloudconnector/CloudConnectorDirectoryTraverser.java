@@ -61,6 +61,13 @@ public class CloudConnectorDirectoryTraverser {
 		return instance;
 	}
 	
+	public static CloudConnectorDirectoryTraverser getInstance(){
+		if(instance == null){
+			instance=new CloudConnectorDirectoryTraverser();
+		}
+		return instance;
+	}
+	
 	private void deserializeConnectorXML(){
 		try{
 			File artifactsFile = new File(rootDirectory+File.separator+"connector.xml");
@@ -174,5 +181,29 @@ public class CloudConnectorDirectoryTraverser {
 	
 	public String getConfigurationFileLocation(Map<String, String> artifactsMap) throws Exception{
 		return rootDirectory+File.separator+artifactsMap.get("config")+File.separator+"config.xml";
+	}
+	
+	/**
+	 * Get connector directory path from connector name.
+	 * @param connectorRootDirectory
+	 * @param connectorName
+	 * @return
+	 */
+	public String getConnectorDirectoryPathFromConnectorName(String connectorRootDirectory,
+			String connectorName) {
+		String connectorDirectoryPath = null;
+		connectorRootDirectory += File.separator + "cloudConnectors";
+
+		File directory = new File(connectorRootDirectory);
+		if (directory.isDirectory()) {
+			String[] children = directory.list();
+			for (int i = 0; i < children.length; ++i) {
+				if (connectorName.equals(children[i].split("-")[0])) {
+					connectorDirectoryPath = connectorRootDirectory + File.separator + children[i];
+					return connectorDirectoryPath;
+				}
+			}
+		}
+		return connectorDirectoryPath;
 	}
 }
