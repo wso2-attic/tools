@@ -99,7 +99,8 @@ public class EndpointModel extends ProjectDataModel {
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_REGISTRY_PATH)){
 				modelPropertyValue = getDynamicEpRegistryPath();
 			}else if(key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_TEMP_TARGET)){
-				modelPropertyValue = getAvailableTemplates();
+				//modelPropertyValue = getAvailableTemplates();
+				modelPropertyValue = getTemplateEPTargetTemp();
 			} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_AVAILABLE)){
 			    modelPropertyValue = getAvailableTemplates();
 			}  
@@ -200,7 +201,7 @@ public class EndpointModel extends ProjectDataModel {
 			}
 		} else if (key.equals(EpArtifactConstants.WIZARD_OPTION_TEMPLATE_AVAILABLE)) {
 			setAvailableTemplates(data.toString());
-			
+			setTemplateEPTargetTemp(data.toString());
 		}
 
 	return returnResult;
