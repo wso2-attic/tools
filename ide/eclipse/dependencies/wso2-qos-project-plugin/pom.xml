@@ -138,8 +138,8 @@
 		</dependency>
 		<dependency>
         		<groupId>org.wso2.maven</groupId>
-        		<artifactId>org.wso2.maven.registry</artifactId>
-        		<version>2.0.1</version>
+        		<artifactId>org.wso2.maven.qos</artifactId>
+        		<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 
