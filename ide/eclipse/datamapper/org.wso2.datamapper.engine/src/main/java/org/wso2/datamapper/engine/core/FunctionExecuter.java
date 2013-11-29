@@ -1,3 +1,18 @@
+/*
+ * Copyright 2005,2013 WSO2, Inc. http://www.wso2.org
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.wso2.datamapper.engine.core;
 
 import java.util.HashMap;
@@ -6,75 +21,59 @@ import java.util.Map;
 import org.apache.avro.Schema;
 import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
-import org.mozilla.javascript.ConsString;
 import org.mozilla.javascript.Context;
-import org.mozilla.javascript.NativeJavaMethod;
-import org.mozilla.javascript.NativeJavaObject;
 import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 import org.wso2.datamapper.engine.models.MappingConfigModel;
 
 public class FunctionExecuter {
 	
-	private HashMap<String, MappingConfigModel> mappingTypes;
+	private HashMap<String, MappingConfigModel> mappingModelMap;
 	private Scriptable scope;
 	private Map<String, Schema> outputSchemaMap;
 	private Context context;
-	private Map<String, String> avroArrayMap;
 	
 	public FunctionExecuter(HashMap<String, MappingConfigModel> mappingTypes , Scriptable scope , Map<String, Schema> outputSchemaMap , Context context, Map<String, String> avroArrayMap) {
-		this.mappingTypes = mappingTypes;
+		this.mappingModelMap = mappingTypes;
 		this.scope = scope;
 		this.outputSchemaMap = outputSchemaMap;
 		this.context = context;
-		this.avroArrayMap = avroArrayMap;
 	}
 
-	public GenericRecord execute(String elementName, GenericRecord record) {
+	public GenericRecord execute(String elementId, GenericRecord inputRecord) {
 		
-		GenericRecord inrecord = record;
-		String inElementName = null;
-		boolean isArray = false;
+		GenericRecord inrecord = inputRecord;
+		String inElementId = elementId;
 		
-		if (this.avroArrayMap.containsKey(elementName)) {
-			inElementName = this.avroArrayMap.get(elementName);
-			isArray = true;
-		}else{
-			inElementName = elementName;
-		}
+		GenericRecord resultRecord = null;		
+		MappingConfigModel mappingModel = mappingModelMap.get(inElementId);
 		
-		GenericRecord resultRecord = null;
-		
-		MappingConfigModel model = this.mappingTypes.get(inElementName);
-		
-		if (model != null) {
+		if (mappingModel != null) {
 
-			String inputDataType = inElementName;
-			String outputDataType = model.getOutputDataType();
-			String funcType = model.getMappingFunctionType();
+			String inputDataType = inElementId;
+			String outputDataType = mappingModel.getOutputDataType();
+			String funcType = mappingModel.getMappingFunctionType();
 			
-			Schema outSchema = this.outputSchemaMap.get(outputDataType);
-			GenericRecord  outrecord = null;
+			Schema outputSchema = outputSchemaMap.get(outputDataType);
+			GenericRecord  outputRecord = null;
 			
-			if (isArray) {
-				outrecord = new GenericData.Record(outSchema.getElementType());
+			if(outputSchema.getType() == Schema.Type.ARRAY){
+				outputRecord = new GenericData.Record(outputSchema.getElementType());
 			}else{
-				outrecord = new GenericData.Record(outSchema);
+				outputRecord = new GenericData.Record(outputSchema);
 			}
 
-			AvroWrapper inwrapper = new AvroWrapper(inrecord);
-			AvroWrapper outwrapper = new AvroWrapper(outrecord);
+			AvroWrapper inputRecordWrapper = new AvroWrapper(inrecord);
+			AvroWrapper outputRecordWrapper = new AvroWrapper(outputRecord);
 			
-			this.scope.put("input", this.scope, inwrapper);
-			this.scope.put("output", this.scope, outwrapper);
+			this.scope.put("input", scope, inputRecordWrapper);
+			this.scope.put("output", scope, outputRecordWrapper);
 		
 			String script = "map_"+funcType+"_"+inputDataType+"_"+funcType+"_"+outputDataType+"();";
-			Object resultOb = this.context.evaluateString(this.scope, script, "", 1, null);
-
-			Scriptable scriptableOb = Context.toObject(resultOb, this.scope);
+			Object resultOb = context.evaluateString(scope, script, "", 1, null);
 
 			if(resultOb != ScriptableObject.NOT_FOUND){
-				resultRecord = outwrapper.getRecord();
+				resultRecord = outputRecordWrapper.getRecord();
 			}
 		}
 
