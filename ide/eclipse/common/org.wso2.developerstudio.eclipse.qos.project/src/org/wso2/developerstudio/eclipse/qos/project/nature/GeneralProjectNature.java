@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.general.project.nature;
+package org.wso2.developerstudio.eclipse.qos.project.nature;
 
 import java.io.File;
 

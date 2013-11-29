@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.general.project.artifact;
+package org.wso2.developerstudio.eclipse.qos.project.artifact;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,14 +27,14 @@ import javax.xml.stream.FactoryConfigurationError;
 
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
-import org.wso2.developerstudio.eclipse.general.project.Activator;
-import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryCollection;
-import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryDump;
-import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
-import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
+import org.wso2.developerstudio.eclipse.qos.project.Activator;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.bean.RegistryCollection;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.bean.RegistryDump;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.bean.RegistryElement;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.bean.RegistryItem;
 
 /**
  * This class represents the .artifact.xml file which keeps the metadata of the

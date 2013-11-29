@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.general.project.artifact;
+package org.wso2.developerstudio.eclipse.qos.project.artifact;
 
-import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.bean.RegistryElement;
 
 import java.util.ArrayList;
 import java.util.Collections;

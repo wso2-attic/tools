@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.general.project.ui.wizard;
+package org.wso2.developerstudio.eclipse.qos.project.ui.wizard;
 
 import java.io.File;
 
@@ -23,11 +23,11 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
-import org.wso2.developerstudio.eclipse.general.project.model.GeneralProjectModel;
-import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectImageUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.GeneralProjectArtifact;
+import org.wso2.developerstudio.eclipse.qos.project.model.GeneralProjectModel;
+import org.wso2.developerstudio.eclipse.qos.project.utils.GeneralProjectImageUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 

@@ -14,17 +14,19 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.general.project.artifact.bean;
+package org.wso2.developerstudio.eclipse.qos.project.artifact.bean;
 
-public class RegistryCollection extends RegistryElement{
-	
-	private String directory;
-	
-	public String getDirectory() {
-    	return directory;
+public abstract class RegistryElement {
+
+	protected String path;
+
+
+	public void setPath(String path) {
+	    this.path = path;
     }
-	public void setDirectory(String directory) {
-    	this.directory = directory;
+
+	public String getPath() {
+	    return path;
     }
 
 }

@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.general.project;
+package org.wso2.developerstudio.eclipse.qos.project;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;

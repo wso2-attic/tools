@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.general.project.controller;
+package org.wso2.developerstudio.eclipse.qos.project.controller;
 
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;

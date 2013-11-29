@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.general.project.model;
+package org.wso2.developerstudio.eclipse.qos.project.model;
 
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 

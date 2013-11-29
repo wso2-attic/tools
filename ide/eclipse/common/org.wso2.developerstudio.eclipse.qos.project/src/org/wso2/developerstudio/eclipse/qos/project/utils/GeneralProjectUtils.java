@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.general.project.utils;
+package org.wso2.developerstudio.eclipse.qos.project.utils;
 
 import org.apache.commons.io.FilenameUtils;
 import org.eclipse.core.resources.IProject;
@@ -10,10 +10,10 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
-import org.wso2.developerstudio.eclipse.general.project.Activator;
-import org.wso2.developerstudio.eclipse.general.project.ui.wizard.GeneralProjectWizard;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.qos.project.Activator;
+import org.wso2.developerstudio.eclipse.qos.project.ui.wizard.GeneralProjectWizard;
 
 public class GeneralProjectUtils {
 	

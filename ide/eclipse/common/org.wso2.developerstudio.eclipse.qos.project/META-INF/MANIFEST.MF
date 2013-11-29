@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: GeneralProject
+Bundle-Name: QoSProject
 Bundle-SymbolicName: org.wso2.developerstudio.eclipse.qos.project;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.qos.project.Activator
@@ -33,7 +33,8 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.utils.jdt,
  org.wso2.developerstudio.eclipse.utils.project,
  org.wso2.developerstudio.eclipse.utils.ui
-Export-Package: org.wso2.developerstudio.eclipse.general.project.artifact,
- org.wso2.developerstudio.eclipse.general.project.artifact.bean,
- org.wso2.developerstudio.eclipse.general.project.ui.wizard,
- org.wso2.developerstudio.eclipse.general.project.utils
+Export-Package: org.wso2.developerstudio.eclipse.qos.project.artifact,
+ org.wso2.developerstudio.eclipse.qos.project.artifact.bean,
+ org.wso2.developerstudio.eclipse.qos.project.ui.wizard,
+ org.wso2.developerstudio.eclipse.qos.project.utils
+Bundle-Vendor: WSO2 Inc.

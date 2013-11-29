@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.general.project.artifact;
+package org.wso2.developerstudio.eclipse.qos.project.artifact;
 
 import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
-import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryCollection;
-import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
-import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
 import org.wso2.developerstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.bean.RegistryCollection;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.bean.RegistryElement;
+import org.wso2.developerstudio.eclipse.qos.project.artifact.bean.RegistryItem;
 
 import java.io.File;
 import java.util.ArrayList;

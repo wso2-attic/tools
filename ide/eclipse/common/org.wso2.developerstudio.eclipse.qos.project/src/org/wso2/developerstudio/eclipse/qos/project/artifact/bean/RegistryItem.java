@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,9 +14,26 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.general.project.refactor;
+package org.wso2.developerstudio.eclipse.qos.project.artifact.bean;
 
-public enum RegistryArtifactType {
-	Resource,
-	Collection
+public class RegistryItem extends RegistryElement{
+	
+	private String file;
+	private String mediaType;
+	
+	public void setFile(String file) {
+	    this.file = file;
+    }
+	public String getFile() {
+	    return file;
+    }
+	
+	public String getMediaType() {
+		return mediaType;
+	}
+
+	public void setMediaType(String mediaType) {
+		this.mediaType = mediaType;
+	}
+	
 }
