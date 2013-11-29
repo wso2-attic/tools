@@ -54,6 +54,7 @@
 	    <module>maven-cep-plugin</module>
 	    <module>maven-brs-plugin</module>
 	    <module>maven-car-deploy-plugin</module>
+	    <module>wso2-qos-project-plugin</module>
     </modules>
 	<build>
 	<extensions>
