@@ -51,7 +51,7 @@
                             </bundles>
                             <importFeatures>
                                 <importFeatureDef>org.wso2.developerstudio.eclipse.framework.core.feature:${core.framework.feature.version}</importFeatureDef>                            
-                                <importFeatureDef>org.wso2.developerstudio.eclipse.bps.feature:${bps.tools.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.eclipse.bpel.feature:${eclipse.bpel.feature.version}</importFeatureDef>
                             </importFeatures>
                         </configuration>
                     </execution>
