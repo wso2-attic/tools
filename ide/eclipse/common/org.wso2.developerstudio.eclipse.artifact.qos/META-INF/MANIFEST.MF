@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: QoSProject
-Bundle-SymbolicName: org.wso2.developerstudio.eclipse.qos.project;singleton:=true
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.artifact.qos;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: org.wso2.developerstudio.eclipse.qos.project.Activator
+Bundle-Activator: org.wso2.developerstudio.eclipse.qos.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ltk.core.refactoring
@@ -18,6 +18,10 @@ Import-Package: org.apache.axiom.om,
  org.eclipse.jface.text,
  org.eclipse.text.edits,
  org.eclipse.ui.dialogs,
+ org.eclipse.ui.forms,
+ org.eclipse.ui.forms.editor,
+ org.eclipse.ui.forms.events,
+ org.eclipse.ui.forms.widgets,
  org.eclipse.ui.wizards.newresource,
  org.wso2.developerstudio.eclipse.logging.core,
  org.wso2.developerstudio.eclipse.maven.util,
@@ -26,6 +30,7 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.platform.core.model,
  org.wso2.developerstudio.eclipse.platform.core.nature,
  org.wso2.developerstudio.eclipse.platform.core.project.model,
+ org.wso2.developerstudio.eclipse.platform.core.utils,
  org.wso2.developerstudio.eclipse.platform.ui.validator,
  org.wso2.developerstudio.eclipse.platform.ui.wizard,
  org.wso2.developerstudio.eclipse.platform.ui.wizard.pages,
@@ -33,8 +38,4 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.utils.jdt,
  org.wso2.developerstudio.eclipse.utils.project,
  org.wso2.developerstudio.eclipse.utils.ui
-Export-Package: org.wso2.developerstudio.eclipse.qos.project.artifact,
- org.wso2.developerstudio.eclipse.qos.project.artifact.bean,
- org.wso2.developerstudio.eclipse.qos.project.ui.wizard,
- org.wso2.developerstudio.eclipse.qos.project.utils
 Bundle-Vendor: WSO2 Inc.

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+ <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.wso2.developerstudio.eclipse.qos.project.ui.dashboard.QoSDashboard"
+            id="org.wso2.developerstudio.eclipse.qos.QoSDashboard"
+            name="Developer Studio Dashboard">
+      </editor>
+    </extension>
+    <extension
+       point="org.eclipse.ui.handlers">
+    <handler
+          class="org.wso2.developerstudio.eclipse.qos.handlers.OpenQoSDashboardHandler"
+          commandId="org.wso2.developerstudio.eclipse.qos.command.OpenQoSDashboardHandler">
+    </handler>
+ </extension>
+</plugin>
