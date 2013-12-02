@@ -20,7 +20,7 @@
   <components>
     <component>
       <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
-      <role-hint>service/dataservice</role-hint>
+      <role-hint>service/meta</role-hint>
       <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
       <configuration>
         <lifecycles>
@@ -32,7 +32,7 @@
               <process-test-resources>org.apache.maven.plugins:maven-resources-plugin:testResources</process-test-resources>
               <test-compile>org.apache.maven.plugins:maven-compiler-plugin:testCompile</test-compile>
               <test>org.apache.maven.plugins:maven-surefire-plugin:test</test>
-              <package>org.wso2.maven:maven-dataservice-plugin:package-dataservice</package>
+              <package>org.wso2.maven:maven-qos-plugin:package-meta</package>
               <install>org.apache.maven.plugins:maven-install-plugin:install</install>
               <deploy>org.apache.maven.plugins:maven-deploy-plugin:deploy</deploy>
             </phases>
@@ -42,12 +42,12 @@
     </component>
 	<component>
       <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
-      <role-hint>service/dataservice</role-hint>
+      <role-hint>service/meta</role-hint>
       <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
       <configuration>
-        <type>service/dataservice</type>
+        <type>service/meta</type>
         <includesDependencies>false</includesDependencies>
-        <extension>dbs</extension>
+        <extension>xml</extension>
         <addedToClasspath>false</addedToClasspath>
       </configuration>
     </component>
