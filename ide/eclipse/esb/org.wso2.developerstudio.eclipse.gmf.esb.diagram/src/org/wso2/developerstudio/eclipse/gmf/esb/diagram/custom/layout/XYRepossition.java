@@ -22,16 +22,23 @@ import java.util.List;
 import javax.print.attribute.standard.MediaSize.Other;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.jface.text.rules.EndOfLineRule;
+import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
@@ -41,6 +48,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputCon
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.DroppableElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceInSequenceInputConnectorEditPart;
@@ -100,6 +108,8 @@ public class XYRepossition {
 	private static int defaultProxyAndEPContainerHeight = 312;
 	private static int defaultFaultContainerHeight = 84;
 	private static int complexMediatorLeftRectWidth = 100;
+	
+	private static EditPart mediatorFlowMediatorFlowCompartmentEditPart = null;
 
 	public static void resizeContainers(IGraphicalEditPart editPart) {
 		IGraphicalEditPart parent = editPart;
@@ -547,6 +557,14 @@ public class XYRepossition {
 		while (!(parent instanceof EsbServerEditPart)) {
 			if (parent != null) {
 				rearrangeChildren(parent);
+				if (parent instanceof MediatorFlowMediatorFlowCompartmentEditPart) {
+					mediatorFlowMediatorFlowCompartmentEditPart = parent;
+					Display.getCurrent().asyncExec(new Runnable() {			
+						@Override
+						public void run() {	
+							XYRepossition.arrangeInSequenceInputConnectors(mediatorFlowMediatorFlowCompartmentEditPart);
+						}});
+				}
 				parent = (IGraphicalEditPart) parent.getParent();
 			} else {
 				break;
@@ -1101,6 +1119,57 @@ public class XYRepossition {
 			compartmentHeight = ((IGraphicalEditPart) child).getFigure().getMinimumSize().height;
 			((GraphicalEditPart) child).getFigure().setMinimumSize(
 					new Dimension(maxWidth, compartmentHeight));
+		}
+	}
+	
+	/**
+	 * Arrange proxy/api in sequence input connector links as they parallel to
+	 * each other.
+	 * 
+	 * @param mediatorFlowMediatorFlowCompartmentEditPart
+	 */
+	private static void arrangeInSequenceInputConnectors(
+			EditPart mediatorFlowMediatorFlowCompartmentEditPart) {
+		if (mediatorFlowMediatorFlowCompartmentEditPart == null) {
+			return;
+		}
+
+		AbstractBaseFigureEditPart baseFigureEditpart = (AbstractBaseFigureEditPart) mediatorFlowMediatorFlowCompartmentEditPart
+				.getParent().getParent().getParent().getParent();
+		List children = baseFigureEditpart.getChildren();
+		GraphicalEditPart mediatorFlowEditpart = (GraphicalEditPart) mediatorFlowMediatorFlowCompartmentEditPart
+				.getParent();
+
+		Rectangle mediatorFlowBounds = mediatorFlowEditpart.getFigure().getBounds().getCopy();
+		((GraphicalEditPart) mediatorFlowMediatorFlowCompartmentEditPart.getParent()).getFigure()
+				.translateToAbsolute(mediatorFlowBounds);
+
+		for (Object child : children) {
+			if (child instanceof ProxyInSequenceInputConnectorEditPart
+					|| child instanceof APIResourceInSequenceInputConnectorEditPart) {
+				AbstractBaseFigureInputConnectorEditPart inSequenceInputConnector = (AbstractBaseFigureInputConnectorEditPart) child;
+
+				EsbLinkEditPart targetConnection = (EsbLinkEditPart) inSequenceInputConnector
+						.getTargetConnections().get(0);
+				AbstractConnectorEditPart source = (AbstractConnectorEditPart) targetConnection
+						.getSource();
+
+				Rectangle sendMediatorOutputConnectorBounds = source.getFigure().getBounds()
+						.getCopy();
+				source.getFigure().translateToAbsolute(sendMediatorOutputConnectorBounds);
+
+				double locationScale = ((double) (sendMediatorOutputConnectorBounds.y - mediatorFlowBounds.y))
+						/ mediatorFlowBounds.height;
+				locationScale = Math.round(locationScale * 10000.0) / 10000.0;
+
+				BorderItemLocator inputLocator = new FixedBorderItemLocator(
+						mediatorFlowEditpart.getFigure(), inSequenceInputConnector.getFigure(),
+						PositionConstants.EAST, locationScale);
+
+				((AbstractBorderedShapeEditPart) baseFigureEditpart).getBorderedFigure()
+						.getBorderItemContainer()
+						.add(inSequenceInputConnector.getFigure(), inputLocator);
+			}
 		}
 	}
 }
