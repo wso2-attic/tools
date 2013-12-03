@@ -27,6 +27,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.ISelectionListener;
@@ -37,7 +38,9 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
+import org.eclipse.ui.forms.events.ExpansionEvent;
 import org.eclipse.ui.forms.events.HyperlinkEvent;
+import org.eclipse.ui.forms.events.IExpansionListener;
 import org.eclipse.ui.forms.events.IHyperlinkListener;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ImageHyperlink;
@@ -61,6 +64,8 @@ public class QoSDashboardPage extends FormPage {
 	private static final String PACKAGE_EXPLORER_PARTID = "org.eclipse.jdt.ui.PackageExplorer";
 	private ISelectionListener selectionListener = null;
 	private ISelection selection = null;
+	private boolean isexpand = false;
+	
 	
 		
 
@@ -113,24 +118,130 @@ public class QoSDashboardPage extends FormPage {
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PROJECT_EXPLORER_PARTID,selectionListener);
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PACKAGE_EXPLORER_PARTID,selectionListener);
   
+	
+		
 		FormToolkit toolkit = managedForm.getToolkit();
 		ScrolledForm form = managedForm.getForm();
 		form.setText("Quality of Service (QoS)");
-		Composite body = form.getBody();
+		final Composite body = form.getBody();
+		GridLayout gridParentLayout = new GridLayout(1,true);
+		 
+		body.setLayout(gridParentLayout);
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(body);
 
-		Section sctnCreate = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnCreate.setBounds(10, 10, 600, 1200);
+		final Section sctnCreate = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnCreate.setBounds(10, 10, 600, 30);
 		managedForm.getToolkit().paintBordersFor(sctnCreate);
-		sctnCreate.setText("Security");
-		sctnCreate.setExpanded(true);
+		sctnCreate.setText("Security for the service");
+		sctnCreate.setExpanded(false);
+		GridData layoutData = new GridData();
+		layoutData.minimumWidth = 600;
+		layoutData.horizontalAlignment = SWT.FILL;
+		layoutData.grabExcessHorizontalSpace = true;
+		sctnCreate.setLayoutData(layoutData);
+		sctnCreate.addExpansionListener(new IExpansionListener() {
+			
+			@Override
+			public void expansionStateChanging(ExpansionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void expansionStateChanged(ExpansionEvent e) {
+				if(isexpand){
+				sctnCreate.setBounds(10, 10, 600, 30);	 
+				GridData layoutData = (GridData) sctnCreate.getLayoutData();
+				layoutData.minimumWidth = 600;
+				layoutData.horizontalAlignment = SWT.FILL;
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.heightHint = sctnCreate.getBounds().height;
+				body.layout();
+				isexpand = false;
+				}else{
+			    sctnCreate.setBounds(10, 10, 600, 400);
+			    GridData layoutData = (GridData) sctnCreate.getLayoutData();
+			    layoutData.minimumWidth = 600;
+			    layoutData.horizontalAlignment = SWT.FILL;
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.heightHint = sctnCreate.getBounds().height;
+			    body.layout();
+			    isexpand = true;
+				}
+			}
+		});
 		
-		Composite composite = managedForm.getToolkit().createComposite(sctnCreate, SWT.NONE);
+		Composite composite = managedForm.getToolkit().createComposite(sctnCreate, SWT.NULL);
 		managedForm.getToolkit().paintBordersFor(composite);
 		sctnCreate.setClient(composite);
-		composite.setLayout(new GridLayout(2, false));
+		composite.setLayout(new GridLayout(1, false));
+		String[] names = new String[]{"UsernameToken","Non-repudiation"};
+		for (String name : names) {
+			 Button button1 = new Button(composite, SWT.RADIO);
+			 button1.setText(name);
+		}
+	   
+		Section sctnCreate2 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnCreate2.setBounds(10, 100, 600, 75);
+		managedForm.getToolkit().paintBordersFor(sctnCreate2);
+		sctnCreate2.setText("Policies");
+		sctnCreate2.setLayoutData(new GridData());
+		sctnCreate2.setExpanded(true);
 		
+		Composite composite2 = managedForm.getToolkit().createComposite(sctnCreate2, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite2);
+		sctnCreate2.setClient(composite2);
+		composite2.setLayout(new GridLayout(1, false));
+		
+		Section sctnCreate3 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnCreate3.setBounds(10, 200, 600, 75);
+		managedForm.getToolkit().paintBordersFor(sctnCreate3);
+		sctnCreate3.setText("Reliable Messaging");
+		sctnCreate3.setLayoutData(new GridData());
+		sctnCreate3.setExpanded(true);
+		
+		Composite composite3 = managedForm.getToolkit().createComposite(sctnCreate3, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite3);
+		sctnCreate3.setClient(composite3);
+		composite3.setLayout(new GridLayout(1, false));
+		
+		Section sctnCreate4 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnCreate4.setBounds(10, 300, 600, 75);
+		managedForm.getToolkit().paintBordersFor(sctnCreate4);
+		sctnCreate4.setText("Response Caching");
+		sctnCreate4.setLayoutData(new GridData());
+		sctnCreate4.setExpanded(true);
+		
+		Composite composite4 = managedForm.getToolkit().createComposite(sctnCreate4, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite4);
+		sctnCreate4.setClient(composite4);
+		composite4.setLayout(new GridLayout(1, false));
+		
+		
+		Section sctnCreate5 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnCreate5.setBounds(10, 400, 600, 75);
+		managedForm.getToolkit().paintBordersFor(sctnCreate5);
+		sctnCreate5.setText("Access Throttling");
+		sctnCreate5.setLayoutData(new GridData());
+		sctnCreate5.setExpanded(true);
+		
+		Composite composite5 = managedForm.getToolkit().createComposite(sctnCreate5, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite5);
+		sctnCreate5.setClient(composite5);
+		composite5.setLayout(new GridLayout(1, false));
+			
+		Section sctnCreate6 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnCreate2.setBounds(10, 500, 600, 75);
+		managedForm.getToolkit().paintBordersFor(sctnCreate6);
+		sctnCreate6.setText("MTOM");
+		sctnCreate6.setLayoutData(new GridData());
+		sctnCreate6.setExpanded(true);
+		
+		Composite composite6 = managedForm.getToolkit().createComposite(sctnCreate6, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite6);
+		sctnCreate6.setClient(composite6);
+		composite6.setLayout(new GridLayout(1, false));
 		
 	}
 	
