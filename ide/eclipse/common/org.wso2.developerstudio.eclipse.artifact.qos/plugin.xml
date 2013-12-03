@@ -6,14 +6,55 @@
       <editor
             class="org.wso2.developerstudio.eclipse.qos.project.ui.dashboard.QoSDashboard"
             id="org.wso2.developerstudio.eclipse.qos.QoSDashboard"
-            name="Developer Studio Dashboard">
+            name="Quality of Service(QoS)"
+            icon="icons/qos-16x16.png">
       </editor>
     </extension>
+ <extension
+       point="org.eclipse.ui.commands">
+    <command
+        description="Quality of Service"
+        id="org.wso2.developerstudio.eclipse.qos.QoSDashboard"
+        name="Apply QoS">
+  	</command>
+ </extension>
     <extension
        point="org.eclipse.ui.handlers">
     <handler
-          class="org.wso2.developerstudio.eclipse.qos.handlers.OpenQoSDashboardHandler"
-          commandId="org.wso2.developerstudio.eclipse.qos.command.OpenQoSDashboardHandler">
-    </handler>
+        class="org.wso2.developerstudio.eclipse.qos.handlers.OpenQoSDashboardCommandHandler"
+        commandId="org.wso2.developerstudio.eclipse.qos.QoSDashboard">
+  	</handler>
  </extension>
+<extension point="org.eclipse.ui.menus">
+ <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+     <command
+           commandId="org.wso2.developerstudio.eclipse.qos.QoSDashboard"
+           style="push"
+           icon="icons/qos-16x16.png">
+        <visibleWhen checkEnabled="false">
+            <with variable="activeMenuSelection">
+               <iterate ifEmpty="false" operator="and">
+               	<or> 
+                  	<and>
+                   		<instanceof
+                     			value="org.eclipse.core.resources.IProject">
+                 		 </instanceof>
+                 		 <or>
+                 		 <test
+                   			 property="org.eclipse.core.resources.projectNature"
+                    		 value="org.wso2.developerstudio.eclipse.axis2.project.nature">
+                 		</test>
+                 		 <test
+                   			 property="org.eclipse.core.resources.projectNature"
+                    		 value="org.wso2.developerstudio.eclipse.ds.project.nature">
+                 		</test>
+                 		</or>                 
+                	 </and>
+              	</or>    
+             </iterate>  
+           </with>
+        </visibleWhen>
+     </command>
+  </menuContribution>
+</extension> 
 </plugin>

@@ -26,6 +26,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.ISelectionListener;
@@ -38,7 +39,10 @@ import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.events.HyperlinkEvent;
 import org.eclipse.ui.forms.events.IHyperlinkListener;
+import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ImageHyperlink;
+import org.eclipse.ui.forms.widgets.ScrolledForm;
+import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -108,7 +112,26 @@ public class QoSDashboardPage extends FormPage {
 		};
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PROJECT_EXPLORER_PARTID,selectionListener);
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PACKAGE_EXPLORER_PARTID,selectionListener);
+  
+		FormToolkit toolkit = managedForm.getToolkit();
+		ScrolledForm form = managedForm.getForm();
+		form.setText("Quality of Service (QoS)");
+		Composite body = form.getBody();
+		toolkit.decorateFormHeading(form.getForm());
+		toolkit.paintBordersFor(body);
 
+		Section sctnCreate = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
+		sctnCreate.setBounds(10, 10, 600, 1200);
+		managedForm.getToolkit().paintBordersFor(sctnCreate);
+		sctnCreate.setText("Security");
+		sctnCreate.setExpanded(true);
+		
+		Composite composite = managedForm.getToolkit().createComposite(sctnCreate, SWT.NONE);
+		managedForm.getToolkit().paintBordersFor(composite);
+		sctnCreate.setClient(composite);
+		composite.setLayout(new GridLayout(2, false));
+		
+		
 	}
 	
 	
