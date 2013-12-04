@@ -39,6 +39,9 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 public class CloudConnectorDirectoryTraverser {
 
 	private static final String synapseNS = "http://ws.apache.org/ns/synapse";
+	private static final String connectorFileName = "connector.xml";
+	private static final String componentFileName = "component.xml";
+	private static final String initFileName = "init.xml";
 	private Properties properties = new Properties();
 	private static String rootDirectory=null;
 	private static CloudConnectorDirectoryTraverser instance=null;
@@ -70,7 +73,7 @@ public class CloudConnectorDirectoryTraverser {
 	
 	private void deserializeConnectorXML(){
 		try{
-			File artifactsFile = new File(rootDirectory+File.separator+"connector.xml");
+			File artifactsFile = new File(rootDirectory+File.separator+connectorFileName);
 			String artifactsContent = FileUtils.getContentAsString(artifactsFile);
 			connector = new Connector();
 			connector.deserialize(artifactsContent);
@@ -110,7 +113,7 @@ public class CloudConnectorDirectoryTraverser {
 		deserializeConnectorXML();
 		for (Dependency dependency : connector.getComponentDependencies()) {
 			String pathname = rootDirectory +File.separator+ dependency.getComponent();
-			File artifactFile = new File(pathname + File.separator+"component.xml");
+			File artifactFile = new File(pathname + File.separator+componentFileName);
 			String artifactContent = FileUtils.getContentAsString(artifactFile);
 			Component subComponent = new Component();
 			subComponent.deserialize(artifactContent);
@@ -135,7 +138,7 @@ public class CloudConnectorDirectoryTraverser {
 		deserializeConnectorXML();
 		for (Dependency dependency : connector.getComponentDependencies()) {
 			String pathname = rootDirectory +File.separator+ dependency.getComponent();
-			File artifactFile = new File(pathname + File.separator+"component.xml");
+			File artifactFile = new File(pathname + File.separator+componentFileName);
 			String artifactContent = FileUtils.getContentAsString(artifactFile);
 			Component subComponent = new Component();
 			subComponent.deserialize(artifactContent);
@@ -161,7 +164,7 @@ public class CloudConnectorDirectoryTraverser {
 		deserializeConnectorXML();
 		for (Dependency dependency : connector.getComponentDependencies()) {
 			String pathname = rootDirectory +File.separator+ dependency.getComponent();
-			File artifactFile = new File(pathname + File.separator+"component.xml");
+			File artifactFile = new File(pathname + File.separator+componentFileName);
 			String artifactContent = FileUtils.getContentAsString(artifactFile);
 			Component subComponent = new Component();
 			subComponent.deserialize(artifactContent);
@@ -180,7 +183,7 @@ public class CloudConnectorDirectoryTraverser {
 	}
 	
 	public String getConfigurationFileLocation(Map<String, String> artifactsMap) throws Exception{
-		return rootDirectory+File.separator+artifactsMap.get("config")+File.separator+"config.xml";
+		return rootDirectory+File.separator+artifactsMap.get("init")+File.separator+initFileName;
 	}
 	
 	/**
