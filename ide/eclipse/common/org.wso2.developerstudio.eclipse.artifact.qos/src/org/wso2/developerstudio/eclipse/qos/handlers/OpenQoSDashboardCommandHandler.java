@@ -113,7 +113,7 @@ public class OpenQoSDashboardCommandHandler  extends AbstractHandler {
 		}
 
 		public String getToolTipText() {
-		return "Developer Studio Dashboard";
+		return "Developer Studio QoS Editor";
 		}
 
 		public Object getAdapter(Class adapter) {
