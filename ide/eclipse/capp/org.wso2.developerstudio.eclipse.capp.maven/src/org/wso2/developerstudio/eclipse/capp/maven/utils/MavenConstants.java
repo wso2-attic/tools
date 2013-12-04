@@ -34,4 +34,5 @@ public class MavenConstants {
 	public static final String WSO2_GENERAL_PROJECT_VERSION = Messages.WSO2_GENERAL_PROJECT_VERSION;
 	public static final String MAVEN_CAR_DEPLOY_VERSION = Messages.MAVEN_CAR_DEPLOY_VERSION;
 	public static final String MAVEN_BRS_PLUGIN_VERSION=Messages.MAVEN_BRS_VERSION;
+	public static final String MAVEN_QOS_PLUGIN_VERSION=Messages.WSO2_QOS_PROJECT_VERSION;
 }
