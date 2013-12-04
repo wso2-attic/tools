@@ -51,15 +51,16 @@ public class QOSProjectNature extends AbstractWSO2ProjectNature {
 	        mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 	        Plugin pluginEntry = MavenUtils.createPluginEntry(mavenProject, 
 	        	"org.wso2.maven", 
-	        	"maven-dataservice-plugin", 
+	        	"maven-qos-plugin", 
 	        	MavenConstants.MAVEN_QOS_PLUGIN_VERSION, 
 	        	true);
 	        Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode(pluginEntry);
 	        Xpp3Dom artifactNode = MavenUtils.createXpp3Node(configurationNode, "artifact");
-	        if(getServiceMetaFile() != null){
-	        	String fileName = FileUtils.getRelativePath(getProject().getLocation().toFile(),getServiceMetaFile().getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
-	        	artifactNode.setValue(fileName);
-	        }
+	        artifactNode.setValue("src/main/resources/"+getProject().getName()+".xml");
+//	        if(getServiceMetaFile() != null){
+//	        	String fileName = FileUtils.getRelativePath(getProject().getLocation().toFile(),getServiceMetaFile().getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
+//	        	artifactNode.setValue(fileName);
+//	        }
 	        MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
         } catch (Exception e) {
 	        // TODO Auto-generated catch block
