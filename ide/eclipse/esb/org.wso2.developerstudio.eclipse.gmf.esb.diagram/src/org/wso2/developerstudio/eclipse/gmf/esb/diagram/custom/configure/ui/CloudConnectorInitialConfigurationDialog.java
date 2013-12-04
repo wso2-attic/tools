@@ -24,6 +24,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.ModifyEvent;
@@ -108,7 +109,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		super(parent);
 		this.parameters=parameters;
 		this.operation=operation;
-		parent.setText("Connector Configuration.");
+		//parent.setText("Connector Configuration.");
 	}	
 	
 	public String getDroppedCloudConnectorComponentName() {
@@ -161,6 +162,11 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 			public void modifyText(ModifyEvent e) {
 				configName=nameText.getText();
 				//CustomPaletteToolTransferDropTargetListener.definedName=nameText.getText();
+				if (configName != null && !configName.equals("")) {
+					updateOKButtonStatus(true);
+				} else {
+					updateOKButtonStatus(false);
+				}
 			}
 		});
 		
@@ -233,8 +239,14 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		logPropertiesTableLayoutData.left = new FormAttachment(0);
 		logPropertiesTableLayoutData.bottom = new FormAttachment(100);
 		paramTable.setLayoutData(logPropertiesTableLayoutData);
-
+		
 		return parent;
+	}
+	
+	@Override
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText("Connector Configuration");
 	}
 	
 	private TableItem bindPram(CallTemplateParameter param) {
@@ -334,6 +346,23 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
             }
         }
     	invokeElem.addChild(connectorEl);
+    }
+    
+    /**
+	 * Create contents of the button bar.
+	 * 
+	 * @param parent
+	 */
+	protected void createButtonsForButtonBar(Composite parent) {
+		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
+				true);
+		createButton(parent, IDialogConstants.CANCEL_ID,
+				IDialogConstants.CANCEL_LABEL, false);
+		updateOKButtonStatus(false);
+	}
+    
+    private void updateOKButtonStatus(boolean status) {
+    	getButton(IDialogConstants.OK_ID).setEnabled(status);
     }
 	
 	
