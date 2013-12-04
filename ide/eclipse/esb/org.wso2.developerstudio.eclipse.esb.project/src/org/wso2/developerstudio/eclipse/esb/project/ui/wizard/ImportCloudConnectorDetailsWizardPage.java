@@ -48,9 +48,9 @@ public class ImportCloudConnectorDetailsWizardPage extends WizardPage{
 
 
 	protected ImportCloudConnectorDetailsWizardPage(IStructuredSelection selection) {
-		super("ESB Cloud Connector");
-		setTitle("ESB Cloud Connector");
-		setDescription("Import a cloud connector to ESB Project.");
+		super("ESB Connector");
+		setTitle("ESB Connector");
+		setDescription("Import a connector to ESB Project.");
 		try {
 			IProject project = getProject(selection);
 			if(project!=null){
@@ -68,7 +68,7 @@ public class ImportCloudConnectorDetailsWizardPage extends WizardPage{
 		container.setLayout(new GridLayout(3, false));
 		
 		Label lblCloudConnectorPath = new Label(container, SWT.NONE);
-		lblCloudConnectorPath.setText("Cloud connector location");
+		lblCloudConnectorPath.setText("Connector location");
 		
 		txtCloudConnectorPath = new Text(container, SWT.BORDER);
 		GridData gd_txtPath = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
@@ -107,12 +107,12 @@ public class ImportCloudConnectorDetailsWizardPage extends WizardPage{
 	
 	private void validate() {
 		if ((getCloudConnectorPath() == null || getCloudConnectorPath().equals(""))) {
-			setErrorMessage("Please specify a Cloud connector path");
+			setErrorMessage("Please specify a connector path");
 			setPageComplete(false);
 			return;
 		} else {
 			if(!(new File(getCloudConnectorPath())).exists()){
-				setErrorMessage("Cloud connector path must be a valid path.");
+				setErrorMessage("Connector path must be a valid path.");
 				setPageComplete(false);
 				return;
 			}

@@ -63,7 +63,7 @@ public class CloudConnectorImportWizard extends Wizard{
 	             */
 	            detailWizardPage.getSelectedProject().refreshLocal(IResource.DEPTH_INFINITE, null);
 	        } catch (ZipException e) {
-	        	log.error("Error while extracting the Cloud connector zip", e);
+	        	log.error("Error while extracting the connector zip", e);
 	        } catch (CoreException e) {
 	        	log.error("Cannot refresh the project", e);
 	        }

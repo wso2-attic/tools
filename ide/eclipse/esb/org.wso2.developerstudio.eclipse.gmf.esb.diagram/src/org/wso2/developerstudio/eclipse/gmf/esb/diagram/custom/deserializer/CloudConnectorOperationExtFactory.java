@@ -81,7 +81,7 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 				try {
 					synapseXpath=new SynapseXPath(parameter,paramValue);
 				} catch (JaxenException e) {
-					log.error("Error while deserializing cloud connector operation", e);
+					log.error("Error while deserializing connector operation", e);
 				}					
 				cloudConnectorOperationExt.getpName2ExpressionMap().put(paramName, new Value(synapseXpath));
 			}else{

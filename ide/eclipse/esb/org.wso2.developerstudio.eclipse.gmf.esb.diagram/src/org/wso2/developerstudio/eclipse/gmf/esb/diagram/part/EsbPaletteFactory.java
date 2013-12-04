@@ -1287,7 +1287,7 @@ public class EsbPaletteFactory {
 			cloudConnectorOperations = CloudConnectorDirectoryTraverser.getInstance(connectorPath)
 					.getOperationsMap().keySet();
 		} catch (Exception e) {
-			log.error("Error occured while scanning the Cloud Connector package", e);
+			log.error("Error occured while scanning the connector package", e);
 		}
 
 		boolean definedEndpointsAdded = false;

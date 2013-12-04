@@ -222,7 +222,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 					directory = cloudConnectorDirectoryTraverser.getOperationFileNamesMap().get(
 							operationFileName);
 				} catch (Exception e1) {
-					log.error("Error while retrieving data for cloud connector", e1);
+					log.error("Error while retrieving data for connector", e1);
 				}
 				String path = connectorPath + File.separator + directory + File.separator
 						+ operationFileName + ".xml";
@@ -595,7 +595,7 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 		}
 
 		public String getNodeName() {
-			return "Cloud Connector";
+			return "Connector";
 		}
 
 		public IFigure getToolTip() {

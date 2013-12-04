@@ -108,7 +108,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		super(parent);
 		this.parameters=parameters;
 		this.operation=operation;
-		parent.setText("Cloud connector Configuration.");
+		parent.setText("Connector Configuration.");
 	}	
 	
 	public String getDroppedCloudConnectorComponentName() {
