@@ -367,7 +367,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	}
 	
 	private void loadConfiguration() {
-		dialogShell.setText(String.format("Namespaced Property Edtior", nsProperty.getPrettyName()));
+		dialogShell.setText(String.format("Namespaced Property Editor", nsProperty.getPrettyName()));
 		propertyGroupBox.setText(nsProperty.getPrettyName());
 		if (!StringUtils.isBlank(nsProperty.getPropertyValue())) {
 			propertyTextField.setText(nsProperty.getPropertyValue());
