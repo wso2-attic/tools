@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -1322,11 +1323,15 @@ public class EsbPaletteFactory {
 				.get(indexOfDefinedEndpoints));
 		container.getChildren().clear();
 		Object[] keys = cloudConnectorOperations.toArray();
-		for (int k = 0; k < keys.length; ++k) {
-			container.add(createCloudConnectorOperationCreationTool((String) keys[k],
-					"cloudConnectorOperation-" + cloudConnectorName, connectorPath + File.separator
-							+ "icon" + File.separator + "icon-small.gif"));
+		if (keys != null) {
+			Arrays.sort(keys);
+			for (int k = 0; k < keys.length; ++k) {
+				container.add(createCloudConnectorOperationCreationTool((String) keys[k],
+						"cloudConnectorOperation-" + cloudConnectorName, connectorPath + File.separator
+								+ "icon" + File.separator + "icon-small.gif"));
+			}
 		}
+		
 
 	}
 
