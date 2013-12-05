@@ -28,10 +28,12 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.jface.text.rules.EndOfLineRule;
 import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInSequenceInputConnector;
@@ -49,6 +51,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServ
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.DroppableElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceInSequenceInputConnectorEditPart;
@@ -139,6 +142,36 @@ public class XYRepossition {
 			}
 		} else if (parent instanceof MediatorFlowMediatorFlowCompartment18EditPart) {
 			resizeComplexEndpointEditPart(parent);
+		} else if (parent instanceof FixedSizedAbstractMediator) {
+			resizeSimpleMediator(parent);
+ 		}
+	}
+	
+	/**
+	 * Resize mediator on description edit as the entire description is visible.
+	 * 
+	 * @param editpart
+	 */
+	private static void resizeSimpleMediator(IGraphicalEditPart editpart) {
+		List children = editpart.getChildren();
+
+		for (Object child : children) {
+			if (child instanceof CompartmentEditPart) {
+				WrappingLabel descriptionLabel = (WrappingLabel) ((CompartmentEditPart) child)
+						.getFigure();
+				Dimension dimension = descriptionLabel.getPreferredSize(-1, -1);
+				Rectangle bounds = editpart.getFigure().getBounds();
+
+				if (dimension.width >= FixedSizedAbstractMediator.FigureWidth) {
+					// Resize mediator
+					bounds.setWidth(dimension.width + 4);
+
+				} else {
+					bounds.setWidth(FixedSizedAbstractMediator.FigureWidth + 4);
+				}
+
+				editpart.getFigure().setBounds(bounds);
+			}
 		}
 	}
 	
@@ -708,6 +741,7 @@ public class XYRepossition {
 
 					GraphicalEditPart nodeParent = (GraphicalEditPart) ((GraphicalEditPart) node)
 							.getParent();
+					node.getFigure().setBounds(constraints);
 					nodeParent.setLayoutConstraint(node, nodeFigure, constraints);
 				}
 

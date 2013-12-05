@@ -29,6 +29,7 @@ public abstract class FixedSizedAbstractMediator extends AbstractMediator {
 
 	public static int FigureWidth = 75;
 	public static int FigureHeight = 75;
+	protected static final int maxFigureWidth = 10000;
 	protected IFigure primaryShape;
 	private boolean selected;
 	
@@ -39,13 +40,14 @@ public abstract class FixedSizedAbstractMediator extends AbstractMediator {
 	
 	public IFigure getFigure() {
 		IFigure figure = super.getFigure();
-		figure.setMaximumSize(new Dimension(FigureWidth, FigureHeight));
+		figure.setMaximumSize(new Dimension(maxFigureWidth, FigureHeight));
 		return figure;
 	}
 	
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(FigureWidth, FigureHeight);
-		result.setMinimumSize(new Dimension(FigureWidth, FigureHeight));
+		//result.setMinimumSize(new Dimension(FigureWidth, FigureHeight));
+		result.setMaximumSize(new Dimension(maxFigureWidth, FigureHeight));
 		
 		/*
 		 * Add mouse listener to node figure which enables editing mediator

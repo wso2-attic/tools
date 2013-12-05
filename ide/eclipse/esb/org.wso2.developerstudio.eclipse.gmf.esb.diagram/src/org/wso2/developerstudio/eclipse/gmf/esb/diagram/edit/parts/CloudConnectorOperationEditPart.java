@@ -21,6 +21,7 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.xml.type.internal.QName;
@@ -436,11 +437,11 @@ public class CloudConnectorOperationEditPart extends FixedSizedAbstractMediator 
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
+		figure.setLayoutManager(new ToolbarLayout(true));
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);

@@ -56,7 +56,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		this.setLayoutManager(layoutThis);
 		this.setCornerDimensions(new Dimension(8, 8));
 		this.setOutline(false);
-		this.setPreferredSize(new Dimension(Figure_PreferredWidth, Figure_PreferredHeight));
+		//this.setPreferredSize(new Dimension(Figure_PreferredWidth, Figure_PreferredHeight));
 
 		RoundedRectangleBorder border = new RoundedRectangleBorder(8, 8);
         border.setColor(EditPartDrawingHelper.FigureNormalColor);
@@ -85,9 +85,9 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		this.add(mainImageRectangle, constraintMainImageRectangle);
 
 		RoundedRectangle propertyValueRectangle1 = new RoundedRectangle();
-		propertyValueRectangle1.setCornerDimensions(new Dimension(8, 8));
+		propertyValueRectangle1.setCornerDimensions(new Dimension(0, 0));
 		propertyValueRectangle1.setOutline(false);
-		propertyValueRectangle1.setPreferredSize(new Dimension(Figure_PreferredWidth, 25));
+		//propertyValueRectangle1.setPreferredSize(new Dimension(Figure_PreferredWidth, 25));
 
 		GridData constraintPropertyValueRectangle = new GridData();
 		constraintPropertyValueRectangle.verticalAlignment = GridData.FILL;
@@ -106,7 +106,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		propertyNameLabel.setForegroundColor(new Color(null, 46, 46, 46));
 		propertyNameLabel.setFont(new Font(null, new FontData("Courier", 8, SWT.NONE)));
 		propertyNameLabel.setAlignment(SWT.CENTER);
-		propertyNameLabel.setPreferredSize(new Dimension(Figure_PreferredWidth, 20));
+		propertyNameLabel.setPreferredSize(new Dimension(FixedSizedAbstractMediator.maxFigureWidth, 20));
 
 		propertyValueRectangle1.add(propertyNameLabel);
 		this.add(propertyValueRectangle1, constraintPropertyValueRectangle);

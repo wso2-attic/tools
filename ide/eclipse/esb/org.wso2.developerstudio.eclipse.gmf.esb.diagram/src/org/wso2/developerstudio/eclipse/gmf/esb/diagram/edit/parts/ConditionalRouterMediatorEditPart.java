@@ -217,7 +217,7 @@ public class ConditionalRouterMediatorEditPart extends FixedSizedAbstractMediato
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
+		figure.setLayoutManager(new ToolbarLayout(true));
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
