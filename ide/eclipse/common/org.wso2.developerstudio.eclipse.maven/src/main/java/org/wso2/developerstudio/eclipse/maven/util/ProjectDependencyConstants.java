@@ -19,7 +19,7 @@ public class ProjectDependencyConstants {
         DEPENDENCY_MAP.put("geronimo-stax-api_1.0_spec", "1.0.1.wso2v2");
         DEPENDENCY_MAP.put("commons-lang", "2.6.0.wso2v1");
         DEPENDENCY_MAP.put("commons-httpclient", "3.1.0.wso2v2");
-        DEPENDENCY_MAP.put("org.wso2.carbon.user.core", "4.0.1");
+        DEPENDENCY_MAP.put("org.wso2.carbon.user.core", "4.2.0");
         DEPENDENCY_MAP.put("XmlSchema", "1.4.7.wso2v2");
         DEPENDENCY_MAP.put("json", "2.0.0.wso2v1");
         DEPENDENCY_MAP.put("rampart-core", "1.6.1.wso2v5");

@@ -39,11 +39,15 @@ public class NewDataserviceValidatorClassWizardPage extends NewClassWizardPage {
 										LibraryUtils.axis2_1_6_1_wso2vXX_jar,
 										"commons-codec_1.4.0.wso2v1.jar",
 	                                  "commons-httpclient_3.1.0.wso2v2.jar",
-	                                  "commons-io_2.0.0.wso2v2.jar", "commons-logging-1.1.1.jar",
+	                                  "commons-io_2.0.0.wso2v2.jar", 
+	                                  "commons-logging-1.1.1.jar",
 	                                  "geronimo-stax-api_1.0_spec_1.0.1.wso2v2.jar",
-	                                  "httpcore_4.1.0.wso2v1.jar", "neethi_2.0.4.wso2v4.jar",
-	                                  "not-yet-commons-ssl-0.3.9.jar", "woden-1.0.0.M8-wso2v1.jar",
-	                                  "wsdl4j_1.6.2.wso2v4.jar", "XmlSchema_1.4.7.wso2v2.jar" };
+	                                  LibraryUtils.httpcore_4_3_0_wso2vXX_jar,
+	                                  "neethi_2.0.4.wso2v4.jar",
+	                                  "not-yet-commons-ssl-0.3.9.jar",
+	                                  LibraryUtils.woden_1_0_0_M8_wso2vXX_jar,
+	                                  "wsdl4j_1.6.2.wso2v4.jar",
+	                                  "XmlSchema_1.4.7.wso2v2.jar" };
 
 	public String getSelectedProject() {
 		return selectedProject;

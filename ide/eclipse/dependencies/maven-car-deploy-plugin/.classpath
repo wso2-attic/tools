@@ -86,7 +86,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/apache/axis2/axis2-transport-http/1.6-wso2v4/axis2-transport-http-1.6-wso2v4.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/httpcore/4.0/httpcore-4.0.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/axis2/axis2-transport-local/1.6-wso2v4/axis2-transport-local-1.6-wso2v4.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/apache/woden/wso2/woden/1.0.0.M8-wso2v1/woden-1.0.0.M8-wso2v1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/woden/wso2/woden/1.0.0.M8-wso2v1/woden_1.0.0.M8-wso2v1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/xerces/wso2/xercesImpl/2.8.1.wso2v1/xercesImpl-2.8.1.wso2v1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/wsdl4j/wso2/wsdl4j/1.6.2.wso2v2/wsdl4j-1.6.2.wso2v2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/httpcomponents/wso2/httpcore/4.1.0.alpha1-wso2v1/httpcore-4.1.0.alpha1-wso2v1.jar"/>

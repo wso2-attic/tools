@@ -21,6 +21,8 @@ public class LibraryUtils {
 	
 	public static String axiom_1_2_11_wso2vXX_jar = "axiom_1.2.11.wso2v4.jar"; 
 	public static String axis2_1_6_1_wso2vXX_jar = "axis2_1.6.1.wso2v10.jar";
+	public static String httpcore_4_3_0_wso2vXX_jar = "httpcore_4.3.0.wso2v1.jar";
+	public static String woden_1_0_0_M8_wso2vXX_jar = "woden-1.0.0.M8-wso2v1.jar";
 	
 	public static File getDependencyPath(String dependencyName, boolean isRelativePath){
 		String dependencyPath = getLibLocation() + dependencyName;  

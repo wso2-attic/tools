@@ -42,7 +42,7 @@ public class CarbonServerConstants {
 		"geronimo-stax-api_1.0_spec-1.0.1",
 		"wsdl4j-1.6.2",
 		"XmlSchema-1.4.2",
-		"woden-1.0.0.M8-wso2v1",
+		"woden_1.0.0.M8-wso2v1",
 		"backport-util-concurrent-3.1.0",
 		"org.wso2.carbon.logging-2.0.0",
 		"xmlbeans-2.3.0",

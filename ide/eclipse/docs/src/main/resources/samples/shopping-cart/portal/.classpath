@@ -196,7 +196,7 @@
   <classpathentry kind="var" path="M2_REPO/org/apache/tiles/wso2/tiles-jsp/2.0.5.wso2v1/tiles-jsp-2.0.5.wso2v1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/tomcat/tribes/6.0.16/tribes-6.0.16.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/maven/wagon/wagon-provider-api/1.0-beta-2/wagon-provider-api-1.0-beta-2.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/apache/woden/wso2/woden/1.0.0.M8-wso2v1/woden-1.0.0.M8-wso2v1.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/woden/wso2/woden/1.0.0.M8-wso2v1/woden_1.0.0.M8-wso2v1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/woden/woden-api/1.0M8/woden-api-1.0M8.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/apache/woden/woden-impl-dom/1.0M8/woden-impl-dom-1.0M8.jar"/>
   <classpathentry kind="var" path="M2_REPO/wsdl4j/wsdl4j/1.6.2/wsdl4j-1.6.2.jar"/>
