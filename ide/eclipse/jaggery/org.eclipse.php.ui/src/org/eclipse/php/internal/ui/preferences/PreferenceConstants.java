@@ -799,8 +799,7 @@ public class PreferenceConstants {
 	 * @since 3.1
 	 * @see IStructuredTextFoldingProvider#FOLDING_ENABLED
 	 */
-	// public static final String EDITOR_FOLDING_ENABLED=
-	// "editor_folding_enabled";
+	//	public static final String EDITOR_FOLDING_ENABLED= "editor_folding_enabled"; 
 	public static final String EDITOR_FOLDING_ENABLED = AbstractStructuredFoldingStrategy.FOLDING_ENABLED;
 
 	/**
@@ -974,8 +973,7 @@ public class PreferenceConstants {
 	 * 
 	 * @see #SRCBIN_FOLDERS_IN_NEWPROJ
 	 */
-	// public static final String SRCBIN_SRCNAME =
-	// "org.eclipse.php.ui.wizards.srcBinFoldersSrcName";
+	//public static final String SRCBIN_SRCNAME = "org.eclipse.php.ui.wizards.srcBinFoldersSrcName"; 
 	public static final String SRCBIN_SRCNAME = "com.xore.dltk.ui.wizards.srcFoldersSrcName"; //$NON-NLS-1$
 
 	/**

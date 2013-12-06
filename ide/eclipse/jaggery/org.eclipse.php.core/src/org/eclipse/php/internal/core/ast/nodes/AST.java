@@ -187,29 +187,33 @@ public class AST {
 			boolean aspTagsAsPhp, boolean useShortTags) throws IOException {
 		// if (PHPVersion.PHP4 == phpVersion) {
 		// final AstLexer lexer4 = getLexer4(reader);
-		// lexer4.setUseAspTagsAsPhp(aspTagsAsPhp);
-		// lexer4.setUseShortTags(useShortTags);
+		// // lexer4.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// // lexer4.setUseShortTags(useShortTags);
 		// return lexer4;
 		// } else if (PHPVersion.PHP5 == phpVersion) {
 		// final AstLexer lexer5 = getLexer5(reader);
-		// lexer5.setUseAspTagsAsPhp(aspTagsAsPhp);
-		// lexer5.setUseShortTags(useShortTags);
+		// // lexer5.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// // lexer5.setUseShortTags(useShortTags);
 		// return lexer5;
 		// } else if (PHPVersion.PHP5_3 == phpVersion) {
 		// final AstLexer lexer53 = getLexer53(reader);
-		// lexer53.setUseAspTagsAsPhp(aspTagsAsPhp);
-		// lexer53.setUseShortTags(useShortTags);
+		// // lexer53.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// // lexer53.setUseShortTags(useShortTags);
 		// return lexer53;
 		// } else if (PHPVersion.PHP5_4 == phpVersion) {
-		final AstLexer lexer54 = getLexer54(reader);
-		// lexer54.setUseAspTagsAsPhp(aspTagsAsPhp);
-		// lexer54.setUseShortTags(useShortTags);
-		return lexer54;
+		// final AstLexer lexer54 = getLexer54(reader);
+		// // lexer54.setUseAspTagsAsPhp(aspTagsAsPhp);
+		// // lexer54.setUseShortTags(useShortTags);
+		// return lexer54;
 		// } else {
-		// throw new IllegalArgumentException(CoreMessages
-		//					.getString("ASTParser_1") //$NON-NLS-1$
+		// throw new IllegalArgumentException(
+		//					CoreMessages.getString("ASTParser_1") //$NON-NLS-1$
 		// + phpVersion);
 		// }
+
+		final AstLexer lexer54 = getLexer54(reader);
+		return lexer54;
+
 	}
 
 	private AstLexer getLexer54(Reader reader) throws IOException {
@@ -218,7 +222,6 @@ public class AST {
 		phpAstLexer5.setAST(this);
 		return phpAstLexer5;
 	}
-
 	private AstLexer getLexer53(Reader reader) throws IOException {
 		final org.eclipse.php.internal.core.ast.scanner.php53.PhpAstLexer phpAstLexer5 = new org.eclipse.php.internal.core.ast.scanner.php53.PhpAstLexer(
 				reader);

@@ -718,7 +718,8 @@ public class ASTRewriteFlattener extends AbstractVisitor {
 	public boolean visit(InfixExpression infixExpression) {
 		infixExpression.getLeft().accept(this);
 		result.append(' ');
-		result.append(InfixExpression.getOperator(infixExpression.getOperator()));
+		result.append(InfixExpression
+				.getOperator(infixExpression.getOperator()));
 		result.append(' ');
 		infixExpression.getRight().accept(this);
 		return false;

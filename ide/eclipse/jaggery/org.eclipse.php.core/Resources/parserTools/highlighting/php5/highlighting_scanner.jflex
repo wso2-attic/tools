@@ -279,16 +279,8 @@ PHP_OPERATOR=       "=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-=
     return PHP_PRINT;
 }
 
-<ST_PHP_IN_SCRIPTING>"interface" {
-    return PHP_INTERFACE;
-}
-
-<ST_PHP_IN_SCRIPTING>"extends" {
-    return PHP_EXTENDS;
-}
-
-<ST_PHP_IN_SCRIPTING>"implements" {
-    return PHP_IMPLEMENTS;
+<ST_PHP_IN_SCRIPTING>"class" {
+    return PHP_CLASS;
 }
 
 <ST_PHP_IN_SCRIPTING>"self" {

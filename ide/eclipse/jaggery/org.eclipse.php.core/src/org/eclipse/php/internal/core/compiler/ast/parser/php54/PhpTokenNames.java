@@ -47,7 +47,7 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_SEMICOLON, ";"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_NEKUDOTAIM, ":"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_COMMA, ","); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_NEKUDA, "."); //$NON-NLS-1$
+		//token2Name.put(CompilerParserConstants.T_NEKUDA, "."); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_OPEN_RECT, "["); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_CLOSE_RECT, "]"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_OPEN_PARENTHESE, "("); //$NON-NLS-1$
@@ -93,19 +93,11 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_GOTO, "goto"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_ECHO, "echo"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_PRINT, "print"); //$NON-NLS-1$
-		//token2Name.put(CompilerParserConstants.T_CLASS, "class"); //$NON-NLS-1$
+		token2Name.put(CompilerParserConstants.T_CLASS, "class"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_TRY, "try"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_CATCH, "catch"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_THROW, "throw"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_INSTANCEOF, "instanceof"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_INTERFACE, "interface"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_IMPLEMENTS, "implements"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_ABSTRACT, "abstract"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_FINAL, "final"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_PRIVATE, "private"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_PROTECTED, "protected"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_PUBLIC, "public"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_EXTENDS, "extends"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_NEW, "new"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_EVAL, "eval"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_INCLUDE, "include"); //$NON-NLS-1$
@@ -123,7 +115,7 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_VAR, "var"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_DECLARE, "declare"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_ENDDECLARE, "enddeclare"); //$NON-NLS-1$
-		token2Name.put(CompilerParserConstants.T_OBJECT_OPERATOR, "->"); //$NON-NLS-1$
+		token2Name.put(CompilerParserConstants.T_OBJECT_OPERATOR, "."); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_PAAMAYIM_NEKUDOTAYIM, "::"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_NS_SEPARATOR, "\\"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_CURLY_CLOSE, "}"); //$NON-NLS-1$

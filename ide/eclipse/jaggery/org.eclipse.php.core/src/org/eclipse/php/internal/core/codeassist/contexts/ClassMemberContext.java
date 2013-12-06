@@ -40,9 +40,9 @@ public abstract class ClassMemberContext extends StatementContext {
 	 */
 	public enum Trigger {
 		/** Class trigger type: '::' */
-		CLASS("::"), //$NON-NLS-1$
+		CLASS(":"), //$NON-NLS-1$
 		/** Object trigger type: '->' */
-		OBJECT("->"), ; //$NON-NLS-1$
+		OBJECT("."), ; //$NON-NLS-1$
 
 		String name;
 
@@ -80,16 +80,16 @@ public abstract class ClassMemberContext extends StatementContext {
 				statementText, elementStart, true);
 		elementStart = PHPTextSequenceUtilities.readBackwardSpaces(
 				statementText, elementStart);
-		if (elementStart <= 2) { // there's no trigger of length less than 2
+		if (elementStart <= 1) { // there's no trigger of length less than 1
 			// characters
 			return false;
 		}
 
-		String triggerText = statementText.subSequence(elementStart - 2,
+		String triggerText = statementText.subSequence(elementStart - 1,
 				elementStart).toString();
-		if (triggerText.equals("->")) { //$NON-NLS-1$
+		if (triggerText.equals(".")) { //$NON-NLS-1$
 			triggerType = Trigger.OBJECT;
-		} else if (triggerText.equals("::")) { //$NON-NLS-1$
+		} else if (triggerText.equals(":")) { //$NON-NLS-1$
 			triggerType = Trigger.CLASS;
 		} else {
 			return false;

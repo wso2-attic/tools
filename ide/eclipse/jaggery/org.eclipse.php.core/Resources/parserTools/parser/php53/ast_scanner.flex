@@ -346,16 +346,8 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_PRINT);
 }
 
-<ST_IN_SCRIPTING>"interface" {
-	return createSymbol(ParserConstants.T_INTERFACE);
-}
-
-<ST_IN_SCRIPTING>"extends" {
-	return createSymbol(ParserConstants.T_EXTENDS);
-}
-
-<ST_IN_SCRIPTING>"implements" {
-	return createSymbol(ParserConstants.T_IMPLEMENTS);
+<ST_IN_SCRIPTING>"class" {
+	return createSymbol(ParserConstants.T_CLASS);
 }
 
 <ST_IN_SCRIPTING>"->" {
@@ -452,31 +444,8 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_EMPTY);
 }
 
-<ST_IN_SCRIPTING>"__halt_compiler" {
-	return createSymbol(ParserConstants.T_HALT_COMPILER);
-}
 <ST_IN_SCRIPTING>"static" {
 	return createSymbol(ParserConstants.T_STATIC);
-}
-
-<ST_IN_SCRIPTING>"abstract" {
-	return createSymbol(ParserConstants.T_ABSTRACT);
-}
-
-<ST_IN_SCRIPTING>"final" {
-	return createSymbol(ParserConstants.T_FINAL);
-}
-
-<ST_IN_SCRIPTING>"private" {
-	return createSymbol(ParserConstants.T_PRIVATE);
-}
-
-<ST_IN_SCRIPTING>"protected" {
-	return createSymbol(ParserConstants.T_PROTECTED);
-}
-
-<ST_IN_SCRIPTING>"public" {
-	return createSymbol(ParserConstants.T_PUBLIC);
 }
 
 <ST_IN_SCRIPTING>"unset" {

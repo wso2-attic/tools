@@ -302,10 +302,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_ENDDECLARE);
 }*/
 
-<ST_IN_SCRIPTING>"instanceof" {
-	return createSymbol(ParserConstants.T_INSTANCEOF);
-}
-
 /*<ST_IN_SCRIPTING>"as" {
 	return createSymbol(ParserConstants.T_AS);
 }*/
@@ -334,10 +330,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_CONTINUE);
 }
 
-<ST_IN_SCRIPTING>"goto" {
- 	return createSymbol(ParserConstants.T_GOTO);
-}
-
 /*<ST_IN_SCRIPTING>"echo" {
 	return createSymbol(ParserConstants.T_ECHO);
 }*/
@@ -346,35 +338,11 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_PRINT);
 }
 
-/*<ST_IN_SCRIPTING>"class" {
+<ST_IN_SCRIPTING>"class" {
 	return createSymbol(ParserConstants.T_CLASS);
 }
 
-<ST_IN_SCRIPTING>"interface" {
-	return createSymbol(ParserConstants.T_INTERFACE);
-}
-
-<ST_IN_SCRIPTING>"trait" {
-	return createSymbol(ParserConstants.T_TRAIT);
-}
-
-<ST_IN_SCRIPTING>"insteadof" {
-        return createSymbol(ParserConstants.T_INSTEADOF);
-}
-
-<ST_IN_SCRIPTING>"callable" {
- return createSymbol(ParserConstants.T_CALLABLE);
-}
-
-<ST_IN_SCRIPTING>"extends" {
-	return createSymbol(ParserConstants.T_EXTENDS);
-}
-
-<ST_IN_SCRIPTING>"implements" {
-	return createSymbol(ParserConstants.T_IMPLEMENTS);
-}*/
-
-<ST_IN_SCRIPTING>"->" {
+<ST_IN_SCRIPTING>"." {
     pushState(ST_LOOKING_FOR_PROPERTY);
     return createSymbol(ParserConstants.T_OBJECT_OPERATOR);
 }
@@ -382,7 +350,7 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 <ST_IN_SCRIPTING,ST_LOOKING_FOR_PROPERTY>{WHITESPACE}+ {
 }
 
-<ST_LOOKING_FOR_PROPERTY>"->" {
+<ST_LOOKING_FOR_PROPERTY>"." {
 	return createSymbol(ParserConstants.T_OBJECT_OPERATOR);
 }
 
@@ -625,7 +593,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
     ";"                     {return createSymbol(ParserConstants.T_SEMICOLON);}
     ":"                     {return createSymbol(ParserConstants.T_NEKUDOTAIM);}
     ","                     {return createSymbol(ParserConstants.T_COMMA);}
-    "."                     {return createSymbol(ParserConstants.T_NEKUDA);}
     "["                     {return createSymbol(ParserConstants.T_OPEN_RECT);}
     "]"                     {return createSymbol(ParserConstants.T_CLOSE_RECT);}
     "("                     {return createSymbol(ParserConstants.T_OPEN_PARENTHESE);}
@@ -731,22 +698,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_NS_C);
 }*/
 
-<ST_IN_SCRIPTING>"post" {
-    return createSymbol(ParserConstants.T_POST);
-}
-
-<ST_IN_SCRIPTING>"get" {
-    return createSymbol(ParserConstants.T_GET);
-}
-
-<ST_IN_SCRIPTING>"put" {
-    return createSymbol(ParserConstants.T_PUT);
-}
-
-<ST_IN_SCRIPTING>"del" {
-    return createSymbol(ParserConstants.T_DEL);
-}
-
 <ST_IN_SCRIPTING>"include" {
 	return createSymbol(ParserConstants.T_INCLUDE);
 }
@@ -759,14 +710,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_REQUIRE);
 }
 
-<ST_IN_SCRIPTING>"parse" {
-	return createSymbol(ParserConstants.T_PARSE);
-}
-
-<ST_IN_SCRIPTING>"stringify" {
-	return createSymbol(ParserConstants.T_STRINGIFY);
-}
-
 <YYINITIAL>(([^<]|"<"[^?%s<])+)|"<s"|"<" {
     return createSymbol(ParserConstants.T_INLINE_HTML);
 }
@@ -777,8 +720,7 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	//return T_OPEN_TAG;
 }
 
-
-<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>"$"{LABEL}"->"[a-zA-Z_\x7f-\xff] {
+<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>{LABEL}"."[a-zA-Z_\x7f-\xff] {
 	yypushback(3);
 	pushState(ST_LOOKING_FOR_PROPERTY);
 	return createFullSymbol(ParserConstants.T_VARIABLE);
@@ -800,7 +742,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
     ";"                     {return createSymbol(ParserConstants.T_SEMICOLON);}
     ":"                     {return createSymbol(ParserConstants.T_NEKUDOTAIM);}
     ","                     {return createSymbol(ParserConstants.T_COMMA);}
-    "."                     {return createSymbol(ParserConstants.T_NEKUDA);}
     "["                     {return createSymbol(ParserConstants.T_OPEN_RECT);}
 //    "]"                     {return createSymbol(ParserConstants.T_CLOSE_RECT);} //we dont need this line because the rule before deals with it
     "("                     {return createSymbol(ParserConstants.T_OPEN_PARENTHESE);}
@@ -833,9 +774,9 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_ENCAPSED_AND_WHITESPACE);
 }
 
-/*<ST_IN_SCRIPTING>"define" {
+<ST_IN_SCRIPTING>"define" {
     return createFullSymbol(ParserConstants.T_DEFINE);
-}*/
+}
 
 <ST_IN_SCRIPTING,ST_VAR_OFFSET>{LABEL} {
     return createFullSymbol(ParserConstants.T_STRING);

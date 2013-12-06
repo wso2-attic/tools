@@ -81,9 +81,9 @@ public class PHPSourceParserFactory extends AbstractSourceParser implements
 		// fileName);
 		// }
 		// return null;
+
 		return new org.eclipse.php.internal.core.compiler.ast.parser.php54.PhpSourceParser(
 				fileName);
-
 	}
 
 	/**
@@ -113,5 +113,6 @@ public class PHPSourceParserFactory extends AbstractSourceParser implements
 		// return null;
 
 		return new org.eclipse.php.internal.core.compiler.ast.parser.php54.PhpSourceParser();
+
 	}
 }

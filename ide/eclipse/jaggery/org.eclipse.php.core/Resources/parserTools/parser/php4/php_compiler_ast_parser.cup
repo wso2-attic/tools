@@ -104,6 +104,8 @@ terminal  T_RETURN;
 terminal  PHPDocBlock T_VAR;
 terminal  String T_UNSET;
 terminal  String T_EMPTY;
+terminal  PHPDocBlock T_CLASS;
+terminal  T_EXTENDS;
 terminal  T_OBJECT_OPERATOR;
 terminal  T_DOUBLE_ARROW;
 terminal  T_LIST;
@@ -185,6 +187,7 @@ non terminal FormalParameter parameter;
 non terminal PHPCallArgumentsList function_call_parameter_list;
 non terminal PHPCallArgumentsList non_empty_function_call_parameter_list;
 non terminal List static_var_list;
+non terminal class_statement_list;
 non terminal Boolean is_reference;
 non terminal List for_expr;
 non terminal List non_empty_for_expr;
@@ -920,6 +923,9 @@ static_var_list:list T_COMMA T_VARIABLE:var
 :}
 ;
 
+class_statement_list ::=
+/* empty */
+;
 
 
 is_reference ::=

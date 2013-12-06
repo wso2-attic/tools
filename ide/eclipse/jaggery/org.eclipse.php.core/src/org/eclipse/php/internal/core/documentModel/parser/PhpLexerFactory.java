@@ -29,10 +29,10 @@ public class PhpLexerFactory {
 		// org.eclipse.php.internal.core.documentModel.parser.php54.PhpLexer(
 		// reader);
 		// }
+		//		throw new IllegalArgumentException("Unknown PHP version"); //$NON-NLS-1$
 
-		return new org.eclipse.php.internal.core.documentModel.parser.php54.PhpLexer(
+		return new org.eclipse.php.internal.core.documentModel.parser.php4.PhpLexer(
 				reader);
-
 	}
 
 	public static AbstractPhpLexer createLexer(InputStream stream,

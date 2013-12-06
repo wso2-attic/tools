@@ -16,17 +16,13 @@ import org.eclipse.dltk.core.CompletionRequestor;
 import org.eclipse.dltk.core.IMethod;
 import org.eclipse.dltk.core.index2.search.ISearchEngine.MatchRule;
 import org.eclipse.dltk.core.search.IDLTKSearchScope;
-import org.eclipse.dltk.internal.core.ModelElement;
 import org.eclipse.dltk.internal.core.SourceRange;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.php.core.codeassist.ICompletionContext;
 import org.eclipse.php.internal.core.PHPCorePlugin;
-import org.eclipse.php.internal.core.PHPVersion;
 import org.eclipse.php.internal.core.codeassist.ICompletionReporter;
 import org.eclipse.php.internal.core.codeassist.contexts.AbstractCompletionContext;
-import org.eclipse.php.internal.core.language.JaggeryMethods;
 import org.eclipse.php.internal.core.model.PhpModelAccess;
-import org.eclipse.php.internal.core.typeinference.FakeMethod;
 
 /**
  * This strategy completes global functions
@@ -35,17 +31,17 @@ import org.eclipse.php.internal.core.typeinference.FakeMethod;
  */
 public class GlobalFunctionsStrategy extends GlobalElementStrategy {
 
-	private boolean showJaggeryMethods = true;
+	// private boolean showJaggeryMethods = true;
 
 	public GlobalFunctionsStrategy(ICompletionContext context) {
 		super(context);
 	}
 
-	public GlobalFunctionsStrategy(ICompletionContext context,
-			boolean showJaggeryMethods) {
-		super(context);
-		this.showJaggeryMethods = showJaggeryMethods;
-	}
+	// public GlobalFunctionsStrategy(ICompletionContext context,
+	// boolean showJaggeryMethods) {
+	// super(context);
+	// this.showJaggeryMethods = showJaggeryMethods;
+	// }
 
 	public void apply(ICompletionReporter reporter) throws BadLocationException {
 
@@ -57,24 +53,23 @@ public class GlobalFunctionsStrategy extends GlobalElementStrategy {
 		CompletionRequestor requestor = abstractContext
 				.getCompletionRequestor();
 
-		// if (abstractContext.getPrefixWithoutProcessing().trim().length() ==
-		// 0) {
-		// return;
-		// }
-
-		if (showJaggeryMethods) {
-			PHPVersion phpVersion = abstractContext.getPhpVersion();
-			for (String variable : JaggeryMethods.getMethods(phpVersion)) {
-				reporter.reportMethod(new FakeMethod(
-						(ModelElement) abstractContext.getSourceModule(),
-						variable), "", replacementRange);
-			}
+		if (abstractContext.getPrefixWithoutProcessing().trim().length() == 0) {
+			return;
 		}
 
-		String prefix = abstractContext.getPrefix();
-		//		if (prefix.startsWith("$")) { //$NON-NLS-1$
-		// return;
+		// if (showJaggeryMethods) {
+		// PHPVersion phpVersion = abstractContext.getPhpVersion();
+		// for (String variable : JaggeryMethods.getMethods(phpVersion)) {
+		// reporter.reportMethod(new FakeMethod(
+		// (ModelElement) abstractContext.getSourceModule(),
+		// variable), "", replacementRange);
 		// }
+		// }
+
+		String prefix = abstractContext.getPrefix();
+		if (prefix.startsWith("$")) { //$NON-NLS-1$
+			return;
+		}
 
 		MatchRule matchRule = MatchRule.PREFIX;
 		if (requestor.isContextInformationMode()) {
@@ -87,12 +82,9 @@ public class GlobalFunctionsStrategy extends GlobalElementStrategy {
 
 		String suffix = getSuffix(abstractContext);
 
-		
-
 		for (IMethod method : functions) {
 			reporter.reportMethod(method, suffix, replacementRange);
 		}
-
 	}
 
 	public String getSuffix(AbstractCompletionContext abstractContext) {

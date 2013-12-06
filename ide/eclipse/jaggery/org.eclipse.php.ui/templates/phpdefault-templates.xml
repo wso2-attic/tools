@@ -320,7 +320,7 @@ ${cursor}
 	id="org.eclipse.php.ui.editor.templates.php.cls"
 	context="php-global-members"
 	enabled="true"
-	autoinsert="false">include_once("${cursor}");
+	autoinsert="false">include_once ("${cursor}");
 </template>
 
 <template

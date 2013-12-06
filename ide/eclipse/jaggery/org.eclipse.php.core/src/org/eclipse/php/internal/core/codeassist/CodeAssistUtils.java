@@ -55,8 +55,8 @@ public class CodeAssistUtils {
 	public static final int USE_PHPDOC = 1 << 5;
 
 	private static final String DOLLAR = "$"; //$NON-NLS-1$
-	private static final String PAAMAYIM_NEKUDOTAIM = "::"; //$NON-NLS-1$
-	protected static final String OBJECT_FUNCTIONS_TRIGGER = "->"; //$NON-NLS-1$
+	private static final String PAAMAYIM_NEKUDOTAIM = ":"; //$NON-NLS-1$
+	protected static final String OBJECT_FUNCTIONS_TRIGGER = "."; //$NON-NLS-1$
 	private static final Pattern globalPattern = Pattern
 			.compile("\\$GLOBALS[\\s]*\\[[\\s]*[\\'\\\"][\\w]+[\\'\\\"][\\s]*\\]"); //$NON-NLS-1$
 
@@ -345,7 +345,7 @@ public class CodeAssistUtils {
 			return EMPTY_TYPES;
 		}
 
-		String triggerText = statementText.subSequence(endPosition - 2,
+		String triggerText = statementText.subSequence(endPosition - 1,
 				endPosition).toString();
 		if (triggerText.equals(OBJECT_FUNCTIONS_TRIGGER)) {
 		} else if (triggerText.equals(PAAMAYIM_NEKUDOTAIM)) {
@@ -361,7 +361,7 @@ public class CodeAssistUtils {
 		String text = statementText.subSequence(0, propertyEndPosition)
 				.toString();
 		if (lastObjectOperator == -1
-				|| (text.indexOf('>') >= 0 && text.indexOf("->") < 0)) { //$NON-NLS-1$
+				|| (text.indexOf('.') >= 0 && text.indexOf(".") < 0)) { //$NON-NLS-1$
 			// if there is no "->" or "::" in the left sequence then we need to
 			// calc the object type
 			return innerGetClassName(sourceModule, statementText,
@@ -564,7 +564,7 @@ public class CodeAssistUtils {
 			if ("self".equals(className) //$NON-NLS-1$
 					|| "parent".equals(className) //$NON-NLS-1$
 					|| (phpVersion.isGreaterThan(PHPVersion.PHP5) && "static" //$NON-NLS-1$
-							.equals(className))) {
+					.equals(className))) {
 				IType classData = PHPModelUtils.getCurrentType(sourceModule,
 						offset - className.length() - 2); // the offset before
 				// "self::",
@@ -575,8 +575,7 @@ public class CodeAssistUtils {
 				}
 			}
 			if (className.length() > 0) {
-				if (className.startsWith("$") //$NON-NLS-1$
-						&& phpVersion.isGreaterThan(PHPVersion.PHP5)) {
+				if (  phpVersion.isGreaterThan(PHPVersion.PHP5)) {
 					int statementStart = statementText
 							.getOriginalOffset(classNameStart);
 					return getVariableType(sourceModule, className,
@@ -638,7 +637,7 @@ public class CodeAssistUtils {
 			}
 		}
 		// if its object call calc the object type.
-		if (className.length() > 0 && className.charAt(0) == '$') {
+		if (className.length() > 0) {
 			int statementStart = statementText
 					.getOriginalOffset(classNameStart);
 			return getVariableType(sourceModule, className, statementStart);

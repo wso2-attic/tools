@@ -274,32 +274,12 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
     return PHP_PRINT;
 }
 
-<ST_PHP_IN_SCRIPTING>"trait" {
-	return PHP_TRAIT;
-}
-
-<ST_PHP_IN_SCRIPTING>"insteadof" {
-        return PHP_INSTEADOF;
+<ST_PHP_IN_SCRIPTING>"class" {
+    return PHP_CLASS;
 }
 
 <ST_PHP_IN_SCRIPTING>"callable" {
  return PHP_CALLABLE;
-}
-
-<ST_PHP_IN_SCRIPTING>"interface" {
-    return PHP_INTERFACE;
-}
-
-<ST_PHP_IN_SCRIPTING>"extends" {
-    return PHP_EXTENDS;
-}
-
-<ST_PHP_IN_SCRIPTING>"implements" {
-    return PHP_IMPLEMENTS;
-}
-
-<ST_PHP_IN_SCRIPTING>"self" {
-    return PHP_SELF;
 }
 
 <ST_PHP_IN_SCRIPTING>"WSRequest" {
@@ -350,13 +330,13 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
     return PHP_OAUTHPROVIDER;
 }
 
-<ST_PHP_IN_SCRIPTING>"->" {
+<ST_PHP_IN_SCRIPTING>"." {
     pushState(ST_PHP_LOOKING_FOR_PROPERTY);
     return PHP_OBJECT_OPERATOR;
 }
 
 <ST_PHP_QUOTES_AFTER_VARIABLE> {
-    "->" {
+    "." {
     popState();
     pushState(ST_PHP_LOOKING_FOR_PROPERTY);
     return PHP_OBJECT_OPERATOR;
@@ -371,7 +351,7 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 	return WHITESPACE;
 }
 
-<ST_PHP_LOOKING_FOR_PROPERTY>"->" {
+<ST_PHP_LOOKING_FOR_PROPERTY>"." {
 	return PHP_OBJECT_OPERATOR;
 }
 
@@ -585,14 +565,6 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 	return PHP__NAMESPACE__;
 }
 
-<ST_PHP_IN_SCRIPTING>"get" {
-    return PHP_GET;
-}
-
-<ST_PHP_IN_SCRIPTING>"post" {
-    return PHP_GET;
-}
-
 <ST_PHP_IN_SCRIPTING>"require" {
     return PHP_REQUIRE;
 }
@@ -603,22 +575,6 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 
 <ST_PHP_IN_SCRIPTING>"include_once" {
     return PHP_INCLUDE_ONCE;
-}
-
-<ST_PHP_IN_SCRIPTING>"put" {
-    return PHP_PUT;
-}
-
-<ST_PHP_IN_SCRIPTING>"del" {
-    return PHP_DEL;
-}
-
-<ST_PHP_IN_SCRIPTING>"parse" {
-    return PHP_PARSE;
-}
-
-<ST_PHP_IN_SCRIPTING>"stringify" {
-    return PHP_STRINGIFY;
 }
 
 <ST_PHP_IN_SCRIPTING>"$this" {

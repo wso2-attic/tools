@@ -52,7 +52,7 @@ public class ClassStaticMemberContext extends ClassMemberContext {
 		if (!super.isValid(sourceModule, offset, requestor)) {
 			return false;
 		}
-		if (getTriggerType() != Trigger.CLASS) {
+		if (getTriggerType() != Trigger.OBJECT) {
 			return false;
 		}
 

@@ -154,9 +154,7 @@ public abstract class ClassMembersStrategy extends AbstractCompletionStrategy {
 			/* check 0 */
 			int flags = member.getFlags();
 			if (PHPFlags.isConstant(member.getFlags())) {
-				if (context.getTriggerType() == Trigger.CLASS) {
-					return false; // 17:1-4
-				} else if (context.getTriggerType() == Trigger.OBJECT) {
+				 if (context.getTriggerType() == Trigger.OBJECT) {
 					return true;// 17:5-7
 				}
 				/* check 1 */

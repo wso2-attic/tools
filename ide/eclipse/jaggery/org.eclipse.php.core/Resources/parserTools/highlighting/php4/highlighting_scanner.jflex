@@ -251,6 +251,10 @@ PHP_OPERATOR=       "=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-=
     return PHP_PRINT;
 }
 
+<ST_PHP_IN_SCRIPTING>"class" {
+    return PHP_CLASS;
+}
+
 <ST_PHP_IN_SCRIPTING>"WSRequest" {
     return PHP_WSREQUEST;
 }

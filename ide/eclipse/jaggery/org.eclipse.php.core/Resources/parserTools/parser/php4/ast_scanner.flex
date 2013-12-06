@@ -304,6 +304,10 @@ NEWLINE=("\r"|"\n"|"\r\n")
 	return createSymbol(ParserConstants.T_PRINT);
 }
 
+<ST_IN_SCRIPTING>"class" {
+	return createSymbol(ParserConstants.T_CLASS);
+}
+
 
 <ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_BACKQUOTE,ST_HEREDOC>"->" {
     pushState(ST_LOOKING_FOR_PROPERTY);
@@ -624,7 +628,10 @@ NEWLINE=("\r"|"\n"|"\r\n")
     return createSymbol(ParserConstants.T_INLINE_HTML);
 }
 
-
+<YYINITIAL>"<%"([ \t]|{NEWLINE}) {
+    yybegin(ST_IN_SCRIPTING);
+	//return T_OPEN_TAG;
+}
 
 <ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>"$"{LABEL} {
     return createFullSymbol(ParserConstants.T_VARIABLE);

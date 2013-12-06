@@ -92,7 +92,7 @@ public abstract class PhpTokenNames {
 		token2Name.put(CompilerParserConstants.T_CONTINUE, "continue"); //$NON-NLS-1$
 		//token2Name.put(CompilerParserConstants.T_ECHO, "echo"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_PRINT, "print"); //$NON-NLS-1$
-		//token2Name.put(CompilerParserConstants.T_CLASS, "class"); //$NON-NLS-1$
+		token2Name.put(CompilerParserConstants.T_CLASS, "class"); //$NON-NLS-1$
 		//token2Name.put(CompilerParserConstants.T_OLD_FUNCTION, "old_function"); //$NON-NLS-1$
 		//token2Name.put(CompilerParserConstants.T_EXTENDS, "extends"); //$NON-NLS-1$
 		token2Name.put(CompilerParserConstants.T_NEW, "new"); //$NON-NLS-1$

@@ -69,7 +69,7 @@ public class ClassFieldsStrategy extends ClassMembersStrategy {
 				IField[] fields = null;
 
 				if (concreteContext instanceof ClassStaticMemberContext
-						&& concreteContext.getTriggerType() == Trigger.CLASS
+						&& concreteContext.getTriggerType() == Trigger.OBJECT
 						&& ((ClassStaticMemberContext) concreteContext)
 								.isParent()) {
 					List<IField> superTypes = new ArrayList<IField>();
@@ -91,7 +91,7 @@ public class ClassFieldsStrategy extends ClassMembersStrategy {
 						.asList(fields))) {
 					if (concreteContext.isInUseTraitStatement()) {
 						result.add(field);
-					} else if (!isFiltered(field, type, concreteContext)) {
+					} else if (isFiltered(field, type, concreteContext)) {
 						result.add(field);
 					}
 				}

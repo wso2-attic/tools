@@ -20,11 +20,7 @@ import org.eclipse.php.internal.core.compiler.ast.visitor.ASTPrintVisitor;
 
 /**
  * Represents an assignment statement.
- * 
- * <pre>e.g.
- * 
- * <pre>
- * $a = 5,
+ * <pre>e.g.<pre> $a = 5,
  * $a += 5,
  * $a .= $b,
  */

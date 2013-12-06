@@ -77,13 +77,7 @@ public class CompilerAstLexer extends
 		case ParserConstants.T_CONST:
 		case ParserConstants.T_VAR:
 		case ParserConstants.T_CLASS:
-		case ParserConstants.T_INTERFACE:
 		case ParserConstants.T_STATIC:
-		case ParserConstants.T_ABSTRACT:
-		case ParserConstants.T_FINAL:
-		case ParserConstants.T_PRIVATE:
-		case ParserConstants.T_PROTECTED:
-		case ParserConstants.T_PUBLIC:
 			symbol.value = latestDocBlock;
 			break;
 		}

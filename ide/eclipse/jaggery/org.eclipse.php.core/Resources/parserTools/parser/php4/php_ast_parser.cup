@@ -114,6 +114,7 @@ terminal  T_RETURN;
 terminal  T_VAR;
 terminal  String T_UNSET;
 terminal  String T_EMPTY;
+terminal  T_CLASS;
 terminal  T_OBJECT_OPERATOR;
 terminal  T_DOUBLE_ARROW;
 terminal  T_LIST;
@@ -857,6 +858,7 @@ static_var_list:list T_COMMA T_VARIABLE:var
 :}
 ;
 
+
 is_reference ::=
 /* empty */
 {:
@@ -868,6 +870,7 @@ is_reference ::=
 	RESULT = Boolean.TRUE;
 :}
 ;
+
 
 for_expr ::=
 /* empty */

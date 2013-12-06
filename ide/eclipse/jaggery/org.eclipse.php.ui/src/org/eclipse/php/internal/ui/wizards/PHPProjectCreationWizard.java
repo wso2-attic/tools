@@ -157,34 +157,33 @@ public class PHPProjectCreationWizard extends NewElementWizard implements
 			}
 			IContainer container = (IContainer) project;
 
-			try {
-				addFileToProject(container, new Path("index.jag"),
-						PHPFileCreationWizard.openContentStream(project
-								.getName()), null);
-				InputStream resourceStream = this.getClass()
-						.getResourceAsStream(
-								"templates/jag-conf-template.resource");
-				addFileToProject(container, new Path("jaggery.conf"),
-						resourceStream, null);
-				resourceStream.close();
-				// IProjectDescription description = project.getDescription();
-				//
-				// ArrayList<String> arrayList = new ArrayList<String>();
-				// arrayList.addAll(Arrays.asList(description.getNatureIds()));
-				// arrayList
-				// .add("org.wso2.developerstudio.eclipse.jaggery.project.nature");
-				// description.setNatureIds(arrayList.toArray(new String[] {}));
-				// project.setDescription(description, new
-				// NullProgressMonitor());
-				addNatureToProject(project, false, JaggeryNature.ID);
+			if (!fFirstPage.isExistingLocation()) {
+				try {
+					addFileToProject(container, new Path("index.jag"),
+							PHPFileCreationWizard.openContentStream(project
+									.getName()), null);
+					InputStream resourceStream = this.getClass()
+							.getResourceAsStream(
+									"templates/jag-conf-template.resource");
+					addFileToProject(container, new Path("jaggery.conf"),
+							resourceStream, null);
+					resourceStream.close();
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 
+			try {
+				addNatureToProject(project, false, JaggeryNature.ID);
 			} catch (CoreException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
+
 			// progressMonitor.done();
 		}
 

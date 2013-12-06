@@ -340,6 +340,10 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
 	return createSymbol(ParserConstants.T_PRINT);
 }
 
+<ST_IN_SCRIPTING>"class" {
+	return createSymbol(ParserConstants.T_CLASS);
+}
+
 <ST_IN_SCRIPTING>"->" {
     pushState(ST_LOOKING_FOR_PROPERTY);
     return createSymbol(ParserConstants.T_OBJECT_OPERATOR);
@@ -700,7 +704,7 @@ HEREDOC_CHARS=("{"*([^$\n\r\\{]|("\\"[^\n\r]))|{HEREDOC_LITERAL_DOLLAR}|({HEREDO
     return createFullSymbol(ParserConstants.T_VARIABLE);
 }
 
-<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>{LABEL}"->"[a-zA-Z_\x7f-\xff] {
+<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>"$"{LABEL}"->"[a-zA-Z_\x7f-\xff] {
 	yypushback(3);
 	pushState(ST_LOOKING_FOR_PROPERTY);
 	return createFullSymbol(ParserConstants.T_VARIABLE);

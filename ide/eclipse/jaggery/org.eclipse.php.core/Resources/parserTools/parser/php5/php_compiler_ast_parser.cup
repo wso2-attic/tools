@@ -93,7 +93,7 @@ terminal  T_GLOBAL;
 terminal  PHPDocBlock T_VAR;
 terminal  String T_UNSET;
 terminal  String T_EMPTY;
-terminal  T_HALT_COMPILER;
+terminal  PHPDocBlock T_CLASS;
 terminal  T_OBJECT_OPERATOR;
 terminal  T_DOUBLE_ARROW;
 terminal  T_LIST;
@@ -184,6 +184,8 @@ non terminal PHPCallArgumentsList non_empty_function_call_parameter_list;
 non terminal List global_var_list;
 non terminal Expression global_var;
 non terminal List static_var_list;
+non terminal class_statement_list;
+non terminal class_statement;
 non terminal Boolean is_reference;
 non terminal List echo_expr_list;
 non terminal List for_expr;
@@ -215,22 +217,24 @@ non terminal Expression encaps_var;
 non terminal Expression encaps_var_offset;
 non terminal Expression internal_functions_in_yacc;
 non terminal String string_st;
-
 non terminal Expression w_variable;
 non terminal TypeReference fully_qualified_class_name;
 non terminal CompilerAstParser.ModifierDocPair method_modifiers;
-non terminal Statement method_body;
 non terminal PHPCallArgumentsList method_or_not;
 non terminal List variable_properties;
 non terminal PHPMethodDeclaration function_declaration_statement;
+non terminal Statement class_declaration_statement;
 non terminal Expression variable;
 non terminal List additional_catches;
 non terminal List non_empty_additional_catches;
 non terminal CatchClause additional_catch;
 non terminal PHPMethodDeclaration unticked_function_declaration_statement;
+non terminal Statement unticked_class_declaration_statement;
+non terminal CompilerAstParser.ModifierDocPair class_entry_type;
+non terminal TypeReference extends_from;
+non terminal List implements_list;
 non terminal TypeReference optional_class_type;
 non terminal Expression r_variable;
-non terminal CompilerAstParser.ModifierDocPair variable_modifiers;
 non terminal Expression rw_variable;
 non terminal Expression variable_without_objects;
 non terminal Expression variable_property;
@@ -246,7 +250,9 @@ non terminal StaticConstantAccess static_class_constant;
 non terminal Expression base_variable_with_function_calls;
 
 /* added the following rules for improving error recovery*/
+non terminal Statement class_closure;
 non terminal PHPMethodDeclaration function_body;
+non terminal errorOrNot;
 
 precedence left T_INCLUDE, T_INCLUDE_ONCE, T_EVAL, T_REQUIRE;
 precedence left T_GET,T_POST,T_PUT,T_DEL,T_PARSE,T_STRINGIFY;
@@ -330,10 +336,9 @@ statement:statement
 	RESULT = statement; 
 :}
 
-| T_HALT_COMPILER T_OPEN_PARENTHESE T_CLOSE_PARENTHESE T_SEMICOLON:statement
+| class_declaration_statement:statement
 {: 
-	// Note: we never generate T_HALT_COMPILER
-	RESULT = null;
+	RESULT = statement; 
 :}
 ;
 
@@ -372,10 +377,9 @@ statement:statement
 	RESULT = statement; 
 :}
 
-| T_HALT_COMPILER:halt T_OPEN_PARENTHESE T_CLOSE_PARENTHESE:close T_SEMICOLON 
+| class_declaration_statement:statement
 {: 
-	// Note: we never generate K_HALT_COMPILER
-	RESULT = null;
+	RESULT = statement; 
 :}
 ;
 
@@ -681,6 +685,12 @@ unticked_function_declaration_statement:functionDeclaration
 :}
 ;
 
+class_declaration_statement ::=
+unticked_class_declaration_statement:classDeclaration
+{:
+	RESULT = classDeclaration;
+:}
+;
 
 is_reference ::=
 /* empty */
@@ -731,6 +741,73 @@ T_CURLY_OPEN:blockStart inner_statement_list:statementList T_CURLY_CLOSE:blockEn
 :}
 ;
 
+unticked_class_declaration_statement ::=
+class_entry_type:modifier T_STRING:className
+{:
+	ClassDeclaration classDeclaration = new ClassDeclaration(modifierleft ,classNameright, classNameleft, classNameright, modifier.modifier, className, null, null, new Block(classNameright,classNameright,null), modifier.doc);
+	classDeclaration.setRecovered(true);
+	parser.addDeclarationStatement(classDeclaration);
+	parser.declarations.push(classDeclaration);
+:}
+extends_from:superClass errorOrNot implements_list:interfaces
+{:
+	ClassDeclaration classDeclaration = (ClassDeclaration)parser.declarations.peek();
+	if (superClass != null) {
+		classDeclaration.setSuperClass(superClass);
+	}
+	if (interfaces != null) {
+		classDeclaration.setInterfaceList(interfaces);
+	}
+	classDeclaration.setEnd(interfacesright);
+	classDeclaration.getBody().setStart(interfacesright);
+	classDeclaration.getBody().setEnd(interfacesright);
+:}
+T_CURLY_OPEN:blockStart class_statement_list:statementList class_closure:blockEnd
+{:
+	if(blockEnd != null) {
+		parser.reportError(new ASTError(statementListright - 1, statementListright), "syntax error, unfinished class declaration");
+		parser.pendingStatement = blockEnd;
+	}
+
+	ClassDeclaration classDeclaration = (ClassDeclaration)parser.declarations.pop();
+	classDeclaration.setRecovered(false);
+	classDeclaration.setEnd(blockEndright);
+	classDeclaration.getBody().setStart(blockStartleft);
+	classDeclaration.getBody().setEnd(blockEndright);
+	RESULT = classDeclaration;
+:}
+;
+
+errorOrNot ::=
+error
+|
+;
+
+class_closure ::=
+T_CURLY_CLOSE
+;
+
+class_entry_type ::=
+T_CLASS:value
+{:
+	RESULT = parser.new ModifierDocPair(Modifiers.AccDefault, value); 
+:}
+;
+
+extends_from ::=
+/* empty */
+{:
+	RESULT = null;
+:}
+;
+
+implements_list ::=
+/* empty */
+{:
+	List list = new LinkedList();
+	RESULT = list;
+:}
+;
 
 foreach_optional_arg ::=
 /* empty */
@@ -1181,6 +1258,9 @@ static_var_list:list T_COMMA T_VARIABLE:var
 :}	
 ;
 
+class_statement_list ::=
+ /* empty */
+;
 
 method_modifiers ::=
 /* empty */
