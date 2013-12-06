@@ -28,6 +28,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.ISelectionListener;
@@ -64,11 +65,7 @@ public class QoSDashboardPage extends FormPage {
 	private static final String PACKAGE_EXPLORER_PARTID = "org.eclipse.jdt.ui.PackageExplorer";
 	private ISelectionListener selectionListener = null;
 	private ISelection selection = null;
-	private boolean isexpand = false;
 	
-	
-		
-
 	/**
 	 * Create the form page.
 	 * @param id
@@ -117,9 +114,7 @@ public class QoSDashboardPage extends FormPage {
 		};
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PROJECT_EXPLORER_PARTID,selectionListener);
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PACKAGE_EXPLORER_PARTID,selectionListener);
-  
-	
-		
+
 		FormToolkit toolkit = managedForm.getToolkit();
 		ScrolledForm form = managedForm.getForm();
 		form.setText("Quality of Service (QoS)");
@@ -129,12 +124,105 @@ public class QoSDashboardPage extends FormPage {
 		body.setLayout(gridParentLayout);
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(body);
+		
+		Object[] result = CreateMainSection(managedForm, body,"Service Info",10, 10, 600, 10, true);
+		Composite serviceInfoComposite = (Composite)result[1];
+		Combo serviceName = new Combo(serviceInfoComposite, SWT.READ_ONLY);
+		serviceName.setText("Service Name :");
+		serviceName.add("Sample Service");
+		 
+		
+		 result = CreateMainSection(managedForm, body,"Security for the service",10, 20, 600, 30, false);
+		final Composite seccomposite = (Composite)result[1];
+	     
+		     String[] names = new String[]{"UsernameToken","Non-repudiation","Integrity","Confidentiality"};
+			 final  Section sctnDistribution = managedForm.getToolkit().createSection(seccomposite, Section.TWISTIE | Section.SHORT_TITLE_BAR );
+			 sctnDistribution.setBounds(10, 10, 200, 10);
+			 managedForm.getToolkit().paintBordersFor(sctnDistribution);
+			 sctnDistribution.setText("Basic Scenarios");
+			 
+			 Composite comDistribution = managedForm.getToolkit().createComposite(sctnDistribution, SWT.NONE);
+		     managedForm.getToolkit().paintBordersFor(comDistribution);
+			 sctnDistribution.setClient(comDistribution);
+			 comDistribution.setLayout(new GridLayout(1, false));
+			 sctnDistribution.setExpanded(true);
+			 createSecurityItems(comDistribution,names);
+			 
+			 names = new String[]{"Sign and Encrypt - X509 Authentication","Sign and Encrypt - Anonymous clients",
+					 "Encrypt only - Username Token Authentication","Sign and Encrypt - Username Token Authentication",
+					 "SecureConversation - Sign only - Service as STS - Bootstrap policy - Sign and Encrypt , X509 Authentication",
+					 "SecureConversation - Encrypt only - Service as STS - Bootstrap policy - Sign and Encrypt , X509 Authentication",
+					 "SecureConversation - Sign and Encrypt - Service as STS - Bootstrap policy - Sign and Encrypt , X509 Authentication",
+					 "SecureConversation - Sign Only - Service as STS - Bootstrap policy - Sign and Encrypt , Anonymous clients",
+					 "SecureConversation - Sign and Encrypt - Service as STS - Bootstrap policy - Sign and Encrypt , Anonymous clients",
+					 "SecureConversation - Encrypt Only - Service as STS - Bootstrap policy - Sign and Encrypt , Username Token Authentication",
+					 "SecureConversation - Sign and Encrypt - Service as STS - Bootstrap policy - Sign and Encrypt , Username Token Authentication",
+					 "Kerberos Authentication - Sign - Sign based on a Kerberos Token.","Sign and Encrypt - X509 Authentication - SAML 2.0 Token Required",
+					  "Sign and Encrypt - Anonymous clients - SAML 2.0 Token Required"};
+			 
+			 Section advanceSec = managedForm.getToolkit().createSection(seccomposite, Section.TWISTIE | Section.SHORT_TITLE_BAR );
+			 advanceSec.setBounds(10, 10, 200, 20);
+			 managedForm.getToolkit().paintBordersFor(advanceSec);
+			 advanceSec.setText("Advanced Scenarios");
+			 
+			 Composite advanceComp = managedForm.getToolkit().createComposite(advanceSec, SWT.NONE);
+		     managedForm.getToolkit().paintBordersFor(advanceComp);
+			 advanceSec.setClient(advanceComp);
+			 advanceComp.setLayout(new GridLayout(1, false));
+			 advanceSec.setExpanded(true);
+			 createSecurityItems(advanceComp,names);
+ 
+		 
+			 Section regSec = managedForm.getToolkit().createSection(seccomposite, Section.TWISTIE | Section.SHORT_TITLE_BAR );
+			 regSec.setBounds(10, 10, 200, 20);
+			 managedForm.getToolkit().paintBordersFor(regSec);
+			 regSec.setText("Policy From Registry");
+			 
+			 Composite regComp = managedForm.getToolkit().createComposite(regSec, SWT.NONE);
+		     managedForm.getToolkit().paintBordersFor(regComp);
+			 regSec.setClient(regComp);
+			 regComp.setLayout(new GridLayout(1, false));
+			 regSec.setExpanded(true);
+			 createSecurityItems(regComp,names);
+			 
+			 
+			 
+			 
+			 
+          CreateMainSection(managedForm, body,"Policies",10, 30, 600, 30, false);
+         
+         
+		 result = CreateMainSection(managedForm, body,"Reliable Messaging",10, 40, 600, 30, false);
+		 Composite rbComposite = (Composite)result[1];
+		 
+		 
+		 
+		 CreateMainSection(managedForm, body,"Response Caching",10, 50, 600, 30, false);
+		 CreateMainSection(managedForm, body,"Access Throttling",10, 60, 600, 30, false);
+		 CreateMainSection(managedForm, body,"MTOM",10, 70, 600, 30, false);
+		 CreateMainSection(managedForm, body,"Transports",10, 80, 600, 30, false);
+		 CreateMainSection(managedForm, body,"Modules",10, 90, 600, 30, false);
+		 CreateMainSection(managedForm, body,"Operations",10, 100, 600, 30, false);
+		 CreateMainSection(managedForm, body,"Parameters",10, 110, 600, 30, false);
+		
+	}
 
-		final Section sctnCreate = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnCreate.setBounds(10, 10, 600, 30);
+	private void createSecurityItems(Composite seccomposite ,String[] names) {
+		
+		for (String name : names) {
+			 Button button1 = new Button(seccomposite, SWT.RADIO);
+			 button1.setText(name);
+		   } 
+	}
+
+	private Object[] CreateMainSection(IManagedForm managedForm,final Composite body,
+			String sectionName,final int x, final int y, final int width, final int height, boolean expand) {
+		 Object[] comp = new Object[2];
+		final Section sctnCreate = managedForm.getToolkit().createSection(body, Section.TWISTIE | Section.TITLE_BAR);
+		sctnCreate.setBounds(x, y, width, height);
 		managedForm.getToolkit().paintBordersFor(sctnCreate);
-		sctnCreate.setText("Security for the service");
-		sctnCreate.setExpanded(false);
+		sctnCreate.setText(sectionName);
+		sctnCreate.setExpanded(expand);
 		GridData layoutData = new GridData();
 		layoutData.minimumWidth = 600;
 		layoutData.horizontalAlignment = SWT.FILL;
@@ -144,105 +232,37 @@ public class QoSDashboardPage extends FormPage {
 			
 			@Override
 			public void expansionStateChanging(ExpansionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
+			}		
 			@Override
 			public void expansionStateChanged(ExpansionEvent e) {
-				if(isexpand){
-				sctnCreate.setBounds(10, 10, 600, 30);	 
-				GridData layoutData = (GridData) sctnCreate.getLayoutData();
+				if(!e.getState()){
+				sctnCreate.setBounds(x, y, width, height);	 
+				GridData layoutData = (GridData)sctnCreate.getLayoutData();
 				layoutData.minimumWidth = 600;
 				layoutData.horizontalAlignment = SWT.FILL;
 				layoutData.grabExcessHorizontalSpace = true;
 				layoutData.heightHint = sctnCreate.getBounds().height;
 				body.layout();
-				isexpand = false;
+				 
 				}else{
-			    sctnCreate.setBounds(10, 10, 600, 400);
-			    GridData layoutData = (GridData) sctnCreate.getLayoutData();
+			    sctnCreate.setBounds(x, y, width, height*10);
+			    GridData layoutData = (GridData)sctnCreate.getLayoutData();
 			    layoutData.minimumWidth = 600;
 			    layoutData.horizontalAlignment = SWT.FILL;
 				layoutData.grabExcessHorizontalSpace = true;
 				layoutData.heightHint = sctnCreate.getBounds().height;
 			    body.layout();
-			    isexpand = true;
 				}
 			}
-		});
-		
+		});	
+		comp[0]=sctnCreate;
 		Composite composite = managedForm.getToolkit().createComposite(sctnCreate, SWT.NULL);
 		managedForm.getToolkit().paintBordersFor(composite);
 		sctnCreate.setClient(composite);
 		composite.setLayout(new GridLayout(1, false));
-		String[] names = new String[]{"UsernameToken","Non-repudiation"};
-		for (String name : names) {
-			 Button button1 = new Button(composite, SWT.RADIO);
-			 button1.setText(name);
-		}
-	   
-		Section sctnCreate2 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnCreate2.setBounds(10, 100, 600, 75);
-		managedForm.getToolkit().paintBordersFor(sctnCreate2);
-		sctnCreate2.setText("Policies");
-		sctnCreate2.setLayoutData(new GridData());
-		sctnCreate2.setExpanded(true);
+		comp[1] = composite;
 		
-		Composite composite2 = managedForm.getToolkit().createComposite(sctnCreate2, SWT.NONE);
-		managedForm.getToolkit().paintBordersFor(composite2);
-		sctnCreate2.setClient(composite2);
-		composite2.setLayout(new GridLayout(1, false));
-		
-		Section sctnCreate3 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnCreate3.setBounds(10, 200, 600, 75);
-		managedForm.getToolkit().paintBordersFor(sctnCreate3);
-		sctnCreate3.setText("Reliable Messaging");
-		sctnCreate3.setLayoutData(new GridData());
-		sctnCreate3.setExpanded(true);
-		
-		Composite composite3 = managedForm.getToolkit().createComposite(sctnCreate3, SWT.NONE);
-		managedForm.getToolkit().paintBordersFor(composite3);
-		sctnCreate3.setClient(composite3);
-		composite3.setLayout(new GridLayout(1, false));
-		
-		Section sctnCreate4 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnCreate4.setBounds(10, 300, 600, 75);
-		managedForm.getToolkit().paintBordersFor(sctnCreate4);
-		sctnCreate4.setText("Response Caching");
-		sctnCreate4.setLayoutData(new GridData());
-		sctnCreate4.setExpanded(true);
-		
-		Composite composite4 = managedForm.getToolkit().createComposite(sctnCreate4, SWT.NONE);
-		managedForm.getToolkit().paintBordersFor(composite4);
-		sctnCreate4.setClient(composite4);
-		composite4.setLayout(new GridLayout(1, false));
-		
-		
-		Section sctnCreate5 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnCreate5.setBounds(10, 400, 600, 75);
-		managedForm.getToolkit().paintBordersFor(sctnCreate5);
-		sctnCreate5.setText("Access Throttling");
-		sctnCreate5.setLayoutData(new GridData());
-		sctnCreate5.setExpanded(true);
-		
-		Composite composite5 = managedForm.getToolkit().createComposite(sctnCreate5, SWT.NONE);
-		managedForm.getToolkit().paintBordersFor(composite5);
-		sctnCreate5.setClient(composite5);
-		composite5.setLayout(new GridLayout(1, false));
-			
-		Section sctnCreate6 = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
-		sctnCreate2.setBounds(10, 500, 600, 75);
-		managedForm.getToolkit().paintBordersFor(sctnCreate6);
-		sctnCreate6.setText("MTOM");
-		sctnCreate6.setLayoutData(new GridData());
-		sctnCreate6.setExpanded(true);
-		
-		Composite composite6 = managedForm.getToolkit().createComposite(sctnCreate6, SWT.NONE);
-		managedForm.getToolkit().paintBordersFor(composite6);
-		sctnCreate6.setClient(composite6);
-		composite6.setLayout(new GridLayout(1, false));
-		
+		return comp;
 	}
 	
 	
@@ -259,19 +279,7 @@ public class QoSDashboardPage extends FormPage {
 		GridData gd_category = new GridData(SWT.FILL, SWT.CENTER, true, false,2, 1);
 		gd_category.verticalIndent=10;
 		lblcategory.setLayoutData(gd_category);
-		
-		for (String  id : wizardCategoryMap.get(category)){
-		if(wizardDescriptor.containsKey(id)){
-			itemCount++;
-			createWizardLink(managedForm, composite,wizardDescriptor.get(id));
-		} else if (customActions.containsKey(id)){
-			itemCount++;
-			createLink(managedForm, composite,customActions.get(id));
-		}
-		}
-		if(itemCount %2 ==1){
-			new Label(composite, SWT.NONE);
-		}
+		 
 	}
 	
 	/**
