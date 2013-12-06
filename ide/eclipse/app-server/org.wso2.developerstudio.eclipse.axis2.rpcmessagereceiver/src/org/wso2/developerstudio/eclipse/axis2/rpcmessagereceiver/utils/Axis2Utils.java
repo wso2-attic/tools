@@ -33,7 +33,7 @@ public class Axis2Utils {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public static File getAxis2LibraryPath(){
-		URL resource = Platform.getBundle(Axis2Constants.CS_LIBRARY_BUNDLE).getResource("lib/axis2_1.6.1.wso2v7.jar");
+		URL resource = Platform.getBundle(Axis2Constants.CS_LIBRARY_BUNDLE).getResource("lib/axis2_1.6.1.wso2v10.jar"); 
 		IPath path = Activator.getDefault().getStateLocation();
 		IPath libFolder = path.append("lib");
 		String[] paths = resource.getFile().split("/");

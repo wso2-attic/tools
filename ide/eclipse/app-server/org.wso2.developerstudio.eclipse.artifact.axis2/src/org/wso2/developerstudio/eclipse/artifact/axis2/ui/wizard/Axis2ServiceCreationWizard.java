@@ -227,8 +227,8 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 				WSDL2Java.main(parameterArray);
 				monitor.worked(75);	
 				monitor.subTask("Adding dependent libraries to the project...");
-				JavaUtils.addJarLibraryToProject(dataModel.getSelectedProject(), LibraryUtils.getDependencyPath("axis2_1.6.1.wso2v7.jar"));
-				JavaUtils.addJarLibraryToProject(dataModel.getSelectedProject(), LibraryUtils.getDependencyPath("axiom_1.2.11.wso2v3.jar"));
+				JavaUtils.addJarLibraryToProject(dataModel.getSelectedProject(), LibraryUtils.getDependencyPath(LibraryUtils.axis2_1_6_1_wso2vXX_jar));
+				JavaUtils.addJarLibraryToProject(dataModel.getSelectedProject(), LibraryUtils.getDependencyPath(LibraryUtils.axiom_1_2_11_wso2vXX_jar));
 				monitor.worked(10);
 				monitor.subTask("Refreshing project...");
 				dataModel.getSelectedProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());

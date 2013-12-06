@@ -34,8 +34,10 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 
 public class NewDataserviceValidatorClassWizardPage extends NewClassWizardPage {
 	private String selectedProject;
-	private String[] depedencyList = { "abdera_1.0.0.wso2v3.jar", "axiom_1.2.11.wso2v3.jar",
-	                                  "axis2_1.6.1.wso2v7.jar", "commons-codec_1.4.0.wso2v1.jar",
+	private String[] depedencyList = { "abdera_1.0.0.wso2v3.jar", 
+										LibraryUtils.axiom_1_2_11_wso2vXX_jar,
+										LibraryUtils.axis2_1_6_1_wso2vXX_jar,
+										"commons-codec_1.4.0.wso2v1.jar",
 	                                  "commons-httpclient_3.1.0.wso2v2.jar",
 	                                  "commons-io_2.0.0.wso2v2.jar", "commons-logging-1.1.1.jar",
 	                                  "geronimo-stax-api_1.0_spec_1.0.1.wso2v2.jar",
