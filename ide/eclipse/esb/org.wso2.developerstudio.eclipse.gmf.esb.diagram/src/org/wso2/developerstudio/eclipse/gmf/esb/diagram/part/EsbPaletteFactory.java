@@ -1259,8 +1259,8 @@ public class EsbPaletteFactory {
 		IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
 		IFile file = input.getFile();
 		IProject activeProject = file.getProject();
-		String connectorPath = activeProject.getLocation().toOSString() + File.separator
-				+ "cloudConnectors";
+		String connectorPath = activeProject.getWorkspace().getRoot().getLocation().toOSString()
+				+ File.separator + CloudConnectorDirectoryTraverser.connectorPathFromWorkspace;
 		File directory = new File(connectorPath);
 		String[] names = directory.list();
 		if (names != null) {
@@ -1283,8 +1283,10 @@ public class EsbPaletteFactory {
 			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
-			connectorPath = activeProject.getLocation().toOSString() + File.separator
-					+ "cloudConnectors" + File.separator + connectorDirectoryName;
+			//connectorPath = activeProject.getLocation().toOSString() + File.separator
+			//		+ "cloudConnectors" + File.separator + connectorDirectoryName;
+			connectorPath = activeProject.getWorkspace().getRoot().getLocation().toOSString() + File.separator
+					+ CloudConnectorDirectoryTraverser.connectorPathFromWorkspace + File.separator + connectorDirectoryName;
 			cloudConnectorOperations = CloudConnectorDirectoryTraverser.getInstance(connectorPath)
 					.getOperationsMap().keySet();
 		} catch (Exception e) {

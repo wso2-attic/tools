@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -32,6 +33,8 @@ import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.ui.IFileEditorInput;
 import org.jaxen.JaxenException;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
@@ -96,22 +99,29 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 		ArrayList<QName> tagQNameList = new ArrayList<QName>();
 /*		IContainer cloudConnectorsRoot = EditorUtils.getActiveProject()
 				.getFolder("cloudConnectors");*/
-		IContainer cloudConnectorsRoot = ((IFileEditorInput)EsbMultiPageEditor.currentEditor.getEditorInput()).getFile().getProject()
-				.getFolder("cloudConnectors");
-		if(cloudConnectorsRoot.exists()){
-			IResource[] directories = cloudConnectorsRoot.members();
-			for (int i = 0; i < directories.length; ++i) {
-				CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
-						.getInstance(directories[i].getLocation().toOSString());
-				Map<String, String> map = directoryTraverser.getOperationsConnectorComponentNameMap();
-				Iterator<String> iterator = map.keySet().iterator();
-				while (iterator.hasNext()) {
-					String key = iterator.next();
-					tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key) + "."
-							+ key));
+		//IContainer cloudConnectorsRoot = ((IFileEditorInput)EsbMultiPageEditor.currentEditor.getEditorInput()).getFile().getProject()
+		//		.getFolder("cloudConnectors");
+		String path = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()
+				+ File.separator + ".tmp";
+		IContainer tmp = ResourcesPlugin.getWorkspace().getRoot().getContainerForLocation(new Path(path));
+		if (tmp != null && tmp.exists()) {
+			IContainer cloudConnectorsRoot = tmp.getFolder(new Path("Connectors"));
+			if(cloudConnectorsRoot != null && cloudConnectorsRoot.exists()){
+				IResource[] directories = cloudConnectorsRoot.members();
+				for (int i = 0; i < directories.length; ++i) {
+					CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
+							.getInstance(directories[i].getLocation().toOSString());
+					Map<String, String> map = directoryTraverser.getOperationsConnectorComponentNameMap();
+					Iterator<String> iterator = map.keySet().iterator();
+					while (iterator.hasNext()) {
+						String key = iterator.next();
+						tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key) + "."
+								+ key));
+					}
 				}
 			}
 		}
+		
 		return tagQNameList;
 	}
 

@@ -73,10 +73,8 @@ public class CloudConnectorAvailableConfigPropertyDescriptor extends PropertyDes
 		try {
 			prop.load(new FileInputStream(pathName+File.separator+"cloudConnector.properties"));
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("Connector configurations are not available for the project", e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		String localEntryConfigs=prop.getProperty("LOCAL_ENTRY_CONFIGS");

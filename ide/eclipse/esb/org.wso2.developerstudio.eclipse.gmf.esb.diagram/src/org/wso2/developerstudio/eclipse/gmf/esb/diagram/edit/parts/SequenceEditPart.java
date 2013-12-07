@@ -325,11 +325,11 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		return false;
 	}
 
-	public IFigure getFigure() {
+	/*public IFigure getFigure() {
 		IFigure figure = super.getFigure();
 		figure.setMaximumSize(new Dimension(75, 75));
 		return figure;
-	}
+	}*/
 
 	/*protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(75, 75);

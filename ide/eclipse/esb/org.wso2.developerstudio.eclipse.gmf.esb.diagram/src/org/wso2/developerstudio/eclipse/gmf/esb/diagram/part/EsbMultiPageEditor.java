@@ -88,6 +88,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ExceptionMessageMapper;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.MediatorFactoryUtils;
@@ -205,7 +206,10 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		IFile file = input.getFile();
 		IProject activeProject = file.getProject();
 		
-		String connectorDirectory=activeProject.getLocation().toOSString()+File.separator+"cloudConnectors";
+		//String connectorDirectory=activeProject.getLocation().toOSString()+File.separator+"cloudConnectors";
+		String connectorDirectory = activeProject.getWorkspace().getRoot().getLocation()
+				.toOSString()
+				+ File.separator + CloudConnectorDirectoryTraverser.connectorPathFromWorkspace;
 		File directory=new File(connectorDirectory);
 		if(directory.isDirectory()){
 			String[] children=directory.list();

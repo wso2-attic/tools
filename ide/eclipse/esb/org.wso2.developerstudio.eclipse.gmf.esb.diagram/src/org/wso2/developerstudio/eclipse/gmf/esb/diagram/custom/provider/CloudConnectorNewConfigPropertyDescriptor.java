@@ -37,7 +37,8 @@ public class CloudConnectorNewConfigPropertyDescriptor extends PropertyDescripto
 		//		+ "cloudConnectors" + File.separator + droppedCloudConnector+"-connector";
 		String connectorPath = CloudConnectorDirectoryTraverser.getInstance()
 				.getConnectorDirectoryPathFromConnectorName(
-						activeProject.getLocation().toOSString(), droppedCloudConnector);
+						activeProject.getWorkspace().getRoot().getLocation().toOSString(),
+						droppedCloudConnector);
 		return CloudConnectorDirectoryTraverser.getInstance(connectorPath);
 	}
 	

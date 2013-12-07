@@ -52,7 +52,15 @@ public class CloudConnectorImportWizard extends Wizard{
 	            ZipFile zipFile = new ZipFile(source);
 	            String[] segments=source.split(Pattern.quote(File.separator));
 	            String zipFileName=segments[segments.length-1].split(".zip")[0];
-	    	    String destination = detailWizardPage.getSelectedProject().getLocation().toOSString()+File.separator+"cloudConnectors"+File.separator+zipFileName;
+	    	    //String destination = detailWizardPage.getSelectedProject().getLocation().toOSString()+File.separator+"cloudConnectors"+File.separator+zipFileName;
+	            String destination = detailWizardPage.getSelectedProject().getWorkspace().getRoot()
+					.getLocation().toString()
+					+ File.separator
+					+ ".tmp"
+					+ File.separator
+					+ "Connectors"
+					+ File.separator
+					+ zipFileName;
 	            zipFile.getFile(); zipFile.extractAll(destination);
 	            IUpdateGMFPlugin updateGMFPlugin = GMFPluginDetails.getiUpdateGMFPlugin();
 	            if(updateGMFPlugin!=null){

@@ -47,6 +47,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseParentContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceInputConnectorEditPart;
@@ -529,7 +530,10 @@ public class EditorUtils {
 		IFile file = input.getFile();
 		IProject activeProject = file.getProject();
 		
-		String connectorDirectory=activeProject.getLocation().toOSString()+File.separator+"cloudConnectors";
+		//String connectorDirectory=activeProject.getWorkspace().getRoot().getLocation().toOSString()+File.separator+"cloudConnectors";
+		String connectorDirectory = activeProject.getWorkspace().getRoot().getLocation()
+				.toOSString()
+				+ File.separator + CloudConnectorDirectoryTraverser.connectorPathFromWorkspace;
 		File directory=new File(connectorDirectory);
 		if(directory.isDirectory()){
 			String[] children=directory.list();

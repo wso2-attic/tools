@@ -42,6 +42,7 @@ public class CloudConnectorDirectoryTraverser {
 	private static final String connectorFileName = "connector.xml";
 	private static final String componentFileName = "component.xml";
 	private static final String initFileName = "init.xml";
+	public static final String connectorPathFromWorkspace = ".tmp"+File.separator+"Connectors";
 	private Properties properties = new Properties();
 	private static String rootDirectory=null;
 	private static CloudConnectorDirectoryTraverser instance=null;
@@ -188,21 +189,21 @@ public class CloudConnectorDirectoryTraverser {
 	
 	/**
 	 * Get connector directory path from connector name.
-	 * @param connectorRootDirectory
+	 * @param workspacePath
 	 * @param connectorName
 	 * @return
 	 */
-	public String getConnectorDirectoryPathFromConnectorName(String connectorRootDirectory,
+	public String getConnectorDirectoryPathFromConnectorName(String workspacePath,
 			String connectorName) {
 		String connectorDirectoryPath = null;
-		connectorRootDirectory += File.separator + "cloudConnectors";
+		workspacePath += File.separator + connectorPathFromWorkspace;
 
-		File directory = new File(connectorRootDirectory);
+		File directory = new File(workspacePath);
 		if (directory.isDirectory()) {
 			String[] children = directory.list();
 			for (int i = 0; i < children.length; ++i) {
 				if (connectorName.equals(children[i].split("-")[0])) {
-					connectorDirectoryPath = connectorRootDirectory + File.separator + children[i];
+					connectorDirectoryPath = workspacePath + File.separator + children[i];
 					return connectorDirectoryPath;
 				}
 			}
