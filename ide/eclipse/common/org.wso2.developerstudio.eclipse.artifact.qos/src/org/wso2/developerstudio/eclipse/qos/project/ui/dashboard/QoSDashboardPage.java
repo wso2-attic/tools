@@ -25,12 +25,19 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Link;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.ToolTip;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchPart;
@@ -40,14 +47,17 @@ import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.events.ExpansionEvent;
+import org.eclipse.ui.forms.events.HyperlinkAdapter;
 import org.eclipse.ui.forms.events.HyperlinkEvent;
 import org.eclipse.ui.forms.events.IExpansionListener;
 import org.eclipse.ui.forms.events.IHyperlinkListener;
 import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.forms.widgets.ImageHyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
@@ -125,28 +135,36 @@ public class QoSDashboardPage extends FormPage {
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(body);
 		
-		Object[] result = CreateMainSection(managedForm, body,"Service Info",10, 10, 600, 10, true);
+		Object[] result = CreateMainSection(managedForm, body,"Service Info",10, 10, 600, 30, true);
 		Composite serviceInfoComposite = (Composite)result[1];
+		GridLayout gridserviceLayout = new GridLayout(3,false);
+		serviceInfoComposite.setLayout(gridserviceLayout);
+		Label servicelabel = new Label(serviceInfoComposite, SWT.None);
+		servicelabel.setText("Services List");
 		Combo serviceName = new Combo(serviceInfoComposite, SWT.READ_ONLY);
 		serviceName.setText("Service Name :");
 		serviceName.add("Sample Service");
+		
+		new Label(serviceInfoComposite, SWT.None);
+		Label projectName = new Label(serviceInfoComposite, SWT.None);
+		projectName.setText("Project name");
+		Text projectPath = new Text(serviceInfoComposite, SWT.READ_ONLY|SWT.FILL);
+		projectPath.setSize(50, 5);
+		Hyperlink createHyperlink1 = managedForm.getToolkit().createHyperlink(serviceInfoComposite, "browser", SWT.NONE);
 		 
+		new Label(serviceInfoComposite, SWT.None);
+		new Label(serviceInfoComposite, SWT.None);
+	    Hyperlink createHyperlink = managedForm.getToolkit().createHyperlink(serviceInfoComposite, "Create Project", SWT.NONE);
+		
 		
 		 result = CreateMainSection(managedForm, body,"Security for the service",10, 20, 600, 30, false);
-		final Composite seccomposite = (Composite)result[1];
-	     
-		     String[] names = new String[]{"UsernameToken","Non-repudiation","Integrity","Confidentiality"};
-			 final  Section sctnDistribution = managedForm.getToolkit().createSection(seccomposite, Section.TWISTIE | Section.SHORT_TITLE_BAR );
-			 sctnDistribution.setBounds(10, 10, 200, 10);
-			 managedForm.getToolkit().paintBordersFor(sctnDistribution);
-			 sctnDistribution.setText("Basic Scenarios");
-			 
-			 Composite comDistribution = managedForm.getToolkit().createComposite(sctnDistribution, SWT.NONE);
-		     managedForm.getToolkit().paintBordersFor(comDistribution);
-			 sctnDistribution.setClient(comDistribution);
-			 comDistribution.setLayout(new GridLayout(1, false));
-			 sctnDistribution.setExpanded(true);
-			 createSecurityItems(comDistribution,names);
+		 final Composite seccomposite = (Composite)result[1];
+        GridLayout gridSecLayout = new GridLayout(2,false);
+	    seccomposite.setLayout(gridSecLayout);
+		 
+		     String[] names = new String[]{"UsernameToken","Non-repudiation","Integrity","Confidentiality"}; 
+			 createCategory(managedForm, seccomposite, "Basic Scenarios");
+			 createSecurityItems(seccomposite,names,managedForm);
 			 
 			 names = new String[]{"Sign and Encrypt - X509 Authentication","Sign and Encrypt - Anonymous clients",
 					 "Encrypt only - Username Token Authentication","Sign and Encrypt - Username Token Authentication",
@@ -160,40 +178,19 @@ public class QoSDashboardPage extends FormPage {
 					 "Kerberos Authentication - Sign - Sign based on a Kerberos Token.","Sign and Encrypt - X509 Authentication - SAML 2.0 Token Required",
 					  "Sign and Encrypt - Anonymous clients - SAML 2.0 Token Required"};
 			 
-			 Section advanceSec = managedForm.getToolkit().createSection(seccomposite, Section.TWISTIE | Section.SHORT_TITLE_BAR );
-			 advanceSec.setBounds(10, 10, 200, 20);
-			 managedForm.getToolkit().paintBordersFor(advanceSec);
-			 advanceSec.setText("Advanced Scenarios");
 			 
-			 Composite advanceComp = managedForm.getToolkit().createComposite(advanceSec, SWT.NONE);
-		     managedForm.getToolkit().paintBordersFor(advanceComp);
-			 advanceSec.setClient(advanceComp);
-			 advanceComp.setLayout(new GridLayout(1, false));
-			 advanceSec.setExpanded(true);
-			 createSecurityItems(advanceComp,names);
+			 
+             createCategory(managedForm, seccomposite, "Advanced Scenarios");
+			 createSecurityItems(seccomposite,names,managedForm);
+			 
+			 createCategory(managedForm, seccomposite, "Policy From Registry");
+			 names = new String[]{"registry"};
+			 createSecurityItems(seccomposite,names,managedForm);
  
-		 
-			 Section regSec = managedForm.getToolkit().createSection(seccomposite, Section.TWISTIE | Section.SHORT_TITLE_BAR );
-			 regSec.setBounds(10, 10, 200, 20);
-			 managedForm.getToolkit().paintBordersFor(regSec);
-			 regSec.setText("Policy From Registry");
 			 
-			 Composite regComp = managedForm.getToolkit().createComposite(regSec, SWT.NONE);
-		     managedForm.getToolkit().paintBordersFor(regComp);
-			 regSec.setClient(regComp);
-			 regComp.setLayout(new GridLayout(1, false));
-			 regSec.setExpanded(true);
-			 createSecurityItems(regComp,names);
-			 
-			 
-			 
-			 
-			 
-          CreateMainSection(managedForm, body,"Policies",10, 30, 600, 30, false);
-         
-         
-		 result = CreateMainSection(managedForm, body,"Reliable Messaging",10, 40, 600, 30, false);
-		 Composite rbComposite = (Composite)result[1];
+            CreateMainSection(managedForm, body,"Policies",10, 30, 600, 30, false);
+		    result = CreateMainSection(managedForm, body,"Reliable Messaging",10, 40, 600, 30, false);
+		    Composite rbComposite = (Composite)result[1];
 		 
 		 
 		 
@@ -207,11 +204,47 @@ public class QoSDashboardPage extends FormPage {
 		
 	}
 
-	private void createSecurityItems(Composite seccomposite ,String[] names) {
+	private void createSecurityItems(Composite seccomposite ,String[] names,IManagedForm managedForm) {
 		
 		for (String name : names) {
 			 Button button1 = new Button(seccomposite, SWT.RADIO);
-			 button1.setText(name);
+			 button1.setText("");
+			 
+			 final ToolTip tip = new ToolTip(seccomposite.getShell(), SWT.BALLOON | SWT.ICON_INFORMATION);
+			 tip.setMessage("Here is a message for the user. When the message is too long it wraps. I should say something cool but nothing comes to my mind.");
+
+			  Hyperlink createHyperlink = managedForm.getToolkit().createHyperlink(seccomposite, name, SWT.RADIO);
+			  createHyperlink.addHyperlinkListener(new HyperlinkAdapter(){
+				  @Override
+				public void linkActivated(HyperlinkEvent e) {
+					 
+					 System.out.println("Activate");
+					 tip.setVisible(true);
+				}
+				  
+				  @Override
+				public void linkEntered(HyperlinkEvent e) {
+					 
+					  System.out.println("linkEntered");
+				}
+				  
+				  @Override
+				public void linkExited(HyperlinkEvent e) {
+					  System.out.println("linkExited");
+				}
+				  
+			  });
+			  
+			/*  Link link = new Link(label.getShell(), SWT.NONE);
+			  String message = "Showaaaaaaaaaaaaa<a>aaaaaaaaaaaaaaaaaa Details</a>";
+			  link.setText(message);
+			  link.setVisible(true);
+			  link.setSize(400, 100);
+			  link.addListener(SWT.Selection, new Listener() {
+				  public void handleEvent(Event event) {
+					  // tip.setVisible(true);
+				  } 
+			  });*/
 		   } 
 	}
 
