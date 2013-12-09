@@ -16,17 +16,22 @@
 
 package org.wso2.developerstudio.eclipse.artifact.dataservice.project.export;
 
+import org.apache.maven.model.Plugin;
+import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class DataServiceArtfactExportHandler extends ProjectArtifactHandler{
 	private static final String DBS_FILE_EXTENSION = "dbs";
@@ -35,20 +40,41 @@ public class DataServiceArtfactExportHandler extends ProjectArtifactHandler{
     	String projectPath = project.getLocation().toFile().toString();
 		List<IResource> exportResources = new ArrayList<IResource>();
     	clearTarget(project);
-		File[] dbsFiles = FileUtils.getAllMatchingFiles(project.getLocation()
-				.toString(), null, DBS_FILE_EXTENSION, new ArrayList<File>());
-		for (File dbsFile : dbsFiles) {
-			String filePath = dbsFile.toString();
-			//excluded any files inside target dir
-			if(!filePath.substring(projectPath.length()).startsWith(File.separator+"target"+File.separator)){
-				IFile dbsFileRef = ResourcesPlugin
-				.getWorkspace()
-				.getRoot()
-				.getFileForLocation(
-						Path.fromOSString(dbsFile.getAbsolutePath()));
-				exportResources.add((IResource) dbsFileRef);
+    	IFile pomFile = project.getFile("pom.xml");
+    	
+    	if(pomFile.exists()){
+    		MavenProject mavenProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
+    		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+			for (Plugin plugin : plugins) {
+				if (plugin.getArtifactId().equals("maven-dataservice-plugin") &&
+				    plugin.getGroupId().equals("org.wso2.maven")) {
+					Xpp3Dom artifactNode = ((Xpp3Dom) plugin.getConfiguration()).getChild("artifact");
+					String dbsFile = artifactNode.getValue();
+					String[] pathArray = dbsFile.split("/");
+					IFile dbsFileRef = project.getFolder("src").getFolder("main").getFolder("dataservice").getFile(pathArray[pathArray.length-1]);
+					if (dbsFileRef.exists()) {
+						exportResources.add((IResource) dbsFileRef);
+					}
+				}
 			}
-		}
+    	}else{
+    		File[] dbsFiles = FileUtils.getAllMatchingFiles(project.getLocation()
+    			.toString(), null, DBS_FILE_EXTENSION, new ArrayList<File>());
+    		for (File dbsFile : dbsFiles) {
+    			String filePath = dbsFile.toString();
+    			//excluded any files inside target dir
+    			if(!filePath.substring(projectPath.length()).startsWith(File.separator+"target"+File.separator)){
+    				IFile dbsFileRef = ResourcesPlugin
+    								.getWorkspace()
+    								.getRoot()
+    								.getFileForLocation(
+    									Path.fromOSString(dbsFile.getAbsolutePath()));
+    				exportResources.add((IResource) dbsFileRef);
+    			}
+    		}
+    	}
+    	
+    	
 		return exportResources;
     }
 
