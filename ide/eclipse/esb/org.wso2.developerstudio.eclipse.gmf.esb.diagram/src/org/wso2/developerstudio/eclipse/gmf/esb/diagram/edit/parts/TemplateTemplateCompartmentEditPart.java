@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.TemplateTemplateCompartmentCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.TemplateTemplateCompartmentItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -56,7 +57,7 @@ public class TemplateTemplateCompartmentEditPart extends ShapeCompartmentEditPar
 				new TemplateTemplateCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
 				EsbVisualIDRegistry.TYPED_INSTANCE));
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new TemplateTemplateCompartmentCanonicalEditPolicy());
 	}
