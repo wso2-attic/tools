@@ -135,7 +135,7 @@
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" /-->
 		<library jar="lib/jettison_1.3.4.wso2v1.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" />
-		<library jar="lib/joda-time-1.6.0.wso2v1.jar"
+		<library jar="lib/joda-time_1.6.0.wso2v1.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" />
 		<library jar="lib/json_2.0.0.wso2v1.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" />
@@ -177,7 +177,7 @@
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.esb" />
 		<library jar="lib/org.wso2.carbon.governance.registry.extensions_4.2.0.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.greg" />
-		<library jar="lib/org.eclipse.osgi_3.7.0.v20110613.jar"
+		<library jar="lib/org.eclipse.osgi_3.8.1.v20120830-144521.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.general" />
 	</extension>
 
