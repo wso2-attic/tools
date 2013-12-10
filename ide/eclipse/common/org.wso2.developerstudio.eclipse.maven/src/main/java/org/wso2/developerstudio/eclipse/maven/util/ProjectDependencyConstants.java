@@ -35,7 +35,7 @@ public class ProjectDependencyConstants {
         DEPENDENCY_MAP.put("woden", "1.0.0.M8-wso2v1");
         DEPENDENCY_MAP.put("commons-io", "2.0.0.wso2v2");
         DEPENDENCY_MAP.put("slf4j-api", "1.5.8");
-        DEPENDENCY_MAP.put("org.wso2.carbon.authenticator.proxy", "4.0.0");
+        DEPENDENCY_MAP.put("org.wso2.carbon.authenticator.proxy", "4.2.0");
         DEPENDENCY_MAP.put("commons-codec", "1.4.0.wso2v1");
         DEPENDENCY_MAP.put("commons-logging", "1.1.1");
         DEPENDENCY_MAP.put("org.wso2.carbon.registry.core", "4.0.1");
