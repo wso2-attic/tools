@@ -10,7 +10,7 @@ public class ProjectDependencyConstants {
         DEPENDENCY_MAP.put("${wsdl4j.version}", "1.6.2.wso2v4");
         DEPENDENCY_MAP.put("${neethi.version}", "2.0.4.wso2v4");
         DEPENDENCY_MAP.put("commons-collections", "3.2.0.wso2v1");
-        DEPENDENCY_MAP.put("org.wso2.carbon.governance.registry.extensions", "4.0.1");
+        DEPENDENCY_MAP.put("org.wso2.carbon.governance.registry.extensions", "4.2.0");
         DEPENDENCY_MAP.put("axis2", "1.6.1.wso2v6");
         DEPENDENCY_MAP.put("rampart-trust", "1.6.1.wso2v5");
         DEPENDENCY_MAP.put("jline", "0.9.94");

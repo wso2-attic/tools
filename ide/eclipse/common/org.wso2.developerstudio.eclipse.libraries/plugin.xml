@@ -149,11 +149,11 @@
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.greg" />
 		<library jar="lib/org.wso2.carbon.user.core_4.2.0.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.greg" />
-		<library jar="lib/rampart-core_1.6.1.wso2v5.jar"
+		<library jar="lib/rampart-core_1.6.1.wso2v12.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" />
-		<library jar="lib/rampart-policy_1.6.1.wso2v5.jar"
+		<library jar="lib/rampart-policy_1.6.1.wso2v12.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" />
-		<library jar="lib/rampart-trust_1.6.1.wso2v5.jar"
+		<library jar="lib/rampart-trust_1.6.1.wso2v12.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" />
 		<library jar="lib/woden_1.0.0.M8-wso2v1.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.axis2" />
@@ -175,7 +175,7 @@
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.esb" />
 		<library jar="lib/synapse-nhttp-transport_2.1.2.wso2v2.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.esb" />
-		<library jar="lib/org.wso2.carbon.governance.registry.extensions_4.0.1.jar"
+		<library jar="lib/org.wso2.carbon.governance.registry.extensions_4.2.0.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.greg" />
 		<library jar="lib/org.eclipse.osgi_3.7.0.v20110613.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.general" />
