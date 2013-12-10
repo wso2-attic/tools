@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import java.util.Map;
 
 import org.apache.synapse.config.xml.SwitchCase;
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
@@ -51,11 +52,9 @@ public class SwitchMediatorDeserializer extends
 		refreshEditPartMap();
 		
 		if(switchMediator.getSource()!=null){
-			NamespacedProperty sourceXPath = EsbFactory.eINSTANCE.createNamespacedProperty();
-			sourceXPath.setPropertyValue(switchMediator.getSource().toString());
-			@SuppressWarnings("unchecked")
-			Map<String,String> namespaces = (Map<String,String>)switchMediator.getSource().getNamespaces();
-			sourceXPath.setNamespaces(namespaces);
+			SynapsePath xpath = switchMediator.getSource();
+			NamespacedProperty sourceXPath = createNamespacedProperty(xpath);
+
 			executeSetValueCommand(SWITCH_MEDIATOR__SOURCE_XPATH, sourceXPath);
 		}
 		

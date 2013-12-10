@@ -6,8 +6,10 @@ import java.util.regex.Pattern;
 import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.config.xml.SwitchCase;
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.xpath.SynapseJsonPath;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -17,6 +19,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CustomSynapsePathFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
@@ -61,19 +64,22 @@ public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
 		 SynapseXPath(sourceXPath.getPropertyValue()));
 		 }*/
 		
-		if(visualSwitch.getSourceXpath()!=null&&!visualSwitch.getSourceXpath().getPropertyValue().equals("")){
-			SynapseXPath XPath=new SynapseXPath(visualSwitch.getSourceXpath().getPropertyValue());		
-			for (int i = 0; i < visualSwitch.getSourceXpath().getNamespaces()
-					.keySet().size(); ++i) {
-				String prefix = (String) visualSwitch.getSourceXpath()
-						.getNamespaces().keySet().toArray()[i];
-				String namespaceUri = visualSwitch.getSourceXpath()
-						.getNamespaces().get(prefix);
-				XPath.addNamespace(prefix, namespaceUri);
-			}			
+		if (visualSwitch.getSourceXpath() != null
+				&& !visualSwitch.getSourceXpath().getPropertyValue().equals("")) {
+			SynapsePath XPath = CustomSynapsePathFactory.getSynapsePath(visualSwitch
+					.getSourceXpath().getPropertyValue());
+			if (visualSwitch.getSourceXpath().getNamespaces() != null
+					&& !(XPath instanceof SynapseJsonPath)) {
+				for (int i = 0; i < visualSwitch.getSourceXpath().getNamespaces().keySet().size(); ++i) {
+					String prefix = (String) visualSwitch.getSourceXpath().getNamespaces().keySet()
+							.toArray()[i];
+					String namespaceUri = visualSwitch.getSourceXpath().getNamespaces().get(prefix);
+					XPath.addNamespace(prefix, namespaceUri);
+				}
+			}
+
 			switchMediator.setSource(XPath);
-		}
-		else{
+		} else {
 			switchMediator.setSource(new SynapseXPath("Default:"));
 		}
 		

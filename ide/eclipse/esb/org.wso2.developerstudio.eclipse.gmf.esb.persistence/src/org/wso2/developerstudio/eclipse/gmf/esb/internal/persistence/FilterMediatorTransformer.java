@@ -20,9 +20,11 @@ import java.util.regex.Pattern;
 
 import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.config.xml.AnonymousListMediator;
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.ListMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.xpath.SynapseJsonPath;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -31,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CustomSynapsePathFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -57,39 +60,40 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 			if (visualFilter.getXpath() != null
 					&& visualFilter.getXpath().getPropertyValue() != null
 					&& !visualFilter.getXpath().getPropertyValue().equals("")) {
-
-				SynapseXPath xPath = new SynapseXPath(visualFilter.getXpath()
+				SynapsePath xPath = CustomSynapsePathFactory.getSynapsePath(visualFilter.getXpath()
 						.getPropertyValue());
 
-				for (int i = 0; i < visualFilter.getXpath().getNamespaces()
-						.keySet().size(); ++i) {
-					String prefix = (String) visualFilter.getXpath()
-							.getNamespaces().keySet().toArray()[i];
-					String namespaceUri = visualFilter.getXpath()
-							.getNamespaces().get(prefix);
-					xPath.addNamespace(prefix, namespaceUri);
+				if (visualFilter.getXpath().getNamespaces() != null
+						&& !(xPath instanceof SynapseJsonPath)) {
+					for (int i = 0; i < visualFilter.getXpath().getNamespaces().keySet().size(); ++i) {
+						String prefix = (String) visualFilter.getXpath().getNamespaces().keySet()
+								.toArray()[i];
+						String namespaceUri = visualFilter.getXpath().getNamespaces().get(prefix);
+						xPath.addNamespace(prefix, namespaceUri);
+					}
 				}
 				filterMediator.setXpath(xPath);
-			}		
+			}	
 			
 		} else {			
 			if (visualFilter.getSource() != null
 					&& visualFilter.getSource().getPropertyValue() != null
 					&& !visualFilter.getSource().getPropertyValue().equals("")) {
 
-				SynapseXPath source = new SynapseXPath(visualFilter.getSource()
-						.getPropertyValue());
+				SynapsePath source = CustomSynapsePathFactory.getSynapsePath(visualFilter
+						.getSource().getPropertyValue());
 
-				for (int i = 0; i < visualFilter.getSource().getNamespaces()
-						.keySet().size(); ++i) {
-					String prefix = (String) visualFilter.getSource()
-							.getNamespaces().keySet().toArray()[i];
-					String namespaceUri = visualFilter.getSource()
-							.getNamespaces().get(prefix);
-					source.addNamespace(prefix, namespaceUri);
+				if (visualFilter.getXpath().getNamespaces() != null
+						&& !(source instanceof SynapseJsonPath)) {
+					for (int i = 0; i < visualFilter.getSource().getNamespaces().keySet().size(); ++i) {
+						String prefix = (String) visualFilter.getSource().getNamespaces().keySet()
+								.toArray()[i];
+						String namespaceUri = visualFilter.getSource().getNamespaces().get(prefix);
+						source.addNamespace(prefix, namespaceUri);
+					}
 				}
 				filterMediator.setSource(source);
-			}	
+			}
 			
 			filterMediator.setRegex(Pattern.compile(visualFilter.getRegex()));
 		}
@@ -144,16 +148,17 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 					&& visualFilter.getXpath().getPropertyValue() != null
 					&& !visualFilter.getXpath().getPropertyValue().equals("")) {
 
-				SynapseXPath xPath = new SynapseXPath(visualFilter.getXpath()
+				SynapsePath xPath = CustomSynapsePathFactory.getSynapsePath(visualFilter.getXpath()
 						.getPropertyValue());
 
-				for (int i = 0; i < visualFilter.getXpath().getNamespaces()
-						.keySet().size(); ++i) {
-					String prefix = (String) visualFilter.getXpath()
-							.getNamespaces().keySet().toArray()[i];
-					String namespaceUri = visualFilter.getXpath()
-							.getNamespaces().get(prefix);
-					xPath.addNamespace(prefix, namespaceUri);
+				if (visualFilter.getXpath().getNamespaces() != null
+						&& !(xPath instanceof SynapseJsonPath)) {
+					for (int i = 0; i < visualFilter.getXpath().getNamespaces().keySet().size(); ++i) {
+						String prefix = (String) visualFilter.getXpath().getNamespaces().keySet()
+								.toArray()[i];
+						String namespaceUri = visualFilter.getXpath().getNamespaces().get(prefix);
+						xPath.addNamespace(prefix, namespaceUri);
+					}
 				}
 				filterMediator.setXpath(xPath);
 			}
@@ -162,16 +167,17 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 					&& visualFilter.getSource().getPropertyValue() != null
 					&& !visualFilter.getSource().getPropertyValue().equals("")) {
 
-				SynapseXPath source = new SynapseXPath(visualFilter.getSource()
-						.getPropertyValue());
+				SynapsePath source = CustomSynapsePathFactory.getSynapsePath(visualFilter
+						.getSource().getPropertyValue());
 
-				for (int i = 0; i < visualFilter.getSource().getNamespaces()
-						.keySet().size(); ++i) {
-					String prefix = (String) visualFilter.getSource()
-							.getNamespaces().keySet().toArray()[i];
-					String namespaceUri = visualFilter.getSource()
-							.getNamespaces().get(prefix);
-					source.addNamespace(prefix, namespaceUri);
+				if (visualFilter.getXpath().getNamespaces() != null
+						&& !(source instanceof SynapseJsonPath)) {
+					for (int i = 0; i < visualFilter.getSource().getNamespaces().keySet().size(); ++i) {
+						String prefix = (String) visualFilter.getSource().getNamespaces().keySet()
+								.toArray()[i];
+						String namespaceUri = visualFilter.getSource().getNamespaces().get(prefix);
+						source.addNamespace(prefix, namespaceUri);
+					}
 				}
 				filterMediator.setSource(source);
 			}			

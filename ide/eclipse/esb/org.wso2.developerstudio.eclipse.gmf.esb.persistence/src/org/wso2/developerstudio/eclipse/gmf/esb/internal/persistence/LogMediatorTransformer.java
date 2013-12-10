@@ -20,9 +20,11 @@ import java.util.Map.Entry;
 
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.xpath.SynapseJsonPath;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -31,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CustomSynapsePathFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -115,16 +118,23 @@ public class LogMediatorTransformer extends AbstractEsbNodeTransformer {
 				if(visualProperty.getPropertyValueType().getLiteral().equals("LITERAL")){
 					mediatorProperty.setValue(visualProperty.getPropertyValue());
 				}
-				if(visualProperty.getPropertyValueType().getLiteral().equals("EXPRESSION")){
-					NamespacedProperty namespacedExpression = visualProperty.getPropertyExpression();
-					if(namespacedExpression!=null){
-					SynapseXPath propertyExpression=new SynapseXPath(namespacedExpression.getPropertyValue());
-					for (Entry<String, String> entry : namespacedExpression.getNamespaces().entrySet()) {
-						propertyExpression.addNamespace(entry.getKey(), entry.getValue());
+				if (visualProperty.getPropertyValueType().getLiteral().equals("EXPRESSION")) {
+					NamespacedProperty namespacedExpression = visualProperty
+							.getPropertyExpression();
+					if (namespacedExpression != null) {
+						SynapsePath propertyExpression = CustomSynapsePathFactory
+								.getSynapsePath(namespacedExpression.getPropertyValue());
+						if (namespacedExpression.getNamespaces() != null
+								&& !(propertyExpression instanceof SynapseJsonPath)) {
+							for (Entry<String, String> entry : namespacedExpression.getNamespaces()
+									.entrySet()) {
+								propertyExpression.addNamespace(entry.getKey(), entry.getValue());
+							}
+						}
+
+						mediatorProperty.setExpression(propertyExpression);
 					}
-					mediatorProperty.setExpression(propertyExpression);
-					}
-				}				
+				}			
 				logMediator.addProperty(mediatorProperty);
 			}
 		}

@@ -36,6 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFormatType;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CustomSynapsePathFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 /**
@@ -88,15 +89,24 @@ public class PayloadFactoryMediatorTransformer extends AbstractEsbNodeTransforme
 		EList<PayloadFactoryArgument> args = visualPayloadFactory.getArgs();		
 		for(PayloadFactoryArgument arg : args){
 			Argument argument = new Argument();
-			if (arg.getArgumentType() == PayloadFactoryArgumentType.EXPRESSION) {
+			if (arg.getArgumentType() == PayloadFactoryArgumentType.EXPRESSION
+					&& arg.getArgumentExpression() != null) {
 				NamespacedProperty namespacedProperty = arg.getArgumentExpression();
-				SynapsePath expression = new SynapseXPath(namespacedProperty.getPropertyValue());
-				for (Entry<String, String> entry : namespacedProperty.getNamespaces().entrySet()) {
-					expression.addNamespace(entry.getKey(), entry.getValue());
+				// SynapsePath expression = new SynapseXPath(namespacedProperty.getPropertyValue());
+				SynapsePath expression = CustomSynapsePathFactory.getSynapsePath(namespacedProperty
+						.getPropertyValue());
+				// SynapseJsonPath doesn't support namespaces
+				if (namespacedProperty.getNamespaces() != null
+						&& !(expression instanceof SynapseJsonPath)) {
+					for (Entry<String, String> entry : namespacedProperty.getNamespaces()
+							.entrySet()) {
+						expression.addNamespace(entry.getKey(), entry.getValue());
+					}
 				}
-				if(arg.getEvaluator() == MediaType.XML){
+
+				if (arg.getEvaluator() == MediaType.XML) {
 					expression.setPathType(SynapsePath.X_PATH);
-				}else if(arg.getEvaluator() == MediaType.JSON){
+				} else if (arg.getEvaluator() == MediaType.JSON) {
 					expression.setPathType(SynapsePath.JSON_PATH);
 				}
 				argument.setExpression(expression);

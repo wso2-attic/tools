@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.synapse.config.xml.SynapsePath;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.eclipse.core.runtime.Assert;
@@ -129,13 +130,9 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstrac
 			}else if(mediatorProprety.getExpression() != null){
 				
 				logProperty.setPropertyValueType(PropertyValueType.EXPRESSION);
-				NamespacedProperty namespaceProp = EsbFactory.eINSTANCE.createNamespacedProperty();
-				namespaceProp.setPropertyValue(mediatorProprety.getExpression().toString());
-				Map namespaces = mediatorProprety.getExpression().getNamespaces();
-				Object[] namespacesKeys=namespaces.keySet().toArray();
-				for(int i=0;i<namespacesKeys.length;++i){
-					namespaceProp.getNamespaces().put((String) namespacesKeys[i], (String) namespaces.get(namespacesKeys[i]));
-				}
+				SynapsePath xpath = mediatorProprety.getExpression();
+				NamespacedProperty namespaceProp = createNamespacedProperty(xpath);
+
 				logProperty.setPropertyExpression(namespaceProp);
 				
 			}
