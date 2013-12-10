@@ -207,13 +207,15 @@ public class FileUtils{
 
 	public static void copyDirectoryContents(File srcDir, File dstDir) throws IOException {
 		File[] listFiles = srcDir.listFiles();
-		for (File srcFile : listFiles) {
-			if (srcFile.isDirectory()){
-				copyDirectory(srcFile,new File(dstDir,srcFile.getName()));
-			}else{
-				copy(srcFile,new File(dstDir,srcFile.getName()));
+		if (listFiles != null) {
+			for (File srcFile : listFiles) {
+				if (srcFile.isDirectory()) {
+					copyDirectory(srcFile, new File(dstDir, srcFile.getName()));
+				} else {
+					copy(srcFile, new File(dstDir, srcFile.getName()));
+				}
 			}
-        }
+		}
 	}
 	
 	//Copies src file to dst file.
