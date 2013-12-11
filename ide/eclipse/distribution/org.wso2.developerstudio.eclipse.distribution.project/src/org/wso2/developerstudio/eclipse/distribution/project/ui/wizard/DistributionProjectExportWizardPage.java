@@ -55,6 +55,8 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 	private Tree trDependencies;
 	private TreeEditor editor;
 	private Map<String,TreeItem>  nodesWithSubNodes = new HashMap<String,TreeItem>();
+	private boolean pageDirty = false;
+	private boolean controlCreated = false;
 	
 	private final String[] serverRoles = new String[] { "GovernanceRegistry",
 			"BusinessProcessServer", "GadgetServer",
@@ -199,7 +201,8 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 		
 		
 		setControl(container);
-		 validate();
+		controlCreated = true;
+		validate();
 	}
 	
 	/**
@@ -225,10 +228,21 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 				item.setGrayed(false);
 				item.setChecked(false);
 			}
+			setPageDirtyState(true);
 		}
 	}
 	
 	
+	private void setPageDirtyState(boolean value) {
+		if (controlCreated){
+			pageDirty = value;
+		}
+	}
+	
+	public boolean isPageDirty(){
+		return pageDirty;
+	}
+
 	/**
 	 * Create content of tree control 
 	 */
@@ -478,6 +492,7 @@ public class DistributionProjectExportWizardPage extends WizardPage {
 				nodeData.setServerRole(role);
 				if (getDependencyList().containsKey(artifactInfo)) {
 						serverRoleList.put(artifactInfo, "capp/" + role);
+						setPageDirtyState(true);
 				}
 			}
 		});

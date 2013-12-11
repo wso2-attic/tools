@@ -48,9 +48,12 @@ public class CarExportDetailsWizardPage extends WizardPage {
 	private Text txtVersion;
 	private String name = "";
 	private String version = "";
+	private String initialName = "";
+	private String initialVersion = "";
 	private String exportPath = "";
 	private IProject selectedProject;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	private boolean pageDirty = false;
 
 	protected CarExportDetailsWizardPage() {
 		super("WSO2 Platform Distribution");
@@ -108,7 +111,8 @@ public class CarExportDetailsWizardPage extends WizardPage {
 		GridData gd_text = new GridData(SWT.LEFT, SWT.CENTER, true, false, 2, 1);
 		gd_text.widthHint = 253;
 		txtName.setLayoutData(gd_text);
-		txtName.setText(getName());
+		initialName = getName();
+		txtName.setText(initialName);
 		txtName.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent evt) {
@@ -123,7 +127,8 @@ public class CarExportDetailsWizardPage extends WizardPage {
 		txtVersion = new Text(container, SWT.BORDER);
 		GridData gd_txtVersion = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
 		gd_txtVersion.widthHint = 253;
-		txtVersion.setText(getVersion());
+		initialVersion = getVersion();
+		txtVersion.setText(initialVersion);
 		txtVersion.setLayoutData(gd_txtVersion);
 		txtVersion.addModifyListener(new ModifyListener() {
 			
@@ -209,8 +214,21 @@ public class CarExportDetailsWizardPage extends WizardPage {
 				return;
 			}
 		}
+		setPageDirtyState();
 		setErrorMessage(null);
 		setPageComplete(true);
+	}
+
+	private void setPageDirtyState() {
+		if (getName().equals(initialName) && getVersion().equals(initialVersion)){
+			pageDirty = false;
+		} else {
+			pageDirty = true;
+		}
+	}
+	
+	public boolean isPageDirty(){
+		return pageDirty;
 	}
 
 	public static IProject getProject(Object obj) throws Exception {

@@ -183,6 +183,7 @@ public class DistProjectEditorPage extends FormPage {
 		parentPrj.setDependencies(new ArrayList<Dependency>(getDependencyList().values()));
 		MavenUtils.saveMavenProject(parentPrj, pomFile);
 		setPageDirty(false);
+		updateDirtyState();
 		pomFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 		
 	}
@@ -770,7 +771,9 @@ public class DistProjectEditorPage extends FormPage {
 			return;
 		}
 		try {	
-			savePOM();
+			if (isDirty()){
+				savePOM();
+			}
 			IResource CarbonArchive = ExportUtil.buildCAppProject(pomFileRes.getProject());
 			DirectoryDialog dirDlg = new DirectoryDialog(PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getShell());

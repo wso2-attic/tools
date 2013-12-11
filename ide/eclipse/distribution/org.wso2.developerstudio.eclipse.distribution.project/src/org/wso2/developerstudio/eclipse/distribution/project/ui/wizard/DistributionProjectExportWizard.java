@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -112,23 +113,53 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 	}
 
 	public void savePOM() throws Exception{
+//		Properties properties = parentPrj.getModel().getProperties();
+//		properties.clear();
+//		Map<String,String> serverRoles = mainPage.getServerRoleList();
+//		for (Dependency dependency : mainPage.getDependencyList().values()) {
+//			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
+//			if(serverRoles.containsKey(artifactInfo)){
+//				properties.put(artifactInfo, serverRoles.get(artifactInfo));
+//			} else{
+//				properties.put(artifactInfo, "capp/ApplicationServer");
+//			}
+//		}	
+//		properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
+//		parentPrj.getModel().setProperties(properties);
+		writeProperties();
+		parentPrj.setDependencies(new ArrayList<Dependency>(mainPage.getDependencyList().values()));
+		MavenUtils.saveMavenProject(parentPrj, pomFile);
+		pomFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+	}
+	
+	
+	private void writeProperties(){
 		Properties properties = parentPrj.getModel().getProperties();
-		properties.clear();
-		Map<String,String> serverRoles = mainPage.getServerRoleList();
+		identifyNonProjectProperties(properties);
 		for (Dependency dependency : mainPage.getDependencyList().values()) {
 			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
-			if(serverRoles.containsKey(artifactInfo)){
-				properties.put(artifactInfo, serverRoles.get(artifactInfo));
+			if(mainPage.getServerRoleList().containsKey(artifactInfo)){
+				properties.put(artifactInfo, serverRoleList.get(artifactInfo));
 			} else{
 				properties.put(artifactInfo, "capp/ApplicationServer");
 			}
 		}	
 		properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
 		parentPrj.getModel().setProperties(properties);
-		parentPrj.setDependencies(new ArrayList<Dependency>(mainPage.getDependencyList().values()));
-		MavenUtils.saveMavenProject(parentPrj, pomFile);
-		pomFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
-		
+	}
+	
+	private Properties identifyNonProjectProperties(Properties properties){
+		Map<String, DependencyData> dependencies = projectList;
+		for (Iterator iterator = dependencies.values().iterator(); iterator.hasNext();) {
+			DependencyData dependency = (DependencyData) iterator.next();
+			String artifactInfoAsString = DistProjectUtils.getArtifactInfoAsString(dependency.getDependency());
+			if(properties.containsKey(artifactInfoAsString)){
+				properties.remove(artifactInfoAsString);
+			}
+		}
+		//Removing the artifact.type
+		properties.remove("artifact.types");
+		return properties;
 	}
 	
 	public static IProject getSelectedProject(Object obj) throws Exception {
@@ -177,7 +208,9 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 				}
 				org.apache.commons.io.FileUtils.deleteQuietly(destFileName);
 			}
-			savePOM();
+			if (mainPage.isPageDirty() || detailsPage.isPageDirty()){
+				savePOM();
+			}
 			IResource carbonArchive = ExportUtil.buildCAppProject(selectedProject);
 			FileUtils.copy(carbonArchive.getLocation().toFile(), destFileName);
 				 
