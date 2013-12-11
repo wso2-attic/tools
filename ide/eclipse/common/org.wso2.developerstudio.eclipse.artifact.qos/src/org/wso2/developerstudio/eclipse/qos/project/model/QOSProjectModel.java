@@ -23,6 +23,7 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
 
 public class QOSProjectModel extends ProjectDataModel {	
 	private File serviceMetaLocation;
+	private String serviceClass;
 	
 	public void setLocation(File location) {
 		// TODO Auto-generated method stub
@@ -38,6 +39,8 @@ public class QOSProjectModel extends ProjectDataModel {
  		  Object modelPropertyValue = super.getModelPropertyValue(key);
  		  if(key.equals("synapseConfig.location")){
  				modelPropertyValue = getServiceMetaLocation();
+ 			} else if (key.equals("mediatorClass.name")) {
+ 				modelPropertyValue = getServiceClass();
  			}
  		  return modelPropertyValue;
  		}
@@ -46,6 +49,8 @@ public class QOSProjectModel extends ProjectDataModel {
 		boolean isUiControlUpdated = super.setModelPropertyValue(key, data);
 		if("synapseConfig.location".equals(key)){
 			setServiceMataLocation(new File(data.toString()));
+		} else if (key.equals("mediatorClass.name")) {
+			setServiceClass(data.toString());
 		}
 		return isUiControlUpdated;
 	}
@@ -55,5 +60,13 @@ public class QOSProjectModel extends ProjectDataModel {
 	}	
 	public File getServiceMetaLocation() {
 		return serviceMetaLocation;
+	}
+
+	public String getServiceClass() {
+		return serviceClass;
+	}
+
+	public void setServiceClass(String serviceClass) {
+		this.serviceClass = serviceClass;
 	}
 }
