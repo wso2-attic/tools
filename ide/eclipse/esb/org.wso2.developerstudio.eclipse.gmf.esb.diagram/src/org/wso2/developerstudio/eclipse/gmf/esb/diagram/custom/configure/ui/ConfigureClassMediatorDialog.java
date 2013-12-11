@@ -102,6 +102,7 @@ public class ConfigureClassMediatorDialog extends Dialog {
 	public ConfigureClassMediatorDialog(Shell parentShell, ClassMediator classMediator,
 			TransactionalEditingDomain editingDomain) {
 		super(parentShell);
+		setShellStyle(getShellStyle() | SWT.RESIZE); 
 		this.classMediator = classMediator;
 		this.editingDomain = editingDomain;
 	}
@@ -142,6 +143,7 @@ public class ConfigureClassMediatorDialog extends Dialog {
 			FormData classNameTextLayoutData = new FormData(300, SWT.DEFAULT);
 			classNameTextLayoutData.top = new FormAttachment(classNameLabel, 0, SWT.CENTER);
 			classNameTextLayoutData.left = new FormAttachment(classNameLabel, 5);
+			classNameTextLayoutData.right = new FormAttachment(100, -5);
 			classNameText.setLayoutData(classNameTextLayoutData);
 		}
 		
