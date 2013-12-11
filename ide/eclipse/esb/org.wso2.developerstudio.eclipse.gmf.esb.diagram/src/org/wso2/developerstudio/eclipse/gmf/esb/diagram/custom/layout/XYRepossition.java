@@ -1183,15 +1183,17 @@ public class XYRepossition {
 					|| child instanceof APIResourceInSequenceInputConnectorEditPart) {
 				AbstractBaseFigureInputConnectorEditPart inSequenceInputConnector = (AbstractBaseFigureInputConnectorEditPart) child;
 
+				if (inSequenceInputConnector.getTargetConnections().size() > 0) {
 				EsbLinkEditPart targetConnection = (EsbLinkEditPart) inSequenceInputConnector
 						.getTargetConnections().get(0);
+				
 				AbstractConnectorEditPart source = (AbstractConnectorEditPart) targetConnection
 						.getSource();
-
+				
 				Rectangle sendMediatorOutputConnectorBounds = source.getFigure().getBounds()
 						.getCopy();
 				source.getFigure().translateToAbsolute(sendMediatorOutputConnectorBounds);
-
+			
 				double locationScale = ((double) (sendMediatorOutputConnectorBounds.y - mediatorFlowBounds.y))
 						/ mediatorFlowBounds.height;
 				locationScale = Math.round(locationScale * 10000.0) / 10000.0;
@@ -1203,6 +1205,7 @@ public class XYRepossition {
 				((AbstractBorderedShapeEditPart) baseFigureEditpart).getBorderedFigure()
 						.getBorderItemContainer()
 						.add(inSequenceInputConnector.getFigure(), inputLocator);
+				}
 			}
 		}
 	}
