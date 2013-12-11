@@ -30,5 +30,4 @@ public class QOSProjectFieldController extends AbstractFieldController {
 			CommonFieldValidator.validateProjectField(value);
 		}
 	}
-
 }

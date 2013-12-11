@@ -20,17 +20,23 @@ import java.util.List;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IPersistableElement;
 import org.eclipse.ui.IViewReference;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.handlers.HandlerUtil;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.qos.Activator;
+import org.wso2.developerstudio.eclipse.qos.project.ui.dashboard.QoSDashboard;
 
 
 
@@ -44,13 +50,21 @@ public class OpenQoSDashboardCommandHandler  extends AbstractHandler {
 	
 
     public Object execute(ExecutionEvent event) throws ExecutionException {
-		  IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		    IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 	        IWorkbenchPage page = window.getActivePage();
 	        try {
 	        	hideIntroView();
 	        	hideDashboards();
+	        	IStructuredSelection selection =
+	                    (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
+	        	Object element = ((IStructuredSelection)selection).getFirstElement();
+	        	 if (element instanceof IResource) {
+	               IProject  project= ((IResource)element).getProject();
 	        	PlatformUI.getWorkbench().showPerspective(J2EE_PERSPECTIVE_ID, window);
-				page.openEditor(new NullEditorInput(), DASHBOARD_VIEW_ID);
+				IEditorPart openEditor = page.openEditor(new NullEditorInput(), DASHBOARD_VIEW_ID);
+				QoSDashboard dashboard = (QoSDashboard) openEditor;
+				dashboard.setSelectedProject(project);
+	        	 }
 			} catch (Exception e) {
 				log.error("Cannot open dashboard", e);
 			}

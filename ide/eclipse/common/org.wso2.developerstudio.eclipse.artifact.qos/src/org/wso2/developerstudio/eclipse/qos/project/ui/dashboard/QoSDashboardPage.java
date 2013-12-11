@@ -14,35 +14,23 @@
  */
 package org.wso2.developerstudio.eclipse.qos.project.ui.dashboard;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.jface.action.Action;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Link;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolTip;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
-import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWizard;
 import org.eclipse.ui.PlatformUI;
@@ -53,15 +41,11 @@ import org.eclipse.ui.forms.events.ExpansionEvent;
 import org.eclipse.ui.forms.events.HyperlinkAdapter;
 import org.eclipse.ui.forms.events.HyperlinkEvent;
 import org.eclipse.ui.forms.events.IExpansionListener;
-import org.eclipse.ui.forms.events.IHyperlinkListener;
-import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
-import org.eclipse.ui.forms.widgets.ImageHyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.wizards.IWizardDescriptor;
-import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
@@ -74,14 +58,12 @@ public class QoSDashboardPage extends FormPage {
 	private static final String QOS_WIZARD_ID = "org.wso2.developerstudio.eclipse.artifact.newqosproject";
 
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	
-	private static Map<String, String[]> wizardCategoryMap=new LinkedHashMap<String, String[]>(); 
-	private  Map<String, IWizardDescriptor> wizardDescriptor; 
-	private  Map<String, Action> customActions = new LinkedHashMap<String, Action>(); 
 	private static final String PROJECT_EXPLORER_PARTID = "org.eclipse.ui.navigator.ProjectExplorer";
 	private static final String PACKAGE_EXPLORER_PARTID = "org.eclipse.jdt.ui.PackageExplorer";
 	private ISelectionListener selectionListener = null;
 	private ISelection selection = null;
+	private IProject selecledProject;
+	private String serviceName;
 	
 	/**
 	 * Create the form page.
@@ -93,16 +75,17 @@ public class QoSDashboardPage extends FormPage {
 	}
 
 	/**
-	 * Create the form page.
+	 * 
 	 * @param editor
 	 * @param id
 	 * @param title
-	 * @wbp.parser.constructor
-	 * @wbp.eval.method.parameter id "Some id"
-	 * @wbp.eval.method.parameter title "Some title"
+	 * @param project
 	 */
-	public QoSDashboardPage(FormEditor editor, String id, String title) {
+
+	public QoSDashboardPage(FormEditor editor, String id, String title,IProject project) {
 		super(editor, id, title);
+		setSelecledProject(project);
+		setServiceName("Test");
 	}
 
 	/**
@@ -205,14 +188,16 @@ public class QoSDashboardPage extends FormPage {
 		createSecurityItems(seccomposite, names, managedForm);
  
 			 
-/*       CreateMainSection(managedForm, body,"Policies",10, 30, 600, 30, false);
+     /*  CreateMainSection(managedForm, body,"Policies",10, 30, 600, 30, false);
 		 CreateMainSection(managedForm, body,"Response Caching",10, 50, 600, 30, false);
 		 CreateMainSection(managedForm, body,"Access Throttling",10, 60, 600, 30, false);
 		 CreateMainSection(managedForm, body,"MTOM",10, 70, 600, 30, false);
 		 CreateMainSection(managedForm, body,"Transports",10, 80, 600, 30, false);
 		 CreateMainSection(managedForm, body,"Modules",10, 90, 600, 30, false);
 		 CreateMainSection(managedForm, body,"Operations",10, 100, 600, 30, false);
-		 CreateMainSection(managedForm, body,"Parameters",10, 110, 600, 30, false);*/
+		 CreateMainSection(managedForm, body,"Parameters",10, 110, 600, 30, false);
+		 
+		 */
 		
 	}
 
@@ -295,113 +280,12 @@ public class QoSDashboardPage extends FormPage {
 	 * @param category
 	 */
 	private void createCategory(IManagedForm managedForm,Composite composite, String category){
-		int itemCount=0;
 		Label lblcategory = managedForm.getToolkit().createLabel(composite, category, SWT.NONE);
 		lblcategory.setFont(SWTResourceManager.getFont("Sans", 10, SWT.BOLD));
 		GridData gd_category = new GridData(SWT.FILL, SWT.CENTER, true, false,2, 1);
 		gd_category.verticalIndent=10;
 		lblcategory.setLayoutData(gd_category);
 		 
-	}
-	
-	/**
-	 * Create contents of category with title
-	 * @param managedForm
-	 * @param composite
-	 * @param category
-	 */
-	private void createTitlelessCategory(IManagedForm managedForm,Composite composite, String category,ImageDescriptor customImage){
-		int itemCount=0;
-		
-		for (String  id : wizardCategoryMap.get(category)){
-		if(wizardDescriptor.containsKey(id)){
-			itemCount++;
-			createWizardLink(managedForm, composite,wizardDescriptor.get(id),customImage);
-		}
-		}
-		if(itemCount %2 ==1){
-			new Label(composite, SWT.NONE);
-		}
-	}
-	
-	/**
-	 * Create contents of wizard link with custom image
-	 * @param managedForm
-	 * @param composite
-	 * @param wizard
-	 * @param customImage
-	 */
-	private void createWizardLink(IManagedForm managedForm,Composite composite,IWizardDescriptor wizard,ImageDescriptor customImage){
-		final String wizardId = wizard.getId();
-		ImageHyperlink wizardLink = managedForm.getToolkit().createImageHyperlink(composite, SWT.NONE);
-		ImageDescriptor descriptionImage = (customImage != null) ? customImage : wizard
-				.getImageDescriptor();
-		if(descriptionImage!=null){
-			wizardLink.setImage(descriptionImage.createImage());
-		}
-		managedForm.getToolkit().paintBordersFor(wizardLink);
-		wizardLink.setText(wizard.getLabel());
-		wizardLink.setToolTipText(wizard.getDescription());
-		GridData gd_wizardLink = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		wizardLink.setLayoutData(gd_wizardLink);
-		wizardLink.addHyperlinkListener(new IHyperlinkListener() {
-			
-			public void linkActivated(HyperlinkEvent evt) {
-				openWizard(wizardId);
-			}
-			
-			public void linkEntered(HyperlinkEvent evt) {
-				
-			}
-
-			public void linkExited(HyperlinkEvent evt) {
-				
-			}
-		});
-	}
-	
-	
-	/**
-	 * Create contents of link with custom action
-	 * @param managedForm
-	 * @param composite
-	 * @param action
-	 */
-	private void createLink(IManagedForm managedForm,Composite composite,final Action action){
-		ImageHyperlink wizardLink = managedForm.getToolkit().createImageHyperlink(composite, SWT.NONE);
-		ImageDescriptor descriptionImage = action.getImageDescriptor();
-		if(descriptionImage!=null){
-			wizardLink.setImage(descriptionImage.createImage());
-		}
-		managedForm.getToolkit().paintBordersFor(wizardLink);
-		wizardLink.setText(action.getText());
-		wizardLink.setToolTipText(action.getDescription());
-		GridData gd_wizardLink = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		wizardLink.setLayoutData(gd_wizardLink);
-		wizardLink.addHyperlinkListener(new IHyperlinkListener() {
-			
-			public void linkActivated(HyperlinkEvent evt) {
-				action.run();
-			}
-			
-			public void linkEntered(HyperlinkEvent evt) {
-				
-			}
-
-			public void linkExited(HyperlinkEvent evt) {
-				
-			}
-		});
-	}
-	
-	/**
-	 * Create contents of wizard link
-	 * @param managedForm
-	 * @param composite
-	 * @param wizard
-	 */
-	private void createWizardLink(IManagedForm managedForm,Composite composite,IWizardDescriptor wizard){
-		createWizardLink(managedForm,composite,wizard,null);
 	}
  
 	/**
@@ -419,6 +303,8 @@ public class QoSDashboardPage extends FormPage {
 		     WizardDialog wd = new WizardDialog(PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getShell(), wizard);
 		     wd.setTitle(wizard.getWindowTitle());
+		     QOSProjectWizard qosProjectWizard = (QOSProjectWizard) wizard; 
+		     qosProjectWizard.setServiceName(getServiceName());
 		     wd.open();
 		     return wizard;
 		   }
@@ -445,5 +331,21 @@ public class QoSDashboardPage extends FormPage {
 				.getSelectionService();
 		selectionService.removeSelectionListener(selectionListener);
 		super.dispose();
+	}
+
+	public IProject getSelecledProject() {
+		return selecledProject;
+	}
+
+	public void setSelecledProject(IProject selecledProject) {
+		this.selecledProject = selecledProject;
+	}
+
+	public String getServiceName() {
+		return serviceName;
+	}
+
+	public void setServiceName(String serviceName) {
+		this.serviceName = serviceName;
 	}
 }
