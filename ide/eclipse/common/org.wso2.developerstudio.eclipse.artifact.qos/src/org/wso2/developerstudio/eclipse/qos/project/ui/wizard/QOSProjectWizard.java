@@ -49,6 +49,11 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 //		setDefaultPageImageDescriptor(QOSImageUtils.getInstance().getImageDescriptor("esb-project-wizard.png"));
 	}
 	
+	@Override
+	protected boolean isRequiredWorkspaceLocation() {
+		 return true;
+	}
+	
 	public boolean performFinish() {
 		try {
 			project = createNewProject();
