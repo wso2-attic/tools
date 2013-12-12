@@ -26,7 +26,7 @@
           class="org.wso2.developerstudio.eclipse.esb.core.internal.impl.TemplateMediaTypeResolver"
           extensions="xml"
           id="org.wso2.developerstudio.eclipse.esb.core.resolver.template"
-          mediaType="application/vnd.wso2.esb.template"
+          mediaType="application/vnd.wso2.template"
           name="Template Media type"
           priority="20">
     </resolver>
