@@ -99,14 +99,16 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 	private File saveLocation;
 	private boolean requireLocationSection;
 	private boolean requiredWorkingSets;
+	private boolean worksapceRootRequired;
 
 	/**
 	 * Create the wizard.
 	 */
 	public ProjectOptionsDataPage(ProjectWizardSettings settings, ProjectDataModel model,
-	                              ISelection selectedItem, boolean requireLocationSection ,boolean requiredWorkingSet) {
+	                              ISelection selectedItem, boolean requireLocationSection ,boolean requiredWorkingSet,boolean worksapceRootRequired) {
 		super("wizardPage");
 		this.selectedResource = selectedItem;
+		setWorksapceRootRequired(worksapceRootRequired);
 		setSelectedItemLocation();
 		setSettings(settings);
 		setModel(model);
@@ -1415,7 +1417,7 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 				setSaveLocation(ResourcesPlugin.getWorkspace().getRoot().getLocation().toFile());
 			}
 		}
-		if (getSaveLocation() == null) {
+		if (getSaveLocation() == null||isWorksapceRootRequired()) {
 			setSaveLocation(ResourcesPlugin.getWorkspace().getRoot().getLocation().toFile());
 		}
 	}
@@ -1517,6 +1519,14 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 
 	public boolean isRequireLocationSection() {
 		return requireLocationSection;
+	}
+
+	public boolean isWorksapceRootRequired() {
+		return worksapceRootRequired;
+	}
+
+	public void setWorksapceRootRequired(boolean worksapceRootRequired) {
+		this.worksapceRootRequired = worksapceRootRequired;
 	}
 
 	private boolean isEqual(Object[] currentModelPropertyValue, Object[] checkedElements) {

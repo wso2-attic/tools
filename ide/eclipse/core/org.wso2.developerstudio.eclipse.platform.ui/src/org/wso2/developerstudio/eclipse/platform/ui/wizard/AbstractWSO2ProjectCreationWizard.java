@@ -97,13 +97,14 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		try {
 			ProjectWizardSettings settings =
 			        new ProjectWizardSettings(resource.openStream(), configElement);
+
 			if (settings.getProjectOptions().size() == 1) {
 				getModel().setSelectedOption(settings.getProjectOptions().get(0).getId());
 			} else {
 				addPage(new ProjectOptionsPage(settings, getModel()));
 			}
 			addPage(new ProjectOptionsDataPage(settings, getModel(), getCurrentSelection(),
-			        isRequireProjectLocationSection(), isRequiredWorkingSet()));
+			        isRequireProjectLocationSection(), isRequiredWorkingSet(),isRequiredWorkspaceLocation()));
 			if (isProjectWizard()){
 				addPage(new MavenDetailsPage(getModel()));
 			}
@@ -158,6 +159,10 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 
 	protected boolean isRequiredWorkingSet(){
 		return true;
+	}
+	
+	protected boolean isRequiredWorkspaceLocation(){
+		return false;
 	}
 	
 	public void setInitializationData(IConfigurationElement configElement, String arg1, Object arg2)
