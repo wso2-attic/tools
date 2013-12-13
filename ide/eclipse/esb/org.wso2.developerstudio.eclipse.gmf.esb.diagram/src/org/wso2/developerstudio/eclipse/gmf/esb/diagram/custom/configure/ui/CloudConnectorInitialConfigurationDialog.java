@@ -85,7 +85,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	protected static final OMFactory fac = OMAbstractFactory.getOMFactory();
 	protected static final OMNamespace synNS = SynapseConstants.SYNAPSE_OMNAMESPACE;
 
-	private static String operationName = "config";
+	private static String operationName = "init";
 	
 	private CloudConnectorOperation operation;
 	
