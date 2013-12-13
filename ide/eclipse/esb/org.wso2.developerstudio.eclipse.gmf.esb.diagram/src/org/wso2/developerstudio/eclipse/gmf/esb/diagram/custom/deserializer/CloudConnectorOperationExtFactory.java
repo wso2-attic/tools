@@ -36,6 +36,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.ui.IFileEditorInput;
 import org.jaxen.JaxenException;
@@ -127,19 +128,24 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 		}*/
 		
 		IProject tempProject = ResourcesPlugin.getWorkspace().getRoot().getProject(".tmp");
+		if (tempProject != null && !tempProject.isOpen()) {
+			tempProject.open(new NullProgressMonitor());
+		}
+		
 		if (tempProject != null && tempProject.exists()) {
 			IContainer connectorsRoot = tempProject.getFolder(CONNECTOR_DIRECTORY);
-			if(connectorsRoot != null && connectorsRoot.exists()){
+			if (connectorsRoot != null && connectorsRoot.exists()) {
 				IResource[] directories = connectorsRoot.members();
 				for (int i = 0; i < directories.length; ++i) {
 					CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
 							.getInstance(directories[i].getLocation().toOSString());
-					Map<String, String> map = directoryTraverser.getOperationsConnectorComponentNameMap();
+					Map<String, String> map = directoryTraverser
+							.getOperationsConnectorComponentNameMap();
 					Iterator<String> iterator = map.keySet().iterator();
 					while (iterator.hasNext()) {
 						String key = iterator.next();
-						tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key) + "."
-								+ key));
+						tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key)
+								+ "." + key));
 					}
 				}
 			}
