@@ -32,6 +32,8 @@ import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
@@ -49,6 +51,7 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 
 	protected static final QName CONFIG_KEY  = new QName("configKey");
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	private static final String CONNECTOR_DIRECTORY = "Connectors";
 	
 	@Override
 	protected Mediator createSpecificMediator(OMElement elem, Properties properties) {		
@@ -101,13 +104,33 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 				.getFolder("cloudConnectors");*/
 		//IContainer cloudConnectorsRoot = ((IFileEditorInput)EsbMultiPageEditor.currentEditor.getEditorInput()).getFile().getProject()
 		//		.getFolder("cloudConnectors");
-		String path = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()
+		/*String path = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()
 				+ File.separator + ".tmp";
 		IContainer tmp = ResourcesPlugin.getWorkspace().getRoot().getContainerForLocation(new Path(path));
+
 		if (tmp != null && tmp.exists()) {
 			IContainer cloudConnectorsRoot = tmp.getFolder(new Path("Connectors"));
 			if(cloudConnectorsRoot != null && cloudConnectorsRoot.exists()){
 				IResource[] directories = cloudConnectorsRoot.members();
+				for (int i = 0; i < directories.length; ++i) {
+					CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
+							.getInstance(directories[i].getLocation().toOSString());
+					Map<String, String> map = directoryTraverser.getOperationsConnectorComponentNameMap();
+					Iterator<String> iterator = map.keySet().iterator();
+					while (iterator.hasNext()) {
+						String key = iterator.next();
+						tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key) + "."
+								+ key));
+					}
+				}
+			}
+		}*/
+		
+		IProject tempProject = ResourcesPlugin.getWorkspace().getRoot().getProject(".tmp");
+		if (tempProject != null && tempProject.exists()) {
+			IContainer connectorsRoot = tempProject.getFolder(CONNECTOR_DIRECTORY);
+			if(connectorsRoot != null && connectorsRoot.exists()){
+				IResource[] directories = connectorsRoot.members();
 				for (int i = 0; i < directories.length; ++i) {
 					CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
 							.getInstance(directories[i].getLocation().toOSString());
