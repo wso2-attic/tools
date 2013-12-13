@@ -19,7 +19,9 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.xml.stream.XMLStreamException;
@@ -30,7 +32,9 @@ import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.mediators.template.TemplateMediator;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.ui.celleditor.ExtendedComboBoxCellEditor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xml.type.internal.QName;
@@ -48,6 +52,10 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -72,9 +80,15 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 		super(object, itemPropertyDescriptor);
 	}
 	
-	public CellEditor createPropertyEditor(Composite parent) {		
-		ArrayList<String> definedTemplates = new ArrayList<String>();	
-		definedTemplates.add(DEFAULT_VALUE);
+	public CellEditor createPropertyEditor(Composite parent) {	
+		Map<String, String> seqTemplateMap=new HashMap<String, String>();
+		try {
+			seqTemplateMap.putAll(getAvailableDynamicSequenceTemplates());
+		} catch (CoreException e) {
+			log.error("An unexpected error has occurred while getting Dynamic Sequence Templates", e);
+		} catch (IOException e) {
+			log.error("I/O error has occurred while getting Dynamic Sequence Templates", e);
+		}		
 		File projectPath = null;
 		final Object object_=this.object;
 		final Shell shell=(Shell)parent.getShell();
@@ -94,7 +108,8 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 						for (ESBArtifact esbArtifact : allESBArtifacts) {
 							if (TYPE_TEMPLATE.equals(esbArtifact.getType())) {
 								File artifact = new File(projectPath, esbArtifact.getFile());
-								definedTemplates.add(artifact.getName().replaceAll("[.]xml$", ""));
+								String key=artifact.getName().replaceAll("[.]xml$", "");								
+								seqTemplateMap.put(key, projectPath + File.separator+"src"+File.separator+"main"+File.separator+"synapse-config"+File.separator+"templates"+ File.separator + key + ".xml");
 							}
 						}
 					} catch (Exception e) {
@@ -107,7 +122,10 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 				ErrorDialog.openError(shell,"Error occured while scanning the project", e.getMessage(), null);
 			}
 		}
-		final File projectPath_ =projectPath;
+		final Map<String, String> seqTemplateMap_=seqTemplateMap;		
+		ArrayList<String> definedTemplates = new ArrayList<String>();	
+		definedTemplates.add(DEFAULT_VALUE);
+		definedTemplates.addAll(seqTemplateMap.keySet());
 		
 		/*
 		 * A custom comboBox control which has available templates in its list will be returned.   
@@ -119,8 +137,8 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 			 */
 			protected void focusLost() {
 				super.focusLost();
-				TransactionalEditingDomain editingDomain=null;
-				String path = projectPath_ + "/src/main/synapse-config/templates/" + getValue()	+ ".xml";
+				TransactionalEditingDomain editingDomain=null;				
+				String path=seqTemplateMap_.get(getValue());				
 				if(!DEFAULT_VALUE.equals(getValue().toString())){				
 					try {
 						String source = FileUtils.getContentAsString(new File(path));
@@ -165,5 +183,45 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 				}			
 			}
 		};
-	}
+	}	
+	
+	//TODO This method should be defined as a generic method rather defining here.
+	public Map<String,String> getAvailableDynamicSequenceTemplates() throws CoreException, IOException {
+		
+		Map<String,String> availableTemplatesMap = new HashMap<String,String>();
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		for (IProject workspaceProject : projects) {
+			if (workspaceProject.isOpen() && workspaceProject.hasNature("org.wso2.developerstudio.eclipse.general.project.nature")) {
+					GeneralProjectArtifact generalProjectArtifact = new GeneralProjectArtifact();
+					try{			
+						generalProjectArtifact.fromFile(workspaceProject.getFile("artifact.xml").getLocation().toFile());
+						List<RegistryArtifact> allGREGArtifacts = generalProjectArtifact.getAllArtifacts();
+						for(RegistryArtifact registryArtifact :allGREGArtifacts){
+							if(registryArtifact.getType().equals("registry/resource")){		
+								 java.util.List<RegistryElement> elements = registryArtifact.getAllRegistryItems();		
+										 for (RegistryElement registryElement : elements) {
+											 if(registryElement instanceof RegistryItem){    		 
+									    		String  mediaType = ((RegistryItem)registryElement).getMediaType();	 							    		 
+									    		if (mediaType.equals("application/vnd.wso2.template")){									    			
+									    			String filePath=workspaceProject.getLocation().toOSString()+File.separator+((RegistryItem)registryElement).getFile();									    			
+									    			String path  = ((RegistryItem)registryElement).getPath() + "/"+ ((RegistryItem)registryElement).getFile();
+									    			if(path.startsWith("/_system/governance/")){		
+								    				path = String.format("gov:%s", path.substring("/_system/governance/".length()));
+								    			    } else if (path.startsWith("/_system/config/")) {
+								    				path = String.format("conf:%s", path.substring("/_system/config/".length()));
+									    			}									    		
+													availableTemplatesMap.put(path, filePath);
+												}
+									    	}
+										 }
+									 }
+								}
+							}
+					catch (Exception e) {
+						log.error("Error occured while scanning the workspace for Templates", e);
+					}
+				}			
+			}		
+		return availableTemplatesMap;
+	}	
 }
