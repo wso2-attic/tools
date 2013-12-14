@@ -1497,8 +1497,7 @@ public class EsbPaletteFactory {
 					.get(3);
 			PaletteContainer linksPalette = (PaletteContainer) paletteContainer.getChildren()
 					.get(4);
-			/*			PaletteContainer cloudConnectors = (PaletteContainer) paletteContainer.getChildren()
-			 .get(5);*/
+
 			PaletteContainer seqPalette = (PaletteContainer) paletteContainer.getChildren().get(5);
 			PaletteContainer defineEpPalette = (PaletteContainer) paletteContainer.getChildren()
 					.get(6);
@@ -1515,7 +1514,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					//cloudConnectors.setVisible(true);
+					updateConnectorVisibility(paletteContainer, true);
 					break;
 				case ENDPOINT:
 					mediatorPalette.setVisible(false);
@@ -1525,7 +1524,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					//cloudConnectors.setVisible(false);
+					updateConnectorVisibility(paletteContainer, false);
 					break;
 				case LOCAL_ENTRY:
 				case TASK:
@@ -1536,7 +1535,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(false);
 					linksPalette.setVisible(false);
 					apiResourceTool.setVisible(false);
-					//cloudConnectors.setVisible(false);
+					updateConnectorVisibility(paletteContainer, false);
 					break;
 				case API:
 					proxyServiceTool.setVisible(false);
@@ -1548,8 +1547,8 @@ public class EsbPaletteFactory {
 					//fixing TOOLS-1820
 					apiResourceTool.getParent().setLabel("API");
 					apiResourceTool.setVisible(true);
-					//cloudConnectors.setVisible(true);
 					proxyServiceTool.setVisible(false);
+					updateConnectorVisibility(paletteContainer, true);
 					break;
 				case TEMPLATE:
 					proxyServiceTool.setVisible(false);
@@ -1559,7 +1558,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					//cloudConnectors.setVisible(false);
+					updateConnectorVisibility(paletteContainer, true);
 					break;
 				case COMPLEX_ENDPOINT:
 					proxyServiceTool.setVisible(false);
@@ -1570,7 +1569,7 @@ public class EsbPaletteFactory {
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
 					seqPalette.setVisible(false);
-					//cloudConnectors.setVisible(false);
+					updateConnectorVisibility(paletteContainer, false);
 					break;
 				case MAIN_SEQUENCE:
 					proxyServiceTool.setVisible(false);
@@ -1580,7 +1579,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
-					//cloudConnectors.setVisible(true);
+					updateConnectorVisibility(paletteContainer, true);
 					break;
 				case MESSAGE_STORE:
 				case MESSAGE_PROCESSOR:
@@ -1590,9 +1589,9 @@ public class EsbPaletteFactory {
 					endpoitPalette.setVisible(false);
 					defineEpPalette.setVisible(false);
 					seqPalette.setVisible(false);
-					linksPalette.setVisible(true);
+					linksPalette.setVisible(false);
 					apiResourceTool.setVisible(false);
-					//cloudConnectors.setVisible(false);
+					updateConnectorVisibility(paletteContainer, false);
 					break;
 				case SYNAPSE_CONFIG:
 				default:
@@ -1603,7 +1602,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(true);
-					//cloudConnectors.setVisible(true);
+					updateConnectorVisibility(paletteContainer, true);
 					break;
 				}
 			}
@@ -1612,6 +1611,24 @@ public class EsbPaletteFactory {
 			if (paletteViewer.getKeyHandler() instanceof CustomPaletteViewerKeyHandler) {
 				((CustomPaletteViewerKeyHandler) paletteViewer.getKeyHandler())
 						.initializeKeyHandler();
+			}
+		}
+	}
+	
+	/**
+	 * Change the visibility of Connector palette group(s) based on the opened
+	 * artifact
+	 * 
+	 * @param paletteContainer
+	 * @param visible
+	 */
+	private void updateConnectorVisibility(PaletteContainer paletteContainer, boolean visible) {
+		List children = paletteContainer.getChildren();
+
+		for (Object child : children) {
+			if (child instanceof PaletteContainer
+					&& ((PaletteContainer) child).getId().startsWith("CloudConnector")) {
+				((PaletteContainer) child).setVisible(visible);
 			}
 		}
 	}
