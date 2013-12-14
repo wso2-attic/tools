@@ -35,10 +35,10 @@ public class CloneTargetImpl extends AbstractCommonTargetImpl implements CloneTa
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSoapAction()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String SOAP_ACTION_EDEFAULT = "soap_action";
+	protected static final String SOAP_ACTION_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
@@ -55,10 +55,10 @@ public class CloneTargetImpl extends AbstractCommonTargetImpl implements CloneTa
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getToAddress()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String TO_ADDRESS_EDEFAULT = "to_address";
+	protected static final String TO_ADDRESS_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getToAddress() <em>To Address</em>}' attribute.
