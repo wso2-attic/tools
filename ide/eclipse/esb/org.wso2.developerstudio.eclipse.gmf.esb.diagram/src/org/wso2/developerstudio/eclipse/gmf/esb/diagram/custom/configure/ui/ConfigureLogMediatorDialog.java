@@ -560,7 +560,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 					property.setPropertyValueType(PropertyValueType.EXPRESSION);
 					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 							.createNamespacedProperty();
-					namespaceProperty.setPropertyValue(item.getText(1));
+					namespaceProperty.setPropertyValue(item.getText(2));
 					namespaceProperty.setNamespaces(expression.getNamespaces());
 					property.setPropertyExpression(namespaceProperty);
 				}
