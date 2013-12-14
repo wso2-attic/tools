@@ -46,6 +46,9 @@
 			<data modelProperty="Forwarding_processor.retry_interval" 
 				type="string"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController">Retry interval (Millis)</data>
+			<data modelProperty="Forwarding_processor.non_retry_http_status_codes" 
+				type="string"
+				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController">Non retry http status codes (eg - 304, 305)</data>
 			<data modelProperty="Forwarding_processor.delivery_attempts"
 				type="string"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController">Maximum delivery attempts</data>

@@ -41,10 +41,7 @@ public class MessageProcessorTransformer {
 
 	public static OMElement createMessageProcessor(MessageProcessor model) throws Exception {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		
-		// Fixing TOOLS-2026.
-		//String className = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
-		String className = "org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor";
+		String className = null;
 		
 		org.apache.synapse.message.processor.MessageProcessor messageProcessor = new ScheduledMessageForwardingProcessor();
 
@@ -52,6 +49,9 @@ public class MessageProcessorTransformer {
 		messageProcessor.setMessageStoreName(model.getMessageStore());
 
 		if (model.getProcessorType() == MessageProcessorType.SCHEDULED_MSG_FORWARDING) {
+			// Fixing TOOLS-2026.
+			//className = "org.apache.synapse.message.processors.forward.ScheduledMessageForwardingProcessor";
+			className = "org.apache.synapse.message.processor.impl.forwarder.ScheduledMessageForwardingProcessor";
 			if(model.getEndpointName() != null && StringUtils.isNotBlank(model.getEndpointName().getKeyValue())) {
 				messageProcessor.setTargetEndpoint(model.getEndpointName().getKeyValue());
 			}
@@ -95,6 +95,9 @@ public class MessageProcessorTransformer {
 			if (StringUtils.isNotBlank(model.getPinnedServers())) {
 				parameters.put("pinnedServers", model.getPinnedServers());
 			}
+			if (StringUtils.isNotBlank(model.getNonRetryHttpStatusCodes())) {
+				parameters.put("non.retry.status.codes", model.getNonRetryHttpStatusCodes());
+			}
 
 		} else if (model.getProcessorType() == MessageProcessorType.MSG_SAMPLING) {			
 			// Fixing TOOLS-2026.
@@ -126,7 +129,12 @@ public class MessageProcessorTransformer {
 			}
 
 		} else if (model.getProcessorType() == MessageProcessorType.CUSTOM) {
-			className = model.getMessageProcessorProvider();
+			if (StringUtils.isNotBlank(model.getMessageProcessorProvider())) {
+				className = model.getMessageProcessorProvider();
+			} else {
+				className = "";
+			}
+			
 			EList<MessageProcessorParameter> processorParameters = model.getParameters();
 			for (MessageProcessorParameter param : processorParameters) {
 				if (StringUtils.isNotBlank(param.getParameterName())
@@ -146,7 +154,7 @@ public class MessageProcessorTransformer {
 		} else {
 			messageProcessorElement.addAttribute("class", className, null);
 		}
-
+			
 		return messageProcessorElement;
 	}
 }

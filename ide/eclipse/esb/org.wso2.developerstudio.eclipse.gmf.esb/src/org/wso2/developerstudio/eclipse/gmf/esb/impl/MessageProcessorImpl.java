@@ -69,6 +69,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getQuartzConfigFilePath <em>Quartz Config File Path</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getCronExpression <em>Cron Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getPinnedServers <em>Pinned Servers</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getNonRetryHttpStatusCodes <em>Non Retry Http Status Codes</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageProcessorImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
@@ -415,6 +416,26 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 	 * @ordered
 	 */
 	protected String pinnedServers = PINNED_SERVERS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNonRetryHttpStatusCodes() <em>Non Retry Http Status Codes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNonRetryHttpStatusCodes()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NON_RETRY_HTTP_STATUS_CODES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNonRetryHttpStatusCodes() <em>Non Retry Http Status Codes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNonRetryHttpStatusCodes()
+	 * @generated
+	 * @ordered
+	 */
+	protected String nonRetryHttpStatusCodes = NON_RETRY_HTTP_STATUS_CODES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
@@ -971,6 +992,27 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getNonRetryHttpStatusCodes() {
+		return nonRetryHttpStatusCodes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNonRetryHttpStatusCodes(String newNonRetryHttpStatusCodes) {
+		String oldNonRetryHttpStatusCodes = nonRetryHttpStatusCodes;
+		nonRetryHttpStatusCodes = newNonRetryHttpStatusCodes;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES, oldNonRetryHttpStatusCodes, nonRetryHttpStatusCodes));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<MessageProcessorParameter> getParameters() {
 		if (parameters == null) {
 			parameters = new EObjectContainmentEList<MessageProcessorParameter>(MessageProcessorParameter.class, this, EsbPackage.MESSAGE_PROCESSOR__PARAMETERS);
@@ -1046,6 +1088,8 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 				return getCronExpression();
 			case EsbPackage.MESSAGE_PROCESSOR__PINNED_SERVERS:
 				return getPinnedServers();
+			case EsbPackage.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES:
+				return getNonRetryHttpStatusCodes();
 			case EsbPackage.MESSAGE_PROCESSOR__PARAMETERS:
 				return getParameters();
 		}
@@ -1117,6 +1161,9 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 				return;
 			case EsbPackage.MESSAGE_PROCESSOR__PINNED_SERVERS:
 				setPinnedServers((String)newValue);
+				return;
+			case EsbPackage.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES:
+				setNonRetryHttpStatusCodes((String)newValue);
 				return;
 			case EsbPackage.MESSAGE_PROCESSOR__PARAMETERS:
 				getParameters().clear();
@@ -1191,6 +1238,9 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 			case EsbPackage.MESSAGE_PROCESSOR__PINNED_SERVERS:
 				setPinnedServers(PINNED_SERVERS_EDEFAULT);
 				return;
+			case EsbPackage.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES:
+				setNonRetryHttpStatusCodes(NON_RETRY_HTTP_STATUS_CODES_EDEFAULT);
+				return;
 			case EsbPackage.MESSAGE_PROCESSOR__PARAMETERS:
 				getParameters().clear();
 				return;
@@ -1244,6 +1294,8 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 				return CRON_EXPRESSION_EDEFAULT == null ? cronExpression != null : !CRON_EXPRESSION_EDEFAULT.equals(cronExpression);
 			case EsbPackage.MESSAGE_PROCESSOR__PINNED_SERVERS:
 				return PINNED_SERVERS_EDEFAULT == null ? pinnedServers != null : !PINNED_SERVERS_EDEFAULT.equals(pinnedServers);
+			case EsbPackage.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES:
+				return NON_RETRY_HTTP_STATUS_CODES_EDEFAULT == null ? nonRetryHttpStatusCodes != null : !NON_RETRY_HTTP_STATUS_CODES_EDEFAULT.equals(nonRetryHttpStatusCodes);
 			case EsbPackage.MESSAGE_PROCESSOR__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 		}
@@ -1290,6 +1342,8 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 		result.append(cronExpression);
 		result.append(", pinnedServers: ");
 		result.append(pinnedServers);
+		result.append(", nonRetryHttpStatusCodes: ");
+		result.append(nonRetryHttpStatusCodes);
 		result.append(')');
 		return result.toString();
 	}

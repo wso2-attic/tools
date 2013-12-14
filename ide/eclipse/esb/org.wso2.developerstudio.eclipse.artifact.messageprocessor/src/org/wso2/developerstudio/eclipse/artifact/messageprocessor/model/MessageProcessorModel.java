@@ -63,6 +63,7 @@ public class MessageProcessorModel extends ProjectDataModel {
 	private String classFQN;
 	private String endpointName;
 	private String processorState;
+	private String nonRetryHttpStatusCodes;
 	private int forwardingInterval;
 	private int samplingInterval;
 	private int samplingConcurrency;
@@ -266,6 +267,14 @@ public class MessageProcessorModel extends ProjectDataModel {
 	public void setSelectedProcessorList(List<OMElement> selectedProcessorList) {
 		this.selectedProcessorList = selectedProcessorList;
 	}
+	
+	public String getNonRetryHttpStatusCodes() {
+		return nonRetryHttpStatusCodes;
+	}
+
+	public void setNonRetryHttpStatusCode(String nonRetryHttpStatusCode) {
+		this.nonRetryHttpStatusCodes = nonRetryHttpStatusCode;
+	}
 
 	@Override
 	public Object getModelPropertyValue(String key) {
@@ -322,6 +331,8 @@ public class MessageProcessorModel extends ProjectDataModel {
 				modelPropertyValue = getSamplingInterval();
 			} else if (key.equals("sampling_processor.sampling_concurrency")) {
 				modelPropertyValue = getSamplingConcurrency();
+			} else if (key.equals("Forwarding_processor.non_retry_http_status_codes")) {
+				modelPropertyValue = getNonRetryHttpStatusCodes();
 			}
 		}
 
@@ -429,6 +440,8 @@ public class MessageProcessorModel extends ProjectDataModel {
 			} catch (NumberFormatException ex) {
 				// ignore
 			}
+		} else if (key.equals("Forwarding_processor.non_retry_http_status_codes")) {
+			setNonRetryHttpStatusCode(data.toString());
 		}
 
 		return returnValue;

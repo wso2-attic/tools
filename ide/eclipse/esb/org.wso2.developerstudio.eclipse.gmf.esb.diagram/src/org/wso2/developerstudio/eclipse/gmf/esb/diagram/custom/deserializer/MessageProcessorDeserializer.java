@@ -35,6 +35,7 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.MESSA
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.MESSAGE_PROCESSOR__ENDPOINT_NAME;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.MESSAGE_PROCESSOR__SAMPLING_INTERVAL;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.MESSAGE_PROCESSOR__SAMPLING_CONCURRENCY;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -178,6 +179,13 @@ AbstractEsbNodeDeserializer<MessageProcessor, org.wso2.developerstudio.eclipse.g
 								executeSetValueCommand(MESSAGE_PROCESSOR__PROCESSOR_STATE,
 										ProcessorState.DEACTIVATE);
 							}
+						}
+					}
+					if (parameters.containsKey("non.retry.status.codes")) {
+						Object value = parameters.get("non.retry.status.codes");
+						if (StringUtils.isNotBlank(value.toString())) {
+							executeSetValueCommand(MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES,
+									value.toString());
 						}
 					}
 				} else if (dummyMessageProcessor.getClassName().equals(messageSamplingProcessor)

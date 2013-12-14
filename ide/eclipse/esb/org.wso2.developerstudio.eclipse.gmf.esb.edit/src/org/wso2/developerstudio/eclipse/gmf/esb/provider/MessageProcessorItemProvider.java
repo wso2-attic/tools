@@ -87,6 +87,7 @@ public class MessageProcessorItemProvider
 			addProcessorStatePropertyDescriptor(object);
 			addForwardingIntervalPropertyDescriptor(object);
 			addRetryIntervalPropertyDescriptor(object);
+			addNonRetryHttpStatusCodesPropertyDescriptor(object);
 			addMaxDeliveryAttemptsPropertyDescriptor(object);
 			addAxis2ClientRepositoryPropertyDescriptor(object);
 			addAxis2ConfigurationPropertyDescriptor(object);
@@ -538,6 +539,28 @@ public class MessageProcessorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Non Retry Http Status Codes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNonRetryHttpStatusCodesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MessageProcessor_nonRetryHttpStatusCodes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MessageProcessor_nonRetryHttpStatusCodes_feature", "_UI_MessageProcessor_type"),
+				 EsbPackage.Literals.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_AdditionalParametersPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Parameters feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -641,6 +664,7 @@ public class MessageProcessorItemProvider
 			case EsbPackage.MESSAGE_PROCESSOR__QUARTZ_CONFIG_FILE_PATH:
 			case EsbPackage.MESSAGE_PROCESSOR__CRON_EXPRESSION:
 			case EsbPackage.MESSAGE_PROCESSOR__PINNED_SERVERS:
+			case EsbPackage.MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.MESSAGE_PROCESSOR__ENDPOINT_NAME:

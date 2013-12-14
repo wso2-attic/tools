@@ -9030,8 +9030,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMessageProcessor_NonRetryHttpStatusCodes() {
+		return (EAttribute)messageProcessorEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getMessageProcessor_Parameters() {
-		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(19);
+		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -16846,6 +16855,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__QUARTZ_CONFIG_FILE_PATH);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__CRON_EXPRESSION);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__PINNED_SERVERS);
+		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__NON_RETRY_HTTP_STATUS_CODES);
 		createEReference(messageProcessorEClass, MESSAGE_PROCESSOR__PARAMETERS);
 
 		apiHandlerEClass = createEClass(API_HANDLER);
@@ -18849,6 +18859,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getMessageProcessor_QuartzConfigFilePath(), ecorePackage.getEString(), "quartzConfigFilePath", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_CronExpression(), ecorePackage.getEString(), "cronExpression", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_PinnedServers(), ecorePackage.getEString(), "pinnedServers", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageProcessor_NonRetryHttpStatusCodes(), ecorePackage.getEString(), "nonRetryHttpStatusCodes", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMessageProcessor_Parameters(), this.getMessageProcessorParameter(), null, "parameters", null, 0, -1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(apiHandlerEClass, APIHandler.class, "APIHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

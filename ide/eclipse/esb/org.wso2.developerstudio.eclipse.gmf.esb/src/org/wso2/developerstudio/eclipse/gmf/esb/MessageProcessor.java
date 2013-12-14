@@ -44,6 +44,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getQuartzConfigFilePath <em>Quartz Config File Path</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getCronExpression <em>Cron Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getPinnedServers <em>Pinned Servers</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getNonRetryHttpStatusCodes <em>Non Retry Http Status Codes</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
@@ -555,6 +556,32 @@ public interface MessageProcessor extends EsbElement {
 	 * @generated
 	 */
 	void setPinnedServers(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Non Retry Http Status Codes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Non Retry Http Status Codes</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Non Retry Http Status Codes</em>' attribute.
+	 * @see #setNonRetryHttpStatusCodes(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getMessageProcessor_NonRetryHttpStatusCodes()
+	 * @model
+	 * @generated
+	 */
+	String getNonRetryHttpStatusCodes();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor#getNonRetryHttpStatusCodes <em>Non Retry Http Status Codes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Non Retry Http Status Codes</em>' attribute.
+	 * @see #getNonRetryHttpStatusCodes()
+	 * @generated
+	 */
+	void setNonRetryHttpStatusCodes(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
