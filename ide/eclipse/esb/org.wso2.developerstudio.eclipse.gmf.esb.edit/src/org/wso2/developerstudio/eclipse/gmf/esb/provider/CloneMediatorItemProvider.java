@@ -70,6 +70,7 @@ public class CloneMediatorItemProvider
 			addCloneIDPropertyDescriptor(object);
 			addSequentialMediationPropertyDescriptor(object);
 			addContinueParentPropertyDescriptor(object);
+			addTargetsPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
@@ -136,6 +137,28 @@ public class CloneMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Targets feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CloneMediator_targets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CloneMediator_targets_feature", "_UI_CloneMediator_type"),
+				 EsbPackage.Literals.CLONE_MEDIATOR__TARGETS,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

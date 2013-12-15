@@ -344,6 +344,8 @@ public class EsbPropertySource extends PropertySource {
             return new CloudConnectorAvailableConfigPropertyDescriptor(object, itemPropertyDescriptor);     
 		}else if(pkg.getIterateMediator_SequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if (pkg.getCloneMediator_Targets().equals(feature)) {
+			return new CloneTargetConfigurationPropertyDescriptor(object, itemPropertyDescriptor);
 		}
  		
 			
