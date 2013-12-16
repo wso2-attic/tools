@@ -50,7 +50,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PORT(6, "PORT", "port"),
+	PORT(-1, "PORT", "port"),
 
 	/**
 	 * The '<em><b>PATH</b></em>' literal object.
@@ -100,7 +100,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FULL(7, "FULL", "full");
+	FULL(-2, "FULL", "full");
 
 	/**
 	 * The '<em><b>PROTOCOL</b></em>' literal value.
@@ -145,7 +145,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PORT_VALUE = 6;
+	public static final int PORT_VALUE = -1;
 
 	/**
 	 * The '<em><b>PATH</b></em>' literal value.
@@ -220,7 +220,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FULL_VALUE = 7;
+	public static final int FULL_VALUE = -2;
 
 	/**
 	 * An array of all the '<em><b>Rule Fragment Type</b></em>' enumerators.

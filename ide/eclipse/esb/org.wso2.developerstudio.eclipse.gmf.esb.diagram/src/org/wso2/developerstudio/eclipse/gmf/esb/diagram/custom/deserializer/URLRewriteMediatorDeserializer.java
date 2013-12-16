@@ -108,9 +108,9 @@ public class URLRewriteMediatorDeserializer extends AbstractEsbNodeDeserializer<
 					urlRewriteRuleAction.setRuleFragment(RuleFragmentType.QUERY);
 				}else if(rewriteActions.getFragmentIndex()==5){
 					urlRewriteRuleAction.setRuleFragment(RuleFragmentType.REF);
-				}else if(rewriteActions.getFragmentIndex()==6){
+				}else if(rewriteActions.getFragmentIndex()== -1){
 					urlRewriteRuleAction.setRuleFragment(RuleFragmentType.PORT);
-				}else if(rewriteActions.getFragmentIndex()==7){
+				}else if(rewriteActions.getFragmentIndex()== -2){
 					urlRewriteRuleAction.setRuleFragment(RuleFragmentType.FULL);
 				}
 				

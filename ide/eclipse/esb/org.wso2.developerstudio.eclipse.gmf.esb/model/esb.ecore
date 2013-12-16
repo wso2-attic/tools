@@ -2240,12 +2240,12 @@
   <eClassifiers xsi:type="ecore:EEnum" name="RuleFragmentType">
     <eLiterals name="PROTOCOL" literal="protocol"/>
     <eLiterals name="HOST" value="2" literal="host"/>
-    <eLiterals name="PORT" value="6" literal="port"/>
+    <eLiterals name="PORT" value="-1" literal="port"/>
     <eLiterals name="PATH" value="3" literal="path"/>
     <eLiterals name="QUERY" value="4" literal="query"/>
     <eLiterals name="REF" value="5" literal="ref"/>
     <eLiterals name="USER" value="1" literal="user"/>
-    <eLiterals name="FULL" value="7" literal="full"/>
+    <eLiterals name="FULL" value="-2" literal="full"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="URLRewriteRule" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="urlRewriteRuleCondition"
