@@ -75,11 +75,10 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 			for (URLRewriteRule urlRewriteRule : urlRewriteRules) {
 				 RewriteRule rule = new RewriteRule();
 				 EvaluatorExpressionProperty ruleCondition = urlRewriteRule.getUrlRewriteRuleCondition();
-				 if (ruleCondition!=null) {
-					 
-					 if(!StringUtils.isBlank(ruleCondition
-								.getEvaluatorValue())){
-						 try {
+				if (ruleCondition != null) {
+
+					if (!StringUtils.isBlank(ruleCondition.getEvaluatorValue())) {
+						try {
 							OMElement evaluatorExpressionOM = AXIOMUtil.stringToOM(ruleCondition
 									.getEvaluatorValue());
 							Evaluator evaluator = EvaluatorFactoryFinder.getInstance()
@@ -88,29 +87,49 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 						} catch (Exception e) {
 							log.error("Ignoring invalid condition configuration", e);
 						}
-					 } else{
-						 log.warn("Ignoring blank condition configuration");
-					 }
-					
+					} else {
+						log.warn("Ignoring blank condition configuration");
+					}
+
 				}
+				
 				EList<URLRewriteRuleAction> rewriteRuleAction = urlRewriteRule.getRewriteRuleAction();
-		         for (URLRewriteRuleAction urlRewriteRuleAction : rewriteRuleAction) {
-		        	 RewriteAction rewriteAction = new RewriteAction();
-		        	 rewriteAction.setActionType(urlRewriteRuleAction.getRuleAction().getValue());
-		        	 rewriteAction.setFragmentIndex(urlRewriteRuleAction.getRuleFragment().getValue());
-		        	 rewriteAction.setRegex(urlRewriteRuleAction.getActionRegex());
-		        	 if(null==urlRewriteRuleAction.getActionValue()){
-		        		 SynapseXPath synapseXPath= new SynapseXPath(urlRewriteRuleAction.getActionExpression().getPropertyValue());
-		        		 Iterator iterator = urlRewriteRuleAction.getActionExpression().getNamespaces().entrySet().iterator();
-					     while(iterator.hasNext()){
-							Entry<String, String> entry=(Entry<String, String>) iterator.next();
-		        			synapseXPath.addNamespace(entry.getKey(), entry.getValue());
-		        		 }
-		        		 rewriteAction.setXpath(synapseXPath);
-		        	 }else{
-		        		 rewriteAction.setValue(urlRewriteRuleAction.getActionValue()); 
-		        	 }
-					 rule.getActions().add(rewriteAction);
+				for (URLRewriteRuleAction urlRewriteRuleAction : rewriteRuleAction) {
+					RewriteAction rewriteAction = new RewriteAction();
+
+					if (StringUtils.isNotBlank(urlRewriteRuleAction.getActionValue())) {
+						rewriteAction.setValue(urlRewriteRuleAction.getActionValue());
+					} else if (urlRewriteRuleAction.getActionExpression() != null && StringUtils.isNotBlank(urlRewriteRuleAction
+								.getActionExpression().getPropertyValue())) {
+						SynapseXPath synapseXPath = new SynapseXPath(urlRewriteRuleAction
+								.getActionExpression().getPropertyValue());
+						Iterator iterator = urlRewriteRuleAction.getActionExpression()
+								.getNamespaces().entrySet().iterator();
+						while (iterator.hasNext()) {
+							Entry<String, String> entry = (Entry<String, String>) iterator.next();
+							synapseXPath.addNamespace(entry.getKey(), entry.getValue());
+						}
+						rewriteAction.setXpath(synapseXPath);
+					} else {
+						// Doesn't allow to action without any value or expression defined. 
+						continue;
+					}
+
+					// Only 'Replace' action allows regex.
+					if (urlRewriteRuleAction.getRuleAction().getValue() == 3) {
+						if (StringUtils.isNotBlank(urlRewriteRuleAction.getActionRegex())) {
+							rewriteAction.setRegex(urlRewriteRuleAction.getActionRegex());
+						} else {
+							// Doesn't allow to add 'Replace' action without a 'regex' value.
+							continue;
+						}
+					}
+					rewriteAction.setActionType(urlRewriteRuleAction.getRuleAction().getValue());
+					rewriteAction.setFragmentIndex(urlRewriteRuleAction.getRuleFragment()
+							.getValue());
+					
+
+					rule.getActions().add(rewriteAction);
 				}
 		        
 		         urlReWriterMediator.addRule(rule);

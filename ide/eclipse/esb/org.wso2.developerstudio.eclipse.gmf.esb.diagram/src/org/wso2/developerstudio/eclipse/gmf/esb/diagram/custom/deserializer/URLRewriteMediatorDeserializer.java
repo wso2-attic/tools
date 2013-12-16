@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.commons.evaluators.Evaluator;
 import org.apache.synapse.commons.evaluators.EvaluatorException;
 import org.apache.synapse.commons.evaluators.config.EvaluatorSerializerFinder;
@@ -87,6 +88,10 @@ public class URLRewriteMediatorDeserializer extends AbstractEsbNodeDeserializer<
 					urlRewriteRuleAction.setRuleAction(RuleActionType.PREPEND);
 				}else if(rewriteActions.getActionType()==3){
 					urlRewriteRuleAction.setRuleAction(RuleActionType.REPLACE);
+					// Only 'Replace' action allows regex.
+					if (StringUtils.isNotBlank(rewriteActions.getRegex())) {
+						urlRewriteRuleAction.setActionRegex(rewriteActions.getRegex());
+					}				
 				}else if(rewriteActions.getActionType()==4){
 					urlRewriteRuleAction.setRuleAction(RuleActionType.REMOVE);
 				}
@@ -109,7 +114,6 @@ public class URLRewriteMediatorDeserializer extends AbstractEsbNodeDeserializer<
 					urlRewriteRuleAction.setRuleFragment(RuleFragmentType.FULL);
 				}
 				
-				urlRewriteRuleAction.setActionRegex(rewriteActions.getRegex());
 				if(rewriteActions.getValue()!=null){
 					urlRewriteRuleAction.setRuleOption(RuleOptionType.VALUE);
 					urlRewriteRuleAction.setActionValue(rewriteActions.getValue());

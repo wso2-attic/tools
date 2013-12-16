@@ -449,7 +449,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		item.setText(0, RuleActionType.get(action.getAction()).getLiteral());
 		item.setText(1, RuleFragmentType.get(action.getFragment()).getLiteral());
 		item.setText(2, RuleOptionType.get(action.getOption()).getLiteral());
-		if (action.getOption() == 1) {
+		if (action.getOption() == 1 && action.getNsproperty() != null) {
 			item.setText(3, action.getNsproperty().getPropertyValue());
 		} else {
 			if(action.getValue()!=null){
