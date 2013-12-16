@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.endpoints.FailoverEndpoint;
@@ -45,7 +46,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		//try{
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject.");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
-		FailoverEndpoint synapseEP = create(info,visualEndPoint,null,null);
+		FailoverEndpoint synapseEP = create(info, visualEndPoint, visualEndPoint.getEndPointName(), null);
 		setEndpointToSendCallOrProxy(info, visualEndPoint, synapseEP);
 		
 		if(!info.isEndPointFound){
@@ -111,7 +112,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		//try{
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject.");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
-		create(info, visualEndPoint, null,endPoints);
+		create(info, visualEndPoint, visualEndPoint.getEndPointName(), endPoints);
 		
 /*		org.apache.synapse.endpoints.FailoverEndpoint synapseFailEP = new org.apache.synapse.endpoints.FailoverEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
@@ -147,16 +148,18 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
-		Endpoint synapseEP = create(information,visualEndPoint,null,null);
+		Endpoint synapseEP = create(information, visualEndPoint, visualEndPoint.getEndPointName(), null);
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 	
 	public FailoverEndpoint create(TransformationInfo info, FailoverEndPoint visualEndPoint,
 			String name,List<Endpoint> endPoints) {
 		FailoverEndpoint synapseFailEP = new FailoverEndpoint();
-		if (name != null) {
+		
+		if (StringUtils.isNotBlank(name)) {
 			synapseFailEP.setName(name);
 		}
+		
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
 		synapseFailEP.setChildren(endPointsList);

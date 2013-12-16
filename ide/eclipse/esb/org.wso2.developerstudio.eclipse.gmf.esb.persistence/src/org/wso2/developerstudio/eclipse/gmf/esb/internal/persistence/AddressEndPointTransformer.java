@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -47,7 +48,7 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
 		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
-		Endpoint synapseEP = create(visualEndPoint,null);
+		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendCallOrProxy(info, visualEndPoint, synapseEP);
 
 		if (!info.isEndPointFound) {
@@ -76,7 +77,6 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 			}
 			transformedMediators.add(nextElement);
 		}
-
 		
 		// Transform endpoint output data flow.
 		doTransform(info, visualEndPoint.getOutputConnector());
@@ -92,6 +92,10 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		
 		createAdvanceOptions(addressEndPoint,synapseAddEP);
 		synapseAddEP.getDefinition().setAddress(addressEndPoint.getURI());
+		
+		if (StringUtils.isNotBlank(addressEndPoint.getEndPointName())) {
+			synapseAddEP.setName(addressEndPoint.getEndPointName());
+		}
 		
 		/*EndpointDefinition synapseEPDef = new EndpointDefinition();
 		synapseEPDef.setAddress(addressEndPoint.getURI());
@@ -147,10 +151,11 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 
 	
 	
-	public AddressEndpoint create(AddressEndPoint visualEndPoint,String name){ 
+	public AddressEndpoint create(AddressEndPoint visualEndPoint, String name){ 
 		AddressEndPoint addressEndPoint = visualEndPoint;	
 		AddressEndpoint synapseAddEP = new AddressEndpoint();
-		if(name !=null){
+		
+		if(StringUtils.isNotBlank(name)){
 			synapseAddEP.setName(name);
 		}
 		
@@ -202,7 +207,7 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		
 		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
 		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
-		Endpoint synapseEP = create(visualEndPoint,null);
+		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 

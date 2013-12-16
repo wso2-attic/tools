@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.endpoints.RecipientListEndpoint;
@@ -64,7 +65,7 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 	public void transform(TransformationInfo info, EsbNode subject) throws Exception {
 		Assert.isTrue(subject instanceof RecipientListEndPoint, "Invalid subject.");
 		RecipientListEndPoint endPointModel = (RecipientListEndPoint) subject;
-		Endpoint synapseEP = create(info, endPointModel, null, null);
+		Endpoint synapseEP = create(info, endPointModel, endPointModel.getEndPointName(), null);
 		setEndpointToSendCallOrProxy(info, endPointModel, synapseEP);
 
 		if (!info.isEndPointFound) {
@@ -108,7 +109,7 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 			List<Endpoint> endPoints) throws Exception {
 		Assert.isTrue(subject instanceof RecipientListEndPoint, "Invalid subject.");
 		RecipientListEndPoint model = (RecipientListEndPoint) subject;
-		create(info, model, null,endPoints);
+		create(info, model, model.getEndPointName(), endPoints);
 
 	}
 
@@ -116,7 +117,7 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 			SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof RecipientListEndPoint, "Invalid subject");
 		RecipientListEndPoint endPointModel = (RecipientListEndPoint) subject;
-		Endpoint synapseEP = create(information, endPointModel, null, null);
+		Endpoint synapseEP = create(information, endPointModel, endPointModel.getEndPointName(), null);
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 
@@ -133,7 +134,7 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 			recipientList = new RecipientListEndpoint();
 		}
 		
-		if (name != null) {
+		if (StringUtils.isNotBlank(name)) {
 			recipientList.setName(name);
 		}
 		

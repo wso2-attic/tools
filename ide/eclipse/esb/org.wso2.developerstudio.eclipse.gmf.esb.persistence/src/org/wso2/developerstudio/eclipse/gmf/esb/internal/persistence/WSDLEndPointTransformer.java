@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.WSDLEndpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -25,7 +26,7 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		
 		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
 		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
-		Endpoint synapseEP = create(visualEndPoint,null);
+		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendCallOrProxy(information, visualEndPoint, synapseEP);
 		
 		if(visualEndPoint.getOutputConnector()!=null){
@@ -67,7 +68,7 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
 		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
 		
-		Endpoint endPoint =(Endpoint)create(visualEndPoint,null);
+		Endpoint endPoint =(Endpoint)create(visualEndPoint, visualEndPoint.getEndPointName());
 		endPoints.add(endPoint);		
 		//Next node may be a Failover endPoint. So that this should be edited to be compatible with that also.
 		info.setParentSequence(info.getOriginOutSequence());
@@ -83,7 +84,8 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		synapseWSDLEP.setWsdlURI(visualEndPoint.getWsdlUri());
 		synapseWSDLEP.setServiceName(visualEndPoint.getService());
 		synapseWSDLEP.setPortName(visualEndPoint.getPort());
-		if(name!=null){
+		
+		if(StringUtils.isNotBlank(name)){
 			synapseWSDLEP.setName(name);
 		}
 		
@@ -138,7 +140,7 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 		
 		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
 		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
-		Endpoint synapseEP = create(visualEndPoint,null);
+		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 

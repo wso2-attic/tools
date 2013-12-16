@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -46,7 +47,7 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof EndPoint, "Invalid subject");
 		DefaultEndPoint visualEP = (DefaultEndPoint) subject;
-		DefaultEndpoint synapseEP = create(visualEP,null);
+		DefaultEndpoint synapseEP = create(visualEP, visualEP.getEndPointName());
 		setEndpointToSendCallOrProxy(info, visualEP, synapseEP);
 		
 		
@@ -77,7 +78,6 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 			transformedMediators.add(nextElement);
 		}
 
-
 		// Transform endpoint output data flow.
 		// TODO: find out why this was commented out.
 		// might want to check if the flow is connected back to initial proxy
@@ -89,7 +89,7 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 			List<Endpoint> endPoints) {
 		Assert.isTrue(subject instanceof EndPoint, "Invalid subject");
 		DefaultEndPoint visualEP = (DefaultEndPoint) subject;
-		Endpoint endPoint=(Endpoint)create(visualEP,null);
+		Endpoint endPoint=(Endpoint)create(visualEP, visualEP.getEndPointName());
 		endPoints.add(endPoint);
 		
 		//Next node may be a Failover endPoint. So that this should be edited to be compatible with that also.
@@ -101,10 +101,10 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 		
 	}
 	
-	public DefaultEndpoint create(DefaultEndPoint visualEndPoint,String name){ 
+	public DefaultEndpoint create(DefaultEndPoint visualEndPoint, String name){ 
 		
 		DefaultEndpoint synapseEP = new DefaultEndpoint();
-		if(name!=null){
+		if (StringUtils.isNotBlank(name)) {
 			synapseEP.setName(name);
 		}
 		createAdvanceOptions(visualEndPoint,synapseEP);
@@ -151,7 +151,7 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof DefaultEndPoint, "Invalid subject");
 		DefaultEndPoint visualEndPoint = (DefaultEndPoint) subject;
-		Endpoint synapseEP = create(visualEndPoint,null);
+		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 

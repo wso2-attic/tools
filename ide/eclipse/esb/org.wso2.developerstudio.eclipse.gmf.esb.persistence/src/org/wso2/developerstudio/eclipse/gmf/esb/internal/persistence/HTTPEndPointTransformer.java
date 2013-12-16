@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -41,7 +42,7 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof HTTPEndpoint, "Invalid subject");
 		HTTPEndpoint visualEndPoint = (HTTPEndpoint) subject;
-		Endpoint synapseEP = create(visualEndPoint,null);
+		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendCallOrProxy(information, visualEndPoint, synapseEP);
 		
 		if (!information.isEndPointFound) {
@@ -80,7 +81,8 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 	public org.apache.synapse.endpoints.HTTPEndpoint create(HTTPEndpoint visualEndPoint,String name){ 
 		HTTPEndpoint httpEndPoint = visualEndPoint;	
 		org.apache.synapse.endpoints.HTTPEndpoint synapseHttpEP = new org.apache.synapse.endpoints.HTTPEndpoint();
-		if(name !=null){
+		
+		if(StringUtils.isNotBlank(name)){
 			synapseHttpEP.setName(name);
 		}
 		
@@ -124,7 +126,7 @@ public class HTTPEndPointTransformer extends AbstractEndpointTransformer {
 
 		Assert.isTrue(subject instanceof HTTPEndpoint, "Invalid subject");
 		HTTPEndpoint visualEndPoint = (HTTPEndpoint) subject;
-		Endpoint synapseEP = create(visualEndPoint,null);
+		Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 

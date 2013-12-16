@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
@@ -53,7 +54,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		//try{
 		Assert.isTrue(subject instanceof LoadBalanceEndPoint, "Invalid subject.");
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;		
-		Endpoint synapseEP = create(information, visualEndPoint, null, null);
+		Endpoint synapseEP = create(information, visualEndPoint, visualEndPoint.getEndPointName(), null);
 		setEndpointToSendCallOrProxy(information, visualEndPoint, synapseEP);
 		
 		
@@ -133,7 +134,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		//try{
 		Assert.isTrue(subject instanceof LoadBalanceEndPoint, "Invalid subject.");
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;
-		create(info, visualEndPoint, null, endPoints);
+		create(info, visualEndPoint, visualEndPoint.getEndPointName(), endPoints);
 		
 /*		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
@@ -176,7 +177,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof LoadBalanceEndPoint, "Invalid subject");
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;
-		Endpoint synapseEP = create(information, visualEndPoint, null, null);
+		Endpoint synapseEP = create(information, visualEndPoint, visualEndPoint.getEndPointName(), null);
 		setEndpointToSendOrCallMediator(sequence, synapseEP);
 	}
 	
@@ -184,9 +185,11 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 			String name,List<Endpoint> endPoints) {
 		//LoadbalanceEndpoint synapseLBEP = new LoadbalanceEndpoint();
 		SALoadbalanceEndpoint synapseLBEP =new SALoadbalanceEndpoint();
-		if (name != null) {
+		
+		if (StringUtils.isNotBlank(name)) {
 			synapseLBEP.setName(name);
 		}
+		
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		/*
 		 * We should give this LoadbalanceAlgorithm class at runtime.User should be requested to give a class.		

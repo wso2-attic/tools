@@ -16,12 +16,14 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.END_POINT__END_POINT_NAME;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.LOAD_BALANCE_END_POINT__ALGORITHM;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TYPE;
 
 import java.util.Iterator;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.dispatch.Dispatcher;
 import org.apache.synapse.endpoints.dispatch.HttpSessionDispatcher;
@@ -109,6 +111,9 @@ public class LoadBalanceEndpointDeserializer extends AbstractComplexEndPointDese
 
 		}
 		
+		if(StringUtils.isNotBlank(loadbalanceEndpoint.getName())){
+            executeSetValueCommand(END_POINT__END_POINT_NAME, loadbalanceEndpoint.getName());
+		}
 
 		return visualEndPoint;
 	}

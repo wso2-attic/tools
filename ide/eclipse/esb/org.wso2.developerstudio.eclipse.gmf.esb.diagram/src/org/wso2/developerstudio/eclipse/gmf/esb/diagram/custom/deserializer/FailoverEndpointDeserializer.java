@@ -16,9 +16,13 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.END_POINT__END_POINT_NAME;
+
 import java.util.Iterator;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.AbstractEndpoint;
+import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -57,6 +61,10 @@ public class FailoverEndpointDeserializer extends AbstractComplexEndPointDeseria
 		}
 		
 		deserializeComplexEndpoint(failoverEndpoint);
+			
+		if(StringUtils.isNotBlank(failoverEndpoint.getName())){
+             executeSetValueCommand(END_POINT__END_POINT_NAME, failoverEndpoint.getName());
+		}
 		
 		return endPoint;
 	}

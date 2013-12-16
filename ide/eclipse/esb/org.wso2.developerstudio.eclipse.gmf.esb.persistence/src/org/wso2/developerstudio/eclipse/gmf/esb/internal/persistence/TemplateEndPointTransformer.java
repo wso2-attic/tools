@@ -17,6 +17,8 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
@@ -39,7 +41,7 @@ public class TemplateEndPointTransformer extends AbstractEndpointTransformer{
             // Check subject.
             Assert.isTrue(subject instanceof TemplateEndpoint, "Invalid subject");
             TemplateEndpoint visualEndPoint = (TemplateEndpoint) subject;
-            Endpoint synapseEP = create(visualEndPoint,null);
+            Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
         	setEndpointToSendCallOrProxy(info, visualEndPoint, synapseEP);
  
             if (!info.isEndPointFound) {
@@ -102,8 +104,9 @@ public class TemplateEndPointTransformer extends AbstractEndpointTransformer{
         public org.apache.synapse.endpoints.TemplateEndpoint create(TemplateEndpoint visualEndPoint,String name){
                 TemplateEndpoint templateEndPoint = visualEndPoint;
                 org.apache.synapse.endpoints.TemplateEndpoint synapseTemplateEP = new org.apache.synapse.endpoints.TemplateEndpoint();
-                if(name !=null){
-                        synapseTemplateEP.setName(name);
+                
+                if(StringUtils.isNotBlank(name)){
+                	synapseTemplateEP.setName(name);
                 }
  
                 createAdvanceOptions(templateEndPoint,synapseTemplateEP);
@@ -120,7 +123,7 @@ public class TemplateEndPointTransformer extends AbstractEndpointTransformer{
  
                 Assert.isTrue(subject instanceof TemplateEndpoint, "Invalid subject");
                 TemplateEndpoint visualEndPoint = (TemplateEndpoint) subject;                
-                Endpoint synapseEP = create(visualEndPoint,null);
+                Endpoint synapseEP = create(visualEndPoint, visualEndPoint.getEndPointName());
             	setEndpointToSendOrCallMediator(sequence, synapseEP);
  
         }

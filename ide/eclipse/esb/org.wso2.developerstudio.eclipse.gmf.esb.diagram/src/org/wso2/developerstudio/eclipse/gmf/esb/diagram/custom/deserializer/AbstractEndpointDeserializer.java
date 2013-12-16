@@ -42,9 +42,9 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 		String suspendErrorCodes=null;
 		String retryErrorCodes=null;
 		
-		 if(StringUtils.isNotBlank(endpoint.getName())){
+		if(StringUtils.isNotBlank(endpoint.getName())){
              executeSetValueCommand(END_POINT__END_POINT_NAME, endpoint.getName());
-		  }
+		}
 		
 		if("soap11".equals(endpoint.getDefinition().getFormat())){
 			executeSetValueCommand(ABSTRACT_END_POINT__FORMAT, EndPointMessageFormat.SOAP_11);

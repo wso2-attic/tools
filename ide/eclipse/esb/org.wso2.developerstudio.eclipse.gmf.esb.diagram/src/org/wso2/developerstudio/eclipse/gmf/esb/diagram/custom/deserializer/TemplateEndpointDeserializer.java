@@ -17,11 +17,13 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.END_POINT__END_POINT_NAME;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.TEMPLATE_ENDPOINT__TARGET_TEMPLATE;
 
 import java.util.Iterator;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -57,6 +59,10 @@ public class TemplateEndpointDeserializer extends AbstractEsbNodeDeserializer<Ab
                     property.setParameterValue(parameterMap.get(key));
                     executeAddValueCommand(((TemplateEndpoint)endPoint).getParameters(), property);
             }
+            
+		if (StringUtils.isNotBlank(templateEndpoint.getName())) {
+			executeSetValueCommand(END_POINT__END_POINT_NAME, templateEndpoint.getName());
+		}
 
             return endPoint;
     }
