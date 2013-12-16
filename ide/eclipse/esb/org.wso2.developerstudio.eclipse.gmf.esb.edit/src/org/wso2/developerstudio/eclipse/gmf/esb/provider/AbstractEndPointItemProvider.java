@@ -491,7 +491,7 @@ public class AbstractEndPointItemProvider
 	 * This adds a property descriptor for the Format feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFormatPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -505,7 +505,7 @@ public class AbstractEndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 
