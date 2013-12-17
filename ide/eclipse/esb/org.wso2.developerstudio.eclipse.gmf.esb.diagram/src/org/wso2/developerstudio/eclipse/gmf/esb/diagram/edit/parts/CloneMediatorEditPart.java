@@ -221,6 +221,7 @@ public class CloneMediatorEditPart extends MultipleCompartmentComplexFiguredAbst
 		if (childEditPart instanceof CloneMediatorTargetOutputConnectorEditPart) {
 			IFigure targetOutputConnector = ((CloneMediatorTargetOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			targetOutputConnector.setEnabled(false);
 			targetOutputConnectors.add(targetOutputConnector);
 		}
 		/*		if (childEditPart instanceof CloneMediatorTargetOutputConnectorEditPart) {

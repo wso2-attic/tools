@@ -152,6 +152,7 @@ public class ValidateMediatorEditPart extends SingleCompartmentComplexFiguredAbs
 		if (childEditPart instanceof ValidateMediatorOnFailOutputConnectorEditPart) {
 			onFailOutputConnector = ((ValidateMediatorOnFailOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			onFailOutputConnector.setEnabled(false);
 		}
 		return false;
 	}

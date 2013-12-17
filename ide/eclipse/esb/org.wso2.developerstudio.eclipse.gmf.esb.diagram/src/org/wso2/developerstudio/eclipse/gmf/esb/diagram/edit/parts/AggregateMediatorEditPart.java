@@ -162,6 +162,7 @@ public class AggregateMediatorEditPart extends SingleCompartmentComplexFiguredAb
 		if (childEditPart instanceof AggregateMediatorOnCompleteOutputConnectorEditPart) {
 			onCompleteOutputConnector = ((AggregateMediatorOnCompleteOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			onCompleteOutputConnector.setEnabled(false);
 		}
 		return false;
 	}

@@ -248,6 +248,7 @@ public class SendMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 		if (childEditPart instanceof SendMediatorEndpointOutputConnectorEditPart) {
 			endpointOutputConnector = ((SendMediatorEndpointOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			endpointOutputConnector.setEnabled(false);
 		}
 		/*if (childEditPart instanceof ScriptMediatorScriptLanguageEditPart) {
 			((ScriptMediatorScriptLanguageEditPart) childEditPart)

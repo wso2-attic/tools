@@ -169,10 +169,12 @@ public class FilterMediatorEditPart extends MultipleCompartmentComplexFiguredAbs
 		if (childEditPart instanceof FilterMediatorPassOutputConnectorEditPart) {
 			passOutputConnector = ((FilterMediatorPassOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			passOutputConnector.setEnabled(false);
 		}
 		if (childEditPart instanceof FilterMediatorFailOutputConnectorEditPart) {
 			failOutputConnector = ((FilterMediatorFailOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			failOutputConnector.setEnabled(false);
 		}
 		return false;
 	}

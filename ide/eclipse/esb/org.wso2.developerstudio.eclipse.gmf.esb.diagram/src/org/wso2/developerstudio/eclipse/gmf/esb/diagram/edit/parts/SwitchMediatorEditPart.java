@@ -190,10 +190,12 @@ public class SwitchMediatorEditPart extends MultipleCompartmentComplexFiguredAbs
 		if (childEditPart instanceof SwitchDefaultBranchOutputConnectorEditPart) {
 			defaultOutputConnector = ((SwitchDefaultBranchOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			defaultOutputConnector.setEnabled(false);
 		}
 		if (childEditPart instanceof SwitchCaseBranchOutputConnectorEditPart) {
 			IFigure caseOutputConnector = ((SwitchCaseBranchOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			caseOutputConnector.setEnabled(false);
 			caseOutputConnectors.add(caseOutputConnector);
 		}
 

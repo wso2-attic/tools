@@ -168,6 +168,7 @@ public class IterateMediatorEditPart extends SingleCompartmentComplexFiguredAbst
 		if (childEditPart instanceof IterateMediatorTargetOutputConnectorEditPart) {
 			targetOutputConnector = ((IterateMediatorTargetOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			targetOutputConnector.setEnabled(false);
 		}
 		return false;
 	}

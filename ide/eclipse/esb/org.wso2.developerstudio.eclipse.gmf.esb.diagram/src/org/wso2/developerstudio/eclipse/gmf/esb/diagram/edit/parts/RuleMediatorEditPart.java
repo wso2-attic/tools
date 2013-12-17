@@ -162,6 +162,7 @@ public class RuleMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 		if (childEditPart instanceof RuleMediatorChildMediatorsOutputConnectorEditPart) {
 			childMediatorsOutputConnector = ((RuleMediatorChildMediatorsOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			childMediatorsOutputConnector.setEnabled(false);
 		}
 		/*		if (childEditPart instanceof LogMediatorLogCategoryEditPart) {
 		 ((LogMediatorLogCategoryEditPart) childEditPart)

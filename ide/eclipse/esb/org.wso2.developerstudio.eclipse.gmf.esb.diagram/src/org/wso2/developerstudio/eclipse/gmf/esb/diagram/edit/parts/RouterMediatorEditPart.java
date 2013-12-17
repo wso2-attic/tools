@@ -172,6 +172,7 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 		if (childEditPart instanceof RouterMediatorTargetOutputConnectorEditPart) {
 			IFigure targetOutputConnector = ((RouterMediatorTargetOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			targetOutputConnector.setEnabled(false);
 			targetOutputConnectors.add(targetOutputConnector);
 		}
 

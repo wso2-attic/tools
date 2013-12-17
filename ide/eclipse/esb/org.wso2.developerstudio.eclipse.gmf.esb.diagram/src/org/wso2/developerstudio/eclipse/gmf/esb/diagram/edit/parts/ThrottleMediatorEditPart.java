@@ -170,10 +170,12 @@ public class ThrottleMediatorEditPart extends MultipleCompartmentComplexFiguredA
 		if (childEditPart instanceof ThrottleMediatorOnAcceptOutputConnectorEditPart) {
 			onAcceptOutputConnector = ((ThrottleMediatorOnAcceptOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			onAcceptOutputConnector.setEnabled(false);
 		}
 		if (childEditPart instanceof ThrottleMediatorOnRejectOutputConnectorEditPart) {
 			onRejectOutputConnector = ((ThrottleMediatorOnRejectOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			onRejectOutputConnector.setEnabled(false);
 		}
 		return false;
 	}

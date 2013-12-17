@@ -162,6 +162,7 @@ public class CallMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 		if (childEditPart instanceof CallMediatorEndpointOutputConnectorEditPart) {
 			endpointOutputConnector = ((CallMediatorEndpointOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			endpointOutputConnector.setEnabled(false);
 		}
 
 		return false;

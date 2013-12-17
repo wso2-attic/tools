@@ -172,6 +172,7 @@ public class CacheMediatorEditPart extends SingleCompartmentComplexFiguredAbstra
 		if (childEditPart instanceof CacheMediatorOnHitOutputConnectorEditPart) {
 			onHitOutputConnector = ((CacheMediatorOnHitOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			onHitOutputConnector.setEnabled(false);
 		}
 		return false;
 	}

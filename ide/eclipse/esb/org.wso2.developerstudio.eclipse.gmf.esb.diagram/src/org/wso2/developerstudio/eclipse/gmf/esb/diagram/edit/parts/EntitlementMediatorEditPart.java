@@ -176,18 +176,22 @@ public class EntitlementMediatorEditPart extends MultipleCompartmentComplexFigur
 		if (childEditPart instanceof EntitlementMediatorOnRejectOutputConnectorEditPart) {
 			onRejectOutputConnector = ((EntitlementMediatorOnRejectOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			onRejectOutputConnector.setEnabled(false);
 		}
 		if (childEditPart instanceof EntitlementMediatorOnAcceptOutputConnectorEditPart) {
 			onAcceptOutputConnector = ((EntitlementMediatorOnAcceptOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			onAcceptOutputConnector.setEnabled(false);
 		}
 		if (childEditPart instanceof EntitlementMediatorAdviceOutputConnectorEditPart) {
 			adviceOutputConnector = ((EntitlementMediatorAdviceOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			adviceOutputConnector.setEnabled(false);
 		}
 		if (childEditPart instanceof EntitlementMediatorObligationsOutputConnectorEditPart) {
 			obligationsOutputConnector = ((EntitlementMediatorObligationsOutputConnectorEditPart) childEditPart)
 					.getFigure();
+			obligationsOutputConnector.setEnabled(false);
 		}
 		return false;
 	}
