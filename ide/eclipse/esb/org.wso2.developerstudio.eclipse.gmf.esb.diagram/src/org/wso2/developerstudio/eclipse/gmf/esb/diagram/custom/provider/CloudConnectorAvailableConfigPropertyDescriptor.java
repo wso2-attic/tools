@@ -55,6 +55,8 @@ public class CloudConnectorAvailableConfigPropertyDescriptor extends PropertyDes
 	private Properties properties = new Properties();
 	private final String TYPE_TEMPLATE="synapse/sequenceTemplate";
 	private final String DEFAULT_VALUE="Select From Available Configurations";
+	private final String configNameSeparator = "::";
+	private final String connectorProperties = "cloudConnector.properties";
 	
 	public CloudConnectorAvailableConfigPropertyDescriptor(Object object,
 			IItemPropertyDescriptor itemPropertyDescriptor) {
@@ -64,41 +66,37 @@ public class CloudConnectorAvailableConfigPropertyDescriptor extends PropertyDes
 	public CellEditor createPropertyEditor(Composite parent) {		
 		ArrayList<String> definedTemplates = new ArrayList<String>();	
 		definedTemplates.add(DEFAULT_VALUE);
-		
-		
-		
-		
-		String pathName= EditorUtils.getActiveProject().getLocation().toOSString()+File.separator+"resources";
-		Properties prop = new Properties();
-		try {
-			prop.load(new FileInputStream(pathName+File.separator+"cloudConnector.properties"));
-		} catch (FileNotFoundException e) {
-			log.error("Connector configurations are not available for the project", e);
-		} catch (IOException e) {
-			e.printStackTrace();
+
+		String pathName = EditorUtils.getActiveProject().getLocation().toOSString()+File.separator+"resources";
+		File connectorPropertiesFile = new File(pathName, connectorProperties);
+		if (connectorPropertiesFile.exists()) {
+			Properties prop = new Properties();
+			
+			try {
+				prop.load(new FileInputStream(pathName + File.separator + connectorProperties));
+			} catch (FileNotFoundException e) {
+				log.error("Connector configurations are not available for the project", e);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			String localEntryConfigs=prop.getProperty("LOCAL_ENTRY_CONFIGS");
+			if (localEntryConfigs != null) {
+				String[] configs = localEntryConfigs.split(",");
+
+				for (int i = 0; i < configs.length; ++i) {
+					if (!"".equals(configs[i])) {
+						if (configs[i].split(configNameSeparator)[1]
+								.equals(((CloudConnectorOperation) object).getCloudConnectorName())) {
+							definedTemplates.add(configs[i].split(configNameSeparator)[0]);
+						}
+						// esbPaletteFactory.addCloudConnectorOperations(getEditor(0),
+						// configs[i].split("-")[0],configs[i].split("-")[1]);
+					}
+				}
+			}
 		}
-		String localEntryConfigs=prop.getProperty("LOCAL_ENTRY_CONFIGS");
-		if(localEntryConfigs!=null){
-			String[] configs=localEntryConfigs.split(",");
-	        
-	        for(int i=0;i<configs.length;++i){
-	        	if(!"".equals(configs[i])){
-	        		if(configs[i].split("-")[1].equals(((CloudConnectorOperation)object).getCloudConnectorName())){
-	        			definedTemplates.add(configs[i].split("-")[0]);
-	        		}
-	        		//esbPaletteFactory.addCloudConnectorOperations(getEditor(0), configs[i].split("-")[0],configs[i].split("-")[1]);
-	        	}
-	        }
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 		final Object object_=this.object;
 		
 /*		

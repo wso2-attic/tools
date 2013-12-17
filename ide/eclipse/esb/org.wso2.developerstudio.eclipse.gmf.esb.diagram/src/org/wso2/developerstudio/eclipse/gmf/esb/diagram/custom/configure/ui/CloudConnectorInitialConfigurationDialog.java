@@ -17,6 +17,7 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.SynapseConstants;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.template.InvokeMediator;
@@ -84,6 +85,8 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	
 	protected static final OMFactory fac = OMAbstractFactory.getOMFactory();
 	protected static final OMNamespace synNS = SynapseConstants.SYNAPSE_OMNAMESPACE;
+	private final String connectorProperties = "cloudConnector.properties";
+	private final String configNameSeparator = "::";
 
 	private static String operationName = "init";
 	
@@ -162,7 +165,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 			public void modifyText(ModifyEvent e) {
 				configName=nameText.getText();
 				//CustomPaletteToolTransferDropTargetListener.definedName=nameText.getText();
-				if (configName != null && !configName.equals("")) {
+				if (StringUtils.isNotBlank(configName)) {
 					updateOKButtonStatus(true);
 				} else {
 					updateOKButtonStatus(false);
@@ -397,18 +400,20 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		File resources=new File(pathName);
 		try {
 			resources.mkdir();
-			File cloudConnectorConfig=new File(pathName+File.separator+"cloudConnector.properties");
+			File cloudConnectorConfig = new File(pathName + File.separator + connectorProperties);
 			cloudConnectorConfig.createNewFile();
-			
-		Properties prop = new Properties();
-		prop.load(new FileInputStream(pathName+File.separator+"cloudConnector.properties"));
-		String localEntryConfigs=prop.getProperty("LOCAL_ENTRY_CONFIGS");
-		if(localEntryConfigs==null || "".equals(localEntryConfigs)){
-			prop.setProperty("LOCAL_ENTRY_CONFIGS", configName+"-"+getDroppedCloudConnector());
-		}else{
-			prop.setProperty("LOCAL_ENTRY_CONFIGS", localEntryConfigs+","+configName+"-"+getDroppedCloudConnector());
-		}		
-		prop.setProperty("INLINE_CONFIGS", "");
+
+			Properties prop = new Properties();
+			prop.load(new FileInputStream(pathName + File.separator + connectorProperties));
+			String localEntryConfigs = prop.getProperty("LOCAL_ENTRY_CONFIGS");
+			if (localEntryConfigs == null || "".equals(localEntryConfigs)) {
+				prop.setProperty("LOCAL_ENTRY_CONFIGS", configName + configNameSeparator
+						+ getDroppedCloudConnector());
+			} else {
+				prop.setProperty("LOCAL_ENTRY_CONFIGS", localEntryConfigs + "," + configName
+						+ configNameSeparator + getDroppedCloudConnector());
+			}
+			prop.setProperty("INLINE_CONFIGS", "");
 			prop.store(new FileOutputStream(cloudConnectorConfig.getAbsolutePath()), null);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
