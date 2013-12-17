@@ -31,13 +31,6 @@ import org.apache.synapse.config.xml.ValueFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
-import org.eclipse.core.resources.IContainer;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.ui.IFileEditorInput;
 import org.jaxen.JaxenException;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
@@ -52,7 +45,7 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 
 	protected static final QName CONFIG_KEY  = new QName("configKey");
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
-	private static final String CONNECTOR_DIRECTORY = "Connectors";
+	private static final String CONNECTOR_DIRECTORY = ".Connectors";
 	
 	@Override
 	protected Mediator createSpecificMediator(OMElement elem, Properties properties) {		
@@ -126,27 +119,25 @@ public class CloudConnectorOperationExtFactory extends AbstractMediatorFactory{
 				}
 			}
 		}*/
-		
-		IProject tempProject = ResourcesPlugin.getWorkspace().getRoot().getProject(".tmp");
-		if (tempProject != null && !tempProject.isOpen()) {
-			tempProject.open(new NullProgressMonitor());
-		}
-		
-		if (tempProject != null && tempProject.exists()) {
-			IContainer connectorsRoot = tempProject.getFolder(CONNECTOR_DIRECTORY);
-			if (connectorsRoot != null && connectorsRoot.exists()) {
-				IResource[] directories = connectorsRoot.members();
-				for (int i = 0; i < directories.length; ++i) {
-					CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
-							.getInstance(directories[i].getLocation().toOSString());
-					Map<String, String> map = directoryTraverser
-							.getOperationsConnectorComponentNameMap();
-					Iterator<String> iterator = map.keySet().iterator();
-					while (iterator.hasNext()) {
-						String key = iterator.next();
-						tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key)
-								+ "." + key));
-					}
+
+		String connectorRootPath = ((IFileEditorInput) EsbMultiPageEditor.currentEditor
+				.getEditorInput()).getFile().getProject().getWorkspace().getRoot().getLocation()
+				.toString()
+				+ File.separator + CloudConnectorDirectoryTraverser.connectorPathFromWorkspace;
+		File directory = new File(connectorRootPath);
+
+		if (directory != null && directory.isDirectory()) {
+			String[] directories = directory.list();
+			for (int i = 0; i < directories.length; ++i) {
+				CloudConnectorDirectoryTraverser directoryTraverser = CloudConnectorDirectoryTraverser
+						.getInstance(connectorRootPath + File.separator + directories[i]);
+				Map<String, String> map = directoryTraverser
+						.getOperationsConnectorComponentNameMap();
+				Iterator<String> iterator = map.keySet().iterator();
+				while (iterator.hasNext()) {
+					String key = iterator.next();
+					tagQNameList.add(new QName(XMLConfigConstants.SYNAPSE_NAMESPACE, map.get(key)
+							+ "." + key));
 				}
 			}
 		}

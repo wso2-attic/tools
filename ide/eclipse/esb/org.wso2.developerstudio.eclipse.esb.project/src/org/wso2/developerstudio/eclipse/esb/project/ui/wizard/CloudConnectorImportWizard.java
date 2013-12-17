@@ -36,6 +36,8 @@ public class CloudConnectorImportWizard extends Wizard{
 	
 	private ImportCloudConnectorDetailsWizardPage detailWizardPage;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	private static final String DIR_DOT_METADATA = ".metadata";
+	private static final String DIR_CONNECTORS = ".Connectors";
 	
 	public void init(IStructuredSelection selection) {
 		detailWizardPage = new ImportCloudConnectorDetailsWizardPage(selection);
@@ -56,9 +58,9 @@ public class CloudConnectorImportWizard extends Wizard{
 	            String destination = detailWizardPage.getSelectedProject().getWorkspace().getRoot()
 					.getLocation().toString()
 					+ File.separator
-					+ ".tmp"
+					+ DIR_DOT_METADATA
 					+ File.separator
-					+ "Connectors"
+					+ DIR_CONNECTORS
 					+ File.separator
 					+ zipFileName;
 	            zipFile.getFile(); zipFile.extractAll(destination);

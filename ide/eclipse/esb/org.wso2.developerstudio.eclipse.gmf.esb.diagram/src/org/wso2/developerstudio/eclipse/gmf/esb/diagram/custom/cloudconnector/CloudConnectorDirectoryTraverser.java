@@ -42,7 +42,8 @@ public class CloudConnectorDirectoryTraverser {
 	private static final String connectorFileName = "connector.xml";
 	private static final String componentFileName = "component.xml";
 	private static final String initFileName = "init.xml";
-	public static final String connectorPathFromWorkspace = ".tmp"+File.separator+"Connectors";
+	private static final String DIR_DOT_METADATA = ".metadata";
+	public static final String connectorPathFromWorkspace = DIR_DOT_METADATA + File.separator + ".Connectors";
 	private Properties properties = new Properties();
 	private static String rootDirectory=null;
 	private static CloudConnectorDirectoryTraverser instance=null;
