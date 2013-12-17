@@ -504,14 +504,21 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				RuleFragmentType.get(3).getLiteral(),
 				RuleFragmentType.get(4).getLiteral(),
 				RuleFragmentType.get(5).getLiteral(),
-				RuleFragmentType.get(6).getLiteral(),
-				RuleFragmentType.get(7).getLiteral() });
+				RuleFragmentType.get(-1).getLiteral(),
+				RuleFragmentType.get(-2).getLiteral() });
 		fragmentEditor.setEditor(comboFragment, item, 1);
 		comboFragment.select(action.getFragment());
 		comboFragment.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				item.setText(1, comboFragment.getText());
-				action.setFragment(comboFragment.getSelectionIndex());
+				if (comboFragment.getSelectionIndex() == 6) {
+					action.setFragment(-1);
+				} else if (comboFragment.getSelectionIndex() == 7) {
+					action.setFragment(-2);
+				} else {
+					action.setFragment(comboFragment.getSelectionIndex());
+				}
+				
 			}
 		});
 
