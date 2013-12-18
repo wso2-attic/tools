@@ -20,7 +20,6 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
-import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
@@ -30,7 +29,6 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
@@ -39,7 +37,6 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
@@ -67,11 +64,11 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 	private Table tblFeatures;
 	private Table tblProperties;
 	private Table tableResources;
-	private Text txtSourceXPath;
-	private Text txtXsltKey;
+	//private Text txtSourceXPath;
+	//private Text txtXsltKey;
 	private int activeTab;
 	TabFolder tabFolder;
-	TabItem tbtmBasic;
+	//TabItem tbtmBasic;
 	TabItem tbtmFeatures;
 	TabItem tbtmProperties;
 	TabItem tbtmResources;
@@ -97,7 +94,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 	/**
 	 * Dialog shell.
 	 */
-	private Shell dialogShell;
+	//private Shell dialogShell;
 	/**
 	 * Create the dialog.
 	 * 
@@ -106,7 +103,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 	public ConfigureXSLTMediatorDialog(Shell parentShell, XSLTMediator med,
 			int activeTab) {
 		super(parentShell);
-		dialogShell = new Shell(parentShell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+		//dialogShell = new Shell(parentShell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		
 		this.mediator = med;
 		this.activeTab = activeTab;
@@ -125,7 +122,9 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		tabFolder = new TabFolder(container, SWT.NONE);
 		tabFolder.setBounds(0, 0, 444, 221);
 
-		tbtmBasic = new TabItem(tabFolder, SWT.NONE);
+		//Fixing TOOLS-2223
+		
+		/*tbtmBasic = new TabItem(tabFolder, SWT.NONE);
 		tbtmBasic.setText("Basic");
 
 		Composite cBasic = new Composite(tabFolder, SWT.NONE);
@@ -168,7 +167,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		cmdXsltKey.setBounds(378, 54, 20, 20);
 		
 		//TODO: add registry browser support
-		cmdXsltKey.setVisible(false);
+		cmdXsltKey.setVisible(false);*/
 
 		tbtmFeatures = new TabItem(tabFolder, SWT.NONE);
 		tbtmFeatures.setText("Features");
@@ -338,8 +337,10 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 			
 			public void widgetDefaultSelected(SelectionEvent arg0) {}
 		});
+
+		//Fixing TOOLS-2223
 		
-		NamespacedProperty sourceXPath = mediator.getSourceXPath();
+		/*NamespacedProperty sourceXPath = mediator.getSourceXPath();
 		if(sourceXPath.getPropertyValue()!=null){
 			txtSourceXPath.setText(sourceXPath.getPropertyValue());
 		}
@@ -347,7 +348,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		RegistryKeyProperty registryKey = mediator.getXsltStaticSchemaKey();
 		if(registryKey.getKeyValue()!=null){
 			txtXsltKey.setText(registryKey.getKeyValue());
-		}
+		}*/
 
 
 		switch (activeTab) {
@@ -361,7 +362,8 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 			tabFolder.setSelection(tbtmResources);
 			break;
 		default:
-			tabFolder.setSelection(tbtmBasic);
+			//tabFolder.setSelection(tbtmBasic);
+			tabFolder.setSelection(tbtmFeatures);
 			break;
 		}
 		
@@ -433,8 +435,10 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 			RemoveCommand removeCmd = new RemoveCommand(domain, mediator,EsbPackage.Literals.XSLT_MEDIATOR__RESOURCES, resource) ;
 			getResultCommand().append(removeCmd);
 		}
+
+		//Fixing TOOLS-2223
 		
-		NamespacedProperty sourceXPath= EsbFactory.eINSTANCE.createNamespacedProperty();
+		/*NamespacedProperty sourceXPath= EsbFactory.eINSTANCE.createNamespacedProperty();
 		sourceXPath.setPropertyName(txtSourceXPath.getText());
 		sourceXPath.setPropertyValue(txtSourceXPath.getText());
 		SetCommand setCmd = new SetCommand(domain, mediator,EsbPackage.Literals.XSLT_MEDIATOR__SOURCE_XPATH, sourceXPath);
@@ -444,7 +448,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		registryKey.setKeyName(txtXsltKey.getText());
 		registryKey.setKeyValue(txtXsltKey.getText());
 		SetCommand setRegKeyCmd = new SetCommand(domain, mediator,EsbPackage.Literals.XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY, registryKey);
-		getResultCommand().append(setRegKeyCmd);
+		getResultCommand().append(setRegKeyCmd);*/
 		
 		for(TableItem item:tblFeatures.getItems()){
 			XSLTFeature feature = EsbFactory.eINSTANCE.createXSLTFeature(); 
