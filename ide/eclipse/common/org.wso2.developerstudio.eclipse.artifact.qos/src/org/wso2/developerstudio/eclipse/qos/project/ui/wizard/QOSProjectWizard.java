@@ -30,6 +30,7 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.qos.project.model.QOSProjectModel;
+import org.wso2.developerstudio.eclipse.qos.project.model.Service;
 import org.wso2.developerstudio.eclipse.qos.project.model.ServiceGroup;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
@@ -41,6 +42,8 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 	private File pomfile;
 	private File meta;
     private String serviceName;
+    private Service service;
+    private String metaFileName;
 
 
 	public QOSProjectWizard() {
@@ -73,17 +76,18 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			
 			getModel().addToWorkingSet(project);
 			MavenInfo mavenInfo = getModel().getMavenInfo();
-			String metaFileName  = getServiceName()+"_"+mavenInfo.getVersion()+".xml";
+			metaFileName  = getServiceName()+"_"+mavenInfo.getVersion()+".xml";
 			meta = project.getFile("src/main/resources/"+metaFileName).getLocation().toFile();
 			meta.createNewFile();
 			ServiceGroup serviceGroup = new ServiceGroup();
 			serviceGroup.setName(project.getName());
 			serviceGroup.setSuccessfullyAdded(true);
+			serviceGroup.getService().add(getService());
+			
 		    JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			jaxbMarshaller.marshal(serviceGroup, meta); 
- 
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();
 		}catch (Exception e) {
@@ -117,5 +121,21 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
+	}
+
+	public Service getService() {
+		return service;
+	}
+
+	public void setService(Service service) {
+		this.service = service;
+	}
+
+	public String getMetaFileName() {
+		return metaFileName;
+	}
+
+	public void setMetaFileName(String metaFileName) {
+		this.metaFileName = metaFileName;
 	}
 }

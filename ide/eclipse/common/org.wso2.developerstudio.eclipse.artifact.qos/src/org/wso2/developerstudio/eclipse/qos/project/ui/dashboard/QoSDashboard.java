@@ -26,10 +26,9 @@ public class QoSDashboard extends FormEditor {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private QoSDashboardPage dashbordPage;
-	private IProject selectedProject;
 
 	protected void addPages() {
-		dashbordPage = new QoSDashboardPage(this,Activator.PLUGIN_ID,"QoSDashboard",getSelectedProject());
+		dashbordPage = new QoSDashboardPage(this,Activator.PLUGIN_ID,"QoSDashboard");
 		try {
 			addPage(dashbordPage);
 		} catch (PartInitException e) {
@@ -49,13 +48,5 @@ public class QoSDashboard extends FormEditor {
 
 	public boolean isSaveAsAllowed() {
 		return false;
-	}
-
-	public IProject getSelectedProject() {
-		return selectedProject;
-	}
-
-	public void setSelectedProject(IProject selectedProject) {
-		this.selectedProject = selectedProject;
 	}
 }

@@ -42,6 +42,7 @@ import org.wso2.developerstudio.eclipse.qos.project.ui.dashboard.QoSDashboard;
 
 public class OpenQoSDashboardCommandHandler  extends AbstractHandler {
 	
+	public static IProject project;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	static final String INTRO_VIEW_ID = "org.eclipse.ui.internal.introview";
@@ -59,11 +60,10 @@ public class OpenQoSDashboardCommandHandler  extends AbstractHandler {
 	                    (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
 	        	Object element = ((IStructuredSelection)selection).getFirstElement();
 	        	 if (element instanceof IResource) {
-	               IProject  project= ((IResource)element).getProject();
+	            project= ((IResource)element).getProject();
 	        	PlatformUI.getWorkbench().showPerspective(J2EE_PERSPECTIVE_ID, window);
 				IEditorPart openEditor = page.openEditor(new NullEditorInput(), DASHBOARD_VIEW_ID);
 				QoSDashboard dashboard = (QoSDashboard) openEditor;
-				dashboard.setSelectedProject(project);
 	        	 }
 			} catch (Exception e) {
 				log.error("Cannot open dashboard", e);

@@ -14,14 +14,47 @@
  */
 package org.wso2.developerstudio.eclipse.qos.project.ui.dashboard;
 
+import java.io.File;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.PropertyException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTParser;
+import org.eclipse.jdt.core.dom.ASTVisitor;
+import org.eclipse.jdt.core.dom.CompilationUnit;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -46,11 +79,26 @@ import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.wso2.developerstudio.eclipse.qos.Activator;
+import org.wso2.developerstudio.eclipse.qos.handlers.OpenQoSDashboardCommandHandler;
+import org.wso2.developerstudio.eclipse.qos.project.model.Binding;
+import org.wso2.developerstudio.eclipse.qos.project.model.Bindings;
+import org.wso2.developerstudio.eclipse.qos.project.model.Operation;
+import org.wso2.developerstudio.eclipse.qos.project.model.Parameter;
+import org.wso2.developerstudio.eclipse.qos.project.model.Policies;
+import org.wso2.developerstudio.eclipse.qos.project.model.Policy;
+import org.wso2.developerstudio.eclipse.qos.project.model.Policy2;
+import org.wso2.developerstudio.eclipse.qos.project.model.Service;
+import org.wso2.developerstudio.eclipse.qos.project.model.ServiceGroup;
 import org.wso2.developerstudio.eclipse.qos.project.ui.wizard.QOSProjectWizard;
+import org.wso2.developerstudio.eclipse.qos.project.utils.QoSTemplateUtil;
 
 
 public class QoSDashboardPage extends FormPage {
@@ -62,9 +110,11 @@ public class QoSDashboardPage extends FormPage {
 	private static final String PACKAGE_EXPLORER_PARTID = "org.eclipse.jdt.ui.PackageExplorer";
 	private ISelectionListener selectionListener = null;
 	private ISelection selection = null;
-	private IProject selecledProject;
 	private String serviceName;
-	
+	private Map<String, Service> serviceList;
+	private IProject metaProject;
+	private String metaFileName;
+	private String policyFileName;
 	/**
 	 * Create the form page.
 	 * @param id
@@ -82,10 +132,10 @@ public class QoSDashboardPage extends FormPage {
 	 * @param project
 	 */
 
-	public QoSDashboardPage(FormEditor editor, String id, String title,IProject project) {
+	public QoSDashboardPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
-		setSelecledProject(project);
 		setServiceName("Test");
+		serviceList = getServiceList();
 	}
 
 	/**
@@ -130,10 +180,20 @@ public class QoSDashboardPage extends FormPage {
 		GridLayout gridserviceLayout = new GridLayout(3,false);
 		serviceInfoComposite.setLayout(gridserviceLayout);
 		managedForm.getToolkit().createLabel(serviceInfoComposite, "Services List");
-		Combo serviceName = new Combo(serviceInfoComposite, SWT.READ_ONLY);
-		serviceName.setText("Service Name :");
-		serviceName.add("Sample Service");
-		
+		final Combo serviceName = new Combo(serviceInfoComposite, SWT.READ_ONLY);
+		 Set<String> keySet = serviceList.keySet();
+		 String[] array = keySet.toArray(new String[0]);
+		 serviceName.setItems(array);
+		 serviceName.select(0);
+		 setServiceName(serviceName.getItem(serviceName.getSelectionIndex()));
+		 serviceName.addSelectionListener(new SelectionAdapter() {
+		        @Override
+		   public void widgetSelected(SelectionEvent e) {
+			  setServiceName(serviceName.getItem(serviceName.getSelectionIndex()));
+	 	   }
+		 });
+		 
+		 
 		 new Label(serviceInfoComposite, SWT.None);
 	
 		 managedForm.getToolkit().createLabel(serviceInfoComposite, "Project name");
@@ -162,7 +222,7 @@ public class QoSDashboardPage extends FormPage {
 		String[] names = new String[] { "UsernameToken", "Non-repudiation",
 				"Integrity", "Confidentiality" };
 		createCategory(managedForm, seccomposite, "Basic Scenarios");
-		createSecurityItems(seccomposite, names, managedForm);
+		createSecurityItems(seccomposite, names, managedForm,0);
 
 		names = new String[] {
 				"Sign and Encrypt - X509 Authentication",
@@ -181,12 +241,76 @@ public class QoSDashboardPage extends FormPage {
 				"Sign and Encrypt - Anonymous clients - SAML 2.0 Token Required" };
 
 		createCategory(managedForm, seccomposite, "Advanced Scenarios");
-		createSecurityItems(seccomposite, names, managedForm);
+		createSecurityItems(seccomposite, names, managedForm,4);
 
 		createCategory(managedForm, seccomposite, "Policy From Registry");
 		names = new String[] { "registry" };
-		createSecurityItems(seccomposite, names, managedForm);
- 
+		createSecurityItems(seccomposite, names, managedForm,20);
+        
+	    Button aApplySecBtn = managedForm.getToolkit().createButton(seccomposite, "Apply", SWT.NONE);
+	    aApplySecBtn.addSelectionListener(new SelectionAdapter() {
+	
+
+			@Override
+			public void widgetSelected(SelectionEvent e) { 
+			    try {
+					addPolicy();
+				} catch (Exception e1) {
+					 log.error("cannot load service meta file", e1);
+				}
+			}
+
+			private void addPolicy() throws JAXBException, IOException,
+					PropertyException, CoreException {
+				File serviceMeta = metaProject.getFile("src/main/resources/"+metaFileName).getLocation().toFile();
+				
+				JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
+				Unmarshaller uUnmarshaller = jaxbContext.createUnmarshaller();
+				ServiceGroup serviceGroup =  (ServiceGroup) uUnmarshaller.unmarshal(serviceMeta);
+				
+				List<Service> services = serviceGroup.getService();
+				Service service=null;
+				for (Service sService : services) {
+					if(getServiceName().equals(sService.getName())){
+						service =sService;
+						break;
+					}
+				}
+				
+				if(service!=null){
+				QoSTemplateUtil qoSTemplateUtil = new QoSTemplateUtil();
+				String filename = "policies/"+getPolicyFileName();
+				File resourceFile =qoSTemplateUtil.getResourceFile(filename);
+				 if(resourceFile!=null){
+					 JAXBContext pjaxbContext = JAXBContext.newInstance(Policy2.class);
+					 Unmarshaller pUnmarshaller = pjaxbContext.createUnmarshaller();
+					 Policy2 policy2 =  (Policy2) pUnmarshaller.unmarshal(resourceFile);
+					 Policy policy = new Policy();
+					 policy.setPolicy(policy2);
+					 policy.setPolicyType(BigInteger.valueOf(9l));
+					 policy.setPolicyUUID(policy2.getId());
+					 Policies policies = new Policies();
+					 policies.getPolicy().add(policy);
+					 service.setPolicies(policies);
+					 Bindings bindings = service.getBindings();
+					 if(bindings!=null){
+						 List<Binding> bindingList = bindings.getBinding();
+						 for (Binding binding : bindingList) {
+							 if(binding.getName().contains("Soap")){
+								 binding.setPolicyUUID(policy2.getId());
+							 }
+						}
+					 }
+					 service.setBindings(bindings);
+				  }	
+				} 
+
+				Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+				jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+				jaxbMarshaller.marshal(serviceGroup, serviceMeta); 
+				metaProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			}
+		});
 			 
      /*  CreateMainSection(managedForm, body,"Policies",10, 30, 600, 30, false);
 		 CreateMainSection(managedForm, body,"Response Caching",10, 50, 600, 30, false);
@@ -201,11 +325,135 @@ public class QoSDashboardPage extends FormPage {
 		
 	}
 
-	private void createSecurityItems(Composite seccomposite ,String[] names,IManagedForm managedForm) {
+	
+	private Map<String,Service> getServiceList(){
+		Map<String,Service> serviceMap = new HashMap<String,Service>();
+		IProject project = OpenQoSDashboardCommandHandler.project;
+		if(project!=null){
+			try {
+				File fXmlFile = project.getFile("/src/main/resources/META-INF/services.xml").getLocation().toFile();
+				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+				Document doc = dBuilder.parse(fXmlFile);
+				doc.getDocumentElement().normalize();
+				String nodeName = doc.getDocumentElement().getNodeName();
+				Node firstChild = doc.getFirstChild();
+				if("service".equals(nodeName)){
+					cretaeService(serviceMap, firstChild,project);
+				}else if("serviceGroup".equals(nodeName)){
+				   NodeList childNodes = firstChild.getChildNodes();
+				  for(int i=0; i<childNodes.getLength(); i++){
+					  Node tempNode = childNodes.item(i);
+					   cretaeService(serviceMap, tempNode,project);
+				  }
+				}
+			} catch (Exception e) {
+			 log.error("Cannot parse service.xml", e);
+			}
+		}
+		return serviceMap;
+	}
+
+	private void cretaeService(Map<String, Service> serviceMap, Node firstChild,IProject project) throws JavaModelException {
+		if(firstChild.getNodeType()==Node.ELEMENT_NODE){
+			Element eElement = (Element) firstChild;
+			String name = eElement.getAttribute("name");
+			Service service = new Service();
+			service.setName(name);
+			service.setServiceDocumentation(name);
+			service.setExposedAllTransports(true);
+			long time = new Date().getTime();
+			service.setServiceDeployedTime(BigInteger.valueOf(time));
+			service.setSuccessfullyAdded(true);
+			service.setServiceActive(true);
+            Bindings bindings = new Bindings();
+			
+			String serviceHttpBinding = name+"HttpBinding";
+			String serviceSoap12Binding = name+"Soap12Binding";
+			String serviceSoap11Binding = name+"Soap11Binding";
+			
+			Binding hHttpBinding = new Binding();
+			hHttpBinding.setName(serviceHttpBinding);
+			Binding sSoap12Binding = new Binding();
+			sSoap12Binding.setName(serviceSoap12Binding);
+			Binding sSoap11Binding = new Binding();
+			sSoap11Binding.setName(serviceSoap11Binding);
+			
+			Parameter parameter = new Parameter();
+			parameter.setName("ServiceClass");
+			parameter.setLocked(false);
+			parameter.setValue(eElement.getElementsByTagName("parameter").item(0).getTextContent());
+			service.getModuleOrParameterOrPolicyUUID().add(parameter);
+			serviceMap.put(name, service);
+			Map<String, List<MethodDeclaration>> compliationUnitsMap = getCompliatiosnUnits(project);
+			List<MethodDeclaration> oplist = compliationUnitsMap.get(name);
+			List<String> operations = getOperations(oplist);
+			for (String opName : operations) {
+				Operation operation = new Operation();
+				operation.setName(opName);
+				service.getOperation().add(operation);
+				hHttpBinding.getOperation().add(operation);
+				sSoap12Binding.getOperation().add(operation);
+				sSoap11Binding.getOperation().add(operation);
+			}
+			bindings.getBinding().add(hHttpBinding);
+			bindings.getBinding().add(sSoap11Binding);
+			bindings.getBinding().add(sSoap12Binding);
+			service.setBindings(bindings);
+		}
+	}
+
+	private Map<String,List<MethodDeclaration>> getCompliatiosnUnits(IProject project)
+			throws JavaModelException {
+		Map<String,List<MethodDeclaration>> units = new HashMap<String,List<MethodDeclaration>>();
+ 		IJavaProject ijavaProject = JavaCore.create(project);
+		IPackageFragment[] packageFragments = ijavaProject.getPackageFragments();
+		for (IPackageFragment iPackageFragment : packageFragments) {
+			   ICompilationUnit[] compilationUnits = iPackageFragment.getCompilationUnits();
+			   for (ICompilationUnit iCompilationUnit : compilationUnits) {
+						  ASTParser parser = ASTParser.newParser(AST.JLS4);
+						  parser.setSource(iCompilationUnit);
+						  CompilationUnit  tempUnit = (CompilationUnit)parser.createAST(null);
+						  MethodVisitor methodVisitor = new MethodVisitor();
+						  tempUnit.accept(methodVisitor);
+						  List<MethodDeclaration> methods = methodVisitor.getMethods();
+						  String elementName = tempUnit.getJavaElement().getElementName();
+						  String[] name = elementName.split("\\.");
+						  units.put(name[0],methods);
+			    }
+		 }
+		return  units;
+	}
+
+  private List<String> getOperations(List<MethodDeclaration> methods) {
+		 List<String> oplist = new ArrayList<String>();
+		for (MethodDeclaration methodDeclaration : methods) {
+			    List<Modifier> modifiers = methodDeclaration.modifiers();
+			      for (Modifier modifier : modifiers) {
+					 if(modifier.isPublic()){
+						 oplist.add(methodDeclaration.getName().toString());
+					 }
+				}
+		}
+		return oplist;
+	} 
+	
+	
+	private void createSecurityItems(Composite seccomposite ,String[] names,IManagedForm managedForm,int i) {
 		
 		for (String name : names) {
-			 Button button1 = new Button(seccomposite, SWT.RADIO);
-			 button1.setText("");
+			i++;
+			final Button secBtn = new Button(seccomposite, SWT.RADIO);
+			 secBtn.setText("");
+			 String fileName ="scenario"+i+"-policy.xml";
+			 secBtn.setData(fileName);
+			 secBtn.addSelectionListener(new SelectionAdapter() {
+				 @Override
+				public void widgetSelected(SelectionEvent e) {
+					 String pfile = (String) secBtn.getData();
+					 setPolicyFileName(pfile);				
+					 }
+			});
 			 
 			 final ToolTip tip = new ToolTip(seccomposite.getShell(), SWT.BALLOON | SWT.ICON_INFORMATION);
 			 tip.setMessage("Here is a message for the user. When the message is too long it wraps. I should say something cool but nothing comes to my mind.");
@@ -305,7 +553,11 @@ public class QoSDashboardPage extends FormPage {
 		     wd.setTitle(wizard.getWindowTitle());
 		     QOSProjectWizard qosProjectWizard = (QOSProjectWizard) wizard; 
 		     qosProjectWizard.setServiceName(getServiceName());
+             Service service = serviceList.get(getServiceName());
+             qosProjectWizard.setService(service);
 		     wd.open();
+		     metaProject = (IProject) qosProjectWizard.getCreatedResource();
+		     metaFileName = qosProjectWizard.getMetaFileName();
 		     return wizard;
 		   }
  
@@ -332,15 +584,6 @@ public class QoSDashboardPage extends FormPage {
 		selectionService.removeSelectionListener(selectionListener);
 		super.dispose();
 	}
-
-	public IProject getSelecledProject() {
-		return selecledProject;
-	}
-
-	public void setSelecledProject(IProject selecledProject) {
-		this.selecledProject = selecledProject;
-	}
-
 	public String getServiceName() {
 		return serviceName;
 	}
@@ -348,4 +591,36 @@ public class QoSDashboardPage extends FormPage {
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
 	}
+ 
+	public String getPolicyFileName() {
+		return policyFileName;
+	}
+
+	public void setPolicyFileName(String policyFileName) {
+		this.policyFileName = policyFileName;
+	}
+
+	private class MethodVisitor extends ASTVisitor {
+	    List<MethodDeclaration> methods = new ArrayList<MethodDeclaration>();
+
+	    @Override
+	    public boolean visit(MethodDeclaration node) {
+	            methods.add(node);
+	            return super.visit(node);
+	    }
+	   
+	    /**
+	     *
+	     * @return
+	     */
+	    public List<MethodDeclaration> getMethods() {
+	            return methods;
+	    }
+	   
+	}
+	
 }
+
+
+
+
