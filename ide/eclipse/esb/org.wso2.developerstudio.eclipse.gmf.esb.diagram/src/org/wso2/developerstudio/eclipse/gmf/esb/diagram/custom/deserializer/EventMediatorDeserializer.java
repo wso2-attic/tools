@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -46,40 +47,42 @@ public class EventMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		
 		Value topic  = eventMediator.getTopic();
 		
-		//For static topic type.
-		if(topic.getKeyValue() != null){
-			
-			//vishualEvent.setTopicType(EventTopicType.STATIC);
-			executeSetValueCommand(EVENT_MEDIATOR__TOPIC_TYPE, EventTopicType.STATIC);
-			
-			//vishualEvent.setStaticTopic(topic.getKeyValue());
-			executeSetValueCommand(EVENT_MEDIATOR__STATIC_TOPIC, topic.getKeyValue());
-		}
-		
-		//For dynamic topic type.
-		if(topic.getExpression() != null){
-			
-			//vishualEvent.setTopicType(EventTopicType.DYNAMIC);
-			executeSetValueCommand(EVENT_MEDIATOR__TOPIC_TYPE, EventTopicType.DYNAMIC);
-			
-			SynapseXPath xpath  = topic.getExpression();
-			
-			NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
-			
-			if (xpath.getNamespaces() != null) {
-
-				@SuppressWarnings("unchecked")
-				Map<String, String> map = xpath.getNamespaces();
-
-				nsp.setNamespaces(map);
+		if (topic != null) {
+			//For static topic type.
+			if(StringUtils.isNotBlank(topic.getKeyValue())){
+				
+				//vishualEvent.setTopicType(EventTopicType.STATIC);
+				executeSetValueCommand(EVENT_MEDIATOR__TOPIC_TYPE, EventTopicType.STATIC);
+				
+				//vishualEvent.setStaticTopic(topic.getKeyValue());
+				executeSetValueCommand(EVENT_MEDIATOR__STATIC_TOPIC, topic.getKeyValue());
 			}
 			
-			nsp.setPropertyValue(xpath.toString());
-			
-			//vishualEvent.setDynamicTopic(nsp);
-			executeSetValueCommand(EVENT_MEDIATOR__DYNAMIC_TOPIC, nsp);
-			
+			//For dynamic topic type.
+			if(topic.getExpression() != null){
+				
+				//vishualEvent.setTopicType(EventTopicType.DYNAMIC);
+				executeSetValueCommand(EVENT_MEDIATOR__TOPIC_TYPE, EventTopicType.DYNAMIC);
+				
+				SynapseXPath xpath  = topic.getExpression();
+				
+				NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
+				
+				if (xpath.getNamespaces() != null) {
+
+					@SuppressWarnings("unchecked")
+					Map<String, String> map = xpath.getNamespaces();
+
+					nsp.setNamespaces(map);
+				}
+				
+				nsp.setPropertyValue(xpath.toString());
+				
+				//vishualEvent.setDynamicTopic(nsp);
+				executeSetValueCommand(EVENT_MEDIATOR__DYNAMIC_TOPIC, nsp);				
+			}
 		}
+		
 		//For event Expression.
 		if(eventMediator.getExpression() != null){
 			

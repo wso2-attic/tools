@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -44,12 +45,14 @@ public class EventMediatorTransformer extends AbstractEsbNodeTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof EventMediator, "Invalid subject.");
 		EventMediator visualEvent = (EventMediator) subject;
+		Value topic = null;
 
 		org.wso2.carbon.mediator.event.EventMediator eventMediator = new org.wso2.carbon.mediator.event.EventMediator();
 		setCommonProperties(eventMediator, visualEvent);
+		
 		{
 			if (visualEvent.getEventExpression() != null
-					&& visualEvent.getEventExpression().getPropertyValue() != null) {
+					&& StringUtils.isNotBlank(visualEvent.getEventExpression().getPropertyValue())) {
 				SynapseXPath expression = new SynapseXPath(visualEvent
 						.getEventExpression().getPropertyValue());
 
@@ -67,31 +70,27 @@ public class EventMediatorTransformer extends AbstractEsbNodeTransformer {
 				eventMediator.setExpression(expression);
 			}
 
-			Value topic;
-
-			if (visualEvent.getTopicType().compareTo(EventTopicType.STATIC) == 0) {
-
+			if (visualEvent.getTopicType().compareTo(EventTopicType.STATIC) == 0
+					&& StringUtils.isNotBlank(visualEvent.getStaticTopic())) {
 				topic = new Value(visualEvent.getStaticTopic());
 
 			} else {
+				if (visualEvent.getDynamicTopic() != null
+						&& StringUtils.isNotBlank(visualEvent.getDynamicTopic().getPropertyValue())) {
+					SynapseXPath topicExpression = new SynapseXPath(visualEvent.getDynamicTopic()
+							.getPropertyValue());
 
-				SynapseXPath topicExpression = new SynapseXPath(visualEvent
-						.getDynamicTopic().getPropertyValue());
-
-				if (visualEvent.getDynamicTopic().getNamespaces() != null) {
-					Map<String, String> map = visualEvent.getDynamicTopic()
-							.getNamespaces();
-					Iterator<Map.Entry<String, String>> entries = map
-							.entrySet().iterator();
-					while (entries.hasNext()) {
-						Map.Entry<String, String> entry = entries.next();
-						topicExpression.addNamespace(entry.getKey(),
-								entry.getValue());
+					if (visualEvent.getDynamicTopic().getNamespaces() != null) {
+						Map<String, String> map = visualEvent.getDynamicTopic().getNamespaces();
+						Iterator<Map.Entry<String, String>> entries = map.entrySet().iterator();
+						while (entries.hasNext()) {
+							Map.Entry<String, String> entry = entries.next();
+							topicExpression.addNamespace(entry.getKey(), entry.getValue());
+						}
 					}
+
+					topic = new Value(topicExpression);
 				}
-
-				topic = new Value(topicExpression);
-
 			}
 
 			eventMediator.setTopic(topic);

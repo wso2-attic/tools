@@ -66,9 +66,9 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * <!-- end-user-doc -->
 	 * @see #getStaticTopic()
 	 * @generated
-	 * @ordered
+	 * @ordered NOT
 	 */
-	protected static final String STATIC_TOPIC_EDEFAULT = "source_property";
+	protected static final String STATIC_TOPIC_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getStaticTopic() <em>Static Topic</em>}' attribute.
@@ -130,14 +130,14 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 		// Dynamic topic
 		dynamicTopic = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 		dynamicTopic.setPropertyName("topic");
-		dynamicTopic.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
+		dynamicTopic.setPropertyValue("");
 		dynamicTopic.setPrettyName("Dynamic Topic");
 		setDynamicTopic(dynamicTopic);
 
 		// Event Expression
 		eventExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 		eventExpression.setPropertyName("expression");
-		eventExpression.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
+		eventExpression.setPropertyValue("");
 		eventExpression.setPrettyName("Event Expression");
 		setEventExpression(eventExpression);
 	}
