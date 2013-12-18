@@ -968,6 +968,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="FaultMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="soapVersion" eType="#//FaultSoapVersion"
         defaultValueLiteral="SOAP_1_1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serializeResponse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="markAsResponse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultCodeSoap11" eType="#//FaultCodeSoap11"
         defaultValueLiteral="VERSION_MISSMATCH"/>

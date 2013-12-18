@@ -119,9 +119,13 @@ public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		}else if(faultMediator.getFaultDetailExpr()!=null){	
 			executeSetValueCommand(FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION, createNamespacedProperty(faultMediator.getFaultDetailExpr()));
 			executeSetValueCommand(FAULT_MEDIATOR__FAULT_DETAIL_TYPE, FaultDetailType.EXPRESSION);
-		}		
-		executeSetValueCommand(FAULT_MEDIATOR__MARK_AS_RESPONSE, faultMediator.isMarkAsResponse());		
+		}	
 		
+		executeSetValueCommand(FAULT_MEDIATOR__SERIALIZE_RESPONSE, faultMediator.isSerializeResponse());
+		if (faultMediator.isSerializeResponse()) {
+			executeSetValueCommand(FAULT_MEDIATOR__MARK_AS_RESPONSE, faultMediator.isMarkAsResponse());
+		} 
+				
 		return visualFaultMediator;
 	}
 

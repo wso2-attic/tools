@@ -7814,13 +7814,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int FAULT_MEDIATOR__SOAP_VERSION = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Serialize Response</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAULT_MEDIATOR__SERIALIZE_RESPONSE = MEDIATOR_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Mark As Response</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__MARK_AS_RESPONSE = MEDIATOR_FEATURE_COUNT + 1;
+	int FAULT_MEDIATOR__MARK_AS_RESPONSE = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Fault Code Soap11</b></em>' attribute.
@@ -7829,7 +7838,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_CODE_SOAP11 = MEDIATOR_FEATURE_COUNT + 2;
+	int FAULT_MEDIATOR__FAULT_CODE_SOAP11 = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Fault Code Type</b></em>' attribute.
@@ -7838,7 +7847,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_CODE_TYPE = MEDIATOR_FEATURE_COUNT + 3;
+	int FAULT_MEDIATOR__FAULT_CODE_TYPE = MEDIATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Fault Code Expression</b></em>' containment reference.
@@ -7847,7 +7856,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_CODE_EXPRESSION = MEDIATOR_FEATURE_COUNT + 4;
+	int FAULT_MEDIATOR__FAULT_CODE_EXPRESSION = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Fault String Type</b></em>' attribute.
@@ -7856,7 +7865,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_STRING_TYPE = MEDIATOR_FEATURE_COUNT + 5;
+	int FAULT_MEDIATOR__FAULT_STRING_TYPE = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Fault String Value</b></em>' attribute.
@@ -7865,7 +7874,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_STRING_VALUE = MEDIATOR_FEATURE_COUNT + 6;
+	int FAULT_MEDIATOR__FAULT_STRING_VALUE = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Fault String Expression</b></em>' containment reference.
@@ -7874,7 +7883,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_STRING_EXPRESSION = MEDIATOR_FEATURE_COUNT + 7;
+	int FAULT_MEDIATOR__FAULT_STRING_EXPRESSION = MEDIATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Fault Actor</b></em>' attribute.
@@ -7883,7 +7892,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_ACTOR = MEDIATOR_FEATURE_COUNT + 8;
+	int FAULT_MEDIATOR__FAULT_ACTOR = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Fault Code Soap12</b></em>' attribute.
@@ -7892,7 +7901,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_CODE_SOAP12 = MEDIATOR_FEATURE_COUNT + 9;
+	int FAULT_MEDIATOR__FAULT_CODE_SOAP12 = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Fault Reason Type</b></em>' attribute.
@@ -7901,7 +7910,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_REASON_TYPE = MEDIATOR_FEATURE_COUNT + 10;
+	int FAULT_MEDIATOR__FAULT_REASON_TYPE = MEDIATOR_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Fault Reason Value</b></em>' attribute.
@@ -7910,7 +7919,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_REASON_VALUE = MEDIATOR_FEATURE_COUNT + 11;
+	int FAULT_MEDIATOR__FAULT_REASON_VALUE = MEDIATOR_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Fault Reason Expression</b></em>' containment reference.
@@ -7919,7 +7928,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_REASON_EXPRESSION = MEDIATOR_FEATURE_COUNT + 12;
+	int FAULT_MEDIATOR__FAULT_REASON_EXPRESSION = MEDIATOR_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Role Name</b></em>' attribute.
@@ -7928,7 +7937,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__ROLE_NAME = MEDIATOR_FEATURE_COUNT + 13;
+	int FAULT_MEDIATOR__ROLE_NAME = MEDIATOR_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Node Name</b></em>' attribute.
@@ -7937,7 +7946,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__NODE_NAME = MEDIATOR_FEATURE_COUNT + 14;
+	int FAULT_MEDIATOR__NODE_NAME = MEDIATOR_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Fault Detail Type</b></em>' attribute.
@@ -7946,7 +7955,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_DETAIL_TYPE = MEDIATOR_FEATURE_COUNT + 15;
+	int FAULT_MEDIATOR__FAULT_DETAIL_TYPE = MEDIATOR_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Fault Detail Value</b></em>' attribute.
@@ -7955,7 +7964,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_DETAIL_VALUE = MEDIATOR_FEATURE_COUNT + 16;
+	int FAULT_MEDIATOR__FAULT_DETAIL_VALUE = MEDIATOR_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Fault Detail Expression</b></em>' containment reference.
@@ -7964,7 +7973,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION = MEDIATOR_FEATURE_COUNT + 17;
+	int FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION = MEDIATOR_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -7973,7 +7982,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 18;
+	int FAULT_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -7982,7 +7991,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 19;
+	int FAULT_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 20;
 
 	/**
 	 * The number of structural features of the '<em>Fault Mediator</em>' class.
@@ -7991,7 +8000,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int FAULT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 20;
+	int FAULT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 21;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorInputConnectorImpl <em>Fault Mediator Input Connector</em>}' class.
@@ -27713,6 +27722,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getFaultMediator_SoapVersion();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#isSerializeResponse <em>Serialize Response</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Serialize Response</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#isSerializeResponse()
+	 * @see #getFaultMediator()
+	 * @generated
+	 */
+	EAttribute getFaultMediator_SerializeResponse();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#isMarkAsResponse <em>Mark As Response</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40232,6 +40252,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute FAULT_MEDIATOR__SOAP_VERSION = eINSTANCE.getFaultMediator_SoapVersion();
+
+		/**
+		 * The meta object literal for the '<em><b>Serialize Response</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FAULT_MEDIATOR__SERIALIZE_RESPONSE = eINSTANCE.getFaultMediator_SerializeResponse();
 
 		/**
 		 * The meta object literal for the '<em><b>Mark As Response</b></em>' attribute feature.

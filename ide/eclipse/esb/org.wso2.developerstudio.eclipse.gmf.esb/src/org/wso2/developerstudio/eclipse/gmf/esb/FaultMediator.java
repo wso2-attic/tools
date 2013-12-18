@@ -16,6 +16,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getSoapVersion <em>Soap Version</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#isSerializeResponse <em>Serialize Response</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#isMarkAsResponse <em>Mark As Response</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultCodeSoap11 <em>Fault Code Soap11</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultCodeType <em>Fault Code Type</em>}</li>
@@ -72,6 +73,32 @@ public interface FaultMediator extends Mediator {
 	 * @generated
 	 */
 	void setSoapVersion(FaultSoapVersion value);
+
+	/**
+	 * Returns the value of the '<em><b>Serialize Response</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Serialize Response</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Serialize Response</em>' attribute.
+	 * @see #setSerializeResponse(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getFaultMediator_SerializeResponse()
+	 * @model
+	 * @generated
+	 */
+	boolean isSerializeResponse();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#isSerializeResponse <em>Serialize Response</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Serialize Response</em>' attribute.
+	 * @see #isSerializeResponse()
+	 * @generated
+	 */
+	void setSerializeResponse(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Mark As Response</b></em>' attribute.

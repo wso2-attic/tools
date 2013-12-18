@@ -277,8 +277,13 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 					break;
 				}
 			}
-			// Response?.
-			faultMediator.setMarkAsResponse(visualFault.isMarkAsResponse());			
+			
+			faultMediator.setSerializeResponse(visualFault.isSerializeResponse());
+			if(visualFault.isSerializeResponse()) {
+				// Response?.
+				faultMediator.setMarkAsResponse(visualFault.isMarkAsResponse());
+			}
+						
 		}
 		return faultMediator;
 	}

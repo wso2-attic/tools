@@ -35,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getSoapVersion <em>Soap Version</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#isSerializeResponse <em>Serialize Response</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#isMarkAsResponse <em>Mark As Response</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getFaultCodeSoap11 <em>Fault Code Soap11</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getFaultCodeType <em>Fault Code Type</em>}</li>
@@ -79,6 +80,26 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @ordered
 	 */
 	protected FaultSoapVersion soapVersion = SOAP_VERSION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSerializeResponse() <em>Serialize Response</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSerializeResponse()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SERIALIZE_RESPONSE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSerializeResponse() <em>Serialize Response</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSerializeResponse()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean serializeResponse = SERIALIZE_RESPONSE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #isMarkAsResponse() <em>Mark As Response</em>}' attribute.
@@ -466,6 +487,27 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		soapVersion = newSoapVersion == null ? SOAP_VERSION_EDEFAULT : newSoapVersion;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.FAULT_MEDIATOR__SOAP_VERSION, oldSoapVersion, soapVersion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSerializeResponse() {
+		return serializeResponse;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSerializeResponse(boolean newSerializeResponse) {
+		boolean oldSerializeResponse = serializeResponse;
+		serializeResponse = newSerializeResponse;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.FAULT_MEDIATOR__SERIALIZE_RESPONSE, oldSerializeResponse, serializeResponse));
 	}
 
 	/**
@@ -1035,6 +1077,8 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		switch (featureID) {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
 				return getSoapVersion();
+			case EsbPackage.FAULT_MEDIATOR__SERIALIZE_RESPONSE:
+				return isSerializeResponse();
 			case EsbPackage.FAULT_MEDIATOR__MARK_AS_RESPONSE:
 				return isMarkAsResponse();
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
@@ -1088,6 +1132,9 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		switch (featureID) {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
 				setSoapVersion((FaultSoapVersion)newValue);
+				return;
+			case EsbPackage.FAULT_MEDIATOR__SERIALIZE_RESPONSE:
+				setSerializeResponse((Boolean)newValue);
 				return;
 			case EsbPackage.FAULT_MEDIATOR__MARK_AS_RESPONSE:
 				setMarkAsResponse((Boolean)newValue);
@@ -1162,6 +1209,9 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
 				setSoapVersion(SOAP_VERSION_EDEFAULT);
 				return;
+			case EsbPackage.FAULT_MEDIATOR__SERIALIZE_RESPONSE:
+				setSerializeResponse(SERIALIZE_RESPONSE_EDEFAULT);
+				return;
 			case EsbPackage.FAULT_MEDIATOR__MARK_AS_RESPONSE:
 				setMarkAsResponse(MARK_AS_RESPONSE_EDEFAULT);
 				return;
@@ -1234,6 +1284,8 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		switch (featureID) {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
 				return soapVersion != SOAP_VERSION_EDEFAULT;
+			case EsbPackage.FAULT_MEDIATOR__SERIALIZE_RESPONSE:
+				return serializeResponse != SERIALIZE_RESPONSE_EDEFAULT;
 			case EsbPackage.FAULT_MEDIATOR__MARK_AS_RESPONSE:
 				return markAsResponse != MARK_AS_RESPONSE_EDEFAULT;
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
@@ -1289,6 +1341,8 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (soapVersion: ");
 		result.append(soapVersion);
+		result.append(", serializeResponse: ");
+		result.append(serializeResponse);
 		result.append(", markAsResponse: ");
 		result.append(markAsResponse);
 		result.append(", faultCodeSoap11: ");

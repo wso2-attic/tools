@@ -122,6 +122,11 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 		} else {
 			addFaultDetailValuePropertyDescriptor(object);
 		}	
+		
+		addSerializeResponsePropertyDescriptor(object);
+		if (faultMediator.isSerializeResponse()) {
+			addMarkAsResponsePropertyDescriptor(object);
+		}
 		addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
@@ -187,6 +192,28 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Serialize Response feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSerializeResponsePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_serializeResponse_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_serializeResponse_feature", "_UI_FaultMediator_type"),
+				 EsbPackage.Literals.FAULT_MEDIATOR__SERIALIZE_RESPONSE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -576,6 +603,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 
 		switch (notification.getFeatureID(FaultMediator.class)) {
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
+			case EsbPackage.FAULT_MEDIATOR__SERIALIZE_RESPONSE:
 			case EsbPackage.FAULT_MEDIATOR__MARK_AS_RESPONSE:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_TYPE:

@@ -1084,6 +1084,7 @@
     <genClasses ecoreClass="esb.ecore#//ScriptMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//FaultMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/soapVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/serializeResponse"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/markAsResponse"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/faultCodeSoap11"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/faultCodeType"/>

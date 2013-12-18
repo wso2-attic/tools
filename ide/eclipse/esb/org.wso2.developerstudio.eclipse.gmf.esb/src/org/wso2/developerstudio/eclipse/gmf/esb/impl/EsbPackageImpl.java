@@ -9444,7 +9444,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFaultMediator_MarkAsResponse() {
+	public EAttribute getFaultMediator_SerializeResponse() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -9453,7 +9453,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFaultMediator_FaultCodeSoap11() {
+	public EAttribute getFaultMediator_MarkAsResponse() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -9462,7 +9462,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFaultMediator_FaultCodeType() {
+	public EAttribute getFaultMediator_FaultCodeSoap11() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -9471,8 +9471,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFaultMediator_FaultCodeType() {
+		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getFaultMediator_FaultCodeExpression() {
-		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(4);
+		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -9481,15 +9490,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getFaultMediator_FaultStringType() {
-		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFaultMediator_FaultStringValue() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -9498,8 +9498,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFaultMediator_FaultStringValue() {
+		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getFaultMediator_FaultStringExpression() {
-		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(7);
+		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -9508,15 +9517,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getFaultMediator_FaultActor() {
-		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFaultMediator_FaultCodeSoap12() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -9525,7 +9525,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFaultMediator_FaultReasonType() {
+	public EAttribute getFaultMediator_FaultCodeSoap12() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -9534,7 +9534,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFaultMediator_FaultReasonValue() {
+	public EAttribute getFaultMediator_FaultReasonType() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -9543,8 +9543,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFaultMediator_FaultReasonValue() {
+		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getFaultMediator_FaultReasonExpression() {
-		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(12);
+		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -9553,15 +9562,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getFaultMediator_RoleName() {
-		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(13);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFaultMediator_NodeName() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -9570,7 +9570,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFaultMediator_FaultDetailType() {
+	public EAttribute getFaultMediator_NodeName() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -9579,7 +9579,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFaultMediator_FaultDetailValue() {
+	public EAttribute getFaultMediator_FaultDetailType() {
 		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -9588,8 +9588,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFaultMediator_FaultDetailExpression() {
-		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(17);
+	public EAttribute getFaultMediator_FaultDetailValue() {
+		return (EAttribute)faultMediatorEClass.getEStructuralFeatures().get(17);
 	}
 
 	/**
@@ -9597,7 +9597,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFaultMediator_InputConnector() {
+	public EReference getFaultMediator_FaultDetailExpression() {
 		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -9606,8 +9606,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFaultMediator_OutputConnector() {
+	public EReference getFaultMediator_InputConnector() {
 		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFaultMediator_OutputConnector() {
+		return (EReference)faultMediatorEClass.getEStructuralFeatures().get(20);
 	}
 
 	/**
@@ -15953,6 +15962,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		faultMediatorEClass = createEClass(FAULT_MEDIATOR);
 		createEAttribute(faultMediatorEClass, FAULT_MEDIATOR__SOAP_VERSION);
+		createEAttribute(faultMediatorEClass, FAULT_MEDIATOR__SERIALIZE_RESPONSE);
 		createEAttribute(faultMediatorEClass, FAULT_MEDIATOR__MARK_AS_RESPONSE);
 		createEAttribute(faultMediatorEClass, FAULT_MEDIATOR__FAULT_CODE_SOAP11);
 		createEAttribute(faultMediatorEClass, FAULT_MEDIATOR__FAULT_CODE_TYPE);
@@ -17957,6 +17967,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(faultMediatorEClass, FaultMediator.class, "FaultMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFaultMediator_SoapVersion(), this.getFaultSoapVersion(), "soapVersion", "SOAP_1_1", 0, 1, FaultMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFaultMediator_SerializeResponse(), ecorePackage.getEBoolean(), "serializeResponse", null, 0, 1, FaultMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFaultMediator_MarkAsResponse(), ecorePackage.getEBoolean(), "markAsResponse", null, 0, 1, FaultMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFaultMediator_FaultCodeSoap11(), this.getFaultCodeSoap11(), "faultCodeSoap11", "VERSION_MISSMATCH", 0, 1, FaultMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFaultMediator_FaultCodeType(), this.getFaultCodeType(), "faultCodeType", "VALUE", 0, 1, FaultMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
