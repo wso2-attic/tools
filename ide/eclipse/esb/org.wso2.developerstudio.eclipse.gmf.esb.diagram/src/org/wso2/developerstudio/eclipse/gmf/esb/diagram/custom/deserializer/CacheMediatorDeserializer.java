@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
@@ -43,7 +44,10 @@ public class CacheMediatorDeserializer extends
 		setElementToEdit(mediatorModel);
 		setCommonProperties(mediator, mediatorModel);
 		
-		executeSetValueCommand(CACHE_MEDIATOR__CACHE_ID, mediator.getId());
+		if (StringUtils.isNotBlank(mediator.getId())) {
+			executeSetValueCommand(CACHE_MEDIATOR__CACHE_ID, mediator.getId());
+		}
+		
 		if("per-mediator".equals(mediator.getId())){
 			executeSetValueCommand(CACHE_MEDIATOR__CACHE_SCOPE, CacheScope.PER_MEDIATOR);
 		} else if ("per-host".equals(mediator.getId())){

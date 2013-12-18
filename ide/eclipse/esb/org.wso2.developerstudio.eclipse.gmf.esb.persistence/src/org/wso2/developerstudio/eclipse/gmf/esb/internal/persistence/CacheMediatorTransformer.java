@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.ListMediator;
@@ -71,7 +72,9 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 		setCommonProperties(cacheMediator, visualCache);
 		{	
 			if(visualCache.getCacheAction().getValue()==0){
-				cacheMediator.setId(visualCache.getCacheId());
+				if (StringUtils.isNotBlank(visualCache.getCacheId())) {
+					cacheMediator.setId(visualCache.getCacheId());
+				}			
 				cacheMediator.setScope(visualCache.getCacheScope().getLiteral());
 				cacheMediator.setTimeout(visualCache.getCacheTimeout());
 				cacheMediator.setMaxMessageSize(visualCache.getMaxMessageSize());
@@ -79,7 +82,9 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 				cacheMediator.setCollector(false);
 			}
 			if(visualCache.getCacheAction().getValue()==1){
-				cacheMediator.setId(visualCache.getCacheId());
+				if (StringUtils.isNotBlank(visualCache.getCacheId())) {
+					cacheMediator.setId(visualCache.getCacheId());
+				}
 				cacheMediator.setScope(visualCache.getCacheScope().getLiteral());
 				cacheMediator.setCollector(true);
 			}
