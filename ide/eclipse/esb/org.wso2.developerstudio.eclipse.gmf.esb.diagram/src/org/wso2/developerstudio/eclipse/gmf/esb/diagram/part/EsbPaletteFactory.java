@@ -164,28 +164,39 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createSendMediator19CreationTool());
 		paletteContainer.add(createSequence4CreationTool());
 		paletteContainer.add(createStoreMediator31CreationTool());
+		
+		// Core Mediator Category separator.
+		paletteContainer.add(new PaletteSeparator("Core"));
 
 		paletteContainer.add(createConditionalRouterMediator39CreationTool());
 		paletteContainer.add(createFilterMediator2CreationTool());
 		paletteContainer.add(createSwitchMediator7CreationTool());
 		paletteContainer.add(createValidateMediator37CreationTool());
+		
+		// Filter Mediator Category separator.
+		paletteContainer.add(new PaletteSeparator("Filter"));
 
 		paletteContainer.add(createBeanMediator41CreationTool());
 		paletteContainer.add(createClassMediator10CreationTool());
 		paletteContainer.add(createCommandMediator15CreationTool());
 		paletteContainer.add(createEJBMediator42CreationTool());
 		paletteContainer.add(createScriptMediator12CreationTool());
-
 		paletteContainer.add(createSpringMediator11CreationTool());
+
+		// Extension Mediator Category separator.
+		paletteContainer.add(new PaletteSeparator("Extension"));
+
 		paletteContainer.add(createEnrichMediator5CreationTool());
 		paletteContainer.add(createFaultMediator13CreationTool());
 		paletteContainer.add(createHeaderMediator20CreationTool());
 		paletteContainer.add(createPayloadFactoryMediator34CreationTool());
 		paletteContainer.add(createSmooksMediator18CreationTool());
 		paletteContainer.add(createURLRewriteMediator36CreationTool());
-
 		paletteContainer.add(createXQueryMediator14CreationTool());
 		paletteContainer.add(createXSLTMediator6CreationTool());
+		
+		// Transform Mediator Category separator.
+		paletteContainer.add(new PaletteSeparator("Transform"));
 
 		paletteContainer.add(createCacheMediator23CreationTool());
 		paletteContainer.add(createDBLookupMediator16CreationTool());
@@ -195,19 +206,32 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createRMSequenceMediator28CreationTool());
 		paletteContainer.add(createThrottleMediator27CreationTool());
 		paletteContainer.add(createTransactionMediator26CreationTool());
+		
+		// Advanced Mediator Category separator.
+		paletteContainer.add(new PaletteSeparator("Advanced"));
 
 		paletteContainer.add(createAggregateMediator24CreationTool());
 		paletteContainer.add(createCalloutMediator25CreationTool());
 		paletteContainer.add(createCloneMediator21CreationTool());
 		paletteContainer.add(createIterateMediator22CreationTool());
+		
+		// Advanced Mediator Category separator.
+		paletteContainer.add(new PaletteSeparator("Advanced1"));
 
 		paletteContainer.add(createEntitlementMediator9CreationTool());
 		paletteContainer.add(createOAuthMediator29CreationTool());
+		
+		// Advanced Mediator Category separator.
+		paletteContainer.add(new PaletteSeparator("Advanced2"));
 
 		//paletteContainer.add(createRouterMediator38CreationTool()); removed as requested in TOOLS-1800
 		paletteContainer.add(createRuleMediator30CreationTool());
-		paletteContainer.add(createBAMMediator40CreationTool());
 		paletteContainer.add(createBuilderMediator32CreationTool());
+		
+		// Agent Mediator Category separator.
+		paletteContainer.add(new PaletteSeparator("Agent"));
+				
+		paletteContainer.add(createBAMMediator40CreationTool());
 
 		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;

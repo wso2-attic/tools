@@ -151,14 +151,25 @@ public class CustomPaletteViewerKeyHandler extends PaletteViewerKeyHandler {
 
 		if (paletteEntryList != null && paletteEntryList.size() > 0) {
 			// Hide un-matching tool entries.
-			for (PaletteToolEntry toolEntry : paletteEntryList) {
+			for (int i = 0; i < paletteEntryList.size(); i++) {
+				if (paletteEntryList.get(i) instanceof PaletteToolEntry) {
+					PaletteToolEntry toolEntry = paletteEntryList.get(i);
+					String label = toolEntry.getLabel().toUpperCase();
+					if (label.startsWith(searchString.toUpperCase())) {
+						toolEntry.setVisible(true);
+					} else if (toolEntry.isVisible()) {
+						toolEntry.setVisible(false);
+					}
+				}
+			}
+			/*for (PaletteToolEntry toolEntry : paletteEntryList) {
 				String label = toolEntry.getLabel().toUpperCase();
 				if (label.startsWith(searchString.toUpperCase())) {
 					toolEntry.setVisible(true);
 				} else if (toolEntry.isVisible()) {
 					toolEntry.setVisible(false);
 				}
-			}
+			}*/
 		}
 	}
 
@@ -175,11 +186,20 @@ public class CustomPaletteViewerKeyHandler extends PaletteViewerKeyHandler {
 			List<PaletteToolEntry> paletteEntryList = paletteEntries.get(modelLabel);
 
 			if (paletteEntryList != null && paletteEntryList.size() > 0) {
-				for (PaletteToolEntry toolEntry : paletteEntryList) {
+				for (int i = 0; i < paletteEntryList.size(); i++) {
+					if (paletteEntryList.get(i) instanceof PaletteToolEntry) {
+						PaletteToolEntry toolEntry = paletteEntryList.get(i);
+						if (!toolEntry.isVisible()) {
+							toolEntry.setVisible(true);
+						}
+					}
+				}
+				
+				/*for (PaletteToolEntry toolEntry : paletteEntryList) {
 					if (!toolEntry.isVisible()) {
 						toolEntry.setVisible(true);
 					}
-				}
+				}*/
 
 				searchString = "";
 			}
