@@ -63,12 +63,6 @@ public class DetailSectionUiUtil {
 
 		toolkit.adapt(combo, true, true);
 
-		if (input != null && metaObject != null) {
-
-			addModifyListnerForCustomComboFields(combo, input, metaObject);
-
-		}
-
 		for (int i = 0; i < displayValues.length; i++) {
 
 			if (displayValues[i] != null)
@@ -91,6 +85,13 @@ public class DetailSectionUiUtil {
 				combo.select(0);
 			}
 		}
+		
+		if (input != null && metaObject != null) {
+
+			addModifyListnerForCustomComboFields(combo, input, metaObject);
+
+		}
+		
 		return combo;
 	}
 
