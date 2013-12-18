@@ -66,9 +66,9 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 	 * <!-- end-user-doc -->
 	 * @see #getStaticTopic()
 	 * @generated
-	 * @ordered NOT
+	 * @ordered
 	 */
-	protected static final String STATIC_TOPIC_EDEFAULT = "";
+	protected static final String STATIC_TOPIC_EDEFAULT = "source_property";
 
 	/**
 	 * The cached value of the '{@link #getStaticTopic() <em>Static Topic</em>}' attribute.

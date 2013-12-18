@@ -307,6 +307,9 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			info.getSynapseConfiguration().addProxyService(
 					visualService.getName(), proxyService);
 			
+			// startOnLoad attribute.
+			proxyService.setStartOnLoad(visualService.isStartOnLoad());
+			
 			//Proxy Service Parameters.
 			for(int i=0;i<visualService.getServiceParameters().size();++i){
 				String value = visualService.getServiceParameters().get(i).getValue();

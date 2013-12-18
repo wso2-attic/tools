@@ -817,13 +817,22 @@ public interface EsbPackage extends EPackage {
 	int PROXY_SERVICE__STATISTICS_ENABLED = ESB_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
+	 * The feature id for the '<em><b>Start On Load</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__START_ON_LOAD = ESB_ELEMENT_FEATURE_COUNT + 10;
+
+	/**
 	 * The feature id for the '<em><b>Transports</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__TRANSPORTS = ESB_ELEMENT_FEATURE_COUNT + 10;
+	int PROXY_SERVICE__TRANSPORTS = ESB_ELEMENT_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
@@ -832,7 +841,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__RELIABLE_MESSAGING_ENABLED = ESB_ELEMENT_FEATURE_COUNT + 11;
+	int PROXY_SERVICE__RELIABLE_MESSAGING_ENABLED = ESB_ELEMENT_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Security Enabled</b></em>' attribute.
@@ -841,7 +850,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__SECURITY_ENABLED = ESB_ELEMENT_FEATURE_COUNT + 12;
+	int PROXY_SERVICE__SECURITY_ENABLED = ESB_ELEMENT_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Service Parameters</b></em>' containment reference list.
@@ -850,7 +859,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__SERVICE_PARAMETERS = ESB_ELEMENT_FEATURE_COUNT + 13;
+	int PROXY_SERVICE__SERVICE_PARAMETERS = ESB_ELEMENT_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Service Policies</b></em>' containment reference list.
@@ -859,7 +868,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__SERVICE_POLICIES = ESB_ELEMENT_FEATURE_COUNT + 14;
+	int PROXY_SERVICE__SERVICE_POLICIES = ESB_ELEMENT_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Container</b></em>' containment reference.
@@ -868,7 +877,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__CONTAINER = ESB_ELEMENT_FEATURE_COUNT + 15;
+	int PROXY_SERVICE__CONTAINER = ESB_ELEMENT_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>In Sequence Type</b></em>' attribute.
@@ -877,7 +886,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__IN_SEQUENCE_TYPE = ESB_ELEMENT_FEATURE_COUNT + 16;
+	int PROXY_SERVICE__IN_SEQUENCE_TYPE = ESB_ELEMENT_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>In Sequence Key</b></em>' containment reference.
@@ -886,7 +895,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__IN_SEQUENCE_KEY = ESB_ELEMENT_FEATURE_COUNT + 17;
+	int PROXY_SERVICE__IN_SEQUENCE_KEY = ESB_ELEMENT_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>In Sequence Name</b></em>' attribute.
@@ -895,7 +904,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__IN_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 18;
+	int PROXY_SERVICE__IN_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>In Sequence On Error</b></em>' containment reference.
@@ -904,7 +913,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__IN_SEQUENCE_ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 19;
+	int PROXY_SERVICE__IN_SEQUENCE_ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Out Sequence Type</b></em>' attribute.
@@ -913,7 +922,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__OUT_SEQUENCE_TYPE = ESB_ELEMENT_FEATURE_COUNT + 20;
+	int PROXY_SERVICE__OUT_SEQUENCE_TYPE = ESB_ELEMENT_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Out Sequence Key</b></em>' containment reference.
@@ -922,7 +931,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__OUT_SEQUENCE_KEY = ESB_ELEMENT_FEATURE_COUNT + 21;
+	int PROXY_SERVICE__OUT_SEQUENCE_KEY = ESB_ELEMENT_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Out Sequence Name</b></em>' attribute.
@@ -931,7 +940,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__OUT_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 22;
+	int PROXY_SERVICE__OUT_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Out Sequence On Error</b></em>' containment reference.
@@ -940,7 +949,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 23;
+	int PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Fault Sequence Type</b></em>' attribute.
@@ -949,7 +958,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__FAULT_SEQUENCE_TYPE = ESB_ELEMENT_FEATURE_COUNT + 24;
+	int PROXY_SERVICE__FAULT_SEQUENCE_TYPE = ESB_ELEMENT_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Fault Sequence Key</b></em>' containment reference.
@@ -958,7 +967,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__FAULT_SEQUENCE_KEY = ESB_ELEMENT_FEATURE_COUNT + 25;
+	int PROXY_SERVICE__FAULT_SEQUENCE_KEY = ESB_ELEMENT_FEATURE_COUNT + 26;
 
 	/**
 	 * The feature id for the '<em><b>Fault Sequence Name</b></em>' attribute.
@@ -967,7 +976,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__FAULT_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 26;
+	int PROXY_SERVICE__FAULT_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 27;
 
 	/**
 	 * The feature id for the '<em><b>Fault Sequence On Error</b></em>' containment reference.
@@ -976,7 +985,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 27;
+	int PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 28;
 
 	/**
 	 * The feature id for the '<em><b>Endpoint Type</b></em>' attribute.
@@ -985,7 +994,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__ENDPOINT_TYPE = ESB_ELEMENT_FEATURE_COUNT + 28;
+	int PROXY_SERVICE__ENDPOINT_TYPE = ESB_ELEMENT_FEATURE_COUNT + 29;
 
 	/**
 	 * The feature id for the '<em><b>Endpoint Key</b></em>' containment reference.
@@ -994,7 +1003,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__ENDPOINT_KEY = ESB_ELEMENT_FEATURE_COUNT + 29;
+	int PROXY_SERVICE__ENDPOINT_KEY = ESB_ELEMENT_FEATURE_COUNT + 30;
 
 	/**
 	 * The feature id for the '<em><b>Endpoint Name</b></em>' attribute.
@@ -1003,7 +1012,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__ENDPOINT_NAME = ESB_ELEMENT_FEATURE_COUNT + 30;
+	int PROXY_SERVICE__ENDPOINT_NAME = ESB_ELEMENT_FEATURE_COUNT + 31;
 
 	/**
 	 * The feature id for the '<em><b>Main Sequence</b></em>' attribute.
@@ -1012,7 +1021,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__MAIN_SEQUENCE = ESB_ELEMENT_FEATURE_COUNT + 31;
+	int PROXY_SERVICE__MAIN_SEQUENCE = ESB_ELEMENT_FEATURE_COUNT + 32;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl Type</b></em>' attribute.
@@ -1021,7 +1030,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_TYPE = ESB_ELEMENT_FEATURE_COUNT + 32;
+	int PROXY_SERVICE__WSDL_TYPE = ESB_ELEMENT_FEATURE_COUNT + 33;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl XML</b></em>' attribute.
@@ -1030,7 +1039,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_XML = ESB_ELEMENT_FEATURE_COUNT + 33;
+	int PROXY_SERVICE__WSDL_XML = ESB_ELEMENT_FEATURE_COUNT + 34;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl URL</b></em>' attribute.
@@ -1039,7 +1048,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_URL = ESB_ELEMENT_FEATURE_COUNT + 34;
+	int PROXY_SERVICE__WSDL_URL = ESB_ELEMENT_FEATURE_COUNT + 35;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl Key</b></em>' containment reference.
@@ -1048,7 +1057,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_KEY = ESB_ELEMENT_FEATURE_COUNT + 35;
+	int PROXY_SERVICE__WSDL_KEY = ESB_ELEMENT_FEATURE_COUNT + 36;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl Resources</b></em>' containment reference list.
@@ -1057,7 +1066,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_RESOURCES = ESB_ELEMENT_FEATURE_COUNT + 36;
+	int PROXY_SERVICE__WSDL_RESOURCES = ESB_ELEMENT_FEATURE_COUNT + 37;
 
 	/**
 	 * The feature id for the '<em><b>On Error</b></em>' containment reference.
@@ -1066,7 +1075,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 37;
+	int PROXY_SERVICE__ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 38;
 
 	/**
 	 * The number of structural features of the '<em>Proxy Service</em>' class.
@@ -1075,7 +1084,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 38;
+	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 39;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyOutputConnectorImpl <em>Proxy Output Connector</em>}' class.
@@ -21429,6 +21438,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getProxyService_StatisticsEnabled();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isStartOnLoad <em>Start On Load</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start On Load</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isStartOnLoad()
+	 * @see #getProxyService()
+	 * @generated
+	 */
+	EAttribute getProxyService_StartOnLoad();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getTransports <em>Transports</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35198,6 +35218,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute PROXY_SERVICE__STATISTICS_ENABLED = eINSTANCE.getProxyService_StatisticsEnabled();
+
+		/**
+		 * The meta object literal for the '<em><b>Start On Load</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROXY_SERVICE__START_ON_LOAD = eINSTANCE.getProxyService_StartOnLoad();
 
 		/**
 		 * The meta object literal for the '<em><b>Transports</b></em>' attribute feature.

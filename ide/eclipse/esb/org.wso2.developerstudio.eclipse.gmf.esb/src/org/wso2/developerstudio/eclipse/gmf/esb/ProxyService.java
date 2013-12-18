@@ -27,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServiceGroup <em>Service Group</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isTraceEnabled <em>Trace Enabled</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isStatisticsEnabled <em>Statistics Enabled</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isStartOnLoad <em>Start On Load</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getTransports <em>Transports</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isReliableMessagingEnabled <em>Reliable Messaging Enabled</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isSecurityEnabled <em>Security Enabled</em>}</li>
@@ -313,6 +314,32 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	void setStatisticsEnabled(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Start On Load</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Start On Load</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Start On Load</em>' attribute.
+	 * @see #setStartOnLoad(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_StartOnLoad()
+	 * @model
+	 * @generated
+	 */
+	boolean isStartOnLoad();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isStartOnLoad <em>Start On Load</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Start On Load</em>' attribute.
+	 * @see #isStartOnLoad()
+	 * @generated
+	 */
+	void setStartOnLoad(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Transports</b></em>' attribute.

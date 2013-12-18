@@ -75,6 +75,7 @@ public class ProxyServiceItemProvider
 			addServiceGroupPropertyDescriptor(object);
 			addTraceEnabledPropertyDescriptor(object);
 			addStatisticsEnabledPropertyDescriptor(object);
+			addStartOnLoadPropertyDescriptor(object);
 			addTransportsPropertyDescriptor(object);
 			addReliableMessagingEnabledPropertyDescriptor(object);
 			addSecurityEnabledPropertyDescriptor(object);
@@ -272,6 +273,28 @@ public class ProxyServiceItemProvider
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 "Basic",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Start On Load feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStartOnLoadPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_startOnLoad_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_startOnLoad_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__START_ON_LOAD,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -956,6 +979,7 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__SERVICE_GROUP:
 			case EsbPackage.PROXY_SERVICE__TRACE_ENABLED:
 			case EsbPackage.PROXY_SERVICE__STATISTICS_ENABLED:
+			case EsbPackage.PROXY_SERVICE__START_ON_LOAD:
 			case EsbPackage.PROXY_SERVICE__TRANSPORTS:
 			case EsbPackage.PROXY_SERVICE__RELIABLE_MESSAGING_ENABLED:
 			case EsbPackage.PROXY_SERVICE__SECURITY_ENABLED:

@@ -65,6 +65,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getServiceGroup <em>Service Group</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isTraceEnabled <em>Trace Enabled</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isStatisticsEnabled <em>Statistics Enabled</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isStartOnLoad <em>Start On Load</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getTransports <em>Transports</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isReliableMessagingEnabled <em>Reliable Messaging Enabled</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isSecurityEnabled <em>Security Enabled</em>}</li>
@@ -248,6 +249,26 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @ordered
 	 */
 	protected boolean statisticsEnabled = STATISTICS_ENABLED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isStartOnLoad() <em>Start On Load</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStartOnLoad()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected static final boolean START_ON_LOAD_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isStartOnLoad() <em>Start On Load</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStartOnLoad()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean startOnLoad = START_ON_LOAD_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getTransports() <em>Transports</em>}' attribute.
@@ -1047,6 +1068,27 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		statisticsEnabled = newStatisticsEnabled;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__STATISTICS_ENABLED, oldStatisticsEnabled, statisticsEnabled));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isStartOnLoad() {
+		return startOnLoad;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStartOnLoad(boolean newStartOnLoad) {
+		boolean oldStartOnLoad = startOnLoad;
+		startOnLoad = newStartOnLoad;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__START_ON_LOAD, oldStartOnLoad, startOnLoad));
 	}
 
 	/**
@@ -1908,6 +1950,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return isTraceEnabled();
 			case EsbPackage.PROXY_SERVICE__STATISTICS_ENABLED:
 				return isStatisticsEnabled();
+			case EsbPackage.PROXY_SERVICE__START_ON_LOAD:
+				return isStartOnLoad();
 			case EsbPackage.PROXY_SERVICE__TRANSPORTS:
 				return getTransports();
 			case EsbPackage.PROXY_SERVICE__RELIABLE_MESSAGING_ENABLED:
@@ -2008,6 +2052,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return;
 			case EsbPackage.PROXY_SERVICE__STATISTICS_ENABLED:
 				setStatisticsEnabled((Boolean)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__START_ON_LOAD:
+				setStartOnLoad((Boolean)newValue);
 				return;
 			case EsbPackage.PROXY_SERVICE__TRANSPORTS:
 				setTransports((String)newValue);
@@ -2139,6 +2186,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__STATISTICS_ENABLED:
 				setStatisticsEnabled(STATISTICS_ENABLED_EDEFAULT);
 				return;
+			case EsbPackage.PROXY_SERVICE__START_ON_LOAD:
+				setStartOnLoad(START_ON_LOAD_EDEFAULT);
+				return;
 			case EsbPackage.PROXY_SERVICE__TRANSPORTS:
 				setTransports(TRANSPORTS_EDEFAULT);
 				return;
@@ -2256,6 +2306,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return traceEnabled != TRACE_ENABLED_EDEFAULT;
 			case EsbPackage.PROXY_SERVICE__STATISTICS_ENABLED:
 				return statisticsEnabled != STATISTICS_ENABLED_EDEFAULT;
+			case EsbPackage.PROXY_SERVICE__START_ON_LOAD:
+				return startOnLoad != START_ON_LOAD_EDEFAULT;
 			case EsbPackage.PROXY_SERVICE__TRANSPORTS:
 				return TRANSPORTS_EDEFAULT == null ? transports != null : !TRANSPORTS_EDEFAULT.equals(transports);
 			case EsbPackage.PROXY_SERVICE__RELIABLE_MESSAGING_ENABLED:
@@ -2337,6 +2389,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		result.append(traceEnabled);
 		result.append(", statisticsEnabled: ");
 		result.append(statisticsEnabled);
+		result.append(", startOnLoad: ");
+		result.append(startOnLoad);
 		result.append(", transports: ");
 		result.append(transports);
 		result.append(", reliableMessagingEnabled: ");
