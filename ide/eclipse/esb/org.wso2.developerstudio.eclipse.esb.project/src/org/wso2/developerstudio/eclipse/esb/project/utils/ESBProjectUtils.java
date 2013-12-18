@@ -106,7 +106,6 @@ public class ESBProjectUtils {
 					}
 				}
 				//esbProjectModel.setName(qName);
-
 				String commonESBPath = "src" + File.separator + "main"
 						+ File.separator + "synapse-config" + File.separator;
 				if (localName.equalsIgnoreCase("sequence")) {
@@ -234,6 +233,51 @@ public class ESBProjectUtils {
 					fileList.put(destFile, localName);
 					createArtifactMetaDataEntry(qName, "synapse/message-processors", baseDir,
 							groupId + ".message-processor",project);
+				} else if (localName.equalsIgnoreCase("template")) {
+					File baseDir = project.getFolder(commonESBPath + "templates")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					
+					if (element.getChildrenWithName(new QName("sequence")) != null
+							&& element.getChildrenWithName(new QName("sequence")).hasNext()) {
+						// Sequence template.
+						FileUtils.createFile(destFile, element.toString());
+						MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+						addPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-template-plugin",
+								MavenConstants.WSO2_ESB_TEMPLATE_VERSION, "template");
+						MavenUtils.saveMavenProject(mavenProject, pomfile);
+						fileList.put(destFile, "template.sequence");
+						createArtifactMetaDataEntry(qName, "synapse/sequenceTemplate", baseDir,
+								groupId + ".template", project);
+					} else if (element.getChildrenWithName(new QName("endpoint")) != null
+							&& element.getChildrenWithName(new QName("endpoint")).hasNext()) {
+						// Endpoint template.
+						OMElement endpoint = (OMElement) element.getChildrenWithName(
+								new QName("endpoint")).next();
+						String endpointType = endpoint.getFirstElement().getLocalName();
+						String templateType = "template.endpoint";
+						
+						if ("address".equals(endpointType)) {
+							// Address endpoint template.
+							templateType = templateType + "-1";
+						} else if ("wsdl".equals(endpointType)) {
+							// WSDL endpoint template.
+							templateType = templateType + "-2";
+						} else {
+							// Default endpoint template. 
+							templateType = templateType + "-0";
+						}
+						
+						FileUtils.createFile(destFile, element.toString());
+						MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+						addPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-template-plugin",
+								MavenConstants.WSO2_ESB_TEMPLATE_VERSION, "template");
+						MavenUtils.saveMavenProject(mavenProject, pomfile);
+						fileList.put(destFile, templateType);
+						createArtifactMetaDataEntry(qName, "synapse/endpointTemplate", baseDir,
+								groupId + ".template", project);
+					}
+					
 				}
 			}
 		}

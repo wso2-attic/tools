@@ -275,32 +275,41 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	}
 			
 	public void openEditor(File file) {
-		try{
-		refreshDistProjects();
-		OMElement documentElement = new StAXOMBuilder(new FileInputStream(file)).getDocumentElement();
-	    OMElement firstElement = documentElement.getFirstElement();
-		String templateType="template.sequence";
-	    if("endpoint".equals(firstElement.getLocalName())){
-	    	templateType="template.endpoint";
-	    String localName = firstElement.getFirstElement().getLocalName();
-		if ("address".equals(localName)) {
-			templateType=templateType+"-1";
-		} else if ("wsdl".equals(localName)) {
-			templateType=templateType+"-2";
-		} else {
-			templateType=templateType+"-0";
-		}		
-	  }
-		IFile dbsFile  = ResourcesPlugin
-		.getWorkspace()
-		.getRoot()
-		.getFileForLocation(
-				Path.fromOSString(file.getAbsolutePath()));
-		String path = dbsFile.getParent().getFullPath()+"/";
-		String source = FileUtils.getContentAsString(file);
-		Openable openable = ESBGraphicalEditor.getOpenable();
-		openable.editorOpen(file.getName(),templateType,path+"template_", source);
-		}catch(Exception e){
+		try {
+			refreshDistProjects();
+			OMElement documentElement = new StAXOMBuilder(new FileInputStream(file))
+					.getDocumentElement();
+			String templateType = "";
+
+			if (documentElement.getChildrenWithName(new QName("endpoint")) != null
+					&& documentElement.getChildrenWithName(new QName("endpoint")).hasNext()) {
+				// Endpoint template.
+				templateType = "template.endpoint";
+				OMElement endpoint = (OMElement) documentElement.getChildrenWithName(
+						new QName("endpoint")).next();
+				String localName = endpoint.getFirstElement().getLocalName();
+				if ("address".equals(localName)) {
+					// Address endpoint template.
+					templateType = templateType + "-1";
+				} else if ("wsdl".equals(localName)) {
+					// WSDL endpoint template.
+					templateType = templateType + "-2";
+				} else {
+					// Default endpoint template. 
+					templateType = templateType + "-0";
+				}
+			} else {
+				// Sequence template.
+				templateType = "template.sequence";
+			}
+
+			IFile dbsFile = ResourcesPlugin.getWorkspace().getRoot()
+					.getFileForLocation(Path.fromOSString(file.getAbsolutePath()));
+			String path = dbsFile.getParent().getFullPath() + "/";
+			String source = FileUtils.getContentAsString(file);
+			Openable openable = ESBGraphicalEditor.getOpenable();
+			openable.editorOpen(file.getName(), templateType, path + "template_", source);
+		} catch (Exception e) {
 			log.error("Cannot open the editor", e);
 		}
 	}
