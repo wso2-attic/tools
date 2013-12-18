@@ -236,11 +236,14 @@ public class ThrottlePolicyEntryDialog extends Dialog {
 		removeBtn = new Button(container, SWT.NONE);
 		removeBtn.setText("Remove");
 		removeBtn.addListener(SWT.Selection, new Listener() {
-			
-			
 			public void handleEvent(Event event) {
 				int selectedIndex = policyEntryTable.getSelectionIndex();
 				if (-1 != selectedIndex) {
+					initTableEditor(typeEditor, policyEntryTable);
+					initTableEditor(mrcEditor, policyEntryTable);
+					initTableEditor(utEditor, policyEntryTable);
+					initTableEditor(ptpEditor, policyEntryTable);
+					initTableEditor(accsessTypeEditor, policyEntryTable);
 					unbindPolicyEntry(selectedIndex);
 
 					// Select the next available candidate for deletion.
@@ -250,7 +253,7 @@ public class ThrottlePolicyEntryDialog extends Dialog {
 						policyEntryTable.select(selectedIndex - 1);
 					}
 				}
-				
+
 			}
 		});
 		
@@ -399,10 +402,9 @@ public class ThrottlePolicyEntryDialog extends Dialog {
 		TableItem item = policyEntryTable.getItem(itemIndex);
 		ThrottlePolicyEntry policyEntry = (ThrottlePolicyEntry)item.getData();
 		
-		if(policyEntry.eContainer() != null){
-			
+		if(policyEntry.eContainer() != null){	
 			RemoveCommand rmCommnd = new RemoveCommand(editingDomain, throttleMediator,
-					EsbPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_ENTRIES,policyEntry);
+					EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_ENTRIES, policyEntry);
 			getResultCommand().append(rmCommnd);
 		}
 		
