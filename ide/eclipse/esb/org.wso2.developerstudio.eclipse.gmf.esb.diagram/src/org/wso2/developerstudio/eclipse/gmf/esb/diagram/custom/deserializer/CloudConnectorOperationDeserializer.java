@@ -17,7 +17,9 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
+
 import java.util.Map;
+
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
 import org.eclipse.core.runtime.Assert;
@@ -28,13 +30,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationParamEdit
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector.CloudConnectorDirectoryTraverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CloudConnectorOperationExt;
 
 public class CloudConnectorOperationDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, CloudConnectorOperation>{
 
 	public static String cloudConnectorName;
-	
+		
 	@Override
 	public CloudConnectorOperation createNode(IGraphicalEditPart part, AbstractMediator object) {
 		Assert.isTrue(object instanceof CloudConnectorOperationExt,"Unsupported mediator passed in for deserialization");
@@ -49,7 +52,55 @@ public class CloudConnectorOperationDeserializer extends AbstractEsbNodeDeserial
 		executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__CLOUD_CONNECTOR_NAME, operation.getCloudConnectorName());
 		executeSetValueCommand(ESB_ELEMENT__DESCRIPTION, operation.getOperation());
 		
-		Map<String, Value> parameters = operation.getpName2ExpressionMap();
+		String addedConnector = operation.getConnectorComponentName();
+		String addedOperation = operationModel.getOperationName();
+		
+		Map<String, Value> existingParameters = operation.getpName2ExpressionMap();
+		boolean namespacesExist=false;
+
+		for (String parameter : CloudConnectorDirectoryTraverser.getInstance()
+				.getAllParametersOfConnectorOperation(addedConnector, addedOperation)) {
+			CallTemplateParameter visualParameter = EsbFactory.eINSTANCE
+					.createCallTemplateParameter();
+			visualParameter.setParameterName(parameter);
+			if (existingParameters != null && existingParameters.containsKey(parameter)) {
+				// parameter already exists in the config.
+				Value value = existingParameters.get(parameter);
+
+				boolean dynamic = value.hasExprTypeKey();
+
+				if (value.getExpression() == null && value.getKeyValue() != null) {
+					NamespacedProperty namespacedProperty = createNamespacedProperty(
+							value.getKeyValue(), null);
+					namespacedProperty.setDynamic(dynamic);
+					namespacedProperty.setSupportsDynamicXPaths(true);
+					visualParameter.setParameterExpression(namespacedProperty);
+					visualParameter.setParameterValue(value.getKeyValue());
+					visualParameter.setTemplateParameterType(RuleOptionType.VALUE);
+				}
+
+				if (value.getExpression() != null) {
+					NamespacedProperty namespacedProperty = createNamespacedProperty(value
+							.getExpression());
+					namespacedProperty.setPropertyValue("{" + value.getExpression().toString()
+							+ "}");
+					namespacedProperty.setDynamic(dynamic);
+					namespacedProperty.setSupportsDynamicXPaths(true);
+					visualParameter.setParameterExpression(namespacedProperty);
+					visualParameter.setParameterValue("{" + value.getExpression().toString() + "}");
+					visualParameter.setTemplateParameterType(RuleOptionType.EXPRESSION);
+					if (namespacedProperty.getNamespaces().size() > 0) {
+						namespacesExist = true;
+					}
+				}
+			} else {
+				// parameter does not exist in the config.
+			}
+			executeAddValueCommand(operationModel.getConnectorParameters(), visualParameter);
+
+		}
+		
+		/*Map<String, Value> parameters = operation.getpName2ExpressionMap();
 		boolean namespacesExist=false;
 		for(Map.Entry<String, Value> entry : parameters.entrySet()){
 			CallTemplateParameter parameter = EsbFactory.eINSTANCE.createCallTemplateParameter();
@@ -80,7 +131,7 @@ public class CloudConnectorOperationDeserializer extends AbstractEsbNodeDeserial
 				}	
 			}
 			executeAddValueCommand(operationModel.getConnectorParameters(), parameter);
-		}
+		}*/
 		
 		if(namespacesExist){
 			executeSetValueCommand(CLOUD_CONNECTOR_OPERATION__PARAMETER_EDITOR_TYPE, CloudConnectorOperationParamEditorType.NAMESPACED_PROPERTY_EDITOR);

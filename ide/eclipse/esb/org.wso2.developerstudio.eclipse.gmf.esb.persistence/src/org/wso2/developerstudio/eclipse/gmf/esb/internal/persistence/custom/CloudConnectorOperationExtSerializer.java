@@ -20,6 +20,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.axiom.om.OMElement;
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.config.xml.InvokeMediatorSerializer;
 import org.apache.synapse.config.xml.ValueSerializer;
@@ -52,10 +53,15 @@ public class CloudConnectorOperationExtSerializer extends InvokeMediatorSerializ
                 
                 //serialize value attribute
                 Value value = paramsMap.get(paramName);
-                new ValueSerializer().serializeTextValue(value, "value", paramEl);                
+                if (StringUtils.isNotBlank(value.getKeyValue()) || value.getExpression() != null) {
+                	// Fixing TOOLS-2222 (do not serialize empty attributes)
+                	new ValueSerializer().serializeTextValue(value, "value", paramEl);  
+                	invokeElem.addChild(paramEl);
+                }
+                            
                // paramEl.setText(value.getKeyValue());
                // new ValueSerializer().serializeValue(value, "value", paramEl);
-                invokeElem.addChild(paramEl);
+                
             }
         }
 

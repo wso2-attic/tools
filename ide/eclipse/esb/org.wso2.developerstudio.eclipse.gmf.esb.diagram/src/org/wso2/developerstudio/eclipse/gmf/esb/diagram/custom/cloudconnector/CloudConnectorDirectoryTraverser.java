@@ -18,8 +18,10 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.cloudconnector;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -29,8 +31,10 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.mediators.template.TemplateMediator;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.xml.type.internal.QName;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.MediatorFactoryUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -210,5 +214,53 @@ public class CloudConnectorDirectoryTraverser {
 			}
 		}
 		return connectorDirectoryPath;
+	}
+	
+	/**
+	 * Get all possible parameters of the given connector operation. 
+	 * @param addedConnector
+	 * @param addedOperation
+	 * @return
+	 */
+	public Collection<String> getAllParametersOfConnectorOperation(String addedConnector,
+			String addedOperation) {
+		String directory = null;
+		String operationFileName = null;
+		List<String> parameters = new ArrayList<String>();
+		
+		IProject activeProject = EditorUtils.getActiveProject();
+		String connectorPath = getConnectorDirectoryPathFromConnectorName(activeProject
+				.getWorkspace().getRoot().getLocation().toOSString(), addedConnector);
+		CloudConnectorDirectoryTraverser cloudConnectorDirectoryTraverser = CloudConnectorDirectoryTraverser
+				.getInstance(connectorPath);
+
+		try {
+			operationFileName = cloudConnectorDirectoryTraverser.getOperationsMap().get(
+					addedOperation);
+			directory = cloudConnectorDirectoryTraverser.getOperationFileNamesMap().get(
+					operationFileName);
+		} catch (Exception e1) {
+			log.error("Error while retrieving data for connector", e1);
+		}
+		String path = connectorPath + File.separator + directory + File.separator
+				+ operationFileName + ".xml";
+
+		try {
+			String source = FileUtils.getContentAsString(new File(path));
+			OMElement element = AXIOMUtil.stringToOM(source);
+
+			if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+				TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
+				TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
+						.createMediator(element, properties);
+				return templateMediator.getParameters();
+			}
+		} catch (XMLStreamException e) {
+			log.error("Error occured while parsing selected template file", e);
+		} catch (IOException e) {
+			log.error("Error occured while reading selected template file", e);
+		}
+
+		return parameters;
 	}
 }
