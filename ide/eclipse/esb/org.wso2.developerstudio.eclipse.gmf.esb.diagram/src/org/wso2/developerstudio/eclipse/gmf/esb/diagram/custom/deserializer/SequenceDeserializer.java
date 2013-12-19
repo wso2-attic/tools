@@ -131,7 +131,9 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 
 		OutMediator outMediator = getOutMediator(sequence);
 		SequenceMediator outSequence = new SequenceMediator();
-		outSequence.addAll(outMediator.getList());
+		if (outMediator.getList().size() > 0) {
+			outSequence.addAll(outMediator.getList());
+		}
 		setRootCompartment(compartment);
 		deserializeSequence(compartment, outSequence, sequenceModel.getInputConnector());
 		setRootCompartment(null);
@@ -187,12 +189,12 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 		}
 		if(outMediator == null){
 			outMediator = new OutMediator();
-		} 
-		
-		for(Iterator<Mediator> i = mediatorList.iterator();i.hasNext();){
-			Mediator next = i.next();
-			if(!(next instanceof InMediator || next instanceof OutMediator)){
-				outMediator.addChild(next);
+		} else {
+			for(Iterator<Mediator> i = mediatorList.iterator();i.hasNext();){
+				Mediator next = i.next();
+				if(!(next instanceof InMediator || next instanceof OutMediator)){
+					outMediator.addChild(next);
+				}
 			}
 		}
 		
