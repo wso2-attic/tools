@@ -37,6 +37,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.Member;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
@@ -184,13 +186,27 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 	public LoadbalanceEndpoint create(TransformationInfo info, LoadBalanceEndPoint visualEndPoint,
 			String name,List<Endpoint> endPoints) {
 		//LoadbalanceEndpoint synapseLBEP = new LoadbalanceEndpoint();
-		SALoadbalanceEndpoint synapseLBEP =new SALoadbalanceEndpoint();
+		//SALoadbalanceEndpoint synapseLBEP = new SALoadbalanceEndpoint();
+		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
+		EndpointDefinition synapseEPDef = new EndpointDefinition();
+		
+		LoadbalanceEndpoint synapseLBEP;
+		
+		if (visualEndPoint.getSessionType().equals(LoadBalanceSessionType.NONE)) {
+			synapseLBEP = new LoadbalanceEndpoint();
+		} else {
+			synapseLBEP = new SALoadbalanceEndpoint();
+
+			Long sessionTimeout = visualEndPoint.getSessionTimeout();
+			if (sessionTimeout != null) {
+				((SALoadbalanceEndpoint) synapseLBEP).setSessionTimeout(sessionTimeout);
+			}
+		}
 		
 		if (StringUtils.isNotBlank(name)) {
 			synapseLBEP.setName(name);
 		}
-		
-		EndpointDefinition synapseEPDef = new EndpointDefinition();
+			
 		/*
 		 * We should give this LoadbalanceAlgorithm class at runtime.User should be requested to give a class.		
 		 */
@@ -217,33 +233,33 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		switch (visualEndPoint.getSessionType()) {
 		case SOAP:
 			Dispatcher soapDispatcher = new SoapSessionDispatcher();
-			synapseLBEP.setDispatcher(soapDispatcher);
+			((SALoadbalanceEndpoint)synapseLBEP).setDispatcher(soapDispatcher);
 			break;
 		case TRANSPORT:
 			Dispatcher httpDispatcher = new HttpSessionDispatcher();
-			synapseLBEP.setDispatcher(httpDispatcher);
+			((SALoadbalanceEndpoint)synapseLBEP).setDispatcher(httpDispatcher);
 			break;
 		case CLIENT_ID:
 			Dispatcher csDispatcher = new SimpleClientSessionDispatcher();
-			synapseLBEP.setDispatcher(csDispatcher);
+			((SALoadbalanceEndpoint)synapseLBEP).setDispatcher(csDispatcher);
+			break;
+		case NONE:
 			break;
 		}
-		Long sessionTimeout=visualEndPoint.getSessionTimeout();
-		if (sessionTimeout != null) {
-				synapseLBEP.setSessionTimeout(sessionTimeout);
-		}
-		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
-		synapseLBEP.setChildren(endPointsList);
+
 		synapseLBEP.setDefinition(synapseEPDef);
 		saveProperties(visualEndPoint,synapseLBEP);
 		if(endPoints!=null){
 			endPoints.add(synapseLBEP);
 		}
-
+		
 		if (!info.isEndPointFound) {
 			info.isEndPointFound = true;
 			info.firstEndPoint = visualEndPoint;
 		}
+		
+		//synapseLBEP.setFailover(visualEndPoint.isFailover());
+		
 		try {
 			ArrayList<ComplexEndpointsOutputConnector> connectors = createAllEndpoints(visualEndPoint);
 
@@ -261,6 +277,31 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		if (synapseLBEP instanceof SALoadbalanceEndpoint) {
+			synapseLBEP.setChildren(endPointsList);
+		} else {
+			if (endPointsList.size() > 0) {
+				synapseLBEP.setChildren(endPointsList);
+			} else {
+				// Load Balance endpoint members.
+				List<org.apache.axis2.clustering.Member> members = new ArrayList<org.apache.axis2.clustering.Member>();
+				if (visualEndPoint.getMember() != null && visualEndPoint.getMember().size() > 0) {
+					EList<Member> visualMembers = visualEndPoint.getMember();
+
+					for (Member visualMember : visualMembers) {
+						org.apache.axis2.clustering.Member member = new org.apache.axis2.clustering.Member(
+								visualMember.getHostName(), -1);
+						member.setHttpPort(Integer.parseInt(visualMember.getHttpPort()));
+						member.setHttpsPort(Integer.parseInt(visualMember.getHttpsPort()));
+						members.add(member);
+					}
+				}
+
+				synapseLBEP.setMembers(members);
+			}
+		}
+		
 		return synapseLBEP;
 	}
 	
