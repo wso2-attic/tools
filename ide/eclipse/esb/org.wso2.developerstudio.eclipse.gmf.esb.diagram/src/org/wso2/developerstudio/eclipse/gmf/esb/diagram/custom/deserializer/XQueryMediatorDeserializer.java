@@ -72,6 +72,8 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 				RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 				
 				regkey.setKeyValue(queryKeyValue.getKeyValue());
+				
+				executeSetValueCommand(XQUERY_MEDIATOR__STATIC_SCRIPT_KEY, regkey);
 			}
 			else if(queryKeyValue.getExpression() != null){
 				

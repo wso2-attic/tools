@@ -2,22 +2,26 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import javax.xml.namespace.QName;
 import javax.xml.xquery.XQItemType;
 
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.xquery.MediatorBaseVariable;
 import org.apache.synapse.mediators.xquery.MediatorCustomVariable;
 import org.apache.synapse.mediators.xquery.MediatorVariable;
+import org.apache.synapse.util.xpath.SynapseJsonPath;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariable;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableType;
@@ -143,18 +147,29 @@ public class XQueryMediatorTransformer extends AbstractEsbNodeTransformer {
 			           varlist.add(varBase);
 					
 				}else if(valueType.equals(XQueryVariableValueType.EXPRESSION)){
-					
-					
+		
 					MediatorCustomVariable varCustom = new MediatorCustomVariable(new QName("test"));
 					
-						varCustom.setName(new QName(vishualVariable.getVariableName()));
+					varCustom.setName(new QName(vishualVariable.getVariableName()));
 						
-						SynapseXPath propertyExpression = new SynapseXPath(vishualVariable.getValueExpression().getPropertyValue());
-						
+					NamespacedProperty valueExpression = vishualVariable.getValueExpression();
+					if (valueExpression != null) {
+						SynapseXPath propertyExpression = new SynapseXPath(vishualVariable
+								.getValueExpression().getPropertyValue());
+						if (valueExpression.getNamespaces() != null) {
+							for (Entry<String, String> entry : valueExpression.getNamespaces()
+									.entrySet()) {
+								propertyExpression.addNamespace(entry.getKey(), entry.getValue());
+							}
+						}
 						varCustom.setExpression(propertyExpression);
-						
+					}
+
+					if (vishualVariable.getValueKey() != null
+							&& StringUtils.isNotBlank(vishualVariable.getValueKey().getKeyValue())) {
 						varCustom.setRegKey(vishualVariable.getValueKey().getKeyValue());
-						
+					}
+										
 						XQueryVariableType  varType = vishualVariable.getVariableType();
 						
 						 if(varType.equals(XQueryVariableType.INT)){

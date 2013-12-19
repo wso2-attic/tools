@@ -50,9 +50,11 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 	private TableEditor variableTypeEditor;
 	private TableEditor valueTypeEditor;
 	private TableEditor regKeyEditor;
+	private TableEditor variableValueEditor;
 	private Combo cmbValueType;
 	private Combo cmbVariableType;
 	private Text regKeyText;
+	private PropertyText variableValue;
 	private XQueryMediator xqueryMediator;
 	private TransactionalEditingDomain editingDomain;
 	private Button newXQueryVariableButton;
@@ -120,6 +122,7 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 						initTableEditor(variableTypeEditor, xqueryVariableTable);
 						initTableEditor(valueTypeEditor, xqueryVariableTable);
 						initTableEditor(regKeyEditor, xqueryVariableTable);
+						initTableEditor(variableValueEditor, xqueryVariableTable);
 						
 						unbindXQueryVariable(selectedIndex);
 
@@ -201,6 +204,8 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 	
 	private void editItem(final TableItem item) {
 		
+		NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
+		
 		//value type table editor
 		valueTypeEditor = initTableEditor(valueTypeEditor,
 				item.getParent());
@@ -273,6 +278,26 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 				}
 			}
 		});
+		
+		variableValueEditor = initTableEditor(variableValueEditor,
+				item.getParent());
+		
+		variableValue = new PropertyText(item.getParent(), SWT.NONE, cmbValueType);
+		variableValue.addProperties(item.getText(2), expression);
+		variableValueEditor.setEditor(variableValue, item, 2);
+		item.getParent().redraw();
+		item.getParent().layout();
+		variableValue.addModifyListener(new ModifyListener() {
+			
+			public void modifyText(ModifyEvent e) {
+				item.setText(2,variableValue.getText());
+				Object property = variableValue.getProperty();
+				if(property instanceof NamespacedProperty){
+					item.setData("exp",(NamespacedProperty)property);
+				} 
+			}
+		});
+		
 		cmbVariableType.addListener(SWT.Selection, new Listener() {			
 			public void handleEvent(Event evt) {
 				item.setText(1, cmbVariableType.getText());
@@ -302,11 +327,6 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 					variable.getValueType().getLiteral()});
 		}
 		if (variable.getValueType().getLiteral().equals("EXPRESSION")) {
-			if(variable.getValueKey()==null){
-				
-			}else{
-				
-			}
 			item.setText(new String[] { variable.getVariableName(),
 					variable.getVariableType().getLiteral(),
 					variable.getValueExpression().getPropertyValue(),
@@ -315,6 +335,8 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 		}
 
 		item.setData(variable);
+		item.setData("exp",
+				EsbFactory.eINSTANCE.copyNamespacedProperty(variable.getValueExpression()));
 		return item;
 	}
 	
@@ -402,6 +424,7 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 		
 		for (TableItem item : xqueryVariableTable.getItems()) {
 			XQueryVariable variable = (XQueryVariable) item.getData();
+			NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
 
 			// If the variable is a new one, add it to the model.
 			if (null == variable.eContainer()) {
@@ -419,6 +442,7 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 							.createNamespacedProperty();
 					namespaceProperty.setPropertyValue(item.getText(2));
+					namespaceProperty.setNamespaces(expression.getNamespaces());
 					variable.setValueExpression(namespaceProperty);
 					
 					RegistryKeyProperty keyProperty=EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
@@ -502,6 +526,7 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 								.createNamespacedProperty();
 						namespaceProperty.setPropertyValue(item.getText(2));
+						namespaceProperty.setNamespaces(expression.getNamespaces());
 
 						AddCommand addCmd = new AddCommand(
 								editingDomain,
@@ -515,6 +540,13 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 								variable.getValueExpression(),
 								EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE,
 								item.getText(2));
+						getResultCommand().append(setCmd);
+						
+						setCmd = new SetCommand(
+								editingDomain,
+								variable.getValueExpression(),
+								EsbPackage.Literals.NAMESPACED_PROPERTY__NAMESPACES,
+								expression.getNamespaces());
 						getResultCommand().append(setCmd);
 					}
 					
