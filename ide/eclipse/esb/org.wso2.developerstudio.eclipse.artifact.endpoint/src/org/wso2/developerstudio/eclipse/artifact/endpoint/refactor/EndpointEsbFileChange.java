@@ -79,17 +79,6 @@ public class EndpointEsbFileChange extends TextFileChange {
 			OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
 			documentElement = builder.getDocumentElement();
 			root = documentElement.getLocalName();
-		} catch (CoreException e) {
-			log.error("Error while parsing the content", e);
-		}finally{
-			try {
-				if(in !=null){
-					in.close();
-				}
-			} catch (IOException e) {
-				log.error("Error while closing the input Stream", e);
-			}
-		}
 		if(ESB_GRAPHICAL_ESB_DIAGRAM.equals(root)){
 			match = originalName+".esb";
 			replace = newName+".esb";
@@ -125,6 +114,17 @@ public class EndpointEsbFileChange extends TextFileChange {
 			match = name+"=\""+originalName+"\"";
 			replace = name+"=\""+newName+"\"";
 		}		
+		} catch (CoreException e) {
+			log.error("Error while parsing the content", e);
+		}finally{
+			try {
+				if(in !=null){
+					in.close();
+				}
+			} catch (IOException e) {
+				log.error("Error while closing the input Stream", e);
+			}
+		}
 	}
 
 	private void addTextEdits() {
