@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.general.project.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
@@ -141,16 +142,25 @@ public class RegistryResourceArtifactDeleteParticipant extends DeleteParticipant
 	private String getDirectoryPrefix() {
 
 		String directoryPrefix = "";
+		InputStream in = null;
 
 		try {
 			if (originalResource instanceof IFile) {
-				InputStream in = ((IFile) originalResource).getContents(true);
+				in = ((IFile) originalResource).getContents(true);
 				OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
 				OMElement documentElement = builder.getDocumentElement();
 				directoryPrefix = documentElement.getLocalName() + "_";
 			}
 		} catch (CoreException e) {
 			e.printStackTrace();
+		} finally {
+			if (in != null) {
+				try {
+					in.close();
+				} catch (IOException e) {
+					log.error("Error occured while trying to close resource stream", e);
+				}
+			}
 		}
 
 		return directoryPrefix;
