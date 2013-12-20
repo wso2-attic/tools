@@ -53,6 +53,7 @@ public class ServerRoleMapping {
 		serverRole.put("synapse/priority-executor", "EnterpriseServiceBus");
 		serverRole.put("synapse/message-processors", "EnterpriseServiceBus");
 		serverRole.put("service/rule", "BusinessRulesServer");
+		serverRole.put("service/meta", "ApplicationServer");
 	}
 
 	public static String getServerRole(String packaging) {

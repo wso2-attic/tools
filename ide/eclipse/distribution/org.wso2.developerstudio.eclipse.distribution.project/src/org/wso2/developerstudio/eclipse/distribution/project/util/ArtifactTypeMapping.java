@@ -54,6 +54,7 @@ public final class ArtifactTypeMapping {
 		type.put("lib/registry/handlers","jar");
 		type.put("lib/synapse/mediator","jar");
 		type.put("service/rule", "aar");
+		type.put("service/meta","xml");
 		
 		subType.put("jar","jar");
 		subType.put("bundle","jar");

@@ -166,6 +166,8 @@
 								value="org.wso2.developerstudio.eclipse.registry.handler.project.nature" />
 							<test property="org.eclipse.core.resources.projectNature"
 								value="org.wso2.developerstudio.eclipse.jaxrs.project.nature" />
+						    <test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.qos.project.nature" />
 		 				</or>
 						</adapt>
 				</enablement>
