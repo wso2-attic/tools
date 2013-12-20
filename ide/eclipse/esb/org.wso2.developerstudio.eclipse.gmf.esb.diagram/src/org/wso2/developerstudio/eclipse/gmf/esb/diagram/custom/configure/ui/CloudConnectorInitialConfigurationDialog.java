@@ -5,8 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -26,13 +28,16 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -65,7 +70,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryModel;
 
-public class CloudConnectorInitialConfigurationDialog extends Dialog {
+public class CloudConnectorInitialConfigurationDialog extends TitleAreaDialog {
 	
 	private String droppedCloudConnector;
 	private String droppedCloudConnectorComponentName;	
@@ -87,6 +92,8 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	protected static final OMNamespace synNS = SynapseConstants.SYNAPSE_OMNAMESPACE;
 	private final String connectorProperties = "cloudConnector.properties";
 	private final String configNameSeparator = "::";
+	private final String configExistsErrorMessage = "Connector configuration already exists";
+	private final String emptyNameErrorMessage = "Configuration name cannot be empty";
 
 	private static String operationName = "init";
 	
@@ -106,6 +113,9 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	private Collection<String> parameters;
 	//private Label saveOptionLabel;
 	private Combo saveOptionCombo;
+	
+	private List<String> availableConfigs;
+	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	public CloudConnectorInitialConfigurationDialog(Shell parent,CloudConnectorOperation operation,Collection<String> parameters) {
@@ -133,41 +143,49 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 
 	@Override
 	protected Control createDialogArea(Composite parent) {
-		Composite container = (Composite) super.createDialogArea(parent);
-		FormLayout mainLayout = new FormLayout();
+		Composite area = (Composite) super.createDialogArea(parent);
+		Composite container = new Composite(area, SWT.NONE);
+		/*FormLayout mainLayout = new FormLayout();
 		mainLayout.marginHeight = 5;
 		mainLayout.marginWidth = 5;
-		container.setLayout(mainLayout);
-
-		
+		container.setLayout(mainLayout);*/
+		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
 		configurationNameLabel = new Label(container, SWT.NONE);
 		{
 			configurationNameLabel.setText("Name: ");
-			FormData logCategoryLabelLayoutData = new FormData(80,SWT.DEFAULT);
+			/*FormData logCategoryLabelLayoutData = new FormData(80,SWT.DEFAULT);
 			logCategoryLabelLayoutData.top = new FormAttachment(0, 10);
 			logCategoryLabelLayoutData.left = new FormAttachment(0);
-			configurationNameLabel.setLayoutData(logCategoryLabelLayoutData);
+			configurationNameLabel.setLayoutData(logCategoryLabelLayoutData);*/
+			configurationNameLabel.setBounds(10, 10, 50, 25);
 		}
-		
-		
+			
 		// Text box for add new parameter.
 		nameText = new Text(container, SWT.NONE);
 		{
-			FormData logCategoryLabelLayoutData = new FormData(160,SWT.DEFAULT);
+			/*FormData logCategoryLabelLayoutData = new FormData(160,SWT.DEFAULT);
 			logCategoryLabelLayoutData.top = new FormAttachment(
 					configurationNameLabel, 0, SWT.CENTER);
 			logCategoryLabelLayoutData.left = new FormAttachment(
 					configurationNameLabel, 5);
-			nameText.setLayoutData(logCategoryLabelLayoutData);
+			nameText.setLayoutData(logCategoryLabelLayoutData);*/
+			nameText.setBounds(65, 10, 250, 25);
 		}
 		nameText.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
 				configName=nameText.getText();
 				//CustomPaletteToolTransferDropTargetListener.definedName=nameText.getText();
 				if (StringUtils.isNotBlank(configName)) {
-					updateOKButtonStatus(true);
+					if (availableConfigs.contains(configName)) {
+						setErrorMessage(configExistsErrorMessage);
+						updateOKButtonStatus(false);
+					} else {
+						setErrorMessage(null);
+						updateOKButtonStatus(true);
+					}
 				} else {
+					setErrorMessage(emptyNameErrorMessage);
 					updateOKButtonStatus(false);
 				}
 			}
@@ -199,14 +217,15 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		// Table for show the parameters.
 		paramTable = new Table(container, SWT.BORDER | SWT.FULL_SELECTION
 				| SWT.HIDE_SELECTION);
+		paramTable.setBounds(10, 50, 600, 200);
 
 		TableColumn nameColumn = new TableColumn(paramTable, SWT.LEFT);
 		TableColumn valueColumn = new TableColumn(paramTable, SWT.LEFT);
 		TableColumn typeColumn = new TableColumn(paramTable, SWT.LEFT);
 		nameColumn.setText("Parameter Name");
-		nameColumn.setWidth(150);
+		nameColumn.setWidth(200);
 		valueColumn.setText("Value/Expression");
-		valueColumn.setWidth(200);
+		valueColumn.setWidth(250);
 		typeColumn.setText("Parameter Type");
 		typeColumn.setWidth(150);
 
@@ -237,11 +256,13 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 
 		//setupTableEditor(paramTable);
 
-		FormData logPropertiesTableLayoutData = new FormData(SWT.DEFAULT, 150);
+		/*FormData logPropertiesTableLayoutData = new FormData(SWT.DEFAULT, 150);
 		logPropertiesTableLayoutData.top = new FormAttachment(configurationNameLabel, 20);
 		logPropertiesTableLayoutData.left = new FormAttachment(0);
 		logPropertiesTableLayoutData.bottom = new FormAttachment(100);
-		paramTable.setLayoutData(logPropertiesTableLayoutData);
+		paramTable.setLayoutData(logPropertiesTableLayoutData);*/
+		
+		availableConfigs = getAvailableConfigs();
 		
 		return parent;
 	}
@@ -250,6 +271,14 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
 		newShell.setText("Connector Configuration");
+	}
+	
+	/**
+	 * Return the initial size of the dialog.
+	 */
+	@Override
+	protected Point getInitialSize() {
+		return new Point(630, 400);
 	}
 	
 	private TableItem bindPram(CallTemplateParameter param) {
@@ -292,6 +321,7 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		txtParamName = new Text(item.getParent(), SWT.NONE);
 		txtParamName.setText(item.getText(0));
 		paramNameEditor.setEditor(txtParamName, item, 0);
+		txtParamName.setEditable(false);
 		item.getParent().redraw();
 		item.getParent().layout();
 		txtParamName.addModifyListener(new ModifyListener() {
@@ -459,6 +489,44 @@ public class CloudConnectorInitialConfigurationDialog extends Dialog {
 		}
 		
 		super.okPressed();
+	}
+	
+	/**
+	 * Get available configurations for the given connector.
+	 * @return available configurations 
+	 */
+	private ArrayList<String> getAvailableConfigs() {
+		ArrayList<String> availableConfigs = new ArrayList<String>();
+		
+		String pathName = EditorUtils.getActiveProject().getLocation().toOSString()+File.separator+"resources";
+		File resources = new File(pathName);
+		
+		if (resources.exists()) {
+			File connectorConfig = new File(pathName + File.separator + connectorProperties);
+			if (connectorConfig.exists()) {
+				Properties prop = new Properties();
+				try {
+					prop.load(new FileInputStream(pathName + File.separator + connectorProperties));
+					String localEntryConfigs = prop.getProperty("LOCAL_ENTRY_CONFIGS");
+					if (localEntryConfigs != null) {
+						String[] configs = localEntryConfigs.split(",");
+
+						for (int i = 0; i < configs.length; ++i) {
+							if (!"".equals(configs[i])) {
+								availableConfigs.add(configs[i].split(configNameSeparator)[0]);
+							}
+						}
+					}
+					
+				} catch (FileNotFoundException e) {
+					//e.printStackTrace();
+				} catch (IOException e) {
+					//e.printStackTrace();
+				}			
+			}
+		}
+		
+		return availableConfigs;
 	}
 	
 }
