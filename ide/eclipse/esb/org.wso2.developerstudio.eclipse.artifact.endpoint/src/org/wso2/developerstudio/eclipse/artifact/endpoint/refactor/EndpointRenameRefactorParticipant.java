@@ -29,12 +29,10 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
-import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -123,11 +121,8 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 		                                                                                       changedNameWithoutExtention);
 		compositeChange.add(endpointArtifactFileChange);
 
-		String immediateDirectory =
-		                            GRAPHICAL_SYNAPSE_CONFIG_DIR +
-		                                    originalFile.getParent().getName();
-
-		IFile esbIFile = originalFile.getParent().getFile(new Path(originalEsbFileName));
+		String immediateDirectory = GRAPHICAL_SYNAPSE_CONFIG_DIR + originalFile.getParent().getName();
+		IFile esbIFile = esbProject.getFile(immediateDirectory + "/" + originalEsbFileName);
 		if (esbIFile.exists()) {
 			// Change content of the esb file
 			EndpointEsbFileChange esbFileChange =
@@ -144,7 +139,9 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 			compositeChange.add(esbFileRename);
 		}
 
-		IFile esbDiagramIFile = originalFile.getParent().getFile(new Path(originalEsbDiagramFileName));
+		IFile esbDiagramIFile =
+		                        esbProject.getFile(immediateDirectory + "/" +
+		                                           originalEsbDiagramFileName);
 		if (esbDiagramIFile.exists()) {
 			// Change content of the esb diagram file
 			EndpointEsbFileChange esbDiagramFileChange =

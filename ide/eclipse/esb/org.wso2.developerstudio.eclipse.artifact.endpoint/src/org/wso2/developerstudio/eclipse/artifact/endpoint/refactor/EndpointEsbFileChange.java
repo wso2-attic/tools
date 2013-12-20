@@ -47,6 +47,7 @@ public class EndpointEsbFileChange extends TextFileChange {
 	private final String PROCESSOR_NAME="processorName";
 	private final String TASK_NAME="taskName";
 	private final String API_NAME="apiName";
+	private final String ENDPOINT_NAME="endPointName";
 	private final String GENERAL_NAME="name";
 	
 	private final String LOCAL_ENTRY_TYPE="LOCAL_ENTRY";
@@ -54,10 +55,13 @@ public class EndpointEsbFileChange extends TextFileChange {
 	private final String MESSAGE_PROCESSOR_TYPE="MESSAGE_PROCESSOR";
 	private final String TASK_TYPE="TASK";
 	private final String API_TYPE="API";
+	private final String ENDPOINT_TYPE="ENDPOINT";
 	
 	private IFile esbFile;
 	private String match;
 	private String replace;
+	private String match2;
+	private String replace2;
 
 	public EndpointEsbFileChange(String name, IFile file, String originalName, String newName) {
 		super(name, file);
@@ -92,9 +96,10 @@ public class EndpointEsbFileChange extends TextFileChange {
 		}else if (ESB_GRAPHICAL_ESB.equals(root)){
 			OMElement server = null;
 			String name=null;
-			Iterator<OMElement> childrenWithLocalName = documentElement.getChildrenWithLocalName("server");
+			String name2="";
+			Iterator<?> childrenWithLocalName = documentElement.getChildrenWithLocalName("server");
 			while(childrenWithLocalName.hasNext()){
-				server = childrenWithLocalName.next();
+				server = (OMElement) childrenWithLocalName.next();
 			}
 			String serverType=server.getAttributeValue(new QName("type"));
 			if(LOCAL_ENTRY_TYPE.equals(serverType)){
@@ -107,6 +112,13 @@ public class EndpointEsbFileChange extends TextFileChange {
 				name=TASK_NAME;
 			}else if(API_TYPE.equals(serverType)){
 				name=API_NAME;
+				//Http Endpoint has an attribute named endPointName
+			}else if(ENDPOINT_TYPE.equals(serverType)){
+				name = GENERAL_NAME;
+				name2 = ENDPOINT_NAME;
+
+				match2 = name2 + "=\"" + originalName + "\"";
+				replace2 = name2 + "=\"" + newName + "\"";
 			}else{
 				name=GENERAL_NAME;
 			}
@@ -130,10 +142,19 @@ public class EndpointEsbFileChange extends TextFileChange {
 	}
 
 	private void identifyReplaces() throws IOException {
-		String fileContent = FileUtils.readFileToString(new File(esbFile.getRawLocation().toString()));
+		String fileContent =
+		                     FileUtils.readFileToString(new File(esbFile.getRawLocation()
+		                                                                .toString()));
 		int i = 0;
 		while ((i = (fileContent.indexOf(match, i) + 1)) > 0) {
 			addEdit(new ReplaceEdit(i - 1, match.length(), replace));
+		}
+
+		if (match2 != null && !match2.equals("")) {
+			i = 0;
+			while ((i = (fileContent.indexOf(match2, i) + 1)) > 0) {
+				addEdit(new ReplaceEdit(i - 1, match2.length(), replace2));
+			}
 		}
 	}
 }
