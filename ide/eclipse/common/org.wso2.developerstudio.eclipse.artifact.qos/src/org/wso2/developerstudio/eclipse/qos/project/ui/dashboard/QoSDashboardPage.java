@@ -88,8 +88,10 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.wso2.developerstudio.eclipse.qos.Activator;
 import org.wso2.developerstudio.eclipse.qos.handlers.OpenQoSDashboardCommandHandler;
+import org.wso2.developerstudio.eclipse.qos.project.model.Association;
 import org.wso2.developerstudio.eclipse.qos.project.model.Binding;
 import org.wso2.developerstudio.eclipse.qos.project.model.Bindings;
+import org.wso2.developerstudio.eclipse.qos.project.model.Module;
 import org.wso2.developerstudio.eclipse.qos.project.model.Operation;
 import org.wso2.developerstudio.eclipse.qos.project.model.Parameter;
 import org.wso2.developerstudio.eclipse.qos.project.model.Policies;
@@ -302,6 +304,19 @@ public class QoSDashboardPage extends FormPage {
 						}
 					 }
 					 service.setBindings(bindings);
+					 Module module = new Module();
+					 module.setName("rampart");
+					 module.setVersion("1.61-wso2v10");
+					 module.setType("engagedModules");
+					 service.getModuleOrParameterOrPolicyUUID().add(module);
+					 Association associationKeyStore = new Association();
+					 associationKeyStore.setDestinationPath("/_system/governance/repository/security/key-stores/carbon-primary-ks");
+					 associationKeyStore.setType("service-keystore");
+					 Association associationTrustStore = new Association();
+					 associationTrustStore.setDestinationPath("/_system/governance/repository/security/key-stores/carbon-primary-ks");
+					 associationTrustStore.setType("trusted-keystore");
+					 service.getModuleOrParameterOrPolicyUUID().add(associationKeyStore);
+					 service.getModuleOrParameterOrPolicyUUID().add(associationTrustStore);
 				  }	
 				} 
 
