@@ -342,7 +342,7 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 				.getType(WSDLEndPointEndPointNameEditPart.VISUAL_ID));
 	}
 
-	protected void refreshVisuals() {
+	/*protected void refreshVisuals() {
 		super.refreshVisuals();
 		WSDLEndPoint wsdlEp = (WSDLEndPoint) resolveSemanticElement();
 
@@ -350,14 +350,24 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 			if (wsdlEp.getWsdlUri() != null) {
 				getPrimaryShape().setToolTip(new Label(wsdlEp.getWsdlUri()));
 			}
-
 		}
-	}
+	}*/
 
 	protected void handleNotificationEvent(Notification notification) {
 		super.handleNotificationEvent(notification);
 		if (notification.getNotifier() instanceof WSDLEndPoint) {
-			refreshVisuals();
+			//refreshVisuals();
+			updateToolTip();
+		}
+	}
+	
+	private void updateToolTip() {
+		WSDLEndPoint wsdlEp = (WSDLEndPoint) resolveSemanticElement();
+
+		if (wsdlEp != null) {
+			if (wsdlEp.getWsdlUri() != null) {
+				getPrimaryShape().setToolTip(new Label(wsdlEp.getWsdlUri()));
+			}
 		}
 	}
 

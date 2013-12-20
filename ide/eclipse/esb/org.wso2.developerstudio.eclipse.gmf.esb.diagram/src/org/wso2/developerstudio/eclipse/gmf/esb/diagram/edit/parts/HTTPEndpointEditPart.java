@@ -317,7 +317,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 				.getType(AddressEndPointEndPointNameEditPart.VISUAL_ID));
 	}
 
-	protected void refreshVisuals() {
+	/*protected void refreshVisuals() {
 		super.refreshVisuals();
 		HTTPEndpoint HTTPEp = (HTTPEndpoint) resolveSemanticElement();
 
@@ -325,22 +325,32 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 			if (HTTPEp.getURITemplate() != null) {
 				getPrimaryShape().setToolTip(new Label(HTTPEp.getURITemplate()));
 			}
-
 		}
-	}
-
+	}*/
+	
 	protected void handleNotificationEvent(Notification notification) {
 		super.handleNotificationEvent(notification);
 		if (notification.getNotifier() instanceof HTTPEndpoint) {
-			refreshVisuals();
+			//refreshVisuals();
+			updateToolTip();
+		}
+	}
+	
+	private void updateToolTip() {
+		HTTPEndpoint HTTPEp = (HTTPEndpoint) resolveSemanticElement();
+
+		if (HTTPEp != null) {
+			if (HTTPEp.getURITemplate() != null) {
+				getPrimaryShape().setToolTip(new Label(HTTPEp.getURITemplate()));
+			}
 		}
 	}
 
-	public IFigure getFigure() {
+	/*public IFigure getFigure() {
 		IFigure figure = super.getFigure();
 		figure.setMaximumSize(new Dimension(75, 75));
 		return figure;
-	}
+	}*/
 
 	/**
 	 * @generated NOT

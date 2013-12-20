@@ -93,7 +93,7 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 				new AddressEndPointItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new AddressEndPointCanonicalEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
+		//installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
@@ -357,7 +357,7 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 				.getType(AddressEndPointEndPointNameEditPart.VISUAL_ID));
 	}*/
 
-	protected void refreshVisuals() {
+	/*protected void refreshVisuals() {
 		super.refreshVisuals();
 		AddressEndPoint addEp = (AddressEndPoint) resolveSemanticElement();
 
@@ -365,22 +365,32 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 			if (addEp.getURI() != null) {
 				getPrimaryShape().setToolTip(new Label(addEp.getURI()));
 			}
-
 		}
-	}
+	}*/
 
 	protected void handleNotificationEvent(Notification notification) {
 		super.handleNotificationEvent(notification);
 		if (notification.getNotifier() instanceof AddressEndPoint) {
-			refreshVisuals();
+			//refreshVisuals();
+			updateToolTip();
+		}
+	}
+	
+	private void updateToolTip() {
+		AddressEndPoint addEp = (AddressEndPoint) resolveSemanticElement();
+
+		if (addEp != null) {
+			if (addEp.getURI() != null) {
+				getPrimaryShape().setToolTip(new Label(addEp.getURI()));
+			}
 		}
 	}
 
-	public IFigure getFigure() {
+	/*public IFigure getFigure() {
 		IFigure figure = super.getFigure();
 		figure.setMaximumSize(new Dimension(75, 75));
 		return figure;
-	}
+	}*/
 
 	/**
 	 * @generated NOT
