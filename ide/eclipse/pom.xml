@@ -261,6 +261,7 @@
 	<jaggery.tools.version>1.3.0-SNAPSHOT</jaggery.tools.version>
 	<smooks.edi.editor.version>1.0.1.201105031731</smooks.edi.editor.version>
 	<appfactory.tools.version>1.3.0-SNAPSHOT</appfactory.tools.version>
+	<qos.artifact.version>1.0.0-SNAPSHOT</qos.artifact.version>
 
  	<!--********** p2 features versions **********-->
         <server.framework.feature.version>3.3.0-SNAPSHOT</server.framework.feature.version>
@@ -298,5 +299,6 @@
 	<brs.feature.version>1.3.0-SNAPSHOT</brs.feature.version>
 	<soapui.feature.version>4.0.1</soapui.feature.version>
 	<tcpmon.feature.version>1.0.0</tcpmon.feature.version>
+	<qos.feature.version>1.0.0-SNAPSHOT</qos.feature.version>
     </properties>
 </project>

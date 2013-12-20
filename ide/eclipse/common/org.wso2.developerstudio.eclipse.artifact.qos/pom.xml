@@ -23,6 +23,7 @@
     	<version>3.3.0-SNAPSHOT</version>
     </parent>     
     <modelVersion>4.0.0</modelVersion>
+    <groupId>org.wso2.developerstudio</groupId>
     <artifactId>org.wso2.developerstudio.eclipse.artifact.qos</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   	<packaging>eclipse-plugin</packaging>

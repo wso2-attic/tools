@@ -57,7 +57,8 @@
 	<module>tcpmon</module>
 	<!--module>smooks</module-->
         <!--module>gadgets</module-->  
-	<module>jaggery</module>                      
+	<module>jaggery</module>
+	<module>qos</module>                      
         <module>carbon-studio</module>
         <module>repository</module>
 	<!--module>installed-distributions</module-->
