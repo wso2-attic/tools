@@ -85,5 +85,13 @@
 			<description>QoS Project</description>
 		</wizard>
    </extension>
+    <extension
+       point="org.wso2.developerstudio.eclipse.project.export.handler">
+    <handler
+          class="org.wso2.developerstudio.eclipse.qos.project.exporter.QoSArtfactExportHandler"
+          id="org.wso2.developerstudio.eclipse.qos.project.export.handler"
+          type="service/meta">
+    </handler>
+ </extension>
 	
 </plugin>

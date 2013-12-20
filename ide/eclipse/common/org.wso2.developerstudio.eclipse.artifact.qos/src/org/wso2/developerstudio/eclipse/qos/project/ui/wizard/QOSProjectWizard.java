@@ -43,7 +43,7 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 	private File meta;
     private String serviceName;
     private Service service;
-    private String metaFileName;
+    public static String metaFileName;
 
 
 	public QOSProjectWizard() {
@@ -61,29 +61,34 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 		try {
 			project = createNewProject();
 			pomfile = project.getFile("pom.xml").getLocation().toFile();
-			
+			MavenInfo mavenInfo = getModel().getMavenInfo();
+			mavenInfo.setPackageName("service/meta");
+			metaFileName  = getServiceName()+"_"+mavenInfo.getVersion()+".xml";
 			if(!pomfile.exists()){
 				createPOM(pomfile);
 			}
 			ProjectUtils.addNatureToProject(project,
-											false,
-			                                QOS_PROJECT_NATURE);
+					false,
+                    QOS_PROJECT_NATURE);
+		
 			MavenUtils
 			.updateWithMavenEclipsePlugin(
 					pomfile,
 					new String[] { },
 					new String[] { QOS_PROJECT_NATURE });
 			
+			
 			getModel().addToWorkingSet(project);
-			MavenInfo mavenInfo = getModel().getMavenInfo();
-			mavenInfo.setPackageName("service/meta");
-			metaFileName  = getServiceName()+"_"+mavenInfo.getVersion()+".xml";
+			
+			
 			meta = project.getFile("src/main/resources/"+metaFileName).getLocation().toFile();
 			meta.createNewFile();
 			ServiceGroup serviceGroup = new ServiceGroup();
 			serviceGroup.setName(project.getName());
 			serviceGroup.setSuccessfullyAdded(true);
 			serviceGroup.getService().add(getService());
+			
+			
 			
 		    JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
 			Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -137,6 +142,6 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 	}
 
 	public void setMetaFileName(String metaFileName) {
-		this.metaFileName = metaFileName;
+		QOSProjectWizard.metaFileName = metaFileName;
 	}
 }

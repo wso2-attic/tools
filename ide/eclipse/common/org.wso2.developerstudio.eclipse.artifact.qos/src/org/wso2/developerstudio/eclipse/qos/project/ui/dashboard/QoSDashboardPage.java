@@ -15,10 +15,14 @@
 package org.wso2.developerstudio.eclipse.qos.project.ui.dashboard;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +51,7 @@ import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.Modifier;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -86,6 +91,7 @@ import org.w3c.dom.NodeList;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
+import org.wso2.developerstudio.eclipse.platform.ui.preferences.ClientTrustStorePreferencePage;
 import org.wso2.developerstudio.eclipse.qos.Activator;
 import org.wso2.developerstudio.eclipse.qos.handlers.OpenQoSDashboardCommandHandler;
 import org.wso2.developerstudio.eclipse.qos.project.model.Association;
@@ -117,6 +123,7 @@ public class QoSDashboardPage extends FormPage {
 	private IProject metaProject;
 	private String metaFileName;
 	private String policyFileName;
+	private String aliase;
 	/**
 	 * Create the form page.
 	 * @param id
@@ -215,6 +222,28 @@ public class QoSDashboardPage extends FormPage {
 			}		  
 		  });
 		
+		managedForm.getToolkit().createLabel(serviceInfoComposite, "Project name");
+		final Combo keyStors = new Combo(serviceInfoComposite, SWT.READ_ONLY);
+		try {
+			KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+		    IPreferenceStore preferenceStore = Activator.getDefault().getPreferenceStore();
+		    String filePath = preferenceStore.getString(ClientTrustStorePreferencePage.TRUST_STORE_LOCATION);
+		    String passwod = preferenceStore.getString(ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD);
+			keyStore.load(new FileInputStream(new File(filePath)), passwod.toCharArray());
+			Enumeration<String> aliases = keyStore.aliases();
+		      while(aliases.hasMoreElements()){
+			  setAliase((String) aliases.nextElement());
+			  break;
+			}
+		    //  keyStore.get
+		      
+		      
+		} catch (Exception ex) {
+			log.error("preferenceStore reading error", ex);
+		}
+		
+		
+		
 		result = CreateMainSection(managedForm, body,
 				"Security for the service", 10, 20, 600, 30, false);
 		final Composite seccomposite = (Composite) result[1];
@@ -287,6 +316,7 @@ public class QoSDashboardPage extends FormPage {
 					 JAXBContext pjaxbContext = JAXBContext.newInstance(Policy2.class);
 					 Unmarshaller pUnmarshaller = pjaxbContext.createUnmarshaller();
 					 Policy2 policy2 =  (Policy2) pUnmarshaller.unmarshal(resourceFile);
+					 
 					 Policy policy = new Policy();
 					 policy.setPolicy(policy2);
 					 policy.setPolicyType(BigInteger.valueOf(9l));
@@ -607,6 +637,14 @@ public class QoSDashboardPage extends FormPage {
 		this.serviceName = serviceName;
 	}
  
+	public String getAliase() {
+		return aliase;
+	}
+
+	public void setAliase(String aliase) {
+		this.aliase = aliase;
+	}
+
 	public String getPolicyFileName() {
 		return policyFileName;
 	}

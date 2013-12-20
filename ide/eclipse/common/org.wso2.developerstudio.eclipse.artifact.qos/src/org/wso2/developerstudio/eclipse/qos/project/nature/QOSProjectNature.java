@@ -31,11 +31,13 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
+import org.wso2.developerstudio.eclipse.qos.project.ui.wizard.QOSProjectWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.ide.FileExtensionResourcevisitor;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class QOSProjectNature extends AbstractWSO2ProjectNature {
+	
 	public void configure() throws CoreException {
 		IFolder parentFolder =
 		        ProjectUtils.getWorkspaceFolder(getProject(), "src", "main", "resources");
@@ -56,7 +58,7 @@ public class QOSProjectNature extends AbstractWSO2ProjectNature {
 	        	true);
 	        Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode(pluginEntry);
 	        Xpp3Dom artifactNode = MavenUtils.createXpp3Node(configurationNode, "artifact");
-	        artifactNode.setValue("src/main/resources/"+getProject().getName()+".xml");
+	        artifactNode.setValue("src/main/resources/"+QOSProjectWizard.metaFileName);
 //	        if(getServiceMetaFile() != null){
 //	        	String fileName = FileUtils.getRelativePath(getProject().getLocation().toFile(),getServiceMetaFile().getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
 //	        	artifactNode.setValue(fileName);
