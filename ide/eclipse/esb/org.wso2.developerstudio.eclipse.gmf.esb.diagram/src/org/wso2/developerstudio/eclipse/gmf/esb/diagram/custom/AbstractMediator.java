@@ -828,7 +828,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		boolean restricted = false;
 		AbstractMediator nextMmediator = EditorUtils.getMediator(nearestEsbLinkInputConnector);
 		if (/*nearestInputConnector != null || */nextMmediator != null && nextMmediator!=this) {
-			restricted = true;
+			if (!EditorUtils.isAChildOf(nextMmediator, this)) {
+				restricted = true;
+			}
 		}
 		return restricted;
 	}
