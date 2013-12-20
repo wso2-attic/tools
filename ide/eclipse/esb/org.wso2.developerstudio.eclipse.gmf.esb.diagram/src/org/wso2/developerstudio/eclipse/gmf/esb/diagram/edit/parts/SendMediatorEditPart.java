@@ -242,6 +242,7 @@ public class SendMediatorEditPart extends SingleCompartmentComplexFiguredAbstrac
 			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
 					borderItemFigure, PositionConstants.EAST, 0.5);
 			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			borderItemFigure.setEnabled(false);
 
 			return true;
 		}
