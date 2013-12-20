@@ -46,7 +46,8 @@ public class Constants extends NLS{
 	public static String CARBON_UI_PROJECT_NATURE;
 	public static String DISTRIBUTION_PROJECT_NATURE;
 	public static String CEP_PROJECT_NATURE;
-	public static String BRS_PROJECT_NATURE ; 
+	public static String BRS_PROJECT_NATURE ;
+	public static String SERVICE_META__PROJECT_NATURE;
 	
 	static {
 		// initialize resource bundle
@@ -73,6 +74,7 @@ public class Constants extends NLS{
 		list.add(DISTRIBUTION_PROJECT_NATURE);
 		list.add(CEP_PROJECT_NATURE);
 		list.add(BRS_PROJECT_NATURE);
+		list.add(SERVICE_META__PROJECT_NATURE);
 		return list;
 	}
 }
