@@ -303,6 +303,12 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());		
 		} else if(type.equals(RegistryArtifactConstants.LB_ENDPOINT_TEMPL_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());		
+		} else if (type.equals(RegistryArtifactConstants.HTTP_EP_TEMPL_ID)) {
+			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
+			newContent = newContent.replaceAll("<http.uritemplate>", "https://localhost");
+			newContent = newContent.replaceAll("<http.method>", "get");
+		} else if (type.equals(RegistryArtifactConstants.RECIPIENTLIST_EP_TEMPL_ID)) {
+			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
 		} else if(type.equals(RegistryArtifactConstants.TEMPLATE_ENDPOINT_TEMPL_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
 			newContent = newContent.replaceAll("<ep.uri>", "https://localhost"); 
