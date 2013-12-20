@@ -277,7 +277,13 @@ public class NavigatorActionProvider extends CommonActionProvider {
 									.equals(endpointChildNodes.item(j)
 											.getNodeName())) {
 								return new String[] { "endpoint-5", ENDPOINT };
-							}
+							} else if ("http".equals(endpointChildNodes.item(j)
+									.getNodeName())) {
+								return new String[] { "endpoint-6", ENDPOINT };
+							} 
+						}
+						if (currentLine.contains("template")) {
+							return new String[] { "endpoint-7", ENDPOINT };
 						}
 					}
 				} else if (currentLine.contains("<localEntry")) {
