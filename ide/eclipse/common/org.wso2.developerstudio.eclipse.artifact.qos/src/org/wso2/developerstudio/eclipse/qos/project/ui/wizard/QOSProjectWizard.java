@@ -76,6 +76,7 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			
 			getModel().addToWorkingSet(project);
 			MavenInfo mavenInfo = getModel().getMavenInfo();
+			mavenInfo.setPackageName("service/meta");
 			metaFileName  = getServiceName()+"_"+mavenInfo.getVersion()+".xml";
 			meta = project.getFile("src/main/resources/"+metaFileName).getLocation().toFile();
 			meta.createNewFile();
