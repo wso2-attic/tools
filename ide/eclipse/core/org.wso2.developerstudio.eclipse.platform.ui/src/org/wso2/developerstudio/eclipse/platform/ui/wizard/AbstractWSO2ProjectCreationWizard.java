@@ -42,6 +42,7 @@ import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
@@ -49,6 +50,7 @@ import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.part.IPage;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -78,6 +80,9 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	private ProjectDataModel model;
 	private IConfigurationElement configElement;
 	private ISelection currentSelection;
+	private boolean customPageRequired;
+	private WizardPage customPage;
+	
 	protected final static String DIST_EDITOR_ID = "org.wso2.developerstudio.eclipse.distribution.project.editor.DistProjectEditor";
 	protected final static String JDT_BUILD_COMMAND="org.eclipse.jdt.core.javabuilder";
 	protected final static String JDT_PROJECT_NATURE="org.eclipse.jdt.core.javanature";
@@ -105,6 +110,10 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 			}
 			addPage(new ProjectOptionsDataPage(settings, getModel(), getCurrentSelection(),
 			        isRequireProjectLocationSection(), isRequiredWorkingSet(),isRequiredWorkspaceLocation()));
+			if(isCustomPageRequired()){
+				addPage(getCustomPage());
+			}
+			
 			if (isProjectWizard()){
 				addPage(new MavenDetailsPage(getModel()));
 			}
@@ -165,6 +174,22 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		return false;
 	}
 	
+	protected boolean isCustomPageRequired() {
+		return customPageRequired;
+	}
+
+	protected WizardPage getCustomPage() {
+		return customPage;
+	}
+
+	public void setCustomPage(WizardPage customPage) {
+		this.customPage = customPage;
+	}
+
+	public void setCustomPage(boolean customPage) {
+		this.customPageRequired = customPage;
+	}
+
 	public void setInitializationData(IConfigurationElement configElement, String arg1, Object arg2)
 	        throws CoreException {
 		this.configElement = configElement;
