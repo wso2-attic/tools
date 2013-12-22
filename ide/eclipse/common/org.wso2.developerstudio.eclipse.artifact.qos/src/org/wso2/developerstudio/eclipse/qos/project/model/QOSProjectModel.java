@@ -24,6 +24,8 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
 public class QOSProjectModel extends ProjectDataModel {	
 	private File serviceMetaLocation;
 	private String serviceClass;
+	private String wsdlURI;
+	
 	
 	public void setLocation(File location) {
 		// TODO Auto-generated method stub
@@ -60,6 +62,14 @@ public class QOSProjectModel extends ProjectDataModel {
 	}	
 	public File getServiceMetaLocation() {
 		return serviceMetaLocation;
+	}
+
+	public String getWsdlURI() {
+		return wsdlURI;
+	}
+
+	public void setWsdlURI(String wsdlURI) {
+		this.wsdlURI = wsdlURI;
 	}
 
 	public String getServiceClass() {

@@ -118,10 +118,10 @@ public class QoSDashboardPage extends FormPage {
 	private static final String PACKAGE_EXPLORER_PARTID = "org.eclipse.jdt.ui.PackageExplorer";
 	private ISelectionListener selectionListener = null;
 	private ISelection selection = null;
-	private String serviceName;
-	private Map<String, Service> serviceList;
-	private IProject metaProject;
-	private String metaFileName;
+	public static String serviceName;
+	//private Map<String, Service> serviceList;
+	public static IProject metaProject;
+	public static String metaFileName;
 	private String policyFileName;
 	private String aliase;
 	/**
@@ -143,8 +143,7 @@ public class QoSDashboardPage extends FormPage {
 
 	public QoSDashboardPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
-		setServiceName("Test");
-		serviceList = getServiceList();
+		//serviceList = getServiceList();
 	}
 
 	/**
@@ -190,18 +189,20 @@ public class QoSDashboardPage extends FormPage {
 		serviceInfoComposite.setLayout(gridserviceLayout);
 		managedForm.getToolkit().createLabel(serviceInfoComposite, "Services List");
 		final Combo serviceName = new Combo(serviceInfoComposite, SWT.READ_ONLY);
-		 Set<String> keySet = serviceList.keySet();
-		 String[] array = keySet.toArray(new String[0]);
+		// Set<String> keySet = serviceList.keySet();
+		/* String[] array = keySet.toArray(new String[0]);
 		 serviceName.setItems(array);
 		 serviceName.select(0);
-		 setServiceName(serviceName.getItem(serviceName.getSelectionIndex()));
+		 QoSDashboardPage.serviceName =serviceName.getItem(serviceName.getSelectionIndex());
 		 serviceName.addSelectionListener(new SelectionAdapter() {
 		        @Override
 		   public void widgetSelected(SelectionEvent e) {
-			  setServiceName(serviceName.getItem(serviceName.getSelectionIndex()));
+		        	QoSDashboardPage.serviceName =serviceName.getItem(serviceName.getSelectionIndex());
 	 	   }
-		 });
-		 
+		 });*/
+		String[] array = new String[1];
+		array[0] = QoSDashboardPage.serviceName;
+		serviceName.setItems(array);
 		 
 		 new Label(serviceInfoComposite, SWT.None);
 	
@@ -293,7 +294,7 @@ public class QoSDashboardPage extends FormPage {
 
 			private void addPolicy() throws JAXBException, IOException,
 					PropertyException, CoreException {
-				File serviceMeta = metaProject.getFile("src/main/resources/"+metaFileName).getLocation().toFile();
+				File serviceMeta = QoSDashboardPage.metaProject.getFile("src/main/resources/"+QoSDashboardPage.metaFileName).getLocation().toFile();
 				
 				JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
 				Unmarshaller uUnmarshaller = jaxbContext.createUnmarshaller();
@@ -302,7 +303,7 @@ public class QoSDashboardPage extends FormPage {
 				List<Service> services = serviceGroup.getService();
 				Service service=null;
 				for (Service sService : services) {
-					if(getServiceName().equals(sService.getName())){
+					if(QoSDashboardPage.serviceName.equals(sService.getName())){
 						service =sService;
 						break;
 					}
@@ -353,7 +354,7 @@ public class QoSDashboardPage extends FormPage {
 				Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 				jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 				jaxbMarshaller.marshal(serviceGroup, serviceMeta); 
-				metaProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				QoSDashboardPage.metaProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			}
 		});
 			 
@@ -370,7 +371,7 @@ public class QoSDashboardPage extends FormPage {
 		
 	}
 
-	
+	/*
 	private Map<String,Service> getServiceList(){
 		Map<String,Service> serviceMap = new HashMap<String,Service>();
 		IProject project = OpenQoSDashboardCommandHandler.project;
@@ -397,9 +398,9 @@ public class QoSDashboardPage extends FormPage {
 			}
 		}
 		return serviceMap;
-	}
+	}*/
 
-	private void cretaeService(Map<String, Service> serviceMap, Node firstChild,IProject project) throws JavaModelException {
+	/*private void cretaeService(Map<String, Service> serviceMap, Node firstChild,IProject project) throws JavaModelException {
 		if(firstChild.getNodeType()==Node.ELEMENT_NODE){
 			Element eElement = (Element) firstChild;
 			String name = eElement.getAttribute("name");
@@ -446,9 +447,9 @@ public class QoSDashboardPage extends FormPage {
 			bindings.getBinding().add(sSoap12Binding);
 			service.setBindings(bindings);
 		}
-	}
+	}*/
 
-	private Map<String,List<MethodDeclaration>> getCompliatiosnUnits(IProject project)
+	/*private Map<String,List<MethodDeclaration>> getCompliatiosnUnits(IProject project)
 			throws JavaModelException {
 		Map<String,List<MethodDeclaration>> units = new HashMap<String,List<MethodDeclaration>>();
  		IJavaProject ijavaProject = JavaCore.create(project);
@@ -481,7 +482,7 @@ public class QoSDashboardPage extends FormPage {
 				}
 		}
 		return oplist;
-	} 
+	} */
 	
 	
 	private void createSecurityItems(Composite seccomposite ,String[] names,IManagedForm managedForm,int i) {
@@ -597,12 +598,12 @@ public class QoSDashboardPage extends FormPage {
 						.getActiveWorkbenchWindow().getShell(), wizard);
 		     wd.setTitle(wizard.getWindowTitle());
 		     QOSProjectWizard qosProjectWizard = (QOSProjectWizard) wizard; 
-		     qosProjectWizard.setServiceName(getServiceName());
-             Service service = serviceList.get(getServiceName());
-             qosProjectWizard.setService(service);
+		    // qosProjectWizard.setServiceName(QoSDashboardPage.serviceName);
+           //  Service service = serviceList.get(QoSDashboardPage.serviceName);
+             //qosProjectWizard.setService(service);
 		     wd.open();
-		     metaProject = (IProject) qosProjectWizard.getCreatedResource();
-		     metaFileName = qosProjectWizard.getMetaFileName();
+		///     metaProject = (IProject) qosProjectWizard.getCreatedResource();
+		  //   metaFileName = qosProjectWizard.getMetaFileName();
 		     return wizard;
 		   }
  
@@ -629,13 +630,7 @@ public class QoSDashboardPage extends FormPage {
 		selectionService.removeSelectionListener(selectionListener);
 		super.dispose();
 	}
-	public String getServiceName() {
-		return serviceName;
-	}
 
-	public void setServiceName(String serviceName) {
-		this.serviceName = serviceName;
-	}
  
 	public String getAliase() {
 		return aliase;
