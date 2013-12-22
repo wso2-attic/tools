@@ -277,7 +277,6 @@ non terminal Expression rw_variable;
 non terminal Expression variable_without_objects;
 non terminal Expression variable_property;
 non terminal StaticFieldAccess static_member;
-non terminal PHPCallArgumentsList isset_variables;
 non terminal VariableReference tracked_variable;
 
 non terminal Expression class_name_reference;
@@ -370,24 +369,6 @@ top_statement_list:statementList
 :}
 ;
 
-top_statement_list ::=
-top_statement_list:statementList top_statement:statement
-{:
-	if(statement != null) {
-		parser.addStatement(statement);
-		if(parser.pendingStatement != null){
-			parser.addStatement(parser.pendingStatement);
-			parser.pendingStatement = null;
-		}
-	}
-	while(!parser.declarations.isEmpty()) {
-		parser.addStatement(parser.declarations.pop());
-	}
-:}
-
-| /* empty */
-;
-
 namespace_name ::=
 namespace_name_list:list
 {:
@@ -418,7 +399,35 @@ string_st:name
 	list.add(name);
 	RESULT = list;
 :}
+|
+namespace_name_list:list T_OBJECT_OPERATOR string_st:name
+{:
+	list.add(name);
+	RESULT = list;
+:}
 ;
+
+
+
+top_statement_list ::=
+top_statement_list:statementList top_statement:statement
+{:
+	if(statement != null) {
+		parser.addStatement(statement);
+		if(parser.pendingStatement != null){
+			parser.addStatement(parser.pendingStatement);
+			parser.pendingStatement = null;
+		}
+	}
+	while(!parser.declarations.isEmpty()) {
+		parser.addStatement(parser.declarations.pop());
+	}
+:}
+
+| /* empty */
+;
+
+
 
 top_statement ::=
 statement:statement
@@ -434,6 +443,44 @@ statement:statement
 {: 
 	RESULT = statement; 
 :}
+| T_NAMESPACE:start namespace_name:name
+{:
+	NamespaceDeclaration namespace = new NamespaceDeclaration(startleft, nameright, nameleft, nameright, name.getFullyQualifiedName(), null, null);
+	parser.addDeclarationStatement(namespace);
+	parser.declarations.push(namespace);
+:}
+named_namespace_body:body
+{:
+	RESULT = body;
+:}
+| T_VAR T_STRING:aliasName T_EQUAL T_REQUIRE:start T_OPEN_PARENTHESE T_CONSTANT_ENCAPSED_STRING:scalar T_CLOSE_PARENTHESE T_SEMICOLON:end
+{:
+	String module = scalar.substring(1,scalar.length()-1);
+	List list = new LinkedList();
+	list.add(module);
+	StringBuilder namespaceNameBuf = new StringBuilder();
+	FullyQualifiedReference fullyQualifiedName = null;
+	Iterator i = list.iterator();
+	while (i.hasNext()) {
+		String s = (String) i.next();
+		if (i.hasNext()) {
+			if (namespaceNameBuf.length() != 0) {
+				namespaceNameBuf.append('\\');
+			}
+			namespaceNameBuf.append(s);
+		} else {
+			NamespaceReference namespaceRef = (namespaceNameBuf.length() != 0) ? 
+				new NamespaceReference(scalarleft, scalarright - s.length() - 1, namespaceNameBuf.toString()) : null;
+			fullyQualifiedName = new FullyQualifiedReference(scalarleft, scalarright, s, namespaceRef);
+		}
+	}
+	UsePart usePart = new UsePart(fullyQualifiedName, 
+		new SimpleReference(aliasNameleft, aliasNameright, aliasName));
+	List useDeclList = new LinkedList();
+	useDeclList.add(usePart);
+	parser.declarations.push(new UseStatement(startleft, endright, useDeclList));
+:}
+
 ;
 
 named_namespace_body ::=
@@ -452,34 +499,9 @@ T_SEMICOLON:end /* unbracketed syntax */
 	
 	RESULT = namespaceDeclaration;
 :}
-| namespace_body:body
-{:
-	RESULT = body;
-:}
 ;
 
-namespace_body ::=
-T_CURLY_OPEN:start namespace_statement_list:statementList T_CURLY_CLOSE:end
-{:
-	NamespaceDeclaration namespaceDeclaration = (NamespaceDeclaration)parser.declarations.pop();
-	namespaceDeclaration.getBody().setStart(startleft);
-	namespaceDeclaration.getBody().setEnd(endright);
-	namespaceDeclaration.getBody().getStatements().clear();
-	namespaceDeclaration.getBody().acceptStatements(statementList);
-	namespaceDeclaration.setEnd(endright);
-	
-	parser.metBracketedNSDecl = true;
-	if (parser.metUnbracketedNSDecl) {
-		parser.reportError(new ASTError(namespaceDeclaration.sourceStart(), endright), "Cannot mix bracketed namespace declarations with unbracketed namespace declarations");
-	}
-	
-	RESULT = namespaceDeclaration;
-:}
-| error:theError
-{:
-	RESULT = (NamespaceDeclaration)parser.declarations.pop();
-:}
-;
+
 
 
 inner_statement_list ::=
@@ -744,19 +766,6 @@ variable:var
 :}
 ;
 
-use_filename ::=
-T_CONSTANT_ENCAPSED_STRING:scalar
-{:
-	Scalar s = new Scalar(scalarleft, scalarright, scalar, Scalar.TYPE_STRING);
-	RESULT = s;
-:}
-
-| T_OPEN_PARENTHESE:start T_CONSTANT_ENCAPSED_STRING:scalar T_CLOSE_PARENTHESE:end
-{:
-	Scalar s = new Scalar(startleft, endright, scalar, Scalar.TYPE_STRING);
-	RESULT = s;
-:}
-;
 
 function_declaration_statement ::=
 unticked_function_declaration_statement:functionDeclaration
@@ -776,10 +785,6 @@ is_reference ::=
 /* empty */
 {:
 	RESULT = Boolean.FALSE;
-:}
-| T_REFERENCE
-{:
-	RESULT = Boolean.TRUE;
 :}
 ;
 
@@ -906,33 +911,6 @@ implements_list ::=
 :}
 ;
 
-
-foreach_optional_arg ::=
-/* empty */
-{: 
-	RESULT = null;
-:}
-	
-|	T_DOUBLE_ARROW foreach_variable:var
-{: 
-	RESULT = var;
-:}
-;
-
-foreach_variable ::=
-variable:var
-{: 
-	RESULT = var;
-:}
-
-| T_REFERENCE:start variable:var
-{: 
-	ReferenceExpression reference = new ReferenceExpression (startleft, varright, var);
-	RESULT = reference;
-:}
-
-;
-
 for_statement ::=
 statement:statement
 {:
@@ -943,54 +921,6 @@ statement:statement
 {:
 	Block block = new Block(startleft, statementListright, statementList);
 	RESULT = block;
-:}
-;
-
-foreach_statement ::=
-statement:statement
-{:
-	RESULT = statement;
-:}
-
-| T_NEKUDOTAIM:start inner_statement_list:statementList T_ENDFOREACH T_SEMICOLON
-{:
-	Block block = new Block(startleft, statementListright, statementList);
-	RESULT = block;
-:}
-;
-
-declare_statement ::=
-statement:statement
-{:
-	RESULT = statement;
-:}
-
-| T_NEKUDOTAIM:start inner_statement_list:statementList T_ENDDECLARE T_SEMICOLON
-{:
-	Block block = new Block(startleft, statementListright, statementList);
-	RESULT = block;
-:}
-;
-
-// this rule returns a pair of keys and values of directives to the declare statement
-declare_list ::=
-T_STRING:key T_EQUAL static_scalar:value
-{:
-	List listKeys = new LinkedList();
-	List listValues = new LinkedList();
-	
-	listKeys.add(key);
-	listValues.add(value);
-
-	List[] returnList = new List[] { listKeys, listValues };
-	RESULT = returnList;
-:}
-
-| declare_list:lists T_COMMA T_STRING:key T_EQUAL static_scalar:value
-{:
-	lists[0].add(key);
-	lists[1].add(value);
-	RESULT = lists;
 :}
 ;
 
@@ -1232,14 +1162,6 @@ expr_without_variable:var
 	RESULT = paramsList;
 :}
 
-| T_REFERENCE:start w_variable:var
-{:
-	PHPCallArgumentsList paramsList = new PHPCallArgumentsList();
-	Expression var_ref = new ReferenceExpression(startleft, varright, var);
-	paramsList.addNode(var_ref);	
-	RESULT = paramsList;
-:}
-
 | non_empty_function_call_parameter_list:paramsList T_COMMA expr_without_variable:var
 {:
 	paramsList.addNode(var);
@@ -1251,36 +1173,9 @@ expr_without_variable:var
 	paramsList.addNode(var);	
 	RESULT = paramsList;
 :}
-
-| non_empty_function_call_parameter_list:paramsList T_COMMA T_REFERENCE:start w_variable:var
-{:
-	Expression var_ref = new ReferenceExpression(startleft, varright, var);
-	paramsList.addNode(var_ref);
-	RESULT = paramsList;
-:}
 ;
 
 
-
-global_var ::=
-T_VARIABLE:var
-{:
-	VariableReference variable = new VariableReference(varleft, varright, var);
-	RESULT = variable;
-:}
-
-| T_DOLLAR:start r_variable:var
-{:
-	ReflectionVariableReference ref = new ReflectionVariableReference(startleft, varright, var);
-	RESULT = ref;
-:}
-
-| T_DOLLAR:start T_CURLY_OPEN expr:varName T_CURLY_CLOSE:end
-{:
-	ReflectionVariableReference var = new ReflectionVariableReference(startleft, endright, varName);
-	RESULT = var;
-:}
-;
 
 static_var_list ::=
 static_var_list:list T_COMMA T_STRING:var
@@ -1505,20 +1400,6 @@ constant_declaration:list T_COMMA T_STRING:constName T_EQUAL static_scalar:expr
 :}
 ;
 
-echo_expr_list ::=
-echo_expr_list:exprList T_COMMA expr:expr 
-{:
-	exprList.add(expr);
-	RESULT = exprList;
-:}
-| expr:expr
-{:
-	List exprList = new LinkedList();
-	exprList.add(expr);
-	RESULT = exprList;
-:}
-;
-
 for_expr ::=
 /* empty */
 {:
@@ -1559,23 +1440,6 @@ T_LIST:start T_OPEN_PARENTHESE assignment_list:varList T_CLOSE_PARENTHESE:close 
 | variable:var T_EQUAL T_REFERENCE:reftoken variable:refvar
 {: 
 	RESULT = new Assignment(varleft, refvarright, var, Assignment.OP_REF_EQUAL, refvar); 
-:}
-
-| variable:var T_EQUAL T_REFERENCE:reftoken T_NEW:start class_name_reference:className ctor_arguments:ctor
-{:
-	if (ctor.sourceStart() == 0) {
-		ctor.setStart(classNameright);
-		ctor.setEnd(classNameright);
-	}
-	ClassInstanceCreation classInstanceCreation = new ClassInstanceCreation(startleft, ctorright, className, ctor);
-	Assignment assignment = new Assignment(varleft, ctorright, var, Assignment.OP_REF_EQUAL, classInstanceCreation);
-	RESULT = assignment;
-:} 
-
-| T_CLONE:start expr:expr
-{:
-	CloneExpression clone = new CloneExpression(startleft, exprright, expr);
-	RESULT = clone;
 :}
 
 | variable:var T_PLUS_EQUAL expr:expr
@@ -1788,10 +1652,6 @@ T_LIST:start T_OPEN_PARENTHESE assignment_list:varList T_CLOSE_PARENTHESE:close 
 	RESULT = new InfixExpression(expr1left, expr2right, expr1 , InfixExpression.OP_IS_GREATER_OR_EQUAL, expr2); 
 :}
 
-| expr:expr T_INSTANCEOF class_name_reference:className
-{: 
-	RESULT = new InstanceOfExpression(exprleft, classNameright, expr , className); 
-:}
 
 | T_OPEN_PARENTHESE:start expr:expr T_CLOSE_PARENTHESE:end
 {:
@@ -1881,22 +1741,6 @@ T_LIST:start T_OPEN_PARENTHESE assignment_list:varList T_CLOSE_PARENTHESE:close 
 	RESULT = new CastExpression(tokenleft, exprright, expr , CastExpression.TYPE_UNSET); 
 :}
 
-| T_EXIT:start exit_expr:expr 
-{:
-	PHPCallArgumentsList list = new PHPCallArgumentsList();
-	if (expr != null) {
-		list.addNode(expr);
-		list.setStart(expr.sourceStart());
-		list.setEnd(expr.sourceEnd());
-	} else {
-		list.setStart(startright);
-		list.setEnd(startright);
-	}
-	SimpleReference functionName = new SimpleReference(startleft, startright, start);
-	PHPCallExpression result = new PHPCallExpression(startleft, exprright, null, functionName, list);
-	RESULT = result;
-:}
-
 | T_AT:start expr:expr 
 {:
 	IgnoreError ignoreError = new IgnoreError(startleft, exprright, expr);
@@ -1964,41 +1808,8 @@ lexical_vars ::=
 {:
 	RESULT = null;
 :}
-
-| T_USE:s T_OPEN_PARENTHESE lexical_var_list:list T_CLOSE_PARENTHESE:e
-{:
-	RESULT = list;
-:}
 ;
 
-lexical_var_list ::=
-lexical_var_list:list T_COMMA T_VARIABLE:var
-{:
-	VariableReference v = new VariableReference(varleft, varright, var);
-	list.add(v);
-	RESULT = list;
-:}
-
-| lexical_var_list:list T_COMMA T_REFERENCE:ref T_VARIABLE:var
-{:
-	list.add(new ReferenceExpression (refleft, varright, new VariableReference(varleft, varright, var)));
-	RESULT = list;
-:}
-
-| T_VARIABLE:var
-{:
-	List list = new LinkedList();
-	list.add(new VariableReference(varleft, varright, var));
-	RESULT = list;
-:}
-
-| T_REFERENCE:ref T_VARIABLE:var
-{:
-	List list = new LinkedList();
-	list.add(new ReferenceExpression (refleft, varright, new VariableReference(varleft, varright, var)));
-	RESULT = list;
-:}
-;
 
 function_call ::=
 variable_without_objects:reflectionName T_OPEN_PARENTHESE:start function_call_parameter_list:parameters T_CLOSE_PARENTHESE:end
@@ -2020,6 +1831,7 @@ T_STATIC:s
 	RESULT = name;
 :}
 
+
 | T_ARRAY:s
 {:
 	RESULT = new FullyQualifiedReference(sleft, sright, "Array", null);
@@ -2034,30 +1846,25 @@ class_name:className
 ;
 
 dynamic_class_name_reference ::=
-base_variable:var 
+base_variable:var T_OBJECT_OPERATOR object_property:firstVarProperty dynamic_class_name_variable_properties:propertyList
 {:
-	 RESULT = var;
+	// then get the aggregated list of properties (->...->...->...)
+	LinkedList list = (LinkedList) propertyList;
+	list.addFirst(firstVarProperty);
+	
+	// now create the dispatch(es) nodes 
+	Expression dispatcher = (Expression)var;
+
+	Iterator listIt = list.iterator();
+	while (listIt.hasNext()) {
+		Expression property = (Expression)listIt.next();
+		dispatcher = parser.createDispatch(dispatcher, property);
+	}	
+	
+	RESULT = dispatcher;
 :}
 ;
 
-
-
-exit_expr ::=
-/* empty */
-{:
-	RESULT = null;
-:}
-
-| T_OPEN_PARENTHESE T_CLOSE_PARENTHESE
-{:
-	RESULT = null;
-:}
-
-| T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE
-{:
-	RESULT = expr;	
-:}
-;
 
 backticks_expr ::=
 /* empty */
@@ -2111,7 +1918,6 @@ T_LNUMBER:scalar
 	Scalar s = new Scalar(scalarleft, scalarright, scalar, Scalar.TYPE_BIN);
 	RESULT = s;
 :}
-
 | T_CONSTANT_ENCAPSED_STRING:scalar
 {: 
 	Scalar s = new Scalar(scalarleft, scalarright, scalar, Scalar.TYPE_STRING);
@@ -2494,12 +2300,6 @@ class_name:className T_PAAMAYIM_NEKUDOTAYIM variable_without_objects:var
 	StaticFieldAccess staticFieldAccess = new StaticFieldAccess(classNameleft, varright, className, var);
 	RESULT = staticFieldAccess;
 :}
-
-| variable_class_name:className T_PAAMAYIM_NEKUDOTAYIM variable_without_objects:var
-{:
-	StaticFieldAccess staticFieldAccess = new StaticFieldAccess(classNameleft, varright, className, var);
-	RESULT = staticFieldAccess;
-:}
 ;
 
 variable_class_name ::=
@@ -2534,10 +2334,10 @@ reference_variable:var
 	RESULT = finalVar;
 :}
 
-| static_member:staticFieldAccess
+/*| static_member:staticFieldAccess
 {:
 	RESULT = staticFieldAccess;
-:}
+:}*/
 ;
 
 reference_variable ::=
@@ -2845,25 +2645,7 @@ T_STRING:string
 ;
 
 internal_functions_in_yacc ::=
-T_ISSET:start T_OPEN_PARENTHESE:openPar isset_variables:varList T_CLOSE_PARENTHESE:end
-{:
-	varList.setStart(openParright);
-	varList.setEnd(endleft);
-	SimpleReference name = new SimpleReference(startleft, startright, "isset");
-	PHPCallExpression result = new PHPCallExpression(startleft, endright, null, name, varList);
-	RESULT = result;
-:}
-
-| T_EMPTY:start T_OPEN_PARENTHESE:openPar variable:var T_CLOSE_PARENTHESE:end
-{:
-	SimpleReference name = new SimpleReference(startleft, startright, "empty");
-	PHPCallArgumentsList varList = new PHPCallArgumentsList(openParright, endleft);
-	varList.addNode(var);
-	PHPCallExpression result = new PHPCallExpression(startleft, endright, null, name, varList);
-	RESULT = result;
-:}
-
-| T_INCLUDE:include expr:expr
+T_INCLUDE:include expr:expr
 {:
 	Include result = new Include(includeleft, exprright, expr, Include.IT_INCLUDE);
 	RESULT = result;
@@ -2872,16 +2654,6 @@ T_ISSET:start T_OPEN_PARENTHESE:openPar isset_variables:varList T_CLOSE_PARENTHE
 | T_INCLUDE_ONCE:include expr:expr
 {:
 	Include result = new Include(includeleft, exprright, expr, Include.IT_INCLUDE_ONCE);
-	RESULT = result;
-:}
-
-
-| T_EVAL:start T_OPEN_PARENTHESE:openPar expr:expr T_CLOSE_PARENTHESE:end
-{:
-	SimpleReference name = new SimpleReference(startleft, startright, "eval");
-	PHPCallArgumentsList exprList = new PHPCallArgumentsList(openParright, endleft);
-	exprList.addNode(expr);
-	PHPCallExpression result = new PHPCallExpression(startleft, endright, null, name, exprList);
 	RESULT = result;
 :}
 
@@ -2898,20 +2670,6 @@ T_ISSET:start T_OPEN_PARENTHESE:openPar isset_variables:varList T_CLOSE_PARENTHE
 :}
 ;
 
-isset_variables ::=
-variable:var 
-{:
-	PHPCallArgumentsList list = new PHPCallArgumentsList();
-	list.addNode(var);
-	RESULT = list;	
-:}
-
-| isset_variables:varList T_COMMA variable:var
-{:
-	varList.addNode(var);
-	RESULT = varList;
-:}
-;
 
 class_constant ::=
 class_name:className T_PAAMAYIM_NEKUDOTAYIM T_STRING:varName

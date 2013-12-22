@@ -375,6 +375,13 @@ T_STRING:n
 	list.add(new Identifier(nleft, nright, parser.ast, n));
 	RESULT = list;
 :}
+
+|
+namespace_name:list T_OBJECT_OPERATOR T_STRING:n
+{:
+	list.add(new Identifier(nleft, nright, parser.ast, n));
+	RESULT = list;
+:}
 ;
 
 top_statement_list ::=
@@ -415,6 +422,23 @@ statement:statement
 | class_declaration_statement:statement
 {: 
 	RESULT = statement; 
+:}
+| T_NAMESPACE:s namespace_name:list T_SEMICOLON:e
+{:
+	RESULT = new NamespaceDeclaration(sleft, eright, parser.ast, 
+		new NamespaceName(listleft, listright, parser.ast, list, false, false), null, false);
+:}
+| T_VAR T_STRING:aliasName T_EQUAL T_REQUIRE:s T_OPEN_PARENTHESE T_CONSTANT_ENCAPSED_STRING:scalar T_CLOSE_PARENTHESE T_SEMICOLON:e
+{:
+	String module = scalar.substring(1,scalar.length()-1);
+	List list = new LinkedList();
+	list.add(module);
+	UseStatementPart usePart = new UseStatementPart(scalarleft, aliasNameright, parser.ast, 
+		new NamespaceName(scalarleft, scalarright, parser.ast, list, false, false),
+		new Identifier(aliasNameleft, aliasNameright, parser.ast, aliasName));
+	List useList = new LinkedList();
+	useList.add(usePart);
+	RESULT = new UseStatement(sleft, eright, parser.ast, useList);
 :}
 ;
 
@@ -647,17 +671,6 @@ variable:var
 :}
 ;
 
-use_filename ::=
-T_CONSTANT_ENCAPSED_STRING:scalar
-{:
-	RESULT = new Scalar(scalarleft, scalarright, parser.ast, scalar, Scalar.TYPE_STRING);
-:}
-
-| T_OPEN_PARENTHESE:s T_CONSTANT_ENCAPSED_STRING:scalar T_CLOSE_PARENTHESE:e
-{:
-	RESULT = new Scalar(sleft, eright, parser.ast, scalar, Scalar.TYPE_STRING);
-:}
-;
 
 function_declaration_statement ::=
 unticked_function_declaration_statement:functionDeclaration
@@ -792,27 +805,6 @@ statement:statement
 {:
 	Block block = new Block(startleft, endright, parser.ast, statementList, false);
 	RESULT = block;
-:}
-;
-
-// this rule returns a pair of keys and values of directives to the declare statement
-declare_list ::=
-T_STRING:key T_EQUAL static_scalar:value
-{:
-	List listKeys = new LinkedList();
-	List listValues = new LinkedList();
-	
-	listKeys.add(new Identifier(keyleft, keyright, parser.ast, key));
-	listValues.add(value);
-
-	RESULT = new List[] { listKeys, listValues };
-:}
-
-| declare_list:lists T_COMMA T_STRING:key T_EQUAL static_scalar:value
-{:
-	lists[0].add(new Identifier(keyleft, keyright, parser.ast, key));
-	lists[1].add(value);
-	RESULT = lists;
 :}
 ;
 
@@ -1781,11 +1773,11 @@ base_variable:var T_OBJECT_OPERATOR object_property:firstVarProperty dynamic_cla
 	// create class name from the dispatch
 	RESULT = new ClassName(varleft, propertyListright, parser.ast, dispatch);
 :}
-|
+/*|
 base_variable:var 
 {:
 	 RESULT = new ClassName(varleft, varright, parser.ast, var);
-:}
+:}*/
 ;
 
 dynamic_class_name_variable_properties ::=
@@ -1874,7 +1866,6 @@ T_LNUMBER:scalar
 {:
 	RESULT = new Scalar(scalarleft, scalarright, parser.ast, scalar, Scalar.TYPE_BIN);
 :}
-
 | T_CONSTANT_ENCAPSED_STRING:scalar
 {: 
 	RESULT = new Scalar(scalarleft, scalarright, parser.ast, scalar, Scalar.TYPE_STRING);
@@ -2214,11 +2205,6 @@ class_name:className T_PAAMAYIM_NEKUDOTAYIM variable_without_objects:var
 {:
 	RESULT = new StaticFieldAccess(classNameleft, varright, parser.ast, className, var);
 :}
-
-| variable_class_name:className T_PAAMAYIM_NEKUDOTAYIM variable_without_objects:var
-{:
-	RESULT = new StaticFieldAccess(classNameleft, varright, parser.ast, className, var);
-:}
 ;
 
 variable_class_name ::=
@@ -2253,10 +2239,10 @@ reference_variable:var
 	RESULT = finalVar;	
 :}
 
-| static_member:s
+/*| static_member:s
 {:
 	RESULT = s;
-:}
+:}*/
 ;
 
 reference_variable ::=

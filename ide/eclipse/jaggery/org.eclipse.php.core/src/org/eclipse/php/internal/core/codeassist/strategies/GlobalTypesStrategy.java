@@ -41,7 +41,7 @@ import org.eclipse.php.internal.core.typeinference.PHPModelUtils;
  */
 public class GlobalTypesStrategy extends GlobalElementStrategy {
 
-	private static final String SPLASH = "\\"; //$NON-NLS-1$
+	private static final String SPLASH = "."; //$NON-NLS-1$
 	protected final int trueFlag;
 	protected final int falseFlag;
 	protected static final IType[] EMPTY = {};
@@ -220,7 +220,7 @@ public class GlobalTypesStrategy extends GlobalElementStrategy {
 			String name = (String) iterator.next();
 			String fullName = result.get(name).getNamespace()
 					.getFullyQualifiedName();
-			if (fullName.startsWith("\\")) { //$NON-NLS-1$
+			if (fullName.startsWith(".")) { //$NON-NLS-1$
 				fullName = fullName.substring(1);
 			}
 			IType[] elements = PhpModelAccess.getDefault().findTypes(null,
@@ -385,7 +385,8 @@ public class GlobalTypesStrategy extends GlobalElementStrategy {
 							ISourceRange sourceRange = selfClassData
 									.getSourceRange();
 							FakeMethod ctorMethod = new FakeMethod(
-									(ModelElement) selfClassData, "self", //$NON-NLS-1$
+									(ModelElement) selfClassData,
+									"self", //$NON-NLS-1$
 									sourceRange.getOffset(),
 									sourceRange.getLength(),
 									sourceRange.getOffset(),

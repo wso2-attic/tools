@@ -368,9 +368,9 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_PAAMAYIM_NEKUDOTAYIM);
 }
 
-/*<ST_IN_SCRIPTING>"\\" {
+<ST_IN_SCRIPTING>"\\" {
 	return createSymbol(ParserConstants.T_NS_SEPARATOR);
-}*/
+}
 
 <ST_IN_SCRIPTING>"new" {
 	return createSymbol(ParserConstants.T_NEW);
@@ -420,9 +420,9 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_EVAL);
 }
 
-/*<ST_IN_SCRIPTING>"namespace" {
+<ST_IN_SCRIPTING>"namespace" {
  	return createSymbol(ParserConstants.T_NAMESPACE);
-}*/
+}
 
 /*<ST_IN_SCRIPTING>"use" {
 	return createSymbol(ParserConstants.T_USE);
@@ -710,6 +710,10 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_REQUIRE);
 }
 
+<ST_IN_SCRIPTING>"namespace" {
+ 	return createSymbol(ParserConstants.T_NAMESPACE);
+}
+
 <YYINITIAL>(([^<]|"<"[^?%s<])+)|"<s"|"<" {
     return createSymbol(ParserConstants.T_INLINE_HTML);
 }
@@ -720,7 +724,11 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	//return T_OPEN_TAG;
 }
 
-<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>{LABEL}"."[a-zA-Z_\x7f-\xff] {
+<ST_IN_SCRIPTING,ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE,ST_VAR_OFFSET>"$"{LABEL} {
+    return createFullSymbol(ParserConstants.T_VARIABLE);
+}
+
+<ST_DOUBLE_QUOTES,ST_HEREDOC,ST_BACKQUOTE>"$"{LABEL}"->"[a-zA-Z_\x7f-\xff] {
 	yypushback(3);
 	pushState(ST_LOOKING_FOR_PROPERTY);
 	return createFullSymbol(ParserConstants.T_VARIABLE);

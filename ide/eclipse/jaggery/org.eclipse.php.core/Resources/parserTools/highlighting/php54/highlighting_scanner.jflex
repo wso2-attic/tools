@@ -565,6 +565,10 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 	return PHP__NAMESPACE__;
 }
 
+<ST_PHP_IN_SCRIPTING>"namespace" {
+ 	return PHP_NAMESPACE;
+}
+
 <ST_PHP_IN_SCRIPTING>"require" {
     return PHP_REQUIRE;
 }

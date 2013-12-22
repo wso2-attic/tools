@@ -329,7 +329,7 @@ ${cursor}
 	id="org.eclipse.php.ui.editor.templates.php.class"
 	context="php-global-members"
 	enabled="true"
-	autoinsert="false">require("${cursor}");
+	autoinsert="false">require ("${cursor}");
 </template>
 
 <!-- <template -->

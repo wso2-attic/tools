@@ -253,7 +253,7 @@ public class CompletionStrategyFactory implements ICompletionStrategyFactory {
 		}
 		if (contextClass == QuotesContext.class) {
 			return new ICompletionStrategy[] { new NamespacesStrategy(context,
-					true) };
+					false) };
 		}
 		if (contextClass == GotoStatementContext.class) {
 			return new ICompletionStrategy[] { new GotoStatementStrategy(

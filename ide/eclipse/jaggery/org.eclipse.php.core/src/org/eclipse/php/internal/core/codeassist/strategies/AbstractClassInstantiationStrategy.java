@@ -68,9 +68,12 @@ public abstract class AbstractClassInstantiationStrategy extends
 					.isContextInformationMode()) {
 				// here we use fake method,and do the real work in class
 				// ParameterGuessingProposal
-				IMethod ctorMethod = FakeConstructor.createFakeConstructor(
-						null, type, type.equals(enclosingClass));
-				reporter.reportMethod(ctorMethod, suffix, replaceRange);
+				String qualifiedName = type.getFullyQualifiedName();
+				if (!qualifiedName.contains("$")) {
+					IMethod ctorMethod = FakeConstructor.createFakeConstructor(
+							null, type, type.equals(enclosingClass));
+					reporter.reportMethod(ctorMethod, suffix, replaceRange);
+				}
 			} else {
 				// if this is context information mode,we use this,
 				// because the number of types' length is very small
@@ -106,13 +109,15 @@ public abstract class AbstractClassInstantiationStrategy extends
 
 		char nextChar = ' ';
 		try {
-			if(insertMode){
+			if (insertMode) {
 				nextChar = abstractContext.getNextChar();
-			}else{
+			} else {
 				SourceRange replacementRange = getReplacementRange(abstractContext);
-				nextChar = abstractContext.getDocument().getChar(replacementRange.getOffset()+replacementRange.getLength());
+				nextChar = abstractContext.getDocument().getChar(
+						replacementRange.getOffset()
+								+ replacementRange.getLength());
 			}
-			
+
 		} catch (BadLocationException e) {
 			PHPCorePlugin.log(e);
 		}

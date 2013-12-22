@@ -190,7 +190,7 @@ public class PHPModelUtils {
 				}
 
 				// 2. it can be an alias - try to find relevant USE statement
-				if (namespace.indexOf('\\') == -1) {
+				if (namespace.indexOf('.') == -1) {
 					usePart = ASTUtils.findUseStatementByAlias(
 							moduleDeclaration, namespace, offset);
 					if (usePart != null) {

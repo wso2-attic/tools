@@ -20,7 +20,7 @@ import org.eclipse.dltk.ast.references.TypeReference;
  */
 public class NamespaceReference extends TypeReference {
 	
-	public final static char NAMESPACE_SEPARATOR = '\\';
+	public final static char NAMESPACE_SEPARATOR = '.';
 	private boolean global;
 	private boolean local; 
 

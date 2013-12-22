@@ -87,10 +87,14 @@ public abstract class ClassMemberContext extends StatementContext {
 
 		String triggerText = statementText.subSequence(elementStart - 1,
 				elementStart).toString();
-		if (triggerText.equals(".")) { //$NON-NLS-1$
-			triggerType = Trigger.OBJECT;
-		} else if (triggerText.equals(":")) { //$NON-NLS-1$
-			triggerType = Trigger.CLASS;
+		if (!statementText.toString().contains("new")) {
+			if (triggerText.equals(".")) { //$NON-NLS-1$
+				triggerType = Trigger.OBJECT;
+			} else if (triggerText.equals(":")) { //$NON-NLS-1$
+				triggerType = Trigger.CLASS;
+			} else {
+				return false;
+			}
 		} else {
 			return false;
 		}
