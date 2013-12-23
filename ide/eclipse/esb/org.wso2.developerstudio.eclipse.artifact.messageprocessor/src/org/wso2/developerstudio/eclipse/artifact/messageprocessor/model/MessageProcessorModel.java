@@ -285,7 +285,7 @@ public class MessageProcessorModel extends ProjectDataModel {
 				modelPropertyValue = getMessageProcessorName();
 			} else if (key.equals("processor.type")) {
 				modelPropertyValue = getMessageProcessorType();
-			} else if (key.equals("processor.stroe")) {
+			} else if (key.equals("processor.store")) {
 				modelPropertyValue = getMessageStore();
 			} else if (key.equals("Forwarding_processor.retry_interval")) {
 				modelPropertyValue = getRetryInterval();
@@ -347,7 +347,7 @@ public class MessageProcessorModel extends ProjectDataModel {
 			setMessageProcessorName(data.toString());
 		} else if (key.equals("processor.type")) {
 			setMessageProcessorType(data.toString());
-		} else if (key.equals("processor.stroe")) {
+		} else if (key.equals("processor.store")) {
 			setMessageStore(data.toString());
 		} else if (key.equals("Forwarding_processor.retry_interval")) {
 			setRetryInterval(data.toString());

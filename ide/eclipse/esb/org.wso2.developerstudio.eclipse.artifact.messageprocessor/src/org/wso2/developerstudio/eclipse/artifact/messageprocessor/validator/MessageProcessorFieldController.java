@@ -44,7 +44,13 @@ public class MessageProcessorFieldController extends AbstractFieldController{
 			if(value == null || value.toString().trim().isEmpty()){
 				throw new FieldValidationException("Message Store cannot be empty");
 			}
-		}else if (modelProperty.equals("save.location")) {
+		}
+		else if(modelProperty.equals("processor.store")){
+			if(value == null || value.toString().trim().isEmpty()){
+				throw new FieldValidationException("Message Store cannot be empty ..");
+			}
+		}
+		else if (modelProperty.equals("save.location")) {
 			IResource resource = (IResource) value;
 			if (resource == null || !resource.exists())
 				throw new FieldValidationException("Specified project or path doesn't exist.");

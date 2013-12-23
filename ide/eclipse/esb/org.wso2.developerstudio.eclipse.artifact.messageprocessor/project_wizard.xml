@@ -22,7 +22,7 @@
 				controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.messageprocessor.provider.MessageProcessorTypeList">Message processor type *</data>
 			<data modelProperty="processor.name" type="string"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController">Message processor Name *</data>
-			<data modelProperty="processor.stroe" type="list"
+			<data modelProperty="processor.store" type="list"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messageprocessor.validator.MessageProcessorFieldController"
 				controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.messageprocessor.provider.MessageStoreList">Message Store *</data>
 
