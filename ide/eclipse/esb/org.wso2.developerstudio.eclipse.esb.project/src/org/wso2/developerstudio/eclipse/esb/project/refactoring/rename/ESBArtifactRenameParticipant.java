@@ -86,7 +86,10 @@ public class ESBArtifactRenameParticipant extends RenameParticipant {
 	                                                 OperationCanceledException {
 		CompositeChange change=new CompositeChange("ESB Artifact Model Rename");
 		String originalFileNamewithExtension = originalFile.getName();
-		change.add(new ESBMetaDataFileChange("Meta data file", esbProject.getFile("artifact.xml"),originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4),changedFileName.substring(0,changedFileName.length()-4)));
+		IFile artifactFile = esbProject.getFile("artifact.xml");
+		String originalNameWithoutExtension = originalFileNamewithExtension.substring(0,originalFileNamewithExtension.length()-4);
+		String changedNameWithoutextension = changedFileName.substring(0,changedFileName.length()-4);
+		change.add(new ESBMetaDataFileChange("Meta data file", artifactFile, originalNameWithoutExtension, changedNameWithoutextension));
 		return change;
 	}
 

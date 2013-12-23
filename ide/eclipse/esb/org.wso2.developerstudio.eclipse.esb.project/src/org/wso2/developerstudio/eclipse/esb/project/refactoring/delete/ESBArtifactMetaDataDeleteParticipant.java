@@ -42,7 +42,7 @@ public class ESBArtifactMetaDataDeleteParticipant extends DeleteParticipant {
 	@Override
 	public Change createChange(IProgressMonitor arg0) throws CoreException,
 	                                                 OperationCanceledException {
-		CompositeChange change = new CompositeChange("ESB Artifact Rename");
+		CompositeChange change = new CompositeChange("ESB Artifact Delete");
 		esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		change.add(new ESBMetaDataFileDeleteChange(esbProject.getName(),
 		                                           esbProject.getFile("artifact.xml"), originalFile));
