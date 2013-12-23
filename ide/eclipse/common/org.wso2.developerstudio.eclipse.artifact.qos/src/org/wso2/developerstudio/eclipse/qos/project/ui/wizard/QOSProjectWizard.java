@@ -299,10 +299,14 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 				 }
 				
 				}else{
-					
-					Definition readWSDL = WSDLUtils.readWSDL(new URL(wsdlURI));
+					Definition definition = WSDLUtils.readWSDL(wsdlURI);
+					List<QName> serviceList = WSDLUtils.getServiceList(definition);
+					for (QName qName : serviceList) {
+						fname = qName;
+						break;
+					}
+					operations = WSDLUtils.getOperationNameList(definition, fname);
 				}
-				
 				
 				Service sService = createService(fname, operations);
 				serviceGroup.getService().add(sService);
