@@ -89,7 +89,8 @@ public class GlobalTypesStrategy extends GlobalElementStrategy {
 				return;
 			}
 		}
-		if (abstractContext.getPrefixWithoutProcessing().trim().length() == 0) {
+
+		if ((abstractContext.getPrefixWithoutProcessing().trim().length() == 0)) {
 			return;
 		}
 		boolean isUseContext = context instanceof UseNameContext;
@@ -125,8 +126,16 @@ public class GlobalTypesStrategy extends GlobalElementStrategy {
 							replacementRange, extraInfo
 									| ProposalExtraInfo.CLASS_IN_NAMESPACE);
 				} else {
-					reporter.reportType(type, isNamespace ? nsSuffix : suffix,
-							replacementRange, extraInfo);
+					if (!type.getTypeQualifiedName().equals("websocket")
+							&& !type.getTypeQualifiedName().equals("session")
+							&& !type.getTypeQualifiedName().equals("request")
+							&& !type.getTypeQualifiedName().equals("response")
+							&& !type.getTypeQualifiedName().equals(
+									"application")) {
+						reporter.reportType(type, isNamespace ? nsSuffix
+								: suffix, replacementRange, extraInfo);
+					}
+
 				}
 				if (addClassInNamespace && isNamespace) {
 					IType[] subTypes = type.getTypes();
@@ -229,9 +238,11 @@ public class GlobalTypesStrategy extends GlobalElementStrategy {
 				for (int i = 0; i < elements.length; i++) {
 					String elementName = elements[i].getElementName();
 					if (!PHPFlags.isNamespace(elements[i].getFlags())) {
-						reportAlias(reporter, scope, module, replacementRange,
-								elements[i], elementName,
-								elementName.replace(fullName, name), suffix);
+						if (!elements[i].getFullyQualifiedName().contains("$")) {
+							reportAlias(reporter, scope, module,
+									replacementRange, elements[i], elementName,
+									elementName.replace(fullName, name), suffix);
+						}
 					} else {
 						String nsname = prefix.replace(name, fullName);
 						if (nsname.startsWith(elementName + SPLASH)

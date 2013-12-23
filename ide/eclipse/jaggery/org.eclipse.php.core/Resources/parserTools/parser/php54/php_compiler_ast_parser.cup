@@ -71,7 +71,7 @@ terminal  T_FOR;
 terminal  T_ENDFOR;
 terminal  T_FOREACH;
 terminal  T_ENDFOREACH;
-terminal  T_DECLARE;
+terminal  T_IN;
 terminal  T_ENDDECLARE;
 terminal  T_INSTANCEOF;
 terminal  T_CLONE;
@@ -622,6 +622,12 @@ inner_statement_list:statementList T_CURLY_CLOSE:end
 	RESULT = forStatement;
 :}
 
+|  T_FOR:token T_OPEN_PARENTHESE for_expr:initializations T_CLOSE_PARENTHESE for_statement:statement
+{:		
+	ForStatement forStatement = new ForStatement(tokenleft, statementright, initializations, null, null, statement);			
+	RESULT = forStatement;
+:}
+
 | T_SWITCH:token T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE switch_case_list:caseBlock
 {:
 	SwitchStatement switchStatement = new SwitchStatement(tokenleft, caseBlockright, expr, caseBlock);
@@ -1120,6 +1126,7 @@ optional_class_type:classType T_STRING:var
 	RESULT = parameter;	
 :}
 
+
 | error:theError
 {:
 	parser.reportError(new ASTError(theErrorleft, theErrorright));
@@ -1172,6 +1179,19 @@ expr_without_variable:var
 {:
 	paramsList.addNode(var);	
 	RESULT = paramsList;
+:}
+| T_CURLY_OPEN:start object_pair_list:list T_CURLY_CLOSE:end
+{:
+	Expression expr = new ArrayCreation(startleft, endright, list);
+	PHPCallArgumentsList paramsList = new PHPCallArgumentsList();
+	paramsList.addNode(expr);
+	RESULT = paramsList;
+:}
+| non_empty_function_call_parameter_list:nlist T_COMMA T_CURLY_OPEN:start object_pair_list:list T_CURLY_CLOSE:end
+{:
+		Expression expr = new ArrayCreation(nlistleft, endright, list);
+		nlist.addNode(expr);
+		RESULT = nlist; 
 :}
 ;
 
@@ -1380,6 +1400,13 @@ non_empty_for_expr:exprList T_COMMA expr:expr
 | T_VAR static_var_list:list
 {:
 	RESULT = list;
+:}
+
+| T_VAR T_STRING T_IN expr:expr
+{:
+	List exprList = new LinkedList();
+	exprList.add(expr);
+	RESULT = exprList;
 :}
 ;
 
@@ -1770,7 +1797,7 @@ T_LIST:start T_OPEN_PARENTHESE assignment_list:varList T_CLOSE_PARENTHESE:close 
 	RESULT = backTickExpression;
 :}
 
-| T_PRINT:start expr:expr
+| T_PRINT:start T_OPEN_PARENTHESE var_expr:expr T_CLOSE_PARENTHESE
 {:
 	PHPCallArgumentsList list = new PHPCallArgumentsList();
 	if (expr != null) {
@@ -1786,7 +1813,7 @@ T_LIST:start T_OPEN_PARENTHESE assignment_list:varList T_CLOSE_PARENTHESE:close 
 	RESULT = result;
 :}
 
-| T_FUNCTION:s is_reference:isReference
+| T_FUNCTION:s is_reference:isReference 
 T_OPEN_PARENTHESE parameter_list:paramList T_CLOSE_PARENTHESE lexical_vars:varsList
 T_CURLY_OPEN:blockStart inner_statement_list:list T_CURLY_CLOSE:blockEnd
 {:
@@ -2545,14 +2572,14 @@ array_pair_list ::=
 ;
 
 non_empty_array_pair_list ::=
-non_empty_array_pair_list:list T_COMMA expr:expr
+non_empty_array_pair_list:list T_COMMA var_expr:expr
 {:
 	ArrayElement element = new ArrayElement(exprleft, exprright, expr);
 	list.add(element);
 	RESULT = list;
 :}
 
-| expr:expr
+| var_expr:expr
 {:
 	List list = new LinkedList();
 	ArrayElement element = new ArrayElement(exprleft, exprright, expr);

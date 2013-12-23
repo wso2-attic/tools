@@ -89,7 +89,7 @@ terminal  T_FOR;
 terminal  T_ENDFOR;
 terminal  T_FOREACH;
 terminal  T_ENDFOREACH;
-terminal  T_DECLARE;
+terminal  T_IN;
 terminal  T_ENDDECLARE;
 terminal  T_AS;
 terminal  T_SWITCH;
@@ -500,12 +500,6 @@ inner_statement_list:statementList T_CURLY_CLOSE:end
 		forEachStatement = new ForEachStatement(tokenleft, statementright, expr, var, arg, statement);
 	}
 	RESULT = forEachStatement;
-:}
-
-| T_DECLARE:start T_OPEN_PARENTHESE declare_list:lists T_CLOSE_PARENTHESE declare_statement:statement
-{:
-	DeclareStatement declare = new DeclareStatement(startleft, statementright, lists[0], lists[1], statement);
-	RESULT = declare;
 :}
 
 | T_SEMICOLON:token /* empty statement */

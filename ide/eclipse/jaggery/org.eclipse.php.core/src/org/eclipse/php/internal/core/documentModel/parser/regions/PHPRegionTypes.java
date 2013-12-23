@@ -319,7 +319,7 @@ public interface PHPRegionTypes {
 
 	static final String PHP_IF = "PHP_IF"; //$NON-NLS-1$
 
-	static final String PHP_DECLARE = "PHP_DECLARE"; //$NON-NLS-1$
+	static final String PHP_IN = "PHP_IN"; //$NON-NLS-1$
 
 	static final String PHP_OBJECT_OPERATOR = "PHP_OBJECT_OPERATOR"; //$NON-NLS-1$
 

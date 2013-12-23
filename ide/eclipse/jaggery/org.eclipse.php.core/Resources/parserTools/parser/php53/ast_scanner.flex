@@ -282,6 +282,10 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_FOR);
 }
 
+<ST_IN_SCRIPTING>"in" {
+	return createSymbol(ParserConstants.T_IN);
+}
+
 <ST_IN_SCRIPTING>"endfor" {
 	return createSymbol(ParserConstants.T_ENDFOR);
 }
@@ -294,9 +298,6 @@ NOWDOC_CHARS=([^\n\r]|{NEWLINE}+([^a-zA-Z_\x7f-\xff\n\r]|({LABEL}([^a-zA-Z0-9_\x
 	return createSymbol(ParserConstants.T_ENDFOREACH);
 }
 
-<ST_IN_SCRIPTING>"declare" {
-	return createSymbol(ParserConstants.T_DECLARE);
-}
 
 <ST_IN_SCRIPTING>"enddeclare" {
 	return createSymbol(ParserConstants.T_ENDDECLARE);

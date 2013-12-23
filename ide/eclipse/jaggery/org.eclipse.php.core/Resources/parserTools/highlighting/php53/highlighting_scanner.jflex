@@ -208,6 +208,10 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
     return PHP_FOR;
 }
 
+<ST_PHP_IN_SCRIPTING>"in" {
+    return PHP_IN;
+}
+
 <ST_PHP_IN_SCRIPTING>"Log" {
     return PHP_LOG;
 }
@@ -222,10 +226,6 @@ PHP_OPERATOR="=>"|"++"|"--"|"==="|"!=="|"=="|"!="|"<>"|"<="|">="|"+="|"-="|"*="|
 
 <ST_PHP_IN_SCRIPTING>"endforeach" {
     return PHP_ENDFOREACH;
-}
-
-<ST_PHP_IN_SCRIPTING>"declare" {
-    return PHP_DECLARE;
 }
 
 <ST_PHP_IN_SCRIPTING>"enddeclare" {

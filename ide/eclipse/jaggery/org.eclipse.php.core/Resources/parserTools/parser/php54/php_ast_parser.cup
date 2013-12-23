@@ -93,7 +93,7 @@ terminal  T_FOR;
 terminal  T_ENDFOR;
 terminal  T_FOREACH;
 terminal  T_ENDFOREACH;
-terminal  T_DECLARE;
+terminal  T_IN;
 terminal  T_ENDDECLARE;
 terminal  T_INSTANCEOF;
 terminal  T_CLONE;
@@ -261,6 +261,7 @@ non terminal VariableBase encaps_var;
 non terminal Expression encaps_var_offset;
 non terminal Expression internal_functions_in_yacc;
 non terminal String string_st;
+non terminal String function_name;
 non terminal Integer interface_entry;
 non terminal List interface_extends_list;
 
@@ -532,6 +533,11 @@ T_CURLY_OPEN:token inner_statement_list:sList T_CURLY_CLOSE:e
 | T_FOR:token T_OPEN_PARENTHESE for_expr:initializations T_SEMICOLON for_expr:conds T_SEMICOLON for_expr:increasements T_CLOSE_PARENTHESE for_statement:statement
 {:		
 	RESULT = new ForStatement(tokenleft, statementright, parser.ast, initializations, conds, increasements, statement);			
+:}
+
+| T_FOR:token T_OPEN_PARENTHESE for_expr:initializations T_CLOSE_PARENTHESE for_statement:statement
+{:		
+	RESULT = new ForStatement(tokenleft, statementright, parser.ast, initializations, null, null, statement);			
 :}
 
 | T_SWITCH:token T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE switch_case_list:caseBlock
@@ -1042,6 +1048,17 @@ expr_without_variable:var
 	paramsList.add(var_ref);	
 	RESULT = paramsList;
 :}
+| T_CURLY_OPEN:s object_pair_list:list  T_CURLY_CLOSE:e
+{:
+		//RESULT = new ArrayCreation(sleft, eright, parser.ast, list);
+		RESULT = list;
+:} 
+| non_empty_function_call_parameter_list:paramsList T_COMMA T_CURLY_OPEN:s object_pair_list:list  T_CURLY_CLOSE:e
+{:
+		ArrayCreation arrayCreation = new ArrayCreation(paramsListleft, eright, parser.ast, list);
+		paramsList.add(arrayCreation );
+		RESULT = paramsList;
+:}
 ;
 
 global_var_list ::=
@@ -1270,6 +1287,14 @@ non_empty_for_expr:exprList T_COMMA expr:expr
 {:
 	RESULT = list;
 :}
+
+| T_VAR T_STRING T_IN expr:expr
+{:
+	List exprList = new LinkedList();
+	exprList.add(expr);
+	RESULT = exprList;
+:}
+
 ;
 
 instance_call ::=
@@ -1652,7 +1677,7 @@ T_LIST:s T_OPEN_PARENTHESE assignment_list:varList T_CLOSE_PARENTHESE:close T_EQ
 	RESULT = new BackTickExpression(sleft, eright, parser.ast, list);
 :}
 
-| T_PRINT:s expr:expr
+| T_PRINT:s T_OPEN_PARENTHESE var_expr:expr T_CLOSE_PARENTHESE
 {:
 	List expList = new LinkedList();
 	if (expr != null) {
@@ -1663,7 +1688,7 @@ T_LIST:s T_OPEN_PARENTHESE assignment_list:varList T_CLOSE_PARENTHESE:close T_EQ
 			new Identifier(sleft, sright, parser.ast, "print")), expList);
 :}
 
-| T_FUNCTION:s is_reference:isReference
+| T_FUNCTION:s is_reference:isReference 
 T_OPEN_PARENTHESE parameter_list:paramList T_CLOSE_PARENTHESE lexical_vars:varsList
 T_CURLY_OPEN:blockStart inner_statement_list:list T_CURLY_CLOSE:blockEnd
 {:
@@ -1679,6 +1704,7 @@ T_CURLY_OPEN:blockStart inner_statement_list:list T_CURLY_CLOSE:blockEnd
 		new Block(blockStartleft, blockEndright, parser.ast, list), isReference.booleanValue(),true,stleft);
 :}
 ;
+
 
 lexical_vars ::=
 /* empty */
@@ -2423,13 +2449,13 @@ array_pair_list ::=
 ;
 
 non_empty_array_pair_list ::=
-non_empty_array_pair_list:list T_COMMA expr:expr
+non_empty_array_pair_list:list T_COMMA var_expr:expr
 {:
 	list.add(new ArrayElement(exprleft, exprright, parser.ast, expr));
 	RESULT = list;
 :}
 
-| expr:expr
+| var_expr:expr
 {:
 	List list = new LinkedList();
 	list.add(new ArrayElement(exprleft, exprright, parser.ast, expr));

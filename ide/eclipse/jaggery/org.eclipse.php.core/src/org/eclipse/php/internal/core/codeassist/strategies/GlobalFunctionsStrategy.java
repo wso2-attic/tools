@@ -62,6 +62,8 @@ public class GlobalFunctionsStrategy extends GlobalElementStrategy {
 		// for (String variable : JaggeryMethods.getMethods(phpVersion)) {
 		// reporter.reportMethod(new FakeMethod(
 		// (ModelElement) abstractContext.getSourceModule(),
+		// abstractContext.getStatementText();
+
 		// variable), "", replacementRange);
 		// }
 		// }
@@ -83,7 +85,16 @@ public class GlobalFunctionsStrategy extends GlobalElementStrategy {
 		String suffix = getSuffix(abstractContext);
 
 		for (IMethod method : functions) {
-			reporter.reportMethod(method, suffix, replacementRange);
+			if (method.getFullyQualifiedName().contains("$")) {
+				if (abstractContext.getStatementText().toString()
+						.contains(method.getFullyQualifiedName().split("$")[0])) {
+					reporter.reportMethod(method, suffix, replacementRange);
+
+				}
+
+			} else {
+				reporter.reportMethod(method, suffix, replacementRange);
+			}
 		}
 	}
 

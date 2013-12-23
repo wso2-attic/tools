@@ -92,7 +92,7 @@ terminal  T_FOR;
 terminal  T_ENDFOR;
 terminal  T_FOREACH;
 terminal  T_ENDFOREACH;
-terminal  T_DECLARE;
+terminal  T_IN;
 terminal  T_ENDDECLARE;
 terminal  T_INSTANCEOF;
 terminal  T_CLONE;
@@ -663,10 +663,6 @@ T_CURLY_OPEN:token inner_statement_list:sList T_CURLY_CLOSE:e
 	RESULT = s;
 :}
 
-| T_DECLARE:s T_OPEN_PARENTHESE declare_list:lists T_CLOSE_PARENTHESE declare_statement:statement
-{:
-	RESULT = new DeclareStatement(sleft, statementright, parser.ast, lists[0], lists[1], statement);
-:}
 
 | T_SEMICOLON:token /* empty statement */
 {: 

@@ -87,7 +87,7 @@ public class LineStyleProviderForPhp extends AbstractLineStyleProvider
 				PreferenceConstants.EDITOR_KEYWORD_COLOR);
 		fColorTypes.put(PHPRegionTypes.PHP_GOTO,
 				PreferenceConstants.EDITOR_KEYWORD_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_DECLARE,
+		fColorTypes.put(PHPRegionTypes.PHP_IN,
 				PreferenceConstants.EDITOR_KEYWORD_COLOR);
 		fColorTypes.put(PHPRegionTypes.PHP_DEFAULT,
 				PreferenceConstants.EDITOR_KEYWORD_COLOR);
