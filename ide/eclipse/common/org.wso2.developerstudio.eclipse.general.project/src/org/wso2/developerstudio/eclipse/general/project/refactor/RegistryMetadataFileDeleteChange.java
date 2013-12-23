@@ -84,9 +84,9 @@ public class RegistryMetadataFileDeleteChange extends  TextFileChange {
 						String file = ((RegistryItem) registryElement).getFile();
 						String fileName=file;
 						if (file
-									.lastIndexOf(File.separator) != -1) {
+									.lastIndexOf("/") != -1) {
 							fileName = file.substring(file
-									.lastIndexOf(File.separator) + 1);
+									.lastIndexOf("/") + 1);
 						}
 
 						if(fileName.equalsIgnoreCase(getFileDeletedFileName())){
@@ -101,10 +101,10 @@ public class RegistryMetadataFileDeleteChange extends  TextFileChange {
 					}else if(registryElement instanceof RegistryCollection){
 						String directory = ((RegistryCollection) registryElement).getDirectory();
 						String directoryName=directory;
-						if (directory.lastIndexOf(File.separator) != -1) {
+						if (directory.lastIndexOf("/") != -1) {
 							directoryName = directory
 									.substring(directory
-											.lastIndexOf(File.separator) + 1);
+											.lastIndexOf("/") + 1);
 						}
 						if(directoryName.equalsIgnoreCase(getFileDeletedFileName())){
 							artifactName=registryArtifact.getName();
@@ -119,9 +119,9 @@ public class RegistryMetadataFileDeleteChange extends  TextFileChange {
 						String file = ((RegistryDump) registryElement).getFile();
 						String fileName=file;
 						if (file
-									.lastIndexOf(File.separator) != -1) {
+									.lastIndexOf("/") != -1) {
 							fileName = file.substring(file
-									.lastIndexOf(File.separator) + 1);
+									.lastIndexOf("/") + 1);
 						}
 						if (fileName.lastIndexOf(".")!= -1) {
 							fileName = fileName.substring(0,
@@ -263,7 +263,9 @@ public class RegistryMetadataFileDeleteChange extends  TextFileChange {
 						if(line.trim().startsWith(resourceFileStart)){
 							int itemStartIndex = line.indexOf(resourceFileStart);
 							String filePath=line.substring(itemStartIndex+resourceFileStart.length(), line.indexOf(resourceFileEnd));
-							if(FileUtils.getRelativePath(metaDataFile.getProject().getLocation().toFile(), originalResource.getLocation().toFile()).equalsIgnoreCase(filePath)){
+							String relPath = FileUtils.getRelativePath(metaDataFile.getProject().getLocation().toFile(), originalResource.getLocation().toFile());
+							String relPathModified = relPath.replace(File.separator, "/"); // we have to do this since in the artifact.xml file it is listed as  <file>folder1/rr1.xml</file> format
+							if(relPathModified.equalsIgnoreCase(filePath)){
 								isElementMatch=true;
 							}else{
 								isElementMatch=false;
