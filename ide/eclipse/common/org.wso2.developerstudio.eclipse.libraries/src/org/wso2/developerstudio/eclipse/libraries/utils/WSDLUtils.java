@@ -28,7 +28,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.wsdl.Definition;
+import javax.wsdl.Operation;
 import javax.wsdl.Port;
+import javax.wsdl.PortType;
 import javax.wsdl.Service;
 import javax.wsdl.WSDLException;
 import javax.wsdl.factory.WSDLFactory;
@@ -54,6 +56,14 @@ public class WSDLUtils {
 		Definition definitionInstance = WSDLReaderObject.readWSDL(null,url.toURI().toString());
 		return definitionInstance;
 	}
+	
+	public static Definition readWSDL(String url) throws Exception {
+		WSDLFactory wWSDLFactory = WSDLFactory.newInstance();
+		WSDLReader wWSDLReader = wWSDLFactory.newWSDLReader();
+		Definition definitionInstance = wWSDLReader.readWSDL(url);
+		return definitionInstance;
+	}
+	
 
 	public static void writeWSDL(Definition definition, OutputStream outputStream) throws WSDLException{
 		WSDLFactory WSDLFactoryObject = WSDLFactory.newInstance();
@@ -120,6 +130,32 @@ public class WSDLUtils {
 		}
 		return returnList;
 	}
+	
+	public static List<String> getOperationNameList(Definition definition, QName serviceName){
+		List<String> returnList = new ArrayList<String>();
+		Service serviceInstance = definition.getService(serviceName);
+		PortType portType = null;
+		if(serviceInstance!=null){
+			Map portMap = definition.getPortTypes();
+			if (portMap!=null && !portMap.isEmpty()){
+				Iterator portIterator = portMap.values().iterator();
+				while(portIterator.hasNext()){
+					try{
+					portType = (PortType)portIterator.next();
+					List<Operation> opList =  portType.getOperations();
+					for (Operation op : opList) {
+						returnList.add(op.getName()); 
+					}
+					return returnList;
+					 }catch(Exception e){
+						 /*Ignore*/
+					}
+				}
+			}
+		}
+		return returnList;
+	}
+	
 	
 }
 
