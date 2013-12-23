@@ -48,7 +48,8 @@ public class Constants extends NLS{
 	public static String CEP_PROJECT_NATURE;
 	public static String BRS_PROJECT_NATURE ;
 	public static String JAGGERY_NATURE;
-
+	public static String SERVICE_META_PROJECT_NATURE;
+	
 	
 	static {
 		// initialize resource bundle
