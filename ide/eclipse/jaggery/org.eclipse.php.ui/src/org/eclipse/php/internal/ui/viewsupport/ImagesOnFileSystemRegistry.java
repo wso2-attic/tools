@@ -44,6 +44,8 @@ public class ImagesOnFileSystemRegistry {
 					try {
 						if (PHPFlags.isTrait(type.getFlags())) {
 							return PHPPluginImages.DESC_OBJS_TRAIT;
+						} else if (PHPFlags.isNamespace(type.getFlags())) {
+							return PHPPluginImages.DESC_NAMESPACE;
 						}
 					} catch (ModelException e) {
 					}

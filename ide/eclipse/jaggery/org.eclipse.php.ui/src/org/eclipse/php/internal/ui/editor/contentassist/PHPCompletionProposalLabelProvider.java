@@ -145,6 +145,10 @@ public class PHPCompletionProposalLabelProvider extends
 		if (PHPFlags.isTrait(proposal.getFlags())) {
 			return decorateImageDescriptor(PHPPluginImages.DESC_OBJS_TRAIT,
 					proposal);
+		}
+		if (PHPFlags.isNamespace(proposal.getFlags())) {
+			return decorateImageDescriptor(PHPPluginImages.DESC_NAMESPACE,
+					proposal);
 		} else {
 			return super.createTypeImageDescriptor(proposal);
 		}

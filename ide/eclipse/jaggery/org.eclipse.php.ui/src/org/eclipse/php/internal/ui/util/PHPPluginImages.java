@@ -136,6 +136,7 @@ public class PHPPluginImages {
 			+ "envvar_nonexist_obj.gif"; //$NON-NLS-1$
 	public static final String IMG_OBJS_LIBRARY = NAME_PREFIX
 			+ "library_obj.gif"; //$NON-NLS-1$
+	public static final String IMG_NAMESPACE = NAME_PREFIX + "namespace.gif"; //$NON-NLS-1$
 
 	public static final String IMG_TEMPLATE = NAME_PREFIX + "phptpldata16.gif"; //$NON-NLS-1$
 	public static final String IMG_OBJS_EXTJAR = NAME_PREFIX + "jar_l_obj.gif"; //$NON-NLS-1$
@@ -235,6 +236,8 @@ public class PHPPluginImages {
 			IMG_OBJS_EXTZIP);
 	public static final ImageDescriptor DESC_OBJS_LIBRARY = createManaged(
 			T_OBJ, IMG_OBJS_LIBRARY);
+	public static final ImageDescriptor DESC_NAMESPACE = createManaged(T_OBJ,
+			IMG_NAMESPACE);
 	public static final ImageDescriptor DESC_OBJS_ENV_VAR = createManaged(
 			T_OBJ, IMG_OBJS_ENV_VAR);
 	public static final ImageDescriptor DESC_OBJS_MISSING_ENV_VAR = createManaged(
