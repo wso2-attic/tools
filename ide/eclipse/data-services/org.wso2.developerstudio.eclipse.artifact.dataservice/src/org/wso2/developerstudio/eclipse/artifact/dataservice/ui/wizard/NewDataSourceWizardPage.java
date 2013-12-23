@@ -152,8 +152,8 @@ public class NewDataSourceWizardPage extends WizardPage {
 		
 		txtDataSourceId = new Text(container, SWT.BORDER);
 		txtDataSourceId.setBounds(150, 13, 151, 25);
-		txtDataSourceId.setText("default");
-		model.setDataSourceId("default");
+		txtDataSourceId.setText("");
+		model.setDataSourceId("");
 		
 		ControlDecoration cdtxtDataSourceId = new ControlDecoration(txtDataSourceId, SWT.LEFT | SWT.TOP);
 		cdtxtDataSourceId.setDescriptionText("DataSource ID Required");
@@ -766,7 +766,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 				model.getRdbmsConfig().setJdbcUser(txtUserName.getText());
 				model.getRdbmsConfig().setJdbcPassword(txtPassword.getText());
 				if(isXA){
-					if(txtXADatasourceClass.getText().equals("")||txtJdbcUrl.getText().equals("") || txtDataSourceId.getText().equals("") ){
+					if(txtXADatasourceClass.getText().trim().equals("")||txtJdbcUrl.getText().trim().equals("") || txtDataSourceId.getText().trim().equals("") ){
 						setPageComplete(false);
 						setErrorMessage("Required Field(s) are missing");
 					}else{
@@ -774,7 +774,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 						setErrorMessage(null);
 					}
 				} else{
-					if(txtDriverClass.getText().equals("")||txtJdbcUrl.getText().equals("") || txtDataSourceId.getText().equals("")){
+					if(txtDriverClass.getText().trim().equals("")||txtJdbcUrl.getText().trim().equals("") || txtDataSourceId.getText().trim().equals("")){
 						setPageComplete(false);
 						setErrorMessage("Required Field(s) are missing");
 					}else{
@@ -804,13 +804,13 @@ public class NewDataSourceWizardPage extends WizardPage {
 					model.getCsvConfig().setStartReadingFromRow(Integer.parseInt(txtStartReadingFromRow.getText()));
 					model.getCsvConfig().setMaxRowsToRead(Integer.parseInt(txtMaxRowsTo.getText()));
 				} catch (NumberFormatException e) {
-					if(!(txtStartReadingFromRow.getText().equals("") || txtMaxRowsTo.getText().equals(""))){
+					if(!(txtStartReadingFromRow.getText().trim().equals("") || txtMaxRowsTo.getText().trim().equals(""))){
 					setPageComplete(false);
 					setErrorMessage("Required Field(s) are missing or invalid");
 					return;
 					}
 				}
-				if(txtCsvFileLocation.getText().equals("")|| txtDataSourceId.getText().equals("") ){
+				if(txtCsvFileLocation.getText().trim().equals("")|| txtDataSourceId.getText().trim().equals("") ){
 					setPageComplete(false);
 					setErrorMessage("Required Field(s) are missing or invalid");
 				}else{
@@ -841,7 +841,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 			
 			public void modifyText(ModifyEvent evt) {
 				model.getExcelConfig().setExcelFileLocation(txtExcelFileLocation.getText());
-				if(txtExcelFileLocation.getText().equals("")|| txtDataSourceId.getText().equals("") ){
+				if(txtExcelFileLocation.getText().trim().equals("")|| txtDataSourceId.getText().trim().equals("") ){
 					setPageComplete(false);
 					setErrorMessage("Required Field(s) are missing or invalid");
 				}else{
@@ -857,7 +857,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 			
 			public void modifyText(ModifyEvent evt) {
 				model.getRdfConfig().setRdfFileLocation(txtRDFFileLocation.getText());
-				if(txtRDFFileLocation.getText().equals("")|| txtDataSourceId.getText().equals("") ){
+				if(txtRDFFileLocation.getText().trim().equals("")|| txtDataSourceId.getText().trim().equals("") ){
 					setPageComplete(false);
 					setErrorMessage("Required Field(s) are missing or invalid");
 				}else{
@@ -877,7 +877,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 				model.getJndiConfig().setProvideUrl(txtProviderUrl.getText());
 				model.getJndiConfig().setResourceName(txtResourceName.getText());
 				model.getJndiConfig().setPassword(txtJndiPassword.getText());
-				if(txtJndiContextClass.getText().equals("")|| txtProviderUrl.getText().equals("")|| txtResourceName.getText().equals("")|| txtJndiPassword.getText().equals("")|| txtDataSourceId.getText().equals("") ){
+				if(txtJndiContextClass.getText().trim().equals("")|| txtProviderUrl.getText().trim().equals("")|| txtResourceName.getText().trim().equals("")|| txtJndiPassword.getText().trim().equals("")|| txtDataSourceId.getText().trim().equals("") ){
 					setPageComplete(false);
 					setErrorMessage("Required Field(s) are missing or invalid");
 				}else{
@@ -903,7 +903,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 				if(optPublic.getSelection()){
 					cdtxtGoogleUserName.hide();
 					cdtxtGooglePassword.hide();
-					if(txtlblGoogleSpreadsheetUrl.getText().equals("")|| txtDataSourceId.getText().equals("") ){
+					if(txtlblGoogleSpreadsheetUrl.getText().trim().equals("")|| txtDataSourceId.getText().trim().equals("") ){
 						setPageComplete(false);
 						setErrorMessage("Required Field(s) are missing");
 					}else{
@@ -913,7 +913,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 				} else{
 					cdtxtGoogleUserName.show();
 					cdtxtGooglePassword.show();
-					if(txtlblGoogleSpreadsheetUrl.getText().equals("")||txtGoogleUserName.getText().equals("") ||txtGooglePassword.getText().equals("")|| txtDataSourceId.getText().equals("")){
+					if(txtlblGoogleSpreadsheetUrl.getText().trim().equals("")||txtGoogleUserName.getText().trim().equals("") ||txtGooglePassword.getText().trim().equals("")|| txtDataSourceId.getText().trim().equals("")){
 						setPageComplete(false);
 						setErrorMessage("Required Field(s) are missing");
 					}else{
@@ -945,7 +945,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 			
 			public void modifyText(ModifyEvent evt) {
 				model.getCarbonDataConfig().setCarbonDataSourceName(txtCarbonDataSourceName.getText());
-				if(txtCarbonDataSourceName.getText().equals("")|| txtDataSourceId.getText().equals("") ){
+				if(txtCarbonDataSourceName.getText().trim().equals("")|| txtDataSourceId.getText().trim().equals("") ){
 					setPageComplete(false);
 					setErrorMessage("Required Field(s) are missing or invalid");
 				}else{
@@ -985,7 +985,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 				model.getWebDataSourceConfig().setWebConfigInlineText(txtWebConfigText.getText().replaceAll(txtWebConfigText.getLineDelimiter(), "&#xd;"));
 				model.getWebDataSourceConfig().setWebConfigPath(txtWebConfigPath.getText());
 				if(btnInlineWebHarvest.getSelection()){
-					if( txtWebConfigText.getText().equals("")|| txtDataSourceId.getText().equals("") ){
+					if( txtWebConfigText.getText().trim().equals("")|| txtDataSourceId.getText().trim().equals("") ){
 						setPageComplete(false);
 						setErrorMessage("Required Field(s) are missing or invalid");
 					}else{
@@ -993,7 +993,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 						setErrorMessage(null);
 					}
 				} else {
-				if( txtWebConfigPath.getText().equals("") || txtDataSourceId.getText().equals("") ){
+				if( txtWebConfigPath.getText().trim().equals("") || txtDataSourceId.getText().trim().equals("") ){
 					setPageComplete(false);
 					setErrorMessage("Required Field(s) are missing or invalid");
 				}else{
@@ -1023,7 +1023,7 @@ public class NewDataSourceWizardPage extends WizardPage {
 			
 			public void modifyText(ModifyEvent evt) {
 				model.setDataSourceId(txtDataSourceId.getText());
-				if(txtDataSourceId.getText().equals("") ){
+				if(txtDataSourceId.getText().trim().equals("") ){
 					setPageComplete(false);
 					setErrorMessage("DataSource Id Required");
 				}else{
