@@ -53,7 +53,7 @@ public class KeywordInitializerPHP_5_4 implements IPHPKeywordsInitializer {
 		// list.add(new KeywordData("getQueryString", PARENTESES_SUFFIX, 1));
 		list.add(new KeywordData("if", WHITESPACE_PARENTESES_SUFFIX, 2));
 		list.add(new KeywordData("in", WHITESPACE_SUFFIX, 1));
-		list.add(new KeywordData("include", WHITESPACE_SUFFIX, 1));
+		list.add(new KeywordData("include", WHITESPACE_PARENTESES_SUFFIX, 2));
 		list.add(new KeywordData("Infinity", EMPTY_SUFFIX, 0));
 		list.add(new KeywordData("instanceof", WHITESPACE_SUFFIX, 1));
 		list.add(new KeywordData("let", WHITESPACE_SUFFIX, 1));
@@ -67,7 +67,7 @@ public class KeywordInitializerPHP_5_4 implements IPHPKeywordsInitializer {
 		list.add(new KeywordData("print", PARENTESES_SUFFIX, 1));
 		// list.add(new KeywordData("put", PARENTESES_SUFFIX, 1));
 		// list.add(new KeywordData("request", EMPTY_SUFFIX, 0));
-		list.add(new KeywordData("require", PARENTESES_SUFFIX, 1));
+		list.add(new KeywordData("require", WHITESPACE_PARENTESES_SUFFIX, 2));
 		list.add(new KeywordData("return", WHITESPACE_SUFFIX, 1));
 		// list.add(new KeywordData("stringify", PARENTESES_SUFFIX, 1));
 		list.add(new KeywordData("switch", WHITESPACE_PARENTESES_SUFFIX, 2));

@@ -2672,29 +2672,24 @@ T_STRING:string
 ;
 
 internal_functions_in_yacc ::=
-T_INCLUDE:include expr:expr
+T_INCLUDE:include T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE
 {:
 	Include result = new Include(includeleft, exprright, expr, Include.IT_INCLUDE);
 	RESULT = result;
 :}
 
-| T_INCLUDE_ONCE:include expr:expr
+| T_INCLUDE_ONCE:include  T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE
 {:
 	Include result = new Include(includeleft, exprright, expr, Include.IT_INCLUDE_ONCE);
 	RESULT = result;
 :}
 
-| T_REQUIRE:include expr:expr
+| T_REQUIRE:include  T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE
 {:
 	Include result = new Include(includeleft, exprright, expr, Include.IT_REQUIRE);
 	RESULT = result;
 :}
 
-| T_REQUIRE_ONCE:include expr:expr
-{:
-	Include result = new Include(includeleft, exprright, expr, Include.IT_REQUIRE_ONCE);
-	RESULT = result;
-:}
 ;
 
 

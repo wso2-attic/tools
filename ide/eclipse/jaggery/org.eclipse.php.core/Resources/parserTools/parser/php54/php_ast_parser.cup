@@ -2553,12 +2553,12 @@ T_ISSET:s T_OPEN_PARENTHESE isset_variables:varList T_CLOSE_PARENTHESE:e
 		new FunctionName(sleft, sright, parser.ast, new Identifier(sleft, sright, parser.ast, "empty")), varList);
 :}
 
-| T_INCLUDE:include expr:expr
+| T_INCLUDE:include T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE
 {:
 	RESULT = new Include(includeleft, exprright, parser.ast, expr, Include.IT_INCLUDE);
 :}
 
-| T_INCLUDE_ONCE:include expr:expr
+| T_INCLUDE_ONCE:include T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE
 {:
 	RESULT = new Include(includeleft, exprright, parser.ast, expr, Include.IT_INCLUDE_ONCE);
 :}
@@ -2572,14 +2572,9 @@ T_ISSET:s T_OPEN_PARENTHESE isset_variables:varList T_CLOSE_PARENTHESE:e
 		new FunctionName(sleft, sright, parser.ast, new Identifier(sleft, sright, parser.ast, "eval")), exprList);
 :}
 
-| T_REQUIRE:include expr:expr
+| T_REQUIRE:include T_OPEN_PARENTHESE expr:expr T_CLOSE_PARENTHESE
 {:
 	RESULT = new Include(includeleft, exprright, parser.ast, expr, Include.IT_REQUIRE);
-:}
-
-| T_REQUIRE_ONCE:include expr:expr
-{:
-	RESULT = new Include(includeleft, exprright, parser.ast, expr, Include.IT_REQUIRE_ONCE);
 :}
 ;
 
