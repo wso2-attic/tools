@@ -18,8 +18,11 @@ package org.wso2.developerstudio.eclipse.platform.ui.wizard;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.apache.maven.model.Parent;
 import org.apache.maven.model.Repository;
@@ -58,6 +61,7 @@ import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectWizardSettings;
+import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 import org.wso2.developerstudio.eclipse.platform.ui.editor.Refreshable;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
@@ -260,6 +264,10 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 					try {
 						MavenProject mavenProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
 						mavenProject.getModules().add(name);
+						List<String> modules=mavenProject.getModules();
+						List<String> sortedModuleList = getSortedModuleList(modules, parentProject);
+						mavenProject.getModules().clear();
+						mavenProject.getModules().addAll(sortedModuleList);
 						MavenUtils.saveMavenProject(mavenProject, pomFile.getLocation().toFile());
 						
 						parentProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
@@ -269,6 +277,36 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 				}
 			}
 		}
+	}
+	
+	
+	private List<String> getSortedModuleList(List<String> moduleList, IProject parentProject){
+		List<IProject> projectList=new ArrayList<IProject>();
+		List<String> nonProjectModuleList=new ArrayList<String>();
+		List<String> sortedModuleList=new ArrayList<String>();
+		for (String string : moduleList) {
+	        IProject projectFromModule = getProjectFromModule(string);
+	        if(projectFromModule!=null){
+	        	projectList.add(projectFromModule);
+	        }else{
+	        	nonProjectModuleList.add(string);
+	        }
+        }
+		projectList=sortProjects(projectList);
+		for (IProject iProject : projectList) {
+			String relativePath =
+		                      FileUtils.getRelativePath(parentProject.getLocation().toFile(),
+		                                                iProject.getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
+			sortedModuleList.add(relativePath);
+        }
+		sortedModuleList.addAll(nonProjectModuleList);
+		return sortedModuleList;
+		
+	}
+	
+	private IProject getProjectFromModule(String moduleName){
+		String[] split = moduleName.split(Pattern.quote("/"));
+		return ResourcesPlugin.getWorkspace().getRoot().getProject(split[split.length-1]);
 	}
 
 	public void createPOM(File pomLocation) throws Exception {
@@ -377,4 +415,29 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	}
 
 	public abstract IResource getCreatedResource();
+	
+	protected List<IProject> sortProjects(List<IProject> projects){
+		try {
+		List<IProject> distributionProjects=new ArrayList<IProject>();
+		List<IProject> projectList=new ArrayList<IProject>();
+		
+		for (IProject iProject : projects) {
+	            if(iProject.hasNature(Constants.DISTRIBUTION_PROJECT_NATURE)){
+	            	distributionProjects.add(iProject);
+	            }else{
+	            	projectList.add(iProject);
+	            }
+        }
+		
+		projects=projectList;
+		for (IProject iProject : distributionProjects) {
+	        projectList.add(iProject);
+        }
+		
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return projects;
+	}
 }

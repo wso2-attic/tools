@@ -262,28 +262,5 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 		return multiModuleProject;
 	}
 	
-	private List<IProject> sortProjects(List<IProject> projects){
-		try {
-		List<IProject> distributionProjects=new ArrayList<IProject>();
-		List<IProject> projectList=new ArrayList<IProject>();
-		
-		for (IProject iProject : projects) {
-	            if(iProject.hasNature(Constants.DISTRIBUTION_PROJECT_NATURE)){
-	            	distributionProjects.add(iProject);
-	            }else{
-	            	projectList.add(iProject);
-	            }
-        }
-		
-		projects=projectList;
-		for (IProject iProject : distributionProjects) {
-	        projectList.add(iProject);
-        }
-		
-		} catch (CoreException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return projects;
-	}
+	
 }
