@@ -8,7 +8,8 @@ Bundle-Vendor: WSO2
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jface
 Bundle-ActivationPolicy: lazy
-Export-Package: org.apache.maven.model;version="2.2.1",
+Export-Package: org.apache.commons.io,
+ org.apache.maven.model;version="2.2.1",
  org.apache.maven.model.io.xpp3;version="2.2.1",
  org.apache.maven.project;version="2.2.1",
  org.apache.maven.shared.invoker;version="2.0.11",

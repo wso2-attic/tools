@@ -167,6 +167,10 @@ public class PHPProjectCreationWizard extends NewElementWizard implements
 									"templates/jag-conf-template.resource");
 					addFileToProject(container, new Path("jaggery.conf"),
 							resourceStream, null);
+					resourceStream = this.getClass().getResourceAsStream(
+							"templates/pom-template.resource");
+					addFileToProject(container, new Path("pom.xml"),
+							resourceStream, null);
 					resourceStream.close();
 				} catch (CoreException e) {
 					// TODO Auto-generated catch block

@@ -24,6 +24,7 @@ public final class ArtifactTypeMapping {
 	private static Map<String, String> subType = new HashMap<String, String>();
 	
 	static {
+		type.put("jaggery/app","zip");
 		type.put("bpel/workflow","zip");
 		type.put("lib/registry/filter","jar");
 		type.put("webapp/jaxws","war");

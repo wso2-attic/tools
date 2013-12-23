@@ -175,7 +175,8 @@ public class ExportDetailsWizardPage extends WizardPage {
 						   project.hasNature(Constants.ESB_PROJECT_NATURE) ||
 						   project.hasNature(Constants.CARBON_UI_PROJECT_NATURE)||
 						   project.hasNature(Constants.CEP_PROJECT_NATURE)||
-						   project.hasNature(Constants.BRS_PROJECT_NATURE)){
+						   project.hasNature(Constants.BRS_PROJECT_NATURE)||
+						   project.hasNature(Constants.JAGGERY_NATURE)){
 							cmbProjects.add(project.getName());
 							cmbProjects.setData(project.getName(), project);
 							}

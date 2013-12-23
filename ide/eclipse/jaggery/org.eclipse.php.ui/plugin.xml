@@ -2317,5 +2317,14 @@
                                </enablement>
                        </commonWizard>
        </extension>
+       
+         <extension
+        point="org.wso2.developerstudio.eclipse.project.export.handler">
+     <handler
+           class="org.eclipse.php.internal.export.JaggeryArtfactExportHandler"
+           id="org.eclipse.artifact.jaggery.project.export.handler"
+           type="jaggery/app">
+     </handler>
+  </extension>
     
 </plugin>

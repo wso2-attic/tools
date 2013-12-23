@@ -18,6 +18,7 @@ import org.eclipse.php.internal.core.language.keywords.PHPKeywords.KeywordData;
 /**
  * Keywords initializer for PHP 5.3
  */
+
 public class KeywordInitializerPHP_5_4 implements IPHPKeywordsInitializer {
 
 	public void initialize(Collection<KeywordData> list) {
