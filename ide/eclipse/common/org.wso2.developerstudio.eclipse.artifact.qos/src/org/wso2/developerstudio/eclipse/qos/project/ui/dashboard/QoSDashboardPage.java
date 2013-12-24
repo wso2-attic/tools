@@ -47,12 +47,15 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
@@ -64,6 +67,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolTip;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
@@ -103,6 +107,8 @@ import org.wso2.developerstudio.eclipse.qos.project.model.ServiceGroup;
 import org.wso2.developerstudio.eclipse.qos.project.ui.wizard.QOSProjectWizard;
 import org.wso2.developerstudio.eclipse.qos.project.utils.QoSTemplateUtil;
 import org.xml.sax.SAXException;
+
+import sun.security.x509.CertAndKeyGen;
 
 
 public class QoSDashboardPage extends FormPage {
@@ -149,6 +155,7 @@ public class QoSDashboardPage extends FormPage {
 	private Document doc;
 	private Element rampart;
 	private Map<String,String> configMap;
+	private static IPreferencesService preferenceStore;
 	/**
 	 * Create the form page.
 	 * @param id
@@ -158,6 +165,14 @@ public class QoSDashboardPage extends FormPage {
 		super(id, title);
 	}
 
+	
+
+	static{
+		preferenceStore = Platform.getPreferencesService();
+	}
+	
+	
+	
 	/**
 	 * 
 	 * @param editor
@@ -209,12 +224,28 @@ public class QoSDashboardPage extends FormPage {
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(body);
 		
-		Object[] result = CreateMainSection(managedForm, body,"Service Info",10, 10, 600, 30, true);
-		Composite serviceInfoComposite = (Composite)result[1];
-		GridLayout gridserviceLayout = new GridLayout(3,false);
-		serviceInfoComposite.setLayout(gridserviceLayout);
-		managedForm.getToolkit().createLabel(serviceInfoComposite, "Services List");
-		final Combo serviceName = new Combo(serviceInfoComposite, SWT.READ_ONLY);
+		Object[] result = CreateMainSection(managedForm, body,"Service Info",10, 70, 600, 30, true);
+		Composite serviceInfoMainComposite = (Composite)result[1];
+		GridLayout gridserviceLayout = new GridLayout();
+		serviceInfoMainComposite.setLayout(gridserviceLayout);
+		
+		Composite  compositeBasicInfo = new Composite(serviceInfoMainComposite, SWT.NULL);
+		GridLayout BasicInfoLayout = new GridLayout(3,false);
+		compositeBasicInfo.setLayout(BasicInfoLayout);
+		Composite compositeAdvaceInfo = new Composite(serviceInfoMainComposite, SWT.NULL);
+		
+		
+		
+		
+		managedForm.getToolkit().createLabel(compositeBasicInfo, "Services List");
+		Combo serviceName = new Combo(compositeBasicInfo, SWT.FLAT | SWT.READ_ONLY);
+		managedForm.getToolkit().adapt(serviceName,true,true);
+		
+		GridData combolayoutData = new GridData();
+		combolayoutData.minimumWidth =200;
+		combolayoutData.horizontalAlignment = SWT.FILL;
+		combolayoutData.grabExcessHorizontalSpace = true;
+		serviceName.setLayoutData(combolayoutData);
 		// Set<String> keySet = serviceList.keySet();
 		/* String[] array = keySet.toArray(new String[0]);
 		 serviceName.setItems(array);
@@ -226,42 +257,53 @@ public class QoSDashboardPage extends FormPage {
 		        	QoSDashboardPage.serviceName =serviceName.getItem(serviceName.getSelectionIndex());
 	 	   }
 		 });*/
-		String[] array = new String[1];
-		array[0] = QoSDashboardPage.serviceName;
-		serviceName.setItems(array);
-		 
-		 new Label(serviceInfoComposite, SWT.None);
-	
-		 managedForm.getToolkit().createLabel(serviceInfoComposite, "Project name");
-		 managedForm.getToolkit().createText(serviceInfoComposite, "");
-         managedForm.getToolkit().createButton(serviceInfoComposite, "browser",SWT.NONE);
-		 
-		new Label(serviceInfoComposite, SWT.None);
-		new Label(serviceInfoComposite, SWT.None);
 		
-	    Hyperlink createHyperlink = managedForm.getToolkit().createHyperlink(serviceInfoComposite, "Create Project", SWT.NONE);
+		 if(QoSDashboardPage.serviceName!=null){
+			     String[] array = new String[1];
+				array[0] = QoSDashboardPage.serviceName;
+				serviceName.setItems(array); 
+		 }
+	
+		 
+		 new Label(compositeBasicInfo, SWT.None);
+	
+		 managedForm.getToolkit().createLabel(compositeBasicInfo, "Project name :");
+		 Text createText = managedForm.getToolkit().createText(compositeBasicInfo, "    ");
+		    GridData layoutData = new GridData();
+			layoutData.minimumWidth =200;
+			layoutData.horizontalAlignment = SWT.FILL;
+			layoutData.grabExcessHorizontalSpace = true;
+		    createText.setLayoutData(layoutData);
+         //managedForm.getToolkit().createButton(compositeBasicInfo, "browser",SWT.FLAT);
+		
+	    Hyperlink createHyperlink = managedForm.getToolkit().createHyperlink(compositeBasicInfo,
+	    		"Select project", SWT.NONE);
 		createHyperlink.addHyperlinkListener(new HyperlinkAdapter(){
 			  @Override
 			public void linkActivated(HyperlinkEvent e) {
 				   IWizard openWizard = openWizard(QOS_WIZARD_ID);
 				   QOSProjectWizard qosProjectWizard = (QOSProjectWizard) openWizard; 
-
 			}		  
 		  });
-		
-		managedForm.getToolkit().createLabel(serviceInfoComposite, "Project name");
-		final Combo keyStors = new Combo(serviceInfoComposite, SWT.READ_ONLY);
-		try {
-			readKeyStore();
  
-		} catch (Exception ex) {
-			log.error("preferenceStore reading error", ex);
-		}
-		
-		
+		 String[] secEnable = new String[]{"No","yes"};
+		 managedForm.getToolkit().createLabel(compositeBasicInfo, "Enable Security :");
+		 Combo enableSecCombo = new Combo(compositeBasicInfo, SWT.FLAT | SWT.READ_ONLY);
+		 enableSecCombo.setItems(secEnable);
+		 enableSecCombo.select(0);
+		 GridData enableSeclayoutData = new GridData();
+		 enableSeclayoutData.minimumWidth =200;
+		 enableSeclayoutData.horizontalAlignment = SWT.FILL;
+		 enableSeclayoutData.grabExcessHorizontalSpace = true;
+		 enableSecCombo.setLayoutData(enableSeclayoutData);
+		 Button createButton = managedForm.getToolkit().createButton(compositeBasicInfo, "Save",SWT.FLAT| Window.getDefaultOrientation());
+		 GridData enableSecBtnlayoutData = new GridData();
+		 enableSecBtnlayoutData.horizontalAlignment = SWT.FILL;
+		 enableSecBtnlayoutData.grabExcessHorizontalSpace = true;
+		 createButton.setLayoutData(enableSecBtnlayoutData);
 		
 		result = CreateMainSection(managedForm, body,
-				"Security for the service", 10, 20, 600, 30, false);
+				"Security for the service", 10, 70, 600, 30, false);
 		final Composite seccomposite = (Composite) result[1];
 		GridLayout gridSecLayout = new GridLayout(2, false);
 		seccomposite.setLayout(gridSecLayout);
@@ -306,10 +348,115 @@ public class QoSDashboardPage extends FormPage {
 					 log.error("cannot load service meta file", e1);
 				}
 			}
-
-
 		});
-			 
+		
+		
+		Object[] aAdresult = CreateMainSection(managedForm, body,"Advance Configuration(Rampart)",10, 15, 600, 30, true);
+		Composite rmaportInfComposite = (Composite)aAdresult[1];
+		GridLayout ramportlayout = new GridLayout();
+		rmaportInfComposite.setLayout(ramportlayout);
+		
+		    Object[] ramBasicresult = CreateMainSection(managedForm, rmaportInfComposite,"Rampart Configuration",10, 20, 600, 30, true);
+		    Composite rampartBasic = (Composite)ramBasicresult[1];
+		    GridLayout ramparlayout = new GridLayout(2,false);
+		    rampartBasic.setLayout(ramparlayout);
+		    Section ramBasicSec = (Section)ramBasicresult[0];
+		    ramBasicSec.setExpanded(false);
+		
+		
+	/*	Composite rampartBasic = new Composite(rmaportInfComposite, SWT.NULL);
+		GridLayout rampartBasiclayout = new GridLayout(2,false);
+		rampartBasic.setLayout(rampartBasiclayout);*/
+		
+		 managedForm.getToolkit().createLabel(rampartBasic, "User :");
+		 Text rmUser = managedForm.getToolkit().createText(rampartBasic, " ");
+		 GridData rmUserlayoutData = new GridData();
+		 rmUserlayoutData.minimumWidth =200;
+		 rmUserlayoutData.horizontalAlignment = SWT.FILL;
+		 rmUserlayoutData.grabExcessHorizontalSpace = true;
+		 rmUser.setLayoutData(rmUserlayoutData);
+		
+		 managedForm.getToolkit().createLabel(rampartBasic, "encryptionUser :");
+		 Text encryptionUser = managedForm.getToolkit().createText(rampartBasic, " ");
+		 GridData encryptionUserlayoutData = new GridData();
+		 encryptionUserlayoutData.minimumWidth =200;
+		 encryptionUserlayoutData.horizontalAlignment = SWT.FILL;
+		 encryptionUserlayoutData.grabExcessHorizontalSpace = true;
+		 encryptionUser.setLayoutData(encryptionUserlayoutData);
+		 
+		 managedForm.getToolkit().createLabel(rampartBasic, "PrecisionInMilliseconds :");
+		 Combo timestampPrecisionInMilliseconds = new Combo(rampartBasic, SWT.READ_ONLY);
+		 GridData timestampPrecisionInMillisecondslayoutData = new GridData();
+		 timestampPrecisionInMillisecondslayoutData.minimumWidth =200;
+		 timestampPrecisionInMillisecondslayoutData.horizontalAlignment = SWT.FILL;
+		 timestampPrecisionInMillisecondslayoutData.grabExcessHorizontalSpace = true;
+		 timestampPrecisionInMilliseconds.setLayoutData(timestampPrecisionInMillisecondslayoutData);
+		 
+		 
+		 managedForm.getToolkit().createLabel(rampartBasic, "timestampTTL :");
+		 Text timestampTTL = managedForm.getToolkit().createText(rampartBasic, " ");
+		 GridData timestampTTLlayoutData = new GridData();
+		 timestampTTLlayoutData.minimumWidth =200;
+		 timestampTTLlayoutData.horizontalAlignment = SWT.FILL;
+		 timestampTTLlayoutData.grabExcessHorizontalSpace = true;
+		 timestampTTL.setLayoutData(timestampTTLlayoutData);
+		 
+		 managedForm.getToolkit().createLabel(rampartBasic, "timestampMaxSkew :");
+		 Text timestampMaxSkew = managedForm.getToolkit().createText(rampartBasic, " ");
+		 GridData timestampMaxSkewlayoutData = new GridData();
+		 timestampMaxSkewlayoutData.minimumWidth =200;
+		 timestampMaxSkewlayoutData.horizontalAlignment = SWT.FILL;
+		 timestampMaxSkewlayoutData.grabExcessHorizontalSpace = true;
+		 timestampMaxSkew.setLayoutData(timestampMaxSkewlayoutData);
+		 
+		 managedForm.getToolkit().createLabel(rampartBasic, "timestampStrict :");
+		 Combo timestampStrict = new Combo(rampartBasic, SWT.READ_ONLY);
+		 GridData timestampStrictlayoutData = new GridData();
+		 timestampStrictlayoutData.minimumWidth =200;
+		 timestampStrictlayoutData.horizontalAlignment = SWT.FILL;
+		 timestampStrictlayoutData.grabExcessHorizontalSpace = true;
+		 timestampStrict.setLayoutData(timestampStrictlayoutData);
+		 
+		 managedForm.getToolkit().createLabel(rampartBasic, "tokenStoreClass :");
+		 Text tokenStoreClass = managedForm.getToolkit().createText(rampartBasic, " ");
+		 GridData tokenStoreClasslayoutData = new GridData();
+		 tokenStoreClasslayoutData.minimumWidth =200;
+		 tokenStoreClasslayoutData.horizontalAlignment = SWT.FILL;
+		 tokenStoreClasslayoutData.grabExcessHorizontalSpace = true;
+		 tokenStoreClass.setLayoutData(tokenStoreClasslayoutData);
+		 	 
+		 managedForm.getToolkit().createLabel(rampartBasic, "nonceLifeTime :");
+		 Text nonceLifeTime = managedForm.getToolkit().createText(rampartBasic, " ");
+		 GridData nonceLifeTimelayoutData = new GridData();
+		 nonceLifeTimelayoutData.minimumWidth =200;
+		 nonceLifeTimelayoutData.horizontalAlignment = SWT.FILL;
+		 nonceLifeTimelayoutData.grabExcessHorizontalSpace = true;
+		 nonceLifeTime.setLayoutData(nonceLifeTimelayoutData);
+		 
+	    Object[] enresult = CreateMainSection(managedForm, rmaportInfComposite,"Encryption Properties",10, 20, 600, 30, true);
+	    Composite enComposite = (Composite)enresult[1];
+	    GridLayout enlayout = new GridLayout(2,false);
+	    enComposite.setLayout(enlayout);
+	    Section enSec = (Section)enresult[0];
+	    enSec.setExpanded(false);
+	    
+	    Object[] signresult = CreateMainSection(managedForm, rmaportInfComposite,"Signature Properties",10, 30, 600, 30, true);
+	    Composite signComposite = (Composite)signresult[1];
+	    GridLayout signlayout = new GridLayout(2,false);
+	    signComposite.setLayout(signlayout);
+	    Section signSec = (Section)signresult[0];
+	    signSec.setExpanded(false);
+	    
+	    String[] rmpartConfigs = new  String[] {"Alias","Privatestore","Tenant id","Truststores","User"};
+	  		for (String name : rmpartConfigs) {
+	  			 createRampartProperties(managedForm, enComposite, name);
+	  			 createRampartProperties(managedForm, signComposite, name);
+	  		}
+	  		
+		
+	  		
+	  		
+
      /*  CreateMainSection(managedForm, body,"Policies",10, 30, 600, 30, false);
 		 CreateMainSection(managedForm, body,"Response Caching",10, 50, 600, 30, false);
 		 CreateMainSection(managedForm, body,"Access Throttling",10, 60, 600, 30, false);
@@ -323,13 +470,29 @@ public class QoSDashboardPage extends FormPage {
 		
 	}
 
+	private void createRampartProperties(IManagedForm managedForm,
+			Composite enComposite, String name) {
+		managedForm.getToolkit().createLabel(enComposite, name+":");
+		 Text en = managedForm.getToolkit().createText(enComposite, " ");
+		 GridData enlayoutData = new GridData();
+		 enlayoutData.minimumWidth =200;
+		 enlayoutData.horizontalAlignment = SWT.FILL;
+		 enlayoutData.grabExcessHorizontalSpace = true;
+		 en.setLayoutData(enlayoutData);
+	}
+
 	private void readKeyStore() {
 		try{
 		KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-		IPreferenceStore preferenceStore =  Activator.getDefault().getPreferenceStore();
-		String filePath = preferenceStore.getString(ClientTrustStorePreferencePage.TRUST_STORE_LOCATION);
-		String passwod = preferenceStore.getString(ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD);
+		
+		String filePath = preferenceStore.getString("org.wso2.developerstudio.eclipse.platform.ui",
+				ClientTrustStorePreferencePage.TRUST_STORE_LOCATION,null,null);
+		
+		String passwod = preferenceStore.getString("org.wso2.developerstudio.eclipse.platform.ui",
+				ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD,null,null);
+		
 		keyStore.load(new FileInputStream(new File(filePath)), passwod.toCharArray());
+		
 		Enumeration<String> aliases = keyStore.aliases();
 		  while(aliases.hasMoreElements()){
 		  setAliase((String) aliases.nextElement());
@@ -583,11 +746,11 @@ public class QoSDashboardPage extends FormPage {
 		managedForm.getToolkit().paintBordersFor(sctnCreate);
 		sctnCreate.setText(sectionName);
 		sctnCreate.setExpanded(expand);
-		GridData layoutData = new GridData();
+		/*GridData layoutData = new GridData();
 		layoutData.minimumWidth = 600;
 		layoutData.horizontalAlignment = SWT.FILL;
 		layoutData.grabExcessHorizontalSpace = true;
-		sctnCreate.setLayoutData(layoutData);
+		sctnCreate.setLayoutData(layoutData);*/
 		sctnCreate.addExpansionListener(new IExpansionListener() {
 			
 			@Override
@@ -596,22 +759,22 @@ public class QoSDashboardPage extends FormPage {
 			@Override
 			public void expansionStateChanged(ExpansionEvent e) {
 				if(!e.getState()){
-				sctnCreate.setBounds(x, y, width, height);	 
+			/*	sctnCreate.setBounds(x, y, width, height);	 
 				GridData layoutData = (GridData)sctnCreate.getLayoutData();
 				layoutData.minimumWidth = 600;
 				layoutData.horizontalAlignment = SWT.FILL;
 				layoutData.grabExcessHorizontalSpace = true;
 				layoutData.heightHint = sctnCreate.getBounds().height;
-				body.layout();
+				body.layout();*/
 				 
 				}else{
-			    sctnCreate.setBounds(x, y, width, height*10);
+			 /*   sctnCreate.setBounds(x, y, width, height*10);
 			    GridData layoutData = (GridData)sctnCreate.getLayoutData();
 			    layoutData.minimumWidth = 600;
 			    layoutData.horizontalAlignment = SWT.FILL;
 				layoutData.grabExcessHorizontalSpace = true;
 				layoutData.heightHint = sctnCreate.getBounds().height;
-			    body.layout();
+			    body.layout();*/
 				}
 			}
 		});	
