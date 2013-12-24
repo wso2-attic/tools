@@ -151,11 +151,18 @@ public class QoSDashboardPage extends FormPage {
 	public static IProject metaProject;
 	public static String metaFileName;
 	private String policyFileName;
-	private String aliase;
 	private Document doc;
 	private Element rampart;
 	private Map<String,String> configMap;
+	private Map<String,Text> enControlMap;
+	private Map<String,Text> singControlMap;
+	private Map<String,String> keyStoreMap;
+
 	private static IPreferencesService preferenceStore;
+
+	private Button saveButton;
+
+	private Combo keysCombo;
 	/**
 	 * Create the form page.
 	 * @param id
@@ -164,8 +171,6 @@ public class QoSDashboardPage extends FormPage {
 	public QoSDashboardPage(String id, String title) {
 		super(id, title);
 	}
-
-	
 
 	static{
 		preferenceStore = Platform.getPreferencesService();
@@ -184,6 +189,10 @@ public class QoSDashboardPage extends FormPage {
 	public QoSDashboardPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
 		configMap = new HashMap<String,String>();
+		enControlMap = new HashMap<String,Text>();
+		singControlMap = new HashMap<String,Text>();
+		keyStoreMap =new HashMap<String,String>();
+		keyStoreMap.put("wso2carbon.jks", "wso2carbon");
 		//serviceList = getServiceList();
 	}
 
@@ -235,8 +244,6 @@ public class QoSDashboardPage extends FormPage {
 		Composite compositeAdvaceInfo = new Composite(serviceInfoMainComposite, SWT.NULL);
 		
 		
-		
-		
 		managedForm.getToolkit().createLabel(compositeBasicInfo, "Services List");
 		Combo serviceName = new Combo(compositeBasicInfo, SWT.FLAT | SWT.READ_ONLY);
 		managedForm.getToolkit().adapt(serviceName,true,true);
@@ -260,20 +267,24 @@ public class QoSDashboardPage extends FormPage {
 		
 		 if(QoSDashboardPage.serviceName!=null){
 			     String[] array = new String[1];
-				array[0] = QoSDashboardPage.serviceName;
-				serviceName.setItems(array); 
+				 array[0] = QoSDashboardPage.serviceName;
+				 serviceName.setItems(array); 
+				 serviceName.select(0);
 		 }
 	
-		 
 		 new Label(compositeBasicInfo, SWT.None);
 	
 		 managedForm.getToolkit().createLabel(compositeBasicInfo, "Project name :");
-		 Text createText = managedForm.getToolkit().createText(compositeBasicInfo, "    ");
+		 Text projectNameText = managedForm.getToolkit().createText(compositeBasicInfo,"", SWT.READ_ONLY);
 		    GridData layoutData = new GridData();
 			layoutData.minimumWidth =200;
 			layoutData.horizontalAlignment = SWT.FILL;
 			layoutData.grabExcessHorizontalSpace = true;
-		    createText.setLayoutData(layoutData);
+		    projectNameText.setLayoutData(layoutData);
+		   if(QoSDashboardPage.metaProject != null){
+			   projectNameText.setText(QoSDashboardPage.metaProject.getName());
+		   } 
+		    
          //managedForm.getToolkit().createButton(compositeBasicInfo, "browser",SWT.FLAT);
 		
 	    Hyperlink createHyperlink = managedForm.getToolkit().createHyperlink(compositeBasicInfo,
@@ -285,10 +296,34 @@ public class QoSDashboardPage extends FormPage {
 				   QOSProjectWizard qosProjectWizard = (QOSProjectWizard) openWizard; 
 			}		  
 		  });
- 
+         readKeyStore();
+            
+         String[] keys = keyStoreMap.keySet().toArray(new String[0]);
+        
+		 managedForm.getToolkit().createLabel(compositeBasicInfo, "Privatestore :");
+		 keysCombo = new Combo(compositeBasicInfo, SWT.FLAT | SWT.READ_ONLY);
+		 keysCombo.setItems(keys);
+		 keysCombo.select(0);
+		 GridData keyslayoutData = new GridData();
+		 keyslayoutData.minimumWidth =200;
+		 keyslayoutData.horizontalAlignment = SWT.FILL;
+		 keyslayoutData.grabExcessHorizontalSpace = true;
+		 keysCombo.setLayoutData(keyslayoutData);
+	 	 keysCombo.addSelectionListener(new SelectionAdapter() {
+			 @Override
+			public void widgetSelected(SelectionEvent e) {
+			  updateRampartUI();
+			}
+		 }); 
+		 
+		 
+		 
+		 
+		 new Label(compositeBasicInfo, SWT.None);
+		
 		 String[] secEnable = new String[]{"No","yes"};
 		 managedForm.getToolkit().createLabel(compositeBasicInfo, "Enable Security :");
-		 Combo enableSecCombo = new Combo(compositeBasicInfo, SWT.FLAT | SWT.READ_ONLY);
+		final Combo enableSecCombo = new Combo(compositeBasicInfo, SWT.FLAT | SWT.READ_ONLY);
 		 enableSecCombo.setItems(secEnable);
 		 enableSecCombo.select(0);
 		 GridData enableSeclayoutData = new GridData();
@@ -296,11 +331,25 @@ public class QoSDashboardPage extends FormPage {
 		 enableSeclayoutData.horizontalAlignment = SWT.FILL;
 		 enableSeclayoutData.grabExcessHorizontalSpace = true;
 		 enableSecCombo.setLayoutData(enableSeclayoutData);
-		 Button createButton = managedForm.getToolkit().createButton(compositeBasicInfo, "Save",SWT.FLAT| Window.getDefaultOrientation());
+		 enableSecCombo.addSelectionListener(new SelectionAdapter() {
+			 @Override
+			public void widgetSelected(SelectionEvent e) {
+				 int selectionIndex = enableSecCombo.getSelectionIndex();
+				 if(selectionIndex==0){
+					 if(saveButton != null){
+						 saveButton.setEnabled(false);
+					 }
+				 }
+			}
+		});
+
+		 
+		 saveButton = managedForm.getToolkit().createButton(compositeBasicInfo, "Save",SWT.FLAT| Window.getDefaultOrientation());
 		 GridData enableSecBtnlayoutData = new GridData();
 		 enableSecBtnlayoutData.horizontalAlignment = SWT.FILL;
 		 enableSecBtnlayoutData.grabExcessHorizontalSpace = true;
-		 createButton.setLayoutData(enableSecBtnlayoutData);
+		 saveButton.setLayoutData(enableSecBtnlayoutData);
+		 saveButton.setEnabled(false);
 		
 		result = CreateMainSection(managedForm, body,
 				"Security for the service", 10, 70, 600, 30, false);
@@ -447,10 +496,19 @@ public class QoSDashboardPage extends FormPage {
 	    Section signSec = (Section)signresult[0];
 	    signSec.setExpanded(false);
 	    
-	    String[] rmpartConfigs = new  String[] {"Alias","Privatestore","Tenant id","Truststores","User"};
+
+	    
+	    
+	    
+	    String[] rmpartConfigs = new  String[] {
+	    		ORG_WSO2_CARBON_SECURITY_CRYPTO_ALIAS+":Alias",
+	    		ORG_WSO2_CARBON_SECURITY_CRYPTO_PRIVATESTORE+":Privatestore",
+	    		ORG_WSO2_STRATOS_TENANT_ID+":Tenant id",
+	    		ORG_WSO2_CARBON_SECURITY_CRYPTO_TRUSTSTORES+":Truststores",
+	    		RAMPART_CONFIG_USER+":User"};
 	  		for (String name : rmpartConfigs) {
-	  			 createRampartProperties(managedForm, enComposite, name);
-	  			 createRampartProperties(managedForm, signComposite, name);
+	  			 createRampartProperties(managedForm, enComposite, name,"en");
+	  			 createRampartProperties(managedForm, signComposite, name,"sign");
 	  		}
 	  		
 		
@@ -467,11 +525,33 @@ public class QoSDashboardPage extends FormPage {
 		 CreateMainSection(managedForm, body,"Parameters",10, 110, 600, 30, false);
 		 
 		 */
-		
+	  		updateRampartUI();
 	}
+	
+	private void updateRampartUI(){
+		if(enControlMap.size()>0){
+			String keyName = keysCombo.getItem(keysCombo.getSelectionIndex());
+			String alise = keyStoreMap.get(keyName);
+			enControlMap.get(ORG_WSO2_CARBON_SECURITY_CRYPTO_ALIAS).setText(alise);
+			enControlMap.get(ORG_WSO2_CARBON_SECURITY_CRYPTO_PRIVATESTORE).setText(keyName);
+			enControlMap.get(ORG_WSO2_STRATOS_TENANT_ID).setText("-1234");
+			enControlMap.get(ORG_WSO2_CARBON_SECURITY_CRYPTO_TRUSTSTORES).setText(keyName);
+			enControlMap.get(RAMPART_CONFIG_USER).setText(alise);
+			
+			singControlMap.get(ORG_WSO2_CARBON_SECURITY_CRYPTO_ALIAS).setText(alise);
+			singControlMap.get(ORG_WSO2_CARBON_SECURITY_CRYPTO_PRIVATESTORE).setText(keyName);
+			singControlMap.get(ORG_WSO2_STRATOS_TENANT_ID).setText("-1234");
+			singControlMap.get(ORG_WSO2_CARBON_SECURITY_CRYPTO_TRUSTSTORES).setText(keyName);
+			singControlMap.get(RAMPART_CONFIG_USER).setText(alise);
+		}
+	}
+	
+	
 
 	private void createRampartProperties(IManagedForm managedForm,
-			Composite enComposite, String name) {
+			Composite enComposite, String fullname,String prefix) {
+		String[] split = fullname.split(":");
+		String name = split[1];
 		managedForm.getToolkit().createLabel(enComposite, name+":");
 		 Text en = managedForm.getToolkit().createText(enComposite, " ");
 		 GridData enlayoutData = new GridData();
@@ -479,6 +559,14 @@ public class QoSDashboardPage extends FormPage {
 		 enlayoutData.horizontalAlignment = SWT.FILL;
 		 enlayoutData.grabExcessHorizontalSpace = true;
 		 en.setLayoutData(enlayoutData);
+		 en.setData(name, split[0]);
+		// en.setd
+		 if("en".equals(prefix)){
+			 enControlMap.put(split[0], en);
+		 }else{
+			 singControlMap.put(split[0], en);
+		 }
+		 
 	}
 
 	private void readKeyStore() {
@@ -493,14 +581,18 @@ public class QoSDashboardPage extends FormPage {
 		
 		keyStore.load(new FileInputStream(new File(filePath)), passwod.toCharArray());
 		
-		Enumeration<String> aliases = keyStore.aliases();
+		String[] split = filePath.split(File.separator);
+	    String alis = null;
+		 Enumeration<String> aliases = keyStore.aliases();
 		  while(aliases.hasMoreElements()){
-		  setAliase((String) aliases.nextElement());
+			  alis = (String) aliases.nextElement();
 		  break;
-		 }
-		} catch (Exception e) {
+		  }
+		  
+		  keyStoreMap.put(split[split.length-1], alis);
+		  
+		 } catch (Exception e) {
 			log.error("Custom Key-store not found", e);
-			setAliase("wso2carbon");
 		}
 	}
 	
@@ -719,7 +811,8 @@ public class QoSDashboardPage extends FormPage {
 				 @Override
 				public void widgetSelected(SelectionEvent e) {
 					 String pfile = (String) secBtn.getData();
-					 setPolicyFileName(pfile);				
+					 setPolicyFileName(pfile);		
+					 saveButton.setEnabled(true);
 					 }
 			});
 			 
@@ -854,15 +947,7 @@ public class QoSDashboardPage extends FormPage {
 	}
 
  
-	public String getAliase() {
-		return aliase;
-	}
-
-	public void setAliase(String aliase) {
-		this.aliase = aliase;
-	}
-
-	public String getPolicyFileName() {
+    public String getPolicyFileName() {
 		return policyFileName;
 	}
 
