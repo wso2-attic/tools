@@ -17,21 +17,32 @@
 package org.wso2.developerstudio.eclipse.qos.project.ui.wizard;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.wsdl.Definition;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.apache.woden.wsdl20.Description;
 import org.apache.woden.wsdl20.InterfaceOperation;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -61,8 +72,10 @@ import org.wso2.developerstudio.eclipse.qos.project.model.Service;
 import org.wso2.developerstudio.eclipse.qos.project.model.ServiceGroup;
 import org.wso2.developerstudio.eclipse.qos.project.ui.dashboard.QoSDashboardPage;
 import org.wso2.developerstudio.eclipse.qos.project.utils.WSDL2Utils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.WSDLUtils;
+import org.xml.sax.InputSource;
 
 public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 
@@ -211,8 +224,8 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			}
 		} 
 		String paramVal =fq+"."+fname.getLocalPart();	
-		parameter.setValue(fname.toString());
-		service.getModuleOrParameterOrPolicyUUID().add(paramVal);
+		parameter.setValue(paramVal);
+		service.getModuleOrParameterOrPolicyUUID().add(parameter);
 		for (String opName : operations) {
 			Operation operation = new Operation();
 			operation.setName(opName);
@@ -320,32 +333,35 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 				
 				Service sService = createService(fname, operations);
 				serviceGroup.getService().add(sService);
-
-				QoSDashboardPage.metaFileName = metaFileName;
 				metaFileName  = sService.getName()+"_"+mavenInfo.getVersion()+".xml";
 				meta = project.getFile("src/main/resources/"+metaFileName).getLocation().toFile();
 				meta.createNewFile();
-				
-				
+				QoSDashboardPage.metaProject = project;
+				QoSDashboardPage.metaFileName = metaFileName;
+				QoSDashboardPage.serviceName = sService.getName();
 			    JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
 				Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 				jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 				jaxbMarshaller.marshal(serviceGroup, meta); 
 				project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-				refreshDistProjects();
 				monitor.subTask(operationText);
 				monitor.worked(80);
-				QoSDashboardPage.metaProject = project;
-				QoSDashboardPage.serviceName = sService.getName();
-			}catch(Exception e){
-				monitor.worked(0);
-				monitor.setCanceled(true);
+ 
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			setJobfinish(true);
 			monitor.worked(100);
 			monitor.done();
 		}
 	}
+	
+
+	
+	
+	
+	
 	
 	class NullEditorInput implements IEditorInput {
 

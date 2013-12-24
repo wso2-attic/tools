@@ -14,8 +14,10 @@
  */
 package org.wso2.developerstudio.eclipse.qos.project.ui.dashboard;
 
+
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.KeyStore;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -33,9 +36,21 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -108,11 +123,38 @@ import org.wso2.developerstudio.eclipse.qos.project.model.Service;
 import org.wso2.developerstudio.eclipse.qos.project.model.ServiceGroup;
 import org.wso2.developerstudio.eclipse.qos.project.ui.wizard.QOSProjectWizard;
 import org.wso2.developerstudio.eclipse.qos.project.utils.QoSTemplateUtil;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 
 public class QoSDashboardPage extends FormPage {
 	
+	private static final String ORG_WSO2_CARBON_SECURITY_CRYPTO_ALIAS = "org.wso2.carbon.security.crypto.alias";
+
+	private static final String RAMPART_CONFIG_USER = "rampart.config.user";
+
+	private static final String ORG_WSO2_CARBON_SECURITY_CRYPTO_TRUSTSTORES = "org.wso2.carbon.security.crypto.truststores";
+
+	private static final String ORG_WSO2_STRATOS_TENANT_ID = "org.wso2.stratos.tenant.id";
+
+	private static final String ORG_WSO2_CARBON_SECURITY_CRYPTO_PRIVATESTORE = "org.wso2.carbon.security.crypto.privatestore";
+
+	private static final String RAMPART_NONCE_LIFE_TIME = "rampart:nonceLifeTime";
+
+	private static final String RAMPART_TOKEN_STORE_CLASS = "rampart:tokenStoreClass";
+
+	private static final String RAMPART_TIMESTAMP_STRICT = "rampart:timestampStrict";
+
+	private static final String RAMPART_TIMESTAMP_MAX_SKEW = "rampart:timestampMaxSkew";
+
+	private static final String RAMPART_TIMESTAMP_TTL = "rampart:timestampTTL";
+
+	private static final String RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS = "rampart:timestampPrecisionInMilliseconds";
+
+	private static final String RAMPART_ENCRYPTION_USER = "rampart:encryptionUser";
+
+	private static final String RAMPART_USER = "rampart:user";
+
 	private static final String QOS_WIZARD_ID = "org.wso2.developerstudio.eclipse.artifact.newqosproject";
 
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -126,6 +168,9 @@ public class QoSDashboardPage extends FormPage {
 	public static String metaFileName;
 	private String policyFileName;
 	private String aliase;
+	private Document doc;
+	private Element rampart;
+	private Map<String,String> configMap;
 	/**
 	 * Create the form page.
 	 * @param id
@@ -145,6 +190,7 @@ public class QoSDashboardPage extends FormPage {
 
 	public QoSDashboardPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
+		configMap = new HashMap<String,String>();
 		//serviceList = getServiceList();
 	}
 
@@ -238,9 +284,7 @@ public class QoSDashboardPage extends FormPage {
 			  setAliase((String) aliases.nextElement());
 			  break;
 			}
-		    //  keyStore.get
-		      
-		      
+ 
 		} catch (Exception ex) {
 			log.error("preferenceStore reading error", ex);
 		}
@@ -294,115 +338,7 @@ public class QoSDashboardPage extends FormPage {
 				}
 			}
 
-			private void addPolicy() throws JAXBException, IOException,
-					PropertyException, CoreException {
-				File serviceMeta = QoSDashboardPage.metaProject.getFile("src/main/resources/"+QoSDashboardPage.metaFileName).getLocation().toFile();
-				
-				JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
-				Unmarshaller uUnmarshaller = jaxbContext.createUnmarshaller();
-				ServiceGroup serviceGroup =  (ServiceGroup) uUnmarshaller.unmarshal(serviceMeta);
-				
-				List<Service> services = serviceGroup.getService();
-				Service service=null;
-				for (Service sService : services) {
-					if(QoSDashboardPage.serviceName.equals(sService.getName())){
-						service =sService;
-						break;
-					}
-				}
-				
-				if(service!=null){
-				QoSTemplateUtil qoSTemplateUtil = new QoSTemplateUtil();
-				String filename = "policies/"+getPolicyFileName();
-				File resourceFile =qoSTemplateUtil.getResourceFile(filename);
-				 if(resourceFile!=null){
-					 JAXBContext pjaxbContext = JAXBContext.newInstance(Policy2.class);
-					 Unmarshaller pUnmarshaller = pjaxbContext.createUnmarshaller();
-					 Policy2 policy2 =  (Policy2) pUnmarshaller.unmarshal(resourceFile);
-					 
-					 Policy policy = new Policy();
-					 policy.setPolicy(policy2);
-					 policy.setPolicyType(BigInteger.valueOf(9l));
-					 policy.setPolicyUUID(policy2.getId());
-					 Policies policies = new Policies();
-					 policies.getPolicy().add(policy);
-					 service.setPolicies(policies);
-					 Bindings bindings = service.getBindings();
-					 if(bindings!=null){
-						 List<Binding> bindingList = bindings.getBinding();
-						 for (Binding binding : bindingList) {
-							 if(binding.getName().contains("Soap")){
-								 binding.setPolicyUUID(policy2.getId());
-							 }
-						}
-					 }
-					 service.setBindings(bindings);
-					 Module module = new Module();
-					 module.setName("rampart");
-					 module.setVersion("1.61-wso2v10");
-					 module.setType("engagedModules");
-					 service.getModuleOrParameterOrPolicyUUID().add(module);
-					 Association associationKeyStore = new Association();
-					 associationKeyStore.setDestinationPath("/_system/governance/repository/security/key-stores/carbon-primary-ks");
-					 associationKeyStore.setType("service-keystore");
-					 Association associationTrustStore = new Association();
-					 associationTrustStore.setDestinationPath("/_system/governance/repository/security/key-stores/carbon-primary-ks");
-					 associationTrustStore.setType("trusted-keystore");
-					 service.getModuleOrParameterOrPolicyUUID().add(associationKeyStore);
-					 service.getModuleOrParameterOrPolicyUUID().add(associationTrustStore);
-				  }	
-				} 
 
-				Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-				jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-				jaxbMarshaller.marshal(serviceGroup, serviceMeta); 
-				QoSDashboardPage.metaProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-				serviceMeta = QoSDashboardPage.metaProject.getFile("src/main/resources/"+QoSDashboardPage.metaFileName).getLocation().toFile();
-			
-				try {
-					DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-					DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-					Document doc = dBuilder.parse(serviceMeta);
-					NodeList nodeList = doc.getElementsByTagName("policies");
-					 
-						Node tempNode = nodeList.item(1);
-						Node policy = tempNode.getFirstChild();
-						Node wsp = policy.getLastChild();
-						Node rampart = wsp.getLastChild();
-						
-						if (rampart.getNodeType() == Node.ELEMENT_NODE) {
-							 
-							 Element eElement = (Element) rampart;
-						     Node user = eElement.getElementsByTagName("user").item(0);
-						     user.setNodeValue("wso2Carbon");
-
-							Node encryptionCrypto = eElement.getElementsByTagName("encryptionCrypto").item(0);
-							Node crypto = encryptionCrypto.getFirstChild();
-							 
-							Node signatureCrypto = eElement.getLastChild();
-							
-							
-							System.out.println("Staff id : " + eElement.getAttribute("id"));
-							System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
-							System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
-							System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
-							System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
-				 
-						}
-				 
-					
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				
-				
-				
-				
-				
-				
-			}
 		});
 			 
      /*  CreateMainSection(managedForm, body,"Policies",10, 30, 600, 30, false);
@@ -417,121 +353,210 @@ public class QoSDashboardPage extends FormPage {
 		 */
 		
 	}
+	
+	private void addPolicy() throws JAXBException, IOException,
+			PropertyException, CoreException, ParserConfigurationException, SAXException, TransformerException {
+		File serviceMeta = QoSDashboardPage.metaProject
+				.getFile("src/main/resources/" + QoSDashboardPage.metaFileName)
+				.getLocation().toFile();
 
-	/*
-	private Map<String,Service> getServiceList(){
-		Map<String,Service> serviceMap = new HashMap<String,Service>();
-		IProject project = OpenQoSDashboardCommandHandler.project;
-		if(project!=null){
-			try {
-				File fXmlFile = project.getFile("/src/main/resources/META-INF/services.xml").getLocation().toFile();
-				DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-				DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-				Document doc = dBuilder.parse(fXmlFile);
-				doc.getDocumentElement().normalize();
-				String nodeName = doc.getDocumentElement().getNodeName();
-				Node firstChild = doc.getFirstChild();
-				if("service".equals(nodeName)){
-					cretaeService(serviceMap, firstChild,project);
-				}else if("serviceGroup".equals(nodeName)){
-				   NodeList childNodes = firstChild.getChildNodes();
-				  for(int i=0; i<childNodes.getLength(); i++){
-					  Node tempNode = childNodes.item(i);
-					   cretaeService(serviceMap, tempNode,project);
-				  }
+		JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
+		Unmarshaller uUnmarshaller = jaxbContext.createUnmarshaller();
+		ServiceGroup serviceGroup = (ServiceGroup) uUnmarshaller.unmarshal(serviceMeta);
+
+		List<Service> services = serviceGroup.getService();
+		Service service = null;
+		for (Service sService : services) {
+			if (QoSDashboardPage.serviceName.equals(sService.getName())) {
+				service = sService;
+				break;
+			}
+		}
+
+		if (service != null) {
+			QoSTemplateUtil qoSTemplateUtil = new QoSTemplateUtil();
+			String filename = "policies/" + getPolicyFileName();
+			File resourceFile = qoSTemplateUtil.getResourceFile(filename);
+			if (resourceFile != null) {
+				JAXBContext pjaxbContext = JAXBContext
+						.newInstance(Policy2.class);
+				Unmarshaller pUnmarshaller = pjaxbContext.createUnmarshaller();
+				Policy2 policy2 = (Policy2) pUnmarshaller
+						.unmarshal(resourceFile);
+
+				Policy policy = new Policy();
+				policy.setPolicy(policy2);
+				policy.setPolicyType(BigInteger.valueOf(9l));
+				policy.setPolicyUUID(policy2.getId());
+				Policies policies = new Policies();
+				policies.getPolicy().add(policy);
+				service.setPolicies(policies);
+				Bindings bindings = service.getBindings();
+				if (bindings != null) {
+					List<Binding> bindingList = bindings.getBinding();
+					for (Binding binding : bindingList) {
+						if (binding.getName().contains("Soap")) {
+							binding.setPolicyUUID(policy2.getId());
+						}
+					}
 				}
-			} catch (Exception e) {
-			 log.error("Cannot parse service.xml", e);
+				service.setBindings(bindings);
+				Module module = new Module();
+				module.setName("rampart");
+				module.setVersion("1.61-wso2v10");
+				module.setType("engagedModules");
+				service.getModuleOrParameterOrPolicyUUID().add(module);
+				Association associationKeyStore = new Association();
+				associationKeyStore
+						.setDestinationPath("/_system/governance/repository/security/key-stores/carbon-primary-ks");
+				associationKeyStore.setType("service-keystore");
+				Association associationTrustStore = new Association();
+				associationTrustStore
+						.setDestinationPath("/_system/governance/repository/security/key-stores/carbon-primary-ks");
+				associationTrustStore.setType("trusted-keystore");
+				service.getModuleOrParameterOrPolicyUUID().add(
+						associationKeyStore);
+				service.getModuleOrParameterOrPolicyUUID().add(
+						associationTrustStore);
 			}
 		}
-		return serviceMap;
-	}*/
 
-	/*private void cretaeService(Map<String, Service> serviceMap, Node firstChild,IProject project) throws JavaModelException {
-		if(firstChild.getNodeType()==Node.ELEMENT_NODE){
-			Element eElement = (Element) firstChild;
-			String name = eElement.getAttribute("name");
-			Service service = new Service();
-			service.setName(name);
-			service.setServiceDocumentation(name);
-			service.setExposedAllTransports(true);
-			long time = new Date().getTime();
-			service.setServiceDeployedTime(BigInteger.valueOf(time));
-			service.setSuccessfullyAdded(true);
-			service.setServiceActive(true);
-            Bindings bindings = new Bindings();
-			
-			String serviceHttpBinding = name+"HttpBinding";
-			String serviceSoap12Binding = name+"Soap12Binding";
-			String serviceSoap11Binding = name+"Soap11Binding";
-			
-			Binding hHttpBinding = new Binding();
-			hHttpBinding.setName(serviceHttpBinding);
-			Binding sSoap12Binding = new Binding();
-			sSoap12Binding.setName(serviceSoap12Binding);
-			Binding sSoap11Binding = new Binding();
-			sSoap11Binding.setName(serviceSoap11Binding);
-			
-			Parameter parameter = new Parameter();
-			parameter.setName("ServiceClass");
-			parameter.setLocked(false);
-			parameter.setValue(eElement.getElementsByTagName("parameter").item(0).getTextContent());
-			service.getModuleOrParameterOrPolicyUUID().add(parameter);
-			serviceMap.put(name, service);
-			Map<String, List<MethodDeclaration>> compliationUnitsMap = getCompliatiosnUnits(project);
-			List<MethodDeclaration> oplist = compliationUnitsMap.get(name);
-			List<String> operations = getOperations(oplist);
-			for (String opName : operations) {
-				Operation operation = new Operation();
-				operation.setName(opName);
-				service.getOperation().add(operation);
-				hHttpBinding.getOperation().add(operation);
-				sSoap12Binding.getOperation().add(operation);
-				sSoap11Binding.getOperation().add(operation);
-			}
-			bindings.getBinding().add(hHttpBinding);
-			bindings.getBinding().add(sSoap11Binding);
-			bindings.getBinding().add(sSoap12Binding);
-			service.setBindings(bindings);
-		}
-	}*/
+		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+		jaxbMarshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
+		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		jaxbMarshaller.marshal(serviceGroup, serviceMeta);
+		QoSDashboardPage.metaProject.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+ 
+		serviceMeta = QoSDashboardPage.metaProject.getFile("src/main/resources/" + QoSDashboardPage.metaFileName)
+				.getLocation().toFile();
+	 	
+		getRampartConfig(serviceMeta);
+		setRampartConfig();
+	    saveRampartConfig(serviceMeta);
 
-	/*private Map<String,List<MethodDeclaration>> getCompliatiosnUnits(IProject project)
-			throws JavaModelException {
-		Map<String,List<MethodDeclaration>> units = new HashMap<String,List<MethodDeclaration>>();
- 		IJavaProject ijavaProject = JavaCore.create(project);
-		IPackageFragment[] packageFragments = ijavaProject.getPackageFragments();
-		for (IPackageFragment iPackageFragment : packageFragments) {
-			   ICompilationUnit[] compilationUnits = iPackageFragment.getCompilationUnits();
-			   for (ICompilationUnit iCompilationUnit : compilationUnits) {
-						  ASTParser parser = ASTParser.newParser(AST.JLS4);
-						  parser.setSource(iCompilationUnit);
-						  CompilationUnit  tempUnit = (CompilationUnit)parser.createAST(null);
-						  MethodVisitor methodVisitor = new MethodVisitor();
-						  tempUnit.accept(methodVisitor);
-						  List<MethodDeclaration> methods = methodVisitor.getMethods();
-						  String elementName = tempUnit.getJavaElement().getElementName();
-						  String[] name = elementName.split("\\.");
-						  units.put(name[0],methods);
-			    }
-		 }
-		return  units;
+	    QoSDashboardPage.metaProject.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 	}
 
-  private List<String> getOperations(List<MethodDeclaration> methods) {
-		 List<String> oplist = new ArrayList<String>();
-		for (MethodDeclaration methodDeclaration : methods) {
-			    List<Modifier> modifiers = methodDeclaration.modifiers();
-			      for (Modifier modifier : modifiers) {
-					 if(modifier.isPublic()){
-						 oplist.add(methodDeclaration.getName().toString());
-					 }
-				}
-		}
-		return oplist;
-	} */
+	private void getRampartConfig(File serviceMeta) throws ParserConfigurationException, SAXException, IOException {
+		
+		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+	 	doc = dBuilder.parse(serviceMeta);
+		
+	 	Node policies = doc.getElementsByTagName("policies").item(0);
+	 	Element  epolicies= (Element) policies;	
+	 	Node policy = epolicies.getElementsByTagName("policy").item(0);
+	 	Element  epolicy= (Element) policy;	
+		Node nrampart = epolicy.getElementsByTagName("rampart:RampartConfig").item(0);
+		rampart = (Element) nrampart;	
+		
+		
+		Node user = rampart.getElementsByTagName(RAMPART_USER).item(0);
+		configMap.put(RAMPART_USER, user.getTextContent());
+		
+		Node encryptionUser = rampart.getElementsByTagName(RAMPART_ENCRYPTION_USER).item(0);
+		configMap.put(RAMPART_ENCRYPTION_USER, encryptionUser.getTextContent());
+		
+		Node timestampPrecisionInMilliseconds = rampart.getElementsByTagName(RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS).item(0);
+		configMap.put(RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS, timestampPrecisionInMilliseconds.getTextContent());
+		
+		Node timestampTTL = rampart.getElementsByTagName(RAMPART_TIMESTAMP_TTL).item(0);
+		configMap.put(RAMPART_TIMESTAMP_TTL, timestampTTL.getTextContent());
+		
+		Node timestampMaxSkew = rampart.getElementsByTagName(RAMPART_TIMESTAMP_MAX_SKEW).item(0);
+		configMap.put(RAMPART_TIMESTAMP_MAX_SKEW, timestampMaxSkew.getTextContent());
+		
+		Node timestampStrict = rampart.getElementsByTagName(RAMPART_TIMESTAMP_STRICT).item(0);
+		configMap.put(RAMPART_TIMESTAMP_STRICT, timestampStrict.getTextContent());
+		
+		Node tokenStoreClass = rampart.getElementsByTagName(RAMPART_TOKEN_STORE_CLASS).item(0);
+		configMap.put(RAMPART_TOKEN_STORE_CLASS, tokenStoreClass.getTextContent());
+		
+		Node nonceLifeTime = rampart.getElementsByTagName(RAMPART_NONCE_LIFE_TIME).item(0);
+		configMap.put(RAMPART_NONCE_LIFE_TIME, nonceLifeTime.getTextContent());
+		
+	    Node encryptionCrypto = rampart.getElementsByTagName("rampart:encryptionCrypto").item(0);
+	    getenCryto(encryptionCrypto);
+	    Node signatureCrypto = rampart.getElementsByTagName("rampart:signatureCrypto").item(0);
+	    getenCryto(signatureCrypto);
+
+	}
+
+	private void getenCryto(Node encryptionCrypto) {
+		Node encrypto = ((Element) encryptionCrypto).getElementsByTagName("rampart:crypto").item(0);
+	    
+	    NodeList list = ((Element) encrypto).getChildNodes();
+	    
+	    for (int i = 0; i < list.getLength(); i++) {
+	 		   Node node = list.item(i);
+	 		  if("rampart:property".equals(node.getNodeName())){
+	 			 Element eElement = (Element) node;
+					 String attribute = eElement.getAttribute("name");
+					 configMap.put(attribute, eElement.getTextContent());
+	 		  }
+	       }
+	}
 	
+	private Map<String,String> setRampartConfig() {
+		
+		
+		Node user = rampart.getElementsByTagName(RAMPART_USER).item(0);
+		user.setTextContent(configMap.get(RAMPART_USER));
+		
+		Node encryptionUser = rampart.getElementsByTagName(RAMPART_ENCRYPTION_USER).item(0);
+		encryptionUser.setTextContent(configMap.get(RAMPART_ENCRYPTION_USER));
+		
+		Node timestampPrecisionInMilliseconds = rampart.getElementsByTagName(RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS).item(0);
+		timestampPrecisionInMilliseconds.setTextContent(configMap.get(RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS));
+		
+		Node timestampTTL = rampart.getElementsByTagName(RAMPART_TIMESTAMP_TTL).item(0);
+		timestampTTL.setTextContent(configMap.get(RAMPART_TIMESTAMP_TTL));
+		
+		Node timestampMaxSkew = rampart.getElementsByTagName(RAMPART_TIMESTAMP_MAX_SKEW).item(0);
+		timestampMaxSkew.setTextContent(configMap.get(RAMPART_TIMESTAMP_MAX_SKEW));
+		
+		Node timestampStrict = rampart.getElementsByTagName(RAMPART_TIMESTAMP_STRICT).item(0);
+		timestampStrict.setTextContent(configMap.get(RAMPART_TIMESTAMP_STRICT));
+		
+		Node tokenStoreClass = rampart.getElementsByTagName(RAMPART_TOKEN_STORE_CLASS).item(0);
+		tokenStoreClass.setTextContent(configMap.get(RAMPART_TOKEN_STORE_CLASS));
+		
+		Node nonceLifeTime = rampart.getElementsByTagName(RAMPART_NONCE_LIFE_TIME).item(0);
+		nonceLifeTime.setTextContent(configMap.get(RAMPART_NONCE_LIFE_TIME));
+
+	    Node encryptionCrypto = rampart.getElementsByTagName("rampart:encryptionCrypto").item(0);
+	    setenCryto(encryptionCrypto);
+	    
+	    Node signatureCrypto = rampart.getElementsByTagName("rampart:signatureCrypto").item(0);
+	    setenCryto(signatureCrypto);
+	    
+		return configMap;
+	}
 	
+	private void setenCryto(Node encryptionCrypto) {
+		Node encrypto = ((Element) encryptionCrypto).getElementsByTagName("rampart:crypto").item(0);
+    
+		NodeList list = ((Element) encrypto).getChildNodes();
+    
+		for (int i = 0; i < list.getLength(); i++) {
+ 		   Node node = list.item(i);
+ 		  if("rampart:property".equals(node.getNodeName())){
+ 			 Element eElement = (Element) node;
+				 String attribute = eElement.getAttribute("name");
+				 node.setTextContent(configMap.get(attribute));
+ 		  }
+       }
+	}
+
+	private void saveRampartConfig(File file) throws TransformerException{
+		
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		DOMSource source = new DOMSource(doc);
+		StreamResult result = new StreamResult(file);
+		transformer.transform(source, result);
+	}
+  
 	private void createSecurityItems(Composite seccomposite ,String[] names,IManagedForm managedForm,int i) {
 		
 		for (String name : names) {
