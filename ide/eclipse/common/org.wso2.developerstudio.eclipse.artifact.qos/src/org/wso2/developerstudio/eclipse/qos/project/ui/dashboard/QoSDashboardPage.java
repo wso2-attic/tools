@@ -35,6 +35,7 @@ import javax.xml.bind.PropertyException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -107,6 +108,7 @@ import org.wso2.developerstudio.eclipse.qos.project.model.Service;
 import org.wso2.developerstudio.eclipse.qos.project.model.ServiceGroup;
 import org.wso2.developerstudio.eclipse.qos.project.ui.wizard.QOSProjectWizard;
 import org.wso2.developerstudio.eclipse.qos.project.utils.QoSTemplateUtil;
+import org.xml.sax.SAXException;
 
 
 public class QoSDashboardPage extends FormPage {
@@ -219,7 +221,7 @@ public class QoSDashboardPage extends FormPage {
 			public void linkActivated(HyperlinkEvent e) {
 				   IWizard openWizard = openWizard(QOS_WIZARD_ID);
 				   QOSProjectWizard qosProjectWizard = (QOSProjectWizard) openWizard; 
-				    
+
 			}		  
 		  });
 		
@@ -355,6 +357,51 @@ public class QoSDashboardPage extends FormPage {
 				jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 				jaxbMarshaller.marshal(serviceGroup, serviceMeta); 
 				QoSDashboardPage.metaProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				serviceMeta = QoSDashboardPage.metaProject.getFile("src/main/resources/"+QoSDashboardPage.metaFileName).getLocation().toFile();
+			
+				try {
+					DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+					DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+					Document doc = dBuilder.parse(serviceMeta);
+					NodeList nodeList = doc.getElementsByTagName("policies");
+					 
+						Node tempNode = nodeList.item(1);
+						Node policy = tempNode.getFirstChild();
+						Node wsp = policy.getLastChild();
+						Node rampart = wsp.getLastChild();
+						
+						if (rampart.getNodeType() == Node.ELEMENT_NODE) {
+							 
+							 Element eElement = (Element) rampart;
+						     Node user = eElement.getElementsByTagName("user").item(0);
+						     user.setNodeValue("wso2Carbon");
+
+							Node encryptionCrypto = eElement.getElementsByTagName("encryptionCrypto").item(0);
+							Node crypto = encryptionCrypto.getFirstChild();
+							 
+							Node signatureCrypto = eElement.getLastChild();
+							
+							
+							System.out.println("Staff id : " + eElement.getAttribute("id"));
+							System.out.println("First Name : " + eElement.getElementsByTagName("firstname").item(0).getTextContent());
+							System.out.println("Last Name : " + eElement.getElementsByTagName("lastname").item(0).getTextContent());
+							System.out.println("Nick Name : " + eElement.getElementsByTagName("nickname").item(0).getTextContent());
+							System.out.println("Salary : " + eElement.getElementsByTagName("salary").item(0).getTextContent());
+				 
+						}
+				 
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+				
+				
+				
+				
+				
 			}
 		});
 			 

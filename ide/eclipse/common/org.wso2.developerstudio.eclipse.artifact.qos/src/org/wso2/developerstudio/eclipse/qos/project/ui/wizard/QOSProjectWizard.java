@@ -337,12 +337,6 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 				monitor.worked(80);
 				QoSDashboardPage.metaProject = project;
 				QoSDashboardPage.serviceName = sService.getName();
-				/*hideIntroView();
-	        	hideDashboards();
-				IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			    IWorkbenchPage page = window.getActivePage();
-			    PlatformUI.getWorkbench().showPerspective(J2EE_PERSPECTIVE_ID, window);
-				IEditorPart openEditor = page.openEditor(new NullEditorInput(), DASHBOARD_VIEW_ID);*/
 			}catch(Exception e){
 				monitor.worked(0);
 				monitor.setCanceled(true);
