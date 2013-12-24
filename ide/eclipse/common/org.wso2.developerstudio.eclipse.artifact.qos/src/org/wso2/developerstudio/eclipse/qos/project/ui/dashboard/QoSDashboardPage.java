@@ -17,56 +17,38 @@ package org.wso2.developerstudio.eclipse.qos.project.ui.dashboard;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
 import javax.xml.bind.Unmarshaller;
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jdt.core.ICompilationUnit;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IPackageFragment;
-import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
-import org.eclipse.jdt.core.dom.AST;
-import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ASTVisitor;
-import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.Modifier;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -109,13 +91,10 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.wso2.developerstudio.eclipse.platform.ui.preferences.ClientTrustStorePreferencePage;
 import org.wso2.developerstudio.eclipse.qos.Activator;
-import org.wso2.developerstudio.eclipse.qos.handlers.OpenQoSDashboardCommandHandler;
 import org.wso2.developerstudio.eclipse.qos.project.model.Association;
 import org.wso2.developerstudio.eclipse.qos.project.model.Binding;
 import org.wso2.developerstudio.eclipse.qos.project.model.Bindings;
 import org.wso2.developerstudio.eclipse.qos.project.model.Module;
-import org.wso2.developerstudio.eclipse.qos.project.model.Operation;
-import org.wso2.developerstudio.eclipse.qos.project.model.Parameter;
 import org.wso2.developerstudio.eclipse.qos.project.model.Policies;
 import org.wso2.developerstudio.eclipse.qos.project.model.Policy;
 import org.wso2.developerstudio.eclipse.qos.project.model.Policy2;
@@ -123,7 +102,6 @@ import org.wso2.developerstudio.eclipse.qos.project.model.Service;
 import org.wso2.developerstudio.eclipse.qos.project.model.ServiceGroup;
 import org.wso2.developerstudio.eclipse.qos.project.ui.wizard.QOSProjectWizard;
 import org.wso2.developerstudio.eclipse.qos.project.utils.QoSTemplateUtil;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 
@@ -274,16 +252,7 @@ public class QoSDashboardPage extends FormPage {
 		managedForm.getToolkit().createLabel(serviceInfoComposite, "Project name");
 		final Combo keyStors = new Combo(serviceInfoComposite, SWT.READ_ONLY);
 		try {
-			KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-		    IPreferenceStore preferenceStore = Activator.getDefault().getPreferenceStore();
-		    String filePath = preferenceStore.getString(ClientTrustStorePreferencePage.TRUST_STORE_LOCATION);
-		    String passwod = preferenceStore.getString(ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD);
-			keyStore.load(new FileInputStream(new File(filePath)), passwod.toCharArray());
-			Enumeration<String> aliases = keyStore.aliases();
-		      while(aliases.hasMoreElements()){
-			  setAliase((String) aliases.nextElement());
-			  break;
-			}
+			readKeyStore();
  
 		} catch (Exception ex) {
 			log.error("preferenceStore reading error", ex);
@@ -353,13 +322,31 @@ public class QoSDashboardPage extends FormPage {
 		 */
 		
 	}
+
+	private void readKeyStore() {
+		try{
+		KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+		IPreferenceStore preferenceStore =  Activator.getDefault().getPreferenceStore();
+		String filePath = preferenceStore.getString(ClientTrustStorePreferencePage.TRUST_STORE_LOCATION);
+		String passwod = preferenceStore.getString(ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD);
+		keyStore.load(new FileInputStream(new File(filePath)), passwod.toCharArray());
+		Enumeration<String> aliases = keyStore.aliases();
+		  while(aliases.hasMoreElements()){
+		  setAliase((String) aliases.nextElement());
+		  break;
+		 }
+		} catch (Exception e) {
+			log.error("Custom Key-store not found", e);
+			setAliase("wso2carbon");
+		}
+	}
 	
 	private void addPolicy() throws JAXBException, IOException,
 			PropertyException, CoreException, ParserConfigurationException, SAXException, TransformerException {
 		File serviceMeta = QoSDashboardPage.metaProject
 				.getFile("src/main/resources/" + QoSDashboardPage.metaFileName)
 				.getLocation().toFile();
-
+		
 		JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
 		Unmarshaller uUnmarshaller = jaxbContext.createUnmarshaller();
 		ServiceGroup serviceGroup = (ServiceGroup) uUnmarshaller.unmarshal(serviceMeta);
