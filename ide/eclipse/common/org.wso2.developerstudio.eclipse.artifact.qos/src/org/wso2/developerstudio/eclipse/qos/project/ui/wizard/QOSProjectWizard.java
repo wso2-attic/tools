@@ -197,12 +197,22 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 		Parameter parameter = new Parameter();
 		parameter.setName("ServiceClass");
 		parameter.setLocked(false);
+		
+		String namespaceURI = fname.getNamespaceURI();
+		String modifyNS = namespaceURI.replaceAll("(http://|https://)","");
+		String[] split = modifyNS.split("\\.");
+		int length = split.length;
+		String fq="";
+		for(int i=length ; i>0 ; i--){
+			if(i==length){
+				fq = split[i-1];
+			}else{
+			fq = fq +"."+split[i-1];
+			}
+		} 
+		String paramVal =fq+"."+fname.getLocalPart();	
 		parameter.setValue(fname.toString());
-		service.getModuleOrParameterOrPolicyUUID().add(parameter);
-		//serviceMap.put(name, service);
-	//	Map<String, List<MethodDeclaration>> compliationUnitsMap = getCompliatiosnUnits(project);
-	//	List<MethodDeclaration> oplist = compliationUnitsMap.get(name);
-		//List<String> operations = getOperations(oplist);
+		service.getModuleOrParameterOrPolicyUUID().add(paramVal);
 		for (String opName : operations) {
 			Operation operation = new Operation();
 			operation.setName(opName);
