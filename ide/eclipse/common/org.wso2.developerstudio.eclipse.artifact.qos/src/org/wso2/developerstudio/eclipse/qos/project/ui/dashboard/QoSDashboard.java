@@ -40,8 +40,14 @@ public class QoSDashboard extends FormEditor {
 			throws PartInitException {
 		// TODO Auto-generated method stub
 		super.init(site, input);
-		FileEditorInput ifleEditor =(FileEditorInput)input;
-		file = ifleEditor.getFile().getLocation().toFile();
+		try{
+			if(input instanceof FileEditorInput){
+					FileEditorInput ifleEditor =(FileEditorInput)input;
+					file = ifleEditor.getFile().getLocation().toFile();
+			}
+		}catch(Exception e){
+			/*Exception ignore*/
+	   }
 	}
 	
 	protected void addPages() {
