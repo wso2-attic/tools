@@ -14,23 +14,42 @@
  */
 package org.wso2.developerstudio.eclipse.qos.project.ui.dashboard;
 
+import java.io.File;
+
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.qos.Activator;
+import org.eclipse.ui.part.FileEditorInput;
 
 public class QoSDashboard extends FormEditor {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private QoSDashboardPage dashbordPage;
+	private File file;
 
+	
+	@Override
+	public void init(IEditorSite site, IEditorInput input)
+			throws PartInitException {
+		// TODO Auto-generated method stub
+		super.init(site, input);
+		FileEditorInput ifleEditor =(FileEditorInput)input;
+		file = ifleEditor.getFile().getLocation().toFile();
+	}
+	
 	protected void addPages() {
 		dashbordPage = new QoSDashboardPage(this,Activator.PLUGIN_ID,"QoSDashboard");
+		dashbordPage.setMetaFile(file);
 		try {
 			addPage(dashbordPage);
+			
 		} catch (PartInitException e) {
 			log.error("Cannot initialize QoSDashboard page",e);
 		}
