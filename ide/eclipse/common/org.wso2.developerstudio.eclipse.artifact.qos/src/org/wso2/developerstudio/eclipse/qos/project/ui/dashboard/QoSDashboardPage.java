@@ -28,6 +28,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -174,6 +175,12 @@ public class QoSDashboardPage extends FormPage {
 	private Combo serviceNameText;
 
 	private Combo enableSecCombo;
+
+	private Service service;
+
+	private ServiceGroup serviceGroup;
+
+	private File serviceMetaFile;
 	/**
 	 * Create the form page.
 	 * @param id
@@ -353,8 +360,11 @@ public class QoSDashboardPage extends FormPage {
 						 }
 					 }
 				 }else{
+					 if(saveButton != null){ 
+						 saveButton.setEnabled(true);
 					 if(secSecurity != null){
 						 secSecurity.setEnabled(true);
+					 }
 					 }
 				 }
 			}
@@ -371,7 +381,7 @@ public class QoSDashboardPage extends FormPage {
 				@Override
 				public void widgetSelected(SelectionEvent e) { 
 				    try {
-						addPolicy();
+				    	save();
 					} catch (Exception e1) {
 						 log.error("cannot load service meta file", e1);
 					}
@@ -552,6 +562,21 @@ public class QoSDashboardPage extends FormPage {
 	  }
 	}
 	
+	private void save(){
+		try {
+			addPolicy();
+			saveTofile();
+			getRampartConfig(serviceMetaFile);
+			saveRampartConifgUserValues();
+			setRampartConfig();
+		    saveRampartConfigToFile(serviceMetaFile);
+		    RefreshProject();
+		} catch (JAXBException | IOException| CoreException | ParserConfigurationException | SAXException
+				| TransformerException e) {
+			log.error("Saving Error");
+		}
+	}
+	
 	private void updateRampartUI(){
 		if(enControlMap.size()>0){
 			String keyName = keysCombo.getItem(keysCombo.getSelectionIndex());
@@ -587,15 +612,13 @@ public class QoSDashboardPage extends FormPage {
 		}
 	}
 	
-    public void updateSecuritySecUI(File file){
-		
+    private void updateSecuritySecUI(File file){
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
 			Unmarshaller uUnmarshaller = jaxbContext.createUnmarshaller();
-			ServiceGroup serviceGroup = (ServiceGroup) uUnmarshaller.unmarshal(file);
+			serviceGroup = (ServiceGroup) uUnmarshaller.unmarshal(file);
 
 			List<Service> services = serviceGroup.getService();
-			Service service = null;
 			for (Service sService : services) {
 					service = sService;
 					break;
@@ -608,12 +631,14 @@ public class QoSDashboardPage extends FormPage {
 				 Button button = policyeMap.get(policy2.getPolicyUUID());
 				 if(button!=null){
 					 button.setSelection(true);
+					 setPolicyFileName((String) button.getData());
 					 break;
 				 }
 			}
 			 enableSecCombo.select(1); 
 			 secSecurity.setEnabled(true);
-			
+			 saveButton.setEnabled(true);
+			 serviceMetaFile = file;
 		} catch (Exception e) {
 			 log.error("File loading error", e);
 		}
@@ -670,23 +695,23 @@ public class QoSDashboardPage extends FormPage {
 	
 	private void addPolicy() throws JAXBException, IOException,
 			PropertyException, CoreException, ParserConfigurationException, SAXException, TransformerException {
-		File serviceMeta = QoSDashboardPage.metaProject
-				.getFile("src/main/resources/" + QoSDashboardPage.metaFileName)
+		if(service == null) {
+		
+         serviceMetaFile = QoSDashboardPage.metaProject.getFile("src/main/resources/" + QoSDashboardPage.metaFileName)
 				.getLocation().toFile();
 		
 		JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
 		Unmarshaller uUnmarshaller = jaxbContext.createUnmarshaller();
-		ServiceGroup serviceGroup = (ServiceGroup) uUnmarshaller.unmarshal(serviceMeta);
+		serviceGroup = (ServiceGroup) uUnmarshaller.unmarshal(serviceMetaFile);
 
 		List<Service> services = serviceGroup.getService();
-		Service service = null;
 		for (Service sService : services) {
 			if (QoSDashboardPage.serviceName.equals(sService.getName())) {
 				service = sService;
 				break;
 			}
 		}
-
+       }
 		if (service != null) {
 			QoSTemplateUtil qoSTemplateUtil = new QoSTemplateUtil();
 			String filename = "policies/" + getPolicyFileName();
@@ -734,20 +759,23 @@ public class QoSDashboardPage extends FormPage {
 						associationTrustStore);
 			}
 		}
+	}
 
+	private void saveTofile() throws JAXBException,
+			PropertyException, CoreException {
+		JAXBContext jaxbContext = JAXBContext.newInstance(ServiceGroup.class);
 		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FRAGMENT, true);
 		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		jaxbMarshaller.marshal(serviceGroup, serviceMeta);
+		jaxbMarshaller.marshal(serviceGroup, serviceMetaFile);
+
+		RefreshProject();
+	}
+
+	private void RefreshProject() throws CoreException {
+		if(QoSDashboardPage.metaProject != null){
 		QoSDashboardPage.metaProject.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
- 
-		serviceMeta = QoSDashboardPage.metaProject.getFile("src/main/resources/" + QoSDashboardPage.metaFileName)
-				.getLocation().toFile();
-	 	
-		getRampartConfig(serviceMeta);
-		setRampartConfig();
-	    saveRampartConfig(serviceMeta);
-	    QoSDashboardPage.metaProject.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+		}
 	}
 
 	private void getRampartConfig(File serviceMeta) throws ParserConfigurationException, SAXException, IOException {
@@ -861,7 +889,7 @@ public class QoSDashboardPage extends FormPage {
        }
 	}
 
-	private void saveRampartConfig(File file) throws TransformerException{
+	private void saveRampartConfigToFile(File file) throws TransformerException{
 		
 		TransformerFactory transformerFactory = TransformerFactory.newInstance();
 		Transformer transformer = transformerFactory.newTransformer();
@@ -870,6 +898,37 @@ public class QoSDashboardPage extends FormPage {
 		transformer.transform(source, result);
 	}
   
+	private void saveRampartConifgUserValues(){
+		
+      Set<String> keySet = basicRampartControlMap.keySet();
+               for (String key : keySet) {
+            	   Object control = basicRampartControlMap.get(key);
+            	   if(control instanceof Text){
+            		  Text  controlText  = (Text)control;
+            		  configMap.put(key, controlText.getText());
+            	   }else if(control instanceof Combo){
+            		   Combo  controlCombo  = (Combo)control;
+            		   configMap.put(key, controlCombo.getItem(controlCombo.getSelectionIndex())); 
+            	   }
+			   }
+              keySet = enControlMap.keySet();
+              for (String key : keySet) {
+           	   Object control = enControlMap.get(key);
+           	   if(control instanceof Text){
+           		  Text  controlText  = (Text)control;
+           		  configMap.put(key, controlText.getText());
+           	   }
+			 }  
+             keySet = singControlMap.keySet();
+              for (String key : keySet) {
+           	   Object control = singControlMap.get(key);
+           	   if(control instanceof Text){
+           		  Text  controlText  = (Text)control;
+           		  configMap.put(key, controlText.getText());
+           	   }
+			}   
+	 }
+	
 	private void createSecurityItems(Composite seccomposite ,String[] names,IManagedForm managedForm,int i) {
 		
 		for (String name : names) {
@@ -883,30 +942,28 @@ public class QoSDashboardPage extends FormPage {
 				public void widgetSelected(SelectionEvent e) {
 					 String pfile = (String) secBtn.getData();
 					 setPolicyFileName(pfile);		
-					 saveButton.setEnabled(true);
 					 }
 			});
 			 
-			 try {
-				String filename = "policies/" + fileName;
-				 QoSTemplateUtil qoSTemplateUtil = new QoSTemplateUtil();
-					File resourceFile = qoSTemplateUtil.getResourceFile(filename);
-					if (resourceFile != null) {
-						JAXBContext pjaxbContext = JAXBContext.newInstance(Policy2.class);
-						Unmarshaller pUnmarshaller = pjaxbContext.createUnmarshaller();
-						Policy2 policy2 = (Policy2) pUnmarshaller.unmarshal(resourceFile);
-						policyeMap.put(policy2.getId(),secBtn );
-					}
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+				try {
+					    String filename = "policies/" + fileName;
+					    QoSTemplateUtil qoSTemplateUtil = new QoSTemplateUtil();
+						File resourceFile = qoSTemplateUtil.getResourceFile(filename);
+						if (resourceFile != null) {
+							JAXBContext pjaxbContext = JAXBContext.newInstance(Policy2.class);
+							Unmarshaller pUnmarshaller = pjaxbContext.createUnmarshaller();
+							Policy2 policy2 = (Policy2) pUnmarshaller.unmarshal(resourceFile);
+							policyeMap.put(policy2.getId(),secBtn );
+						}
+				} catch (IOException | JAXBException e1) {
+				  log.error("policy file reading", e1);
+				}catch(Exception e){
+					/*Ignore*/
+				}
+			
 			 
      		 final ToolTip tip = new ToolTip(seccomposite.getShell(), SWT.BALLOON | SWT.ICON_INFORMATION);
-			 tip.setMessage("Here is a message for the user. When the message is too long it wraps. I should say something cool but nothing comes to my mind.");
+			 tip.setMessage("Description not available");
 
 			  Hyperlink createHyperlink = managedForm.getToolkit().createHyperlink(seccomposite, name, SWT.RADIO);
 			  createHyperlink.addHyperlinkListener(new HyperlinkAdapter(){
