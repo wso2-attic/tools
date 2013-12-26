@@ -4,7 +4,6 @@
 					description="Create new QoS Project" 
 					error="Please select a method to create the QoS artifact">
 		<option id="new.qos" default="true">New QoS Project</option>
-		<option id="import.qos">Import QoS Project</option>
 	</projectOptions> 
 	<projectOptionSettings>
 		<settings optionId="new.qos" 
@@ -16,13 +15,6 @@
 			<projectNatures>
 				<nature>org.eclipse.jdt.core.javanature</nature>
 			</projectNatures>
-		</settings>
-		<settings optionId="import.qos"
-				  title="QoS Project"
-				  description="Browse the location of a QoS Project"
-				  error="Browse and select a QoS Project">
-		<data modelProperty="save.file" type="workspacefolder" fieldController="org.wso2.developerstudio.eclipse.qos.project.controller.QOSProjectFieldController" 
-			controlData="filterClass=org.wso2.developerstudio.eclipse.qos.project.controller.QoSProjectFilter">QoS Project</data>			
 		</settings>
 	</projectOptionSettings>
 </wizard>

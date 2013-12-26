@@ -548,7 +548,7 @@ public class QoSDashboardPage extends FormPage {
 		 */
 	  updateRampartUI();
 	  if(metaFile!=null){
-	  updateSecuritySecUI(metaFile);
+		  	updateSecuritySecUI(metaFile);
 	  }
 	}
 	
