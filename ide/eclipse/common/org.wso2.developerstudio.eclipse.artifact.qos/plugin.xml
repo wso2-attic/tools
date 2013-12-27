@@ -6,10 +6,23 @@
       <editor
             class="org.wso2.developerstudio.eclipse.qos.project.ui.dashboard.QoSDashboard"
             id="org.wso2.developerstudio.eclipse.qos.QoSDashboard"
+            extensions="xml"
             name="Quality of Service(QoS)"
             icon="icons/qos-16x16.png">
+            <contentTypeBinding
+				contentTypeId="org.wso2.developerstudio.eclipse.qos.project.contenttype.xml">
+			</contentTypeBinding>
       </editor>
     </extension>
+    <extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type base-type="org.eclipse.core.runtime.xml"
+			id="org.wso2.developerstudio.eclipse.qos.project.contenttype.xml"
+			name="Service Meta File" priority="high" file-names="*.xml">
+			<describer
+				class="org.wso2.developerstudio.eclipse.qos.project.utils.QoSContentDescriber">
+			</describer>
+		</content-type>
+	</extension>
  <extension
        point="org.eclipse.ui.commands">
     <command
