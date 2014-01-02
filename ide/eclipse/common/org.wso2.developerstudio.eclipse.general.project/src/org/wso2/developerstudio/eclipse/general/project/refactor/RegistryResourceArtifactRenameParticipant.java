@@ -202,8 +202,8 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 			OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
 			OMElement documentElement = builder.getDocumentElement();
 			directoryPrefix = documentElement.getLocalName() + "_";
-		} catch (CoreException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			log.info("File contains non-XML content.");
 		}finally{
 			if(in != null){
 				try {
