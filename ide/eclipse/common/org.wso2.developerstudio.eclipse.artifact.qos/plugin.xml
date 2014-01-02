@@ -17,7 +17,7 @@
     <extension point="org.eclipse.core.contenttype.contentTypes">
 		<content-type base-type="org.eclipse.core.runtime.xml"
 			id="org.wso2.developerstudio.eclipse.qos.project.contenttype.xml"
-			name="Service Meta File" priority="high" file-names="*.xml">
+			 name="Service Meta File" priority="high" file-extensions="xml">
 			<describer
 				class="org.wso2.developerstudio.eclipse.qos.project.utils.QoSContentDescriber">
 			</describer>
