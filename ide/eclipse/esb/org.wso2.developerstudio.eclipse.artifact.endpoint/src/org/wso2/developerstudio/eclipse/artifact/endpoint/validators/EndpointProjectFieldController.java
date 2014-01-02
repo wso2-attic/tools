@@ -196,14 +196,12 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 			List<String> list =
 			        templateFieldProperties.get(((EndpointModel) model).getSelectedTemplate()
 			                .getId());
-			for (String control : list) {
-				visibleField = false;
-			}
-
-			if (list.contains(modelProperty)) {
-				visibleField = true;
-			} else {
-				visibleField = false;
+			
+			visibleField = false;
+			if (list != null) {
+				if (list.contains(modelProperty)) {
+					visibleField = true;
+				} 
 			}
 		}
 
@@ -218,11 +216,9 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 	private Map<String, List<String>> getTemplateFieldProperties() {
 		Map<String, List<String>> map = new HashMap<String, List<String>>();
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep2", Arrays.asList(new String[] {}));
-		map.put("org.wso2.developerstudio.eclipse.esb.template.ep1", Arrays
-		        .asList(new String[] { "templ.address.ep.uri" }));
-		map.put("org.wso2.developerstudio.eclipse.esb.template.ep5", Arrays
-		        .asList(new String[] { "templ.wsdl.ep.uri", "templ.wsdl.ep.service",
-		                              "templ.wsdl.ep.port" }));
+		map.put("org.wso2.developerstudio.eclipse.esb.template.ep1", Arrays.asList(new String[] { "templ.address.ep.uri" }));
+		map.put("org.wso2.developerstudio.eclipse.esb.template.ep5", Arrays.
+				asList(new String[] { "templ.wsdl.ep.uri", "templ.wsdl.ep.service", "templ.wsdl.ep.port" }));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep3", Arrays.asList(new String[] {}));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep4", Arrays.asList(new String[] {}));
 		map.put("org.wso2.developerstudio.eclipse.esb.template.ep7", Arrays
