@@ -125,8 +125,6 @@ public class RegistryHandlerCreationWizard extends
 	private IProject importHandlerProject;
 	private boolean importHandlerFromWs;
 	
-	
-	
 	public RegistryHandlerCreationWizard() {
 		regModel = new RegistryHandlerModel();
 		setFilterModel(regModel);
@@ -191,7 +189,7 @@ public class RegistryHandlerCreationWizard extends
 						                       getKeyByValue(regModel.getImportHandlerList(),
 						                                     fullyQualifiedHandlerClassName);
 					}
-					addDependancies(project);
+					addDependencies(project);
 					generateHandler();
 				}
 			
@@ -219,7 +217,10 @@ public class RegistryHandlerCreationWizard extends
 			filterProperties = newFilterClassWizardPage.getFilterMap();
 		} else if (filterClassSelectedMethod.equals(Constants.FROM_EXISTING_FILTER_CLASS)) {
 			fullyQualifiedFilterClassName = importFilterClassWizardPage.getClassName();
+			String filterProject =
+			                       importFilterClassWizardPage.getProject(fullyQualifiedFilterClassName);
 			filterProperties = importFilterClassWizardPage.getFilterMap();
+			addFilterProjectDependency(filterProject);
 		}
 
 		HandlerInfo handlerInfo = new HandlerInfo();
@@ -366,6 +367,28 @@ public class RegistryHandlerCreationWizard extends
 
 	}
 	
+	private void addFilterProjectDependency(String filterProjectName) {
+		// import filter class case
+		try {
+			IJavaProject javaProject = JavaCore.create(project);
+			IClasspathEntry[] classPath = javaProject.getRawClasspath();
+
+			List<IClasspathEntry> classPathList =
+			                                      new ArrayList<IClasspathEntry>(
+			                                                                     Arrays.asList(classPath));
+			IClasspathEntry prjEntry =
+			                           JavaCore.newProjectEntry(new Path(
+			                                                             "/".concat(filterProjectName)),
+			                                                    true);
+			classPathList.add(prjEntry);
+			IClasspathEntry[] newClassPath = new IClasspathEntry[classPathList.size()];
+			classPathList.toArray(newClassPath);
+			javaProject.setRawClasspath(newClassPath, null);
+		} catch (Exception e) {
+			log.error("Error occured while adding filter project dependency", e);
+		}
+	}
+
 	public IFolder createSourceLocationForActivator(IProject project) throws JavaModelException, CoreException{
 		IFolder workspaceFolder = ProjectUtils.getWorkspaceFolder(sourceFolder, "org", "wso2", "custom", "internal", "registry", "handler");
 		activatorSourcePackage = root.createPackageFragment(activatorPackageName, false, null);
@@ -454,7 +477,7 @@ public class RegistryHandlerCreationWizard extends
 	} 
 
 	
-	private void addDependancies(IProject project) throws Exception {
+	private void addDependencies(IProject project) throws Exception {
 			String projectDependencies = Constants.PROJECT_DEPENDENCIES;
 			String[] depedencyList = projectDependencies.split(Constants.DEPENDENCY_DELIMITER);
 			for (String dependency : depedencyList) {
@@ -988,7 +1011,7 @@ public class RegistryHandlerCreationWizard extends
 			dependency.setVersion(bean.getVersion());
 			dependencyList.add(dependency);
 		}
-		
+
 		if (importHandlerFromWs && importHandlerProject!=null) {	
 			try {
 				IFile pomFile = importHandlerProject.getFile("pom.xml");

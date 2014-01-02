@@ -60,6 +60,7 @@ public class ImportFilterClassWizardPage extends WizardPage{
 	private Combo filterClassesCombo;
 	private String className;
 	private Map<String, List<String>> filterClassesList = new HashMap<String, List<String>>();
+	private Map<String, String> projectsMap = new HashMap<String, String>();
 	
 
 	public ImportFilterClassWizardPage(String pageName) {
@@ -208,11 +209,15 @@ public class ImportFilterClassWizardPage extends WizardPage{
 	
 	public List<String> getAllFilterClasses(){
 		determineFilterClassProjects();
+		
+		projectsMap.clear();
 		for (String key: filterClassesList.keySet()) {
 			List<String> list = filterClassesList.get(key);
 			for (String fqn : list) {
 				if(!allFilterClassesList.contains(list)){
 					allFilterClassesList.add(fqn);
+					// add fqn and key to projectsMap
+					projectsMap.put(fqn, key);
 				}
 			}
 		}
@@ -565,6 +570,12 @@ public class ImportFilterClassWizardPage extends WizardPage{
 	 return newKey;		
 	}
 
-
+	public String getProject(String key) {
+		if (projectsMap.get(key) != null) {
+			return projectsMap.get(key);
+		} else {
+			return "";
+		}
+	}
 	
 }
