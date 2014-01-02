@@ -41,6 +41,7 @@ import javax.xml.xpath.XPathFactory;
 import org.apache.woden.wsdl20.Description;
 import org.apache.woden.wsdl20.InterfaceOperation;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -50,6 +51,7 @@ import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
@@ -57,6 +59,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IPersistableElement;
 import org.eclipse.ui.IViewReference;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
@@ -83,7 +86,9 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 	static final String INTRO_VIEW_ID = "org.eclipse.ui.internal.introview";
 	static final String DASHBOARD_VIEW_ID = "org.wso2.developerstudio.eclipse.qos.QoSDashboard";
 	static final String J2EE_PERSPECTIVE_ID = "org.eclipse.jst.j2ee.J2EEPerspective";
-	
+	private static final String AXIS2_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.axis2.project.nature";
+	private static final String DS_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.ds.project.nature";
+	private static final String ESB_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.esb.project.nature";
 	private IProject project;
 	private QOSProjectModel qosProjectModel;
 	private File pomfile;
@@ -92,8 +97,40 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
     //private Service service;
     private ServiceGroup serviceGroup;
     public static String metaFileName;
+    private String projectType;
+    
 
+    @Override
+    public void init(IWorkbench arg0, IStructuredSelection selection) {
+    	// TODO Auto-generated method stub
+    	try{
+    	Object element = ((IStructuredSelection)selection).getFirstElement();
+   	    if (element instanceof IResource) {
+           IProject temProject = ((IResource)element).getProject();
+           IProjectDescription description = temProject.getDescription();
+           String[] natureIds = description.getNatureIds();
+          
+           for (String natueId : natureIds) {
+			  if(AXIS2_PROJECT_NATURE.equals(natueId)){
+				  projectType = "Axis";
+				  break;
+			  }else if(DS_PROJECT_NATURE.equals(natueId)){
+				  projectType = "DS";
+				  break;
+			  }else if(ESB_PROJECT_NATURE.equals(natueId)){
+				  projectType = "ESB";
+				  break;
+			  }
+           }
+           
+          }
+    	}catch (Exception e){
+    		/*ignored*/
+    	}
+    	super.init(arg0, selection);
 
+    }
+    
 	public QOSProjectWizard() {
 		setQosProjectModel(new QOSProjectModel());
 		setModel(qosProjectModel);
@@ -295,6 +332,7 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 				
 				project = createNewProject();
 				pomfile = project.getFile("pom.xml").getLocation().toFile();
+
 				MavenInfo mavenInfo = getModel().getMavenInfo();
 				mavenInfo.setPackageName("service/meta");
 				if(!pomfile.exists()){
@@ -358,10 +396,6 @@ public class QOSProjectWizard extends AbstractWSO2ProjectCreationWizard {
 	}
 	
 
-	
-	
-	
-	
 	
 	class NullEditorInput implements IEditorInput {
 
