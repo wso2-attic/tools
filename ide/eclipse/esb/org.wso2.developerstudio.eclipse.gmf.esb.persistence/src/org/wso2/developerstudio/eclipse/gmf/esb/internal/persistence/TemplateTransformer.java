@@ -88,7 +88,9 @@ public class TemplateTransformer extends AbstractEsbNodeTransformer {
 
 	private void saveParameters(Template template, Collection<String> parameters) {
 		for (TemplateParameter templateParameter :  template.getParameters()) {
-			parameters.add(templateParameter.getName());
+			if (templateParameter != null && !(templateParameter.getName().equals("name") || templateParameter.getName().equals("uri"))) {
+				parameters.add(templateParameter.getName());
+			}
 		}
 		
 	}

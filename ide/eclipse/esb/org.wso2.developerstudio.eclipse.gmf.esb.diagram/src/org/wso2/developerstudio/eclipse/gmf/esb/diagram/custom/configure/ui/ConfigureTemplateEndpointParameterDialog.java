@@ -269,7 +269,7 @@
                                                 param);
                                 getResultCommand().append(addCmd);
                         } else {
-                                if (!param.getParameterName().equals(item.getText(0))) {
+                                if (param.getParameterName() != null && !param.getParameterName().equals(item.getText(0))) {
                                         SetCommand setCmd = new SetCommand(
                                                         editingDomain,
                                                         param,
@@ -278,7 +278,7 @@
  
                                         getResultCommand().append(setCmd);
                                 }
-                                if (!param.getParameterValue().equals(item.getText(1))) {
+                                if (param.getParameterValue() == null || !param.getParameterValue().equals(item.getText(1))) {
  
                                         SetCommand setCmd = new SetCommand(
                                                         editingDomain,

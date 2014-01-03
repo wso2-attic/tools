@@ -111,7 +111,9 @@ public class TemplateEndPointTransformer extends AbstractEndpointTransformer{
  
                 createAdvanceOptions(templateEndPoint,synapseTemplateEP);
                 for(TemplateEndpointParameter parameter:templateEndPoint.getParameters()){
-                        synapseTemplateEP.addParameter(parameter.getParameterName(), parameter.getParameterValue());
+                	if (StringUtils.isNotBlank(parameter.getParameterName()) && StringUtils.isNotBlank(parameter.getParameterValue())) {
+                		synapseTemplateEP.addParameter(parameter.getParameterName(), parameter.getParameterValue());
+                	}                      
                 }
                 synapseTemplateEP.setTemplate(templateEndPoint.getTargetTemplate());
  

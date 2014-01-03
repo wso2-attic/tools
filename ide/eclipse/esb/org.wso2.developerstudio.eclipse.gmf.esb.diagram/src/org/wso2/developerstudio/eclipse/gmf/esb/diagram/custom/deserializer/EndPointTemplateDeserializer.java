@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.config.xml.endpoints.TemplateEndpointFactory;
 import org.apache.synapse.endpoints.Endpoint;
 import org.eclipse.draw2d.geometry.Point;
@@ -51,9 +52,11 @@ public class EndPointTemplateDeserializer extends AbstractEsbNodeDeserializer<or
 		executeSetValueCommand(TEMPLATE__TEMPLATE_TYPE, TemplateType.ENDPOINT);
 
 		for (String parameter : template.getParameters()) {
-			TemplateParameter templateParameter = EsbFactory.eINSTANCE.createTemplateParameter();
-			templateParameter.setName(parameter);
-			executeAddValueCommand(templateModel.getParameters(), templateParameter);
+			if (parameter != null && !(parameter.equals("name") || parameter.equals("uri"))) {
+				TemplateParameter templateParameter = EsbFactory.eINSTANCE.createTemplateParameter();
+				templateParameter.setName(parameter);
+				executeAddValueCommand(templateModel.getParameters(), templateParameter);
+			}
 		}
 		
 		refreshEditPartMap();
