@@ -23,6 +23,7 @@ import java.util.List;
 
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -181,14 +182,14 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		processName = ((BpelModel)getModel()).getProcessName().trim();
 		namespace = ((BpelModel)getModel()).getProcessNS();
 		
-		File processFile = project.getFile("HelloWorldBPELProcess.bpel").getLocation().toFile();
-		File wsdlfile = project.getFile("HelloWorldBPELProcessArtifacts.wsdl").getLocation().toFile();
-		File deployfile = project.getFile("deploy.xml").getLocation().toFile();
-		File settingsFile = project.getFile("/.settings/org.eclipse.wst.common.component").getLocation().toFile();
+		File processFile = project.getFolder("bpelContent").getFile("HelloWorldBPELProcess.bpel").getLocation().toFile();
+		File wsdlfile = project.getFolder("bpelContent").getFile("HelloWorldBPELProcessArtifacts.wsdl").getLocation().toFile();
+		File deployfile = project.getFolder("bpelContent").getFile("deploy.xml").getLocation().toFile();
+		File settingsFile = project.getFolder("bpelContent").getFile("/.settings/org.eclipse.wst.common.component").getLocation().toFile();
 		
-		File newProcessFile = project.getFile( processName + ".bpel").getLocation().toFile();
-		File newWSDLFile = project.getFile(processName + "Artifacts.wsdl").getLocation().toFile();
-		File newSettingsFile = project.getFile("/.settings/org.eclipse.wst.common.component").getLocation().toFile();
+		File newProcessFile = project.getFolder("bpelContent").getFile( processName + ".bpel").getLocation().toFile();
+		File newWSDLFile = project.getFolder("bpelContent").getFile(processName + "Artifacts.wsdl").getLocation().toFile();
+		File newSettingsFile = project.getFolder("bpelContent").getFile("/.settings/org.eclipse.wst.common.component").getLocation().toFile();
 		
 		String processFileAsString = FileUtils.getContentAsString(processFile);
 		String wsdlFileAsString = FileUtils.getContentAsString(wsdlfile);
@@ -238,11 +239,13 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 
 	public void extractImportFile(IProject importProject) throws IOException {
 		File importFile = getModel().getImportFile();
+		IFolder bpelContent = importProject.getFolder("bpelContent");
+		bpelContent.getLocation().toFile().mkdirs();
 		// IFolder bpelContentFolder =
 		// ProjectUtils.getWorkspaceFolder(importProject, "bpelContent");
 		
 		ArchiveManipulator archiveManupulator = new ArchiveManipulator();
-		archiveManupulator.extract(importFile, importProject.getLocation().toFile());
+		archiveManupulator.extract(importFile, bpelContent.getLocation().toFile());
 	}
 
 	
@@ -271,8 +274,10 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 //			bpelTemplateFile = new BPELTemplateUtils().getResourceFile("templates/bpel-template.zip");
 		}
 		
+		IFolder bpelContent = newProject.getFolder("bpelContent");
+		bpelContent.getLocation().toFile().mkdirs();
 		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
-		archiveManipulator.extract(bpelTemplateFile, newProject.getLocation().toFile());
+		archiveManipulator.extract(bpelTemplateFile, bpelContent.getLocation().toFile());
 		bpelTempTag.clearAndEnd();
 	} 
 
