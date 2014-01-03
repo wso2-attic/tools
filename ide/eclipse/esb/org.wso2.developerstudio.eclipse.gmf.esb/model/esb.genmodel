@@ -116,6 +116,7 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PropertyScope/TRANSPORT"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PropertyScope/AXIS2"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PropertyScope/AXIS2_CLIENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PropertyScope/OPERATION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//PropertyValueType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PropertyValueType/LITERAL"/>

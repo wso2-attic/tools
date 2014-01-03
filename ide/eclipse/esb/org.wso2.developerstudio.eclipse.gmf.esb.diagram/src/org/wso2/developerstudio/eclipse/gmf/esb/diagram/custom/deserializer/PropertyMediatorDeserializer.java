@@ -80,6 +80,8 @@ public class PropertyMediatorDeserializer extends
 			} else if (scope.equals(XMLConfigConstants.SCOPE_TRANSPORT)) {
 				//vishualProp.setPropertyScope(PropertyScope.TRANSPORT);
 				executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.TRANSPORT);
+			} else if (scope.equals(XMLConfigConstants.SCOPE_OPERATION)) {
+				executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.OPERATION);
 			}
 		}
 		// For the remove action
