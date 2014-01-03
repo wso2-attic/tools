@@ -80,6 +80,7 @@ public class RegistryArtifactModel extends ProjectDataModel {
 		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.Address", "templates/");
 		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.default", "templates/");
 		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.wsdl", "templates/");
+		registryPrefix.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.http", "templates/");
 	}
 	
 	public RegistryArtifactModel() {

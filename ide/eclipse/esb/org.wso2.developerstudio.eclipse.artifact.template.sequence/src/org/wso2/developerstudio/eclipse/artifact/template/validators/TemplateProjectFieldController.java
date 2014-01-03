@@ -54,6 +54,7 @@ public class TemplateProjectFieldController extends AbstractFieldController {
        	}
 		boolean isAddressEP ="Address Endpoint Template".equals(templateName);
 		boolean isWSDlEP ="WSDL Endpoint Template".equals(templateName);
+		boolean isHTTPEP = "HTTP Endpoint Template".equals(templateName);
 
 		if (modelProperty.equals("temp.name")) {
 			CommonFieldValidator.validateArtifactName(value);
@@ -121,7 +122,11 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("WSDL port cannot be empty");
 			}	
-		}	
+		} else if (modelProperty.equals("templ.http.ep.uritemplate") && isHTTPEP) {
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("URI Template cannot be empty");
+			} 
+		}
 
 	}
 
@@ -193,6 +198,8 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 		map.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.wsdl", Arrays
 		        .asList(new String[] { "templ.wsdl.ep.uri", "templ.wsdl.ep.service",
 		                              "templ.wsdl.ep.port" }));
+		map.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.http", Arrays
+		        .asList(new String[] { "templ.http.ep.uritemplate", "templ.http.ep.method"}));
 		return map;
 
 	}

@@ -31,6 +31,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
@@ -77,6 +78,9 @@ public class TemplateTransformer extends AbstractEsbNodeTransformer {
 			} else if (child instanceof AddressEndPoint) {
 				AddressEndPointTransformer transformer = new AddressEndPointTransformer();
 				endpoint = transformer.create((AddressEndPoint) child, child.getEndPointName());
+			} else if (child instanceof HTTPEndpoint) {
+				HTTPEndPointTransformer transformer = new HTTPEndPointTransformer();
+				endpoint = transformer.create((HTTPEndpoint) child, child.getEndPointName());
 			}
 			endpointTemplate.setElement(EndpointSerializer.getElementFromEndpoint(endpoint));
 

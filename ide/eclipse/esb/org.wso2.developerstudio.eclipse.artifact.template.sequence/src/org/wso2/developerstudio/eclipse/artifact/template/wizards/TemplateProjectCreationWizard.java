@@ -138,6 +138,8 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				template = createEPTemplate(templateContent,"Default Endpoint Template");
 			}else if (selectedTemplate.getName().equals("Sequence Template")) {
 				template = createEPTemplate(templateContent,"Sequence Template");
+			}else if (selectedTemplate.getName().equals("HTTP Endpoint Template")){
+				template = createEPTemplate(templateContent,"HTTP Endpoint Template");
 			}else {
 				template = createEPTemplate(templateContent, "");
 			}
@@ -181,7 +183,10 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				newContent = StringUtils.replace(newContent,"<wsdl.uri>", templateModel.getWsdlEPURI());
 				newContent = StringUtils.replace(newContent,"<service.name>", templateModel.getWsdlEPService());
 				newContent = StringUtils.replace(newContent,"<service.port>", templateModel.getWsdlEPPort());
-			} 
+			}else if (type.equals("HTTP Endpoint Template")) {
+				newContent = StringUtils.replace(newContent,"<http.uritemplate>", templateModel.getHttpUriTemplate());
+				newContent = StringUtils.replace(newContent,"<http.method>", templateModel.getHttpMethod().name().toLowerCase());
+			}
 		}
         return newContent;
 	}

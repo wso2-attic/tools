@@ -43,6 +43,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
+import org.wso2.developerstudio.eclipse.platform.core.types.HttpMethodType;
 
 public class TemplateModel extends ProjectDataModel {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -57,13 +58,8 @@ public class TemplateModel extends ProjectDataModel {
 	private String wsdlEPURI;
 	private String wsdlEPService;
 	private String wsdlEPPort;
-	public String getSelectedLocalEntryType() {
-		return selectedLocalEntryType;
-	}
-
-	public void setSelectedLocalEntryType(String localEntryType) {
-		this.selectedLocalEntryType = localEntryType;
-	}
+	private String httpUriTemplate;
+	private HttpMethodType httpMethod;
 
 	public Object getModelPropertyValue(String key) {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
@@ -137,6 +133,10 @@ public class TemplateModel extends ProjectDataModel {
 			setWsdlEPService(data.toString());
 		}else if(key.equals("templ.wsdl.ep.port")){
 			setWsdlEPPort(data.toString());
+		}else if (key.equals("templ.http.ep.uritemplate")) {
+			setHttpUriTemplate(data.toString());
+		}else if (key.equals("templ.http.ep.method")) {
+			setHttpMethod((HttpMethodType)data);
 		}
 		return returnResult;
 	}
@@ -276,4 +276,27 @@ public class TemplateModel extends ProjectDataModel {
 		return wsdlEPPort;
 	}
 
+	public String getHttpUriTemplate() {
+		return httpUriTemplate;
+	}
+
+	public void setHttpUriTemplate(String httpUriTemplate) {
+		this.httpUriTemplate = httpUriTemplate;
+	}
+
+	public HttpMethodType getHttpMethod() {
+		return httpMethod;
+	}
+
+	public void setHttpMethod(HttpMethodType httpMethod) {
+		this.httpMethod = httpMethod;
+	}
+	
+	public String getSelectedLocalEntryType() {
+		return selectedLocalEntryType;
+	}
+
+	public void setSelectedLocalEntryType(String localEntryType) {
+		this.selectedLocalEntryType = localEntryType;
+	}
 }

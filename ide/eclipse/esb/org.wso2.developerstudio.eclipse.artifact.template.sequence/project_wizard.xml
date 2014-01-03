@@ -29,6 +29,10 @@
 			<data group="group1" modelProperty="templ.wsdl.ep.service" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateProjectFieldController">Service</data>
 			<data group="group1" modelProperty="templ.wsdl.ep.port" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateProjectFieldController">Port</data>
 			
+			<!-- HTTP EP -->
+			<data group="group1" modelProperty="templ.http.ep.uritemplate" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateProjectFieldController">URI Template</data>
+			<data group="group1" modelProperty="templ.http.ep.method" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateProjectFieldController" controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.template.validators.HttpMethodList">Method</data>
+			
 			
 		   <group id="group1" title="Advance Configuration" controlData="type=collapsible;state=expanded"></group>
 		</settings>

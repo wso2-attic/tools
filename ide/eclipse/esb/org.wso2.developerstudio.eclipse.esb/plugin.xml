@@ -1499,5 +1499,12 @@
              mediaType="application/vnd.wso2.template.endpoint"
              extension="xml">
        </template>
+       <template
+             file="resources/templates/endpoint_templates/http.xml"
+             id="org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.http"
+             name="HTTP Endpoint Template"
+             mediaType="application/vnd.wso2.template.endpoint"
+             extension="xml">
+       </template>
     </extension>
 </plugin>
