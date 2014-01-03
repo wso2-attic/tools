@@ -180,12 +180,38 @@ public class DistProjectEditorPage extends FormPage {
 		parentPrj.setVersion(getVersion());
 		parentPrj.setDescription(getDescription());
 		writeProperties();
-		parentPrj.setDependencies(new ArrayList<Dependency>(getDependencyList().values()));
+		List<Dependency> dependencies = sortDependencies(getDependencyList());
+		parentPrj.setDependencies(dependencies);
 		MavenUtils.saveMavenProject(parentPrj, pomFile);
 		setPageDirty(false);
 		updateDirtyState();
 		pomFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 		
+	}
+
+	private List<Dependency> sortDependencies(Map<String, Dependency> dependencyList) {
+		List<Dependency> dependencies = new ArrayList<Dependency>();
+		List<Dependency> tasks = new ArrayList<Dependency>();
+		List<Dependency> msgStores = new ArrayList<Dependency>();
+		for (Dependency dependency : dependencyList.values()) {
+			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
+			if (artifactInfo.contains(".task_._")) {
+				tasks.add(dependency);
+			} else if (artifactInfo.contains(".message-store_._")) {
+				msgStores.add(dependency);
+			} else {
+				dependencies.add(dependency);
+			}
+		}
+		
+		for (Dependency msgStore : msgStores){
+			dependencies.add(0, msgStore);
+		}
+		
+		for (Dependency task : tasks){
+			dependencies.add(task);
+		}
+		return dependencies;
 	}
 	
 	private void writeProperties(){

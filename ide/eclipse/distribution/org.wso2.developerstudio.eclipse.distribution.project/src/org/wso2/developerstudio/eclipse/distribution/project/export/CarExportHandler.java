@@ -85,7 +85,6 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		ProjectList projectListProvider = new ProjectList();
 		List<ListData> projectListData = projectListProvider.getListData(null, null);
 		Map<String, DependencyData> projectList = new HashMap<String, DependencyData>();
-		Map<String, Dependency> dependencyMap = new HashMap<String, Dependency>();
 		Map<String, String> serverRoleList = new HashMap<String, String>();
 		for (ListData data : projectListData) {
 			DependencyData dependencyData = (DependencyData) data.getData();
@@ -97,20 +96,12 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		parentPrj = MavenUtils.getMavenProject(pomFile);
 
 		for (Dependency dependency : (List<Dependency>) parentPrj.getDependencies()) {
-			dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
-			serverRoleList.put(DistProjectUtils.getArtifactInfoAsString(dependency),
-					DistProjectUtils.getServerRole(parentPrj, dependency));
-		}
-
-		// for(String dependency : dependencyMap.keySet()) {
-		for (Map.Entry<String, Dependency> entry : dependencyMap.entrySet()) {
-			String dependencyKey = entry.getKey();
-			Dependency dependency = entry.getValue();
+			String dependencyKey = DistProjectUtils.getArtifactInfoAsString(dependency);
+			serverRoleList.put(dependencyKey, DistProjectUtils.getServerRole(parentPrj, dependency));
 			if (projectList.containsKey(dependencyKey)) {
 				DependencyData dependencyData = projectList.get(dependencyKey);
 				Object parent = dependencyData.getParent();
 				Object self = dependencyData.getSelf();
-				dependencyMap.get(dependencyKey);
 				String serverRole = serverRoleList.get(DistProjectUtils
 						.getArtifactInfoAsString(dependency));
 				dependencyData.setServerRole(serverRole.replaceAll("^capp/", ""));
@@ -204,10 +195,8 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		artifactElt.addAttribute("name", parentPrj.getModel().getArtifactId(), null);
 		artifactElt.addAttribute("version", parentPrj.getModel().getVersion(), null);
 		artifactElt.addAttribute("type", "carbon/application", null);
-		
-		List<ArtifactData> sortedartifactList = sortArtifactList(artifactList);
 
-		for (ArtifactData artifact : sortedartifactList) {
+		for (ArtifactData artifact : artifactList) {
 			File artifactDir = new File(carResources, getArtifactDir(artifact.getDependencyData()));
 			if (artifact.getResource() instanceof IFolder) {
 				FileUtils.copyDirectory(artifact.getResource().getLocation().toFile(), artifactDir);
@@ -234,18 +223,6 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		TempFileUtils.cleanUp();
 
 		return exportResources;
-	}
-
-	private List<ArtifactData> sortArtifactList(List<ArtifactData> artifactList) {
-		List<ArtifactData> sortedartifactList = new ArrayList<ArtifactData>();
-		for (ArtifactData artifact : artifactList) {
-			if (artifact.getDependencyData().getCApptype().endsWith("message-store")) {
-				sortedartifactList.add(0, artifact);
-			} else {
-				sortedartifactList.add(artifact);
-			}
-		}
-		return sortedartifactList;
 	}
 	
 	private String getFileName(DependencyData dependencyData) {
