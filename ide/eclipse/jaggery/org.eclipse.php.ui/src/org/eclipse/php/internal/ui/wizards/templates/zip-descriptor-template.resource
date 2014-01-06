@@ -25,7 +25,6 @@
 				<exclude>.buildpath</exclude>
 				<exclude>.settings/</exclude>
 				<exclude>zip-descriptor.xml</exclude>
-				<exclude>pom.xml</exclude>
 			</excludes>
 		</fileSet>
 	</fileSets>

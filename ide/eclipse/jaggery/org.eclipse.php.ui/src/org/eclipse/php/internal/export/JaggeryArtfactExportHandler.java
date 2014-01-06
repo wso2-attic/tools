@@ -42,6 +42,7 @@ public class JaggeryArtfactExportHandler extends ProjectArtifactHandler {
 		excludeList.add(".svn");
 		excludeList.add("target");
 		excludeList.add(".settings");
+		excludeList.add("zip-descriptor.xml");
 	}
 
 	public List<IResource> exportArtifact(IProject project) throws Exception {
