@@ -245,7 +245,7 @@ public class EsbPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.EndPoints3Group_title);
 		paletteContainer.setId("createEndPoints3Group"); //$NON-NLS-1$		
 		paletteContainer.add(createAddressEndPoint2CreationTool());
-		paletteContainer.add(createAddressingEndpoint7CreationTool());
+		//paletteContainer.add(createAddressingEndpoint7CreationTool());
 		paletteContainer.add(createDefaultEndPoint1CreationTool());
 		paletteContainer.add(createFailoverEndPoint3CreationTool());
 		paletteContainer.add(createHTTPEndpoint9CreationTool());
