@@ -11,12 +11,14 @@
  *******************************************************************************/
 package org.eclipse.php.internal.ui.wizards;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -35,6 +37,7 @@ import org.eclipse.php.internal.core.project.ProjectOptions;
 import org.eclipse.php.internal.ui.PHPUIMessages;
 import org.eclipse.php.internal.ui.util.PHPPluginImages;
 import org.eclipse.ui.INewWizard;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
 public class PHPProjectCreationWizard extends NewElementWizard implements
 		INewWizard, IExecutableExtension {
@@ -169,8 +172,16 @@ public class PHPProjectCreationWizard extends NewElementWizard implements
 							resourceStream, null);
 					resourceStream = this.getClass().getResourceAsStream(
 							"templates/pom-template.resource");
+
 					addFileToProject(container, new Path("pom.xml"),
 							resourceStream, null);
+					resourceStream = this.getClass().getResourceAsStream(
+							"templates/zip-descriptor-template.resource");
+
+					addFileToProject(container, new Path("zip-descriptor.xml"),
+							resourceStream, null);
+					updatePom(project);
+
 					resourceStream.close();
 				} catch (CoreException e) {
 					// TODO Auto-generated catch block
@@ -192,6 +203,25 @@ public class PHPProjectCreationWizard extends NewElementWizard implements
 		}
 
 		return res;
+	}
+
+	public static void updatePom(IProject project) {
+		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation()
+				.toFile();
+		try {
+			MavenProject mavenProject = MavenUtils
+					.getMavenProject(mavenProjectPomLocation);
+
+			mavenProject.setName(project.getName());
+			mavenProject.setArtifactId(project.getName());
+			mavenProject.setDescription(project.getName());
+			MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
 
 	public static void addNatureToProject(IProject project, boolean addToEnd,
