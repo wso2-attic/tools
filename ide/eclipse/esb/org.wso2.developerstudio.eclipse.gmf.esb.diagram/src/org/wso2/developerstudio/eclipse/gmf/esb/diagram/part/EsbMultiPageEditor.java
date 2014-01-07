@@ -876,4 +876,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		return graphicalEditor;
 	}
 	
+	public void focusToolbar() {
+		graphicalEditor.focusToolBar();
+	}
+	
 }

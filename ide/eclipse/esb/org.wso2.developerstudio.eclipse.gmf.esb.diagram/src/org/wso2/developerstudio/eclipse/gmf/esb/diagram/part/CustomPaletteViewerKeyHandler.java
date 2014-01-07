@@ -205,5 +205,9 @@ public class CustomPaletteViewerKeyHandler extends PaletteViewerKeyHandler {
 			}
 		}
 	}
+	
+	public void resetSerchString() {
+		searchString = "";
+	}
 
 }

@@ -1,5 +1,10 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IWorkspaceRoot;
@@ -11,23 +16,34 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.KeyHandler;
 import org.eclipse.gef.KeyStroke;
+import org.eclipse.gef.internal.ui.palette.editparts.DrawerEditPart;
+import org.eclipse.gef.internal.ui.palette.editparts.ToolEntryEditPart;
+import org.eclipse.gef.palette.PaletteContainer;
+import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteRoot;
+import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gef.ui.palette.PaletteViewer;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
 import org.eclipse.gmf.runtime.diagram.ui.internal.parts.DiagramGraphicalViewerKeyHandler;
 import org.eclipse.gmf.runtime.diagram.ui.internal.parts.DirectEditKeyHandler;
+import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
+import org.eclipse.gmf.runtime.gef.ui.palette.customize.PaletteDrawerState;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -333,6 +349,53 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 
 	protected int getInitialPaletteSize() {
 		return 240;
+	}
+	
+	public void focusToolBar()	{
+		
+		PaletteViewer paletteViewer = getPaletteViewerProvider().getEditDomain().getPaletteViewer();
+		DrawerEditPart mediatorsGroupEditpart = null;
+		ToolEntryEditPart callMediatorToolEntryEditpart = null;
+		Boolean mediatorsGroupFound = false;
+		Boolean callMediatorFound = false;
+		
+		for (Iterator ite = paletteViewer.getEditPartRegistry().values().iterator(); ite.hasNext();) { 
+			
+			Object ep = ite.next(); 
+			if (ep instanceof DrawerEditPart && !mediatorsGroupFound) {
+				
+				mediatorsGroupEditpart = (DrawerEditPart)ep;
+				if  (mediatorsGroupEditpart.getModel() instanceof PaletteDrawer){
+					PaletteDrawer paletteDrawer = (PaletteDrawer) mediatorsGroupEditpart.getModel();
+					if (paletteDrawer.getId().equals("createMediators2Group")) {
+						mediatorsGroupFound = true;
+					} 
+				}
+			} else if (ep instanceof ToolEntryEditPart && !callMediatorFound) {
+				
+				callMediatorToolEntryEditpart = (ToolEntryEditPart)ep;
+				ToolEntry paletteDrawer = (ToolEntry) callMediatorToolEntryEditpart.getModel();
+				//search for call mediator which is the first mediator listed under mediaotrs
+				if (paletteDrawer.getId().equals("createCallMediator45CreationTool")) {
+					callMediatorFound = true;
+				}
+			}
+		} 
+		
+		
+		if (mediatorsGroupFound && !mediatorsGroupEditpart.isExpanded()) {
+			mediatorsGroupEditpart.setExpanded(true);
+		}
+		
+	
+		//paletteViewer.select(dep);
+		//paletteViewer.setFocus(dep);
+		paletteViewer.setActiveTool((ToolEntry)callMediatorToolEntryEditpart.getModel());
+		paletteViewer.getControl().forceFocus();
+		if (paletteViewer.getKeyHandler() instanceof CustomPaletteViewerKeyHandler) {
+			CustomPaletteViewerKeyHandler customKeyHandler = (CustomPaletteViewerKeyHandler)paletteViewer.getKeyHandler();
+			customKeyHandler.resetSerchString();
+		}
 	}
 
 }
