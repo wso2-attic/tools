@@ -355,9 +355,9 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 		
 		PaletteViewer paletteViewer = getPaletteViewerProvider().getEditDomain().getPaletteViewer();
 		DrawerEditPart mediatorsGroupEditpart = null;
-		ToolEntryEditPart callMediatorToolEntryEditpart = null;
+		//ToolEntryEditPart callMediatorToolEntryEditpart = null;
 		Boolean mediatorsGroupFound = false;
-		Boolean callMediatorFound = false;
+		//Boolean callMediatorFound = false;
 		
 		for (Iterator ite = paletteViewer.getEditPartRegistry().values().iterator(); ite.hasNext();) { 
 			
@@ -371,7 +371,7 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 						mediatorsGroupFound = true;
 					} 
 				}
-			} else if (ep instanceof ToolEntryEditPart && !callMediatorFound) {
+			} /*else if (ep instanceof ToolEntryEditPart && !callMediatorFound) {
 				
 				callMediatorToolEntryEditpart = (ToolEntryEditPart)ep;
 				ToolEntry paletteDrawer = (ToolEntry) callMediatorToolEntryEditpart.getModel();
@@ -379,19 +379,20 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 				if (paletteDrawer.getId().equals("createCallMediator45CreationTool")) {
 					callMediatorFound = true;
 				}
-			}
+			}*/
 		} 
+
 		
 		
-		if (mediatorsGroupFound && !mediatorsGroupEditpart.isExpanded()) {
-			mediatorsGroupEditpart.setExpanded(true);
-		}
-		
-	
-		//paletteViewer.select(dep);
-		//paletteViewer.setFocus(dep);
-		if (callMediatorFound) {
-			paletteViewer.setActiveTool((ToolEntry)callMediatorToolEntryEditpart.getModel());
+		if (mediatorsGroupFound) { 	// we only need to enable this shortcut for mediators group
+			
+			if (!mediatorsGroupEditpart.isExpanded()) {
+				mediatorsGroupEditpart.setExpanded(true);
+			}
+			
+			paletteViewer.select(mediatorsGroupEditpart);
+			paletteViewer.setFocus(mediatorsGroupEditpart);
+			//paletteViewer.setActiveTool((ToolEntry)callMediatorToolEntryEditpart.getModel());
 			paletteViewer.getControl().forceFocus();
 			if (paletteViewer.getKeyHandler() instanceof CustomPaletteViewerKeyHandler) {
 				CustomPaletteViewerKeyHandler customKeyHandler = (CustomPaletteViewerKeyHandler)paletteViewer.getKeyHandler();

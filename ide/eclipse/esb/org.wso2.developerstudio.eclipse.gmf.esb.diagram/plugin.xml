@@ -4478,11 +4478,11 @@
       </handler>
    </extension>
    <extension point="org.eclipse.ui.bindings">
-      <!-- ctrl + alt + 7 -->
+      <!-- ctrl + alt + M  This will focus the mediators group on toolbar-->
       <key
             commandId="esbproject.commands.sampleCommand"
             contextId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.ui.diagramContext"
-            sequence="M1+ALT+7"
+            sequence="M1+ALT+M"
             
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
       </key>
