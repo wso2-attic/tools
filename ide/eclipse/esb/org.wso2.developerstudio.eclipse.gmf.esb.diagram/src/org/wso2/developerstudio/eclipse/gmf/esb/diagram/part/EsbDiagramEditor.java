@@ -390,11 +390,13 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 	
 		//paletteViewer.select(dep);
 		//paletteViewer.setFocus(dep);
-		paletteViewer.setActiveTool((ToolEntry)callMediatorToolEntryEditpart.getModel());
-		paletteViewer.getControl().forceFocus();
-		if (paletteViewer.getKeyHandler() instanceof CustomPaletteViewerKeyHandler) {
-			CustomPaletteViewerKeyHandler customKeyHandler = (CustomPaletteViewerKeyHandler)paletteViewer.getKeyHandler();
-			customKeyHandler.resetSerchString();
+		if (callMediatorFound) {
+			paletteViewer.setActiveTool((ToolEntry)callMediatorToolEntryEditpart.getModel());
+			paletteViewer.getControl().forceFocus();
+			if (paletteViewer.getKeyHandler() instanceof CustomPaletteViewerKeyHandler) {
+				CustomPaletteViewerKeyHandler customKeyHandler = (CustomPaletteViewerKeyHandler)paletteViewer.getKeyHandler();
+				customKeyHandler.resetSerchString();
+			}
 		}
 	}
 
