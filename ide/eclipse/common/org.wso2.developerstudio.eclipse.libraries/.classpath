@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.dataservices.core_4.2.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.securevault_4.2.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.service_4.2.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.smooks_4.2.0.jar"/>
