@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-	<extension point="org.eclipse.ui.menus">
+	<!--extension point="org.eclipse.ui.menus">
       <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
      <command
            commandId="org.wso2.developerstudio.eclipse.security"
@@ -12,12 +12,12 @@
                   <instanceof
                      value="org.eclipse.core.resources.IProject">
                   </instanceof>
-                                    <!--and>
+                                    <and>
                   <test
                     property="org.wso2.developerstudio.eclipse.pomgenModuleVisibility"
                     value="org.eclipse.core.resources.IProject">
               </test>                 
-                  </and-->
+                  </and>
                </iterate>
            </with>
         </visibleWhen>
@@ -44,5 +44,5 @@
         class="org.wso2.developerstudio.eclipse.security.ui.handler.ApplyServiceSecurityHandler"
         commandId="org.wso2.developerstudio.eclipse.security">
   		</handler>
- </extension>
+ </extension-->
 </plugin>
