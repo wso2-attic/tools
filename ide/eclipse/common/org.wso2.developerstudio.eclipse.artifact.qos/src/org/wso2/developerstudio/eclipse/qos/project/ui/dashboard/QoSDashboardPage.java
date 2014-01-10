@@ -660,27 +660,31 @@ public class QoSDashboardPage extends FormPage {
 
 	private void readKeyStore() {
 		try{
-		KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-		
-		String filePath = preferenceStore.getString("org.wso2.developerstudio.eclipse.platform.ui",
-				ClientTrustStorePreferencePage.TRUST_STORE_LOCATION,null,null);
-		
-		String passwod = preferenceStore.getString("org.wso2.developerstudio.eclipse.platform.ui",
-				ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD,null,null);
-		
-		keyStore.load(new FileInputStream(new File(filePath)), passwod.toCharArray());
-		
-		String[] split = filePath.split(File.separator);
-	    String alis = null;
-		 Enumeration<String> aliases = keyStore.aliases();
-		  while(aliases.hasMoreElements()){
-			  alis = (String) aliases.nextElement();
-		  break;
-		  }
-		  
-		  keyStoreMap.put(split[split.length-1], alis);
-		  
-		 } catch (Exception e) {
+			KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
+
+			String filePath = preferenceStore.getString("org.wso2.developerstudio.eclipse.platform.ui",
+					ClientTrustStorePreferencePage.TRUST_STORE_LOCATION,null,null);
+
+			String password = preferenceStore.getString("org.wso2.developerstudio.eclipse.platform.ui",
+					ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD,null,null);
+
+			//Fixing TOOLS-2272 - checked filePath and password for null
+			if (filePath != null && password != null) {
+				keyStore.load(new FileInputStream(new File(filePath)),
+						password.toCharArray());
+
+				String[] split = filePath.split(File.separator);
+				String alis = null;
+				Enumeration<String> aliases = keyStore.aliases();
+				while (aliases.hasMoreElements()) {
+					alis = (String) aliases.nextElement();
+					break;
+				}
+
+				keyStoreMap.put(split[split.length - 1], alis);
+			}
+			
+		} catch (Exception e) {
 			log.error("Custom Key-store not found", e);
 		}
 	}
