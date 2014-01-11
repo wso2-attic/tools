@@ -136,15 +136,18 @@ public class QoSDashboardPage extends FormPage {
 
 	private static final String QOS_WIZARD_ID = "org.wso2.developerstudio.eclipse.artifact.newqosproject";
 
-	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private static final String PROJECT_EXPLORER_PARTID = "org.eclipse.ui.navigator.ProjectExplorer";
+	
 	private static final String PACKAGE_EXPLORER_PARTID = "org.eclipse.jdt.ui.PackageExplorer";
-	private ISelectionListener selectionListener = null;
-	private ISelection selection = null;
+	
 	public static String serviceName;
-	//private Map<String, Service> serviceList;
 	public static IProject metaProject;
 	public static String metaFileName;
+	private static IPreferencesService preferenceStore;
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
+
 	private File metaFile;
 	private String policyFileName;
 	private Document doc;
@@ -155,9 +158,11 @@ public class QoSDashboardPage extends FormPage {
 	private Map<String,Object> basicRampartControlMap;
 	private Map<String,String> keyStoreMap;
 	private Map<String,Button> policyeMap;
+	private ISelectionListener selectionListener = null;
+	private ISelection selection = null;
+	private boolean kerberossignandencrypt = true;
 	
-	private static IPreferencesService preferenceStore;
-
+	
 	private Button saveButton;
 
 	private Combo keysCombo;
@@ -784,15 +789,20 @@ public class QoSDashboardPage extends FormPage {
 	 	Element  epolicies= (Element) policies;	
 	 	Node policy = epolicies.getElementsByTagName("policy").item(0);
 	 	Element  epolicy= (Element) policy;	
+	 	Node policyUUID = epolicy.getElementsByTagName("policyUUID").item(0);
+	 	
+	 	kerberossignandencrypt = policyUUID.getTextContent().equals("kerberossignandencrypt");
 		Node nrampart = epolicy.getElementsByTagName("rampart:RampartConfig").item(0);
 		rampart = (Element) nrampart;	
 		
+		if (!kerberossignandencrypt) {
+			Node user = rampart.getElementsByTagName(RAMPART_USER).item(0);
+			configMap.put(RAMPART_USER, user.getTextContent());
+			
+			Node encryptionUser = rampart.getElementsByTagName(RAMPART_ENCRYPTION_USER).item(0);
+			configMap.put(RAMPART_ENCRYPTION_USER, encryptionUser.getTextContent());
+		}
 		
-		Node user = rampart.getElementsByTagName(RAMPART_USER).item(0);
-		configMap.put(RAMPART_USER, user.getTextContent());
-		
-		Node encryptionUser = rampart.getElementsByTagName(RAMPART_ENCRYPTION_USER).item(0);
-		configMap.put(RAMPART_ENCRYPTION_USER, encryptionUser.getTextContent());
 		
 		Node timestampPrecisionInMilliseconds = rampart.getElementsByTagName(RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS).item(0);
 		configMap.put(RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS, timestampPrecisionInMilliseconds.getTextContent());
@@ -806,16 +816,23 @@ public class QoSDashboardPage extends FormPage {
 		Node timestampStrict = rampart.getElementsByTagName(RAMPART_TIMESTAMP_STRICT).item(0);
 		configMap.put(RAMPART_TIMESTAMP_STRICT, timestampStrict.getTextContent());
 		
-		Node tokenStoreClass = rampart.getElementsByTagName(RAMPART_TOKEN_STORE_CLASS).item(0);
-		configMap.put(RAMPART_TOKEN_STORE_CLASS, tokenStoreClass.getTextContent());
+		if (!kerberossignandencrypt) {
+			Node tokenStoreClass = rampart.getElementsByTagName(RAMPART_TOKEN_STORE_CLASS).item(0);
+			configMap.put(RAMPART_TOKEN_STORE_CLASS, tokenStoreClass.getTextContent());
+		}
 		
 		Node nonceLifeTime = rampart.getElementsByTagName(RAMPART_NONCE_LIFE_TIME).item(0);
 		configMap.put(RAMPART_NONCE_LIFE_TIME, nonceLifeTime.getTextContent());
 		
-	    Node encryptionCrypto = rampart.getElementsByTagName("rampart:encryptionCrypto").item(0);
-	    getenCryto(encryptionCrypto);
-	    Node signatureCrypto = rampart.getElementsByTagName("rampart:signatureCrypto").item(0);
-	    getenCryto(signatureCrypto);
+		if (!kerberossignandencrypt) {
+		    Node encryptionCrypto = rampart.getElementsByTagName("rampart:encryptionCrypto").item(0);
+		    getenCryto(encryptionCrypto);
+		    Node signatureCrypto = rampart.getElementsByTagName("rampart:signatureCrypto").item(0);
+		    getenCryto(signatureCrypto);
+		} else {
+			Node kerberosConfig = rampart.getElementsByTagName("rampart:kerberosConfig").item(0);
+			getKerberosConfig(kerberosConfig);
+		}
 
 	}
 
@@ -834,14 +851,29 @@ public class QoSDashboardPage extends FormPage {
 	       }
 	}
 	
+	private void getKerberosConfig(Node kerberosConfig) {
+				
+		NodeList list = ((Element) kerberosConfig).getChildNodes();
+	    
+		for (int i = 0; i < list.getLength(); i++) {
+		 	Node node = list.item(i);
+	 		if("rampart:property".equals(node.getNodeName())){
+	 			 Element eElement = (Element) node;
+					 String attribute = eElement.getAttribute("name");
+					 configMap.put(attribute, eElement.getTextContent());
+	       }
+	    }
+	}
+	
 	private Map<String,String> setRampartConfig() {
 		
-		
-		Node user = rampart.getElementsByTagName(RAMPART_USER).item(0);
-		user.setTextContent(configMap.get(RAMPART_USER));
-		
-		Node encryptionUser = rampart.getElementsByTagName(RAMPART_ENCRYPTION_USER).item(0);
-		encryptionUser.setTextContent(configMap.get(RAMPART_ENCRYPTION_USER));
+		if (!kerberossignandencrypt) {
+			Node user = rampart.getElementsByTagName(RAMPART_USER).item(0);
+			user.setTextContent(configMap.get(RAMPART_USER));
+			
+			Node encryptionUser = rampart.getElementsByTagName(RAMPART_ENCRYPTION_USER).item(0);
+			encryptionUser.setTextContent(configMap.get(RAMPART_ENCRYPTION_USER));
+		}
 		
 		Node timestampPrecisionInMilliseconds = rampart.getElementsByTagName(RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS).item(0);
 		timestampPrecisionInMilliseconds.setTextContent(configMap.get(RAMPART_TIMESTAMP_PRECISION_IN_MILLISECONDS));
@@ -855,17 +887,24 @@ public class QoSDashboardPage extends FormPage {
 		Node timestampStrict = rampart.getElementsByTagName(RAMPART_TIMESTAMP_STRICT).item(0);
 		timestampStrict.setTextContent(configMap.get(RAMPART_TIMESTAMP_STRICT));
 		
-		Node tokenStoreClass = rampart.getElementsByTagName(RAMPART_TOKEN_STORE_CLASS).item(0);
-		tokenStoreClass.setTextContent(configMap.get(RAMPART_TOKEN_STORE_CLASS));
+		if (!kerberossignandencrypt) {
+			Node tokenStoreClass = rampart.getElementsByTagName(RAMPART_TOKEN_STORE_CLASS).item(0);
+			tokenStoreClass.setTextContent(configMap.get(RAMPART_TOKEN_STORE_CLASS));
+		}
 		
 		Node nonceLifeTime = rampart.getElementsByTagName(RAMPART_NONCE_LIFE_TIME).item(0);
 		nonceLifeTime.setTextContent(configMap.get(RAMPART_NONCE_LIFE_TIME));
 
-	    Node encryptionCrypto = rampart.getElementsByTagName("rampart:encryptionCrypto").item(0);
-	    setenCryto(encryptionCrypto);
-	    
-	    Node signatureCrypto = rampart.getElementsByTagName("rampart:signatureCrypto").item(0);
-	    setenCryto(signatureCrypto);
+		if (!kerberossignandencrypt) {
+		    Node encryptionCrypto = rampart.getElementsByTagName("rampart:encryptionCrypto").item(0);
+		    setenCryto(encryptionCrypto);
+		    
+		    Node signatureCrypto = rampart.getElementsByTagName("rampart:signatureCrypto").item(0);
+		    setenCryto(signatureCrypto);
+		} else {
+			Node kerberosConfig = rampart.getElementsByTagName("rampart:kerberosConfig").item(0);
+			setKerberosConfig(kerberosConfig);
+		}
 	    
 		return configMap;
 	}
@@ -874,6 +913,21 @@ public class QoSDashboardPage extends FormPage {
 		Node encrypto = ((Element) encryptionCrypto).getElementsByTagName("rampart:crypto").item(0);
     
 		NodeList list = ((Element) encrypto).getChildNodes();
+    
+		for (int i = 0; i < list.getLength(); i++) {
+ 		   Node node = list.item(i);
+ 		  if("rampart:property".equals(node.getNodeName())){
+ 			 Element eElement = (Element) node;
+				 String attribute = eElement.getAttribute("name");
+				 node.setTextContent(configMap.get(attribute));
+ 		  }
+       }
+	}
+	
+		
+	private void setKerberosConfig(Node kerberosConfig) {
+		
+		NodeList list = ((Element) kerberosConfig).getChildNodes();
     
 		for (int i = 0; i < list.getLength(); i++) {
  		   Node node = list.item(i);
