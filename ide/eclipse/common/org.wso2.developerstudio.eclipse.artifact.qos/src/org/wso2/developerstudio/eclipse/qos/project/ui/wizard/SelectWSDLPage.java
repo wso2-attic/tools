@@ -88,7 +88,7 @@ public class SelectWSDLPage extends WizardPage {
 		setTitle(pageName);
 		this.model = model;
 	}
-
+	
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 		setControl(container);
@@ -359,7 +359,10 @@ public class SelectWSDLPage extends WizardPage {
 						&& txtOnlineWSDLUri.getText() != null && !txtOnlineWSDLUri
 						.getText().equals(""))) {
 			setPageComplete(true);
+		} else {
+			setPageComplete(false);
 		}
 	}
 
+	
 }
