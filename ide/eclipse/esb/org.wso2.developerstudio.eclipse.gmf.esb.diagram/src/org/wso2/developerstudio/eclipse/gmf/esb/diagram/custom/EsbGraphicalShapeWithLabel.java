@@ -50,7 +50,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		layoutThis.makeColumnsEqualWidth = true;
 		layoutThis.horizontalSpacing = 0;
 		layoutThis.verticalSpacing = -5;
-		layoutThis.marginHeight = 2;
+		layoutThis.marginHeight = 3;
 		layoutThis.marginWidth = 0;
 
 		this.setLayoutManager(layoutThis);
