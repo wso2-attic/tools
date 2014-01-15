@@ -62,6 +62,7 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 					   project.hasNature(Constants.GENERAL_PROJECT_NATURE) ||
 					   project.hasNature(Constants.CARBON_UI_PROJECT_NATURE) ||
 					   project.hasNature(Constants.JAVA_PROJECT_NATURE) ||
+					   project.hasNature(Constants.JAGGERY_NATURE) ||
 					   project.hasNature(Constants.DISTRIBUTION_PROJECT_NATURE)){
 						 
 					  ListData data = new ListData(project.getName(), project);

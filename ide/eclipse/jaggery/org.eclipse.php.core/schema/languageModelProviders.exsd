@@ -6,7 +6,7 @@
          <meta.schema plugin="org.eclipse.php.core" id="languageModelProviders" name="PHP Language Model Provider"/>
       </appInfo>
       <documentation>
-         This extension point allows to extend PHP Language Library with additional file stubs.
+         This extension point allows to extend Jaggery Language Library with additional file stubs.
       </documentation>
    </annotation>
 

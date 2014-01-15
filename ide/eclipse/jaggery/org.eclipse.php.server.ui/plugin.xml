@@ -93,12 +93,12 @@
 		</wizardAndCompositeFragment>
 	</extension>
 	
-	<extension point="org.eclipse.ui.preferencePages">
+	<!--extension point="org.eclipse.ui.preferencePages">
 		<page category="org.eclipse.php.ui.preferences.PHPBasePreferencePage"
 			class="org.eclipse.php.internal.server.ui.PHPServersPreferencePage"
 			id="org.eclipse.php.server.internal.ui.PHPServersPreferencePage"
 			name="%serversPreferencesPageName" />
-	</extension>
+	</extension-->
 	
 	<extension point="org.eclipse.php.debug.ui.debugServerConnectionTest">
 		<debugServerTest

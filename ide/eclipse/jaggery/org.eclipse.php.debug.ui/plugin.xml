@@ -429,18 +429,18 @@
 			<keywordReference id="org.eclipse.php.debug.ui.workbench">
 			</keywordReference>
 		</page>
-		<page name="%installPHPPageName" category="org.eclipse.php.ui.preferences.PHPBasePreferencePage"
+		<!--page name="%installPHPPageName" category="org.eclipse.php.ui.preferences.PHPBasePreferencePage"
 			class="org.eclipse.php.internal.debug.ui.preferences.phps.PHPsPreferencePage"
 			id="org.eclipse.php.debug.ui.preferencesphps.PHPsPreferencePage">
 			<keywordReference id="org.eclipse.php.debug.ui.phpExecutables" />
-		</page>
-		<page
+		</page-->
+		<!--page
             category="org.eclipse.php.debug.ui.preferencesphps.PHPsPreferencePage"
             class="org.eclipse.php.internal.debug.ui.preferences.phps.PHPInterpreterExecutionPreferencePage"
             id="org.eclipse.php.debug.ui.preferencesphps.PHPExecutionPreferencePreferencePage"
             name="%executionEnvironmentsPageName">
             <keywordReference id="org.eclipse.php.debug.ui.phpInterpreterExecution" />
-      </page>
+      </page-->
 		<page category="org.eclipse.php.debug.ui.preferences.PhpDebugPreferencePage"
 			class="org.eclipse.php.internal.debug.ui.preferences.stepFilter.PHPDebugStepFilterPreferencePage"
 			id="org.eclipse.php.internal.debug.ui.preferences.stepFilter.PHPDebugStepFilterPreferencePage"

@@ -132,8 +132,14 @@ public class GlobalTypesStrategy extends GlobalElementStrategy {
 							&& !type.getTypeQualifiedName().equals("response")
 							&& !type.getTypeQualifiedName().equals(
 									"application")) {
-						reporter.reportType(type, isNamespace ? nsSuffix
-								: suffix, replacementRange, extraInfo);
+						if (abstractContext.getStatementText().toString()
+								.contains("new")
+								|| abstractContext.getStatementText()
+										.toString().contains("require")) {
+							reporter.reportType(type, isNamespace ? nsSuffix
+									: suffix, replacementRange, extraInfo);
+						}
+
 					}
 
 				}

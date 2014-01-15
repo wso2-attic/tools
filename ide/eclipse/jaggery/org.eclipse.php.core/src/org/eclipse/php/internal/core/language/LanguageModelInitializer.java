@@ -28,7 +28,7 @@ import org.eclipse.php.internal.core.util.project.observer.ProjectRemovedObserve
 
 public class LanguageModelInitializer extends BuildpathContainerInitializer {
 
-	public static final String PHP_LANGUAGE_LIBRARY = "PHP Language Library"; //$NON-NLS-1$
+	public static final String PHP_LANGUAGE_LIBRARY = "Jaggery Language Library"; //$NON-NLS-1$
 
 	/**
 	 * Path of the language model for php projects

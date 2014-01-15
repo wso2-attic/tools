@@ -56,6 +56,7 @@ public final class ArtifactTypeMapping {
 		type.put("lib/synapse/mediator","jar");
 		type.put("service/rule", "aar");
 		type.put("service/meta","xml");
+		type.put("jaggery/app", "zip");
 		
 		subType.put("jar","jar");
 		subType.put("bundle","jar");

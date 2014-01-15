@@ -125,6 +125,6 @@ public class LocalMethodVariablesStrategy extends GlobalElementStrategy {
 		} catch (BadLocationException e) {
 			PHPCorePlugin.log(e);
 		}
-		return "->".equals(nextWord) ? "" : "->"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return ".".equals(nextWord) ? "" : "->"; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
 }
