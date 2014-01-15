@@ -91,6 +91,7 @@ public class ConfigureMessageProcessorParametersDialog extends Dialog {
 	public ConfigureMessageProcessorParametersDialog(Shell parentShell,
 			MessageProcessor messageProcessor) {
 		super(parentShell);
+		setShellStyle(getShellStyle() | SWT.RESIZE); 
 		this.messageProcessor = messageProcessor;
 		this.editingDomain = TransactionUtil.getEditingDomain(messageProcessor);
 	}

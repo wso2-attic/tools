@@ -83,7 +83,20 @@ public class MessageStoreTransformer {
 			parameters.put("store.jms.ConsumerReceiveTimeOut",
 					((Long) model.getTimeout()).toString());
 
+			/*
+			 * Any additional parameters not listed above will handle here
+			 * Fixing TOOLS-2286
+			 */
+			EList<MessageStoreParameter> additionalParameters = model.getParameters();
+			for (MessageStoreParameter additionalParameter : additionalParameters) {
+				if (!StringUtils.isBlank(additionalParameter.getParameterName())
+						&& !StringUtils.isBlank(additionalParameter.getParameterValue())) {
+					parameters.put(additionalParameter.getParameterName(),
+							additionalParameter.getParameterValue());
+				}
+			}
 		}
+		
 		messageStore.setParameters(parameters);
 
 		OMElement messageStoreElement = MessageStoreSerializer.serializeMessageStore(null,

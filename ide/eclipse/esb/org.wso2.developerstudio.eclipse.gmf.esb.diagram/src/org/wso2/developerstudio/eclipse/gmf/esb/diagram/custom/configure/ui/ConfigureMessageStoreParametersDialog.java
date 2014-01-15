@@ -95,6 +95,7 @@ public class ConfigureMessageStoreParametersDialog extends Dialog {
 	
 	public ConfigureMessageStoreParametersDialog(Shell parentShell, MessageStore store) {
 		super(parentShell);
+		setShellStyle(getShellStyle() | SWT.RESIZE); 
 		this.store = store;
 		this.editingDomain = TransactionUtil.getEditingDomain(store);
 	}
