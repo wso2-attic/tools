@@ -189,7 +189,7 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		
 		File newProcessFile = project.getFolder("bpelContent").getFile( processName + ".bpel").getLocation().toFile();
 		File newWSDLFile = project.getFolder("bpelContent").getFile(processName + "Artifacts.wsdl").getLocation().toFile();
-		File newSettingsFile = project.getFolder("bpelContent").getFile("/.settings/org.eclipse.wst.common.component").getLocation().toFile();
+		File newSettingsFile = project.getFile("/.settings/org.eclipse.wst.common.component").getLocation().toFile();
 		
 		String processFileAsString = FileUtils.getContentAsString(processFile);
 		String wsdlFileAsString = FileUtils.getContentAsString(wsdlfile);
