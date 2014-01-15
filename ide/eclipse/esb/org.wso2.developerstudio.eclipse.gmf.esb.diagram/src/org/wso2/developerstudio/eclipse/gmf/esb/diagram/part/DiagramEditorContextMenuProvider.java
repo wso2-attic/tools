@@ -117,9 +117,9 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 	private IWorkbenchPart part;
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
-	//private DeleteElementAction deleteAction;
+	private DeleteElementAction deleteAction;
 
 	/**
 	 * Model export action.
@@ -142,8 +142,8 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 		super(part, viewer);
 		this.part = part;
 
-		/*deleteAction = new DeleteElementAction(part);
-		deleteAction.init();*/
+		deleteAction = new DeleteElementAction(part);
+		deleteAction.init();
 		exportAction = new EsbModelExportAction(part);
 		exportAction.init();
 
@@ -274,11 +274,10 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 	 * @generated NOT
 	 */
 	public void dispose() {
-		// Fixing TOOLS-2207
-		/*if (deleteAction != null) {
+		if (deleteAction != null) {
 			deleteAction.dispose();
 			deleteAction = null;
-		}*/
+		}
 
 		if (null != exportAction) {
 			exportAction.dispose();
@@ -317,8 +316,7 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 							// Remove Format menu item. 
 							menu.remove(ActionIds.MENU_FORMAT);
 
-							// Fixing TOOLS-2207
-							//menu.appendToGroup("editGroup", deleteAction);
+							menu.appendToGroup("editGroup", deleteAction);
 							menu.remove(EsbModelExportAction.ACTION_ID);
 							//menu.appendToGroup("editGroup", exportAction);
 
