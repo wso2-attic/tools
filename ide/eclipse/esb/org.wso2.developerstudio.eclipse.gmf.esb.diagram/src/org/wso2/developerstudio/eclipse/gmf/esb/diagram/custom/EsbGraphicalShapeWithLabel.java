@@ -49,14 +49,13 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		layoutThis.numColumns = 1;
 		layoutThis.makeColumnsEqualWidth = true;
 		layoutThis.horizontalSpacing = 0;
-		layoutThis.verticalSpacing = 0;
-		layoutThis.marginHeight = 4;
+		layoutThis.verticalSpacing = -5;
+		layoutThis.marginHeight = 2;
 		layoutThis.marginWidth = 0;
 
 		this.setLayoutManager(layoutThis);
 		this.setCornerDimensions(new Dimension(8, 8));
 		this.setOutline(false);
-		//this.setPreferredSize(new Dimension(Figure_PreferredWidth, Figure_PreferredHeight));
 
 		RoundedRectangleBorder border = new RoundedRectangleBorder(8, 8);
         border.setColor(EditPartDrawingHelper.FigureNormalColor);
@@ -87,8 +86,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		RoundedRectangle propertyValueRectangle1 = new RoundedRectangle();
 		propertyValueRectangle1.setCornerDimensions(new Dimension(0, 0));
 		propertyValueRectangle1.setOutline(false);
-		//propertyValueRectangle1.setPreferredSize(new Dimension(Figure_PreferredWidth, 25));
-
+	
 		GridData constraintPropertyValueRectangle = new GridData();
 		constraintPropertyValueRectangle.verticalAlignment = GridData.FILL;
 		constraintPropertyValueRectangle.horizontalAlignment = GridData.FILL;
@@ -97,7 +95,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		constraintPropertyValueRectangle.verticalSpan = 1;
 		constraintPropertyValueRectangle.grabExcessHorizontalSpace = true;
 		constraintPropertyValueRectangle.grabExcessVerticalSpace = true;
-
+		
 		propertyValueRectangle1.setLayoutManager(new StackLayout());
 
 		// Label to display description.
@@ -107,7 +105,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		propertyNameLabel.setFont(new Font(null, new FontData("Courier", 8, SWT.NONE)));
 		propertyNameLabel.setAlignment(SWT.CENTER);
 		propertyNameLabel.setPreferredSize(new Dimension(FixedSizedAbstractMediator.maxFigureWidth, 20));
-
+		
 		propertyValueRectangle1.add(propertyNameLabel);
 		this.add(propertyValueRectangle1, constraintPropertyValueRectangle);
 		tempPropertyValueRectangle1=propertyValueRectangle1;
