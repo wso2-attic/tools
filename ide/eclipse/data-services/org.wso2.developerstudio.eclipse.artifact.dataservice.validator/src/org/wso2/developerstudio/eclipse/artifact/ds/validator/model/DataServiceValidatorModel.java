@@ -74,6 +74,12 @@ public class DataServiceValidatorModel extends ProjectDataModel {
 
 	public void setValidatorProject(IProject validatorProject) {
 		this.validatorProject = validatorProject;
+		try {
+			if (validatorProject != null)
+			this.setProjectName(validatorProject.getName());
+		} catch (ObserverFailedException e) {
+			//ignore.
+		}
 	}
 
 	public IProject getValidatorProject() {
