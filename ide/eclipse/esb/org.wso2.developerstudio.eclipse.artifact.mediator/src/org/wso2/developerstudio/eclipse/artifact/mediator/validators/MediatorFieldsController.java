@@ -1,5 +1,7 @@
 package org.wso2.developerstudio.eclipse.artifact.mediator.validators;
 
+import java.util.List;
+
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
@@ -25,5 +27,16 @@ public class MediatorFieldsController extends AbstractFieldController {
 				throw new FieldValidationException("No vaild projets available in workspace");
 			}
 		}
+	}
+	
+	@Override
+	public List<String> getUpdateFields(String modelProperty, ProjectDataModel model) {
+		List<String> updateFields = super.getUpdateFields(modelProperty, model);
+		
+		if (modelProperty.equals("import.project.list")) {
+			updateFields.add("project.name");
+		}
+		
+		return updateFields;
 	}
 }

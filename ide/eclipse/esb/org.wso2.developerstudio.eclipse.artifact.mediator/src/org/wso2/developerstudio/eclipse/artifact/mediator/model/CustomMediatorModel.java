@@ -74,6 +74,12 @@ public class CustomMediatorModel extends ProjectDataModel {
 
 	public void setMediatorProject(IProject mediatorProject) {
 		this.mediatorProject = mediatorProject;
+		try {
+			if (mediatorProject != null)
+			this.setProjectName(mediatorProject.getName());
+		} catch (ObserverFailedException e) {
+			//ignore.
+		}
 	}
 
 	public IProject getMediatorProject() {
