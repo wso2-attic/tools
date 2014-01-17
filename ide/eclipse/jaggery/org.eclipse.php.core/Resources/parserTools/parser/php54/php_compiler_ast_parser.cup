@@ -550,6 +550,12 @@ unticked_statement:statement
 {: 
 	RESULT = statement; 
 :}
+| error:theError /* error statement */
+{:
+	parser.reportError();
+	ASTError error = new ASTError(theErrorleft, theErrorright);
+	RESULT = error;	
+:}
 ;
 
 unticked_statement ::=

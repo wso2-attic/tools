@@ -235,24 +235,24 @@ public class LineStyleProviderForPhp extends AbstractLineStyleProvider
 		fColorTypes.put(PHPRegionTypes.PHP_OAUTHPROVIDER,
 				PreferenceConstants.EDITOR_CLASS_COLOR);
 
-		fColorTypes.put(PHPRegionTypes.PHP_POST,
-				PreferenceConstants.EDITOR_CLASS_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_GET,
-				PreferenceConstants.EDITOR_CLASS_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_PUT,
-				PreferenceConstants.EDITOR_CLASS_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_DEL,
-				PreferenceConstants.EDITOR_CLASS_COLOR);
+		// fColorTypes.put(PHPRegionTypes.PHP_POST,
+		// PreferenceConstants.EDITOR_CLASS_COLOR);
+		// fColorTypes.put(PHPRegionTypes.PHP_GET,
+		// PreferenceConstants.EDITOR_CLASS_COLOR);
+		// fColorTypes.put(PHPRegionTypes.PHP_PUT,
+		// PreferenceConstants.EDITOR_CLASS_COLOR);
+		// fColorTypes.put(PHPRegionTypes.PHP_DEL,
+		// PreferenceConstants.EDITOR_CLASS_COLOR);
 		fColorTypes.put(PHPRegionTypes.PHP_INCLUDE,
 				PreferenceConstants.EDITOR_CLASS_COLOR);
 		fColorTypes.put(PHPRegionTypes.PHP_INCLUDE_ONCE,
 				PreferenceConstants.EDITOR_CLASS_COLOR);
 		fColorTypes.put(PHPRegionTypes.PHP_REQUIRE,
 				PreferenceConstants.EDITOR_CLASS_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_PARSE,
-				PreferenceConstants.EDITOR_CLASS_COLOR);
-		fColorTypes.put(PHPRegionTypes.PHP_STRINGIFY,
-				PreferenceConstants.EDITOR_CLASS_COLOR);
+		// fColorTypes.put(PHPRegionTypes.PHP_PARSE,
+		// PreferenceConstants.EDITOR_CLASS_COLOR);
+		// fColorTypes.put(PHPRegionTypes.PHP_STRINGIFY,
+		// PreferenceConstants.EDITOR_CLASS_COLOR);
 
 		// Variables
 		fColorTypes.put(PHPRegionTypes.PHP_VARIABLE,
