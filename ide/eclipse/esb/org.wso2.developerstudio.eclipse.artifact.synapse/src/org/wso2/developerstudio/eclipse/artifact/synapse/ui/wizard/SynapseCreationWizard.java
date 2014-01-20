@@ -110,14 +110,16 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			ESBProjectUtils.updatePom(esbProject);
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();
-			if (!fileList.isEmpty()) {
-	            if (MessageDialog.openQuestion(getShell(), "Open file(s) in the Editor",
-	                                           "Do you like to open the file(s) in Developer Studio?")) {
-		            for (File file : fileList.keySet()) {
-			            openEditor(file);
-		            }
-	            }
-            }
+//			if (!fileList.isEmpty()) {
+//					
+//	            if (MessageDialog.openQuestion(getShell(), "Open file(s) in the Editor",
+//	                                           "Do you like to open the file(s) in Developer Studio?")) {
+//		            for (File file : fileList.keySet()) {
+//			          openEditor(file);
+//		          }
+//	           }
+//           }
+			
 		} catch (Exception e) {
 			log.error(e);
 		}
