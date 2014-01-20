@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -56,31 +57,35 @@ public class MessageProcessorMesageStorePropertyDescriptor extends DevSProjectAr
 		final Shell shell=(Shell)parent.getShell();
 		final IEditorPart editor=(IEditorPart) ((WorkbenchWindow)shell.getDisplay().getActiveShell().getData()).getActivePage().getActiveEditor();
 		if (editor != null) {
-			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
-			IFile file = input.getFile();
-			IProject activeProject = file.getProject();
-			//FIXME: scan whole workspace
-			try {
-				if (activeProject.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
-					ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
-					projectPath = activeProject.getLocation().toFile();
-					try {
-						esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml").getLocation().toFile());
-						List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
-						for (ESBArtifact esbArtifact : allESBArtifacts) {
-						if (synapseArtifcatCategory.equals(esbArtifact.getType())) {
-								File artifact = new File(projectPath, esbArtifact.getFile());
-								availableList.add(artifact.getName().replaceAll("[.]xml$", ""));
+			//IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
+			//IFile file = input.getFile();
+			//IProject workspaceProject = file.getProject();
+						
+			//Fixing TOOLS-2322
+			IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+			for (IProject workspaceProject : projects) {			
+				try {
+					if (workspaceProject.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
+						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						projectPath = workspaceProject.getLocation().toFile();
+						try {
+							esbProjectArtifact.fromFile(workspaceProject.getFile("artifact.xml").getLocation().toFile());
+							List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
+							for (ESBArtifact esbArtifact : allESBArtifacts) {
+							if (synapseArtifcatCategory.equals(esbArtifact.getType())) {
+									File artifact = new File(projectPath, esbArtifact.getFile());
+									availableList.add(artifact.getName().replaceAll("[.]xml$", ""));
+								}
 							}
+						} catch (Exception e) {
+							log.error("Error occured while scanning the project for " + synapseArtifcatCategory + " artifacts", e);
+							ErrorDialog.openError(shell,"Error occured while scanning the project for " + synapseArtifcatCategory + " artifacts", e.getMessage(), null);
 						}
-					} catch (Exception e) {
-						log.error("Error occured while scanning the project for " + synapseArtifcatCategory + " artifacts", e);
-						ErrorDialog.openError(shell,"Error occured while scanning the project for " + synapseArtifcatCategory + " artifacts", e.getMessage(), null);
 					}
+				} catch (CoreException e) {
+					log.error("Error occured while scanning the project", e);
+					ErrorDialog.openError(shell, "Error occured while scanning the project", e.getMessage(), null);
 				}
-			} catch (CoreException e) {
-				log.error("Error occured while scanning the project", e);
-				ErrorDialog.openError(shell, "Error occured while scanning the project", e.getMessage(), null);
 			}
 		}
 		return availableList;
