@@ -109,9 +109,15 @@ AbstractEsbNodeDeserializer<MessageProcessor, org.wso2.developerstudio.eclipse.g
 					}
 					if (parameters.containsKey("max.delivery.attempts")) {
 						Object value = parameters.get("max.delivery.attempts");
-						if (value != null && StringUtils.isNumeric(value.toString())) {
-							executeSetValueCommand(MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS,
-									new Integer(value.toString()));
+						if (value != null) {
+							try {
+								executeSetValueCommand(MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS,
+										new Integer(value.toString()));
+							} catch(NumberFormatException e) {
+								//set default value -1
+								executeSetValueCommand(MESSAGE_PROCESSOR__MAX_DELIVERY_ATTEMPTS, -1);
+							}
+							
 						}
 					}
 					if (parameters.containsKey("axis2.repo")) {
