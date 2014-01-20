@@ -46,7 +46,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class LoadBalanceEndPoint2EditPart extends AbstractEndpoint2 {
+public class LoadBalanceEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 
 	/**
 	 * @generated
