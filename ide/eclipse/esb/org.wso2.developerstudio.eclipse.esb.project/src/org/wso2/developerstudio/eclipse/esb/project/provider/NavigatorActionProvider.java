@@ -306,6 +306,8 @@ public class NavigatorActionProvider extends CommonActionProvider {
 										return new String[] {"template.endpoint-1",TEMPLATE };
 									} else if ("wsdl".equals(endpointChildNodes.item(k).getNodeName())) {
 										return new String[] {"template.endpoint-2",TEMPLATE };
+									} else if ("http".equals(endpointChildNodes.item(k).getNodeName())) {
+										return new String[] {"template.endpoint-3",TEMPLATE };
 									}
 								}
 							}

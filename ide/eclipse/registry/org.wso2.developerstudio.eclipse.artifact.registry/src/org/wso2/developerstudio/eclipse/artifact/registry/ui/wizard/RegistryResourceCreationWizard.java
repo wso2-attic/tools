@@ -286,7 +286,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			newContent = newContent.replaceAll("<1>", "");
 		} else if(type.equals(RegistryArtifactConstants.DEFAULT_EP_TEMPL_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName()); 
-		} else if(type.equals(RegistryArtifactConstants.DEFAULT_EP_TEMPL_ID)){
+		} else if(type.equals(RegistryArtifactConstants.DEFAULT_EP_TEMPLATE_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
 		} else if(type.equals(RegistryArtifactConstants.ADDRESS_EP_TEMPL_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
@@ -299,11 +299,20 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	    	newContent = newContent.replaceAll("<wsdl.uri>", "http://localhost:9000/services/SimpleStockQuoteService?wsdl");
 			newContent = newContent.replaceAll("<service.name>", "SimpleStockQuoteService");
 			newContent = newContent.replaceAll("<service.port>", "SimpleStockQuoteServiceHttpSoap11Endpoint");
+		} else if(type.equals(RegistryArtifactConstants.WSDL_EP_TEMPLATE_ID)){
+	    	newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName()); 
+	    	newContent = newContent.replaceAll("<wsdl.uri>", "http://localhost:9000/services/SimpleStockQuoteService?wsdl");
+			newContent = newContent.replaceAll("<service.name>", "SimpleStockQuoteService");
+			newContent = newContent.replaceAll("<service.port>", "SimpleStockQuoteServiceHttpSoap11Endpoint");
 		} else if(type.equals(RegistryArtifactConstants.FAIL_OVER_ENDPOINT_TEMPL_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());		
 		} else if(type.equals(RegistryArtifactConstants.LB_ENDPOINT_TEMPL_ID)){
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());		
 		} else if (type.equals(RegistryArtifactConstants.HTTP_EP_TEMPL_ID)) {
+			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
+			newContent = newContent.replaceAll("<http.uritemplate>", "https://localhost");
+			newContent = newContent.replaceAll("<http.method>", "get");
+		} else if (type.equals(RegistryArtifactConstants.HTTP_EP_TEMPLATE_ID)) {
 			newContent = newContent.replaceAll("<ep.name>", regModel.getResourceName());
 			newContent = newContent.replaceAll("<http.uritemplate>", "https://localhost");
 			newContent = newContent.replaceAll("<http.method>", "get");

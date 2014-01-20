@@ -49,6 +49,9 @@ public class RegistryArtifactConstants extends NLS {
 	public static  String DEFAULT_EP_TEMPL_ID;
 	public static  String ADDRESS_EP_TEMPL_ID;
 	public static  String ADDRESS_EP_TEMPLATE_ID ;
+	public static  String DEFAULT_EP_TEMPLATE_ID;
+	public static  String WSDL_EP_TEMPLATE_ID;
+	public static  String HTTP_EP_TEMPLATE_ID;
 	public static  String WSDL_EP_TEMPL_ID;
 	public static  String FAIL_OVER_ENDPOINT_TEMPL_ID;
 	public static  String LB_ENDPOINT_TEMPL_ID;
