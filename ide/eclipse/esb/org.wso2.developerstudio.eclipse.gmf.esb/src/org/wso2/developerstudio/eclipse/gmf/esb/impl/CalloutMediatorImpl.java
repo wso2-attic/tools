@@ -459,8 +459,8 @@ public class CalloutMediatorImpl extends MediatorImpl implements CalloutMediator
 				.createRegistryKeyProperty();
 		endpointKey.setPrettyName("endpoint Key");
 		endpointKey.setKeyName("key");
-		endpointKey.setKeyValue(DEFAULT_REGISTRY_KEY);
-		//setAddressEndpoint(endpointKey);	//purposely commented since we do not want to default values to be serialized
+		endpointKey.setKeyValue("");
+		setAddressEndpoint(endpointKey);	
 		
 	}
 

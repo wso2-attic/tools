@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -57,14 +58,13 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 		setCommonProperties(calloutMediator, visualCallout);
 		{
 			
-			if(visualCallout.getEndpointType().getValue()==CalloutEndpointType.URL_VALUE){
+			if (visualCallout.getEndpointType().getValue() == CalloutEndpointType.URL_VALUE) {
 				if (!visualCallout.getServiceURL().isEmpty()) {
 					calloutMediator.setServiceURL(visualCallout.getServiceURL());
 				}
-			}else{
-				if (visualCallout.getAddressEndpoint() != null && !visualCallout.getAddressEndpoint().getKeyValue().isEmpty()){
-					calloutMediator.setEndpointKey(visualCallout.getAddressEndpoint().getKeyValue());
-				}
+			} else if (visualCallout.getAddressEndpoint() != null
+					&& StringUtils.isNotBlank(visualCallout.getAddressEndpoint().getKeyValue())) {
+				calloutMediator.setEndpointKey(visualCallout.getAddressEndpoint().getKeyValue());
 			}
 			
 			if (visualCallout.getSoapAction()!=null && !visualCallout.getSoapAction().isEmpty()) {

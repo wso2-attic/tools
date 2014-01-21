@@ -1,5 +1,6 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -26,13 +27,13 @@ public class CalloutMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		setCommonProperties(calloutMediator, visualCalloutMediator);
 		
 		if(calloutMediator.getServiceURL()!=null){
-		executeSetValueCommand(CALLOUT_MEDIATOR__SERVICE_URL, calloutMediator.getServiceURL());
-		executeSetValueCommand(CALLOUT_MEDIATOR__ENDPOINT_TYPE, CalloutEndpointType.URL);
-		}else {
-			  RegistryKeyProperty keyProperty=EsbFactory.eINSTANCE.createRegistryKeyProperty();
-			  keyProperty.setKeyValue(calloutMediator.getEndpointKey());
-	          executeSetValueCommand(CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, keyProperty);
-	          executeSetValueCommand(CALLOUT_MEDIATOR__ENDPOINT_TYPE, CalloutEndpointType.ADDRESS_ENDPOINT);
+			executeSetValueCommand(CALLOUT_MEDIATOR__SERVICE_URL, calloutMediator.getServiceURL());
+			executeSetValueCommand(CALLOUT_MEDIATOR__ENDPOINT_TYPE, CalloutEndpointType.URL);
+		}else if (StringUtils.isNotBlank(calloutMediator.getEndpointKey())){
+			RegistryKeyProperty keyProperty=EsbFactory.eINSTANCE.createRegistryKeyProperty();
+			keyProperty.setKeyValue(calloutMediator.getEndpointKey());
+	        executeSetValueCommand(CALLOUT_MEDIATOR__ADDRESS_ENDPOINT, keyProperty);
+	        executeSetValueCommand(CALLOUT_MEDIATOR__ENDPOINT_TYPE, CalloutEndpointType.ADDRESS_ENDPOINT);
 		}
 		
 		
