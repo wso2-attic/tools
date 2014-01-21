@@ -24,6 +24,7 @@ import java.util.List;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
 import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
@@ -48,9 +49,13 @@ public class BPELArtfactExportHandler extends ProjectArtifactHandler {
 		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
 
 		clearTarget(project);
+		
+		// get bpelContent files location
+		IPath bpelContent = project.getFolder("bpelContent").getLocation();
+		
 		File tempProject = createTempProject();
 		File bpelResources = createTempDir(tempProject, "bpel_resources");
-		org.apache.commons.io.FileUtils.copyDirectory(project.getLocation().toFile(),
+		/*org.apache.commons.io.FileUtils.copyDirectory(project.getLocation().toFile(),
 				bpelResources, new FileFilter() {
 			
 					@Override
@@ -74,8 +79,14 @@ public class BPELArtfactExportHandler extends ProjectArtifactHandler {
 						}
 						return true;
 					}
-				});
-
+				});*/
+		
+		// Fixing TOOLS-2327.
+		if (bpelContent.toFile().exists()) {
+			// copy bpelContent files
+			FileUtils.copyDirectoryContents(bpelContent.toFile(), bpelResources);
+		}
+		
 		File tmpArchive = new File(tempProject, project.getName().concat(".zip"));
 		archiveManipulator.archiveDir(tmpArchive.toString(),
 				bpelResources.toString());
