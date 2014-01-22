@@ -193,12 +193,15 @@ public class DistProjectEditorPage extends FormPage {
 		List<Dependency> dependencies = new ArrayList<Dependency>();
 		List<Dependency> tasks = new ArrayList<Dependency>();
 		List<Dependency> msgStores = new ArrayList<Dependency>();
+		List<Dependency> localEntries = new ArrayList<Dependency>();
 		for (Dependency dependency : dependencyList.values()) {
 			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
 			if (artifactInfo.contains(".task_._")) {
 				tasks.add(dependency);
 			} else if (artifactInfo.contains(".message-store_._")) {
 				msgStores.add(dependency);
+			} else if (artifactInfo.contains(".local-entry_._")){
+				localEntries.add(dependency);
 			} else {
 				dependencies.add(dependency);
 			}
@@ -206,6 +209,10 @@ public class DistProjectEditorPage extends FormPage {
 		
 		for (Dependency msgStore : msgStores){
 			dependencies.add(0, msgStore);
+		}
+		
+		for (Dependency localEntry : localEntries) {
+			dependencies.add(0, localEntry);
 		}
 		
 		for (Dependency task : tasks){

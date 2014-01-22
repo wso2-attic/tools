@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.distribution.project.ui.wizard;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import org.apache.maven.model.Dependency;
@@ -136,8 +137,9 @@ public class DistributionProjectWizard extends
 			}	
 			properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
 			mavenProject.getModel().setProperties(properties);
+			
 
-			MavenUtils.addMavenDependency(mavenProject, dependencyList);
+			MavenUtils.addMavenDependency(mavenProject, sortDependencies(dependencyList));
 			MavenUtils.saveMavenProject(mavenProject, pomfile);
 			project.refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());
@@ -158,4 +160,35 @@ public class DistributionProjectWizard extends
 		} catch (Exception e) { /* ignore */}
 	}
 
+	private List<Dependency> sortDependencies(List<Dependency> dependencyList) {
+		List<Dependency> dependencies = new ArrayList<Dependency>();
+		List<Dependency> tasks = new ArrayList<Dependency>();
+		List<Dependency> msgStores = new ArrayList<Dependency>();
+		List<Dependency> localEntries = new ArrayList<Dependency>();
+		for (Dependency dependency : dependencyList) {
+			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
+			if (artifactInfo.contains(".task_._")) {
+				tasks.add(dependency);
+			} else if (artifactInfo.contains(".message-store_._")) {
+				msgStores.add(dependency);
+			} else if (artifactInfo.contains(".local-entry_._")){
+				localEntries.add(dependency);
+			} else {
+				dependencies.add(dependency);
+			}
+		}
+		
+		for (Dependency msgStore : msgStores){
+			dependencies.add(0, msgStore);
+		}
+		
+		for (Dependency localEntry : localEntries) {
+			dependencies.add(0, localEntry);
+		}
+		
+		for (Dependency task : tasks){
+			dependencies.add(task);
+		}
+		return dependencies;
+	}
 }
