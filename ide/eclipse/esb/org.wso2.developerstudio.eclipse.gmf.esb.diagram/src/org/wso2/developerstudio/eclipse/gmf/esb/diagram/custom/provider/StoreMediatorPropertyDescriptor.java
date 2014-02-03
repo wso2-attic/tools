@@ -23,6 +23,7 @@ import java.util.Properties;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -70,12 +71,15 @@ public class StoreMediatorPropertyDescriptor extends DevSProjectArtifactsListPro
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
 			//FIXME: scan whole workspace
+			
+			IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+			for (IProject workspaceProject : projects) {
 			try {
-				if (activeProject.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
+				if (workspaceProject.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
 					ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
-					projectPath = activeProject.getLocation().toFile();
+					projectPath = workspaceProject.getLocation().toFile();
 					try {
-						esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml").getLocation().toFile());
+						esbProjectArtifact.fromFile(workspaceProject.getFile("artifact.xml").getLocation().toFile());
 						List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
 						for (ESBArtifact esbArtifact : allESBArtifacts) {
 							if (TYPE_MESSAGE_STORE.equals(esbArtifact.getType())) {
@@ -92,6 +96,7 @@ public class StoreMediatorPropertyDescriptor extends DevSProjectArtifactsListPro
 			} catch (CoreException e) {
 				log.error("Error occured while scanning the project", e);
 				ErrorDialog.openError(shell,"Error occured while scanning the project", e.getMessage(), null);
+			}
 			}
 		}
 		final File projectPath_ =projectPath;
