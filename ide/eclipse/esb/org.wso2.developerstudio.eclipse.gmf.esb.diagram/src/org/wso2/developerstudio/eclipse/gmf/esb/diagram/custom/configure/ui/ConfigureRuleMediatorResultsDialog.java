@@ -147,15 +147,15 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 		});
 		
 		TableColumn tblclmnType = new TableColumn(tblResults, SWT.NONE);
-		tblclmnType.setWidth(100);
+		tblclmnType.setWidth(150);
 		tblclmnType.setText("Type");
 		
 		TableColumn tblclmnName = new TableColumn(tblResults, SWT.NONE);
-		tblclmnName.setWidth(111);
+		tblclmnName.setWidth(150);
 		tblclmnName.setText("Name");
 		
 		TableColumn tblclmnValue = new TableColumn(tblResults, SWT.NONE);
-		tblclmnValue.setWidth(192);
+		tblclmnValue.setWidth(180);
 		tblclmnValue.setText("NameSpace/xpath");
 		
 		cmdResultAdd = new Button(container, SWT.NONE);

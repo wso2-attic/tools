@@ -149,11 +149,11 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 		});
 		
 		TableColumn tblclmnType = new TableColumn(tblFacts, SWT.NONE);
-		tblclmnType.setWidth(100);
+		tblclmnType.setWidth(150);
 		tblclmnType.setText("Type");
 		
 		TableColumn tblclmnName = new TableColumn(tblFacts, SWT.NONE);
-		tblclmnName.setWidth(111);
+		tblclmnName.setWidth(150);
 		tblclmnName.setText("Name");
 		
 		/*TableColumn tblclmnSourceType = new TableColumn(tblFacts, SWT.NONE);
@@ -161,7 +161,7 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 		tblclmnSourceType.setText("Source Type");*/
 		
 		TableColumn tblclmnValue = new TableColumn(tblFacts, SWT.NONE);
-		tblclmnValue.setWidth(192);
+		tblclmnValue.setWidth(180);
 		tblclmnValue.setText("Namespace/xpath");
 		
 		cmdFactAdd = new Button(container, SWT.NONE);
