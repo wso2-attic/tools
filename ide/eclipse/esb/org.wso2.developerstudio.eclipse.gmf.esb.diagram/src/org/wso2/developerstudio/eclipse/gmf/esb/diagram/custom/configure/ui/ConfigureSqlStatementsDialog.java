@@ -299,16 +299,16 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		
 		TableColumn clmnParametersParameterType = new TableColumn(tblParameters, SWT.NONE);
 		clmnParametersParameterType.setMoveable(true);
-		clmnParametersParameterType.setWidth(109);
+		clmnParametersParameterType.setWidth(130);
 		clmnParametersParameterType.setText("Parameter Type");
 		
 		TableColumn clmnParametersPropertyType = new TableColumn(tblParameters, SWT.NONE);
-		clmnParametersPropertyType.setWidth(100);
+		clmnParametersPropertyType.setWidth(140);
 		clmnParametersPropertyType.setText("Property Type");
 		
 		TableColumn clmnParametersValue = new TableColumn(tblParameters, SWT.NONE);
 		clmnParametersValue.setMoveable(true);
-		clmnParametersValue.setWidth(220);
+		clmnParametersValue.setWidth(200);
 		clmnParametersValue.setText("Value");
 		
 		cmdAddParameter = new Button(grpStatement, SWT.NONE);
@@ -389,7 +389,7 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		
 		TableColumn clmnResultsResultName = new TableColumn(tblResults, SWT.NONE);
 		clmnResultsResultName.setMoveable(true);
-		clmnResultsResultName.setWidth(109);
+		clmnResultsResultName.setWidth(130);
 		clmnResultsResultName.setText("Result Name");
 		
 		TableColumn clmnResultsColumn = new TableColumn(tblResults, SWT.NONE);
