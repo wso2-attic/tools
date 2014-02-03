@@ -48,7 +48,7 @@ public class ImportHandlerClassWizardPage extends WizardPage{
 		
 		Label lblHandlerClass = new Label(container, SWT.NONE);
 		lblHandlerClass.setText("Handler Class");
-		lblHandlerClass.setBounds(10, 24, 100, 13);
+		lblHandlerClass.setBounds(10, 24, 100, 20);
 		
 		existingHandlersCombo = new Combo(container, SWT.NONE);
 		existingHandlersCombo.setBounds(116, 17, 435, 27);

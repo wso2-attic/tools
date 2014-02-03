@@ -30,7 +30,7 @@ public class NewHandlerClassWizardPage extends WizardPage{
 		setControl(container);
 		
 		Label lblPackageName = new Label(container, SWT.NONE);
-		lblPackageName.setBounds(10, 20, 100, 13);
+		lblPackageName.setBounds(10, 20, 100, 20);
 		lblPackageName.setText("Package Name");
 		
 		packageNametext = new Text(container, SWT.BORDER);
@@ -38,7 +38,7 @@ public class NewHandlerClassWizardPage extends WizardPage{
 		
 		Label lblHandlerClass = new Label(container, SWT.NONE);
 		lblHandlerClass.setText("Handler Class");
-		lblHandlerClass.setBounds(10, 64, 100, 13);
+		lblHandlerClass.setBounds(10, 64, 100, 20);
 		
 		classNametext = new Text(container, SWT.BORDER);
 		classNametext.setBounds(116, 59, 435, 23);

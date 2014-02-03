@@ -284,7 +284,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		
 		txtRelativePath = new Text(grpMaven, SWT.BORDER);
 		GridData gd_txtRelativePath = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
-		gd_txtRelativePath.widthHint = 350;
+		gd_txtRelativePath.widthHint = 340;
 		txtRelativePath.setLayoutData(gd_txtRelativePath);
 		txtRelativePath.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent evt) {

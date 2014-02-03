@@ -130,16 +130,16 @@ public class ImportFilterClassWizardPage extends WizardPage{
 
 		TableLayout tableLayout = new TableLayout();
 		tableLayout.addColumnData(new ColumnWeightData(10, 150, true));
-		tableLayout.addColumnData(new ColumnWeightData(15, 150, true));
-		tableLayout.addColumnData(new ColumnWeightData(20, 50, true));
+		tableLayout.addColumnData(new ColumnWeightData(15, 450, true));
+		tableLayout.addColumnData(new ColumnWeightData(20, 130, true));
 		new Label(container, SWT.NONE);
 		
-		filterCriteriaTable = new Table(container, SWT.BORDER | SWT.V_SCROLL | SWT.MULTI | SWT.FULL_SELECTION);
+		filterCriteriaTable = new Table(container, SWT.BORDER | SWT.V_SCROLL | SWT.MULTI | SWT.FULL_SELECTION | SWT.NO_SCROLL);
 		filterCriteriaTable.setHeaderVisible(true);
 		filterCriteriaTable.setLinesVisible(true);
-		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
+		GridData data = new GridData(SWT.CENTER, SWT.FILL, true, false);
 		data.horizontalSpan = 3;
-		data.widthHint = 565;
+		data.widthHint = 700;
 		data.heightHint = 300;
 		filterCriteriaTable.setLayoutData(data);
 		filterCriteriaTable.setLayout(tableLayout);
