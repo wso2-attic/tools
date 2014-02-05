@@ -30,7 +30,7 @@
 				  description="Browse the location of a resource file"
 				  error="Browse and select a resource file">
 	
-			<data modelProperty="import.file" type="file+dir" filter="*.*" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">From File</data>
+			<data modelProperty="import.file" type="file+dir" filter="*" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">From File</data>
 			<data modelProperty="artifact.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">Artifact Name</data>
 			<data modelProperty="copy.content" type="choice" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">Copy content only</data>
 			<data modelProperty="reg.partition" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController"  controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryPartitionList">Registry</data>
