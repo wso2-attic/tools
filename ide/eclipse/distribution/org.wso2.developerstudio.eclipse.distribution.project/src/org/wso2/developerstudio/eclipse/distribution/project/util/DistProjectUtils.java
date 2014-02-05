@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.distribution.project.util;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -103,6 +105,44 @@ public class DistProjectUtils {
 			}
 		}
 		return serverRole;
+	}
+	
+	/**
+	 * Sort dependencies based on their priorities. 
+	 * @param dependencyList
+	 * @return
+	 */
+	public static List<Dependency> sortDependencies(Collection<Dependency> dependencyList) {
+		List<Dependency> dependencies = new ArrayList<Dependency>();
+		List<Dependency> tasks = new ArrayList<Dependency>();
+		List<Dependency> msgStores = new ArrayList<Dependency>();
+		List<Dependency> localEntries = new ArrayList<Dependency>();
+		for (Dependency dependency : dependencyList) {
+			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
+			if (artifactInfo.contains(".task_._")) {
+				tasks.add(dependency);
+			} else if (artifactInfo.contains(".message-store_._")) {
+				msgStores.add(dependency);
+			} else if (artifactInfo.contains(".local-entry_._")){
+				localEntries.add(dependency);
+			} else {
+				dependencies.add(dependency);
+			}
+		}
+		
+		for (Dependency msgStore : msgStores){
+			dependencies.add(0, msgStore);
+		}
+		
+		for (Dependency localEntry : localEntries) {
+			dependencies.add(0, localEntry);
+		}
+		
+		for (Dependency task : tasks){
+			dependencies.add(task);
+		}
+		
+		return dependencies;
 	}
 	
 }

@@ -127,7 +127,9 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 //		properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
 //		parentPrj.getModel().setProperties(properties);
 		writeProperties();
-		parentPrj.setDependencies(new ArrayList<Dependency>(mainPage.getDependencyList().values()));
+		//parentPrj.setDependencies(new ArrayList<Dependency>(mainPage.getDependencyList().values()));
+		List<Dependency> dependencies = DistProjectUtils.sortDependencies(mainPage.getDependencyList().values());
+		parentPrj.setDependencies(dependencies);
 		MavenUtils.saveMavenProject(parentPrj, pomFile);
 		pomFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 	}

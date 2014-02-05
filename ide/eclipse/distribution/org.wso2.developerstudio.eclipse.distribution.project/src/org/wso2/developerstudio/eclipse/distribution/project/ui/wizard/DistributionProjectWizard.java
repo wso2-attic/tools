@@ -138,8 +138,7 @@ public class DistributionProjectWizard extends
 			properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
 			mavenProject.getModel().setProperties(properties);
 			
-
-			MavenUtils.addMavenDependency(mavenProject, sortDependencies(dependencyList));
+			MavenUtils.addMavenDependency(mavenProject, DistProjectUtils.sortDependencies(dependencyList));
 			MavenUtils.saveMavenProject(mavenProject, pomfile);
 			project.refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());
@@ -160,35 +159,4 @@ public class DistributionProjectWizard extends
 		} catch (Exception e) { /* ignore */}
 	}
 
-	private List<Dependency> sortDependencies(List<Dependency> dependencyList) {
-		List<Dependency> dependencies = new ArrayList<Dependency>();
-		List<Dependency> tasks = new ArrayList<Dependency>();
-		List<Dependency> msgStores = new ArrayList<Dependency>();
-		List<Dependency> localEntries = new ArrayList<Dependency>();
-		for (Dependency dependency : dependencyList) {
-			String artifactInfo = DistProjectUtils.getArtifactInfoAsString(dependency);
-			if (artifactInfo.contains(".task_._")) {
-				tasks.add(dependency);
-			} else if (artifactInfo.contains(".message-store_._")) {
-				msgStores.add(dependency);
-			} else if (artifactInfo.contains(".local-entry_._")){
-				localEntries.add(dependency);
-			} else {
-				dependencies.add(dependency);
-			}
-		}
-		
-		for (Dependency msgStore : msgStores){
-			dependencies.add(0, msgStore);
-		}
-		
-		for (Dependency localEntry : localEntries) {
-			dependencies.add(0, localEntry);
-		}
-		
-		for (Dependency task : tasks){
-			dependencies.add(task);
-		}
-		return dependencies;
-	}
 }
