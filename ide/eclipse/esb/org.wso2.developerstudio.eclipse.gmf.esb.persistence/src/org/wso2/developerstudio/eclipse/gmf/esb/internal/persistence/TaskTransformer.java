@@ -7,6 +7,7 @@ import javax.xml.stream.XMLStreamException;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.task.TaskDescription;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.TaskProperty;
@@ -53,30 +54,30 @@ public class TaskTransformer {
 		if (visualTask.getTaskProperties() != null) {
 			for (TaskProperty taskProperty : visualTask.getTaskProperties()) {
 				OMElement source = null;
-				try {
-					source = AXIOMUtil
-							.stringToOM("<property xmlns:task=\""
-									+ "http://www.wso2.org/products/wso2commons/tasks\"/>");
+				if (StringUtils.isNotEmpty(taskProperty.getPropertyName()) &&
+				    StringUtils.isNotEmpty(taskProperty.getPropertyValue())) {
+					try {
+						source =
+						         AXIOMUtil.stringToOM("<property xmlns:task=\""
+						                              + "http://www.wso2.org/products/wso2commons/tasks\"/>");
 
-					if (taskProperty.getPropertyType().equals(
-							TaskPropertyType.LITERAL)) {
-						source.addAttribute("name",
-								taskProperty.getPropertyName(), null);
-						source.addAttribute("value",
-								taskProperty.getPropertyValue(), null);
-					} else {
-						source.addAttribute("name",
-								taskProperty.getPropertyName(), null);
-						OMElement child = AXIOMUtil.stringToOM(taskProperty
-								.getPropertyValue().trim());
-						source.addChild(child);
+						if (taskProperty.getPropertyType().equals(TaskPropertyType.LITERAL)) {
+							source.addAttribute("name", taskProperty.getPropertyName(), null);
+							source.addAttribute("value", taskProperty.getPropertyValue(), null);
+						} else {
+							source.addAttribute("name", taskProperty.getPropertyName(), null);
+							OMElement child =
+							                  AXIOMUtil.stringToOM(taskProperty.getPropertyValue()
+							                                                   .trim());
+							source.addChild(child);
+						}
+					} catch (XMLStreamException e) {
+						e.printStackTrace();
 					}
-				} catch (XMLStreamException e) {
-					e.printStackTrace();
+					taskDescription.addProperty(source);
 				}
-				taskDescription.addProperty(source);
 			}
-		}		
+		}	
 
 		return taskDescription;
 	}
