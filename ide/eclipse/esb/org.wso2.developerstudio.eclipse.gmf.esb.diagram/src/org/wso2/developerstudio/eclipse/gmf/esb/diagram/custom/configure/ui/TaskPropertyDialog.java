@@ -286,6 +286,12 @@ public class TaskPropertyDialog extends Dialog{
 		super.okPressed();
 
 	}
+	
+	protected void cancelPressed() {
+		finalizeDefaultMessageInjecttorTask();
+
+		super.cancelPressed();
+	}
 
 	private void appendPropertyValueCommand(String value, TaskProperty param) {
 		SetCommand setCmd = new SetCommand(
