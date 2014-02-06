@@ -157,14 +157,15 @@ public class CallTemplateParamDialog extends Dialog {
 				| SWT.HIDE_SELECTION);
 
 		TableColumn nameColumn = new TableColumn(paramTable, SWT.LEFT);
-		TableColumn valueColumn = new TableColumn(paramTable, SWT.LEFT);
 		TableColumn typeColumn = new TableColumn(paramTable, SWT.LEFT);
+		TableColumn valueColumn = new TableColumn(paramTable, SWT.LEFT);
+		
 		nameColumn.setText("Parameter Name");
 		nameColumn.setWidth(150);
-		valueColumn.setText("Value/Expression");
-		valueColumn.setWidth(200);
 		typeColumn.setText("Parameter Type");
 		typeColumn.setWidth(150);
+		valueColumn.setText("Value/Expression");
+		valueColumn.setWidth(200);
 
 		paramTable.setHeaderVisible(true);
 		paramTable.setLinesVisible(true);
@@ -298,13 +299,13 @@ public class CallTemplateParamDialog extends Dialog {
 				item.getParent());
 		cmbParamType = new Combo(item.getParent(), SWT.READ_ONLY);
 		cmbParamType.setItems(new String[] { VALUE_TYPE, EXPRESSION_TYPE });
-		cmbParamType.setText(item.getText(2));
-		paramTypeEditor.setEditor(cmbParamType, item, 2);
+		cmbParamType.setText(item.getText(1));
+		paramTypeEditor.setEditor(cmbParamType, item, 1);
 		item.getParent().redraw();
 		item.getParent().layout();
 		cmbParamType.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event evt) {
-				item.setText(2, cmbParamType.getText());
+				item.setText(1, cmbParamType.getText());
 			}
 		});
 		
@@ -312,14 +313,14 @@ public class CallTemplateParamDialog extends Dialog {
 				item.getParent());
 		
 		paramValue = new PropertyText(item.getParent(), SWT.NONE, cmbParamType);
-		paramValue.addProperties(item.getText(1),expression);
-		paramValueEditor.setEditor(paramValue, item, 1);
+		paramValue.addProperties(item.getText(2),expression);
+		paramValueEditor.setEditor(paramValue, item, 2);
 		item.getParent().redraw();
 		item.getParent().layout();
 		paramValue.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent e) {
-				item.setText(1,paramValue.getText());
+				item.setText(2,paramValue.getText());
 				Object property = paramValue.getProperty();
 				if(property instanceof NamespacedProperty){
 					item.setData("exp",(NamespacedProperty)property);
@@ -345,14 +346,16 @@ public class CallTemplateParamDialog extends Dialog {
 		TableItem item = new TableItem(paramTable, SWT.NONE);
 		if (param.getTemplateParameterType().getLiteral().equals(VALUE_TYPE)) {
 			item.setText(new String[] { param.getParameterName(),
-					param.getParameterValue(),
-					param.getTemplateParameterType().getLiteral() });
+					param.getTemplateParameterType().getLiteral(),
+					param.getParameterValue()
+					 });
 		}
 		if (param.getTemplateParameterType().getLiteral()
 				.equals(EXPRESSION_TYPE)) {
 			item.setText(new String[] { param.getParameterName(),
-					param.getParameterExpression().getPropertyValue(),
-					param.getTemplateParameterType().getLiteral()});
+					param.getTemplateParameterType().getLiteral(),
+					param.getParameterExpression().getPropertyValue()
+					});
 		}
 
 		item.setData(param);
@@ -389,18 +392,18 @@ public class CallTemplateParamDialog extends Dialog {
 
 				param.setParameterName(item.getText(0));
 
-				if (item.getText(2).equals(VALUE_TYPE)) {
+				if (item.getText(1).equals(VALUE_TYPE)) {
 
 					param.setTemplateParameterType(RuleOptionType.VALUE);
-					param.setParameterValue(item.getText(1));
+					param.setParameterValue(item.getText(2));
 				}
 
-				if (item.getText(2).equals(EXPRESSION_TYPE)) {
+				if (item.getText(1).equals(EXPRESSION_TYPE)) {
 
 					param.setTemplateParameterType(RuleOptionType.EXPRESSION);
 					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 					namespaceProperty.setSupportsDynamicXPaths(true);
-					namespaceProperty.setPropertyValue(item.getText(1));
+					namespaceProperty.setPropertyValue(item.getText(2));
 					namespaceProperty.setNamespaces(expression.getNamespaces());
 					namespaceProperty.setDynamic(expression.isDynamic());
 					param.setParameterExpression(namespaceProperty);
@@ -429,7 +432,7 @@ public class CallTemplateParamDialog extends Dialog {
 					getResultCommand().append(setCmd);
 				}
 
-				if (item.getText(2).equals(VALUE_TYPE)) {
+				if (item.getText(1).equals(VALUE_TYPE)) {
 
 					SetCommand setCmdValueType = new SetCommand(
 							editingDomain,
@@ -438,18 +441,18 @@ public class CallTemplateParamDialog extends Dialog {
 							RuleOptionType.VALUE);
 					getResultCommand().append(setCmdValueType);
 
-					if (!param.getParameterValue().equals(item.getText(1))) {
+					if (!param.getParameterValue().equals(item.getText(2))) {
 
 						SetCommand setCmd = new SetCommand(
 								editingDomain,
 								param,
 								EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_VALUE,
-								item.getText(1));
+								item.getText(2));
 						getResultCommand().append(setCmd);
 					}
 				}
 
-				if (item.getText(2).equals(EXPRESSION_TYPE)) {
+				if (item.getText(1).equals(EXPRESSION_TYPE)) {
 
 					SetCommand setCmdExpType = new SetCommand(
 							editingDomain,
@@ -462,7 +465,7 @@ public class CallTemplateParamDialog extends Dialog {
 
 						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 						namespaceProperty.setSupportsDynamicXPaths(true);
-						namespaceProperty.setPropertyValue(item.getText(1));
+						namespaceProperty.setPropertyValue(item.getText(2));
 						namespaceProperty.setNamespaces(expression.getNamespaces());
 						namespaceProperty.setDynamic(expression.isDynamic());
 						AddCommand addCmd = new AddCommand(
@@ -476,7 +479,7 @@ public class CallTemplateParamDialog extends Dialog {
 
 						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 						namespaceProperty.setSupportsDynamicXPaths(true);
-						namespaceProperty.setPropertyValue(item.getText(1));
+						namespaceProperty.setPropertyValue(item.getText(2));
 						namespaceProperty.setNamespaces(expression.getNamespaces());
 						namespaceProperty.setDynamic(expression.isDynamic());
 
