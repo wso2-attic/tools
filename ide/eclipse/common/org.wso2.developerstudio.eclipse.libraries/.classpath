@@ -90,5 +90,8 @@
 	<classpathentry exported="true" kind="lib" path="lib/xercesImpl-2.8.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/xml-resolver-1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/wso2caching-core-4.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jackson-core-asl-1.8.10.jar"/>
+        <classpathentry exported="true" kind="lib" path="lib/jackson-mapper-asl-1.8.10.jar"/>
+        <classpathentry exported="true" kind="lib" path="lib/avro-1.7.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
