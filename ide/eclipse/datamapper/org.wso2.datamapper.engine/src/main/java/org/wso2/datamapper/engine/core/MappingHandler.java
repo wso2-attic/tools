@@ -122,11 +122,16 @@ public class MappingHandler {
 				}
 				
 			}else if(arrayChildList != null){
+				
 				outRecordList = new ArrayList<GenericRecord>();	
 				String recordId = null;
 				for (GenericRecord arrayChild : arrayChildList) {
 					recordId = arrayChild.getSchema().getName();
-					resultRecord = funcExecuter.execute(inputAvroArrayMap.get(recordId), arrayChild);
+					if(inputAvroArrayMap.containsKey(recordId)){
+						resultRecord = funcExecuter.execute(recordId, arrayChild);
+					}else{
+						resultRecord = funcExecuter.execute(inputAvroArrayMap.get(recordId), arrayChild);
+					}	
 					outRecordList.add(resultRecord);
 				}
 				String resultrecordId = resultRecord.getSchema().getName();

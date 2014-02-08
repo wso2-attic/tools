@@ -36,7 +36,7 @@ import org.wso2.datamapper.engine.models.MappingConfigModel;
 
 public class DataMapper {
 	
-	public void doMap(File configFile, InputStream inStream, File inputSchema,File outputSchema) throws IOException, IllegalAccessException, InstantiationException, JSONException {
+	public String doMap(File configFile, InputStream inStream, File inputSchema,File outputSchema) throws IOException, IllegalAccessException, InstantiationException, JSONException {
 		
 		InputStream inputStream = inStream;
 		
@@ -73,19 +73,21 @@ public class DataMapper {
 		}
 		
 		context.evaluateString(scope, configScript ,"", 1, null);
-		GenericRecord outputRecord = null;		
+		GenericRecord outputRecord = null;	
+		
 		try {
 			outputRecord = mappingHandler.executeMappingFunctions(mappingModelMap);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		
+		configReader.close();
+		
 		OutputJsonBuilder outJsonBuilder = new OutputJsonBuilder();
 		JSONObject resultJson = outJsonBuilder.getOutPut(outputRecord, outputAvroSchema.getName());
 		
-		System.out.println("end mapping "+resultJson);
-		configReader.close();
-
+		return resultJson.toString();
+		
 	}
 
 }

@@ -15,6 +15,7 @@
  */
 package org.wso2.datamapper.engine.inputAdapters;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
@@ -24,11 +25,12 @@ import org.apache.avro.generic.GenericRecord;
 
 public interface InputDataReaderAdapter {
 	
-	public void setInptStream(InputStream inputStream);
+	public void setInptStream(InputStream inputStream)throws IOException;
 	public boolean hasChildRecords();
 	public void setInputSchemaMap(Map<String, Schema> inputSchemaMap);
 	public void setRootRecord(GenericRecord rootRecord);
 	public GenericRecord getRootRecord();
 	public GenericRecord getChildRecord();
 	public List<GenericRecord> getArrayChildList();
+	
 }

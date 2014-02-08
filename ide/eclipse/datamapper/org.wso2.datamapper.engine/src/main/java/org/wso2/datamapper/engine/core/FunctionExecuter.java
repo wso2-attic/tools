@@ -40,9 +40,9 @@ public class FunctionExecuter {
 		this.context = context;
 	}
 
-	public GenericRecord execute(String elementId, GenericRecord inputRecord) {
+	public GenericRecord execute(String elementId, GenericRecord inRecord) {
 		
-		GenericRecord inrecord = inputRecord;
+		GenericRecord inputRecord = inRecord;
 		String inElementId = elementId;
 		
 		GenericRecord resultRecord = null;		
@@ -63,14 +63,14 @@ public class FunctionExecuter {
 				outputRecord = new GenericData.Record(outputSchema);
 			}
 
-			AvroWrapper inputRecordWrapper = new AvroWrapper(inrecord);
-			AvroWrapper outputRecordWrapper = new AvroWrapper(outputRecord);
+			ScriptableObjectFactory inputRecordWrapper = new ScriptableObjectFactory(inputRecord);
+			ScriptableObjectFactory outputRecordWrapper = new ScriptableObjectFactory(outputRecord);
 			
 			this.scope.put("input", scope, inputRecordWrapper);
 			this.scope.put("output", scope, outputRecordWrapper);
-		
-			String script = "map_"+funcType+"_"+inputDataType+"_"+funcType+"_"+outputDataType+"();";
-			Object resultOb = context.evaluateString(scope, script, "", 1, null);
+			
+			StringBuilder configScript = new StringBuilder("map_"+funcType+"_"+inputDataType+"_"+funcType+"_"+outputDataType+"();");
+			Object resultOb = context.evaluateString(scope, configScript.toString(), "", 1, null);
 
 			if(resultOb != ScriptableObject.NOT_FOUND){
 				resultRecord = outputRecordWrapper.getRecord();

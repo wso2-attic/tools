@@ -15,6 +15,7 @@
  */
 package org.wso2.datamapper.engine.inputAdapters;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -62,11 +63,14 @@ public class XmlInputReader implements InputDataReaderAdapter{
 		this.rootRecord = rootRecord;
 	}
 
-	public void setInptStream(InputStream inputStream) {
+	public void setInptStream(InputStream inputStream) throws IOException {
+		
 		InputStream in = inputStream;
 		OMXMLParserWrapper builder = OMXMLBuilderFactory.createOMBuilder(in);
 		this.documentElement = builder.getDocumentElement();
 		childElementIter = this.documentElement.getChildElements();
+		
+		in.close();
 
 	}
 	
@@ -117,18 +121,20 @@ public class XmlInputReader implements InputDataReaderAdapter{
 				GenericRecord tempRec = getChild(childElement, childElement.getChildElements());
 				
 				if(tempRec != null){
-					childRec.put(childElement.getLocalName(), tempRec);
+					if(!isArray){
+						childRec.put(childElement.getLocalName(), tempRec);
+					}else{
+						arrayChildList.add(tempRec);
+					}
 				}else{
 					childRec.put(childElement.getLocalName(), childElement.getText());
 				}
 			}
-			if(isArray && (childRec != null)){
-				arrayChildList.add(childRec);
+			if(isArray){
 				return null;
 			}
-			
-	
 		}
+		
 		return childRec;
 	}
 }
