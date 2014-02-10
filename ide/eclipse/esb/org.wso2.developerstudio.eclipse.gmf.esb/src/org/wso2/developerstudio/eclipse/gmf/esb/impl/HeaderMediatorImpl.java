@@ -197,7 +197,9 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		NamespacedProperty headerName = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 		headerName.setPrettyName("Header Name");
 		headerName.setPropertyName("name");
-		headerName.setPropertyValue("header_name");
+		//Fixing TOOLS-2320
+		//headerName.setPropertyValue("header_name");
+		headerName.setPropertyValue("To");
 		setHeaderName(headerName);
 
 		// Value expression.
