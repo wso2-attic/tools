@@ -86,7 +86,7 @@
     <command
         description="Generate Maven Pom file for a Project"
         id="org.wso2.developerstudio.eclipse.maven.pom.generator"
-        name="Generate POM">
+        name="Generate POM...">
   	</command>
  </extension>
 	
