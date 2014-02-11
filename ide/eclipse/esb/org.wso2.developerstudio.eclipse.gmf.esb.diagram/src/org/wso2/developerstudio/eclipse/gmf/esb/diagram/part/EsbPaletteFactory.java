@@ -225,8 +225,9 @@ public class EsbPaletteFactory {
 		paletteContainer.add(new PaletteSeparator("Advanced2"));
 
 		//paletteContainer.add(createRouterMediator38CreationTool()); removed as requested in TOOLS-1800
-		paletteContainer.add(createRuleMediator30CreationTool());
 		paletteContainer.add(createBuilderMediator32CreationTool());
+		paletteContainer.add(createRuleMediator30CreationTool());
+		
 		
 		// Agent Mediator Category separator.
 		paletteContainer.add(new PaletteSeparator("Agent"));
@@ -252,8 +253,8 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createLoadBalanceEndPoint5CreationTool());
 		paletteContainer.add(createNamedEndpoint6CreationTool());
 		paletteContainer.add(createRecipientListEndPoint8CreationTool());
-		paletteContainer.add(createWSDLEndPoint4CreationTool());
 		paletteContainer.add(createTemplateEndpoint10CreationTool());
+		paletteContainer.add(createWSDLEndPoint4CreationTool());
 		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
