@@ -137,8 +137,8 @@ public class DistributionProjectWizard extends
 			}	
 			properties.put("artifact.types", ArtifactTypeMapping.getArtifactTypes());
 			mavenProject.getModel().setProperties(properties);
-			
-			MavenUtils.addMavenDependency(mavenProject, DistProjectUtils.sortDependencies(dependencyList));
+
+			MavenUtils.addMavenDependency(mavenProject, dependencyList);
 			MavenUtils.saveMavenProject(mavenProject, pomfile);
 			project.refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());

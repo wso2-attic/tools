@@ -17,8 +17,9 @@
 package org.wso2.developerstudio.eclipse.distribution.project.model;
 
 import org.eclipse.core.resources.IResource;
+import org.wso2.developerstudio.eclipse.distribution.project.util.ArtifactPriorityMapping;
 
-public class ArtifactData {
+public class ArtifactData implements Comparable<ArtifactData> {
 	/**
 	 * @return the file
 	 */
@@ -59,4 +60,12 @@ public class ArtifactData {
 	private String file;
 	private IResource resource;
 	private DependencyData dependencyData;
+	
+	@Override
+	public int compareTo(ArtifactData compareArtifactData) {
+		return ArtifactPriorityMapping.getPriority(this.getDependencyData()
+				.getCApptype())
+				- ArtifactPriorityMapping.getPriority(compareArtifactData
+						.getDependencyData().getCApptype());
+	}
 }

@@ -18,6 +18,7 @@ package org.wso2.maven.capp.model;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -249,6 +250,13 @@ public class CAppArtifact extends AbstractXMLDoc{
 		if (getFile() != null)
 			artifactElement.addChild(getElement("file", getFile()));
 		List<CAppArtifactDependency> artifactDependencies = getDependencies();
+		
+		/*
+		 * Sort artifacts in order to arrange them based on their priorities.
+		 * Fixing TOOLS-2335, TOOLS-2197
+		 */
+		Collections.sort(artifactDependencies);
+		
 		for (CAppArtifactDependency dependency : artifactDependencies) {
 			OMElement dependecyElement = getElement("dependency", "");
 			dependecyElement = addAttribute(dependecyElement, "artifact", dependency.getName());

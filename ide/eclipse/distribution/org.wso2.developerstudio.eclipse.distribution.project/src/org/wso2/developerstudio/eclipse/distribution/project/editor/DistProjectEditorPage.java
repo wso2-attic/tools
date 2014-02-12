@@ -180,8 +180,7 @@ public class DistProjectEditorPage extends FormPage {
 		parentPrj.setVersion(getVersion());
 		parentPrj.setDescription(getDescription());
 		writeProperties();
-		List<Dependency> dependencies = DistProjectUtils.sortDependencies(getDependencyList().values());
-		parentPrj.setDependencies(dependencies);
+		parentPrj.setDependencies(new ArrayList<Dependency>(getDependencyList().values()));
 		MavenUtils.saveMavenProject(parentPrj, pomFile);
 		setPageDirty(false);
 		updateDirtyState();

@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.distribution.project.export;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -196,6 +197,12 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		artifactElt.addAttribute("version", parentPrj.getModel().getVersion(), null);
 		artifactElt.addAttribute("type", "carbon/application", null);
 
+		/*
+		 * Sort artifacts in order to arrange them based on their priorities.
+		 * Fixing TOOLS-2335, TOOLS-2197
+		 */
+		Collections.sort(artifactList);
+		
 		for (ArtifactData artifact : artifactList) {
 			File artifactDir = new File(carResources, getArtifactDir(artifact.getDependencyData()));
 			if (artifact.getResource() instanceof IFolder) {

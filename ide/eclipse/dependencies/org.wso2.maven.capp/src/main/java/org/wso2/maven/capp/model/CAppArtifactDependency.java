@@ -25,8 +25,9 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.maven.capp.utils.CAppMavenUtils;
+import org.wso2.maven.capp.utils.CAppArtifactPriorityMapping;
 
-public class CAppArtifactDependency{
+public class CAppArtifactDependency implements Comparable<CAppArtifactDependency> {
 	
 	private CAppArtifact cAppArtifact;
 	private Dependency mavenDependency;
@@ -141,6 +142,13 @@ public class CAppArtifactDependency{
 
 	public boolean isDummyDependency() {
 		return dummyDependency;
+	}
+
+	public int compareTo(CAppArtifactDependency compareArtifactDependency) {
+		return CAppArtifactPriorityMapping.getPriority(this.getcAppArtifact()
+				.getType())
+				- CAppArtifactPriorityMapping.getPriority(compareArtifactDependency
+						.getcAppArtifact().getType());
 	}
 
 }
