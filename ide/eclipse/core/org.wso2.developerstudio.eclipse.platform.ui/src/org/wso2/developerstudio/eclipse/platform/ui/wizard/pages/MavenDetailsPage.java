@@ -58,9 +58,9 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 public class MavenDetailsPage extends WizardPage implements Observer {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	private static final String GLOBAL_MAVEN_VERSION = "GLOBAL_MAVEN_VERSION";
-	private static final String GLOBAL_MAVEN_ARTIFACTID = "GLOBAL_MAVEN_ARTIFACTID";
-	private static final String GLOBAL_MAVEN_GROUP_ID = "GLOBAL_MAVEN_GROUPID";
+	private static final String GLOBAL_PARENT_MAVEN_VERSION = "GLOBAL_MAVEN_VERSION";
+	private static final String GLOBAL_PARENT_MAVEN_ARTIFACTID = "GLOBAL_MAVEN_ARTIFACTID";
+	private static final String GLOBAL_PARENT_MAVEN_GROUP_ID = "GLOBAL_MAVEN_GROUPID";
 	
 	private Text txtGroupId;
 	private Text txtVersion;
@@ -209,7 +209,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 					
 					//Check whether the global setting is set. If set, user them. otherwise simply null
 					String text = preferencesService.
-							  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_GROUP_ID, null, null);
+							  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_PARENT_MAVEN_GROUP_ID, null, null);
 					if (text==null) {
 						mavenProjectInfo.setParentProject(null);
 						dataModel.setMavenInfo(mavenProjectInfo);
@@ -309,7 +309,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 					setParentMavenInfo(info);
 					updateParent();
 				} else if(preferencesService.
-							  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_GROUP_ID, null, null) != null){
+							  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_PARENT_MAVEN_GROUP_ID, null, null) != null){
 					Parent parentFromPreferernceStore = getParentFromPreferernceStore();
 					setParentMavenInfo(parentFromPreferernceStore);
 					mavenProjectInfo.setParentProject(parentFromPreferernceStore);
@@ -365,11 +365,11 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 	private Parent getParentFromPreferernceStore() {
 		Parent parent=new Parent();
 		parent.setGroupId(preferencesService.
-				  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_GROUP_ID, null, null));
+				  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_PARENT_MAVEN_GROUP_ID, null, null));
 		parent.setArtifactId(preferencesService.
-			  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_ARTIFACTID, null, null));
+			  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_PARENT_MAVEN_ARTIFACTID, null, null));
 		parent.setVersion(preferencesService.
-			  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_VERSION, null, null));
+			  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_PARENT_MAVEN_VERSION, null, null));
 		parent.setRelativePath(null);
 		return parent;
 	}
@@ -508,7 +508,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 
 	private void updateMavenParentControlState() {
 		String text = preferencesService.
-				  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_GROUP_ID, null, null);
+				  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_PARENT_MAVEN_GROUP_ID, null, null);
 		if (btnhasMavenParent != null || text!=null) {
 			boolean hasParent = btnhasMavenParent.getSelection();
 			parentProjectInfoCombo.setEnabled(hasParent);

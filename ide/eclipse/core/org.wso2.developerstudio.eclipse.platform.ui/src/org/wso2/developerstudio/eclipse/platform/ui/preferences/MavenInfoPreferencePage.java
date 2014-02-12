@@ -25,9 +25,11 @@ implements IWorkbenchPreferencePage {
 	private static final String RELEASES_ENABLED = "RELEASES_ENABLED";
 	private static final String GLOBAL_REPOSITORY_ID = "GLOBAL_REPOSITORY_ID";
 	private static final String GLOBAL_REPOSITORY_URL = "GLOBAL_REPOSITORY_URL";
-	private static final String GLOBAL_MAVEN_VERSION = "GLOBAL_MAVEN_VERSION";
-	private static final String GLOBAL_MAVEN_ARTIFACTID = "GLOBAL_MAVEN_ARTIFACTID";
-	private static final String GLOBAL_MAVEN_GROUP_ID = "GLOBAL_MAVEN_GROUPID";
+	private static final String GLOBAL_PARENT_MAVEN_VERSION = "GLOBAL_MAVEN_VERSION";
+	private static final String GLOBAL_PARENT_MAVEN_ARTIFACTID = "GLOBAL_MAVEN_ARTIFACTID";
+	private static final String GLOBAL_PARENT_MAVEN_GROUP_ID = "GLOBAL_MAVEN_GROUPID";
+	private static final String GLOBAL_MAVEN_VERSION = "MAVEN_VERSION";
+	private static final String GLOBAL_MAVEN_GROUP_ID = "MAVEN_GROUPID";
 	private IPreferenceStore preferenceStore;
 	
 	public MavenInfoPreferencePage(){
@@ -47,18 +49,31 @@ implements IWorkbenchPreferencePage {
 		
 		addField(new LabelFieldEditor("Custom Maven Parent Information", getFieldEditorParent()));
 		
+		addField(new StringFieldEditor(GLOBAL_PARENT_MAVEN_GROUP_ID,
+				"Custom Parent GroupId", getFieldEditorParent()));
+		
+		addField(new StringFieldEditor(GLOBAL_PARENT_MAVEN_ARTIFACTID,
+				"Custom Parent ArtifactId", getFieldEditorParent()));
+		
+		addField(new StringFieldEditor(GLOBAL_PARENT_MAVEN_VERSION,
+				"Custom Parent Version", getFieldEditorParent()));
+		
+		addEmptyField();
+		
+		//Parent Project is done
+		
+		//Global GroupID and Version
+		
+		addField(new LabelFieldEditor("Custom Global Maven Information", getFieldEditorParent()));
+		
 		addField(new StringFieldEditor(GLOBAL_MAVEN_GROUP_ID,
 				"Custom GroupId", getFieldEditorParent()));
-		
-		addField(new StringFieldEditor(GLOBAL_MAVEN_ARTIFACTID,
-				"Custom ArtifactId", getFieldEditorParent()));
 		
 		addField(new StringFieldEditor(GLOBAL_MAVEN_VERSION,
 				"Custom Version", getFieldEditorParent()));
 		
 		addEmptyField();
-		
-		//Parent Project is done
+		//Global GroupID and Version Done
 		
 		//Add Customized Repositories
 		addField(new LabelFieldEditor("Enable/Disable WSO2 Maven Repository", getFieldEditorParent()));

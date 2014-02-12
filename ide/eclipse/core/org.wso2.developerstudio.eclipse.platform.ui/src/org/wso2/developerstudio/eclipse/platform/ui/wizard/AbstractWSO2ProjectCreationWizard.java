@@ -79,6 +79,8 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	protected static final String GLOBAL_REPOSITORY_ID = "GLOBAL_REPOSITORY_ID";
 	protected static final String GLOBAL_REPOSITORY_URL = "GLOBAL_REPOSITORY_URL";
 	protected static final String DISABLE_WSO2_REPOSITORY = "DISABLE_WSO2_REPOSITORY";
+	private static final String GLOBAL_MAVEN_VERSION = "MAVEN_VERSION";
+	private static final String GLOBAL_MAVEN_GROUP_ID = "MAVEN_GROUPID";
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private ProjectDataModel model;
@@ -311,9 +313,15 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 
 	public void createPOM(File pomLocation) throws Exception {
 		MavenInfo mavenInfo = getModel().getMavenInfo();
+		
+		String customGroupId = preferencesService.
+						  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_GROUP_ID, null, null);
+		String customVersion = preferencesService.
+						  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_VERSION, null, null);
+		
 		MavenProject mavenProject =
-		        MavenUtils.createMavenProject(mavenInfo.getGroupId(), mavenInfo.getArtifactId(),
-		                                      mavenInfo.getVersion(), mavenInfo.getPackageName());
+		        MavenUtils.createMavenProject(customGroupId !=null ? customGroupId : mavenInfo.getGroupId(), mavenInfo.getArtifactId(),
+		        	customVersion !=null ? customVersion : mavenInfo.getVersion(), mavenInfo.getPackageName());
 		Parent parentProject = getModel().getMavenInfo().getParentProject();
 		if (parentProject != null) {
 			mavenProject.getModel().setParent(parentProject);
@@ -335,9 +343,16 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	
 	public void createPOM(File pomLocation, String packagingType) throws Exception {
 		MavenInfo mavenInfo = getModel().getMavenInfo();
+		
+		String customGroupId = preferencesService.
+						  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_GROUP_ID, null, null);
+		String customVersion = preferencesService.
+						  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_MAVEN_VERSION, null, null);
+		
 		MavenProject mavenProject =
-		        MavenUtils.createMavenProject(mavenInfo.getGroupId(), mavenInfo.getArtifactId(),
-		                                      mavenInfo.getVersion(), packagingType);
+		        MavenUtils.createMavenProject(customGroupId !=null ? customGroupId : mavenInfo.getGroupId(), mavenInfo.getArtifactId(),
+		        	customVersion !=null ? customVersion : mavenInfo.getVersion(), packagingType);
+		
 		Parent parentProject = getModel().getMavenInfo().getParentProject();
 		if (parentProject != null) {
 			mavenProject.getModel().setParent(parentProject);
