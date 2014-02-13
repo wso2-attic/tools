@@ -629,6 +629,17 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 					outputConnectorEditpartList
 							.add((AbstractOutputConnectorEditPart) element);
 
+				} else if (((AbstractOutputConnectorEditPart) element)
+						.getParent().equals(
+								this.getParent().getParent().getParent()
+										.getParent().getParent().getParent())) {
+					/*
+					 * Switch mediator case or default branch.
+					 * Fixing TOOLS-2347.
+					 */
+					outputConnectorEditpartList
+							.add((AbstractOutputConnectorEditPart) element);
+
 				}
 			} else if (element instanceof AbstractInputConnectorEditPart) {
 				if (((AbstractInputConnectorEditPart) element).getParent()
