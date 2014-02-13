@@ -71,6 +71,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPa
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoopBackMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment12EditPart;
@@ -97,6 +98,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInSequen
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutSequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RespondMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
@@ -132,7 +134,13 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 	
 	public int x=0;
 	public int y=0;
-
+	
+	private String mediatorType= "";
+	private String warningAddingMediatorsAfter = "Not allow to add mediators after a ";
+	private String warningAddingMediatorsAlreadyAvailableBegin = " Not allow to add a "; 
+	private String warningAddingMediatorsAlreadyAvailableEnd = " inside this mediator since there is a send/drop/respond/loopback mediator already presents in the mediator flow";
+	private String warningAddingMiddleOfAMediatorFlow = " is not allowed to add in the middle of the mediator flow.";
+	
 	/*
 	 * activete method is called twice for a mediator.so that we use this
 	 * variable to avoid calling reverse method twice.
@@ -472,20 +480,56 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		
 		boolean mediatorRestricted = false;
 		
-		if  (this instanceof SendMediatorEditPart || this instanceof DropMediatorEditPart) {
+		if  (this instanceof SendMediatorEditPart || this instanceof DropMediatorEditPart || this instanceof RespondMediatorEditPart || this instanceof LoopBackMediatorEditPart) {
 			EditPart compartment = this.getParent();
-			if (isComplexCompartment(compartment)) {
-				if (restrictAddingOfSendMediatorInsideComlpexMediators(nearestInputConnector, nearestEsbLinkInputConnector)) {
+			if (isComplexCompartment(compartment) && restrictAddingOfMediatorInsideComlpexMediators(nearestInputConnector, nearestEsbLinkInputConnector)) {
 					mediatorRestricted = true;
-					deleteNewlyAddedMediator("Adding of send(or drop) mediator is not allowed inside this mediator since there is a send(or drop) mediator already present in the message flow.");
+				if (this instanceof SendMediatorEditPart){
+					mediatorType = "Send Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAlreadyAvailableBegin + mediatorType + warningAddingMediatorsAlreadyAvailableEnd);
 					return;
-				} 
+					}
+				else if (this instanceof DropMediatorEditPart){
+					mediatorType = "Drop Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAlreadyAvailableBegin + mediatorType + warningAddingMediatorsAlreadyAvailableEnd);
+					return;
+				}
+				else if (this instanceof RespondMediatorEditPart){
+					mediatorType = "Respond Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAlreadyAvailableBegin + mediatorType + warningAddingMediatorsAlreadyAvailableEnd);
+					return;
+				}
+				else if (this instanceof LoopBackMediatorEditPart){
+					mediatorType = "LoopBack Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAlreadyAvailableBegin + mediatorType + warningAddingMediatorsAlreadyAvailableEnd);
+					return;
+				}			
 			}
+			
 			if (!mediatorRestricted) {
-				if (restrictAddingOfSendMediator(nearestInputConnector, nearestEsbLinkInputConnector)) {
+				if (restrictAddingOfMediator(nearestInputConnector, nearestEsbLinkInputConnector)) {
 					mediatorRestricted = true;
-					deleteNewlyAddedMediator("Adding of send(or drop) mediator is not allowed in the middle of the message flow.");
+				if (this instanceof SendMediatorEditPart){
+					mediatorType = "Send Mediator";
+					deleteNewlyAddedMediator(mediatorType + warningAddingMiddleOfAMediatorFlow);
 					return;
+					}
+				else if (this instanceof DropMediatorEditPart){
+					mediatorType = "Drop Mediator";
+					deleteNewlyAddedMediator(mediatorType + warningAddingMiddleOfAMediatorFlow);
+					return;
+				}
+				else if (this instanceof RespondMediatorEditPart){
+					mediatorType = "Respond Mediator";
+					deleteNewlyAddedMediator(mediatorType + warningAddingMiddleOfAMediatorFlow);
+					return;
+				}
+				else if (this instanceof LoopBackMediatorEditPart){
+					mediatorType = "LoopBack Mediator";
+					deleteNewlyAddedMediator(mediatorType + warningAddingMiddleOfAMediatorFlow);
+					return;
+				}
+					
 				} 
 			}
 		}
@@ -493,16 +537,32 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		if (!mediatorRestricted) {
 			AbstractMediator previousMediator = getPreviousMediator(nearestEsbLinkOutputConnector, nearestOutputConnector);
 			if (previousMediator != null) {
-				boolean hasSendMediatorChild = hasSendMediator(previousMediator);
-				if (hasSendMediatorChild || previousMediator instanceof SendMediatorEditPart) {
-					mediatorRestricted = true;
-					deleteNewlyAddedMediator("Adding of mediators is not allowed since there are send(or drop) mediators present in the message (or parts of the message) flow.");
+				AbstractMediator mediator = hasMediator(previousMediator);
+				mediatorRestricted = true;
+				if (mediator instanceof SendMediatorEditPart){			   
+					mediatorType = "Send Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAfter + mediatorType);
+					return;
+				}
+				else if (mediator instanceof DropMediatorEditPart){
+					mediatorType = "Drop Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAfter + mediatorType);
+					return;
+				}
+				else if (mediator instanceof RespondMediatorEditPart){
+					mediatorType = "Respond Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAfter + mediatorType);
+					return;
+				}
+				else if (mediator instanceof LoopBackMediatorEditPart){
+					mediatorType = "LoopBack Mediator";
+					deleteNewlyAddedMediator(warningAddingMediatorsAfter + mediatorType);
 					return;
 				}
 			}
 		}
-		
-		
+
+				
 		if (nearestESBLink == null) {
 			if ((nearestOutputConnector != null)) {
 				
@@ -820,7 +880,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 	}
 
 	
-	private boolean restrictAddingOfSendMediatorInsideComlpexMediators(AbstractInputConnectorEditPart nearestInputConnector, AbstractConnectorEditPart nearestEsbLinkInputConnector) {
+	private boolean restrictAddingOfMediatorInsideComlpexMediators(AbstractInputConnectorEditPart nearestInputConnector, AbstractConnectorEditPart nearestEsbLinkInputConnector) {
 		
 		boolean restricted = false;
 		EditPart compartment = this.getParent();
@@ -834,7 +894,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		return restricted;
 	}
 	
-	private boolean restrictAddingOfSendMediator(AbstractInputConnectorEditPart nearestInputConnector, AbstractConnectorEditPart nearestEsbLinkInputConnector) {
+	private boolean restrictAddingOfMediator(AbstractInputConnectorEditPart nearestInputConnector, AbstractConnectorEditPart nearestEsbLinkInputConnector) {
 		
 		boolean restricted = false;
 		AbstractMediator nextMmediator = EditorUtils.getMediator(nearestEsbLinkInputConnector);
@@ -911,13 +971,15 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 		return previousMediator;
 	}
 	
-	
-
-	private boolean hasSendMediator(AbstractMediator mediator) {
+	private AbstractMediator hasMediator(AbstractMediator mediator){
+		AbstractMediator existingMediator = null;
 		
-		boolean hasSendMediator = false;
-		if (mediator instanceof MultipleCompartmentComplexFiguredAbstractMediator) {
-
+		//TO DO - Handle for Drop Mediator
+		if(mediator instanceof SendMediatorEditPart || mediator instanceof RespondMediatorEditPart || mediator instanceof LoopBackMediatorEditPart){
+			existingMediator = mediator;
+			return existingMediator;
+		}
+		else if (mediator instanceof MultipleCompartmentComplexFiguredAbstractMediator) {
 			ShapeNodeEditPart childContainer = EditorUtils.getChildContainer((MultipleCompartmentComplexFiguredAbstractMediator)mediator);
 			List<EditPart> childEditParts = new ArrayList<EditPart>();
 			
@@ -935,29 +997,28 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart imp
 			}
 			
 			for (EditPart editPart : childEditParts) {
-				IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)editPart.getChildren().get(0);
-				IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart)mediatorFlow.getChildren().get(0);
+			IGraphicalEditPart mediatorFlow = (IGraphicalEditPart)editPart.getChildren().get(0);
+			IGraphicalEditPart mediatorFlowCompartment = (IGraphicalEditPart)mediatorFlow.getChildren().get(0);
 				if (mediatorFlowCompartment.getChildren().size() >= 1) {
 					for (int i = 0; i < mediatorFlowCompartment.getChildren().size(); ++i) {
 						GraphicalEditPart gep = (GraphicalEditPart) mediatorFlowCompartment.getChildren().get(i);
-						if (gep instanceof SendMediatorEditPart) {
-							return true;
+						//TO DO - Handle for Drop Mediator
+						if (gep instanceof SendMediatorEditPart|| gep instanceof RespondMediatorEditPart || gep instanceof LoopBackMediatorEditPart) {
+			             return (AbstractMediator) gep;
 						} else if (gep instanceof MultipleCompartmentComplexFiguredAbstractMediator) {
-							hasSendMediator |= hasSendMediator((MultipleCompartmentComplexFiguredAbstractMediator)gep);
-							if (hasSendMediator) {
-								return true;
+							existingMediator = hasMediator((MultipleCompartmentComplexFiguredAbstractMediator)gep);						
+							if (existingMediator != null) {
+							return existingMediator;
 							}
 						}
 					}
 				}
 			}
 		}
-		return hasSendMediator;
+		return existingMediator;
+				
 	}
 	
-
-	
-
 	private boolean isValidMediatorAddition(
 			AbstractConnectorEditPart nearestEsbLinkOutputConnector,
 			AbstractConnectorEditPart nearestEsbLinkInputConnector) {
