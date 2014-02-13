@@ -305,7 +305,7 @@ public class TemplateEndpoint2EditPart extends AbstractEndpoint2 {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/address-endpoint.gif";
+			return "icons/ico20/template-endpoint.gif";
 		}
 
 		public String getNodeName() {

@@ -392,7 +392,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/address-endpoint.gif";
+			return "icons/ico20/http-endpoint.gif";
 		}
 
 		public String getNodeName() {
