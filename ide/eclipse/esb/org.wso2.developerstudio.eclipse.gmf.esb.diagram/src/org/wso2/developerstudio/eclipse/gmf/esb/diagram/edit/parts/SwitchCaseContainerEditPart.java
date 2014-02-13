@@ -247,8 +247,8 @@ public class SwitchCaseContainerEditPart extends ShapeNodeEditPart {
 			this.setLayoutManager(layoutThis);
 			this.setAlpha(0); //to make this transparent
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
-			/*			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(700),
-			 getMapMode().DPtoLP(300)));*/
+			//Fixing TOOLS-1972.
+			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(80), getMapMode().DPtoLP(50)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
 		}
