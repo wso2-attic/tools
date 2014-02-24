@@ -19,13 +19,13 @@ import org.apache.avro.generic.GenericRecord;
 import org.mozilla.javascript.NativeJavaObject;
 import org.mozilla.javascript.Scriptable;
 
-public class AvroWrapper implements Scriptable{
+public class ScriptableObjectFactory implements Scriptable{
 	
 	private GenericRecord record;
 	private Scriptable prototype;
 	
 	
-	public AvroWrapper(GenericRecord record) {	
+	public ScriptableObjectFactory(GenericRecord record) {	
 		this.record = record;
 	}
 
