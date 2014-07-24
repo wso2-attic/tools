@@ -16,6 +16,17 @@
 
 package org.wso2.maven.registry;
 
+import java.io.File;
+import java.io.IOException;
+import java.sql.Time;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.apache.maven.model.Plugin;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -32,15 +43,6 @@ import org.wso2.maven.registry.beans.RegistryElement;
 import org.wso2.maven.registry.beans.RegistryItem;
 import org.wso2.maven.registry.utils.GeneralProjectMavenUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 /**
  * This is the Maven Mojo used for generating a pom for a sequence artifact 
  * from the old CApp project structure
@@ -50,6 +52,12 @@ import java.util.Map;
  */
 public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 
+	private final String RELEASE_VERSION_VAR_NAME = "releaseVersion";
+	/**
+	 * @parameter expression="${releaseVersion}" default-value="${project.version}"
+	 */
+	private String releaseVersion;
+	
 	/**
 	 * @parameter default-value="${project}"
 	 */
@@ -104,13 +112,14 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 	
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		//Retrieving all the existing ESB Artifacts for the given Maven project
-		if(getLog().isDebugEnabled()){
+		boolean isDebugEnabled = getLog().isDebugEnabled();
+		if(isDebugEnabled){
 			getLog().debug(new Time(System.currentTimeMillis())+" Starting Artifacts list retrieval process.");
 		}
 		
 		artifacts = retrieveArtifacts();
 		
-		if(getLog().isDebugEnabled()){
+		if(isDebugEnabled){
 			getLog().debug(new Time(System.currentTimeMillis())+" Artifacts list retrieval completed");
 		}
 		
@@ -118,12 +127,42 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 		List<Artifact> mappedArtifacts=new ArrayList<Artifact>();
 		//Initializing Artifacts to Registry Artifacts Map.
 		artifactToRegArtifactMap = new Hashtable<Artifact, RegistryArtifact>();
+
+		String version = null;
 		
 		//Mapping ESBArtifacts to C-App artifacts so that we can reuse the maven-sequence-plugin
 		for (RegistryArtifact registryArtifact : artifacts) {
 	        Artifact artifact=new Artifact();
 	        artifact.setName(registryArtifact.getName());
-	        artifact.setVersion(this.getProject().getVersion());
+	       
+	        version = registryArtifact.getVersion();
+	        /*FIXING the artifact version issue. */
+	        /*
+	         * In earlier version, the artifact version was derived from the project version, which was causing a lot of problems while releasing a project or cutting a milestone.
+	         * With the earlier approach it was very cumbersome to use maven-release-plugin or any other release mechanism out-of-the-box. 
+	         * 
+	         * The below approach gets the version of the artifact from the artifact.xml file and tries to resolve it if its a property reference. In case if the version from teh artifact is invalid or if
+	         * it cannot be resolved we fallback to the version that is defined in the project's pom.xml (to maintain bakward compatibilty).
+	         * 
+	         * */	        
+	        
+	        try{
+	        	//getting the version value defined in the artifact.xml.
+		        version = getVersion(version, this.getProject());
+		        if(version == null || version.trim().equals("")){
+		        	//if version is either not defined or not resolved fallback to the default version from the project.xml
+		        	if(isDebugEnabled){
+		    			getLog().debug("Version defined in artifact.xml is either null or cannot be resolved. Hence defaulting it back to project.version");
+		    		}
+		        	version = this.getProject().getVersion();
+		        }
+			}catch(Exception e){
+				 //If at any point we get any exception we just fall back to the version in the project's pom.xml
+		 		 getLog().warn("An exception has occurred while trying to get the version number from the artifact.xml, the version defined in the artifact.xml was."+version,e);
+		 		 version = this.getProject().getVersion();
+			}
+	        
+	        artifact.setVersion(version);	       
 	        artifact.setType(registryArtifact.getType());
 	        artifact.setServerRole(registryArtifact.getServerRole());
 	        artifact.setFile("registry-info.xml");
@@ -143,8 +182,64 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 			getLog().debug(new Time(System.currentTimeMillis())+" Starting Artifact Processing");
 		}
 		
+		
 		super.processArtifacts(mappedArtifacts);
 
+	}
+	
+	
+	/**
+	 * COnvenience method to resolve the version number.
+	 * @param value
+	 * @param project
+	 * @return
+	 */
+	private String getVersion(String value, MavenProject project){
+		MavenProject project1 = project;
+		if(value != null && value.startsWith("$")){
+			//The value is a reference
+			if(value.contains("project.parent")){
+				//means we need to get the value from the parent of the current project
+				value = value.replace("project.parent.", "");	
+				//we need to get the property from project's parent
+				project1 = project.getParent();
+			}else if(value.contains("project")){
+				//property present in the current project.	
+				value = value.replace("project.", "");	
+				project1 = project;				
+			}			
+			value = getPropertyValue(value,project1);
+		}
+		return value;
+	}
+	
+	/**
+	 * Convenience method to get the property value defined in the pom.xml.
+	 * @param value
+	 * @param project
+	 * @return
+	 */
+	private String getPropertyValue(String value, MavenProject project){
+		//regex to extract the value between the curly braces.
+		Pattern pattern = Pattern.compile("\\{(.*?)\\}");
+		Matcher matcher = pattern.matcher(value);
+		while(matcher.find()){
+			value = matcher.group(1);
+		}
+		
+		String propValue = null;
+		//we need to check if the property is a version defined in project or project's parent.
+		if(value.equals("version")){
+			propValue = project.getVersion();
+		}else if(value.equals(RELEASE_VERSION_VAR_NAME)){
+			propValue = releaseVersion;
+			getLog().info(new Time(System.currentTimeMillis())+" Using the releaseVersion passed in - "+releaseVersion);
+		}else{
+			Properties properties = project.getModel().getProperties();
+			propValue = properties.getProperty(value);
+		}
+		
+		return propValue;
 	}
 	
 	
